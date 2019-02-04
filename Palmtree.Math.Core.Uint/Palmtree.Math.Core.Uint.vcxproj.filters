@@ -196,4 +196,7 @@
   <ItemGroup>
     <ResourceCompile Include="Palmtree.Math.Core.Uint.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="mymakefile.xml" />
+  </ItemGroup>
 </Project>

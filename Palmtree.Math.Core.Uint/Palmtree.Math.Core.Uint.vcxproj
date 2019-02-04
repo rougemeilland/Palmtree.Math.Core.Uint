@@ -234,6 +234,11 @@
   <ItemGroup>
     <ResourceCompile Include="Palmtree.Math.Core.Uint.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="mymakefile.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
