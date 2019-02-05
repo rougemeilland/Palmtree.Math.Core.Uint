@@ -211,9 +211,9 @@ TEST_PMC_ParseDN1:
 	movq	56(%rax), %rax
 	.loc 2 49 85
 	movq	-16(%rbp), %rcx
-	leaq	actual_buf_size.84383(%rip), %r9
+	leaq	actual_buf_size.84659(%rip), %r9
 	movl	$256, %r8d
-	leaq	actual_buf.84382(%rip), %rdx
+	leaq	actual_buf.84658(%rip), %rdx
 	call	*%rax
 .LVL6:
 	movl	%eax, -8(%rbp)
@@ -234,13 +234,13 @@ TEST_PMC_ParseDN1:
 	movq	32(%rbp), %rcx
 	call	TEST_Assert
 	.loc 2 50 75
-	movq	actual_buf_size.84383(%rip), %rax
+	movq	actual_buf_size.84659(%rip), %rax
 	movq	120(%rbp), %rcx
 	movq	112(%rbp), %rdx
 	movq	%rcx, %r9
 	movq	%rdx, %r8
 	movq	%rax, %rdx
-	leaq	actual_buf.84382(%rip), %rcx
+	leaq	actual_buf.84658(%rip), %rcx
 	call	_EQUALS_MEMORY
 	.loc 2 50 9
 	testl	%eax, %eax
@@ -422,9 +422,9 @@ TEST_PMC_ParseDN2:
 	movq	56(%rax), %rax
 	.loc 2 73 85
 	movq	-16(%rbp), %rcx
-	leaq	actual_buf_size.84399(%rip), %r9
+	leaq	actual_buf_size.84675(%rip), %r9
 	movl	$256, %r8d
-	leaq	actual_buf.84398(%rip), %rdx
+	leaq	actual_buf.84674(%rip), %rdx
 	call	*%rax
 .LVL14:
 	movl	%eax, -8(%rbp)
@@ -445,13 +445,13 @@ TEST_PMC_ParseDN2:
 	movq	32(%rbp), %rcx
 	call	TEST_Assert
 	.loc 2 74 75
-	movq	actual_buf_size.84399(%rip), %rax
+	movq	actual_buf_size.84675(%rip), %rax
 	movq	88(%rbp), %rcx
 	movq	80(%rbp), %rdx
 	movq	%rcx, %r9
 	movq	%rdx, %r8
 	movq	%rax, %rdx
-	leaq	actual_buf.84398(%rip), %rcx
+	leaq	actual_buf.84674(%rip), %rcx
 	call	_EQUALS_MEMORY
 	.loc 2 74 9
 	testl	%eax, %eax
@@ -496,10 +496,10 @@ TEST_PMC_ParseDN2:
 	.cfi_endproc
 .LFE4275:
 	.seh_endproc
-.lcomm actual_buf.84382,256,32
-.lcomm actual_buf_size.84383,8,8
-.lcomm actual_buf.84398,256,32
-.lcomm actual_buf_size.84399,8,8
+.lcomm actual_buf.84658,256,32
+.lcomm actual_buf_size.84659,8,8
+.lcomm actual_buf.84674,256,32
+.lcomm actual_buf_size.84675,8,8
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -5597,7 +5597,7 @@ TEST_PMC_ParseDN2:
 	.long	0x1ef4
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf.84398
+	.quad	actual_buf.84674
 	.uleb128 0x22
 	.secrel32	.LASF5
 	.byte	0x2
@@ -5606,7 +5606,7 @@ TEST_PMC_ParseDN2:
 	.long	0xd0
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf_size.84399
+	.quad	actual_buf_size.84675
 	.uleb128 0x21
 	.ascii "result\0"
 	.byte	0x2
@@ -5791,7 +5791,7 @@ TEST_PMC_ParseDN2:
 	.long	0x1ef4
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf.84382
+	.quad	actual_buf.84658
 	.uleb128 0x22
 	.secrel32	.LASF5
 	.byte	0x2
@@ -5800,7 +5800,7 @@ TEST_PMC_ParseDN2:
 	.long	0xd0
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf_size.84383
+	.quad	actual_buf_size.84659
 	.uleb128 0x21
 	.ascii "result\0"
 	.byte	0x2

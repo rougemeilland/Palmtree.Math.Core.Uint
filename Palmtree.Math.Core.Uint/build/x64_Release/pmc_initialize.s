@@ -5,96 +5,20 @@
 	.def	PMC_UINT_Initialize;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_UINT_Initialize
 PMC_UINT_Initialize:
+	pushq	%rsi
+	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$48, %rsp
-	.seh_stackalloc	48
+	subq	$56, %rsp
+	.seh_stackalloc	56
 	.seh_endprologue
-	movl	(%rcx), %eax
 	leaq	44(%rsp), %rbx
-	movl	%eax, configuration_info(%rip)
+	movq	%rcx, %rsi
 	movq	%rbx, %rcx
 	call	GetCPUInfo
-	movq	%rbx, %rcx
-	call	Initialize_Memory
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_From
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_To
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Add
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Subtruct
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Multiply
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_DivRem
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Shift
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_BitwiseAnd
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_BitwiseOr
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_ExclusiveOr
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Compare
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Equals
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_ToString
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Parse
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_GreatestCommonDivisor
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Pow
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_ModPow
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_GetPropertyValue
-	testl	%eax, %eax
-	jne	.L4
-	movq	%rbx, %rcx
-	call	Initialize_Clone
-	testl	%eax, %eax
-	jne	.L4
+	cmpb	$0, initialized(%rip)
+	je	.L2
+.L6:
 	movzbl	entry_points(%rip), %eax
 	movzbl	44(%rsp), %edx
 	andl	$-32, %eax
@@ -228,6 +152,7 @@ PMC_UINT_Initialize:
 	movq	.refptr.PMC_GreatestCommonDivisor_X_L(%rip), %rax
 	movq	%rax, 520+entry_points(%rip)
 	movq	.refptr.PMC_GreatestCommonDivisor_X_X(%rip), %rax
+	movb	$1, initialized(%rip)
 	movq	%rax, 528+entry_points(%rip)
 	movq	.refptr.PMC_Pow_X_I(%rip), %rax
 	movq	%rax, 536+entry_points(%rip)
@@ -238,17 +163,104 @@ PMC_UINT_Initialize:
 	movq	.refptr.PMC_Clone_X(%rip), %rax
 	movq	%rax, 64+entry_points(%rip)
 	leaq	entry_points(%rip), %rax
-	jmp	.L1
-	.p2align 4,,10
-.L4:
-	xorl	%eax, %eax
-.L1:
-	addq	$48, %rsp
+	addq	$56, %rsp
 	popq	%rbx
+	popq	%rsi
+	ret
+	.p2align 4,,10
+.L2:
+	movl	(%rsi), %eax
+	movq	%rbx, %rcx
+	movl	%eax, configuration_info(%rip)
+	call	Initialize_Memory
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_From
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_To
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Add
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Subtruct
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Multiply
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_DivRem
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Shift
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_BitwiseAnd
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_BitwiseOr
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_ExclusiveOr
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Compare
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Equals
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_ToString
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Parse
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_GreatestCommonDivisor
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Pow
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_ModPow
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_GetPropertyValue
+	testl	%eax, %eax
+	jne	.L5
+	movq	%rbx, %rcx
+	call	Initialize_Clone
+	testl	%eax, %eax
+	je	.L6
+.L5:
+	xorl	%eax, %eax
+	addq	$56, %rsp
+	popq	%rbx
+	popq	%rsi
 	ret
 	.seh_endproc
-	.comm	configuration_info, 4, 2
+.lcomm initialized,1,1
 .lcomm entry_points,552,32
+	.comm	configuration_info, 4, 2
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	GetCPUInfo;	.scl	2;	.type	32;	.endef
 	.def	Initialize_Memory;	.scl	2;	.type	32;	.endef

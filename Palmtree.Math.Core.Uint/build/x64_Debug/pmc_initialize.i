@@ -88672,11 +88672,137 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     PMC_STATUS_CODE( * PMC_ModPow_X_X_X)(HANDLE v, HANDLE e, HANDLE m, HANDLE* r);
 
 } PMC_UINT_ENTRY_POINTS;
+
+typedef struct __tag_PMC_SINT_ENTRY_POINTS
+{
+
+    unsigned PROCESSOR_FEATURE_POPCNT : 1;
+    unsigned PROCESSOR_FEATURE_ADX : 1;
+    unsigned PROCESSOR_FEATURE_BMI1 : 1;
+    unsigned PROCESSOR_FEATURE_BMI2 : 1;
+    unsigned PROCESSOR_FEATURE_ABM : 1;
+
+
+    void ( * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
+
+
+    PMC_STATUS_CODE( * PMC_From_I)(_INT32_T x, HANDLE* pp);
+
+
+    PMC_STATUS_CODE( * PMC_From_L)(_INT64_T x, HANDLE* pp);
+
+
+    void ( * PMC_Dispose)(HANDLE p);
+
+
+    PMC_STATUS_CODE( * PMC_GetPropertyValue_X_I)(HANDLE x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+
+
+    PMC_STATUS_CODE( * PMC_FromByteArray)(unsigned char* buffer, size_t count, HANDLE* pp);
+    PMC_STATUS_CODE( * PMC_ToByteArray)(HANDLE p, unsigned char* buffer, size_t buffer_size, size_t *count);
+
+
+    PMC_STATUS_CODE( * PMC_Clone_X)(HANDLE x, HANDLE* o);
+
+
+    PMC_STATUS_CODE( * PMC_To_X_I)(HANDLE p, _INT32_T* o);
+    PMC_STATUS_CODE( * PMC_To_X_L)(HANDLE p, _INT64_T* o);
+
+
+    PMC_STATUS_CODE( * PMC_ToString)(HANDLE x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
+
+
+    PMC_STATUS_CODE( * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, HANDLE* o);
+
+
+    PMC_STATUS_CODE( * PMC_Add_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Add_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Add_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Add_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Add_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_Subtruct_I_X)(_UINT32_T u, HANDLE v, _UINT32_T* w);
+    PMC_STATUS_CODE( * PMC_Subtruct_L_X)(_UINT64_T u, HANDLE v, _UINT64_T* w);
+    PMC_STATUS_CODE( * PMC_Subtruct_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Subtruct_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Subtruct_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_Multiply_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Multiply_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Multiply_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Multiply_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_Multiply_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_DivRem_I_X)(_INT32_T u, HANDLE v, _UINT32_T* q, _UINT32_T* r);
+    PMC_STATUS_CODE( * PMC_DivRem_L_X)(_INT64_T u, HANDLE v, _UINT64_T* q, _UINT64_T* r);
+    PMC_STATUS_CODE( * PMC_DivRem_X_I)(HANDLE u, _INT32_T v, HANDLE* q, _INT32_T* r);
+    PMC_STATUS_CODE( * PMC_DivRem_X_L)(HANDLE u, _INT64_T v, HANDLE* q, _INT64_T* r);
+    PMC_STATUS_CODE( * PMC_DivRem_X_X)(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r);
+
+
+    PMC_STATUS_CODE( * PMC_LeftShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
+
+
+    PMC_STATUS_CODE( * PMC_RightShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
+
+
+    PMC_STATUS_CODE( * PMC_BitwiseAnd_I_X)(_INT32_T u, HANDLE v, _UINT32_T* w);
+    PMC_STATUS_CODE( * PMC_BitwiseAnd_L_X)(_INT64_T u, HANDLE v, _UINT64_T* w);
+    PMC_STATUS_CODE( * PMC_BitwiseAnd_X_I)(HANDLE u, _INT32_T v, _UINT32_T* w);
+    PMC_STATUS_CODE( * PMC_BitwiseAnd_X_L)(HANDLE u, _INT64_T v, _UINT64_T* w);
+    PMC_STATUS_CODE( * PMC_BitwiseAnd_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_BitwiseOr_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_BitwiseOr_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_BitwiseOr_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_BitwiseOr_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_BitwiseOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_ExclusiveOr_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_ExclusiveOr_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_ExclusiveOr_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_ExclusiveOr_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_ExclusiveOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_Compare_I_X)(_INT32_T u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Compare_L_X)(_INT64_T u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Compare_X_I)(HANDLE u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Compare_X_L)(HANDLE u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Compare_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+
+
+    PMC_STATUS_CODE( * PMC_Equals_I_X)(_INT32_T u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Equals_L_X)(_INT64_T u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Equals_X_I)(HANDLE u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Equals_X_L)(HANDLE u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE( * PMC_Equals_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+
+
+    PMC_STATUS_CODE( * PMC_GreatestCommonDivisor_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_GreatestCommonDivisor_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_GreatestCommonDivisor_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_GreatestCommonDivisor_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
+    PMC_STATUS_CODE( * PMC_GreatestCommonDivisor_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+
+
+    PMC_STATUS_CODE( * PMC_Pow_X_I)(HANDLE x, _UINT32_T n, HANDLE* z);
+
+
+    PMC_STATUS_CODE( * PMC_ModPow_X_X_X)(HANDLE v, HANDLE e, HANDLE m, HANDLE* r);
+
+} PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
 
 #pragma region 宣言
  PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_SINT_ENTRY_POINTS* PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
 # 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
@@ -89102,137 +89228,141 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #pragma region 静的変数の定義
-static PMC_UINT_ENTRY_POINTS entry_points;
 PMC_CONFIGURATION_INFO configuration_info;
+static PMC_UINT_ENTRY_POINTS entry_points;
+static char initialized = 0;
 #pragma endregion
 
 
  PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
-    configuration_info = *config;
     PROCESSOR_FEATURES feature;
     GetCPUInfo(&feature);
 
-    if (Initialize_Memory(&feature) != (0))
-        return (
-# 46 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 46 "../pmc_initialize.c"
-                   );
-    if (Initialize_From(&feature) != (0))
-        return (
-# 48 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 48 "../pmc_initialize.c"
-                   );
-    if (Initialize_To(&feature) != (0))
-        return (
-# 50 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 50 "../pmc_initialize.c"
-                   );
-    if (Initialize_Add(&feature) != (0))
-        return (
-# 52 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 52 "../pmc_initialize.c"
-                   );
-    if (Initialize_Subtruct(&feature) != (0))
-        return (
-# 54 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 54 "../pmc_initialize.c"
-                   );
-    if (Initialize_Multiply(&feature) != (0))
-        return (
-# 56 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 56 "../pmc_initialize.c"
-                   );
-    if (Initialize_DivRem(&feature) != (0))
-        return (
-# 58 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 58 "../pmc_initialize.c"
-                   );
-    if (Initialize_Shift(&feature) != (0))
-        return (
-# 60 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 60 "../pmc_initialize.c"
-                   );
-    if (Initialize_BitwiseAnd(&feature) != (0))
-        return (
-# 62 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 62 "../pmc_initialize.c"
-                   );
-    if (Initialize_BitwiseOr(&feature) != (0))
-        return (
-# 64 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 64 "../pmc_initialize.c"
-                   );
-    if (Initialize_ExclusiveOr(&feature) != (0))
-        return (
-# 66 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 66 "../pmc_initialize.c"
-                   );
-    if (Initialize_Compare(&feature) != (0))
-        return (
-# 68 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 68 "../pmc_initialize.c"
-                   );
-    if (Initialize_Equals(&feature) != (0))
-        return (
-# 70 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 70 "../pmc_initialize.c"
-                   );
-    if (Initialize_ToString(&feature) != (0))
-        return (
-# 72 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 72 "../pmc_initialize.c"
-                   );
-    if (Initialize_Parse(&feature) != (0))
-        return (
-# 74 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 74 "../pmc_initialize.c"
-                   );
-    if (Initialize_GreatestCommonDivisor(&feature) != (0))
-        return (
-# 76 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 76 "../pmc_initialize.c"
-                   );
-    if (Initialize_Pow(&feature) != (0))
-        return (
-# 78 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 78 "../pmc_initialize.c"
-                   );
-    if (Initialize_ModPow(&feature) != (0))
-        return (
-# 80 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 80 "../pmc_initialize.c"
-                   );
-    if (Initialize_GetPropertyValue(&feature) != (0))
-        return (
-# 82 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 82 "../pmc_initialize.c"
-                   );
-    if (Initialize_Clone(&feature) != (0))
-        return (
-# 84 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 84 "../pmc_initialize.c"
-                   );
+    if (!initialized)
+    {
+        configuration_info = *config;
+        if (Initialize_Memory(&feature) != (0))
+            return (
+# 49 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 49 "../pmc_initialize.c"
+                       );
+        if (Initialize_From(&feature) != (0))
+            return (
+# 51 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 51 "../pmc_initialize.c"
+                       );
+        if (Initialize_To(&feature) != (0))
+            return (
+# 53 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 53 "../pmc_initialize.c"
+                       );
+        if (Initialize_Add(&feature) != (0))
+            return (
+# 55 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 55 "../pmc_initialize.c"
+                       );
+        if (Initialize_Subtruct(&feature) != (0))
+            return (
+# 57 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 57 "../pmc_initialize.c"
+                       );
+        if (Initialize_Multiply(&feature) != (0))
+            return (
+# 59 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 59 "../pmc_initialize.c"
+                       );
+        if (Initialize_DivRem(&feature) != (0))
+            return (
+# 61 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 61 "../pmc_initialize.c"
+                       );
+        if (Initialize_Shift(&feature) != (0))
+            return (
+# 63 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 63 "../pmc_initialize.c"
+                       );
+        if (Initialize_BitwiseAnd(&feature) != (0))
+            return (
+# 65 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 65 "../pmc_initialize.c"
+                       );
+        if (Initialize_BitwiseOr(&feature) != (0))
+            return (
+# 67 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 67 "../pmc_initialize.c"
+                       );
+        if (Initialize_ExclusiveOr(&feature) != (0))
+            return (
+# 69 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 69 "../pmc_initialize.c"
+                       );
+        if (Initialize_Compare(&feature) != (0))
+            return (
+# 71 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 71 "../pmc_initialize.c"
+                       );
+        if (Initialize_Equals(&feature) != (0))
+            return (
+# 73 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 73 "../pmc_initialize.c"
+                       );
+        if (Initialize_ToString(&feature) != (0))
+            return (
+# 75 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 75 "../pmc_initialize.c"
+                       );
+        if (Initialize_Parse(&feature) != (0))
+            return (
+# 77 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 77 "../pmc_initialize.c"
+                       );
+        if (Initialize_GreatestCommonDivisor(&feature) != (0))
+            return (
+# 79 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 79 "../pmc_initialize.c"
+                       );
+        if (Initialize_Pow(&feature) != (0))
+            return (
+# 81 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 81 "../pmc_initialize.c"
+                       );
+        if (Initialize_ModPow(&feature) != (0))
+            return (
+# 83 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 83 "../pmc_initialize.c"
+                       );
+        if (Initialize_GetPropertyValue(&feature) != (0))
+            return (
+# 85 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 85 "../pmc_initialize.c"
+                       );
+        if (Initialize_Clone(&feature) != (0))
+            return (
+# 87 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 87 "../pmc_initialize.c"
+                       );
+    }
 
     entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
     entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
@@ -89308,5 +89438,6 @@ PMC_CONFIGURATION_INFO configuration_info;
     entry_points.PMC_GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
     entry_points.PMC_Clone_X = PMC_Clone_X;
 
+    initialized = 1;
     return (&entry_points);
 }

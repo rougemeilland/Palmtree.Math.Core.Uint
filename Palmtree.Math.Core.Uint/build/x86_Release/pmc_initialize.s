@@ -11,92 +11,12 @@ LFB5441:
 	.cfi_offset 3, -8
 	subl	$40, %esp
 	.cfi_def_cfa_offset 48
-	movl	48(%esp), %eax
 	leal	28(%esp), %ebx
-	movl	(%eax), %eax
 	movl	%ebx, (%esp)
-	movl	%eax, _configuration_info
 	call	_GetCPUInfo
-	movl	%ebx, (%esp)
-	call	_Initialize_Memory
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_From
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_To
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Add
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Subtruct
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Multiply
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_DivRem
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Shift
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_BitwiseAnd
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_BitwiseOr
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_ExclusiveOr
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Compare
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Equals
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_ToString
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Parse
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_GreatestCommonDivisor
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Pow
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_ModPow
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_GetPropertyValue
-	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Clone
-	testl	%eax, %eax
-	jne	L4
+	cmpb	$0, _initialized
+	je	L2
+L6:
 	movzbl	_entry_points, %eax
 	movzbl	28(%esp), %edx
 	movl	$_PMC_GetStatisticsInfo@4, _entry_points+4
@@ -172,43 +92,115 @@ LFB5441:
 	movl	$_PMC_ModPow_X_X_X@16, _entry_points+272
 	movl	$_PMC_GetPropertyValue_X_I@12, _entry_points+20
 	movl	$_PMC_Clone_X@8, _entry_points+32
-	jmp	L1
+	movb	$1, _initialized
+	addl	$40, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret	$4
 	.p2align 4,,10
-L4:
-	xorl	%eax, %eax
-L1:
+L2:
+	.cfi_restore_state
+	movl	48(%esp), %eax
+	movl	(%eax), %eax
+	movl	%ebx, (%esp)
+	movl	%eax, _configuration_info
+	call	_Initialize_Memory
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_From
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_To
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Add
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Subtruct
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Multiply
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_DivRem
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Shift
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_BitwiseAnd
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_BitwiseOr
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_ExclusiveOr
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Compare
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Equals
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_ToString
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Parse
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_GreatestCommonDivisor
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Pow
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_ModPow
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_GetPropertyValue
+	testl	%eax, %eax
+	jne	L5
+	movl	%ebx, (%esp)
+	call	_Initialize_Clone
+	testl	%eax, %eax
+	je	L6
+L5:
 	addl	$40, %esp
 	.cfi_def_cfa_offset 8
+	xorl	%eax, %eax
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
 LFE5441:
-	.comm	_configuration_info, 4, 2
+.lcomm _initialized,1,1
 .lcomm _entry_points,276,32
+	.comm	_configuration_info, 4, 2
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_GetCPUInfo;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Memory;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_From;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_To;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Add;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Subtruct;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Multiply;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Shift;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_BitwiseAnd;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_BitwiseOr;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ExclusiveOr;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Compare;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Equals;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Parse;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_GreatestCommonDivisor;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Pow;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_GetPropertyValue;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Clone;	.scl	2;	.type	32;	.endef
 	.def	_PMC_GetStatisticsInfo@4;	.scl	2;	.type	32;	.endef
 	.def	_PMC_From_I@8;	.scl	2;	.type	32;	.endef
 	.def	_PMC_From_L@12;	.scl	2;	.type	32;	.endef
@@ -277,3 +269,23 @@ LFE5441:
 	.def	_PMC_ModPow_X_X_X@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_GetPropertyValue_X_I@12;	.scl	2;	.type	32;	.endef
 	.def	_PMC_Clone_X@8;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Memory;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_From;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_To;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Add;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Subtruct;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Multiply;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Shift;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_BitwiseAnd;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_BitwiseOr;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_ExclusiveOr;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Compare;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Equals;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Parse;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_GreatestCommonDivisor;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Pow;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_GetPropertyValue;	.scl	2;	.type	32;	.endef
+	.def	_Initialize_Clone;	.scl	2;	.type	32;	.endef

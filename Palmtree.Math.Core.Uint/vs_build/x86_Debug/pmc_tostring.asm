@@ -71,12 +71,12 @@ _hexadecimal_upper_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H
 	DB	'5', 00H, '6', 00H, '7', 00H, '8', 00H, '9', 00H, 'A', 00H, 'B'
 	DB	00H, 'C', 00H, 'D', 00H, 'E', 00H, 'F', 00H, 00H, 00H
 	ORG $+2
-$SG94776 DB	',', 00H, 00H, 00H
-$SG94777 DB	'.', 00H, 00H, 00H
-$SG94778 DB	'3', 00H
+$SG95251 DB	',', 00H, 00H, 00H
+$SG95252 DB	'.', 00H, 00H, 00H
+$SG95253 DB	'3', 00H
 	ORG $+2
-$SG94779 DB	'+', 00H, 00H, 00H
-$SG94780 DB	'-', 00H, 00H, 00H
+$SG95254 DB	'+', 00H, 00H, 00H
+$SG95255 DB	'-', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -4288,7 +4288,7 @@ _Initialize_ToString PROC
 ; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG94776
+	push	OFFSET $SG95251
 	push	OFFSET _default_number_format_option+4
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4297,7 +4297,7 @@ _Initialize_ToString PROC
 ; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG94777
+	push	OFFSET $SG95252
 	push	OFFSET _default_number_format_option+10
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4306,7 +4306,7 @@ _Initialize_ToString PROC
 ; 559  :     lstrcpy(default_number_format_option.GroupSizes, "3");
 
 	mov	esi, esp
-	push	OFFSET $SG94778
+	push	OFFSET $SG95253
 	push	OFFSET _default_number_format_option+28
 	call	DWORD PTR __imp__lstrcpyA@8
 	cmp	esi, esp
@@ -4315,7 +4315,7 @@ _Initialize_ToString PROC
 ; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG94779
+	push	OFFSET $SG95254
 	push	OFFSET _default_number_format_option+16
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4324,7 +4324,7 @@ _Initialize_ToString PROC
 ; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG94780
+	push	OFFSET $SG95255
 	push	OFFSET _default_number_format_option+22
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp

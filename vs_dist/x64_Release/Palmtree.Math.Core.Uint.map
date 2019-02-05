@@ -1,6 +1,6 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c599e0f (Tue Feb  5 23:30:39 2019)
+ Timestamp is 5c59a5f0 (Wed Feb  6 00:04:16 2019)
 
  Preferred load address is 0000000180000000
 
@@ -360,16 +360,16 @@
  0003:0000008c       __isa_enabled              000000018001708c     MSVCRT:cpu_disp.obj
  0003:00000090       __memcpy_nt_iters          0000000180017090     MSVCRT:cpu_disp.obj
  0003:000000a0       __scrt_ucrt_dll_is_in_use  00000001800170a0     MSVCRT:ucrt_stubs.obj
- 0003:000008e0       ?__type_info_root_node@@3U__type_info_node@@A 00000001800178e0     MSVCRT:tncleanup.obj
- 0003:000008f0       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 00000001800178f0     MSVCRT:default_local_stdio_options.obj
- 0003:000008f8       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 00000001800178f8     MSVCRT:default_local_stdio_options.obj
- 0003:00000900       __scrt_current_native_startup_state 0000000180017900     MSVCRT:utility.obj
- 0003:00000908       __scrt_native_startup_lock 0000000180017908     MSVCRT:utility.obj
- 0003:00000948       __scrt_debugger_hook_flag  0000000180017948     MSVCRT:utility_desktop.obj
- 0003:0000094c       __favor                    000000018001794c     MSVCRT:cpu_disp.obj
- 0003:00000950       statistics_info            0000000180017950     <common>
- 0003:00000960       configuration_info         0000000180017960     <common>
- 0003:00000968       hLocalHeap                 0000000180017968     <common>
+ 0003:000008f0       ?__type_info_root_node@@3U__type_info_node@@A 00000001800178f0     MSVCRT:tncleanup.obj
+ 0003:00000900       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 0000000180017900     MSVCRT:default_local_stdio_options.obj
+ 0003:00000908       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 0000000180017908     MSVCRT:default_local_stdio_options.obj
+ 0003:00000910       __scrt_current_native_startup_state 0000000180017910     MSVCRT:utility.obj
+ 0003:00000918       __scrt_native_startup_lock 0000000180017918     MSVCRT:utility.obj
+ 0003:00000958       __scrt_debugger_hook_flag  0000000180017958     MSVCRT:utility_desktop.obj
+ 0003:0000095c       __favor                    000000018001795c     MSVCRT:cpu_disp.obj
+ 0003:00000960       statistics_info            0000000180017960     <common>
+ 0003:00000970       configuration_info         0000000180017970     <common>
+ 0003:00000978       hLocalHeap                 0000000180017978     <common>
  0003:00000980       number_one                 0000000180017980     <common>
  0003:000009c0       number_zero                00000001800179c0     <common>
  0003:00000a00       __dyn_tls_init_callback    0000000180017a00     <common>
@@ -379,48 +379,48 @@
  Static symbols
 
  0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0002:fffeb000       __guard_fids__             0000000180000000     MSVCRT:guard_support.obj
- 0002:fffeb000       __guard_fids___scrt_set_unhandled_exception_filter 0000000180000000     MSVCRT:utility_desktop.obj
- 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     Palmtree.Math.Core.Uint.exp
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
  0002:fffeb000       __guard_fids_?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180000000     MSVCRT:dll_dllmain.obj
- 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0002:fffeb000       __guard_fids___scrt_set_unhandled_exception_filter 0000000180000000     MSVCRT:utility_desktop.obj
+ 0002:fffeb000       __guard_fids__             0000000180000000     MSVCRT:guard_support.obj
+ 0000:fffe5000       .debug$S                   0000000180000000     Palmtree.Math.Core.Uint.exp
  0002:fffeb000       __guard_fids__guard_icall_checks_enforced 0000000180000000     MSVCRT:guard_support.obj
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
  0001:00000240       CalculateCheckCode         0000000180001240 f   memory.obj
  0001:00000500       CleanUpNumber              0000000180001500 f   memory.obj
  0001:00000890       InitializeNumber           0000000180001890 f   memory.obj
@@ -756,19 +756,20 @@
  0003:000000c0       fp_Add_Imp                 00000001800170c0     pmc_add.obj
  0003:000000c8       fp_DivRem_X_X              00000001800170c8     pmc_divrem.obj
  0003:000000d0       entry_points               00000001800170d0     pmc_initialize.obj
- 0003:000002f8       fp_Multiply_X_1W           00000001800172f8     pmc_multiply.obj
- 0003:00000300       fp_Multiply_X_2W           0000000180017300     pmc_multiply.obj
- 0003:00000308       fp_Multiply_X_X            0000000180017308     pmc_multiply.obj
- 0003:00000310       default_number_format_option 0000000180017310     pmc_parse.obj
- 0003:00000338       fp_MultiplyAndAdd          0000000180017338     pmc_parse.obj
- 0003:00000340       default_number_format_option 0000000180017340     pmc_tostring.obj
- 0003:00000368       ?__proc_attached@@3HA      0000000180017368     MSVCRT:dll_dllmain.obj
- 0003:00000370       GS_ExceptionRecord         0000000180017370     MSVCRT:gs_report.obj
- 0003:00000410       GS_ContextRecord           0000000180017410     MSVCRT:gs_report.obj
- 0003:00000910       ?is_initialized_as_dll@@3_NA 0000000180017910     MSVCRT:utility.obj
- 0003:00000911       ?module_local_atexit_table_initialized@@3_NA 0000000180017911     MSVCRT:utility.obj
- 0003:00000918       ?module_local_atexit_table@@3U_onexit_table_t@@A 0000000180017918     MSVCRT:utility.obj
- 0003:00000930       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 0000000180017930     MSVCRT:utility.obj
+ 0003:000002f8       initialized                00000001800172f8     pmc_initialize.obj
+ 0003:00000300       fp_Multiply_X_1W           0000000180017300     pmc_multiply.obj
+ 0003:00000308       fp_Multiply_X_2W           0000000180017308     pmc_multiply.obj
+ 0003:00000310       fp_Multiply_X_X            0000000180017310     pmc_multiply.obj
+ 0003:00000318       default_number_format_option 0000000180017318     pmc_parse.obj
+ 0003:00000340       fp_MultiplyAndAdd          0000000180017340     pmc_parse.obj
+ 0003:00000348       default_number_format_option 0000000180017348     pmc_tostring.obj
+ 0003:00000370       ?__proc_attached@@3HA      0000000180017370     MSVCRT:dll_dllmain.obj
+ 0003:00000380       GS_ExceptionRecord         0000000180017380     MSVCRT:gs_report.obj
+ 0003:00000420       GS_ContextRecord           0000000180017420     MSVCRT:gs_report.obj
+ 0003:00000920       ?is_initialized_as_dll@@3_NA 0000000180017920     MSVCRT:utility.obj
+ 0003:00000921       ?module_local_atexit_table_initialized@@3_NA 0000000180017921     MSVCRT:utility.obj
+ 0003:00000928       ?module_local_atexit_table@@3U_onexit_table_t@@A 0000000180017928     MSVCRT:utility.obj
+ 0003:00000940       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 0000000180017940     MSVCRT:utility.obj
  0004:00000000       $pdata$GetCPUInfo          0000000180018000     cpuid.obj
  0004:0000000c       $pdata$DllMain             000000018001800c     dllmain.obj
  0004:00000018       $pdata$AllocateHeapArea    0000000180018018     memory.obj

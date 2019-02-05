@@ -2,15 +2,16 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-.lcomm entry_points,552,32
 	.comm	configuration_info, 4, 2
+.lcomm entry_points,552,32
+.lcomm initialized,1,1
 	.globl	PMC_UINT_Initialize
 	.def	PMC_UINT_Initialize;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_UINT_Initialize
 PMC_UINT_Initialize:
 .LFB4318:
 	.file 1 "../pmc_initialize.c"
-	.loc 1 40 1
+	.loc 1 41 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -23,283 +24,288 @@ PMC_UINT_Initialize:
 	.seh_stackalloc	48
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
-	.loc 1 41 24
-	leaq	configuration_info(%rip), %rax
-	movq	16(%rbp), %rdx
-	movl	(%rdx), %edx
-	movl	%edx, (%rax)
 	.loc 1 43 5
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
 	call	GetCPUInfo
 	.loc 1 45 9
+	movzbl	initialized(%rip), %eax
+	.loc 1 45 8
+	testb	%al, %al
+	jne	.L2
+	.loc 1 47 28
+	leaq	configuration_info(%rip), %rax
+	movq	16(%rbp), %rdx
+	movl	(%rdx), %edx
+	movl	%edx, (%rax)
+	.loc 1 48 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
 	call	Initialize_Memory
-	.loc 1 45 8
+	.loc 1 48 12
 	testl	%eax, %eax
-	je	.L2
-	.loc 1 46 16
+	je	.L3
+	.loc 1 49 20
 	movl	$0, %eax
 	jmp	.L23
-.L2:
-	.loc 1 47 9
+.L3:
+	.loc 1 50 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
 	call	Initialize_From
-	.loc 1 47 8
-	testl	%eax, %eax
-	je	.L4
-	.loc 1 48 16
-	movl	$0, %eax
-	jmp	.L23
-.L4:
-	.loc 1 49 9
-	leaq	-4(%rbp), %rax
-	movq	%rax, %rcx
-	call	Initialize_To
-	.loc 1 49 8
+	.loc 1 50 12
 	testl	%eax, %eax
 	je	.L5
-	.loc 1 50 16
+	.loc 1 51 20
 	movl	$0, %eax
 	jmp	.L23
 .L5:
-	.loc 1 51 9
+	.loc 1 52 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Add
-	.loc 1 51 8
+	call	Initialize_To
+	.loc 1 52 12
 	testl	%eax, %eax
 	je	.L6
-	.loc 1 52 16
+	.loc 1 53 20
 	movl	$0, %eax
 	jmp	.L23
 .L6:
-	.loc 1 53 9
+	.loc 1 54 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Subtruct
-	.loc 1 53 8
+	call	Initialize_Add
+	.loc 1 54 12
 	testl	%eax, %eax
 	je	.L7
-	.loc 1 54 16
+	.loc 1 55 20
 	movl	$0, %eax
 	jmp	.L23
 .L7:
-	.loc 1 55 9
+	.loc 1 56 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Multiply
-	.loc 1 55 8
+	call	Initialize_Subtruct
+	.loc 1 56 12
 	testl	%eax, %eax
 	je	.L8
-	.loc 1 56 16
+	.loc 1 57 20
 	movl	$0, %eax
 	jmp	.L23
 .L8:
-	.loc 1 57 9
+	.loc 1 58 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_DivRem
-	.loc 1 57 8
+	call	Initialize_Multiply
+	.loc 1 58 12
 	testl	%eax, %eax
 	je	.L9
-	.loc 1 58 16
+	.loc 1 59 20
 	movl	$0, %eax
 	jmp	.L23
 .L9:
-	.loc 1 59 9
+	.loc 1 60 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Shift
-	.loc 1 59 8
+	call	Initialize_DivRem
+	.loc 1 60 12
 	testl	%eax, %eax
 	je	.L10
-	.loc 1 60 16
+	.loc 1 61 20
 	movl	$0, %eax
 	jmp	.L23
 .L10:
-	.loc 1 61 9
+	.loc 1 62 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_BitwiseAnd
-	.loc 1 61 8
+	call	Initialize_Shift
+	.loc 1 62 12
 	testl	%eax, %eax
 	je	.L11
-	.loc 1 62 16
+	.loc 1 63 20
 	movl	$0, %eax
 	jmp	.L23
 .L11:
-	.loc 1 63 9
+	.loc 1 64 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_BitwiseOr
-	.loc 1 63 8
+	call	Initialize_BitwiseAnd
+	.loc 1 64 12
 	testl	%eax, %eax
 	je	.L12
-	.loc 1 64 16
+	.loc 1 65 20
 	movl	$0, %eax
 	jmp	.L23
 .L12:
-	.loc 1 65 9
+	.loc 1 66 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_ExclusiveOr
-	.loc 1 65 8
+	call	Initialize_BitwiseOr
+	.loc 1 66 12
 	testl	%eax, %eax
 	je	.L13
-	.loc 1 66 16
+	.loc 1 67 20
 	movl	$0, %eax
 	jmp	.L23
 .L13:
-	.loc 1 67 9
+	.loc 1 68 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Compare
-	.loc 1 67 8
+	call	Initialize_ExclusiveOr
+	.loc 1 68 12
 	testl	%eax, %eax
 	je	.L14
-	.loc 1 68 16
+	.loc 1 69 20
 	movl	$0, %eax
 	jmp	.L23
 .L14:
-	.loc 1 69 9
+	.loc 1 70 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Equals
-	.loc 1 69 8
+	call	Initialize_Compare
+	.loc 1 70 12
 	testl	%eax, %eax
 	je	.L15
-	.loc 1 70 16
+	.loc 1 71 20
 	movl	$0, %eax
 	jmp	.L23
 .L15:
-	.loc 1 71 9
+	.loc 1 72 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_ToString
-	.loc 1 71 8
+	call	Initialize_Equals
+	.loc 1 72 12
 	testl	%eax, %eax
 	je	.L16
-	.loc 1 72 16
+	.loc 1 73 20
 	movl	$0, %eax
 	jmp	.L23
 .L16:
-	.loc 1 73 9
+	.loc 1 74 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Parse
-	.loc 1 73 8
+	call	Initialize_ToString
+	.loc 1 74 12
 	testl	%eax, %eax
 	je	.L17
-	.loc 1 74 16
+	.loc 1 75 20
 	movl	$0, %eax
 	jmp	.L23
 .L17:
-	.loc 1 75 9
+	.loc 1 76 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_GreatestCommonDivisor
-	.loc 1 75 8
+	call	Initialize_Parse
+	.loc 1 76 12
 	testl	%eax, %eax
 	je	.L18
-	.loc 1 76 16
+	.loc 1 77 20
 	movl	$0, %eax
 	jmp	.L23
 .L18:
-	.loc 1 77 9
+	.loc 1 78 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Pow
-	.loc 1 77 8
+	call	Initialize_GreatestCommonDivisor
+	.loc 1 78 12
 	testl	%eax, %eax
 	je	.L19
-	.loc 1 78 16
+	.loc 1 79 20
 	movl	$0, %eax
 	jmp	.L23
 .L19:
-	.loc 1 79 9
+	.loc 1 80 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_ModPow
-	.loc 1 79 8
+	call	Initialize_Pow
+	.loc 1 80 12
 	testl	%eax, %eax
 	je	.L20
-	.loc 1 80 16
+	.loc 1 81 20
 	movl	$0, %eax
 	jmp	.L23
 .L20:
-	.loc 1 81 9
+	.loc 1 82 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_GetPropertyValue
-	.loc 1 81 8
+	call	Initialize_ModPow
+	.loc 1 82 12
 	testl	%eax, %eax
 	je	.L21
-	.loc 1 82 16
+	.loc 1 83 20
 	movl	$0, %eax
 	jmp	.L23
 .L21:
-	.loc 1 83 9
+	.loc 1 84 13
 	leaq	-4(%rbp), %rax
 	movq	%rax, %rcx
-	call	Initialize_Clone
-	.loc 1 83 8
+	call	Initialize_GetPropertyValue
+	.loc 1 84 12
 	testl	%eax, %eax
 	je	.L22
-	.loc 1 84 16
+	.loc 1 85 20
 	movl	$0, %eax
 	jmp	.L23
 .L22:
-	.loc 1 86 52
+	.loc 1 86 13
+	leaq	-4(%rbp), %rax
+	movq	%rax, %rcx
+	call	Initialize_Clone
+	.loc 1 86 12
+	testl	%eax, %eax
+	je	.L2
+	.loc 1 87 20
+	movl	$0, %eax
+	jmp	.L23
+.L2:
+	.loc 1 90 52
 	movzbl	-4(%rbp), %eax
 	andl	$1, %eax
-	.loc 1 86 43
+	.loc 1 90 43
 	andl	$1, %eax
 	movl	%eax, %edx
 	movzbl	entry_points(%rip), %eax
 	andl	$-2, %eax
 	orl	%edx, %eax
 	movb	%al, entry_points(%rip)
-	.loc 1 87 49
+	.loc 1 91 49
 	movzbl	-4(%rbp), %eax
 	shrb	%al
 	andl	$1, %eax
-	.loc 1 87 40
+	.loc 1 91 40
 	andl	$1, %eax
 	leal	(%rax,%rax), %edx
 	movzbl	entry_points(%rip), %eax
 	andl	$-3, %eax
 	orl	%edx, %eax
 	movb	%al, entry_points(%rip)
-	.loc 1 88 47
+	.loc 1 92 47
 	movzbl	-4(%rbp), %eax
 	shrb	$2, %al
 	andl	$1, %eax
-	.loc 1 88 38
+	.loc 1 92 38
 	andl	$1, %eax
 	leal	0(,%rax,4), %edx
 	movzbl	entry_points(%rip), %eax
 	andl	$-5, %eax
 	orl	%edx, %eax
 	movb	%al, entry_points(%rip)
-	.loc 1 89 50
+	.loc 1 93 50
 	movzbl	-4(%rbp), %eax
 	shrb	$3, %al
 	andl	$1, %eax
-	.loc 1 89 41
+	.loc 1 93 41
 	andl	$1, %eax
 	leal	0(,%rax,8), %edx
 	movzbl	entry_points(%rip), %eax
 	andl	$-9, %eax
 	orl	%edx, %eax
 	movb	%al, entry_points(%rip)
-	.loc 1 90 49
+	.loc 1 94 49
 	movzbl	-4(%rbp), %eax
 	shrb	$4, %al
 	andl	$1, %eax
-	.loc 1 90 40
+	.loc 1 94 40
 	andl	$1, %eax
 	sall	$4, %eax
 	movl	%eax, %edx
@@ -307,214 +313,216 @@ PMC_UINT_Initialize:
 	andl	$-17, %eax
 	orl	%edx, %eax
 	movb	%al, entry_points(%rip)
-	.loc 1 91 37
+	.loc 1 95 37
 	movq	.refptr.PMC_GetStatisticsInfo(%rip), %rax
 	movq	%rax, 8+entry_points(%rip)
-	.loc 1 92 26
+	.loc 1 96 26
 	movq	.refptr.PMC_From_I(%rip), %rax
 	movq	%rax, 16+entry_points(%rip)
-	.loc 1 93 26
+	.loc 1 97 26
 	movq	.refptr.PMC_From_L(%rip), %rax
 	movq	%rax, 24+entry_points(%rip)
-	.loc 1 94 36
+	.loc 1 98 36
 	movq	.refptr.PMC_FromByteArray(%rip), %rax
 	movq	%rax, 48+entry_points(%rip)
-	.loc 1 95 30
+	.loc 1 99 30
 	movq	.refptr.PMC_Dispose(%rip), %rax
 	movq	%rax, 32+entry_points(%rip)
-	.loc 1 96 29
+	.loc 1 100 29
 	movq	.refptr.PMC_To_X_I(%rip), %rax
 	movq	%rax, 72+entry_points(%rip)
-	.loc 1 97 26
+	.loc 1 101 26
 	movq	.refptr.PMC_To_X_L(%rip), %rax
 	movq	%rax, 80+entry_points(%rip)
-	.loc 1 98 34
+	.loc 1 102 34
 	movq	.refptr.PMC_ToByteArray(%rip), %rax
 	movq	%rax, 56+entry_points(%rip)
-	.loc 1 99 31
+	.loc 1 103 31
 	movq	.refptr.PMC_ToString(%rip), %rax
 	movq	%rax, 88+entry_points(%rip)
-	.loc 1 100 31
+	.loc 1 104 31
 	movq	.refptr.PMC_TryParse(%rip), %rax
 	movq	%rax, 96+entry_points(%rip)
-	.loc 1 101 30
+	.loc 1 105 30
 	movq	.refptr.PMC_Add_I_X(%rip), %rax
 	movq	%rax, 104+entry_points(%rip)
-	.loc 1 102 27
+	.loc 1 106 27
 	movq	.refptr.PMC_Add_L_X(%rip), %rax
 	movq	%rax, 112+entry_points(%rip)
-	.loc 1 103 30
+	.loc 1 107 30
 	movq	.refptr.PMC_Add_X_I(%rip), %rax
 	movq	%rax, 120+entry_points(%rip)
-	.loc 1 104 30
+	.loc 1 108 30
 	movq	.refptr.PMC_Add_X_L(%rip), %rax
 	movq	%rax, 128+entry_points(%rip)
-	.loc 1 105 30
+	.loc 1 109 30
 	movq	.refptr.PMC_Add_X_X(%rip), %rax
 	movq	%rax, 136+entry_points(%rip)
-	.loc 1 106 35
+	.loc 1 110 35
 	movq	.refptr.PMC_Subtruct_I_X(%rip), %rax
 	movq	%rax, 144+entry_points(%rip)
-	.loc 1 107 35
+	.loc 1 111 35
 	movq	.refptr.PMC_Subtruct_L_X(%rip), %rax
 	movq	%rax, 152+entry_points(%rip)
-	.loc 1 108 35
+	.loc 1 112 35
 	movq	.refptr.PMC_Subtruct_X_I(%rip), %rax
 	movq	%rax, 160+entry_points(%rip)
-	.loc 1 109 35
+	.loc 1 113 35
 	movq	.refptr.PMC_Subtruct_X_L(%rip), %rax
 	movq	%rax, 168+entry_points(%rip)
-	.loc 1 110 35
+	.loc 1 114 35
 	movq	.refptr.PMC_Subtruct_X_X(%rip), %rax
 	movq	%rax, 176+entry_points(%rip)
-	.loc 1 111 35
+	.loc 1 115 35
 	movq	.refptr.PMC_Multiply_I_X(%rip), %rax
 	movq	%rax, 184+entry_points(%rip)
-	.loc 1 112 35
+	.loc 1 116 35
 	movq	.refptr.PMC_Multiply_L_X(%rip), %rax
 	movq	%rax, 192+entry_points(%rip)
-	.loc 1 113 35
+	.loc 1 117 35
 	movq	.refptr.PMC_Multiply_X_I(%rip), %rax
 	movq	%rax, 200+entry_points(%rip)
-	.loc 1 114 35
+	.loc 1 118 35
 	movq	.refptr.PMC_Multiply_X_L(%rip), %rax
 	movq	%rax, 208+entry_points(%rip)
-	.loc 1 115 35
+	.loc 1 119 35
 	movq	.refptr.PMC_Multiply_X_X(%rip), %rax
 	movq	%rax, 216+entry_points(%rip)
-	.loc 1 116 33
+	.loc 1 120 33
 	movq	.refptr.PMC_DivRem_I_X(%rip), %rax
 	movq	%rax, 224+entry_points(%rip)
-	.loc 1 117 33
+	.loc 1 121 33
 	movq	.refptr.PMC_DivRem_L_X(%rip), %rax
 	movq	%rax, 232+entry_points(%rip)
-	.loc 1 118 33
+	.loc 1 122 33
 	movq	.refptr.PMC_DivRem_X_I(%rip), %rax
 	movq	%rax, 240+entry_points(%rip)
-	.loc 1 119 33
+	.loc 1 123 33
 	movq	.refptr.PMC_DivRem_X_L(%rip), %rax
 	movq	%rax, 248+entry_points(%rip)
-	.loc 1 120 33
+	.loc 1 124 33
 	movq	.refptr.PMC_DivRem_X_X(%rip), %rax
 	movq	%rax, 256+entry_points(%rip)
-	.loc 1 121 37
+	.loc 1 125 37
 	movq	.refptr.PMC_RightShift_X_I(%rip), %rax
 	movq	%rax, 280+entry_points(%rip)
-	.loc 1 122 37
+	.loc 1 126 37
 	movq	.refptr.PMC_RightShift_X_L(%rip), %rax
 	movq	%rax, 288+entry_points(%rip)
-	.loc 1 123 36
+	.loc 1 127 36
 	movq	.refptr.PMC_LeftShift_X_I(%rip), %rax
 	movq	%rax, 264+entry_points(%rip)
-	.loc 1 124 36
+	.loc 1 128 36
 	movq	.refptr.PMC_LeftShift_X_L(%rip), %rax
 	movq	%rax, 272+entry_points(%rip)
-	.loc 1 125 37
+	.loc 1 129 37
 	movq	.refptr.PMC_BitwiseAnd_I_X(%rip), %rax
 	movq	%rax, 296+entry_points(%rip)
-	.loc 1 126 37
+	.loc 1 130 37
 	movq	.refptr.PMC_BitwiseAnd_L_X(%rip), %rax
 	movq	%rax, 304+entry_points(%rip)
-	.loc 1 127 37
+	.loc 1 131 37
 	movq	.refptr.PMC_BitwiseAnd_X_I(%rip), %rax
 	movq	%rax, 312+entry_points(%rip)
-	.loc 1 128 37
+	.loc 1 132 37
 	movq	.refptr.PMC_BitwiseAnd_X_L(%rip), %rax
 	movq	%rax, 320+entry_points(%rip)
-	.loc 1 129 37
+	.loc 1 133 37
 	movq	.refptr.PMC_BitwiseAnd_X_X(%rip), %rax
 	movq	%rax, 328+entry_points(%rip)
-	.loc 1 130 36
+	.loc 1 134 36
 	movq	.refptr.PMC_BitwiseOr_I_X(%rip), %rax
 	movq	%rax, 336+entry_points(%rip)
-	.loc 1 131 36
+	.loc 1 135 36
 	movq	.refptr.PMC_BitwiseOr_L_X(%rip), %rax
 	movq	%rax, 344+entry_points(%rip)
-	.loc 1 132 36
+	.loc 1 136 36
 	movq	.refptr.PMC_BitwiseOr_X_I(%rip), %rax
 	movq	%rax, 352+entry_points(%rip)
-	.loc 1 133 36
+	.loc 1 137 36
 	movq	.refptr.PMC_BitwiseOr_X_L(%rip), %rax
 	movq	%rax, 360+entry_points(%rip)
-	.loc 1 134 36
+	.loc 1 138 36
 	movq	.refptr.PMC_BitwiseOr_X_X(%rip), %rax
 	movq	%rax, 368+entry_points(%rip)
-	.loc 1 135 38
+	.loc 1 139 38
 	movq	.refptr.PMC_ExclusiveOr_I_X(%rip), %rax
 	movq	%rax, 376+entry_points(%rip)
-	.loc 1 136 38
+	.loc 1 140 38
 	movq	.refptr.PMC_ExclusiveOr_L_X(%rip), %rax
 	movq	%rax, 384+entry_points(%rip)
-	.loc 1 137 38
+	.loc 1 141 38
 	movq	.refptr.PMC_ExclusiveOr_X_I(%rip), %rax
 	movq	%rax, 392+entry_points(%rip)
-	.loc 1 138 38
+	.loc 1 142 38
 	movq	.refptr.PMC_ExclusiveOr_X_L(%rip), %rax
 	movq	%rax, 400+entry_points(%rip)
-	.loc 1 139 38
+	.loc 1 143 38
 	movq	.refptr.PMC_ExclusiveOr_X_X(%rip), %rax
 	movq	%rax, 408+entry_points(%rip)
-	.loc 1 140 34
+	.loc 1 144 34
 	movq	.refptr.PMC_Compare_I_X(%rip), %rax
 	movq	%rax, 416+entry_points(%rip)
-	.loc 1 141 34
+	.loc 1 145 34
 	movq	.refptr.PMC_Compare_L_X(%rip), %rax
 	movq	%rax, 424+entry_points(%rip)
-	.loc 1 142 34
+	.loc 1 146 34
 	movq	.refptr.PMC_Compare_X_I(%rip), %rax
 	movq	%rax, 432+entry_points(%rip)
-	.loc 1 143 34
+	.loc 1 147 34
 	movq	.refptr.PMC_Compare_X_L(%rip), %rax
 	movq	%rax, 440+entry_points(%rip)
-	.loc 1 144 34
+	.loc 1 148 34
 	movq	.refptr.PMC_Compare_X_X(%rip), %rax
 	movq	%rax, 448+entry_points(%rip)
-	.loc 1 145 33
+	.loc 1 149 33
 	movq	.refptr.PMC_Equals_I_X(%rip), %rax
 	movq	%rax, 456+entry_points(%rip)
-	.loc 1 146 33
+	.loc 1 150 33
 	movq	.refptr.PMC_Equals_L_X(%rip), %rax
 	movq	%rax, 464+entry_points(%rip)
-	.loc 1 147 33
+	.loc 1 151 33
 	movq	.refptr.PMC_Equals_X_I(%rip), %rax
 	movq	%rax, 472+entry_points(%rip)
-	.loc 1 148 33
+	.loc 1 152 33
 	movq	.refptr.PMC_Equals_X_L(%rip), %rax
 	movq	%rax, 480+entry_points(%rip)
-	.loc 1 149 33
+	.loc 1 153 33
 	movq	.refptr.PMC_Equals_X_X(%rip), %rax
 	movq	%rax, 488+entry_points(%rip)
-	.loc 1 150 48
+	.loc 1 154 48
 	movq	.refptr.PMC_GreatestCommonDivisor_I_X(%rip), %rax
 	movq	%rax, 496+entry_points(%rip)
-	.loc 1 151 48
+	.loc 1 155 48
 	movq	.refptr.PMC_GreatestCommonDivisor_L_X(%rip), %rax
 	movq	%rax, 504+entry_points(%rip)
-	.loc 1 152 48
+	.loc 1 156 48
 	movq	.refptr.PMC_GreatestCommonDivisor_X_I(%rip), %rax
 	movq	%rax, 512+entry_points(%rip)
-	.loc 1 153 48
+	.loc 1 157 48
 	movq	.refptr.PMC_GreatestCommonDivisor_X_L(%rip), %rax
 	movq	%rax, 520+entry_points(%rip)
-	.loc 1 154 48
+	.loc 1 158 48
 	movq	.refptr.PMC_GreatestCommonDivisor_X_X(%rip), %rax
 	movq	%rax, 528+entry_points(%rip)
-	.loc 1 155 30
+	.loc 1 159 30
 	movq	.refptr.PMC_Pow_X_I(%rip), %rax
 	movq	%rax, 536+entry_points(%rip)
-	.loc 1 156 35
+	.loc 1 160 35
 	movq	.refptr.PMC_ModPow_X_X_X(%rip), %rax
 	movq	%rax, 544+entry_points(%rip)
-	.loc 1 157 43
+	.loc 1 161 43
 	movq	.refptr.PMC_GetPropertyValue_X_I(%rip), %rax
 	movq	%rax, 40+entry_points(%rip)
-	.loc 1 158 30
+	.loc 1 162 30
 	movq	.refptr.PMC_Clone_X(%rip), %rax
 	movq	%rax, 64+entry_points(%rip)
-	.loc 1 160 13
+	.loc 1 164 17
+	movb	$1, initialized(%rip)
+	.loc 1 165 13
 	leaq	entry_points(%rip), %rax
 .L23:
-	.loc 1 161 1 discriminator 1
+	.loc 1 166 1 discriminator 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -558,7 +566,7 @@ PMC_UINT_Initialize:
 	.file 33 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x5dc7
+	.long	0x5de5
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5912,43 +5920,52 @@ PMC_UINT_Initialize:
 	.byte	0x8
 	.long	0x5d0a
 	.uleb128 0x22
-	.ascii "entry_points\0"
+	.long	0x5cb0
 	.byte	0x1
 	.byte	0x22
+	.byte	0x18
+	.uleb128 0x9
+	.byte	0x3
+	.quad	configuration_info
+	.uleb128 0x23
+	.ascii "entry_points\0"
+	.byte	0x1
+	.byte	0x23
 	.byte	0x1e
 	.long	0x5a98
 	.uleb128 0x9
 	.byte	0x3
 	.quad	entry_points
 	.uleb128 0x23
-	.long	0x5cb0
+	.ascii "initialized\0"
 	.byte	0x1
-	.byte	0x23
-	.byte	0x18
+	.byte	0x24
+	.byte	0xd
+	.long	0xc7
 	.uleb128 0x9
 	.byte	0x3
-	.quad	configuration_info
+	.quad	initialized
 	.uleb128 0x24
 	.ascii "PMC_UINT_Initialize\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x28
 	.byte	0x19
-	.long	0x5dbe
+	.long	0x5ddc
 	.quad	.LFB4318
 	.quad	.LFE4318-.LFB4318
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5dbe
+	.long	0x5ddc
 	.uleb128 0x25
 	.ascii "config\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x28
 	.byte	0x45
-	.long	0x5dc4
+	.long	0x5de2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x23
 	.ascii "feature\0"
 	.byte	0x1
 	.byte	0x2a
@@ -6429,6 +6446,21 @@ PMC_UINT_Initialize:
 	.uleb128 0x22
 	.uleb128 0x34
 	.byte	0
+	.uleb128 0x47
+	.uleb128 0x13
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x23
+	.uleb128 0x34
+	.byte	0
 	.uleb128 0x3
 	.uleb128 0x8
 	.uleb128 0x3a
@@ -6439,21 +6471,6 @@ PMC_UINT_Initialize:
 	.uleb128 0xb
 	.uleb128 0x49
 	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x23
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x47
-	.uleb128 0x13
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
 	.uleb128 0x2
 	.uleb128 0x18
 	.byte	0

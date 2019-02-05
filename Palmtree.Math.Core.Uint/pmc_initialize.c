@@ -31,57 +31,61 @@
 
 
 #pragma region 静的変数の定義
-static PMC_UINT_ENTRY_POINTS entry_points;
 PMC_CONFIGURATION_INFO configuration_info;
+static PMC_UINT_ENTRY_POINTS entry_points;
+static char initialized = 0;
 #pragma endregion
 
 
 PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
-    configuration_info = *config;
     PROCESSOR_FEATURES feature;
     GetCPUInfo(&feature);
 
-    if (Initialize_Memory(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_From(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_To(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Add(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Subtruct(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Multiply(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_DivRem(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Shift(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_BitwiseAnd(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_BitwiseOr(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_ExclusiveOr(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Compare(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Equals(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_ToString(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Parse(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_GreatestCommonDivisor(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Pow(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_GetPropertyValue(&feature) != PMC_STATUS_OK)
-        return (NULL);
-    if (Initialize_Clone(&feature) != PMC_STATUS_OK)
-        return (NULL);
+    if (!initialized)
+    {
+        configuration_info = *config;
+        if (Initialize_Memory(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_From(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_To(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Add(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Subtruct(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Multiply(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_DivRem(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Shift(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_BitwiseAnd(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_BitwiseOr(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_ExclusiveOr(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Compare(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Equals(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_ToString(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Parse(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_GreatestCommonDivisor(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Pow(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_GetPropertyValue(&feature) != PMC_STATUS_OK)
+            return (NULL);
+        if (Initialize_Clone(&feature) != PMC_STATUS_OK)
+            return (NULL);
+    }
 
     entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
     entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
@@ -157,6 +161,7 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
     entry_points.PMC_GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
     entry_points.PMC_Clone_X = PMC_Clone_X;
 
+    initialized = 1;
     return (&entry_points);
 }
 

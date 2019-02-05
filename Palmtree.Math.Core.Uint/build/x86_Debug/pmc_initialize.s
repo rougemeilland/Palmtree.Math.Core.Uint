@@ -1,14 +1,15 @@
 	.file	"pmc_initialize.c"
 	.text
 Ltext0:
-.lcomm _entry_points,276,32
 	.comm	_configuration_info, 4, 2
+.lcomm _entry_points,276,32
+.lcomm _initialized,1,1
 	.globl	_PMC_UINT_Initialize@4
 	.def	_PMC_UINT_Initialize@4;	.scl	2;	.type	32;	.endef
 _PMC_UINT_Initialize@4:
 LFB4193:
 	.file 1 "../pmc_initialize.c"
-	.loc 1 40 1
+	.loc 1 41 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -16,282 +17,287 @@ LFB4193:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 1 41 24
-	movl	8(%ebp), %eax
-	movl	(%eax), %eax
-	movl	%eax, _configuration_info
 	.loc 1 43 5
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_GetCPUInfo
 	.loc 1 45 9
+	movzbl	_initialized, %eax
+	.loc 1 45 8
+	testb	%al, %al
+	jne	L2
+	.loc 1 47 28
+	movl	8(%ebp), %eax
+	movl	(%eax), %eax
+	movl	%eax, _configuration_info
+	.loc 1 48 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_Initialize_Memory
-	.loc 1 45 8
+	.loc 1 48 12
 	testl	%eax, %eax
-	je	L2
-	.loc 1 46 16
+	je	L3
+	.loc 1 49 20
 	movl	$0, %eax
 	jmp	L23
-L2:
-	.loc 1 47 9
+L3:
+	.loc 1 50 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_Initialize_From
-	.loc 1 47 8
-	testl	%eax, %eax
-	je	L4
-	.loc 1 48 16
-	movl	$0, %eax
-	jmp	L23
-L4:
-	.loc 1 49 9
-	leal	-12(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_Initialize_To
-	.loc 1 49 8
+	.loc 1 50 12
 	testl	%eax, %eax
 	je	L5
-	.loc 1 50 16
+	.loc 1 51 20
 	movl	$0, %eax
 	jmp	L23
 L5:
-	.loc 1 51 9
+	.loc 1 52 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Add
-	.loc 1 51 8
+	call	_Initialize_To
+	.loc 1 52 12
 	testl	%eax, %eax
 	je	L6
-	.loc 1 52 16
+	.loc 1 53 20
 	movl	$0, %eax
 	jmp	L23
 L6:
-	.loc 1 53 9
+	.loc 1 54 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Subtruct
-	.loc 1 53 8
+	call	_Initialize_Add
+	.loc 1 54 12
 	testl	%eax, %eax
 	je	L7
-	.loc 1 54 16
+	.loc 1 55 20
 	movl	$0, %eax
 	jmp	L23
 L7:
-	.loc 1 55 9
+	.loc 1 56 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Multiply
-	.loc 1 55 8
+	call	_Initialize_Subtruct
+	.loc 1 56 12
 	testl	%eax, %eax
 	je	L8
-	.loc 1 56 16
+	.loc 1 57 20
 	movl	$0, %eax
 	jmp	L23
 L8:
-	.loc 1 57 9
+	.loc 1 58 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_DivRem
-	.loc 1 57 8
+	call	_Initialize_Multiply
+	.loc 1 58 12
 	testl	%eax, %eax
 	je	L9
-	.loc 1 58 16
+	.loc 1 59 20
 	movl	$0, %eax
 	jmp	L23
 L9:
-	.loc 1 59 9
+	.loc 1 60 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Shift
-	.loc 1 59 8
+	call	_Initialize_DivRem
+	.loc 1 60 12
 	testl	%eax, %eax
 	je	L10
-	.loc 1 60 16
+	.loc 1 61 20
 	movl	$0, %eax
 	jmp	L23
 L10:
-	.loc 1 61 9
+	.loc 1 62 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_BitwiseAnd
-	.loc 1 61 8
+	call	_Initialize_Shift
+	.loc 1 62 12
 	testl	%eax, %eax
 	je	L11
-	.loc 1 62 16
+	.loc 1 63 20
 	movl	$0, %eax
 	jmp	L23
 L11:
-	.loc 1 63 9
+	.loc 1 64 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_BitwiseOr
-	.loc 1 63 8
+	call	_Initialize_BitwiseAnd
+	.loc 1 64 12
 	testl	%eax, %eax
 	je	L12
-	.loc 1 64 16
+	.loc 1 65 20
 	movl	$0, %eax
 	jmp	L23
 L12:
-	.loc 1 65 9
+	.loc 1 66 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_ExclusiveOr
-	.loc 1 65 8
+	call	_Initialize_BitwiseOr
+	.loc 1 66 12
 	testl	%eax, %eax
 	je	L13
-	.loc 1 66 16
+	.loc 1 67 20
 	movl	$0, %eax
 	jmp	L23
 L13:
-	.loc 1 67 9
+	.loc 1 68 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Compare
-	.loc 1 67 8
+	call	_Initialize_ExclusiveOr
+	.loc 1 68 12
 	testl	%eax, %eax
 	je	L14
-	.loc 1 68 16
+	.loc 1 69 20
 	movl	$0, %eax
 	jmp	L23
 L14:
-	.loc 1 69 9
+	.loc 1 70 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Equals
-	.loc 1 69 8
+	call	_Initialize_Compare
+	.loc 1 70 12
 	testl	%eax, %eax
 	je	L15
-	.loc 1 70 16
+	.loc 1 71 20
 	movl	$0, %eax
 	jmp	L23
 L15:
-	.loc 1 71 9
+	.loc 1 72 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_ToString
-	.loc 1 71 8
+	call	_Initialize_Equals
+	.loc 1 72 12
 	testl	%eax, %eax
 	je	L16
-	.loc 1 72 16
+	.loc 1 73 20
 	movl	$0, %eax
 	jmp	L23
 L16:
-	.loc 1 73 9
+	.loc 1 74 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Parse
-	.loc 1 73 8
+	call	_Initialize_ToString
+	.loc 1 74 12
 	testl	%eax, %eax
 	je	L17
-	.loc 1 74 16
+	.loc 1 75 20
 	movl	$0, %eax
 	jmp	L23
 L17:
-	.loc 1 75 9
+	.loc 1 76 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_GreatestCommonDivisor
-	.loc 1 75 8
+	call	_Initialize_Parse
+	.loc 1 76 12
 	testl	%eax, %eax
 	je	L18
-	.loc 1 76 16
+	.loc 1 77 20
 	movl	$0, %eax
 	jmp	L23
 L18:
-	.loc 1 77 9
+	.loc 1 78 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Pow
-	.loc 1 77 8
+	call	_Initialize_GreatestCommonDivisor
+	.loc 1 78 12
 	testl	%eax, %eax
 	je	L19
-	.loc 1 78 16
+	.loc 1 79 20
 	movl	$0, %eax
 	jmp	L23
 L19:
-	.loc 1 79 9
+	.loc 1 80 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_ModPow
-	.loc 1 79 8
+	call	_Initialize_Pow
+	.loc 1 80 12
 	testl	%eax, %eax
 	je	L20
-	.loc 1 80 16
+	.loc 1 81 20
 	movl	$0, %eax
 	jmp	L23
 L20:
-	.loc 1 81 9
+	.loc 1 82 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_GetPropertyValue
-	.loc 1 81 8
+	call	_Initialize_ModPow
+	.loc 1 82 12
 	testl	%eax, %eax
 	je	L21
-	.loc 1 82 16
+	.loc 1 83 20
 	movl	$0, %eax
 	jmp	L23
 L21:
-	.loc 1 83 9
+	.loc 1 84 13
 	leal	-12(%ebp), %eax
 	movl	%eax, (%esp)
-	call	_Initialize_Clone
-	.loc 1 83 8
+	call	_Initialize_GetPropertyValue
+	.loc 1 84 12
 	testl	%eax, %eax
 	je	L22
-	.loc 1 84 16
+	.loc 1 85 20
 	movl	$0, %eax
 	jmp	L23
 L22:
-	.loc 1 86 52
+	.loc 1 86 13
+	leal	-12(%ebp), %eax
+	movl	%eax, (%esp)
+	call	_Initialize_Clone
+	.loc 1 86 12
+	testl	%eax, %eax
+	je	L2
+	.loc 1 87 20
+	movl	$0, %eax
+	jmp	L23
+L2:
+	.loc 1 90 52
 	movzbl	-12(%ebp), %eax
 	andl	$1, %eax
-	.loc 1 86 43
+	.loc 1 90 43
 	andl	$1, %eax
 	movl	%eax, %edx
 	movzbl	_entry_points, %eax
 	andl	$-2, %eax
 	orl	%edx, %eax
 	movb	%al, _entry_points
-	.loc 1 87 49
+	.loc 1 91 49
 	movzbl	-12(%ebp), %eax
 	shrb	%al
 	andl	$1, %eax
-	.loc 1 87 40
+	.loc 1 91 40
 	andl	$1, %eax
 	leal	(%eax,%eax), %edx
 	movzbl	_entry_points, %eax
 	andl	$-3, %eax
 	orl	%edx, %eax
 	movb	%al, _entry_points
-	.loc 1 88 47
+	.loc 1 92 47
 	movzbl	-12(%ebp), %eax
 	shrb	$2, %al
 	andl	$1, %eax
-	.loc 1 88 38
+	.loc 1 92 38
 	andl	$1, %eax
 	leal	0(,%eax,4), %edx
 	movzbl	_entry_points, %eax
 	andl	$-5, %eax
 	orl	%edx, %eax
 	movb	%al, _entry_points
-	.loc 1 89 50
+	.loc 1 93 50
 	movzbl	-12(%ebp), %eax
 	shrb	$3, %al
 	andl	$1, %eax
-	.loc 1 89 41
+	.loc 1 93 41
 	andl	$1, %eax
 	leal	0(,%eax,8), %edx
 	movzbl	_entry_points, %eax
 	andl	$-9, %eax
 	orl	%edx, %eax
 	movb	%al, _entry_points
-	.loc 1 90 49
+	.loc 1 94 49
 	movzbl	-12(%ebp), %eax
 	shrb	$4, %al
 	andl	$1, %eax
-	.loc 1 90 40
+	.loc 1 94 40
 	andl	$1, %eax
 	sall	$4, %eax
 	movl	%eax, %edx
@@ -299,146 +305,148 @@ L22:
 	andl	$-17, %eax
 	orl	%edx, %eax
 	movb	%al, _entry_points
-	.loc 1 91 37
+	.loc 1 95 37
 	movl	$_PMC_GetStatisticsInfo@4, _entry_points+4
-	.loc 1 92 26
+	.loc 1 96 26
 	movl	$_PMC_From_I@8, _entry_points+8
-	.loc 1 93 26
-	movl	$_PMC_From_L@12, _entry_points+12
-	.loc 1 94 36
-	movl	$_PMC_FromByteArray@12, _entry_points+24
-	.loc 1 95 30
-	movl	$_PMC_Dispose@4, _entry_points+16
-	.loc 1 96 29
-	movl	$_PMC_To_X_I@8, _entry_points+36
 	.loc 1 97 26
+	movl	$_PMC_From_L@12, _entry_points+12
+	.loc 1 98 36
+	movl	$_PMC_FromByteArray@12, _entry_points+24
+	.loc 1 99 30
+	movl	$_PMC_Dispose@4, _entry_points+16
+	.loc 1 100 29
+	movl	$_PMC_To_X_I@8, _entry_points+36
+	.loc 1 101 26
 	movl	$_PMC_To_X_L@8, _entry_points+40
-	.loc 1 98 34
+	.loc 1 102 34
 	movl	$_PMC_ToByteArray@16, _entry_points+28
-	.loc 1 99 31
+	.loc 1 103 31
 	movl	$_PMC_ToString@24, _entry_points+44
-	.loc 1 100 31
+	.loc 1 104 31
 	movl	$_PMC_TryParse@16, _entry_points+48
-	.loc 1 101 30
-	movl	$_PMC_Add_I_X@12, _entry_points+52
-	.loc 1 102 27
-	movl	$_PMC_Add_L_X@16, _entry_points+56
-	.loc 1 103 30
-	movl	$_PMC_Add_X_I@12, _entry_points+60
-	.loc 1 104 30
-	movl	$_PMC_Add_X_L@16, _entry_points+64
 	.loc 1 105 30
+	movl	$_PMC_Add_I_X@12, _entry_points+52
+	.loc 1 106 27
+	movl	$_PMC_Add_L_X@16, _entry_points+56
+	.loc 1 107 30
+	movl	$_PMC_Add_X_I@12, _entry_points+60
+	.loc 1 108 30
+	movl	$_PMC_Add_X_L@16, _entry_points+64
+	.loc 1 109 30
 	movl	$_PMC_Add_X_X@12, _entry_points+68
-	.loc 1 106 35
-	movl	$_PMC_Subtruct_I_X@12, _entry_points+72
-	.loc 1 107 35
-	movl	$_PMC_Subtruct_L_X@16, _entry_points+76
-	.loc 1 108 35
-	movl	$_PMC_Subtruct_X_I@12, _entry_points+80
-	.loc 1 109 35
-	movl	$_PMC_Subtruct_X_L@16, _entry_points+84
 	.loc 1 110 35
-	movl	$_PMC_Subtruct_X_X@12, _entry_points+88
+	movl	$_PMC_Subtruct_I_X@12, _entry_points+72
 	.loc 1 111 35
-	movl	$_PMC_Multiply_I_X@12, _entry_points+92
+	movl	$_PMC_Subtruct_L_X@16, _entry_points+76
 	.loc 1 112 35
-	movl	$_PMC_Multiply_L_X@16, _entry_points+96
+	movl	$_PMC_Subtruct_X_I@12, _entry_points+80
 	.loc 1 113 35
-	movl	$_PMC_Multiply_X_I@12, _entry_points+100
+	movl	$_PMC_Subtruct_X_L@16, _entry_points+84
 	.loc 1 114 35
-	movl	$_PMC_Multiply_X_L@16, _entry_points+104
+	movl	$_PMC_Subtruct_X_X@12, _entry_points+88
 	.loc 1 115 35
+	movl	$_PMC_Multiply_I_X@12, _entry_points+92
+	.loc 1 116 35
+	movl	$_PMC_Multiply_L_X@16, _entry_points+96
+	.loc 1 117 35
+	movl	$_PMC_Multiply_X_I@12, _entry_points+100
+	.loc 1 118 35
+	movl	$_PMC_Multiply_X_L@16, _entry_points+104
+	.loc 1 119 35
 	movl	$_PMC_Multiply_X_X@12, _entry_points+108
-	.loc 1 116 33
-	movl	$_PMC_DivRem_I_X@16, _entry_points+112
-	.loc 1 117 33
-	movl	$_PMC_DivRem_L_X@20, _entry_points+116
-	.loc 1 118 33
-	movl	$_PMC_DivRem_X_I@16, _entry_points+120
-	.loc 1 119 33
-	movl	$_PMC_DivRem_X_L@20, _entry_points+124
 	.loc 1 120 33
+	movl	$_PMC_DivRem_I_X@16, _entry_points+112
+	.loc 1 121 33
+	movl	$_PMC_DivRem_L_X@20, _entry_points+116
+	.loc 1 122 33
+	movl	$_PMC_DivRem_X_I@16, _entry_points+120
+	.loc 1 123 33
+	movl	$_PMC_DivRem_X_L@20, _entry_points+124
+	.loc 1 124 33
 	movl	$_PMC_DivRem_X_X@16, _entry_points+128
-	.loc 1 121 37
-	movl	$_PMC_RightShift_X_I@12, _entry_points+140
-	.loc 1 122 37
-	movl	$_PMC_RightShift_X_L@16, _entry_points+144
-	.loc 1 123 36
-	movl	$_PMC_LeftShift_X_I@12, _entry_points+132
-	.loc 1 124 36
-	movl	$_PMC_LeftShift_X_L@16, _entry_points+136
 	.loc 1 125 37
-	movl	$_PMC_BitwiseAnd_I_X@12, _entry_points+148
+	movl	$_PMC_RightShift_X_I@12, _entry_points+140
 	.loc 1 126 37
-	movl	$_PMC_BitwiseAnd_L_X@16, _entry_points+152
-	.loc 1 127 37
-	movl	$_PMC_BitwiseAnd_X_I@12, _entry_points+156
-	.loc 1 128 37
-	movl	$_PMC_BitwiseAnd_X_L@16, _entry_points+160
+	movl	$_PMC_RightShift_X_L@16, _entry_points+144
+	.loc 1 127 36
+	movl	$_PMC_LeftShift_X_I@12, _entry_points+132
+	.loc 1 128 36
+	movl	$_PMC_LeftShift_X_L@16, _entry_points+136
 	.loc 1 129 37
+	movl	$_PMC_BitwiseAnd_I_X@12, _entry_points+148
+	.loc 1 130 37
+	movl	$_PMC_BitwiseAnd_L_X@16, _entry_points+152
+	.loc 1 131 37
+	movl	$_PMC_BitwiseAnd_X_I@12, _entry_points+156
+	.loc 1 132 37
+	movl	$_PMC_BitwiseAnd_X_L@16, _entry_points+160
+	.loc 1 133 37
 	movl	$_PMC_BitwiseAnd_X_X@12, _entry_points+164
-	.loc 1 130 36
-	movl	$_PMC_BitwiseOr_I_X@12, _entry_points+168
-	.loc 1 131 36
-	movl	$_PMC_BitwiseOr_L_X@16, _entry_points+172
-	.loc 1 132 36
-	movl	$_PMC_BitwiseOr_X_I@12, _entry_points+176
-	.loc 1 133 36
-	movl	$_PMC_BitwiseOr_X_L@16, _entry_points+180
 	.loc 1 134 36
+	movl	$_PMC_BitwiseOr_I_X@12, _entry_points+168
+	.loc 1 135 36
+	movl	$_PMC_BitwiseOr_L_X@16, _entry_points+172
+	.loc 1 136 36
+	movl	$_PMC_BitwiseOr_X_I@12, _entry_points+176
+	.loc 1 137 36
+	movl	$_PMC_BitwiseOr_X_L@16, _entry_points+180
+	.loc 1 138 36
 	movl	$_PMC_BitwiseOr_X_X@12, _entry_points+184
-	.loc 1 135 38
-	movl	$_PMC_ExclusiveOr_I_X@12, _entry_points+188
-	.loc 1 136 38
-	movl	$_PMC_ExclusiveOr_L_X@16, _entry_points+192
-	.loc 1 137 38
-	movl	$_PMC_ExclusiveOr_X_I@12, _entry_points+196
-	.loc 1 138 38
-	movl	$_PMC_ExclusiveOr_X_L@16, _entry_points+200
 	.loc 1 139 38
+	movl	$_PMC_ExclusiveOr_I_X@12, _entry_points+188
+	.loc 1 140 38
+	movl	$_PMC_ExclusiveOr_L_X@16, _entry_points+192
+	.loc 1 141 38
+	movl	$_PMC_ExclusiveOr_X_I@12, _entry_points+196
+	.loc 1 142 38
+	movl	$_PMC_ExclusiveOr_X_L@16, _entry_points+200
+	.loc 1 143 38
 	movl	$_PMC_ExclusiveOr_X_X@12, _entry_points+204
-	.loc 1 140 34
-	movl	$_PMC_Compare_I_X@12, _entry_points+208
-	.loc 1 141 34
-	movl	$_PMC_Compare_L_X@16, _entry_points+212
-	.loc 1 142 34
-	movl	$_PMC_Compare_X_I@12, _entry_points+216
-	.loc 1 143 34
-	movl	$_PMC_Compare_X_L@16, _entry_points+220
 	.loc 1 144 34
+	movl	$_PMC_Compare_I_X@12, _entry_points+208
+	.loc 1 145 34
+	movl	$_PMC_Compare_L_X@16, _entry_points+212
+	.loc 1 146 34
+	movl	$_PMC_Compare_X_I@12, _entry_points+216
+	.loc 1 147 34
+	movl	$_PMC_Compare_X_L@16, _entry_points+220
+	.loc 1 148 34
 	movl	$_PMC_Compare_X_X@12, _entry_points+224
-	.loc 1 145 33
-	movl	$_PMC_Equals_I_X@12, _entry_points+228
-	.loc 1 146 33
-	movl	$_PMC_Equals_L_X@16, _entry_points+232
-	.loc 1 147 33
-	movl	$_PMC_Equals_X_I@12, _entry_points+236
-	.loc 1 148 33
-	movl	$_PMC_Equals_X_L@16, _entry_points+240
 	.loc 1 149 33
+	movl	$_PMC_Equals_I_X@12, _entry_points+228
+	.loc 1 150 33
+	movl	$_PMC_Equals_L_X@16, _entry_points+232
+	.loc 1 151 33
+	movl	$_PMC_Equals_X_I@12, _entry_points+236
+	.loc 1 152 33
+	movl	$_PMC_Equals_X_L@16, _entry_points+240
+	.loc 1 153 33
 	movl	$_PMC_Equals_X_X@12, _entry_points+244
-	.loc 1 150 48
-	movl	$_PMC_GreatestCommonDivisor_I_X@12, _entry_points+248
-	.loc 1 151 48
-	movl	$_PMC_GreatestCommonDivisor_L_X@16, _entry_points+252
-	.loc 1 152 48
-	movl	$_PMC_GreatestCommonDivisor_X_I@12, _entry_points+256
-	.loc 1 153 48
-	movl	$_PMC_GreatestCommonDivisor_X_L@16, _entry_points+260
 	.loc 1 154 48
+	movl	$_PMC_GreatestCommonDivisor_I_X@12, _entry_points+248
+	.loc 1 155 48
+	movl	$_PMC_GreatestCommonDivisor_L_X@16, _entry_points+252
+	.loc 1 156 48
+	movl	$_PMC_GreatestCommonDivisor_X_I@12, _entry_points+256
+	.loc 1 157 48
+	movl	$_PMC_GreatestCommonDivisor_X_L@16, _entry_points+260
+	.loc 1 158 48
 	movl	$_PMC_GreatestCommonDivisor_X_X@12, _entry_points+264
-	.loc 1 155 30
+	.loc 1 159 30
 	movl	$_PMC_Pow_X_I@12, _entry_points+268
-	.loc 1 156 35
+	.loc 1 160 35
 	movl	$_PMC_ModPow_X_X_X@16, _entry_points+272
-	.loc 1 157 43
+	.loc 1 161 43
 	movl	$_PMC_GetPropertyValue_X_I@12, _entry_points+20
-	.loc 1 158 30
+	.loc 1 162 30
 	movl	$_PMC_Clone_X@8, _entry_points+32
-	.loc 1 160 13
+	.loc 1 164 17
+	movb	$1, _initialized
+	.loc 1 165 13
 	movl	$_entry_points, %eax
 L23:
-	.loc 1 161 1 discriminator 1
+	.loc 1 166 1 discriminator 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -480,7 +488,7 @@ Letext0:
 	.file 33 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 Ldebug_info0:
-	.long	0x5d98
+	.long	0x5db2
 	.word	0x4
 	.secrel32	Ldebug_abbrev0
 	.byte	0x4
@@ -5834,44 +5842,53 @@ Ldebug_info0:
 	.byte	0x4
 	.long	0x5cd5
 	.uleb128 0x20
-	.ascii "entry_points\0"
+	.long	0x5c7b
 	.byte	0x1
 	.byte	0x22
+	.byte	0x18
+	.uleb128 0x5
+	.byte	0x3
+	.long	_configuration_info
+	.uleb128 0x21
+	.ascii "entry_points\0"
+	.byte	0x1
+	.byte	0x23
 	.byte	0x1e
 	.long	0x5a63
 	.uleb128 0x5
 	.byte	0x3
 	.long	_entry_points
 	.uleb128 0x21
-	.long	0x5c7b
+	.ascii "initialized\0"
 	.byte	0x1
-	.byte	0x23
-	.byte	0x18
+	.byte	0x24
+	.byte	0xd
+	.long	0xbf
 	.uleb128 0x5
 	.byte	0x3
-	.long	_configuration_info
+	.long	_initialized
 	.uleb128 0x22
 	.ascii "PMC_UINT_Initialize\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x28
 	.byte	0x36
 	.ascii "PMC_UINT_Initialize@4\0"
-	.long	0x5d8f
+	.long	0x5da9
 	.long	LFB4193
 	.long	LFE4193-LFB4193
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5d8f
+	.long	0x5da9
 	.uleb128 0x23
 	.ascii "config\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x28
 	.byte	0x62
-	.long	0x5d95
+	.long	0x5daf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x20
+	.uleb128 0x21
 	.ascii "feature\0"
 	.byte	0x1
 	.byte	0x2a
@@ -6318,6 +6335,21 @@ Ldebug_abbrev0:
 	.uleb128 0x20
 	.uleb128 0x34
 	.byte	0
+	.uleb128 0x47
+	.uleb128 0x13
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x21
+	.uleb128 0x34
+	.byte	0
 	.uleb128 0x3
 	.uleb128 0x8
 	.uleb128 0x3a
@@ -6328,21 +6360,6 @@ Ldebug_abbrev0:
 	.uleb128 0xb
 	.uleb128 0x49
 	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x21
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x47
-	.uleb128 0x13
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
 	.uleb128 0x2
 	.uleb128 0x18
 	.byte	0
