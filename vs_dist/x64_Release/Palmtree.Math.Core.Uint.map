@@ -1,6 +1,6 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c59a5f0 (Wed Feb  6 00:04:16 2019)
+ Timestamp is 5c59ac43 (Wed Feb  6 00:31:15 2019)
 
  Preferred load address is 0000000180000000
 
@@ -58,20 +58,20 @@
  0001:00000000       GetCPUInfo                 0000000180001000 f   cpuid.obj
  0001:000000b0       DoDebug                    00000001800010b0 f   debug.obj
  0001:000000c0       DllMain                    00000001800010c0 f   dllmain.obj
- 0001:00000100       AllocateBlock              0000000180001100 f   memory.obj
- 0001:00000180       AllocateHeapArea           0000000180001180 f   memory.obj
- 0001:000001b0       AllocateNumber             00000001800011b0 f   memory.obj
- 0001:00000220       AttatchNumber              0000000180001220 f   memory.obj
- 0001:000004d0       CheckBlockLight            00000001800014d0 f   memory.obj
- 0001:000004e0       CheckNumber                00000001800014e0 f   memory.obj
- 0001:00000560       CommitNumber               0000000180001560 f   memory.obj
- 0001:000006d0       DeallocateBlock            00000001800016d0 f   memory.obj
- 0001:00000720       DeallocateHeapArea         0000000180001720 f   memory.obj
- 0001:00000750       DeallocateNumber           0000000180001750 f   memory.obj
- 0001:000007b0       DetatchNumber              00000001800017b0 f   memory.obj
- 0001:000007c0       DuplicateNumber            00000001800017c0 f   memory.obj
- 0001:00000950       Initialize_Memory          0000000180001950 f   memory.obj
- 0001:00000ab0       PMC_Dispose                0000000180001ab0 f   memory.obj
+ 0001:00000100       AllocateBlock              0000000180001100 f   pmc_memory.obj
+ 0001:00000180       AllocateHeapArea           0000000180001180 f   pmc_memory.obj
+ 0001:000001b0       AllocateNumber             00000001800011b0 f   pmc_memory.obj
+ 0001:00000220       AttatchNumber              0000000180001220 f   pmc_memory.obj
+ 0001:000004d0       CheckBlockLight            00000001800014d0 f   pmc_memory.obj
+ 0001:000004e0       CheckNumber                00000001800014e0 f   pmc_memory.obj
+ 0001:00000560       CommitNumber               0000000180001560 f   pmc_memory.obj
+ 0001:000006d0       DeallocateBlock            00000001800016d0 f   pmc_memory.obj
+ 0001:00000720       DeallocateHeapArea         0000000180001720 f   pmc_memory.obj
+ 0001:00000750       DeallocateNumber           0000000180001750 f   pmc_memory.obj
+ 0001:000007b0       DetatchNumber              00000001800017b0 f   pmc_memory.obj
+ 0001:000007c0       DuplicateNumber            00000001800017c0 f   pmc_memory.obj
+ 0001:00000950       Initialize_Memory          0000000180001950 f   pmc_memory.obj
+ 0001:00000ab0       PMC_Dispose                0000000180001ab0 f   pmc_memory.obj
  0001:00001160       Initialize_Add             0000000180002160 f   pmc_add.obj
  0001:00001180       PMC_Add_I_X                0000000180002180 f   pmc_add.obj
  0001:000011e0       PMC_Add_L_X                00000001800021e0 f   pmc_add.obj
@@ -421,9 +421,9 @@
  0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
  0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
  0000:fffe5000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0001:00000240       CalculateCheckCode         0000000180001240 f   memory.obj
- 0001:00000500       CleanUpNumber              0000000180001500 f   memory.obj
- 0001:00000890       InitializeNumber           0000000180001890 f   memory.obj
+ 0001:00000240       CalculateCheckCode         0000000180001240 f   pmc_memory.obj
+ 0001:00000500       CleanUpNumber              0000000180001500 f   pmc_memory.obj
+ 0001:00000890       InitializeNumber           0000000180001890 f   pmc_memory.obj
  0001:00000b20       Add_Imp_using_ADC          0000000180001b20 f   pmc_add.obj
  0001:00000f10       Add_Imp_using_ADCX         0000000180001f10 f   pmc_add.obj
  0001:000010f0       DoCarry                    00000001800020f0 f   pmc_add.obj
@@ -506,23 +506,23 @@
  0002:000001c0       GS_ExceptionPointers       00000001800151c0     MSVCRT:gs_report.obj
  0002:00000630       $unwind$GetCPUInfo         0000000180015630     cpuid.obj
  0002:0000063c       $unwind$DllMain            000000018001563c     dllmain.obj
- 0002:00000644       $unwind$AllocateHeapArea   0000000180015644     memory.obj
- 0002:0000064c       $unwind$DeallocateHeapArea 000000018001564c     memory.obj
- 0002:00000654       $unwind$AllocateBlock      0000000180015654     memory.obj
- 0002:00000664       $unwind$DeallocateBlock    0000000180015664     memory.obj
- 0002:0000066c       $chain$0$DeallocateBlock   000000018001566c     memory.obj
- 0002:00000680       $chain$1$DeallocateBlock   0000000180015680     memory.obj
- 0002:00000690       $unwind$AttatchNumber      0000000180015690     memory.obj
- 0002:00000698       $unwind$AllocateNumber     0000000180015698     memory.obj
- 0002:000006ac       $unwind$DeallocateNumber   00000001800156ac     memory.obj
- 0002:000006b4       $unwind$CommitNumber       00000001800156b4     memory.obj
- 0002:000006bc       $unwind$DuplicateNumber    00000001800156bc     memory.obj
- 0002:000006d0       $unwind$Initialize_Memory  00000001800156d0     memory.obj
- 0002:000006dc       $unwind$PMC_Dispose        00000001800156dc     memory.obj
- 0002:000006e4       $unwind$InitializeNumber   00000001800156e4     memory.obj
- 0002:000006f8       $unwind$CleanUpNumber      00000001800156f8     memory.obj
- 0002:00000700       $chain$0$CleanUpNumber     0000000180015700     memory.obj
- 0002:00000714       $chain$1$CleanUpNumber     0000000180015714     memory.obj
+ 0002:00000644       $unwind$AllocateHeapArea   0000000180015644     pmc_memory.obj
+ 0002:0000064c       $unwind$DeallocateHeapArea 000000018001564c     pmc_memory.obj
+ 0002:00000654       $unwind$AllocateBlock      0000000180015654     pmc_memory.obj
+ 0002:00000664       $unwind$DeallocateBlock    0000000180015664     pmc_memory.obj
+ 0002:0000066c       $chain$0$DeallocateBlock   000000018001566c     pmc_memory.obj
+ 0002:00000680       $chain$1$DeallocateBlock   0000000180015680     pmc_memory.obj
+ 0002:00000690       $unwind$AttatchNumber      0000000180015690     pmc_memory.obj
+ 0002:00000698       $unwind$AllocateNumber     0000000180015698     pmc_memory.obj
+ 0002:000006ac       $unwind$DeallocateNumber   00000001800156ac     pmc_memory.obj
+ 0002:000006b4       $unwind$CommitNumber       00000001800156b4     pmc_memory.obj
+ 0002:000006bc       $unwind$DuplicateNumber    00000001800156bc     pmc_memory.obj
+ 0002:000006d0       $unwind$Initialize_Memory  00000001800156d0     pmc_memory.obj
+ 0002:000006dc       $unwind$PMC_Dispose        00000001800156dc     pmc_memory.obj
+ 0002:000006e4       $unwind$InitializeNumber   00000001800156e4     pmc_memory.obj
+ 0002:000006f8       $unwind$CleanUpNumber      00000001800156f8     pmc_memory.obj
+ 0002:00000700       $chain$0$CleanUpNumber     0000000180015700     pmc_memory.obj
+ 0002:00000714       $chain$1$CleanUpNumber     0000000180015714     pmc_memory.obj
  0002:00000724       $unwind$PMC_Add_I_X        0000000180015724     pmc_add.obj
  0002:00000734       $unwind$PMC_Add_L_X        0000000180015734     pmc_add.obj
  0002:00000744       $unwind$PMC_Add_X_I        0000000180015744     pmc_add.obj
@@ -772,23 +772,23 @@
  0003:00000940       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 0000000180017940     MSVCRT:utility.obj
  0004:00000000       $pdata$GetCPUInfo          0000000180018000     cpuid.obj
  0004:0000000c       $pdata$DllMain             000000018001800c     dllmain.obj
- 0004:00000018       $pdata$AllocateHeapArea    0000000180018018     memory.obj
- 0004:00000024       $pdata$DeallocateHeapArea  0000000180018024     memory.obj
- 0004:00000030       $pdata$AllocateBlock       0000000180018030     memory.obj
- 0004:0000003c       $pdata$DeallocateBlock     000000018001803c     memory.obj
- 0004:00000048       $pdata$0$DeallocateBlock   0000000180018048     memory.obj
- 0004:00000054       $pdata$1$DeallocateBlock   0000000180018054     memory.obj
- 0004:00000060       $pdata$AttatchNumber       0000000180018060     memory.obj
- 0004:0000006c       $pdata$AllocateNumber      000000018001806c     memory.obj
- 0004:00000078       $pdata$DeallocateNumber    0000000180018078     memory.obj
- 0004:00000084       $pdata$CommitNumber        0000000180018084     memory.obj
- 0004:00000090       $pdata$DuplicateNumber     0000000180018090     memory.obj
- 0004:0000009c       $pdata$Initialize_Memory   000000018001809c     memory.obj
- 0004:000000a8       $pdata$PMC_Dispose         00000001800180a8     memory.obj
- 0004:000000b4       $pdata$InitializeNumber    00000001800180b4     memory.obj
- 0004:000000c0       $pdata$CleanUpNumber       00000001800180c0     memory.obj
- 0004:000000cc       $pdata$0$CleanUpNumber     00000001800180cc     memory.obj
- 0004:000000d8       $pdata$1$CleanUpNumber     00000001800180d8     memory.obj
+ 0004:00000018       $pdata$AllocateHeapArea    0000000180018018     pmc_memory.obj
+ 0004:00000024       $pdata$DeallocateHeapArea  0000000180018024     pmc_memory.obj
+ 0004:00000030       $pdata$AllocateBlock       0000000180018030     pmc_memory.obj
+ 0004:0000003c       $pdata$DeallocateBlock     000000018001803c     pmc_memory.obj
+ 0004:00000048       $pdata$0$DeallocateBlock   0000000180018048     pmc_memory.obj
+ 0004:00000054       $pdata$1$DeallocateBlock   0000000180018054     pmc_memory.obj
+ 0004:00000060       $pdata$AttatchNumber       0000000180018060     pmc_memory.obj
+ 0004:0000006c       $pdata$AllocateNumber      000000018001806c     pmc_memory.obj
+ 0004:00000078       $pdata$DeallocateNumber    0000000180018078     pmc_memory.obj
+ 0004:00000084       $pdata$CommitNumber        0000000180018084     pmc_memory.obj
+ 0004:00000090       $pdata$DuplicateNumber     0000000180018090     pmc_memory.obj
+ 0004:0000009c       $pdata$Initialize_Memory   000000018001809c     pmc_memory.obj
+ 0004:000000a8       $pdata$PMC_Dispose         00000001800180a8     pmc_memory.obj
+ 0004:000000b4       $pdata$InitializeNumber    00000001800180b4     pmc_memory.obj
+ 0004:000000c0       $pdata$CleanUpNumber       00000001800180c0     pmc_memory.obj
+ 0004:000000cc       $pdata$0$CleanUpNumber     00000001800180cc     pmc_memory.obj
+ 0004:000000d8       $pdata$1$CleanUpNumber     00000001800180d8     pmc_memory.obj
  0004:000000e4       $pdata$PMC_Add_I_X         00000001800180e4     pmc_add.obj
  0004:000000f0       $pdata$PMC_Add_L_X         00000001800180f0     pmc_add.obj
  0004:000000fc       $pdata$PMC_Add_X_I         00000001800180fc     pmc_add.obj

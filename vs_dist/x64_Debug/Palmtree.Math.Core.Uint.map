@@ -1,6 +1,6 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c59a613 (Wed Feb  6 00:04:51 2019)
+ Timestamp is 5c59ac45 (Wed Feb  6 00:31:17 2019)
 
  Preferred load address is 0000000180000000
 
@@ -70,20 +70,20 @@
  0002:00001a60       DllMain                    00000001802eca60 f   dllmain.obj
  0002:00001b40       INTERNALTEST_DivRem_X_X    00000001802ecb40 f   INTERNALTEST_op_DivRem.obj
  0002:000023d0       INTERNALTEST_Multiply_X_X_Imp 00000001802ed3d0 f   INTERNALTEST_op_Multiply.obj
- 0002:000029b0       AllocateBlock              00000001802ed9b0 f   memory.obj
- 0002:00002ba0       AllocateHeapArea           00000001802edba0 f   memory.obj
- 0002:00002c20       AllocateNumber             00000001802edc20 f   memory.obj
- 0002:00002d10       AttatchNumber              00000001802edd10 f   memory.obj
- 0002:00003c00       CheckBlockLight            00000001802eec00 f   memory.obj
- 0002:00003d00       CheckNumber                00000001802eed00 f   memory.obj
- 0002:00004250       CommitNumber               00000001802ef250 f   memory.obj
- 0002:00004650       DeallocateBlock            00000001802ef650 f   memory.obj
- 0002:00004720       DeallocateHeapArea         00000001802ef720 f   memory.obj
- 0002:00004790       DeallocateNumber           00000001802ef790 f   memory.obj
- 0002:00004840       DetatchNumber              00000001802ef840 f   memory.obj
- 0002:000048d0       DuplicateNumber            00000001802ef8d0 f   memory.obj
- 0002:00005150       Initialize_Memory          00000001802f0150 f   memory.obj
- 0002:00005290       PMC_Dispose                00000001802f0290 f   memory.obj
+ 0002:000029b0       AllocateBlock              00000001802ed9b0 f   pmc_memory.obj
+ 0002:00002ba0       AllocateHeapArea           00000001802edba0 f   pmc_memory.obj
+ 0002:00002c20       AllocateNumber             00000001802edc20 f   pmc_memory.obj
+ 0002:00002d10       AttatchNumber              00000001802edd10 f   pmc_memory.obj
+ 0002:00003c00       CheckBlockLight            00000001802eec00 f   pmc_memory.obj
+ 0002:00003d00       CheckNumber                00000001802eed00 f   pmc_memory.obj
+ 0002:00004250       CommitNumber               00000001802ef250 f   pmc_memory.obj
+ 0002:00004650       DeallocateBlock            00000001802ef650 f   pmc_memory.obj
+ 0002:00004720       DeallocateHeapArea         00000001802ef720 f   pmc_memory.obj
+ 0002:00004790       DeallocateNumber           00000001802ef790 f   pmc_memory.obj
+ 0002:00004840       DetatchNumber              00000001802ef840 f   pmc_memory.obj
+ 0002:000048d0       DuplicateNumber            00000001802ef8d0 f   pmc_memory.obj
+ 0002:00005150       Initialize_Memory          00000001802f0150 f   pmc_memory.obj
+ 0002:00005290       PMC_Dispose                00000001802f0290 f   pmc_memory.obj
  0002:000068d0       Initialize_Add             00000001802f18d0 f   pmc_add.obj
  0002:00006970       PMC_Add_I_X                00000001802f1970 f   pmc_add.obj
  0002:00006a80       PMC_Add_L_X                00000001802f1a80 f   pmc_add.obj
@@ -3316,29 +3316,29 @@
  0002:000027b0       _COPY_MEMORY_BYTE          00000001802ed7b0 f   INTERNALTEST_op_Multiply.obj
  0002:00002830       _DIVIDE_CEILING_SIZE       00000001802ed830 f   INTERNALTEST_op_Multiply.obj
  0002:000028b0       _EQUALS_MEMORY             00000001802ed8b0 f   INTERNALTEST_op_Multiply.obj
- 0002:00002dc0       CalculateCheckCode         00000001802eddc0 f   memory.obj
- 0002:00003b00       CheckBlock                 00000001802eeb00 f   memory.obj
- 0002:00003e10       CleanUpNumber              00000001802eee10 f   memory.obj
- 0002:00003eb0       ClearNumberHeader          00000001802eeeb0 f   memory.obj
- 0002:00004170       CommitBlock                00000001802ef170 f   memory.obj
- 0002:00004a40       FillNumberHeader           00000001802efa40 f   memory.obj
- 0002:00004d60       GetEffectiveBitLength      00000001802efd60 f   memory.obj
- 0002:00004ec0       GetTrailingZeroBitCount    00000001802efec0 f   memory.obj
- 0002:00004fb0       InitializeNumber           00000001802effb0 f   memory.obj
- 0002:00005320       _COPY_MEMORY_UNIT          00000001802f0320 f   memory.obj
- 0002:000053a0       _DIVIDE_CEILING_UNIT       00000001802f03a0 f   memory.obj
- 0002:00005420       _FILL_MEMORY_16            00000001802f0420 f   memory.obj
- 0002:000054a0       _FILL_MEMORY_32            00000001802f04a0 f   memory.obj
- 0002:00005520       _FILL_MEMORY_64            00000001802f0520 f   memory.obj
- 0002:000055a0       _FILL_MEMORY_BYTE          00000001802f05a0 f   memory.obj
- 0002:00005620       _FILL_MEMORY_UNIT          00000001802f0620 f   memory.obj
- 0002:000056a0       _LZCNT_ALT_UNIT            00000001802f06a0 f   memory.obj
- 0002:00005750       _ROTATE_L_UNIT             00000001802f0750 f   memory.obj
- 0002:000057c0       _TZCNT_ALT_UNIT            00000001802f07c0 f   memory.obj
- 0002:00005860       _ZERO_MEMORY_16            00000001802f0860 f   memory.obj
- 0002:000058d0       _ZERO_MEMORY_32            00000001802f08d0 f   memory.obj
- 0002:00005940       _ZERO_MEMORY_64            00000001802f0940 f   memory.obj
- 0002:000059b0       _ZERO_MEMORY_BYTE          00000001802f09b0 f   memory.obj
+ 0002:00002dc0       CalculateCheckCode         00000001802eddc0 f   pmc_memory.obj
+ 0002:00003b00       CheckBlock                 00000001802eeb00 f   pmc_memory.obj
+ 0002:00003e10       CleanUpNumber              00000001802eee10 f   pmc_memory.obj
+ 0002:00003eb0       ClearNumberHeader          00000001802eeeb0 f   pmc_memory.obj
+ 0002:00004170       CommitBlock                00000001802ef170 f   pmc_memory.obj
+ 0002:00004a40       FillNumberHeader           00000001802efa40 f   pmc_memory.obj
+ 0002:00004d60       GetEffectiveBitLength      00000001802efd60 f   pmc_memory.obj
+ 0002:00004ec0       GetTrailingZeroBitCount    00000001802efec0 f   pmc_memory.obj
+ 0002:00004fb0       InitializeNumber           00000001802effb0 f   pmc_memory.obj
+ 0002:00005320       _COPY_MEMORY_UNIT          00000001802f0320 f   pmc_memory.obj
+ 0002:000053a0       _DIVIDE_CEILING_UNIT       00000001802f03a0 f   pmc_memory.obj
+ 0002:00005420       _FILL_MEMORY_16            00000001802f0420 f   pmc_memory.obj
+ 0002:000054a0       _FILL_MEMORY_32            00000001802f04a0 f   pmc_memory.obj
+ 0002:00005520       _FILL_MEMORY_64            00000001802f0520 f   pmc_memory.obj
+ 0002:000055a0       _FILL_MEMORY_BYTE          00000001802f05a0 f   pmc_memory.obj
+ 0002:00005620       _FILL_MEMORY_UNIT          00000001802f0620 f   pmc_memory.obj
+ 0002:000056a0       _LZCNT_ALT_UNIT            00000001802f06a0 f   pmc_memory.obj
+ 0002:00005750       _ROTATE_L_UNIT             00000001802f0750 f   pmc_memory.obj
+ 0002:000057c0       _TZCNT_ALT_UNIT            00000001802f07c0 f   pmc_memory.obj
+ 0002:00005860       _ZERO_MEMORY_16            00000001802f0860 f   pmc_memory.obj
+ 0002:000058d0       _ZERO_MEMORY_32            00000001802f08d0 f   pmc_memory.obj
+ 0002:00005940       _ZERO_MEMORY_64            00000001802f0940 f   pmc_memory.obj
+ 0002:000059b0       _ZERO_MEMORY_BYTE          00000001802f09b0 f   pmc_memory.obj
  0002:00005a20       Add_Imp_using_ADC          00000001802f0a20 f   pmc_add.obj
  0002:00005ea0       Add_Imp_using_ADCX         00000001802f0ea0 f   pmc_add.obj
  0002:00006320       Add_X_1W                   00000001802f1320 f   pmc_add.obj
@@ -3659,18 +3659,18 @@
  0003:00001518       INTERNALTEST_Multiply_X_X_Imp$rtcName$7 00000001808c5518     INTERNALTEST_op_Multiply.obj
  0003:00001530       INTERNALTEST_Multiply_X_X_Imp$rtcVarDesc 00000001808c5530     INTERNALTEST_op_Multiply.obj
  0003:00001730       INTERNALTEST_Multiply_X_X_Imp$rtcFrameData 00000001808c5730     INTERNALTEST_op_Multiply.obj
- 0003:00001870       DuplicateNumber$rtcName$0  00000001808c5870     memory.obj
- 0003:00001880       DuplicateNumber$rtcVarDesc 00000001808c5880     memory.obj
- 0003:000018c0       DuplicateNumber$rtcFrameData 00000001808c58c0     memory.obj
- 0003:000018f0       _LZCNT_ALT_UNIT$rtcName$0  00000001808c58f0     memory.obj
- 0003:00001900       _LZCNT_ALT_UNIT$rtcVarDesc 00000001808c5900     memory.obj
- 0003:00001940       _LZCNT_ALT_UNIT$rtcFrameData 00000001808c5940     memory.obj
- 0003:00001970       _TZCNT_ALT_UNIT$rtcName$0  00000001808c5970     memory.obj
- 0003:00001980       _TZCNT_ALT_UNIT$rtcVarDesc 00000001808c5980     memory.obj
- 0003:000019c0       _TZCNT_ALT_UNIT$rtcFrameData 00000001808c59c0     memory.obj
- 0003:000019f0       InitializeNumber$rtcName$0 00000001808c59f0     memory.obj
- 0003:00001a00       InitializeNumber$rtcVarDesc 00000001808c5a00     memory.obj
- 0003:00001a40       InitializeNumber$rtcFrameData 00000001808c5a40     memory.obj
+ 0003:00001870       DuplicateNumber$rtcName$0  00000001808c5870     pmc_memory.obj
+ 0003:00001880       DuplicateNumber$rtcVarDesc 00000001808c5880     pmc_memory.obj
+ 0003:000018c0       DuplicateNumber$rtcFrameData 00000001808c58c0     pmc_memory.obj
+ 0003:000018f0       _LZCNT_ALT_UNIT$rtcName$0  00000001808c58f0     pmc_memory.obj
+ 0003:00001900       _LZCNT_ALT_UNIT$rtcVarDesc 00000001808c5900     pmc_memory.obj
+ 0003:00001940       _LZCNT_ALT_UNIT$rtcFrameData 00000001808c5940     pmc_memory.obj
+ 0003:00001970       _TZCNT_ALT_UNIT$rtcName$0  00000001808c5970     pmc_memory.obj
+ 0003:00001980       _TZCNT_ALT_UNIT$rtcVarDesc 00000001808c5980     pmc_memory.obj
+ 0003:000019c0       _TZCNT_ALT_UNIT$rtcFrameData 00000001808c59c0     pmc_memory.obj
+ 0003:000019f0       InitializeNumber$rtcName$0 00000001808c59f0     pmc_memory.obj
+ 0003:00001a00       InitializeNumber$rtcVarDesc 00000001808c5a00     pmc_memory.obj
+ 0003:00001a40       InitializeNumber$rtcFrameData 00000001808c5a40     pmc_memory.obj
  0003:00001a70       PMC_Add_X_X$rtcName$0      00000001808c5a70     pmc_add.obj
  0003:00001a78       PMC_Add_X_X$rtcName$1      00000001808c5a78     pmc_add.obj
  0003:00001a90       PMC_Add_X_X$rtcVarDesc     00000001808c5a90     pmc_add.obj
@@ -4482,7 +4482,7 @@
  0003:0007ae18       _RTC_InitBase.rtc$IMZ      000000018093ee18     dllmain.obj
  0003:0007ae28       _RTC_InitBase.rtc$IMZ      000000018093ee28     INTERNALTEST_op_DivRem.obj
  0003:0007ae38       _RTC_InitBase.rtc$IMZ      000000018093ee38     INTERNALTEST_op_Multiply.obj
- 0003:0007ae48       _RTC_InitBase.rtc$IMZ      000000018093ee48     memory.obj
+ 0003:0007ae48       _RTC_InitBase.rtc$IMZ      000000018093ee48     pmc_memory.obj
  0003:0007ae58       _RTC_InitBase.rtc$IMZ      000000018093ee58     pmc_add.obj
  0003:0007ae68       _RTC_InitBase.rtc$IMZ      000000018093ee68     pmc_bitwiseand.obj
  0003:0007ae78       _RTC_InitBase.rtc$IMZ      000000018093ee78     pmc_bitwiseor.obj
@@ -4532,7 +4532,7 @@
  0003:0007b4b8       _RTC_Shutdown.rtc$TMZ      000000018093f4b8     dllmain.obj
  0003:0007b4c8       _RTC_Shutdown.rtc$TMZ      000000018093f4c8     INTERNALTEST_op_DivRem.obj
  0003:0007b4d8       _RTC_Shutdown.rtc$TMZ      000000018093f4d8     INTERNALTEST_op_Multiply.obj
- 0003:0007b4e8       _RTC_Shutdown.rtc$TMZ      000000018093f4e8     memory.obj
+ 0003:0007b4e8       _RTC_Shutdown.rtc$TMZ      000000018093f4e8     pmc_memory.obj
  0003:0007b4f8       _RTC_Shutdown.rtc$TMZ      000000018093f4f8     pmc_add.obj
  0003:0007b508       _RTC_Shutdown.rtc$TMZ      000000018093f508     pmc_bitwiseand.obj
  0003:0007b518       _RTC_Shutdown.rtc$TMZ      000000018093f518     pmc_bitwiseor.obj
@@ -4597,43 +4597,43 @@
  0003:0007bb8c       $unwind$_DIVIDE_CEILING_SIZE 000000018093fb8c     INTERNALTEST_op_Multiply.obj
  0003:0007bba0       $unwind$INTERNALTEST_Multiply_X_X_Imp 000000018093fba0     INTERNALTEST_op_Multiply.obj
  0003:0007bbb4       $unwind$_EQUALS_MEMORY     000000018093fbb4     INTERNALTEST_op_Multiply.obj
- 0003:0007bbc8       $unwind$AllocateHeapArea   000000018093fbc8     memory.obj
- 0003:0007bbdc       $unwind$DeallocateHeapArea 000000018093fbdc     memory.obj
- 0003:0007bbf0       $unwind$AllocateBlock      000000018093fbf0     memory.obj
- 0003:0007bc04       $unwind$DeallocateBlock    000000018093fc04     memory.obj
- 0003:0007bc18       $unwind$CheckBlockLight    000000018093fc18     memory.obj
- 0003:0007bc2c       $unwind$AttatchNumber      000000018093fc2c     memory.obj
- 0003:0007bc40       $unwind$AllocateNumber     000000018093fc40     memory.obj
- 0003:0007bc54       $unwind$DetatchNumber      000000018093fc54     memory.obj
- 0003:0007bc68       $unwind$DeallocateNumber   000000018093fc68     memory.obj
- 0003:0007bc7c       $unwind$CommitNumber       000000018093fc7c     memory.obj
- 0003:0007bc90       $unwind$CheckNumber        000000018093fc90     memory.obj
- 0003:0007bca4       $unwind$DuplicateNumber    000000018093fca4     memory.obj
- 0003:0007bcb8       $unwind$Initialize_Memory  000000018093fcb8     memory.obj
- 0003:0007bccc       $unwind$PMC_Dispose        000000018093fccc     memory.obj
- 0003:0007bce0       $unwind$_COPY_MEMORY_UNIT  000000018093fce0     memory.obj
- 0003:0007bcf4       $unwind$_ZERO_MEMORY_BYTE  000000018093fcf4     memory.obj
- 0003:0007bd08       $unwind$_ZERO_MEMORY_16    000000018093fd08     memory.obj
- 0003:0007bd1c       $unwind$_ZERO_MEMORY_32    000000018093fd1c     memory.obj
- 0003:0007bd30       $unwind$_ZERO_MEMORY_64    000000018093fd30     memory.obj
- 0003:0007bd44       $unwind$_FILL_MEMORY_BYTE  000000018093fd44     memory.obj
- 0003:0007bd58       $unwind$_FILL_MEMORY_16    000000018093fd58     memory.obj
- 0003:0007bd6c       $unwind$_FILL_MEMORY_32    000000018093fd6c     memory.obj
- 0003:0007bd80       $unwind$_FILL_MEMORY_64    000000018093fd80     memory.obj
- 0003:0007bd94       $unwind$_FILL_MEMORY_UNIT  000000018093fd94     memory.obj
- 0003:0007bda8       $unwind$_DIVIDE_CEILING_UNIT 000000018093fda8     memory.obj
- 0003:0007bdbc       $unwind$_ROTATE_L_UNIT     000000018093fdbc     memory.obj
- 0003:0007bdd0       $unwind$_LZCNT_ALT_UNIT    000000018093fdd0     memory.obj
- 0003:0007bde4       $unwind$_TZCNT_ALT_UNIT    000000018093fde4     memory.obj
- 0003:0007bdf8       $unwind$CalculateCheckCode 000000018093fdf8     memory.obj
- 0003:0007be0c       $unwind$CommitBlock        000000018093fe0c     memory.obj
- 0003:0007be20       $unwind$CheckBlock         000000018093fe20     memory.obj
- 0003:0007be34       $unwind$ClearNumberHeader  000000018093fe34     memory.obj
- 0003:0007be48       $unwind$FillNumberHeader   000000018093fe48     memory.obj
- 0003:0007be5c       $unwind$InitializeNumber   000000018093fe5c     memory.obj
- 0003:0007be70       $unwind$CleanUpNumber      000000018093fe70     memory.obj
- 0003:0007be84       $unwind$GetEffectiveBitLength 000000018093fe84     memory.obj
- 0003:0007be98       $unwind$GetTrailingZeroBitCount 000000018093fe98     memory.obj
+ 0003:0007bbc8       $unwind$AllocateHeapArea   000000018093fbc8     pmc_memory.obj
+ 0003:0007bbdc       $unwind$DeallocateHeapArea 000000018093fbdc     pmc_memory.obj
+ 0003:0007bbf0       $unwind$AllocateBlock      000000018093fbf0     pmc_memory.obj
+ 0003:0007bc04       $unwind$DeallocateBlock    000000018093fc04     pmc_memory.obj
+ 0003:0007bc18       $unwind$CheckBlockLight    000000018093fc18     pmc_memory.obj
+ 0003:0007bc2c       $unwind$AttatchNumber      000000018093fc2c     pmc_memory.obj
+ 0003:0007bc40       $unwind$AllocateNumber     000000018093fc40     pmc_memory.obj
+ 0003:0007bc54       $unwind$DetatchNumber      000000018093fc54     pmc_memory.obj
+ 0003:0007bc68       $unwind$DeallocateNumber   000000018093fc68     pmc_memory.obj
+ 0003:0007bc7c       $unwind$CommitNumber       000000018093fc7c     pmc_memory.obj
+ 0003:0007bc90       $unwind$CheckNumber        000000018093fc90     pmc_memory.obj
+ 0003:0007bca4       $unwind$DuplicateNumber    000000018093fca4     pmc_memory.obj
+ 0003:0007bcb8       $unwind$Initialize_Memory  000000018093fcb8     pmc_memory.obj
+ 0003:0007bccc       $unwind$PMC_Dispose        000000018093fccc     pmc_memory.obj
+ 0003:0007bce0       $unwind$_COPY_MEMORY_UNIT  000000018093fce0     pmc_memory.obj
+ 0003:0007bcf4       $unwind$_ZERO_MEMORY_BYTE  000000018093fcf4     pmc_memory.obj
+ 0003:0007bd08       $unwind$_ZERO_MEMORY_16    000000018093fd08     pmc_memory.obj
+ 0003:0007bd1c       $unwind$_ZERO_MEMORY_32    000000018093fd1c     pmc_memory.obj
+ 0003:0007bd30       $unwind$_ZERO_MEMORY_64    000000018093fd30     pmc_memory.obj
+ 0003:0007bd44       $unwind$_FILL_MEMORY_BYTE  000000018093fd44     pmc_memory.obj
+ 0003:0007bd58       $unwind$_FILL_MEMORY_16    000000018093fd58     pmc_memory.obj
+ 0003:0007bd6c       $unwind$_FILL_MEMORY_32    000000018093fd6c     pmc_memory.obj
+ 0003:0007bd80       $unwind$_FILL_MEMORY_64    000000018093fd80     pmc_memory.obj
+ 0003:0007bd94       $unwind$_FILL_MEMORY_UNIT  000000018093fd94     pmc_memory.obj
+ 0003:0007bda8       $unwind$_DIVIDE_CEILING_UNIT 000000018093fda8     pmc_memory.obj
+ 0003:0007bdbc       $unwind$_ROTATE_L_UNIT     000000018093fdbc     pmc_memory.obj
+ 0003:0007bdd0       $unwind$_LZCNT_ALT_UNIT    000000018093fdd0     pmc_memory.obj
+ 0003:0007bde4       $unwind$_TZCNT_ALT_UNIT    000000018093fde4     pmc_memory.obj
+ 0003:0007bdf8       $unwind$CalculateCheckCode 000000018093fdf8     pmc_memory.obj
+ 0003:0007be0c       $unwind$CommitBlock        000000018093fe0c     pmc_memory.obj
+ 0003:0007be20       $unwind$CheckBlock         000000018093fe20     pmc_memory.obj
+ 0003:0007be34       $unwind$ClearNumberHeader  000000018093fe34     pmc_memory.obj
+ 0003:0007be48       $unwind$FillNumberHeader   000000018093fe48     pmc_memory.obj
+ 0003:0007be5c       $unwind$InitializeNumber   000000018093fe5c     pmc_memory.obj
+ 0003:0007be70       $unwind$CleanUpNumber      000000018093fe70     pmc_memory.obj
+ 0003:0007be84       $unwind$GetEffectiveBitLength 000000018093fe84     pmc_memory.obj
+ 0003:0007be98       $unwind$GetTrailingZeroBitCount 000000018093fe98     pmc_memory.obj
  0003:0007beac       $unwind$Initialize_Add     000000018093feac     pmc_add.obj
  0003:0007bec0       $unwind$PMC_Add_I_X        000000018093fec0     pmc_add.obj
  0003:0007bed4       $unwind$PMC_Add_L_X        000000018093fed4     pmc_add.obj
@@ -21659,43 +21659,43 @@
  0005:000018d8       $pdata$_DIVIDE_CEILING_SIZE 00000001809c88d8     INTERNALTEST_op_Multiply.obj
  0005:000018c0       $pdata$INTERNALTEST_Multiply_X_X_Imp 00000001809c88c0     INTERNALTEST_op_Multiply.obj
  0005:000018e4       $pdata$_EQUALS_MEMORY      00000001809c88e4     INTERNALTEST_op_Multiply.obj
- 0005:000018fc       $pdata$AllocateHeapArea    00000001809c88fc     memory.obj
- 0005:0000198c       $pdata$DeallocateHeapArea  00000001809c898c     memory.obj
- 0005:000018f0       $pdata$AllocateBlock       00000001809c88f0     memory.obj
- 0005:00001980       $pdata$DeallocateBlock     00000001809c8980     memory.obj
- 0005:00001938       $pdata$CheckBlockLight     00000001809c8938     memory.obj
- 0005:00001914       $pdata$AttatchNumber       00000001809c8914     memory.obj
- 0005:00001908       $pdata$AllocateNumber      00000001809c8908     memory.obj
- 0005:000019a4       $pdata$DetatchNumber       00000001809c89a4     memory.obj
- 0005:00001998       $pdata$DeallocateNumber    00000001809c8998     memory.obj
- 0005:00001974       $pdata$CommitNumber        00000001809c8974     memory.obj
- 0005:00001944       $pdata$CheckNumber         00000001809c8944     memory.obj
- 0005:000019b0       $pdata$DuplicateNumber     00000001809c89b0     memory.obj
- 0005:000019ec       $pdata$Initialize_Memory   00000001809c89ec     memory.obj
- 0005:000019f8       $pdata$PMC_Dispose         00000001809c89f8     memory.obj
- 0005:00001a04       $pdata$_COPY_MEMORY_UNIT   00000001809c8a04     memory.obj
- 0005:00001aa0       $pdata$_ZERO_MEMORY_BYTE   00000001809c8aa0     memory.obj
- 0005:00001a7c       $pdata$_ZERO_MEMORY_16     00000001809c8a7c     memory.obj
- 0005:00001a88       $pdata$_ZERO_MEMORY_32     00000001809c8a88     memory.obj
- 0005:00001a94       $pdata$_ZERO_MEMORY_64     00000001809c8a94     memory.obj
- 0005:00001a40       $pdata$_FILL_MEMORY_BYTE   00000001809c8a40     memory.obj
- 0005:00001a1c       $pdata$_FILL_MEMORY_16     00000001809c8a1c     memory.obj
- 0005:00001a28       $pdata$_FILL_MEMORY_32     00000001809c8a28     memory.obj
- 0005:00001a34       $pdata$_FILL_MEMORY_64     00000001809c8a34     memory.obj
- 0005:00001a4c       $pdata$_FILL_MEMORY_UNIT   00000001809c8a4c     memory.obj
- 0005:00001a10       $pdata$_DIVIDE_CEILING_UNIT 00000001809c8a10     memory.obj
- 0005:00001a64       $pdata$_ROTATE_L_UNIT      00000001809c8a64     memory.obj
- 0005:00001a58       $pdata$_LZCNT_ALT_UNIT     00000001809c8a58     memory.obj
- 0005:00001a70       $pdata$_TZCNT_ALT_UNIT     00000001809c8a70     memory.obj
- 0005:00001920       $pdata$CalculateCheckCode  00000001809c8920     memory.obj
- 0005:00001968       $pdata$CommitBlock         00000001809c8968     memory.obj
- 0005:0000192c       $pdata$CheckBlock          00000001809c892c     memory.obj
- 0005:0000195c       $pdata$ClearNumberHeader   00000001809c895c     memory.obj
- 0005:000019bc       $pdata$FillNumberHeader    00000001809c89bc     memory.obj
- 0005:000019e0       $pdata$InitializeNumber    00000001809c89e0     memory.obj
- 0005:00001950       $pdata$CleanUpNumber       00000001809c8950     memory.obj
- 0005:000019c8       $pdata$GetEffectiveBitLength 00000001809c89c8     memory.obj
- 0005:000019d4       $pdata$GetTrailingZeroBitCount 00000001809c89d4     memory.obj
+ 0005:000018fc       $pdata$AllocateHeapArea    00000001809c88fc     pmc_memory.obj
+ 0005:0000198c       $pdata$DeallocateHeapArea  00000001809c898c     pmc_memory.obj
+ 0005:000018f0       $pdata$AllocateBlock       00000001809c88f0     pmc_memory.obj
+ 0005:00001980       $pdata$DeallocateBlock     00000001809c8980     pmc_memory.obj
+ 0005:00001938       $pdata$CheckBlockLight     00000001809c8938     pmc_memory.obj
+ 0005:00001914       $pdata$AttatchNumber       00000001809c8914     pmc_memory.obj
+ 0005:00001908       $pdata$AllocateNumber      00000001809c8908     pmc_memory.obj
+ 0005:000019a4       $pdata$DetatchNumber       00000001809c89a4     pmc_memory.obj
+ 0005:00001998       $pdata$DeallocateNumber    00000001809c8998     pmc_memory.obj
+ 0005:00001974       $pdata$CommitNumber        00000001809c8974     pmc_memory.obj
+ 0005:00001944       $pdata$CheckNumber         00000001809c8944     pmc_memory.obj
+ 0005:000019b0       $pdata$DuplicateNumber     00000001809c89b0     pmc_memory.obj
+ 0005:000019ec       $pdata$Initialize_Memory   00000001809c89ec     pmc_memory.obj
+ 0005:000019f8       $pdata$PMC_Dispose         00000001809c89f8     pmc_memory.obj
+ 0005:00001a04       $pdata$_COPY_MEMORY_UNIT   00000001809c8a04     pmc_memory.obj
+ 0005:00001aa0       $pdata$_ZERO_MEMORY_BYTE   00000001809c8aa0     pmc_memory.obj
+ 0005:00001a7c       $pdata$_ZERO_MEMORY_16     00000001809c8a7c     pmc_memory.obj
+ 0005:00001a88       $pdata$_ZERO_MEMORY_32     00000001809c8a88     pmc_memory.obj
+ 0005:00001a94       $pdata$_ZERO_MEMORY_64     00000001809c8a94     pmc_memory.obj
+ 0005:00001a40       $pdata$_FILL_MEMORY_BYTE   00000001809c8a40     pmc_memory.obj
+ 0005:00001a1c       $pdata$_FILL_MEMORY_16     00000001809c8a1c     pmc_memory.obj
+ 0005:00001a28       $pdata$_FILL_MEMORY_32     00000001809c8a28     pmc_memory.obj
+ 0005:00001a34       $pdata$_FILL_MEMORY_64     00000001809c8a34     pmc_memory.obj
+ 0005:00001a4c       $pdata$_FILL_MEMORY_UNIT   00000001809c8a4c     pmc_memory.obj
+ 0005:00001a10       $pdata$_DIVIDE_CEILING_UNIT 00000001809c8a10     pmc_memory.obj
+ 0005:00001a64       $pdata$_ROTATE_L_UNIT      00000001809c8a64     pmc_memory.obj
+ 0005:00001a58       $pdata$_LZCNT_ALT_UNIT     00000001809c8a58     pmc_memory.obj
+ 0005:00001a70       $pdata$_TZCNT_ALT_UNIT     00000001809c8a70     pmc_memory.obj
+ 0005:00001920       $pdata$CalculateCheckCode  00000001809c8920     pmc_memory.obj
+ 0005:00001968       $pdata$CommitBlock         00000001809c8968     pmc_memory.obj
+ 0005:0000192c       $pdata$CheckBlock          00000001809c892c     pmc_memory.obj
+ 0005:0000195c       $pdata$ClearNumberHeader   00000001809c895c     pmc_memory.obj
+ 0005:000019bc       $pdata$FillNumberHeader    00000001809c89bc     pmc_memory.obj
+ 0005:000019e0       $pdata$InitializeNumber    00000001809c89e0     pmc_memory.obj
+ 0005:00001950       $pdata$CleanUpNumber       00000001809c8950     pmc_memory.obj
+ 0005:000019c8       $pdata$GetEffectiveBitLength 00000001809c89c8     pmc_memory.obj
+ 0005:000019d4       $pdata$GetTrailingZeroBitCount 00000001809c89d4     pmc_memory.obj
  0005:00001ae8       $pdata$Initialize_Add      00000001809c8ae8     pmc_add.obj
  0005:00001af4       $pdata$PMC_Add_I_X         00000001809c8af4     pmc_add.obj
  0005:00001b00       $pdata$PMC_Add_L_X         00000001809c8b00     pmc_add.obj
@@ -22288,21 +22288,21 @@
  0007:00000053       __8CA3E54E_pmc_inline_func@h 00000001809cc053     INTERNALTEST_op_Multiply.obj
  0007:00000054       __630249ED_pmc_uint_debug@h 00000001809cc054     INTERNALTEST_op_Multiply.obj
  0007:00000055       __E80DD667_internaltest_op_multiply@c 00000001809cc055     INTERNALTEST_op_Multiply.obj
- 0007:00000059       __7B7A869E_ctype@h         00000001809cc059     memory.obj
- 0007:0000005a       __457DD326_basetsd@h       00000001809cc05a     memory.obj
- 0007:0000005b       __4384A2D9_corecrt_memcpy_s@h 00000001809cc05b     memory.obj
- 0007:0000005c       __4E51A221_corecrt_wstring@h 00000001809cc05c     memory.obj
- 0007:0000005d       __2140C079_string@h        00000001809cc05d     memory.obj
- 0007:0000005e       __1887E595_winnt@h         00000001809cc05e     memory.obj
- 0007:0000005f       __9FC7C64B_processthreadsapi@h 00000001809cc05f     memory.obj
- 0007:00000060       __FA470AEC_memoryapi@h     00000001809cc060     memory.obj
- 0007:00000061       __F37DAFF1_winerror@h      00000001809cc061     memory.obj
- 0007:00000062       __7A450CCC_winbase@h       00000001809cc062     memory.obj
- 0007:00000063       __B4B40122_winioctl@h      00000001809cc063     memory.obj
- 0007:00000064       __86261D59_stralign@h      00000001809cc064     memory.obj
- 0007:00000065       __BB6D3116_pmc_uint_internal@h 00000001809cc065     memory.obj
- 0007:00000066       __8CA3E54E_pmc_inline_func@h 00000001809cc066     memory.obj
- 0007:00000067       __FB6BCCD2_memory@c        00000001809cc067     memory.obj
+ 0007:00000059       __7B7A869E_ctype@h         00000001809cc059     pmc_memory.obj
+ 0007:0000005a       __457DD326_basetsd@h       00000001809cc05a     pmc_memory.obj
+ 0007:0000005b       __4384A2D9_corecrt_memcpy_s@h 00000001809cc05b     pmc_memory.obj
+ 0007:0000005c       __4E51A221_corecrt_wstring@h 00000001809cc05c     pmc_memory.obj
+ 0007:0000005d       __2140C079_string@h        00000001809cc05d     pmc_memory.obj
+ 0007:0000005e       __1887E595_winnt@h         00000001809cc05e     pmc_memory.obj
+ 0007:0000005f       __9FC7C64B_processthreadsapi@h 00000001809cc05f     pmc_memory.obj
+ 0007:00000060       __FA470AEC_memoryapi@h     00000001809cc060     pmc_memory.obj
+ 0007:00000061       __F37DAFF1_winerror@h      00000001809cc061     pmc_memory.obj
+ 0007:00000062       __7A450CCC_winbase@h       00000001809cc062     pmc_memory.obj
+ 0007:00000063       __B4B40122_winioctl@h      00000001809cc063     pmc_memory.obj
+ 0007:00000064       __86261D59_stralign@h      00000001809cc064     pmc_memory.obj
+ 0007:00000065       __BB6D3116_pmc_uint_internal@h 00000001809cc065     pmc_memory.obj
+ 0007:00000066       __8CA3E54E_pmc_inline_func@h 00000001809cc066     pmc_memory.obj
+ 0007:00000067       __AC713800_pmc_memory@c    00000001809cc067     pmc_memory.obj
  0007:0000006b       __7B7A869E_ctype@h         00000001809cc06b     pmc_add.obj
  0007:0000006c       __457DD326_basetsd@h       00000001809cc06c     pmc_add.obj
  0007:0000006d       __4384A2D9_corecrt_memcpy_s@h 00000001809cc06d     pmc_add.obj
