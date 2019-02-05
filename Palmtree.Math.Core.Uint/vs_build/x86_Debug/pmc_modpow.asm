@@ -75,7 +75,7 @@ _m$ = 16						; size = 4
 _r$ = 20						; size = 4
 _PMC_ModPow_X_X_X_Imp PROC
 
-; 507  : {
+; 500  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -84,9 +84,9 @@ _PMC_ModPow_X_X_X_Imp PROC
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 508  :     PMC_STATUS_CODE result;
-; 509  : 
-; 510  :     if (m->IS_ZERO)
+; 501  :     PMC_STATUS_CODE result;
+; 502  : 
+; 503  :     if (m->IS_ZERO)
 
 	mov	eax, DWORD PTR _m$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -94,21 +94,21 @@ _PMC_ModPow_X_X_X_Imp PROC
 	and	ecx, 1
 	je	SHORT $LN2@PMC_ModPow
 
-; 511  :     {
-; 512  :         // m が 0 の場合
-; 513  : 
-; 514  :         // 0 による除算は許されないのでエラーを通知する
-; 515  :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 504  :     {
+; 505  :         // m が 0 の場合
+; 506  : 
+; 507  :         // 0 による除算は許されないのでエラーを通知する
+; 508  :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3					; fffffffdH
 	jmp	$LN1@PMC_ModPow
 
-; 516  :     }
+; 509  :     }
 
 	jmp	$LN3@PMC_ModPow
 $LN2@PMC_ModPow:
 
-; 517  :     else if (m->IS_ONE)
+; 510  :     else if (m->IS_ONE)
 
 	mov	edx, DWORD PTR _m$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -116,9 +116,9 @@ $LN2@PMC_ModPow:
 	and	eax, 1
 	je	SHORT $LN4@PMC_ModPow
 
-; 518  :     {
-; 519  :         // m が 1 の場合
-; 520  :         if (v->IS_ZERO)
+; 511  :     {
+; 512  :         // m が 1 の場合
+; 513  :         if (v->IS_ZERO)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -126,9 +126,9 @@ $LN2@PMC_ModPow:
 	and	edx, 1
 	je	SHORT $LN6@PMC_ModPow
 
-; 521  :         {
-; 522  :             // v が 0 の場合
-; 523  :             if (e->IS_ZERO)
+; 514  :         {
+; 515  :             // v が 0 の場合
+; 516  :             if (e->IS_ZERO)
 
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -136,58 +136,58 @@ $LN2@PMC_ModPow:
 	and	ecx, 1
 	je	SHORT $LN8@PMC_ModPow
 
-; 524  :             {
-; 525  :                 // e が 0 の場合
-; 526  : 
-; 527  :                 // 0 の 0 乗となるので、エラーを返す
-; 528  :                 return (PMC_STATUS_ARGUMENT_ERROR);
+; 517  :             {
+; 518  :                 // e が 0 の場合
+; 519  : 
+; 520  :                 // 0 の 0 乗となるので、エラーを返す
+; 521  :                 return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 
-; 529  :             }
+; 522  :             }
 
 	jmp	SHORT $LN9@PMC_ModPow
 $LN8@PMC_ModPow:
 
-; 530  :             else
-; 531  :             {
-; 532  :                 // e が 0 ではない場合
-; 533  : 
-; 534  :                 // v の e 乗がどんな値であっても 1 では必ず割り切れるので剰余は 0 となる。
-; 535  :                 *r = &number_zero;
+; 523  :             else
+; 524  :             {
+; 525  :                 // e が 0 ではない場合
+; 526  : 
+; 527  :                 // v の e 乗がどんな値であっても 1 では必ず割り切れるので剰余は 0 となる。
+; 528  :                 *r = &number_zero;
 
 	mov	edx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
 $LN9@PMC_ModPow:
 
-; 536  :             }
-; 537  :         }
+; 529  :             }
+; 530  :         }
 
 	jmp	SHORT $LN7@PMC_ModPow
 $LN6@PMC_ModPow:
 
-; 538  :         else
-; 539  :         {
-; 540  :             // v が 0 ではない場合
-; 541  : 
-; 542  :             // v の e 乗がどんな値であっても 1 では必ず割り切れるので剰余は 0 となる。
-; 543  :             *r = &number_zero;
+; 531  :         else
+; 532  :         {
+; 533  :             // v が 0 ではない場合
+; 534  : 
+; 535  :             // v の e 乗がどんな値であっても 1 では必ず割り切れるので剰余は 0 となる。
+; 536  :             *r = &number_zero;
 
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 $LN7@PMC_ModPow:
 
-; 544  :         }
-; 545  :     }
+; 537  :         }
+; 538  :     }
 
 	jmp	$LN3@PMC_ModPow
 $LN4@PMC_ModPow:
 
-; 546  :     else
-; 547  :     {
-; 548  :         // m が 2 以上の場合
-; 549  :         if (v->IS_ZERO)
+; 539  :     else
+; 540  :     {
+; 541  :         // m が 2 以上の場合
+; 542  :         if (v->IS_ZERO)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -195,9 +195,9 @@ $LN4@PMC_ModPow:
 	and	edx, 1
 	je	SHORT $LN10@PMC_ModPow
 
-; 550  :         {
-; 551  :             // v が 0 の場合
-; 552  :             if (e->IS_ZERO)
+; 543  :         {
+; 544  :             // v が 0 の場合
+; 545  :             if (e->IS_ZERO)
 
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -205,37 +205,37 @@ $LN4@PMC_ModPow:
 	and	ecx, 1
 	je	SHORT $LN12@PMC_ModPow
 
-; 553  :             {
-; 554  :                 // e が 0 の場合
-; 555  : 
-; 556  :                 // 0 の 0 乗となるので、エラーを返す
-; 557  :                 return (PMC_STATUS_ARGUMENT_ERROR);
+; 546  :             {
+; 547  :                 // e が 0 の場合
+; 548  : 
+; 549  :                 // 0 の 0 乗となるので、エラーを返す
+; 550  :                 return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 
-; 558  :             }
+; 551  :             }
 
 	jmp	SHORT $LN13@PMC_ModPow
 $LN12@PMC_ModPow:
 
-; 559  :             else
-; 560  :             {
-; 561  :                 // e が 0 ではない場合
-; 562  : 
-; 563  :                 *r = &number_zero;
+; 552  :             else
+; 553  :             {
+; 554  :                 // e が 0 ではない場合
+; 555  : 
+; 556  :                 *r = &number_zero;
 
 	mov	edx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
 $LN13@PMC_ModPow:
 
-; 564  :             }
-; 565  :         }
+; 557  :             }
+; 558  :         }
 
 	jmp	$LN3@PMC_ModPow
 $LN10@PMC_ModPow:
 
-; 566  :         else if (v->IS_ONE)
+; 559  :         else if (v->IS_ONE)
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -243,24 +243,24 @@ $LN10@PMC_ModPow:
 	and	ecx, 1
 	je	SHORT $LN14@PMC_ModPow
 
-; 567  :         {
-; 568  :             // v が 1 の場合
-; 569  : 
-; 570  :             // 1 を何乗しても 1 であり、1 を 2 以上の数で割ればその剰余は必ず 1 となる
-; 571  :             *r = &number_one;
+; 560  :         {
+; 561  :             // v が 1 の場合
+; 562  : 
+; 563  :             // 1 を何乗しても 1 であり、1 を 2 以上の数で割ればその剰余は必ず 1 となる
+; 564  :             *r = &number_one;
 
 	mov	edx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_one
 
-; 572  :         }
+; 565  :         }
 
 	jmp	SHORT $LN3@PMC_ModPow
 $LN14@PMC_ModPow:
 
-; 573  :         else
-; 574  :         {
-; 575  :             // v が 2 以上の場合
-; 576  :             if (e->IS_ZERO)
+; 566  :         else
+; 567  :         {
+; 568  :             // v が 2 以上の場合
+; 569  :             if (e->IS_ZERO)
 
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -268,19 +268,19 @@ $LN14@PMC_ModPow:
 	and	ecx, 1
 	je	SHORT $LN16@PMC_ModPow
 
-; 577  :             {
-; 578  :                 // e が 0 の場合
-; 579  :                 *r = &number_one;
+; 570  :             {
+; 571  :                 // e が 0 の場合
+; 572  :                 *r = &number_one;
 
 	mov	edx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_one
 
-; 580  :             }
+; 573  :             }
 
 	jmp	SHORT $LN3@PMC_ModPow
 $LN16@PMC_ModPow:
 
-; 581  :             else if (e->IS_ONE)
+; 574  :             else if (e->IS_ONE)
 
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -288,11 +288,11 @@ $LN16@PMC_ModPow:
 	and	ecx, 1
 	je	SHORT $LN18@PMC_ModPow
 
-; 582  :             {
-; 583  :                 // e が 1 の場合
-; 584  : 
-; 585  :                 // v % m を計算して返す
-; 586  :                 if ((result = Remainder(v, m, r)) != PMC_STATUS_OK)
+; 575  :             {
+; 576  :                 // e が 1 の場合
+; 577  : 
+; 578  :                 // v % m を計算して返す
+; 579  :                 if ((result = Remainder(v, m, r)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _r$[ebp]
 	push	edx
@@ -306,22 +306,22 @@ $LN16@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN20@PMC_ModPow
 
-; 587  :                     return (result);
+; 580  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN20@PMC_ModPow:
 
-; 588  :             }
+; 581  :             }
 
 	jmp	SHORT $LN3@PMC_ModPow
 $LN18@PMC_ModPow:
 
-; 589  :             else
-; 590  :             {
-; 591  :                 // v、e、m がすべて 2 以上である場合
-; 592  :                 // v の e 乗 の m による剰余を計算して返す
-; 593  :                 if ((result = ModulePower(v, e, m, r)) != PMC_STATUS_OK)
+; 582  :             else
+; 583  :             {
+; 584  :                 // v、e、m がすべて 2 以上である場合
+; 585  :                 // v の e 乗 の m による剰余を計算して返す
+; 586  :                 if ((result = ModulePower(v, e, m, r)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _r$[ebp]
 	push	edx
@@ -337,21 +337,21 @@ $LN18@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN3@PMC_ModPow
 
-; 594  :                     return (result);
+; 587  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN3@PMC_ModPow:
 
-; 595  :             }
-; 596  :         }
-; 597  :     }
-; 598  :     return (PMC_STATUS_OK);
+; 588  :             }
+; 589  :         }
+; 590  :     }
+; 591  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_ModPow:
 
-; 599  : }
+; 592  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -403,7 +403,7 @@ _m$ = 16						; size = 4
 _r$ = 20						; size = 4
 _ModulePower PROC
 
-; 162  : {
+; 155  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -416,26 +416,26 @@ _ModulePower PROC
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 163  : #ifdef DO_TRACE
-; 164  :     ReportIN(v, e, m);
-; 165  : #endif
-; 166  :     PMC_STATUS_CODE result;
-; 167  :     __UNIT_TYPE* m_buf = m->BLOCK;
+; 156  : #ifdef DO_TRACE
+; 157  :     ReportIN(v, e, m);
+; 158  : #endif
+; 159  :     PMC_STATUS_CODE result;
+; 160  :     __UNIT_TYPE* m_buf = m->BLOCK;
 
 	mov	eax, DWORD PTR _m$[ebp]
 	mov	ecx, DWORD PTR [eax+32]
 	mov	DWORD PTR _m_buf$[ebp], ecx
 
-; 168  :     __UNIT_TYPE m_count = m->UNIT_WORD_COUNT;
+; 161  :     __UNIT_TYPE m_count = m->UNIT_WORD_COUNT;
 
 	mov	edx, DWORD PTR _m$[ebp]
 	mov	eax, DWORD PTR [edx+8]
 	mov	DWORD PTR _m_count$[ebp], eax
 
-; 169  : 
-; 170  :     // 作業域を獲得する
-; 171  : 
-; 172  :     __UNIT_TYPE v_2_bit_count = v->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
+; 162  : 
+; 163  :     // 作業域を獲得する
+; 164  : 
+; 165  :     __UNIT_TYPE v_2_bit_count = v->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	edx, DWORD PTR [ecx+8]
@@ -443,9 +443,9 @@ _ModulePower PROC
 	add	edx, 32					; 00000020H
 	mov	DWORD PTR _v_2_bit_count$[ebp], edx
 
-; 173  :     __UNIT_TYPE v_2_buf_code;
-; 174  :     __UNIT_TYPE v_2_buf_words;
-; 175  :     __UNIT_TYPE* v_2_buf = AllocateBlock(v_2_bit_count, &v_2_buf_words, &v_2_buf_code);
+; 166  :     __UNIT_TYPE v_2_buf_code;
+; 167  :     __UNIT_TYPE v_2_buf_words;
+; 168  :     __UNIT_TYPE* v_2_buf = AllocateBlock(v_2_bit_count, &v_2_buf_words, &v_2_buf_code);
 
 	lea	eax, DWORD PTR _v_2_buf_code$[ebp]
 	push	eax
@@ -457,21 +457,21 @@ _ModulePower PROC
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _v_2_buf$[ebp], eax
 
-; 176  :     if (v_2_buf == NULL)
+; 169  :     if (v_2_buf == NULL)
 
 	cmp	DWORD PTR _v_2_buf$[ebp], 0
 	jne	SHORT $LN10@ModulePowe
 
-; 177  :     {
-; 178  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 170  :     {
+; 171  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN10@ModulePowe:
 
-; 179  :     }
-; 180  : 
-; 181  :     __UNIT_TYPE work_1_bit_count = m_count * 2 * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
+; 172  :     }
+; 173  : 
+; 174  :     __UNIT_TYPE work_1_bit_count = m_count * 2 * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
 
 	mov	eax, DWORD PTR _m_count$[ebp]
 	shl	eax, 1
@@ -479,9 +479,9 @@ $LN10@ModulePowe:
 	add	eax, 32					; 00000020H
 	mov	DWORD PTR _work_1_bit_count$[ebp], eax
 
-; 182  :     __UNIT_TYPE work_1_buf_code;
-; 183  :     __UNIT_TYPE work_1_buf_words;
-; 184  :     __UNIT_TYPE* work_1_buf = AllocateBlock(work_1_bit_count, &work_1_buf_words, &work_1_buf_code);
+; 175  :     __UNIT_TYPE work_1_buf_code;
+; 176  :     __UNIT_TYPE work_1_buf_words;
+; 177  :     __UNIT_TYPE* work_1_buf = AllocateBlock(work_1_bit_count, &work_1_buf_words, &work_1_buf_code);
 
 	lea	ecx, DWORD PTR _work_1_buf_code$[ebp]
 	push	ecx
@@ -493,13 +493,13 @@ $LN10@ModulePowe:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_1_buf$[ebp], eax
 
-; 185  :     if (work_1_buf == NULL)
+; 178  :     if (work_1_buf == NULL)
 
 	cmp	DWORD PTR _work_1_buf$[ebp], 0
 	jne	SHORT $LN11@ModulePowe
 
-; 186  :     {
-; 187  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 179  :     {
+; 180  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	ecx, DWORD PTR _v_2_buf_words$[ebp]
 	push	ecx
@@ -508,15 +508,15 @@ $LN10@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 188  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 181  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN11@ModulePowe:
 
-; 189  :     }
-; 190  : 
-; 191  :     __UNIT_TYPE work_2_bit_count = m_count * 2 * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
+; 182  :     }
+; 183  : 
+; 184  :     __UNIT_TYPE work_2_bit_count = m_count * 2 * __UNIT_TYPE_BIT_COUNT + __UNIT_TYPE_BIT_COUNT;
 
 	mov	eax, DWORD PTR _m_count$[ebp]
 	shl	eax, 1
@@ -524,9 +524,9 @@ $LN11@ModulePowe:
 	add	eax, 32					; 00000020H
 	mov	DWORD PTR _work_2_bit_count$[ebp], eax
 
-; 192  :     __UNIT_TYPE work_2_buf_code;
-; 193  :     __UNIT_TYPE work_2_buf_words;
-; 194  :     __UNIT_TYPE* work_2_buf = AllocateBlock(work_2_bit_count, &work_2_buf_words, &work_2_buf_code);
+; 185  :     __UNIT_TYPE work_2_buf_code;
+; 186  :     __UNIT_TYPE work_2_buf_words;
+; 187  :     __UNIT_TYPE* work_2_buf = AllocateBlock(work_2_bit_count, &work_2_buf_words, &work_2_buf_code);
 
 	lea	ecx, DWORD PTR _work_2_buf_code$[ebp]
 	push	ecx
@@ -538,13 +538,13 @@ $LN11@ModulePowe:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_2_buf$[ebp], eax
 
-; 195  :     if (work_2_buf == NULL)
+; 188  :     if (work_2_buf == NULL)
 
 	cmp	DWORD PTR _work_2_buf$[ebp], 0
 	jne	SHORT $LN12@ModulePowe
 
-; 196  :     {
-; 197  :         DeallocateBlock(work_1_buf, work_1_buf_words);
+; 189  :     {
+; 190  :         DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	ecx, DWORD PTR _work_1_buf_words$[ebp]
 	push	ecx
@@ -553,7 +553,7 @@ $LN11@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 198  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 191  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	eax, DWORD PTR _v_2_buf_words$[ebp]
 	push	eax
@@ -562,23 +562,23 @@ $LN11@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 199  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 192  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN12@ModulePowe:
 
-; 200  :     }
-; 201  : 
-; 202  :     __UNIT_TYPE work_v_bit_count = m_count * __UNIT_TYPE_BIT_COUNT;
+; 193  :     }
+; 194  : 
+; 195  :     __UNIT_TYPE work_v_bit_count = m_count * __UNIT_TYPE_BIT_COUNT;
 
 	mov	edx, DWORD PTR _m_count$[ebp]
 	shl	edx, 5
 	mov	DWORD PTR _work_v_bit_count$[ebp], edx
 
-; 203  :     __UNIT_TYPE work_v_buf_code;
-; 204  :     __UNIT_TYPE work_v_buf_words;
-; 205  :     __UNIT_TYPE* work_v_buf = AllocateBlock(work_v_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 196  :     __UNIT_TYPE work_v_buf_code;
+; 197  :     __UNIT_TYPE work_v_buf_words;
+; 198  :     __UNIT_TYPE* work_v_buf = AllocateBlock(work_v_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	eax, DWORD PTR _work_v_buf_code$[ebp]
 	push	eax
@@ -590,13 +590,13 @@ $LN12@ModulePowe:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$[ebp], eax
 
-; 206  :     if (work_v_buf == NULL)
+; 199  :     if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$[ebp], 0
 	jne	SHORT $LN13@ModulePowe
 
-; 207  :     {
-; 208  :         DeallocateBlock(work_2_buf, work_2_buf_words);
+; 200  :     {
+; 201  :         DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	eax, DWORD PTR _work_2_buf_words$[ebp]
 	push	eax
@@ -605,7 +605,7 @@ $LN12@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 209  :         DeallocateBlock(work_1_buf, work_1_buf_words);
+; 202  :         DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	edx, DWORD PTR _work_1_buf_words$[ebp]
 	push	edx
@@ -614,7 +614,7 @@ $LN12@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 210  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 203  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	ecx, DWORD PTR _v_2_buf_words$[ebp]
 	push	ecx
@@ -623,15 +623,15 @@ $LN12@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 211  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 204  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN13@ModulePowe:
 
-; 212  :     }
-; 213  : 
-; 214  :     __UNIT_TYPE q_buf_bit_count = _MAXIMUM_UNIT(v->UNIT_BIT_COUNT, m->UNIT_BIT_COUNT * 2) - m->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT;
+; 205  :     }
+; 206  : 
+; 207  :     __UNIT_TYPE q_buf_bit_count = _MAXIMUM_UNIT(v->UNIT_BIT_COUNT, m->UNIT_BIT_COUNT * 2) - m->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT;
 
 	mov	eax, DWORD PTR _m$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
@@ -647,9 +647,9 @@ $LN13@ModulePowe:
 	add	eax, 33					; 00000021H
 	mov	DWORD PTR _q_buf_bit_count$[ebp], eax
 
-; 215  :     __UNIT_TYPE q_buf_code;
-; 216  :     __UNIT_TYPE q_buf_words;
-; 217  :     __UNIT_TYPE* q_buf = AllocateBlock(q_buf_bit_count, &q_buf_words, &q_buf_code);
+; 208  :     __UNIT_TYPE q_buf_code;
+; 209  :     __UNIT_TYPE q_buf_words;
+; 210  :     __UNIT_TYPE* q_buf = AllocateBlock(q_buf_bit_count, &q_buf_words, &q_buf_code);
 
 	lea	edx, DWORD PTR _q_buf_code$[ebp]
 	push	edx
@@ -661,13 +661,13 @@ $LN13@ModulePowe:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _q_buf$[ebp], eax
 
-; 218  :     if (q_buf == NULL)
+; 211  :     if (q_buf == NULL)
 
 	cmp	DWORD PTR _q_buf$[ebp], 0
 	jne	SHORT $LN14@ModulePowe
 
-; 219  :     {
-; 220  :         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 212  :     {
+; 213  :         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
@@ -676,7 +676,7 @@ $LN13@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 221  :         DeallocateBlock(work_2_buf, work_2_buf_words);
+; 214  :         DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	ecx, DWORD PTR _work_2_buf_words$[ebp]
 	push	ecx
@@ -685,7 +685,7 @@ $LN13@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 222  :         DeallocateBlock(work_1_buf, work_1_buf_words);
+; 215  :         DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -694,7 +694,7 @@ $LN13@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 223  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 216  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	edx, DWORD PTR _v_2_buf_words$[ebp]
 	push	edx
@@ -703,22 +703,22 @@ $LN13@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 224  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 217  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN14@ModulePowe:
 
-; 225  :     }
-; 226  : 
-; 227  :     __UNIT_TYPE r_bit_count = m->UNIT_BIT_COUNT;
+; 218  :     }
+; 219  : 
+; 220  :     __UNIT_TYPE r_bit_count = m->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _m$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _r_bit_count$[ebp], edx
 
-; 228  :     __UNIT_TYPE r_check_code;
-; 229  :     if ((result = AllocateNumber(r, r_bit_count, &r_check_code)) != PMC_STATUS_OK)
+; 221  :     __UNIT_TYPE r_check_code;
+; 222  :     if ((result = AllocateNumber(r, r_bit_count, &r_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _r_check_code$[ebp]
 	push	eax
@@ -732,8 +732,8 @@ $LN14@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN15@ModulePowe
 
-; 230  :     {
-; 231  :         DeallocateBlock(q_buf, q_buf_words);
+; 223  :     {
+; 224  :         DeallocateBlock(q_buf, q_buf_words);
 
 	mov	eax, DWORD PTR _q_buf_words$[ebp]
 	push	eax
@@ -742,7 +742,7 @@ $LN14@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 232  :         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 225  :         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
@@ -751,7 +751,7 @@ $LN14@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 233  :         DeallocateBlock(work_2_buf, work_2_buf_words);
+; 226  :         DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	ecx, DWORD PTR _work_2_buf_words$[ebp]
 	push	ecx
@@ -760,7 +760,7 @@ $LN14@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 234  :         DeallocateBlock(work_1_buf, work_1_buf_words);
+; 227  :         DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -769,7 +769,7 @@ $LN14@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 235  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 228  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	edx, DWORD PTR _v_2_buf_words$[ebp]
 	push	edx
@@ -778,16 +778,16 @@ $LN14@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 236  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 229  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@ModulePowe
 $LN15@ModulePowe:
 
-; 237  :     }
-; 238  : 
-; 239  :     __UNIT_TYPE v_count;
-; 240  :     int cmp = Compare_Easy(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count);
+; 230  :     }
+; 231  : 
+; 232  :     __UNIT_TYPE v_count;
+; 233  :     int cmp = Compare_Easy(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count);
 
 	mov	ecx, DWORD PTR _m_count$[ebp]
 	push	ecx
@@ -803,17 +803,17 @@ $LN15@ModulePowe:
 	add	esp, 16					; 00000010H
 	mov	DWORD PTR _cmp$[ebp], eax
 
-; 241  :     if (cmp == 0)
+; 234  :     if (cmp == 0)
 
 	cmp	DWORD PTR _cmp$[ebp], 0
 	jne	SHORT $LN16@ModulePowe
 
-; 242  :     {
-; 243  :         // v == m である場合
-; 244  : 
-; 245  :         // v を何乗してもその剰余は 0 であるため、0 を返す。
-; 246  : 
-; 247  :         DeallocateNumber(*r);
+; 235  :     {
+; 236  :         // v == m である場合
+; 237  : 
+; 238  :         // v を何乗してもその剰余は 0 であるため、0 を返す。
+; 239  : 
+; 240  :         DeallocateNumber(*r);
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -821,7 +821,7 @@ $LN15@ModulePowe:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 248  :         DeallocateBlock(q_buf, q_buf_words);
+; 241  :         DeallocateBlock(q_buf, q_buf_words);
 
 	mov	eax, DWORD PTR _q_buf_words$[ebp]
 	push	eax
@@ -830,7 +830,7 @@ $LN15@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 249  :         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 242  :         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
@@ -839,7 +839,7 @@ $LN15@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 250  :         DeallocateBlock(work_2_buf, work_2_buf_words);
+; 243  :         DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	ecx, DWORD PTR _work_2_buf_words$[ebp]
 	push	ecx
@@ -848,7 +848,7 @@ $LN15@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 251  :         DeallocateBlock(work_1_buf, work_1_buf_words);
+; 244  :         DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -857,7 +857,7 @@ $LN15@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 252  :         DeallocateBlock(v_2_buf, v_2_buf_words);
+; 245  :         DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	edx, DWORD PTR _v_2_buf_words$[ebp]
 	push	edx
@@ -866,35 +866,35 @@ $LN15@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 253  :         *r = &number_zero;
+; 246  :         *r = &number_zero;
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [ecx], OFFSET _number_zero
 
-; 254  : #ifdef DO_TRACE
-; 255  :         ReportOUT(*r);
-; 256  : #endif
-; 257  :         return (PMC_STATUS_OK);
+; 247  : #ifdef DO_TRACE
+; 248  :         ReportOUT(*r);
+; 249  : #endif
+; 250  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@ModulePowe
 
-; 258  :     }
+; 251  :     }
 
 	jmp	$LN17@ModulePowe
 $LN16@ModulePowe:
 
-; 259  :     else if (cmp > 0)
+; 252  :     else if (cmp > 0)
 
 	cmp	DWORD PTR _cmp$[ebp], 0
 	jle	$LN18@ModulePowe
 
-; 260  :     {
-; 261  :         // v > m である場合
-; 262  : 
-; 263  :         // v2 を v % m に設定する。
-; 264  : 
-; 265  :         DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, q_buf, v_2_buf);
+; 253  :     {
+; 254  :         // v > m である場合
+; 255  : 
+; 256  :         // v2 を v % m に設定する。
+; 257  : 
+; 258  :         DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, q_buf, v_2_buf);
 
 	mov	edx, DWORD PTR _v_2_buf$[ebp]
 	push	edx
@@ -915,7 +915,7 @@ $LN16@ModulePowe:
 	call	_DivRem_X_X
 	add	esp, 28					; 0000001cH
 
-; 266  :         if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 259  :         if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_v_buf_code$[ebp]
 	push	edx
@@ -927,13 +927,13 @@ $LN16@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN20@ModulePowe
 
-; 267  :             return (result);
+; 260  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN20@ModulePowe:
 
-; 268  :         if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
+; 261  :         if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _q_buf_code$[ebp]
 	push	ecx
@@ -945,13 +945,13 @@ $LN20@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN21@ModulePowe
 
-; 269  :             return (result);
+; 262  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN21@ModulePowe:
 
-; 270  :         if ((result = CheckBlockLight(v_2_buf, v_2_buf_code)) != PMC_STATUS_OK)
+; 263  :         if ((result = CheckBlockLight(v_2_buf, v_2_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _v_2_buf_code$[ebp]
 	push	eax
@@ -963,19 +963,19 @@ $LN21@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN22@ModulePowe
 
-; 271  :             return (result);
+; 264  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN22@ModulePowe:
 
-; 272  :         v_count = m_count;
+; 265  :         v_count = m_count;
 
 	mov	edx, DWORD PTR _m_count$[ebp]
 	mov	DWORD PTR _v_count$[ebp], edx
 $LN2@ModulePowe:
 
-; 273  :         while (v_count > 0 && v_2_buf[v_count - 1] == 0)
+; 266  :         while (v_count > 0 && v_2_buf[v_count - 1] == 0)
 
 	cmp	DWORD PTR _v_count$[ebp], 0
 	jbe	SHORT $LN3@ModulePowe
@@ -984,7 +984,7 @@ $LN2@ModulePowe:
 	cmp	DWORD PTR [ecx+eax*4-4], 0
 	jne	SHORT $LN3@ModulePowe
 
-; 274  :             --v_count;
+; 267  :             --v_count;
 
 	mov	edx, DWORD PTR _v_count$[ebp]
 	sub	edx, 1
@@ -992,15 +992,15 @@ $LN2@ModulePowe:
 	jmp	SHORT $LN2@ModulePowe
 $LN3@ModulePowe:
 
-; 275  : 
-; 276  :         if (v_count <= 0)
+; 268  : 
+; 269  :         if (v_count <= 0)
 
 	cmp	DWORD PTR _v_count$[ebp], 0
 	ja	SHORT $LN23@ModulePowe
 
-; 277  :         {
-; 278  :             // v2 が 0 になってしまった場合はべき乗を繰り返しても 0 になることが確定なので 0 を返す
-; 279  :             DeallocateNumber(*r);
+; 270  :         {
+; 271  :             // v2 が 0 になってしまった場合はべき乗を繰り返しても 0 になることが確定なので 0 を返す
+; 272  :             DeallocateNumber(*r);
 
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -1008,7 +1008,7 @@ $LN3@ModulePowe:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 280  :             DeallocateBlock(q_buf, q_buf_words);
+; 273  :             DeallocateBlock(q_buf, q_buf_words);
 
 	mov	edx, DWORD PTR _q_buf_words$[ebp]
 	push	edx
@@ -1017,7 +1017,7 @@ $LN3@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 281  :             DeallocateBlock(work_v_buf, work_v_buf_words);
+; 274  :             DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$[ebp]
 	push	ecx
@@ -1026,7 +1026,7 @@ $LN3@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 282  :             DeallocateBlock(work_2_buf, work_2_buf_words);
+; 275  :             DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	eax, DWORD PTR _work_2_buf_words$[ebp]
 	push	eax
@@ -1035,7 +1035,7 @@ $LN3@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 283  :             DeallocateBlock(work_1_buf, work_1_buf_words);
+; 276  :             DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	edx, DWORD PTR _work_1_buf_words$[ebp]
 	push	edx
@@ -1044,7 +1044,7 @@ $LN3@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 284  :             DeallocateBlock(v_2_buf, v_2_buf_words);
+; 277  :             DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	ecx, DWORD PTR _v_2_buf_words$[ebp]
 	push	ecx
@@ -1053,31 +1053,31 @@ $LN3@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 285  :             *r = &number_zero;
+; 278  :             *r = &number_zero;
 
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 286  : #ifdef DO_TRACE
-; 287  :             ReportOUT(*r);
-; 288  : #endif
-; 289  :             return (PMC_STATUS_OK);
+; 279  : #ifdef DO_TRACE
+; 280  :             ReportOUT(*r);
+; 281  : #endif
+; 282  :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@ModulePowe
 $LN23@ModulePowe:
 
-; 290  :         }
-; 291  :     }
+; 283  :         }
+; 284  :     }
 
 	jmp	SHORT $LN17@ModulePowe
 $LN18@ModulePowe:
 
-; 292  :     else
-; 293  :     {
-; 294  :         // v2 を v に設定する。
-; 295  : 
-; 296  :         _COPY_MEMORY_UNIT(v_2_buf, v->BLOCK, v->UNIT_WORD_COUNT);
+; 285  :     else
+; 286  :     {
+; 287  :         // v2 を v に設定する。
+; 288  : 
+; 289  :         _COPY_MEMORY_UNIT(v_2_buf, v->BLOCK, v->UNIT_WORD_COUNT);
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	edx, DWORD PTR [ecx+8]
@@ -1090,30 +1090,30 @@ $LN18@ModulePowe:
 	call	__COPY_MEMORY_UNIT
 	add	esp, 12					; 0000000cH
 
-; 297  :         v_count = v->UNIT_WORD_COUNT;
+; 290  :         v_count = v->UNIT_WORD_COUNT;
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
 	mov	DWORD PTR _v_count$[ebp], ecx
 $LN17@ModulePowe:
 
-; 298  :     }
-; 299  : 
-; 300  : #ifdef DO_TRACE
-; 301  :     ReportLabel("vの初期化");
-; 302  :     ReportDump("v", v_2_buf, v_count);
-; 303  : #endif
-; 304  :     __UNIT_TYPE e_count = e->UNIT_WORD_COUNT;
+; 291  :     }
+; 292  : 
+; 293  : #ifdef DO_TRACE
+; 294  :     ReportLabel("vの初期化");
+; 295  :     ReportDump("v", v_2_buf, v_count);
+; 296  : #endif
+; 297  :     __UNIT_TYPE e_count = e->UNIT_WORD_COUNT;
 
 	mov	edx, DWORD PTR _e$[ebp]
 	mov	eax, DWORD PTR [edx+8]
 	mov	DWORD PTR _e_count$[ebp], eax
 
-; 305  :     __UNIT_TYPE e_mask = ~((__UNIT_TYPE)-1 >> 1);
+; 298  :     __UNIT_TYPE e_mask = ~((__UNIT_TYPE)-1 >> 1);
 
 	mov	DWORD PTR _e_mask$[ebp], -2147483648	; 80000000H
 
-; 306  :     e_mask = e_mask >> _LZCNT_ALT_UNIT(e->BLOCK[e_count - 1]);
+; 299  :     e_mask = e_mask >> _LZCNT_ALT_UNIT(e->BLOCK[e_count - 1]);
 
 	mov	ecx, DWORD PTR _e$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
@@ -1127,9 +1127,9 @@ $LN17@ModulePowe:
 	shr	edx, cl
 	mov	DWORD PTR _e_mask$[ebp], edx
 
-; 307  :     // e_mask は e の最上位 bit を示しているはず
-; 308  :     // かつ、e は 2以上であるので、同時に最下位 bit であることはあり得ない
-; 309  :     _COPY_MEMORY_UNIT(work_1_buf, v_2_buf, m_count);
+; 300  :     // e_mask は e の最上位 bit を示しているはず
+; 301  :     // かつ、e は 2以上であるので、同時に最下位 bit であることはあり得ない
+; 302  :     _COPY_MEMORY_UNIT(work_1_buf, v_2_buf, m_count);
 
 	mov	eax, DWORD PTR _m_count$[ebp]
 	push	eax
@@ -1140,9 +1140,9 @@ $LN17@ModulePowe:
 	call	__COPY_MEMORY_UNIT
 	add	esp, 12					; 0000000cH
 
-; 310  : 
-; 311  : #ifdef _DEBUG
-; 312  :     if ((e_mask & e->BLOCK[e_count - 1]) == 0)
+; 303  : 
+; 304  : #ifdef _DEBUG
+; 305  :     if ((e_mask & e->BLOCK[e_count - 1]) == 0)
 
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	ecx, DWORD PTR [eax+32]
@@ -1151,95 +1151,95 @@ $LN17@ModulePowe:
 	and	eax, DWORD PTR [ecx+edx*4-4]
 	jne	SHORT $LN24@ModulePowe
 
-; 313  :         *((int*)0) = 0;
+; 306  :         *((int*)0) = 0;
 
 	mov	DWORD PTR ds:0, 0
 $LN24@ModulePowe:
 
-; 314  : #endif
-; 315  : 
-; 316  :     __UNIT_TYPE* u_ptr = work_1_buf;
+; 307  : #endif
+; 308  : 
+; 309  :     __UNIT_TYPE* u_ptr = work_1_buf;
 
 	mov	ecx, DWORD PTR _work_1_buf$[ebp]
 	mov	DWORD PTR _u_ptr$[ebp], ecx
 
-; 317  :     __UNIT_TYPE* v_ptr = v_2_buf;
+; 310  :     __UNIT_TYPE* v_ptr = v_2_buf;
 
 	mov	edx, DWORD PTR _v_2_buf$[ebp]
 	mov	DWORD PTR _v_ptr$[ebp], edx
 
-; 318  :     __UNIT_TYPE* w_ptr = work_2_buf;
+; 311  :     __UNIT_TYPE* w_ptr = work_2_buf;
 
 	mov	eax, DWORD PTR _work_2_buf$[ebp]
 	mov	DWORD PTR _w_ptr$[ebp], eax
 
-; 319  :     __UNIT_TYPE u_count = v_count;
+; 312  :     __UNIT_TYPE u_count = v_count;
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], ecx
 $LN4@ModulePowe:
 
-; 320  : 
-; 321  :     while (e_count > 0)
+; 313  : 
+; 314  :     while (e_count > 0)
 
 	cmp	DWORD PTR _e_count$[ebp], 0
 	jbe	$LN5@ModulePowe
 
-; 322  :     {
-; 323  : #ifdef DO_TRACE
-; 324  :         ReportLabel("ループ開始");
-; 325  :         ReportVar("e_count", e_count);
-; 326  :         ReportVar("e_mask", e_mask);
-; 327  : #endif
-; 328  : 
-; 329  :         // 次の桁の準備をする
-; 330  :         e_mask >>= 1;
+; 315  :     {
+; 316  : #ifdef DO_TRACE
+; 317  :         ReportLabel("ループ開始");
+; 318  :         ReportVar("e_count", e_count);
+; 319  :         ReportVar("e_mask", e_mask);
+; 320  : #endif
+; 321  : 
+; 322  :         // 次の桁の準備をする
+; 323  :         e_mask >>= 1;
 
 	mov	edx, DWORD PTR _e_mask$[ebp]
 	shr	edx, 1
 	mov	DWORD PTR _e_mask$[ebp], edx
 
-; 331  :         if (e_mask == 0)
+; 324  :         if (e_mask == 0)
 
 	jne	SHORT $LN25@ModulePowe
 
-; 332  :         {
-; 333  :             e_mask = ~((__UNIT_TYPE)-1 >> 1);
+; 325  :         {
+; 326  :             e_mask = ~((__UNIT_TYPE)-1 >> 1);
 
 	mov	DWORD PTR _e_mask$[ebp], -2147483648	; 80000000H
 
-; 334  :             --e_count;
+; 327  :             --e_count;
 
 	mov	eax, DWORD PTR _e_count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _e_count$[ebp], eax
 $LN25@ModulePowe:
 
-; 335  :         }
-; 336  : 
-; 337  :         if (e_count <= 0)
+; 328  :         }
+; 329  : 
+; 330  :         if (e_count <= 0)
 
 	cmp	DWORD PTR _e_count$[ebp], 0
 	ja	SHORT $LN26@ModulePowe
 
-; 338  :             break;
+; 331  :             break;
 
 	jmp	$LN5@ModulePowe
 $LN26@ModulePowe:
 
-; 339  : 
+; 332  : 
+; 333  : #ifdef DO_TRACE
+; 334  :         ReportLabel("e の更新");
+; 335  :         ReportVar("e_count", e_count);
+; 336  :         ReportVar("e_mask", e_mask);
+; 337  : #endif
+; 338  : 
+; 339  :         // w := u * u を計算する
 ; 340  : #ifdef DO_TRACE
-; 341  :         ReportLabel("e の更新");
-; 342  :         ReportVar("e_count", e_count);
-; 343  :         ReportVar("e_mask", e_mask);
-; 344  : #endif
-; 345  : 
-; 346  :         // w := u * u を計算する
-; 347  : #ifdef DO_TRACE
-; 348  :         ReportLabel("w := u * u");
-; 349  :         ReportDump("u", u_ptr, u_count);
-; 350  : #endif
-; 351  :         _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
+; 341  :         ReportLabel("w := u * u");
+; 342  :         ReportDump("u", u_ptr, u_count);
+; 343  : #endif
+; 344  :         _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
 
 	mov	ecx, DWORD PTR _work_1_buf_words$[ebp]
 	push	ecx
@@ -1248,7 +1248,7 @@ $LN26@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 352  :         Multiply_X_X_Imp(u_ptr, u_count, u_ptr, u_count, w_ptr);
+; 345  :         Multiply_X_X_Imp(u_ptr, u_count, u_ptr, u_count, w_ptr);
 
 	mov	eax, DWORD PTR _w_ptr$[ebp]
 	push	eax
@@ -1263,7 +1263,7 @@ $LN26@ModulePowe:
 	call	_Multiply_X_X_Imp
 	add	esp, 20					; 00000014H
 
-; 353  :         if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
+; 346  :         if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_1_buf_code$[ebp]
 	push	edx
@@ -1275,13 +1275,13 @@ $LN26@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN27@ModulePowe
 
-; 354  :             return (result);
+; 347  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN27@ModulePowe:
 
-; 355  :         if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
+; 348  :         if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_2_buf_code$[ebp]
 	push	ecx
@@ -1293,13 +1293,13 @@ $LN27@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN28@ModulePowe
 
-; 356  :             return (result);
+; 349  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN28@ModulePowe:
 
-; 357  :         SwapPointer(&u_ptr, &w_ptr);
+; 350  :         SwapPointer(&u_ptr, &w_ptr);
 
 	lea	eax, DWORD PTR _w_ptr$[ebp]
 	push	eax
@@ -1308,44 +1308,44 @@ $LN28@ModulePowe:
 	call	_SwapPointer
 	add	esp, 8
 
-; 358  :         u_count *= 2;
+; 351  :         u_count *= 2;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	shl	edx, 1
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 359  :         if (u_ptr[u_count - 1] == 0)
+; 352  :         if (u_ptr[u_count - 1] == 0)
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	mov	ecx, DWORD PTR _u_ptr$[ebp]
 	cmp	DWORD PTR [ecx+eax*4-4], 0
 	jne	SHORT $LN29@ModulePowe
 
-; 360  :             --u_count;
+; 353  :             --u_count;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _u_count$[ebp], edx
 $LN29@ModulePowe:
 
-; 361  : #ifdef DO_TRACE
-; 362  :         ReportDump("w", u_ptr, u_count);
+; 354  : #ifdef DO_TRACE
+; 355  :         ReportDump("w", u_ptr, u_count);
+; 356  : #endif
+; 357  : 
+; 358  :         // w := u % m を計算する
+; 359  : #ifdef DO_TRACE
+; 360  :         ReportLabel("w := u % m");
+; 361  :         ReportDump("u", u_ptr, u_count);
+; 362  :         ReportDump("m", m_buf, m_count);
 ; 363  : #endif
-; 364  : 
-; 365  :         // w := u % m を計算する
-; 366  : #ifdef DO_TRACE
-; 367  :         ReportLabel("w := u % m");
-; 368  :         ReportDump("u", u_ptr, u_count);
-; 369  :         ReportDump("m", m_buf, m_count);
-; 370  : #endif
-; 371  :         if (u_count >= m_count)
+; 364  :         if (u_count >= m_count)
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	cmp	eax, DWORD PTR _m_count$[ebp]
 	jb	$LN30@ModulePowe
 
-; 372  :         {
-; 373  :             _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
+; 365  :         {
+; 366  :             _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$[ebp]
 	push	ecx
@@ -1354,7 +1354,7 @@ $LN29@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 374  :             _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
+; 367  :             _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
 
 	mov	eax, DWORD PTR _q_buf_words$[ebp]
 	push	eax
@@ -1363,7 +1363,7 @@ $LN29@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 375  :             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
+; 368  :             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
 
 	mov	edx, DWORD PTR _work_1_buf_words$[ebp]
 	push	edx
@@ -1372,7 +1372,7 @@ $LN29@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 376  :             DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+; 369  :             DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
 
 	mov	ecx, DWORD PTR _w_ptr$[ebp]
 	push	ecx
@@ -1391,7 +1391,7 @@ $LN29@ModulePowe:
 	call	_DivRem_X_X
 	add	esp, 28					; 0000001cH
 
-; 377  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 370  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_v_buf_code$[ebp]
 	push	edx
@@ -1403,13 +1403,13 @@ $LN29@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN31@ModulePowe
 
-; 378  :                 return (result);
+; 371  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN31@ModulePowe:
 
-; 379  :             if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
+; 372  :             if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _q_buf_code$[ebp]
 	push	ecx
@@ -1421,13 +1421,13 @@ $LN31@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN32@ModulePowe
 
-; 380  :                 return (result);
+; 373  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN32@ModulePowe:
 
-; 381  :             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
+; 374  :             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _work_1_buf_code$[ebp]
 	push	eax
@@ -1439,13 +1439,13 @@ $LN32@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN33@ModulePowe
 
-; 382  :                 return (result);
+; 375  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN33@ModulePowe:
 
-; 383  :             if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
+; 376  :             if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_2_buf_code$[ebp]
 	push	edx
@@ -1457,13 +1457,13 @@ $LN33@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN34@ModulePowe
 
-; 384  :                 return (result);
+; 377  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN34@ModulePowe:
 
-; 385  :             SwapPointer(&u_ptr, &w_ptr);
+; 378  :             SwapPointer(&u_ptr, &w_ptr);
 
 	lea	ecx, DWORD PTR _w_ptr$[ebp]
 	push	ecx
@@ -1472,13 +1472,13 @@ $LN34@ModulePowe:
 	call	_SwapPointer
 	add	esp, 8
 
-; 386  :             u_count = m_count;
+; 379  :             u_count = m_count;
 
 	mov	eax, DWORD PTR _m_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], eax
 $LN6@ModulePowe:
 
-; 387  :             while (u_count > 0 && u_ptr[u_count - 1] == 0)
+; 380  :             while (u_count > 0 && u_ptr[u_count - 1] == 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	jbe	SHORT $LN7@ModulePowe
@@ -1487,7 +1487,7 @@ $LN6@ModulePowe:
 	cmp	DWORD PTR [edx+ecx*4-4], 0
 	jne	SHORT $LN7@ModulePowe
 
-; 388  :                 --u_count;
+; 381  :                 --u_count;
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	sub	eax, 1
@@ -1495,15 +1495,15 @@ $LN6@ModulePowe:
 	jmp	SHORT $LN6@ModulePowe
 $LN7@ModulePowe:
 
-; 389  : 
-; 390  :             if (u_count <= 0)
+; 382  : 
+; 383  :             if (u_count <= 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	ja	SHORT $LN30@ModulePowe
 
-; 391  :             {
-; 392  :                 // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
-; 393  :                 DeallocateNumber(*r);
+; 384  :             {
+; 385  :                 // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
+; 386  :                 DeallocateNumber(*r);
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -1511,7 +1511,7 @@ $LN7@ModulePowe:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 394  :                 DeallocateBlock(q_buf, q_buf_words);
+; 387  :                 DeallocateBlock(q_buf, q_buf_words);
 
 	mov	eax, DWORD PTR _q_buf_words$[ebp]
 	push	eax
@@ -1520,7 +1520,7 @@ $LN7@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 395  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
+; 388  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
@@ -1529,7 +1529,7 @@ $LN7@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 396  :                 DeallocateBlock(work_2_buf, work_2_buf_words);
+; 389  :                 DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	ecx, DWORD PTR _work_2_buf_words$[ebp]
 	push	ecx
@@ -1538,7 +1538,7 @@ $LN7@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 397  :                 DeallocateBlock(work_1_buf, work_1_buf_words);
+; 390  :                 DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -1547,7 +1547,7 @@ $LN7@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 398  :                 DeallocateBlock(v_2_buf, v_2_buf_words);
+; 391  :                 DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	edx, DWORD PTR _v_2_buf_words$[ebp]
 	push	edx
@@ -1556,34 +1556,34 @@ $LN7@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 399  :                 *r = &number_zero;
+; 392  :                 *r = &number_zero;
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [ecx], OFFSET _number_zero
 
-; 400  : #ifdef DO_TRACE
-; 401  :                 ReportOUT(*r);
-; 402  : #endif
-; 403  :                 return (PMC_STATUS_OK);
+; 393  : #ifdef DO_TRACE
+; 394  :                 ReportOUT(*r);
+; 395  : #endif
+; 396  :                 return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@ModulePowe
 $LN30@ModulePowe:
 
-; 404  :             }
-; 405  :         }
-; 406  : #ifdef DO_TRACE
-; 407  :         ReportDump("w", u_ptr, u_count);
-; 408  : #endif
-; 409  : 
-; 410  : #ifdef DO_TRACE
-; 411  :         ReportLabel("e のビット検査");
-; 412  :         ReportDump("e", e->BLOCK, e->UNIT_WORD_COUNT);
-; 413  :         ReportVar("e_count", e_count);
-; 414  :         ReportVar("e_mask", e_mask);
-; 415  :         ReportVar("e_mask & e->BLOCK[e_count - 1]", e_mask & e->BLOCK[e_count - 1]);
-; 416  : #endif
-; 417  :         if (e_mask & e->BLOCK[e_count - 1])
+; 397  :             }
+; 398  :         }
+; 399  : #ifdef DO_TRACE
+; 400  :         ReportDump("w", u_ptr, u_count);
+; 401  : #endif
+; 402  : 
+; 403  : #ifdef DO_TRACE
+; 404  :         ReportLabel("e のビット検査");
+; 405  :         ReportDump("e", e->BLOCK, e->UNIT_WORD_COUNT);
+; 406  :         ReportVar("e_count", e_count);
+; 407  :         ReportVar("e_mask", e_mask);
+; 408  :         ReportVar("e_mask & e->BLOCK[e_count - 1]", e_mask & e->BLOCK[e_count - 1]);
+; 409  : #endif
+; 410  :         if (e_mask & e->BLOCK[e_count - 1])
 
 	mov	edx, DWORD PTR _e$[ebp]
 	mov	eax, DWORD PTR [edx+32]
@@ -1592,17 +1592,17 @@ $LN30@ModulePowe:
 	and	edx, DWORD PTR [eax+ecx*4-4]
 	je	$LN36@ModulePowe
 
-; 418  :         {
-; 419  :             // e の当該桁のビットが立っている場合
-; 420  : 
-; 421  : #ifdef DO_TRACE
-; 422  :             ReportLabel("w := u * v");
-; 423  :             ReportDump("u", u_ptr, u_count);
-; 424  :             ReportDump("v", v_ptr, v_count);
-; 425  : #endif
-; 426  : 
-; 427  :             // w := u * v を計算する
-; 428  :             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
+; 411  :         {
+; 412  :             // e の当該桁のビットが立っている場合
+; 413  : 
+; 414  : #ifdef DO_TRACE
+; 415  :             ReportLabel("w := u * v");
+; 416  :             ReportDump("u", u_ptr, u_count);
+; 417  :             ReportDump("v", v_ptr, v_count);
+; 418  : #endif
+; 419  : 
+; 420  :             // w := u * v を計算する
+; 421  :             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -1611,7 +1611,7 @@ $LN30@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 429  :             Multiply_X_X_Imp(u_ptr, u_count, v_ptr, v_count, w_ptr);
+; 422  :             Multiply_X_X_Imp(u_ptr, u_count, v_ptr, v_count, w_ptr);
 
 	mov	edx, DWORD PTR _w_ptr$[ebp]
 	push	edx
@@ -1626,7 +1626,7 @@ $LN30@ModulePowe:
 	call	_Multiply_X_X_Imp
 	add	esp, 20					; 00000014H
 
-; 430  :             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
+; 423  :             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_1_buf_code$[ebp]
 	push	ecx
@@ -1638,13 +1638,13 @@ $LN30@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN37@ModulePowe
 
-; 431  :                 return (result);
+; 424  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN37@ModulePowe:
 
-; 432  :             if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
+; 425  :             if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _work_2_buf_code$[ebp]
 	push	eax
@@ -1656,13 +1656,13 @@ $LN37@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN38@ModulePowe
 
-; 433  :                 return (result);
+; 426  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN38@ModulePowe:
 
-; 434  :             SwapPointer(&u_ptr, &w_ptr);
+; 427  :             SwapPointer(&u_ptr, &w_ptr);
 
 	lea	edx, DWORD PTR _w_ptr$[ebp]
 	push	edx
@@ -1671,45 +1671,45 @@ $LN38@ModulePowe:
 	call	_SwapPointer
 	add	esp, 8
 
-; 435  :             u_count += v_count;
+; 428  :             u_count += v_count;
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	add	ecx, DWORD PTR _v_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], ecx
 
-; 436  :             if (u_ptr[u_count - 1] == 0)
+; 429  :             if (u_ptr[u_count - 1] == 0)
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	mov	eax, DWORD PTR _u_ptr$[ebp]
 	cmp	DWORD PTR [eax+edx*4-4], 0
 	jne	SHORT $LN39@ModulePowe
 
-; 437  :                 --u_count;
+; 430  :                 --u_count;
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _u_count$[ebp], ecx
 $LN39@ModulePowe:
 
-; 438  : #ifdef DO_TRACE
-; 439  :             ReportDump("w", u_ptr, u_count);
-; 440  : #endif
-; 441  : 
-; 442  :             // w := u % m を計算する
-; 443  : 
-; 444  : #ifdef DO_TRACE
-; 445  :             ReportLabel("w := u % m");
-; 446  :             ReportDump("u", u_ptr, u_count);
-; 447  :             ReportDump("m", m_buf, m_count);
-; 448  : #endif
-; 449  :             if (u_count >= m_count)
+; 431  : #ifdef DO_TRACE
+; 432  :             ReportDump("w", u_ptr, u_count);
+; 433  : #endif
+; 434  : 
+; 435  :             // w := u % m を計算する
+; 436  : 
+; 437  : #ifdef DO_TRACE
+; 438  :             ReportLabel("w := u % m");
+; 439  :             ReportDump("u", u_ptr, u_count);
+; 440  :             ReportDump("m", m_buf, m_count);
+; 441  : #endif
+; 442  :             if (u_count >= m_count)
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	cmp	edx, DWORD PTR _m_count$[ebp]
 	jb	$LN36@ModulePowe
 
-; 450  :             {
-; 451  :                 _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
+; 443  :             {
+; 444  :                 _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$[ebp]
 	push	eax
@@ -1718,7 +1718,7 @@ $LN39@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 452  :                 _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
+; 445  :                 _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
 
 	mov	edx, DWORD PTR _q_buf_words$[ebp]
 	push	edx
@@ -1727,7 +1727,7 @@ $LN39@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 453  :                 _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
+; 446  :                 _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
 
 	mov	ecx, DWORD PTR _work_1_buf_words$[ebp]
 	push	ecx
@@ -1736,7 +1736,7 @@ $LN39@ModulePowe:
 	call	__ZERO_MEMORY_UNIT
 	add	esp, 8
 
-; 454  :                 DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+; 447  :                 DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
 
 	mov	eax, DWORD PTR _w_ptr$[ebp]
 	push	eax
@@ -1755,7 +1755,7 @@ $LN39@ModulePowe:
 	call	_DivRem_X_X
 	add	esp, 28					; 0000001cH
 
-; 455  :                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 448  :                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_v_buf_code$[ebp]
 	push	ecx
@@ -1767,13 +1767,13 @@ $LN39@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN41@ModulePowe
 
-; 456  :                     return (result);
+; 449  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN41@ModulePowe:
 
-; 457  :                 if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
+; 450  :                 if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _q_buf_code$[ebp]
 	push	eax
@@ -1785,13 +1785,13 @@ $LN41@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN42@ModulePowe
 
-; 458  :                     return (result);
+; 451  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN42@ModulePowe:
 
-; 459  :                 if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
+; 452  :                 if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_1_buf_code$[ebp]
 	push	edx
@@ -1803,13 +1803,13 @@ $LN42@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN43@ModulePowe
 
-; 460  :                     return (result);
+; 453  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN43@ModulePowe:
 
-; 461  :                 if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
+; 454  :                 if ((result = CheckBlockLight(work_2_buf, work_2_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_2_buf_code$[ebp]
 	push	ecx
@@ -1821,13 +1821,13 @@ $LN43@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN44@ModulePowe
 
-; 462  :                     return (result);
+; 455  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@ModulePowe
 $LN44@ModulePowe:
 
-; 463  :                 SwapPointer(&u_ptr, &w_ptr);
+; 456  :                 SwapPointer(&u_ptr, &w_ptr);
 
 	lea	eax, DWORD PTR _w_ptr$[ebp]
 	push	eax
@@ -1836,13 +1836,13 @@ $LN44@ModulePowe:
 	call	_SwapPointer
 	add	esp, 8
 
-; 464  :                 u_count = m_count;
+; 457  :                 u_count = m_count;
 
 	mov	edx, DWORD PTR _m_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], edx
 $LN8@ModulePowe:
 
-; 465  :                 while (u_count > 0 && u_ptr[u_count - 1] == 0)
+; 458  :                 while (u_count > 0 && u_ptr[u_count - 1] == 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	jbe	SHORT $LN9@ModulePowe
@@ -1851,7 +1851,7 @@ $LN8@ModulePowe:
 	cmp	DWORD PTR [ecx+eax*4-4], 0
 	jne	SHORT $LN9@ModulePowe
 
-; 466  :                     --u_count;
+; 459  :                     --u_count;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	sub	edx, 1
@@ -1859,15 +1859,15 @@ $LN8@ModulePowe:
 	jmp	SHORT $LN8@ModulePowe
 $LN9@ModulePowe:
 
-; 467  : 
-; 468  :                 if (u_count <= 0)
+; 460  : 
+; 461  :                 if (u_count <= 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	ja	SHORT $LN36@ModulePowe
 
-; 469  :                 {
-; 470  :                     // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
-; 471  :                     DeallocateNumber(*r);
+; 462  :                 {
+; 463  :                     // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
+; 464  :                     DeallocateNumber(*r);
 
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -1875,7 +1875,7 @@ $LN9@ModulePowe:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 472  :                     DeallocateBlock(q_buf, q_buf_words);
+; 465  :                     DeallocateBlock(q_buf, q_buf_words);
 
 	mov	edx, DWORD PTR _q_buf_words$[ebp]
 	push	edx
@@ -1884,7 +1884,7 @@ $LN9@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 473  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 466  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$[ebp]
 	push	ecx
@@ -1893,7 +1893,7 @@ $LN9@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 474  :                     DeallocateBlock(work_2_buf, work_2_buf_words);
+; 467  :                     DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	eax, DWORD PTR _work_2_buf_words$[ebp]
 	push	eax
@@ -1902,7 +1902,7 @@ $LN9@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 475  :                     DeallocateBlock(work_1_buf, work_1_buf_words);
+; 468  :                     DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	edx, DWORD PTR _work_1_buf_words$[ebp]
 	push	edx
@@ -1911,7 +1911,7 @@ $LN9@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 476  :                     DeallocateBlock(v_2_buf, v_2_buf_words);
+; 469  :                     DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	ecx, DWORD PTR _v_2_buf_words$[ebp]
 	push	ecx
@@ -1920,34 +1920,34 @@ $LN9@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 477  :                     *r = &number_zero;
+; 470  :                     *r = &number_zero;
 
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 478  : #ifdef DO_TRACE
-; 479  :                     ReportOUT(*r);
-; 480  : #endif
-; 481  :                     return (PMC_STATUS_OK);
+; 471  : #ifdef DO_TRACE
+; 472  :                     ReportOUT(*r);
+; 473  : #endif
+; 474  :                     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@ModulePowe
 $LN36@ModulePowe:
 
-; 482  :                 }
-; 483  :             }
-; 484  : #ifdef DO_TRACE
-; 485  :             ReportDump("w", u_ptr, u_count);
-; 486  : #endif
-; 487  :         }
-; 488  :     }
+; 475  :                 }
+; 476  :             }
+; 477  : #ifdef DO_TRACE
+; 478  :             ReportDump("w", u_ptr, u_count);
+; 479  : #endif
+; 480  :         }
+; 481  :     }
 
 	jmp	$LN4@ModulePowe
 $LN5@ModulePowe:
 
-; 489  : 
-; 490  :     // 最下位桁まで達したので u_ptr と u_count を解として帰る
-; 491  :     _COPY_MEMORY_UNIT((*r)->BLOCK, u_ptr, u_count);
+; 482  : 
+; 483  :     // 最下位桁まで達したので u_ptr と u_count を解として帰る
+; 484  :     _COPY_MEMORY_UNIT((*r)->BLOCK, u_ptr, u_count);
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	push	ecx
@@ -1960,7 +1960,7 @@ $LN5@ModulePowe:
 	call	__COPY_MEMORY_UNIT
 	add	esp, 12					; 0000000cH
 
-; 492  :     if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
+; 485  :     if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _r_check_code$[ebp]
 	push	eax
@@ -1974,13 +1974,13 @@ $LN5@ModulePowe:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN46@ModulePowe
 
-; 493  :         return (result);
+; 486  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@ModulePowe
 $LN46@ModulePowe:
 
-; 494  :     CommitNumber(*r);
+; 487  :     CommitNumber(*r);
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -1988,7 +1988,7 @@ $LN46@ModulePowe:
 	call	_CommitNumber
 	add	esp, 4
 
-; 495  :     DeallocateBlock(q_buf, q_buf_words);
+; 488  :     DeallocateBlock(q_buf, q_buf_words);
 
 	mov	eax, DWORD PTR _q_buf_words$[ebp]
 	push	eax
@@ -1997,7 +1997,7 @@ $LN46@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 496  :     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 489  :     DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
@@ -2006,7 +2006,7 @@ $LN46@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 497  :     DeallocateBlock(work_2_buf, work_2_buf_words);
+; 490  :     DeallocateBlock(work_2_buf, work_2_buf_words);
 
 	mov	ecx, DWORD PTR _work_2_buf_words$[ebp]
 	push	ecx
@@ -2015,7 +2015,7 @@ $LN46@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 498  :     DeallocateBlock(work_1_buf, work_1_buf_words);
+; 491  :     DeallocateBlock(work_1_buf, work_1_buf_words);
 
 	mov	eax, DWORD PTR _work_1_buf_words$[ebp]
 	push	eax
@@ -2024,7 +2024,7 @@ $LN46@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 499  :     DeallocateBlock(v_2_buf, v_2_buf_words);
+; 492  :     DeallocateBlock(v_2_buf, v_2_buf_words);
 
 	mov	edx, DWORD PTR _v_2_buf_words$[ebp]
 	push	edx
@@ -2033,15 +2033,15 @@ $LN46@ModulePowe:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 500  : #ifdef DO_TRACE
-; 501  :     ReportOUT(*r);
-; 502  : #endif
-; 503  :     return (PMC_STATUS_OK);
+; 493  : #ifdef DO_TRACE
+; 494  :     ReportOUT(*r);
+; 495  : #endif
+; 496  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@ModulePowe:
 
-; 504  : }
+; 497  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -2306,7 +2306,7 @@ _v$ = 12						; size = 4
 _r$ = 16						; size = 4
 _Remainder PROC
 
-; 105  : {
+; 98   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2319,9 +2319,9 @@ _Remainder PROC
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 106  :     PMC_STATUS_CODE result;
-; 107  : 
-; 108  :     if (u->UNIT_BIT_COUNT < v->UNIT_BIT_COUNT)
+; 99   :     PMC_STATUS_CODE result;
+; 100  : 
+; 101  :     if (u->UNIT_BIT_COUNT < v->UNIT_BIT_COUNT)
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -2329,8 +2329,8 @@ _Remainder PROC
 	cmp	edx, DWORD PTR [ecx+12]
 	jae	SHORT $LN2@Remainder
 
-; 109  :     {
-; 110  :         if ((result = DuplicateNumber(u, r)) != PMC_STATUS_OK)
+; 102  :     {
+; 103  :         if ((result = DuplicateNumber(u, r)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _r$[ebp]
 	push	eax
@@ -2342,22 +2342,22 @@ _Remainder PROC
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN4@Remainder
 
-; 111  :             return (result);
+; 104  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@Remainder
 $LN4@Remainder:
 
-; 112  :     }
+; 105  :     }
 
 	jmp	$LN3@Remainder
 $LN2@Remainder:
 
-; 113  :     else
-; 114  :     {
-; 115  :         __UNIT_TYPE work_v_buf_code;
-; 116  :         __UNIT_TYPE work_v_buf_words;
-; 117  :         __UNIT_TYPE* work_v_buf = AllocateBlock(v->UNIT_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
+; 106  :     else
+; 107  :     {
+; 108  :         __UNIT_TYPE work_v_buf_code;
+; 109  :         __UNIT_TYPE work_v_buf_words;
+; 110  :         __UNIT_TYPE* work_v_buf = AllocateBlock(v->UNIT_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
 
 	lea	edx, DWORD PTR _work_v_buf_code$7[ebp]
 	push	edx
@@ -2370,22 +2370,22 @@ $LN2@Remainder:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$5[ebp], eax
 
-; 118  :         if (work_v_buf == NULL)
+; 111  :         if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$5[ebp], 0
 	jne	SHORT $LN5@Remainder
 
-; 119  :         {
-; 120  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 112  :         {
+; 113  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@Remainder
 $LN5@Remainder:
 
-; 121  :         }
-; 122  :         __UNIT_TYPE q_buf_code;
-; 123  :         __UNIT_TYPE q_buf_words;
-; 124  :         __UNIT_TYPE* q_buf = AllocateBlock(u->UNIT_BIT_COUNT - v->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT, &q_buf_words, &q_buf_code);
+; 114  :         }
+; 115  :         __UNIT_TYPE q_buf_code;
+; 116  :         __UNIT_TYPE q_buf_words;
+; 117  :         __UNIT_TYPE* q_buf = AllocateBlock(u->UNIT_BIT_COUNT - v->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT, &q_buf_words, &q_buf_code);
 
 	lea	eax, DWORD PTR _q_buf_code$4[ebp]
 	push	eax
@@ -2401,13 +2401,13 @@ $LN5@Remainder:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _q_buf$2[ebp], eax
 
-; 125  :         if (q_buf == NULL)
+; 118  :         if (q_buf == NULL)
 
 	cmp	DWORD PTR _q_buf$2[ebp], 0
 	jne	SHORT $LN6@Remainder
 
-; 126  :         {
-; 127  :             DeallocateBlock(work_v_buf, work_v_buf_words);
+; 119  :         {
+; 120  :             DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$6[ebp]
 	push	edx
@@ -2416,15 +2416,15 @@ $LN5@Remainder:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 128  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 121  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@Remainder
 $LN6@Remainder:
 
-; 129  :         }
-; 130  :         __UNIT_TYPE r_check_code;
-; 131  :         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + __UNIT_TYPE_BIT_COUNT, &r_check_code)) != PMC_STATUS_OK)
+; 122  :         }
+; 123  :         __UNIT_TYPE r_check_code;
+; 124  :         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + __UNIT_TYPE_BIT_COUNT, &r_check_code)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _r_check_code$1[ebp]
 	push	ecx
@@ -2440,8 +2440,8 @@ $LN6@Remainder:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@Remainder
 
-; 132  :         {
-; 133  :             DeallocateBlock(q_buf, q_buf_words);
+; 125  :         {
+; 126  :             DeallocateBlock(q_buf, q_buf_words);
 
 	mov	edx, DWORD PTR _q_buf_words$3[ebp]
 	push	edx
@@ -2450,7 +2450,7 @@ $LN6@Remainder:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 134  :             DeallocateBlock(work_v_buf, work_v_buf_words);
+; 127  :             DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$6[ebp]
 	push	ecx
@@ -2459,15 +2459,15 @@ $LN6@Remainder:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 135  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 128  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@Remainder
 $LN7@Remainder:
 
-; 136  :         }
-; 137  : 
-; 138  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
+; 129  :         }
+; 130  : 
+; 131  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -2475,15 +2475,15 @@ $LN7@Remainder:
 	cmp	edx, DWORD PTR [ecx+8]
 	jae	SHORT $LN8@Remainder
 
-; 139  :         {
-; 140  :             q_buf[0] = 0;
+; 132  :         {
+; 133  :             q_buf[0] = 0;
 
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _q_buf$2[ebp]
 	mov	DWORD PTR [edx+ecx], 0
 
-; 141  :             _COPY_MEMORY_UNIT((*r)->BLOCK, u->BLOCK, u->UNIT_WORD_COUNT);
+; 134  :             _COPY_MEMORY_UNIT((*r)->BLOCK, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -2498,14 +2498,14 @@ $LN7@Remainder:
 	call	__COPY_MEMORY_UNIT
 	add	esp, 12					; 0000000cH
 
-; 142  :         }
+; 135  :         }
 
 	jmp	$LN9@Remainder
 $LN8@Remainder:
 
-; 143  :         else
-; 144  :         {
-; 145  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, q_buf, (*r)->BLOCK);
+; 136  :         else
+; 137  :         {
+; 138  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, q_buf, (*r)->BLOCK);
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -2530,7 +2530,7 @@ $LN8@Remainder:
 	call	_DivRem_X_X
 	add	esp, 28					; 0000001cH
 
-; 146  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 139  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_v_buf_code$7[ebp]
 	push	edx
@@ -2542,13 +2542,13 @@ $LN8@Remainder:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN10@Remainder
 
-; 147  :                 return (result);
+; 140  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@Remainder
 $LN10@Remainder:
 
-; 148  :             if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
+; 141  :             if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _q_buf_code$4[ebp]
 	push	ecx
@@ -2560,13 +2560,13 @@ $LN10@Remainder:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN11@Remainder
 
-; 149  :                 return (result);
+; 142  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@Remainder
 $LN11@Remainder:
 
-; 150  :             if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
+; 143  :             if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _r_check_code$1[ebp]
 	push	eax
@@ -2580,15 +2580,15 @@ $LN11@Remainder:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@Remainder
 
-; 151  :                 return (result);
+; 144  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@Remainder
 $LN9@Remainder:
 
-; 152  :         }
-; 153  : 
-; 154  :         DeallocateBlock(q_buf, q_buf_words);
+; 145  :         }
+; 146  : 
+; 147  :         DeallocateBlock(q_buf, q_buf_words);
 
 	mov	ecx, DWORD PTR _q_buf_words$3[ebp]
 	push	ecx
@@ -2597,7 +2597,7 @@ $LN9@Remainder:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 155  :         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 148  :         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$6[ebp]
 	push	eax
@@ -2606,7 +2606,7 @@ $LN9@Remainder:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 156  :         CommitNumber(*r);
+; 149  :         CommitNumber(*r);
 
 	mov	edx, DWORD PTR _r$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -2615,13 +2615,13 @@ $LN9@Remainder:
 	add	esp, 4
 $LN3@Remainder:
 
-; 157  :     }
-; 158  :     return (PMC_STATUS_OK);
+; 150  :     }
+; 151  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@Remainder:
 
-; 159  : }
+; 152  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -2741,7 +2741,7 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 _SwapPointer PROC
 
-; 98   : {
+; 91   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2750,26 +2750,26 @@ _SwapPointer PROC
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 99   :     __UNIT_TYPE* t = *u;
+; 92   :     __UNIT_TYPE* t = *u;
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR _t$[ebp], ecx
 
-; 100  :     *u = *v;
+; 93   :     *u = *v;
 
 	mov	edx, DWORD PTR _u$[ebp]
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	DWORD PTR [edx], ecx
 
-; 101  :     *v = t;
+; 94   :     *v = t;
 
 	mov	edx, DWORD PTR _v$[ebp]
 	mov	eax, DWORD PTR _t$[ebp]
 	mov	DWORD PTR [edx], eax
 
-; 102  : }
+; 95   : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2788,41 +2788,41 @@ _v$ = 16						; size = 4
 _v_count$ = 20						; size = 4
 _Compare_Easy PROC
 
-; 88   : {
+; 81   : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 89   :     if (u_count > v_count)
+; 82   :     if (u_count > v_count)
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	cmp	eax, DWORD PTR _v_count$[ebp]
 	jbe	SHORT $LN2@Compare_Ea
 
-; 90   :         return (1);
+; 83   :         return (1);
 
 	mov	eax, 1
 	jmp	SHORT $LN1@Compare_Ea
 	jmp	SHORT $LN1@Compare_Ea
 $LN2@Compare_Ea:
 
-; 91   :     else if (u_count < v_count)
+; 84   :     else if (u_count < v_count)
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	cmp	ecx, DWORD PTR _v_count$[ebp]
 	jae	SHORT $LN4@Compare_Ea
 
-; 92   :         return (-1);
+; 85   :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@Compare_Ea
 	jmp	SHORT $LN1@Compare_Ea
 $LN4@Compare_Ea:
 
-; 93   :     else
-; 94   :         return (Compare_Imp(u, v, u_count));
+; 86   :     else
+; 87   :         return (Compare_Imp(u, v, u_count));
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	push	edx
@@ -2834,7 +2834,7 @@ $LN4@Compare_Ea:
 	add	esp, 12					; 0000000cH
 $LN1@Compare_Ea:
 
-; 95   : }
+; 88   : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2849,7 +2849,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT PROC
 
-; 629  :     {
+; 622  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2860,50 +2860,50 @@ __LZCNT_ALT_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, DWORD PTR _pos$[ebp]
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -2940,7 +2940,7 @@ _x$ = 8							; size = 4
 _y$ = 12						; size = 4
 __MAXIMUM_UNIT PROC
 
-; 203  :     {
+; 196  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2949,7 +2949,7 @@ __MAXIMUM_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 204  :         return (x >= y ? x : y);
+; 197  :         return (x >= y ? x : y);
 
 	mov	eax, DWORD PTR _x$[ebp]
 	cmp	eax, DWORD PTR _y$[ebp]
@@ -2963,7 +2963,7 @@ $LN3@MAXIMUM_UN:
 $LN4@MAXIMUM_UN:
 	mov	eax, DWORD PTR tv65[ebp]
 
-; 205  :     }
+; 198  :     }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2980,7 +2980,7 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_UNIT PROC
 
-; 116  :     {
+; 109  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2988,20 +2988,20 @@ __ZERO_MEMORY_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 117  : #ifdef _M_IX86
-; 118  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 110  : #ifdef _M_IX86
+; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	xor	eax, eax
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep stosd
 
-; 119  : #elif defined(_M_X64)
-; 120  :         __stosq(d, 0, count);
-; 121  : #else
-; 122  : #error unknown platform
-; 123  : #endif
-; 124  :     }
+; 112  : #elif defined(_M_X64)
+; 113  :         __stosq(d, 0, count);
+; 114  : #else
+; 115  : #error unknown platform
+; 116  : #endif
+; 117  :     }
 
 	pop	edi
 	cmp	ebp, esp
@@ -3018,7 +3018,7 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC
 
-; 66   :     {
+; 59   :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -3027,20 +3027,20 @@ __COPY_MEMORY_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 67   : #ifdef _M_IX86
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 60   : #ifdef _M_IX86
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	mov	esi, DWORD PTR _s$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep movsd
 
-; 69   : #elif defined(_M_X64)
-; 70   :         __movsq(d, s, count);
-; 71   : #else
-; 72   : #error unknown platform
-; 73   : #endif
-; 74   :     }
+; 62   : #elif defined(_M_X64)
+; 63   :         __movsq(d, s, count);
+; 64   : #else
+; 65   : #error unknown platform
+; 66   : #endif
+; 67   :     }
 
 	pop	edi
 	pop	esi
@@ -3060,7 +3060,7 @@ _m$ = 16						; size = 4
 _r$ = 20						; size = 4
 _PMC_ModPow_X_X_X@16 PROC
 
-; 602  : {
+; 595  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3069,52 +3069,52 @@ _PMC_ModPow_X_X_X@16 PROC
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 603  :     if (v == NULL)
+; 596  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN2@PMC_ModPow
 
-; 604  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 597  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 $LN2@PMC_ModPow:
 
-; 605  :     if (e == NULL)
+; 598  :     if (e == NULL)
 
 	cmp	DWORD PTR _e$[ebp], 0
 	jne	SHORT $LN3@PMC_ModPow
 
-; 606  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 599  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 $LN3@PMC_ModPow:
 
-; 607  :     if (m == NULL)
+; 600  :     if (m == NULL)
 
 	cmp	DWORD PTR _m$[ebp], 0
 	jne	SHORT $LN4@PMC_ModPow
 
-; 608  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 601  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 $LN4@PMC_ModPow:
 
-; 609  :     if (r == NULL)
+; 602  :     if (r == NULL)
 
 	cmp	DWORD PTR _r$[ebp], 0
 	jne	SHORT $LN5@PMC_ModPow
 
-; 610  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 603  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ModPow
 $LN5@PMC_ModPow:
 
-; 611  :     PMC_STATUS_CODE result;
-; 612  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 604  :     PMC_STATUS_CODE result;
+; 605  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
@@ -3124,13 +3124,13 @@ $LN5@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_ModPow
 
-; 613  :         return (result);
+; 606  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN6@PMC_ModPow:
 
-; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)e)) != PMC_STATUS_OK)
+; 607  :     if ((result = CheckNumber((NUMBER_HEADER*)e)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _e$[ebp]
 	push	ecx
@@ -3140,13 +3140,13 @@ $LN6@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_ModPow
 
-; 615  :         return (result);
+; 608  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN7@PMC_ModPow:
 
-; 616  :     if ((result = CheckNumber((NUMBER_HEADER*)m)) != PMC_STATUS_OK)
+; 609  :     if ((result = CheckNumber((NUMBER_HEADER*)m)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _m$[ebp]
 	push	edx
@@ -3156,13 +3156,13 @@ $LN7@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN8@PMC_ModPow
 
-; 617  :         return (result);
+; 610  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN8@PMC_ModPow:
 
-; 618  :     if ((result = PMC_ModPow_X_X_X_Imp((NUMBER_HEADER*)v, (NUMBER_HEADER*)e, (NUMBER_HEADER*)m, (NUMBER_HEADER**)r)) != PMC_STATUS_OK)
+; 611  :     if ((result = PMC_ModPow_X_X_X_Imp((NUMBER_HEADER*)v, (NUMBER_HEADER*)e, (NUMBER_HEADER*)m, (NUMBER_HEADER**)r)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _r$[ebp]
 	push	eax
@@ -3178,14 +3178,14 @@ $LN8@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@PMC_ModPow
 
-; 619  :         return (result);
+; 612  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN9@PMC_ModPow:
 
-; 620  : #ifdef _DEBUG
-; 621  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 613  : #ifdef _DEBUG
+; 614  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _r$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -3196,19 +3196,19 @@ $LN9@PMC_ModPow:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN10@PMC_ModPow
 
-; 622  :         return (result);
+; 615  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_ModPow
 $LN10@PMC_ModPow:
 
-; 623  : #endif
-; 624  :     return (PMC_STATUS_OK);
+; 616  : #endif
+; 617  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_ModPow:
 
-; 625  : }
+; 618  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -3224,18 +3224,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_ModPow PROC
 
-; 628  : {
+; 621  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __6553949D_pmc_modpow@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 629  :     return (PMC_STATUS_OK);
+; 622  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 630  : }
+; 623  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

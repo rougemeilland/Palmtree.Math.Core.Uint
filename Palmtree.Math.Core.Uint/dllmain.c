@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   dllmain.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/26, 19:24
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

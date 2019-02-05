@@ -20,33 +20,33 @@ _TEXT	SEGMENT
 _buffer$ = 8						; size = 4
 _PMC_GetStatisticsInfo@4 PROC				; COMDAT
 
-; 40   : {
+; 34   : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 41   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
+; 35   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
 
 	mov	ecx, DWORD PTR _buffer$[ebp]
 	mov	eax, DWORD PTR _statistics_info+12
 	mov	DWORD PTR [ecx+12], eax
 
-; 42   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
+; 36   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
 
 	mov	eax, DWORD PTR _statistics_info+8
 	mov	DWORD PTR [ecx+8], eax
 
-; 43   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
+; 37   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
 
 	mov	eax, DWORD PTR _statistics_info+4
 	mov	DWORD PTR [ecx+4], eax
 
-; 44   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
+; 38   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
 
 	mov	eax, DWORD PTR _statistics_info
 	mov	DWORD PTR [ecx], eax
 
-; 45   : }
+; 39   : }
 
 	pop	ebp
 	ret	4

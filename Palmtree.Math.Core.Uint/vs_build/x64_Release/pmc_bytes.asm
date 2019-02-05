@@ -100,66 +100,66 @@ p$ = 8
 count$ = 16
 CountActualBitsFromBuffer PROC				; COMDAT
 
-; 40   :     p += count;
+; 33   :     p += count;
 
 	add	rcx, rdx
 
-; 41   :     while (count > 0)
+; 34   :     while (count > 0)
 
 	test	rdx, rdx
 	je	SHORT $LN3@CountActua
 	npad	8
 $LL2@CountActua:
 
-; 42   :     {
-; 43   :         --p;
-; 44   :         if (*p != 0)
+; 35   :     {
+; 36   :         --p;
+; 37   :         if (*p != 0)
 
 	movzx	eax, BYTE PTR [rcx-1]
 	lea	rcx, QWORD PTR [rcx-1]
 	test	al, al
 	jne	SHORT $LN10@CountActua
 
-; 46   :         --count;
+; 39   :         --count;
 
 	sub	rdx, 1
 	jne	SHORT $LL2@CountActua
 $LN3@CountActua:
 
-; 47   :     }
-; 48   :     return (0);
+; 40   :     }
+; 41   :     return (0);
 
 	xor	eax, eax
 
-; 49   : }
+; 42   : }
 
 	ret	0
 $LN10@CountActua:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 586  :         _BitScanReverse(&pos, x);
+; 579  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, al
 	bsr	ecx, eax
 
-; 587  : #elif defined(__GNUC__)
-; 588  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 589  : #else
-; 590  : #error unknown compiler
-; 591  : #endif
-; 592  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 580  : #elif defined(__GNUC__)
+; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 582  : #else
+; 583  : #error unknown compiler
+; 584  : #endif
+; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	al, cl
 	movzx	ecx, al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 45   :             return (count * 8 - _LZCNT_ALT_8(*p));
+; 38   :             return (count * 8 - _LZCNT_ALT_8(*p));
 
 	lea	rax, QWORD PTR [rdx*8]
 	sub	rax, rcx
 
-; 49   : }
+; 42   : }
 
 	ret	0
 CountActualBitsFromBuffer ENDP
@@ -171,39 +171,39 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_8 PROC					; COMDAT
 
-; 582  :         if (x == 0)
+; 575  :         if (x == 0)
 
 	test	cl, cl
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 583  :             return (sizeof(x) * 8);
+; 576  :             return (sizeof(x) * 8);
 
 	mov	eax, 8
 
-; 593  :     }
+; 586  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 584  :         _UINT32_T pos;
-; 585  : #ifdef _MSC_VER
-; 586  :         _BitScanReverse(&pos, x);
+; 577  :         _UINT32_T pos;
+; 578  : #ifdef _MSC_VER
+; 579  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, cl
 	bsr	ecx, eax
 
-; 587  : #elif defined(__GNUC__)
-; 588  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 589  : #else
-; 590  : #error unknown compiler
-; 591  : #endif
-; 592  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 580  : #elif defined(__GNUC__)
+; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 582  : #else
+; 583  : #error unknown compiler
+; 584  : #endif
+; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	al, cl
 	movzx	eax, al
 
-; 593  :     }
+; 586  :     }
 
 	ret	0
 _LZCNT_ALT_8 ENDP
@@ -216,7 +216,7 @@ u$ = 8
 v$ = 16
 _DIVIDE_CEILING_SIZE PROC				; COMDAT
 
-; 199  :         return ((u + v - 1) / v);
+; 192  :         return ((u + v - 1) / v);
 
 	lea	rax, QWORD PTR [rdx-1]
 	mov	r8, rdx
@@ -224,7 +224,7 @@ _DIVIDE_CEILING_SIZE PROC				; COMDAT
 	xor	edx, edx
 	div	r8
 
-; 200  :     }
+; 193  :     }
 
 	ret	0
 _DIVIDE_CEILING_SIZE ENDP
@@ -238,19 +238,19 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_BYTE PROC					; COMDAT
 
-; 49   :     {
+; 42   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 50   :         __movsb(d, s, count);
+; 43   :         __movsb(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsb
 
-; 51   :     }
+; 44   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -271,7 +271,7 @@ buffer_size$ = 64
 count$ = 72
 PMC_ToByteArray PROC					; COMDAT
 
-; 79   : {
+; 72   : {
 
 $LN16:
 	mov	QWORD PTR [rsp+8], rbx
@@ -284,27 +284,27 @@ $LN16:
 	mov	rdi, rdx
 	mov	rsi, rcx
 
-; 80   :     if (p == NULL)
+; 73   :     if (p == NULL)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@PMC_ToByte
 
-; 81   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 74   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	lea	eax, QWORD PTR [rcx-1]
 	jmp	SHORT $LN1@PMC_ToByte
 $LN2@PMC_ToByte:
 
-; 82   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-; 83   :     PMC_STATUS_CODE result;
-; 84   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+; 75   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 76   :     PMC_STATUS_CODE result;
+; 77   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
 	jne	SHORT $LN1@PMC_ToByte
 
-; 85   :         return (result);
-; 86   :     size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
+; 78   :         return (result);
+; 79   :     size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	ecx, DWORD PTR [rsi+40]
 	and	ecx, 2
@@ -314,7 +314,7 @@ $LN2@PMC_ToByte:
 $LN9@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 199  :         return ((u + v - 1) / v);
+; 192  :         return ((u + v - 1) / v);
 
 	mov	rdx, QWORD PTR [rsi+16]
 	add	rdx, 7
@@ -322,37 +322,37 @@ $LN9@PMC_ToByte:
 $LN10@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 87   :     if (buffer != NULL)
+; 80   :     if (buffer != NULL)
 
 	test	rdi, rdi
 	je	SHORT $LN13@PMC_ToByte
 
-; 88   :     {
-; 89   :         if (np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+; 81   :     {
+; 82   :         if (np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	lea	rax, QWORD PTR [rbp*8]
 	cmp	QWORD PTR [rsi+16], rax
 	jbe	SHORT $LN5@PMC_ToByte
 
-; 90   :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
+; 83   :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
 	mov	eax, -4
 	jmp	SHORT $LN1@PMC_ToByte
 $LN5@PMC_ToByte:
 
-; 91   :         if (np->IS_ZERO)
+; 84   :         if (np->IS_ZERO)
 
 	test	ecx, ecx
 	je	SHORT $LN6@PMC_ToByte
 
-; 92   :             buffer[0] = 0;
+; 85   :             buffer[0] = 0;
 
 	mov	BYTE PTR [rdi], 0
 	jmp	SHORT $LN13@PMC_ToByte
 $LN6@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 50   :         __movsb(d, s, count);
+; 43   :         __movsb(d, s, count);
 
 	mov	rsi, QWORD PTR [rsi+56]
 	mov	rcx, rdx
@@ -360,16 +360,16 @@ $LN6@PMC_ToByte:
 $LN13@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 96   :     *count = expected_buffer_size;
+; 89   :     *count = expected_buffer_size;
 
 	mov	QWORD PTR [rbx], rdx
 
-; 97   :     return (PMC_STATUS_OK);
+; 90   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_ToByte:
 
-; 98   : }
+; 91   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rbp, QWORD PTR [rsp+56]
@@ -395,7 +395,7 @@ count$ = 56
 o$ = 64
 PMC_FromByteArray PROC					; COMDAT
 
-; 53   : {
+; 46   : {
 
 $LN29:
 	mov	QWORD PTR [rsp+24], rbx
@@ -404,61 +404,61 @@ $LN29:
 	mov	rbx, r8
 	mov	rsi, rcx
 
-; 54   :     PMC_STATUS_CODE result;
-; 55   :     if (buffer == NULL)
+; 47   :     PMC_STATUS_CODE result;
+; 48   :     if (buffer == NULL)
 
 	test	rcx, rcx
 	je	$LN26@PMC_FromBy
 
-; 56   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 57   :     if (o == NULL)
+; 49   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 50   :     if (o == NULL)
 
 	test	rbx, rbx
 	je	$LN26@PMC_FromBy
 
-; 40   :     p += count;
+; 33   :     p += count;
 
 	mov	QWORD PTR [rsp+56], rdi
 	lea	rax, QWORD PTR [rcx+rdx]
 
-; 41   :     while (count > 0)
+; 34   :     while (count > 0)
 
 	test	rdx, rdx
 	je	SHORT $LN25@PMC_FromBy
 $LL9@PMC_FromBy:
 
-; 42   :     {
-; 43   :         --p;
-; 44   :         if (*p != 0)
+; 35   :     {
+; 36   :         --p;
+; 37   :         if (*p != 0)
 
 	movzx	ecx, BYTE PTR [rax-1]
 	lea	rax, QWORD PTR [rax-1]
 	test	cl, cl
 	jne	SHORT $LN21@PMC_FromBy
 
-; 46   :         --count;
+; 39   :         --count;
 
 	sub	rdx, 1
 	jne	SHORT $LL9@PMC_FromBy
 $LN25@PMC_FromBy:
 
-; 61   :         *o = &number_zero;
+; 54   :         *o = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [r8], rax
 
-; 70   :     }
-; 71   : #ifdef _DEBUG
-; 72   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 73   :         return (result);
-; 74   : #endif
-; 75   :     return (PMC_STATUS_OK);
+; 63   :     }
+; 64   : #ifdef _DEBUG
+; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 66   :         return (result);
+; 67   : #endif
+; 68   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN27@PMC_FromBy:
 	mov	rdi, QWORD PTR [rsp+56]
 
-; 76   : }
+; 69   : }
 
 	mov	rbx, QWORD PTR [rsp+64]
 	add	rsp, 32					; 00000020H
@@ -467,46 +467,46 @@ $LN27@PMC_FromBy:
 $LN21@PMC_FromBy:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 586  :         _BitScanReverse(&pos, x);
+; 579  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 45   :             return (count * 8 - _LZCNT_ALT_8(*p));
+; 38   :             return (count * 8 - _LZCNT_ALT_8(*p));
 
 	lea	rdi, QWORD PTR [rdx*8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 586  :         _BitScanReverse(&pos, x);
+; 579  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 587  : #elif defined(__GNUC__)
-; 588  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 589  : #else
-; 590  : #error unknown compiler
-; 591  : #endif
-; 592  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 580  : #elif defined(__GNUC__)
+; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 582  : #else
+; 583  : #error unknown compiler
+; 584  : #endif
+; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	al, cl
 	movzx	ecx, al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 45   :             return (count * 8 - _LZCNT_ALT_8(*p));
+; 38   :             return (count * 8 - _LZCNT_ALT_8(*p));
 
 	sub	rdi, rcx
 
-; 58   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 59   :     __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer, count);
-; 60   :     if (bit_count == 0)
+; 51   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 52   :     __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer, count);
+; 53   :     if (bit_count == 0)
 
 	je	SHORT $LN25@PMC_FromBy
 
-; 62   :     else
-; 63   :     {
-; 64   :         NUMBER_HEADER* p;
-; 65   :         if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
+; 55   :     else
+; 56   :     {
+; 57   :         NUMBER_HEADER* p;
+; 58   :         if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
 
 	xor	r8d, r8d
 	lea	rcx, QWORD PTR p$1[rsp]
@@ -516,45 +516,45 @@ $LN21@PMC_FromBy:
 	jne	SHORT $LN27@PMC_FromBy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 199  :         return ((u + v - 1) / v);
+; 192  :         return ((u + v - 1) / v);
 
 	lea	rcx, QWORD PTR [rdi+7]
 
-; 50   :         __movsb(d, s, count);
+; 43   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR p$1[rsp]
 
-; 199  :         return ((u + v - 1) / v);
+; 192  :         return ((u + v - 1) / v);
 
 	shr	rcx, 3
 
-; 50   :         __movsb(d, s, count);
+; 43   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR [rdi+56]
 	rep movsb
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
-; 68   :         CommitNumber(p);
+; 61   :         CommitNumber(p);
 
 	mov	rcx, QWORD PTR p$1[rsp]
 	call	CommitNumber
 
-; 69   :         *o = p;
+; 62   :         *o = p;
 
 	mov	rax, QWORD PTR p$1[rsp]
 	mov	rdi, QWORD PTR [rsp+56]
 	mov	QWORD PTR [rbx], rax
 
-; 70   :     }
-; 71   : #ifdef _DEBUG
-; 72   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 73   :         return (result);
-; 74   : #endif
-; 75   :     return (PMC_STATUS_OK);
+; 63   :     }
+; 64   : #ifdef _DEBUG
+; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 66   :         return (result);
+; 67   : #endif
+; 68   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 76   : }
+; 69   : }
 
 	mov	rbx, QWORD PTR [rsp+64]
 	add	rsp, 32					; 00000020H

@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_uint_internal.h
- * Author: Lunor Kisasage
- *
- * Created on 2019/02/02, 18:52
- */
-
 
 #include <windows.h>
 #include "pmc_internal.h"

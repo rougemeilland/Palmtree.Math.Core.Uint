@@ -68,7 +68,7 @@ L4:
 	movl	$7, %ecx
 	sall	$3, %eax
 /APP
- # 588 "../pmc_inline_func.h" 1
+ # 581 "../pmc_inline_func.h" 1
 	bsrl %edx, %edx
  # 0 "" 2
 /NO_APP

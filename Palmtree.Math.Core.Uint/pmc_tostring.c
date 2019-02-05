@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_tostring.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/15, 1:06
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

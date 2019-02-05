@@ -97,7 +97,7 @@ x$ = 320
 o$ = 328
 PMC_Clone_X PROC					; COMDAT
 
-; 38   : {
+; 31   : {
 
 $LN10:
 	mov	QWORD PTR [rsp+16], rdx
@@ -114,35 +114,35 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__9C731D93_pmc_clone@c
 	call	__CheckForDebuggerJustMyCode
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@PMC_Clone_
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Clone_
 $LN2@PMC_Clone_:
 
-; 41   :     if (o == NULL)
+; 34   :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN3@PMC_Clone_
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Clone_
 $LN3@PMC_Clone_:
 
-; 43   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 36   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR nx$[rbp], rax
 
-; 44   :     PMC_STATUS_CODE result;
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 37   :     PMC_STATUS_CODE result;
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nx$[rbp]
 	call	CheckNumber
@@ -150,14 +150,14 @@ $LN3@PMC_Clone_:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN4@PMC_Clone_
 
-; 46   :         return (result);
+; 39   :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN4@PMC_Clone_:
 
-; 47   :     NUMBER_HEADER* no;
-; 48   :     if (nx->IS_ZERO)
+; 40   :     NUMBER_HEADER* no;
+; 41   :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -166,16 +166,16 @@ $LN4@PMC_Clone_:
 	test	eax, eax
 	je	SHORT $LN5@PMC_Clone_
 
-; 49   :         no = &number_zero;
+; 42   :         no = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR no$[rbp], rax
 	jmp	SHORT $LN6@PMC_Clone_
 $LN5@PMC_Clone_:
 
-; 50   :     else
-; 51   :     {
-; 52   :         if ((result = DuplicateNumber(nx, &no)) != PMC_STATUS_OK)
+; 43   :     else
+; 44   :     {
+; 45   :         if ((result = DuplicateNumber(nx, &no)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR no$[rbp]
 	mov	rcx, QWORD PTR nx$[rbp]
@@ -184,22 +184,22 @@ $LN5@PMC_Clone_:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_Clone_
 
-; 53   :             return (result);
+; 46   :             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN7@PMC_Clone_:
 $LN6@PMC_Clone_:
 
-; 54   :     }
-; 55   :     *o = no;
+; 47   :     }
+; 48   :     *o = no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 56   : #ifdef _DEBUG
-; 57   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 49   : #ifdef _DEBUG
+; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -208,19 +208,19 @@ $LN6@PMC_Clone_:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN8@PMC_Clone_
 
-; 58   :         return (result);
+; 51   :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN8@PMC_Clone_:
 
-; 59   : #endif
-; 60   :     return (PMC_STATUS_OK);
+; 52   : #endif
+; 53   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Clone_:
 
-; 61   : }
+; 54   : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -240,7 +240,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_Clone PROC					; COMDAT
 
-; 64   : {
+; 57   : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -256,11 +256,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__9C731D93_pmc_clone@c
 	call	__CheckForDebuggerJustMyCode
 
-; 65   :     return (PMC_STATUS_OK);
+; 58   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 66   : }
+; 59   : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

@@ -42,13 +42,13 @@ _p$ = 8							; size = 4
 _word_count$ = 12					; size = 4
 _GetTrailingZeroBitCount PROC				; COMDAT
 
-; 462  : {
+; 456  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 463  :     __UNIT_TYPE bit_count = 0;
-; 464  :     while (word_count > 0)
+; 457  :     __UNIT_TYPE bit_count = 0;
+; 458  :     while (word_count > 0)
 
 	mov	eax, DWORD PTR _word_count$[ebp]
 	xor	edx, edx
@@ -58,51 +58,51 @@ _GetTrailingZeroBitCount PROC				; COMDAT
 	mov	ecx, DWORD PTR _p$[ebp]
 $LL2@GetTrailin:
 
-; 465  :     {
-; 466  :         --word_count;
-; 467  :         if (*p != 0)
+; 459  :     {
+; 460  :         --word_count;
+; 461  :         if (*p != 0)
 
 	mov	esi, DWORD PTR [ecx]
 	dec	eax
 	test	esi, esi
 	jne	SHORT $LN10@GetTrailin
 
-; 469  :         bit_count += __UNIT_TYPE_BIT_COUNT;
+; 463  :         bit_count += __UNIT_TYPE_BIT_COUNT;
 
 	add	edx, 32					; 00000020H
 
-; 470  :         ++p;
+; 464  :         ++p;
 
 	add	ecx, 4
 	test	eax, eax
 	jne	SHORT $LL2@GetTrailin
 $LN3@GetTrailin:
 
-; 471  :     }
-; 472  :     // このルートには到達しないはず
-; 473  :     return (0);
+; 465  :     }
+; 466  :     // このルートには到達しないはず
+; 467  :     return (0);
 
 	xor	eax, eax
 	pop	esi
 
-; 474  : }
+; 468  : }
 
 	pop	ebp
 	ret	0
 $LN10@GetTrailin:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 715  :         _BitScanForward(&pos, x);
+; 708  :         _BitScanForward(&pos, x);
 
 	bsf	eax, esi
 	pop	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 468  :             return (bit_count + _TZCNT_ALT_UNIT(*p));
+; 462  :             return (bit_count + _TZCNT_ALT_UNIT(*p));
 
 	add	eax, edx
 
-; 474  : }
+; 468  : }
 
 	pop	ebp
 	ret	0
@@ -123,122 +123,122 @@ _word_count$ = 12					; size = 4
 _effective_word_count$ = 16				; size = 4
 _GetEffectiveBitLength PROC				; COMDAT
 
-; 440  : {
+; 434  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 441  :     if (p == NULL)
+; 435  :     if (p == NULL)
 
 	mov	eax, DWORD PTR _p$[ebp]
 	test	eax, eax
 	je	SHORT $LN3@GetEffecti
 
-; 442  :     {
-; 443  :         *effective_word_count = 0;
-; 444  :         return (0);
-; 445  :     }
-; 446  :     p += word_count;
+; 436  :     {
+; 437  :         *effective_word_count = 0;
+; 438  :         return (0);
+; 439  :     }
+; 440  :     p += word_count;
 
 	mov	edx, DWORD PTR _word_count$[ebp]
 	lea	ecx, DWORD PTR [eax+edx*4]
 
-; 447  :     while (word_count != 0)
+; 441  :     while (word_count != 0)
 
 	test	edx, edx
 	je	SHORT $LN3@GetEffecti
 $LL2@GetEffecti:
 
-; 448  :     {
-; 449  :         --p;
-; 450  :         if (*p != 0)
+; 442  :     {
+; 443  :         --p;
+; 444  :         if (*p != 0)
 
 	cmp	DWORD PTR [ecx-4], 0
 	lea	ecx, DWORD PTR [ecx-4]
 	jne	SHORT $LN11@GetEffecti
 
-; 454  :         }
-; 455  :         --word_count;
+; 448  :         }
+; 449  :         --word_count;
 
 	sub	edx, 1
 	jne	SHORT $LL2@GetEffecti
 $LN3@GetEffecti:
 
-; 456  :     }
-; 457  :     *effective_word_count = 0;
+; 450  :     }
+; 451  :     *effective_word_count = 0;
 
 	mov	eax, DWORD PTR _effective_word_count$[ebp]
 	mov	DWORD PTR [eax], 0
 
-; 458  :     return (0);
+; 452  :     return (0);
 
 	xor	eax, eax
 
-; 459  : }
+; 453  : }
 
 	pop	ebp
 	ret	0
 $LN11@GetEffecti:
 
-; 451  :         {
-; 452  :             *effective_word_count = word_count;
+; 445  :         {
+; 446  :             *effective_word_count = word_count;
 
 	mov	eax, DWORD PTR _effective_word_count$[ebp]
 	mov	DWORD PTR [eax], edx
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	test	eax, eax
 	jne	SHORT $LN8@GetEffecti
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	shl	edx, 5
 	sub	edx, eax
 	mov	eax, edx
 
-; 459  : }
+; 453  : }
 
 	pop	ebp
 	ret	0
 $LN8@GetEffecti:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 635  :         _BitScanReverse(&pos, x);
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	shl	edx, 5
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	eax, ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	sub	edx, eax
 	mov	eax, edx
 
-; 459  : }
+; 453  : }
 
 	pop	ebp
 	ret	0
@@ -255,80 +255,80 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _CleanUpNumber PROC					; COMDAT
 
-; 393  : {
+; 387  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	mov	esi, DWORD PTR _p$[ebp]
 	mov	eax, DWORD PTR [esi+32]
 	test	eax, eax
 	je	SHORT $LN2@CleanUpNum
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	ecx, DWORD PTR [esi+28]
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [eax-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], ecx
 	jne	SHORT $LN7@CleanUpNum
 
-; 209  :         {
-; 210  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
-; 211  :         }
-; 212  :         else
-; 213  :         {
-; 214  :             // 使用済みのバッファを既定のデータで塗りつぶす。
-; 215  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
+; 203  :         {
+; 204  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
+; 205  :         }
+; 206  :         else
+; 207  :         {
+; 208  :             // 使用済みのバッファを既定のデータで塗りつぶす。
+; 209  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
 
 	push	edi
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	add	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	edi, edx
 	mov	eax, -858993460				; ccccccccH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	pop	edi
 $LN7@CleanUpNum:
 
-; 397  :         p->BLOCK = NULL;
+; 391  :         p->BLOCK = NULL;
 
 	mov	DWORD PTR [esi+32], 0
 $LN2@CleanUpNum:
 	pop	esi
 
-; 398  :     }
-; 399  : }
+; 392  :     }
+; 393  : }
 
 	pop	ebp
 	ret	0
@@ -345,132 +345,132 @@ _bit_count$ = 12					; size = 4
 _light_check_code$ = 16					; size = 4
 _InitializeNumber PROC					; COMDAT
 
-; 365  : {
+; 359  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 	push	edi
 
-; 366  :     if (bit_count > 0)
+; 360  :     if (bit_count > 0)
 
 	mov	edi, DWORD PTR _bit_count$[ebp]
 	test	edi, edi
 	je	SHORT $LN2@Initialize
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	lea	esi, DWORD PTR [edi+31]
 	shr	esi, 5
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 169  : 	__UNIT_TYPE bytes = words2 * __UNIT_TYPE_BYTE_COUNT;
+; 163  : 	__UNIT_TYPE bytes = words2 * __UNIT_TYPE_BYTE_COUNT;
 
 	lea	eax, DWORD PTR [esi*4+8]
 
-; 170  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
+; 164  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
 
 	push	eax
 	push	8
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapAlloc@12
 
-; 171  : 	if (buffer == NULL)
+; 165  : 	if (buffer == NULL)
 
 	test	eax, eax
 	je	SHORT $LN40@Initialize
 
-; 172  : 		return (NULL);
-; 173  : 	buffer[0] = words1;
-; 174  :     *allocated_block_words = words1;
-; 175  : #ifdef _DEBUG
-; 176  :     // 乱数もどきを生成する。
-; 177  : #ifdef _M_IX86
-; 178  :     __UNIT_TYPE r = GetTickCount();
-; 179  : #elif defined(_M_IX64)
-; 180  : #ifdef _MSC_VER
-; 181  :     __UNIT_TYPE r = GetTickCount64();
-; 182  : #elif defined(__GNUC__)
-; 183  :     _UINT32_T temp = GetTickCount();
-; 184  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
-; 185  : #else
-; 186  : #error unknown compiler
-; 187  : #endif
-; 188  : #else
-; 189  : #error unknown platform
-; 190  : #endif
-; 191  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
-; 192  : #else
-; 193  :     __UNIT_TYPE check_code = 0;
-; 194  : #endif
-; 195  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
+; 166  : 		return (NULL);
+; 167  : 	buffer[0] = words1;
+; 168  :     *allocated_block_words = words1;
+; 169  : #ifdef _DEBUG
+; 170  :     // 乱数もどきを生成する。
+; 171  : #ifdef _M_IX86
+; 172  :     __UNIT_TYPE r = GetTickCount();
+; 173  : #elif defined(_M_IX64)
+; 174  : #ifdef _MSC_VER
+; 175  :     __UNIT_TYPE r = GetTickCount64();
+; 176  : #elif defined(__GNUC__)
+; 177  :     _UINT32_T temp = GetTickCount();
+; 178  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
+; 179  : #else
+; 180  : #error unknown compiler
+; 181  : #endif
+; 182  : #else
+; 183  : #error unknown platform
+; 184  : #endif
+; 185  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
+; 186  : #else
+; 187  :     __UNIT_TYPE check_code = 0;
+; 188  : #endif
+; 189  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
 
 	lea	ecx, DWORD PTR [esi+1]
 	mov	DWORD PTR [eax], esi
 	lea	ecx, DWORD PTR [eax+ecx*4]
 	mov	DWORD PTR [ecx], ecx
 
-; 196  :     if (code != NULL)
+; 190  :     if (code != NULL)
 
 	mov	ecx, DWORD PTR _light_check_code$[ebp]
 	test	ecx, ecx
 	je	SHORT $LN8@Initialize
 
-; 197  :         *code = check_code;
+; 191  :         *code = check_code;
 
 	mov	DWORD PTR [ecx], 0
 $LN8@Initialize:
 
-; 198  :     return (&buffer[1]);
+; 192  :     return (&buffer[1]);
 
 	lea	ecx, DWORD PTR [eax+4]
 
-; 367  :     {
-; 368  :         __UNIT_TYPE word_count;
-; 369  :         __UNIT_TYPE* block = AllocateBlock(bit_count, &word_count, light_check_code);
-; 370  :         if (block == NULL)
+; 361  :     {
+; 362  :         __UNIT_TYPE word_count;
+; 363  :         __UNIT_TYPE* block = AllocateBlock(bit_count, &word_count, light_check_code);
+; 364  :         if (block == NULL)
 
 	test	ecx, ecx
 	jne	SHORT $LN3@Initialize
 $LN40@Initialize:
 	pop	edi
 
-; 371  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 365  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 
-; 390  : }
+; 384  : }
 
 	pop	esi
 	pop	ebp
 	ret	0
 $LN2@Initialize:
 
-; 372  :         ClearNumberHeader(p);
-; 373  :         p->SIGNATURE1 = PMC_SIGNATURE;
-; 374  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
-; 375  :         p->UNIT_BIT_COUNT = bit_count;
-; 376  :         p->BLOCK_COUNT = word_count;
-; 377  :         p->BLOCK = block;
-; 378  :     }
-; 379  :     else
-; 380  :     {
-; 381  :         // bit_count に 0 が与えられるのは、数値が 0 の場合。
-; 382  :         ClearNumberHeader(p);
-; 383  :         p->SIGNATURE1 = PMC_SIGNATURE;
-; 384  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
-; 385  :         p->UNIT_BIT_COUNT = 0;
-; 386  :         p->BLOCK_COUNT = 0;
-; 387  :         p->BLOCK = NULL;
+; 366  :         ClearNumberHeader(p);
+; 367  :         p->SIGNATURE1 = PMC_SIGNATURE;
+; 368  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
+; 369  :         p->UNIT_BIT_COUNT = bit_count;
+; 370  :         p->BLOCK_COUNT = word_count;
+; 371  :         p->BLOCK = block;
+; 372  :     }
+; 373  :     else
+; 374  :     {
+; 375  :         // bit_count に 0 が与えられるのは、数値が 0 の場合。
+; 376  :         ClearNumberHeader(p);
+; 377  :         p->SIGNATURE1 = PMC_SIGNATURE;
+; 378  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
+; 379  :         p->UNIT_BIT_COUNT = 0;
+; 380  :         p->BLOCK_COUNT = 0;
+; 381  :         p->BLOCK = NULL;
 
 	xor	ecx, ecx
 	xor	esi, esi
 	xor	edi, edi
 $LN3@Initialize:
 
-; 388  :     }
-; 389  :     return (PMC_STATUS_OK);
+; 382  :     }
+; 383  :     return (PMC_STATUS_OK);
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax+8], 0
@@ -485,7 +485,7 @@ $LN3@Initialize:
 	mov	DWORD PTR [eax+32], ecx
 	xor	eax, eax
 
-; 390  : }
+; 384  : }
 
 	pop	esi
 	pop	ebp
@@ -499,80 +499,80 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _FillNumberHeader PROC					; COMDAT
 
-; 321  : {
+; 315  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 322  : #ifdef _M_IX64
-; 323  :     if (sizeof(*p) == sizeof(_UINT64_T) * 8)
-; 324  :     {
-; 325  :         _UINT64_T* __p = (_UINT64_T*)p;
-; 326  :         __p[0] = DEFAULT_MEMORY_DATA;
-; 327  :         __p[1] = DEFAULT_MEMORY_DATA;
-; 328  :         __p[2] = DEFAULT_MEMORY_DATA;
-; 329  :         __p[3] = DEFAULT_MEMORY_DATA;
-; 330  :         __p[4] = DEFAULT_MEMORY_DATA;
-; 331  :         __p[5] = DEFAULT_MEMORY_DATA;
-; 332  :         __p[6] = DEFAULT_MEMORY_DATA;
-; 333  :         __p[7] = DEFAULT_MEMORY_DATA;
-; 334  :     }
-; 335  :     else if (sizeof(*p) % sizeof(_UINT64_T) == 0)
-; 336  :         _FILL_MEMORY_64((_UINT64_T*)p, DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT64_T));
-; 337  :     else
-; 338  :     {
-; 339  : #endif
-; 340  :         if (sizeof(*p) == sizeof(_UINT32_T) * 9)
-; 341  :         {
-; 342  :             _UINT32_T* __p = (_UINT32_T*)p;
-; 343  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 316  : #ifdef _M_IX64
+; 317  :     if (sizeof(*p) == sizeof(_UINT64_T) * 8)
+; 318  :     {
+; 319  :         _UINT64_T* __p = (_UINT64_T*)p;
+; 320  :         __p[0] = DEFAULT_MEMORY_DATA;
+; 321  :         __p[1] = DEFAULT_MEMORY_DATA;
+; 322  :         __p[2] = DEFAULT_MEMORY_DATA;
+; 323  :         __p[3] = DEFAULT_MEMORY_DATA;
+; 324  :         __p[4] = DEFAULT_MEMORY_DATA;
+; 325  :         __p[5] = DEFAULT_MEMORY_DATA;
+; 326  :         __p[6] = DEFAULT_MEMORY_DATA;
+; 327  :         __p[7] = DEFAULT_MEMORY_DATA;
+; 328  :     }
+; 329  :     else if (sizeof(*p) % sizeof(_UINT64_T) == 0)
+; 330  :         _FILL_MEMORY_64((_UINT64_T*)p, DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT64_T));
+; 331  :     else
+; 332  :     {
+; 333  : #endif
+; 334  :         if (sizeof(*p) == sizeof(_UINT32_T) * 9)
+; 335  :         {
+; 336  :             _UINT32_T* __p = (_UINT32_T*)p;
+; 337  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax], -858993460		; ccccccccH
 
-; 344  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 338  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+4], -858993460		; ccccccccH
 
-; 345  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 339  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+8], -858993460		; ccccccccH
 
-; 346  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 340  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+12], -858993460		; ccccccccH
 
-; 347  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 341  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+16], -858993460		; ccccccccH
 
-; 348  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 342  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+20], -858993460		; ccccccccH
 
-; 349  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 343  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+24], -858993460		; ccccccccH
 
-; 350  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 344  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+28], -858993460		; ccccccccH
 
-; 351  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 345  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [eax+32], -858993460		; ccccccccH
 
-; 352  :         }
-; 353  :         else if (sizeof(*p) % sizeof(_UINT32_T) == 0)
-; 354  :             _FILL_MEMORY_32((_UINT32_T*)p, (_UINT32_T)DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT32_T));
-; 355  :         else if (sizeof(*p) % sizeof(_UINT16_T) == 0)
-; 356  :             _FILL_MEMORY_16((_UINT16_T*)p, (_UINT16_T)DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT16_T));
-; 357  :         else
-; 358  :             _FILL_MEMORY_BYTE(p, (unsigned char)DEFAULT_MEMORY_DATA, sizeof(*p));
-; 359  : #ifdef _M_IX64
-; 360  :     }
-; 361  : #endif
-; 362  : }
+; 346  :         }
+; 347  :         else if (sizeof(*p) % sizeof(_UINT32_T) == 0)
+; 348  :             _FILL_MEMORY_32((_UINT32_T*)p, (_UINT32_T)DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT32_T));
+; 349  :         else if (sizeof(*p) % sizeof(_UINT16_T) == 0)
+; 350  :             _FILL_MEMORY_16((_UINT16_T*)p, (_UINT16_T)DEFAULT_MEMORY_DATA, sizeof(*p) / sizeof(_UINT16_T));
+; 351  :         else
+; 352  :             _FILL_MEMORY_BYTE(p, (unsigned char)DEFAULT_MEMORY_DATA, sizeof(*p));
+; 353  : #ifdef _M_IX64
+; 354  :     }
+; 355  : #endif
+; 356  : }
 
 	pop	ebp
 	ret	0
@@ -585,80 +585,80 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _ClearNumberHeader PROC					; COMDAT
 
-; 277  : {
+; 271  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 278  : #ifdef _M_IX64
-; 279  :     if (sizeof(*p) == sizeof(_UINT64_T) * 8)
-; 280  :     {
-; 281  :         _UINT64_T* __p = (_UINT64_T*)p;
-; 282  :         __p[0] = 0;
-; 283  :         __p[1] = 0;
-; 284  :         __p[2] = 0;
-; 285  :         __p[3] = 0;
-; 286  :         __p[4] = 0;
-; 287  :         __p[5] = 0;
-; 288  :         __p[6] = 0;
-; 289  :         __p[7] = 0;
-; 290  :     }
-; 291  :     else if (sizeof(*p) % sizeof(_UINT64_T) == 0)
-; 292  :         _ZERO_MEMORY_64((_UINT64_T*)p, sizeof(*p) / sizeof(_UINT64_T));
-; 293  :     else
-; 294  :     {
-; 295  : #endif
-; 296  :         if (sizeof(*p) == sizeof(_UINT32_T) * 9)
-; 297  :         {
-; 298  :             _UINT32_T* __p = (_UINT32_T*)p;
-; 299  :             __p[0] = 0;
+; 272  : #ifdef _M_IX64
+; 273  :     if (sizeof(*p) == sizeof(_UINT64_T) * 8)
+; 274  :     {
+; 275  :         _UINT64_T* __p = (_UINT64_T*)p;
+; 276  :         __p[0] = 0;
+; 277  :         __p[1] = 0;
+; 278  :         __p[2] = 0;
+; 279  :         __p[3] = 0;
+; 280  :         __p[4] = 0;
+; 281  :         __p[5] = 0;
+; 282  :         __p[6] = 0;
+; 283  :         __p[7] = 0;
+; 284  :     }
+; 285  :     else if (sizeof(*p) % sizeof(_UINT64_T) == 0)
+; 286  :         _ZERO_MEMORY_64((_UINT64_T*)p, sizeof(*p) / sizeof(_UINT64_T));
+; 287  :     else
+; 288  :     {
+; 289  : #endif
+; 290  :         if (sizeof(*p) == sizeof(_UINT32_T) * 9)
+; 291  :         {
+; 292  :             _UINT32_T* __p = (_UINT32_T*)p;
+; 293  :             __p[0] = 0;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [eax], 0
 
-; 300  :             __p[1] = 0;
+; 294  :             __p[1] = 0;
 
 	mov	DWORD PTR [eax+4], 0
 
-; 301  :             __p[2] = 0;
+; 295  :             __p[2] = 0;
 
 	mov	DWORD PTR [eax+8], 0
 
-; 302  :             __p[3] = 0;
+; 296  :             __p[3] = 0;
 
 	mov	DWORD PTR [eax+12], 0
 
-; 303  :             __p[4] = 0;
+; 297  :             __p[4] = 0;
 
 	mov	DWORD PTR [eax+16], 0
 
-; 304  :             __p[5] = 0;
+; 298  :             __p[5] = 0;
 
 	mov	DWORD PTR [eax+20], 0
 
-; 305  :             __p[6] = 0;
+; 299  :             __p[6] = 0;
 
 	mov	DWORD PTR [eax+24], 0
 
-; 306  :             __p[7] = 0;
+; 300  :             __p[7] = 0;
 
 	mov	DWORD PTR [eax+28], 0
 
-; 307  :             __p[8] = 0;
+; 301  :             __p[8] = 0;
 
 	mov	DWORD PTR [eax+32], 0
 
-; 308  :         }
-; 309  :         else if (sizeof(*p) % sizeof(_UINT32_T) == 0)
-; 310  :             _ZERO_MEMORY_32((_UINT32_T*)p, sizeof(*p) / sizeof(_UINT32_T));
-; 311  :         else if (sizeof(*p) % sizeof(_UINT16_T) == 0)
-; 312  :             _ZERO_MEMORY_16((_UINT16_T*)p, sizeof(*p) / sizeof(_UINT16_T));
-; 313  :         else
-; 314  :             _ZERO_MEMORY_BYTE(p, sizeof(*p));
-; 315  : #ifdef _M_IX64
-; 316  :     }
-; 317  : #endif
-; 318  : }
+; 302  :         }
+; 303  :         else if (sizeof(*p) % sizeof(_UINT32_T) == 0)
+; 304  :             _ZERO_MEMORY_32((_UINT32_T*)p, sizeof(*p) / sizeof(_UINT32_T));
+; 305  :         else if (sizeof(*p) % sizeof(_UINT16_T) == 0)
+; 306  :             _ZERO_MEMORY_16((_UINT16_T*)p, sizeof(*p) / sizeof(_UINT16_T));
+; 307  :         else
+; 308  :             _ZERO_MEMORY_BYTE(p, sizeof(*p));
+; 309  : #ifdef _M_IX64
+; 310  :     }
+; 311  : #endif
+; 312  : }
 
 	pop	ebp
 	ret	0
@@ -671,24 +671,24 @@ _TEXT	SEGMENT
 _buffer$ = 8						; size = 4
 _CheckBlock PROC					; COMDAT
 
-; 241  : #ifdef _DEBUG
-; 242  :     if (buffer == NULL)
+; 235  : #ifdef _DEBUG
+; 236  :     if (buffer == NULL)
+; 237  :         return (PMC_STATUS_OK);
+; 238  :     --buffer;
+; 239  :     __UNIT_TYPE words = buffer[0];
+; 240  :     __UNIT_TYPE code_desired = buffer[words + 1];
+; 241  :     __UNIT_TYPE code_actual = CalculateCheckCode(&buffer[1], words);
+; 242  :     if (code_actual == code_desired)
 ; 243  :         return (PMC_STATUS_OK);
-; 244  :     --buffer;
-; 245  :     __UNIT_TYPE words = buffer[0];
-; 246  :     __UNIT_TYPE code_desired = buffer[words + 1];
-; 247  :     __UNIT_TYPE code_actual = CalculateCheckCode(&buffer[1], words);
-; 248  :     if (code_actual == code_desired)
-; 249  :         return (PMC_STATUS_OK);
-; 250  :     else
-; 251  :         return (PMC_STATUS_BAD_BUFFER);
-; 252  : #else
-; 253  :     return (PMC_STATUS_OK);
+; 244  :     else
+; 245  :         return (PMC_STATUS_BAD_BUFFER);
+; 246  : #else
+; 247  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 254  : #endif
-; 255  : }
+; 248  : #endif
+; 249  : }
 
 	ret	0
 _CheckBlock ENDP
@@ -700,33 +700,33 @@ _TEXT	SEGMENT
 _buffer$ = 8						; size = 4
 _CommitBlock PROC					; COMDAT
 
-; 224  : {
+; 218  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 225  :     if (buffer != NULL)
+; 219  :     if (buffer != NULL)
 
 	mov	ecx, DWORD PTR _buffer$[ebp]
 	test	ecx, ecx
 	je	SHORT $LN2@CommitBloc
 
-; 226  :     {
-; 227  :         --buffer;
-; 228  :         __UNIT_TYPE words = buffer[0];
-; 229  : #ifdef _DEBUG
-; 230  :         __UNIT_TYPE code = CalculateCheckCode(&buffer[1], words);
-; 231  : #else
-; 232  :         __UNIT_TYPE code = 0;
-; 233  : #endif
-; 234  :         buffer[words + 1] = code;
+; 220  :     {
+; 221  :         --buffer;
+; 222  :         __UNIT_TYPE words = buffer[0];
+; 223  : #ifdef _DEBUG
+; 224  :         __UNIT_TYPE code = CalculateCheckCode(&buffer[1], words);
+; 225  : #else
+; 226  :         __UNIT_TYPE code = 0;
+; 227  : #endif
+; 228  :         buffer[words + 1] = code;
 
 	mov	eax, DWORD PTR [ecx-4]
 	mov	DWORD PTR [ecx+eax*4], 0
 $LN2@CommitBloc:
 
-; 235  :     }
-; 236  : }
+; 229  :     }
+; 230  : }
 
 	pop	ebp
 	ret	0
@@ -866,15 +866,15 @@ _p$ = 8							; size = 4
 _words$ = 12						; size = 4
 _CalculateCheckCode PROC				; COMDAT
 
-; 59   : {
+; 53   : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 60   : 	__UNIT_TYPE code = CHECK_CODE_INIT;
-; 61   : 	
-; 62   :     __UNIT_TYPE count = words >> 5;
-; 63   : 	while (count != 0)
+; 54   : 	__UNIT_TYPE code = CHECK_CODE_INIT;
+; 55   : 	
+; 56   :     __UNIT_TYPE count = words >> 5;
+; 57   : 	while (count != 0)
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	eax, -2071690108			; 84848484H
@@ -888,660 +888,693 @@ _CalculateCheckCode PROC				; COMDAT
 $LL2@CalculateC:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 65   :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
+; 59   :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
 
 	xor	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 66   :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
+; 60   :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
 
 	xor	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 67   :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
+; 61   :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
 
 	xor	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 68   :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
+; 62   :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
 
 	xor	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 69   :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
+; 63   :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
 
 	xor	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 70   :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
+; 64   :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
 
 	xor	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 71   :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
+; 65   :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
 
 	xor	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 72   :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
+; 66   :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
 
 	xor	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 73   :         code = _ROTATE_L_UNIT(code, 3) ^ p[8];
+; 67   :         code = _ROTATE_L_UNIT(code, 3) ^ p[8];
 
 	xor	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 74   :         code = _ROTATE_L_UNIT(code, 3) ^ p[9];
+; 68   :         code = _ROTATE_L_UNIT(code, 3) ^ p[9];
 
 	xor	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 75   :         code = _ROTATE_L_UNIT(code, 3) ^ p[10];
+; 69   :         code = _ROTATE_L_UNIT(code, 3) ^ p[10];
 
 	xor	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 76   :         code = _ROTATE_L_UNIT(code, 3) ^ p[11];
+; 70   :         code = _ROTATE_L_UNIT(code, 3) ^ p[11];
 
 	xor	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 77   :         code = _ROTATE_L_UNIT(code, 3) ^ p[12];
+; 71   :         code = _ROTATE_L_UNIT(code, 3) ^ p[12];
 
 	xor	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 78   :         code = _ROTATE_L_UNIT(code, 3) ^ p[13];
+; 72   :         code = _ROTATE_L_UNIT(code, 3) ^ p[13];
 
 	xor	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 79   :         code = _ROTATE_L_UNIT(code, 3) ^ p[14];
+; 73   :         code = _ROTATE_L_UNIT(code, 3) ^ p[14];
 
 	xor	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 80   :         code = _ROTATE_L_UNIT(code, 3) ^ p[15];
+; 74   :         code = _ROTATE_L_UNIT(code, 3) ^ p[15];
 
 	xor	eax, DWORD PTR [ecx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 81   :         code = _ROTATE_L_UNIT(code, 3) ^ p[16];
+; 75   :         code = _ROTATE_L_UNIT(code, 3) ^ p[16];
 
 	xor	eax, DWORD PTR [ecx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 82   :         code = _ROTATE_L_UNIT(code, 3) ^ p[17];
+; 76   :         code = _ROTATE_L_UNIT(code, 3) ^ p[17];
 
 	xor	eax, DWORD PTR [ecx+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 83   :         code = _ROTATE_L_UNIT(code, 3) ^ p[18];
+; 77   :         code = _ROTATE_L_UNIT(code, 3) ^ p[18];
 
 	xor	eax, DWORD PTR [ecx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 84   :         code = _ROTATE_L_UNIT(code, 3) ^ p[19];
+; 78   :         code = _ROTATE_L_UNIT(code, 3) ^ p[19];
 
 	xor	eax, DWORD PTR [ecx+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 85   :         code = _ROTATE_L_UNIT(code, 3) ^ p[20];
+; 79   :         code = _ROTATE_L_UNIT(code, 3) ^ p[20];
 
 	xor	eax, DWORD PTR [ecx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 86   :         code = _ROTATE_L_UNIT(code, 3) ^ p[21];
+; 80   :         code = _ROTATE_L_UNIT(code, 3) ^ p[21];
 
 	xor	eax, DWORD PTR [ecx+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 87   :         code = _ROTATE_L_UNIT(code, 3) ^ p[22];
+; 81   :         code = _ROTATE_L_UNIT(code, 3) ^ p[22];
 
 	xor	eax, DWORD PTR [ecx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 88   :         code = _ROTATE_L_UNIT(code, 3) ^ p[23];
+; 82   :         code = _ROTATE_L_UNIT(code, 3) ^ p[23];
 
 	xor	eax, DWORD PTR [ecx+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 89   :         code = _ROTATE_L_UNIT(code, 3) ^ p[24];
+; 83   :         code = _ROTATE_L_UNIT(code, 3) ^ p[24];
 
 	xor	eax, DWORD PTR [ecx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 90   :         code = _ROTATE_L_UNIT(code, 3) ^ p[25];
+; 84   :         code = _ROTATE_L_UNIT(code, 3) ^ p[25];
 
 	xor	eax, DWORD PTR [ecx+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 91   :         code = _ROTATE_L_UNIT(code, 3) ^ p[26];
+; 85   :         code = _ROTATE_L_UNIT(code, 3) ^ p[26];
 
 	xor	eax, DWORD PTR [ecx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 92   :         code = _ROTATE_L_UNIT(code, 3) ^ p[27];
+; 86   :         code = _ROTATE_L_UNIT(code, 3) ^ p[27];
 
 	xor	eax, DWORD PTR [ecx+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 93   :         code = _ROTATE_L_UNIT(code, 3) ^ p[28];
+; 87   :         code = _ROTATE_L_UNIT(code, 3) ^ p[28];
 
 	xor	eax, DWORD PTR [ecx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 94   :         code = _ROTATE_L_UNIT(code, 3) ^ p[29];
+; 88   :         code = _ROTATE_L_UNIT(code, 3) ^ p[29];
 
 	xor	eax, DWORD PTR [ecx+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 95   :         code = _ROTATE_L_UNIT(code, 3) ^ p[30];
+; 89   :         code = _ROTATE_L_UNIT(code, 3) ^ p[30];
 
 	xor	eax, DWORD PTR [ecx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 96   :         code = _ROTATE_L_UNIT(code, 3) ^ p[31];
+; 90   :         code = _ROTATE_L_UNIT(code, 3) ^ p[31];
 
 	xor	eax, DWORD PTR [ecx+124]
 
-; 97   :         p += 32;
+; 91   :         p += 32;
 
 	sub	ecx, -128				; ffffff80H
 
-; 98   :         --count;
+; 92   :         --count;
 
 	sub	edx, 1
 	jne	$LL2@CalculateC
 $LN3@CalculateC:
 
-; 99   :     }
-; 100  : 
-; 101  : 	if (words & 0x10)
+; 93   :     }
+; 94   : 
+; 95   : 	if (words & 0x10)
 
 	test	bl, 16					; 00000010H
 	je	SHORT $LN4@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 103  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
+; 97   :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
 
 	xor	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 104  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
+; 98   :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
 
 	xor	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 105  :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
+; 99   :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
 
 	xor	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 106  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
+; 100  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
 
 	xor	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 107  :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
+; 101  :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
 
 	xor	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 108  :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
+; 102  :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
 
 	xor	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 109  :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
+; 103  :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
 
 	xor	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 110  :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
+; 104  :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
 
 	xor	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 111  :         code = _ROTATE_L_UNIT(code, 3) ^ p[8];
+; 105  :         code = _ROTATE_L_UNIT(code, 3) ^ p[8];
 
 	xor	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 112  :         code = _ROTATE_L_UNIT(code, 3) ^ p[9];
+; 106  :         code = _ROTATE_L_UNIT(code, 3) ^ p[9];
 
 	xor	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 113  :         code = _ROTATE_L_UNIT(code, 3) ^ p[10];
+; 107  :         code = _ROTATE_L_UNIT(code, 3) ^ p[10];
 
 	xor	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 114  :         code = _ROTATE_L_UNIT(code, 3) ^ p[11];
+; 108  :         code = _ROTATE_L_UNIT(code, 3) ^ p[11];
 
 	xor	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 115  :         code = _ROTATE_L_UNIT(code, 3) ^ p[12];
+; 109  :         code = _ROTATE_L_UNIT(code, 3) ^ p[12];
 
 	xor	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 116  :         code = _ROTATE_L_UNIT(code, 3) ^ p[13];
+; 110  :         code = _ROTATE_L_UNIT(code, 3) ^ p[13];
 
 	xor	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 117  :         code = _ROTATE_L_UNIT(code, 3) ^ p[14];
+; 111  :         code = _ROTATE_L_UNIT(code, 3) ^ p[14];
 
 	xor	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 118  :         code = _ROTATE_L_UNIT(code, 3) ^ p[15];
+; 112  :         code = _ROTATE_L_UNIT(code, 3) ^ p[15];
 
 	xor	eax, DWORD PTR [ecx+60]
 
-; 119  :         p += 16;
+; 113  :         p += 16;
 
 	add	ecx, 64					; 00000040H
 $LN4@CalculateC:
 
-; 120  :     }
-; 121  : 
-; 122  :     if (words & 0x8)
+; 114  :     }
+; 115  : 
+; 116  :     if (words & 0x8)
 
 	test	bl, 8
 	je	SHORT $LN5@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 124  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
+; 118  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
 
 	xor	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 125  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
+; 119  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
 
 	xor	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 126  :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
+; 120  :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
 
 	xor	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 127  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
+; 121  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
 
 	xor	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 128  :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
+; 122  :         code = _ROTATE_L_UNIT(code, 3) ^ p[4];
 
 	xor	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 129  :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
+; 123  :         code = _ROTATE_L_UNIT(code, 3) ^ p[5];
 
 	xor	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 130  :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
+; 124  :         code = _ROTATE_L_UNIT(code, 3) ^ p[6];
 
 	xor	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 131  :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
+; 125  :         code = _ROTATE_L_UNIT(code, 3) ^ p[7];
 
 	xor	eax, DWORD PTR [ecx+28]
 
-; 132  :         p += 8;
+; 126  :         p += 8;
 
 	add	ecx, 32					; 00000020H
 $LN5@CalculateC:
 
-; 133  :     }
-; 134  : 
-; 135  :     if (words & 0x4)
+; 127  :     }
+; 128  : 
+; 129  :     if (words & 0x4)
 
 	test	bl, 4
 	je	SHORT $LN6@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 137  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
+; 131  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
 
 	xor	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 138  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
+; 132  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
 
 	xor	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 139  :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
+; 133  :         code = _ROTATE_L_UNIT(code, 3) ^ p[2];
 
 	xor	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 140  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
+; 134  :         code = _ROTATE_L_UNIT(code, 3) ^ p[3];
 
 	xor	eax, DWORD PTR [ecx+12]
 
-; 141  :         p += 4;
+; 135  :         p += 4;
 
 	add	ecx, 16					; 00000010H
 $LN6@CalculateC:
 
-; 142  :     }
-; 143  : 
-; 144  :     if (words & 0x2)
+; 136  :     }
+; 137  : 
+; 138  :     if (words & 0x2)
 
 	test	bl, 2
 	je	SHORT $LN7@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 483  :         return (_rotl(x, count));
+; 476  :         return (_rotl(x, count));
+
+	rol	eax, 3
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
+
+; 140  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
+
+	xor	eax, DWORD PTR [ecx]
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+
+; 476  :         return (_rotl(x, count));
+
+	rol	eax, 3
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
+
+; 141  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
+
+	xor	eax, DWORD PTR [ecx+4]
+
+; 142  :         p += 2;
+
+	add	ecx, 8
+$LN7@CalculateC:
+
+; 143  :     }
+; 144  : 
+; 145  :     if (words & 0x1)
+
+	test	bl, 1
+	pop	ebx
+	je	SHORT $LN8@CalculateC
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+
+; 476  :         return (_rotl(x, count));
 
 	rol	eax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
@@ -1549,44 +1582,11 @@ $LN6@CalculateC:
 ; 146  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
 
 	xor	eax, DWORD PTR [ecx]
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-
-; 483  :         return (_rotl(x, count));
-
-	rol	eax, 3
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
-
-; 147  :         code = _ROTATE_L_UNIT(code, 3) ^ p[1];
-
-	xor	eax, DWORD PTR [ecx+4]
-
-; 148  :         p += 2;
-
-	add	ecx, 8
-$LN7@CalculateC:
-
-; 149  :     }
-; 150  : 
-; 151  :     if (words & 0x1)
-
-	test	bl, 1
-	pop	ebx
-	je	SHORT $LN8@CalculateC
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-
-; 483  :         return (_rotl(x, count));
-
-	rol	eax, 3
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
-
-; 152  :         code = _ROTATE_L_UNIT(code, 3) ^ p[0];
-
-	xor	eax, DWORD PTR [ecx]
 $LN8@CalculateC:
 
-; 153  :     
-; 154  :     return (code);
-; 155  : }
+; 147  :     
+; 148  :     return (code);
+; 149  : }
 
 	pop	ebp
 	ret	0
@@ -1599,73 +1599,73 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 4
 __TZCNT_ALT_UNIT PROC					; COMDAT
 
-; 709  :     {
+; 702  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 710  :         if (x == 0)
+; 703  :         if (x == 0)
 
 	mov	eax, DWORD PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@TZCNT_ALT_
 
-; 711  :             return (sizeof(x) * 8);
+; 704  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 716  : #elif defined(__GNUC__)
-; 717  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 718  : #else
-; 719  : #error unknown compiler
-; 720  : #endif
-; 721  : #elif defined(_M_X64)
-; 722  : #ifdef _MSC_VER
-; 723  :         _UINT32_T pos;
-; 724  :         _BitScanForward64(&pos, x);
-; 725  : #elif defined(__GNUC__)
-; 726  :         _UINT64_T pos;
-; 727  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 728  : #else
-; 729  : #error unknown compiler
-; 730  : #endif
-; 731  : #else
-; 732  : #error unknown platform
-; 733  : #endif
-; 734  :         return (pos);
-; 735  :     }
+; 709  : #elif defined(__GNUC__)
+; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 711  : #else
+; 712  : #error unknown compiler
+; 713  : #endif
+; 714  : #elif defined(_M_X64)
+; 715  : #ifdef _MSC_VER
+; 716  :         _UINT32_T pos;
+; 717  :         _BitScanForward64(&pos, x);
+; 718  : #elif defined(__GNUC__)
+; 719  :         _UINT64_T pos;
+; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 721  : #else
+; 722  : #error unknown compiler
+; 723  : #endif
+; 724  : #else
+; 725  : #error unknown platform
+; 726  : #endif
+; 727  :         return (pos);
+; 728  :     }
 
 	pop	ebp
 	ret	0
 $LN2@TZCNT_ALT_:
 
-; 712  : #ifdef _M_IX86
-; 713  :         _UINT32_T pos;
-; 714  : #ifdef _MSC_VER
-; 715  :         _BitScanForward(&pos, x);
+; 705  : #ifdef _M_IX86
+; 706  :         _UINT32_T pos;
+; 707  : #ifdef _MSC_VER
+; 708  :         _BitScanForward(&pos, x);
 
 	bsf	eax, eax
 
-; 716  : #elif defined(__GNUC__)
-; 717  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 718  : #else
-; 719  : #error unknown compiler
-; 720  : #endif
-; 721  : #elif defined(_M_X64)
-; 722  : #ifdef _MSC_VER
-; 723  :         _UINT32_T pos;
-; 724  :         _BitScanForward64(&pos, x);
-; 725  : #elif defined(__GNUC__)
-; 726  :         _UINT64_T pos;
-; 727  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 728  : #else
-; 729  : #error unknown compiler
-; 730  : #endif
-; 731  : #else
-; 732  : #error unknown platform
-; 733  : #endif
-; 734  :         return (pos);
-; 735  :     }
+; 709  : #elif defined(__GNUC__)
+; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 711  : #else
+; 712  : #error unknown compiler
+; 713  : #endif
+; 714  : #elif defined(_M_X64)
+; 715  : #ifdef _MSC_VER
+; 716  :         _UINT32_T pos;
+; 717  :         _BitScanForward64(&pos, x);
+; 718  : #elif defined(__GNUC__)
+; 719  :         _UINT64_T pos;
+; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 721  : #else
+; 722  : #error unknown compiler
+; 723  : #endif
+; 724  : #else
+; 725  : #error unknown platform
+; 726  : #endif
+; 727  :         return (pos);
+; 728  :     }
 
 	pop	ebp
 	ret	0
@@ -1678,58 +1678,58 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 629  :     {
+; 622  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	mov	eax, DWORD PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 655  :     }
+; 648  :     }
 
 	pop	ebp
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, ecx
 
-; 655  :     }
+; 648  :     }
 
 	pop	ebp
 	ret	0
@@ -1743,24 +1743,24 @@ _x$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ROTATE_L_UNIT PROC					; COMDAT
 
-; 481  :     {
+; 474  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 482  : #ifdef _M_IX86
-; 483  :         return (_rotl(x, count));
+; 475  : #ifdef _M_IX86
+; 476  :         return (_rotl(x, count));
 
 	mov	eax, DWORD PTR _x$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rol	eax, cl
 
-; 484  : #elif defined(_M_X64)
-; 485  :         return (_rotl64(x, count));
-; 486  : #else
-; 487  : #error unknown platform
-; 488  : #endif
-; 489  :     }
+; 477  : #elif defined(_M_X64)
+; 478  :         return (_rotl64(x, count));
+; 479  : #else
+; 480  : #error unknown platform
+; 481  : #endif
+; 482  :     }
 
 	pop	ebp
 	ret	0
@@ -1774,12 +1774,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 193  :     {
+; 186  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -1787,7 +1787,7 @@ __DIVIDE_CEILING_UNIT PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 195  :     }
+; 188  :     }
 
 	pop	ebp
 	ret	0
@@ -1802,13 +1802,13 @@ _x$ = 12						; size = 4
 _count$ = 16						; size = 4
 __FILL_MEMORY_UNIT PROC					; COMDAT
 
-; 166  :     {
+; 159  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 167  : #ifdef _M_IX86
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 160  : #ifdef _M_IX86
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	mov	eax, DWORD PTR _x$[ebp]
@@ -1817,12 +1817,12 @@ __FILL_MEMORY_UNIT PROC					; COMDAT
 	rep stosd
 	pop	edi
 
-; 169  : #elif defined(_M_X64)
-; 170  :         __stosq(d, x, count);
-; 171  : #else
-; 172  : #error unknown platform
-; 173  : #endif
-; 174  :     }
+; 162  : #elif defined(_M_X64)
+; 163  :         __stosq(d, x, count);
+; 164  : #else
+; 165  : #error unknown platform
+; 166  : #endif
+; 167  :     }
 
 	pop	ebp
 	ret	0
@@ -1837,12 +1837,12 @@ _x$ = 12						; size = 4
 _count$ = 16						; size = 4
 __FILL_MEMORY_32 PROC					; COMDAT
 
-; 154  :     {
+; 147  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 155  :         __stosd((unsigned long*)d, x, count);
+; 148  :         __stosd((unsigned long*)d, x, count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	mov	eax, DWORD PTR _x$[ebp]
@@ -1851,7 +1851,7 @@ __FILL_MEMORY_32 PROC					; COMDAT
 	rep stosd
 	pop	edi
 
-; 156  :     }
+; 149  :     }
 
 	pop	ebp
 	ret	0
@@ -1866,12 +1866,12 @@ _x$ = 12						; size = 2
 _count$ = 16						; size = 4
 __FILL_MEMORY_16 PROC					; COMDAT
 
-; 149  :     {
+; 142  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 150  :         __stosw(d, x, count);
+; 143  :         __stosw(d, x, count);
 
 	mov	ax, WORD PTR _x$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
@@ -1880,7 +1880,7 @@ __FILL_MEMORY_16 PROC					; COMDAT
 	rep stosw
 	pop	edi
 
-; 151  :     }
+; 144  :     }
 
 	pop	ebp
 	ret	0
@@ -1895,12 +1895,12 @@ _x$ = 12						; size = 1
 _count$ = 16						; size = 4
 __FILL_MEMORY_BYTE PROC					; COMDAT
 
-; 144  :     {
+; 137  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 145  :         __stosb(d, x, count);
+; 138  :         __stosb(d, x, count);
 
 	mov	al, BYTE PTR _x$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
@@ -1909,7 +1909,7 @@ __FILL_MEMORY_BYTE PROC					; COMDAT
 	rep stosb
 	pop	edi
 
-; 146  :     }
+; 139  :     }
 
 	pop	ebp
 	ret	0
@@ -1923,12 +1923,12 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_32 PROC					; COMDAT
 
-; 104  :     {
+; 97   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 105  :         __stosd((unsigned long*)d, 0, count);
+; 98   :         __stosd((unsigned long*)d, 0, count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	eax, eax
@@ -1937,7 +1937,7 @@ __ZERO_MEMORY_32 PROC					; COMDAT
 	rep stosd
 	pop	edi
 
-; 106  :     }
+; 99   :     }
 
 	pop	ebp
 	ret	0
@@ -1951,12 +1951,12 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_16 PROC					; COMDAT
 
-; 99   :     {
+; 92   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 100  :         __stosw(d, 0, count);
+; 93   :         __stosw(d, 0, count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	eax, eax
@@ -1965,7 +1965,7 @@ __ZERO_MEMORY_16 PROC					; COMDAT
 	rep stosw
 	pop	edi
 
-; 101  :     }
+; 94   :     }
 
 	pop	ebp
 	ret	0
@@ -1979,12 +1979,12 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_BYTE PROC					; COMDAT
 
-; 94   :     {
+; 87   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 95   :         __stosb(d, 0, count);
+; 88   :         __stosb(d, 0, count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	al, al
@@ -1993,7 +1993,7 @@ __ZERO_MEMORY_BYTE PROC					; COMDAT
 	rep stosb
 	pop	edi
 
-; 96   :     }
+; 89   :     }
 
 	pop	ebp
 	ret	0
@@ -2008,13 +2008,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 66   :     {
+; 59   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 67   : #ifdef _M_IX86
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 60   : #ifdef _M_IX86
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -2025,12 +2025,12 @@ __COPY_MEMORY_UNIT PROC					; COMDAT
 	pop	edi
 	pop	esi
 
-; 69   : #elif defined(_M_X64)
-; 70   :         __movsq(d, s, count);
-; 71   : #else
-; 72   : #error unknown platform
-; 73   : #endif
-; 74   :     }
+; 62   : #elif defined(_M_X64)
+; 63   :         __movsq(d, s, count);
+; 64   : #else
+; 65   : #error unknown platform
+; 66   : #endif
+; 67   :     }
 
 	pop	ebp
 	ret	0
@@ -2047,13 +2047,13 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _PMC_Dispose@4 PROC					; COMDAT
 
-; 553  : {
+; 547  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 511  :     if (p->SIGNATURE1 != PMC_SIGNATURE || p->SIGNATURE2 != PMC_UINT_SIGNATURE)
+; 505  :     if (p->SIGNATURE1 != PMC_SIGNATURE || p->SIGNATURE2 != PMC_UINT_SIGNATURE)
 
 	mov	esi, DWORD PTR _p$[ebp]
 	cmp	DWORD PTR [esi], 1231244656		; 49634d70H
@@ -2061,125 +2061,125 @@ _PMC_Dispose@4 PROC					; COMDAT
 	cmp	DWORD PTR [esi+4], 1416522069		; 546e6955H
 	jne	$LN14@PMC_Dispos
 
-; 432  :     if (p == NULL || p->IS_STATIC)
+; 426  :     if (p == NULL || p->IS_STATIC)
 
 	test	BYTE PTR [esi+24], 1
 	jne	SHORT $LN14@PMC_Dispos
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	mov	eax, DWORD PTR [esi+32]
 	test	eax, eax
 	je	SHORT $LN22@PMC_Dispos
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	ecx, DWORD PTR [esi+28]
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [eax-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], ecx
 	jne	SHORT $LN22@PMC_Dispos
 
-; 209  :         {
-; 210  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
-; 211  :         }
-; 212  :         else
-; 213  :         {
-; 214  :             // 使用済みのバッファを既定のデータで塗りつぶす。
-; 215  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
+; 203  :         {
+; 204  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
+; 205  :         }
+; 206  :         else
+; 207  :         {
+; 208  :             // 使用済みのバッファを既定のデータで塗りつぶす。
+; 209  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
 
 	push	edi
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	add	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	edi, edx
 	mov	eax, -858993460				; ccccccccH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	pop	edi
 $LN22@PMC_Dispos:
 
-; 436  :     HeapFree(hLocalHeap, 0, p);
+; 430  :     HeapFree(hLocalHeap, 0, p);
 
 	push	esi
 	push	0
 
-; 343  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 337  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi], -858993460		; ccccccccH
 
-; 344  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 338  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+4], -858993460		; ccccccccH
 
-; 345  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 339  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+8], -858993460		; ccccccccH
 
-; 346  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 340  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+12], -858993460		; ccccccccH
 
-; 347  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 341  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+16], -858993460		; ccccccccH
 
-; 348  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 342  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+20], -858993460		; ccccccccH
 
-; 349  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 343  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+24], -858993460		; ccccccccH
 
-; 350  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 344  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+28], -858993460		; ccccccccH
 
-; 351  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 345  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+32], -858993460		; ccccccccH
 
-; 436  :     HeapFree(hLocalHeap, 0, p);
+; 430  :     HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 $LN14@PMC_Dispos:
 	pop	esi
 
-; 554  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-; 555  :     PMC_STATUS_CODE result = CheckNumber(np);
-; 556  :     if (result != PMC_STATUS_OK)
-; 557  :         return;
-; 558  :     DeallocateNumber(np);
-; 559  :     return;
-; 560  : }
+; 548  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 549  :     PMC_STATUS_CODE result = CheckNumber(np);
+; 550  :     if (result != PMC_STATUS_OK)
+; 551  :         return;
+; 552  :     DeallocateNumber(np);
+; 553  :     return;
+; 554  : }
 
 	pop	ebp
 	ret	4
@@ -2200,348 +2200,348 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_Memory PROC					; COMDAT
 
-; 563  : {
+; 557  : {
 
 	push	esi
 
-; 564  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 565  : 
-; 566  :     BOOL number_zero_ok = TRUE;
-; 567  :     BOOL number_one_ok = TRUE;
-; 568  :     if (result == PMC_STATUS_OK)
-; 569  :     {
-; 570  :         result = AttatchNumber(&number_zero, 0);
-; 571  :         if (result == PMC_STATUS_OK)
-; 572  :         {
-; 573  :             CommitNumber(&number_zero);
+; 558  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 559  : 
+; 560  :     BOOL number_zero_ok = TRUE;
+; 561  :     BOOL number_one_ok = TRUE;
+; 562  :     if (result == PMC_STATUS_OK)
+; 563  :     {
+; 564  :         result = AttatchNumber(&number_zero, 0);
+; 565  :         if (result == PMC_STATUS_OK)
+; 566  :         {
+; 567  :             CommitNumber(&number_zero);
 
 	push	OFFSET _number_zero
 
-; 301  :             __p[2] = 0;
+; 295  :             __p[2] = 0;
 
 	mov	DWORD PTR _number_zero+8, 0
 
-; 302  :             __p[3] = 0;
-; 303  :             __p[4] = 0;
+; 296  :             __p[3] = 0;
+; 297  :             __p[4] = 0;
 
 	mov	DWORD PTR _number_zero+16, 0
 
-; 304  :             __p[5] = 0;
+; 298  :             __p[5] = 0;
 
 	mov	DWORD PTR _number_zero+20, 0
 
-; 383  :         p->SIGNATURE1 = PMC_SIGNATURE;
+; 377  :         p->SIGNATURE1 = PMC_SIGNATURE;
 
 	mov	DWORD PTR _number_zero, 1231244656	; 49634d70H
 
-; 384  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
+; 378  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
 
 	mov	DWORD PTR _number_zero+4, 1416522069	; 546e6955H
 
-; 385  :         p->UNIT_BIT_COUNT = 0;
+; 379  :         p->UNIT_BIT_COUNT = 0;
 
 	mov	DWORD PTR _number_zero+12, 0
 
-; 386  :         p->BLOCK_COUNT = 0;
+; 380  :         p->BLOCK_COUNT = 0;
 
 	mov	DWORD PTR _number_zero+28, 0
 
-; 387  :         p->BLOCK = NULL;
+; 381  :         p->BLOCK = NULL;
 
 	mov	DWORD PTR _number_zero+32, 0
 
-; 406  :     p->IS_STATIC = TRUE;
+; 400  :     p->IS_STATIC = TRUE;
 
 	mov	DWORD PTR _number_zero+24, 1
 
-; 564  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 565  : 
-; 566  :     BOOL number_zero_ok = TRUE;
-; 567  :     BOOL number_one_ok = TRUE;
-; 568  :     if (result == PMC_STATUS_OK)
-; 569  :     {
-; 570  :         result = AttatchNumber(&number_zero, 0);
-; 571  :         if (result == PMC_STATUS_OK)
-; 572  :         {
-; 573  :             CommitNumber(&number_zero);
+; 558  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 559  : 
+; 560  :     BOOL number_zero_ok = TRUE;
+; 561  :     BOOL number_one_ok = TRUE;
+; 562  :     if (result == PMC_STATUS_OK)
+; 563  :     {
+; 564  :         result = AttatchNumber(&number_zero, 0);
+; 565  :         if (result == PMC_STATUS_OK)
+; 566  :         {
+; 567  :             CommitNumber(&number_zero);
 
 	call	_CommitNumber
 	add	esp, 4
 
-; 170  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
+; 164  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
 
 	push	12					; 0000000cH
 	push	8
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapAlloc@12
 
-; 171  : 	if (buffer == NULL)
+; 165  : 	if (buffer == NULL)
 
 	test	eax, eax
 	je	SHORT $LN122@Initialize
 
-; 172  : 		return (NULL);
-; 173  : 	buffer[0] = words1;
-; 174  :     *allocated_block_words = words1;
-; 175  : #ifdef _DEBUG
-; 176  :     // 乱数もどきを生成する。
-; 177  : #ifdef _M_IX86
-; 178  :     __UNIT_TYPE r = GetTickCount();
-; 179  : #elif defined(_M_IX64)
-; 180  : #ifdef _MSC_VER
-; 181  :     __UNIT_TYPE r = GetTickCount64();
-; 182  : #elif defined(__GNUC__)
-; 183  :     _UINT32_T temp = GetTickCount();
-; 184  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
-; 185  : #else
-; 186  : #error unknown compiler
-; 187  : #endif
-; 188  : #else
-; 189  : #error unknown platform
-; 190  : #endif
-; 191  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
-; 192  : #else
-; 193  :     __UNIT_TYPE check_code = 0;
-; 194  : #endif
-; 195  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
+; 166  : 		return (NULL);
+; 167  : 	buffer[0] = words1;
+; 168  :     *allocated_block_words = words1;
+; 169  : #ifdef _DEBUG
+; 170  :     // 乱数もどきを生成する。
+; 171  : #ifdef _M_IX86
+; 172  :     __UNIT_TYPE r = GetTickCount();
+; 173  : #elif defined(_M_IX64)
+; 174  : #ifdef _MSC_VER
+; 175  :     __UNIT_TYPE r = GetTickCount64();
+; 176  : #elif defined(__GNUC__)
+; 177  :     _UINT32_T temp = GetTickCount();
+; 178  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
+; 179  : #else
+; 180  : #error unknown compiler
+; 181  : #endif
+; 182  : #else
+; 183  : #error unknown platform
+; 184  : #endif
+; 185  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
+; 186  : #else
+; 187  :     __UNIT_TYPE check_code = 0;
+; 188  : #endif
+; 189  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
 
 	lea	ecx, DWORD PTR [eax+4]
 	mov	DWORD PTR [eax], 1
 	add	eax, 8
 	mov	DWORD PTR [ecx+4], eax
 
-; 370  :         if (block == NULL)
+; 364  :         if (block == NULL)
 
 	test	ecx, ecx
 	je	SHORT $LN122@Initialize
 
-; 301  :             __p[2] = 0;
+; 295  :             __p[2] = 0;
 
 	mov	DWORD PTR _number_one+8, 0
 
-; 404  :     if (result != PMC_STATUS_OK)
+; 398  :     if (result != PMC_STATUS_OK)
 
 	xor	esi, esi
 
-; 303  :             __p[4] = 0;
+; 297  :             __p[4] = 0;
 
 	mov	DWORD PTR _number_one+16, 0
 
-; 304  :             __p[5] = 0;
+; 298  :             __p[5] = 0;
 
 	mov	DWORD PTR _number_one+20, 0
 
-; 373  :         p->SIGNATURE1 = PMC_SIGNATURE;
+; 367  :         p->SIGNATURE1 = PMC_SIGNATURE;
 
 	mov	DWORD PTR _number_one, 1231244656	; 49634d70H
 
-; 374  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
+; 368  :         p->SIGNATURE2 = PMC_UINT_SIGNATURE;
 
 	mov	DWORD PTR _number_one+4, 1416522069	; 546e6955H
 
-; 375  :         p->UNIT_BIT_COUNT = bit_count;
+; 369  :         p->UNIT_BIT_COUNT = bit_count;
 
 	mov	DWORD PTR _number_one+12, 1
 
-; 376  :         p->BLOCK_COUNT = word_count;
+; 370  :         p->BLOCK_COUNT = word_count;
 
 	mov	DWORD PTR _number_one+28, 1
 
-; 377  :         p->BLOCK = block;
+; 371  :         p->BLOCK = block;
 
 	mov	DWORD PTR _number_one+32, ecx
 
-; 406  :     p->IS_STATIC = TRUE;
+; 400  :     p->IS_STATIC = TRUE;
 
 	mov	DWORD PTR _number_one+24, 1
 	jmp	SHORT $LN52@Initialize
 $LN122@Initialize:
 
-; 371  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 365  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	ecx, DWORD PTR _number_one+32
 	mov	esi, -5					; fffffffbH
 $LN52@Initialize:
 
-; 574  :             number_zero_ok = TRUE;
-; 575  :         }
-; 576  :     }
-; 577  : 
-; 578  :     if (result == PMC_STATUS_OK)
-; 579  :     {
-; 580  :         result = AttatchNumber(&number_one, 1);
-; 581  :         if (result == PMC_STATUS_OK)
+; 568  :             number_zero_ok = TRUE;
+; 569  :         }
+; 570  :     }
+; 571  : 
+; 572  :     if (result == PMC_STATUS_OK)
+; 573  :     {
+; 574  :         result = AttatchNumber(&number_one, 1);
+; 575  :         if (result == PMC_STATUS_OK)
 
 	test	esi, esi
 	jne	SHORT $LN5@Initialize
 
-; 582  :         {
-; 583  :             number_one.BLOCK[0] = 1;
-; 584  :             CommitNumber(&number_one);
+; 576  :         {
+; 577  :             number_one.BLOCK[0] = 1;
+; 578  :             CommitNumber(&number_one);
 
 	push	OFFSET _number_one
 	mov	DWORD PTR [ecx], 1
 	call	_CommitNumber
 	add	esp, 4
 
-; 585  :             number_one_ok = TRUE;
-; 586  :         }
-; 587  :     }
-; 588  : 
-; 589  :     if (result != PMC_STATUS_OK)
-; 590  :     {
-; 591  :         if (number_zero_ok)
-; 592  :             DetatchNumber(&number_zero);
-; 593  :         if (number_one_ok)
-; 594  :             DetatchNumber(&number_one);
-; 595  :     }
-; 596  : 
-; 597  :     return (result);
+; 579  :             number_one_ok = TRUE;
+; 580  :         }
+; 581  :     }
+; 582  : 
+; 583  :     if (result != PMC_STATUS_OK)
+; 584  :     {
+; 585  :         if (number_zero_ok)
+; 586  :             DetatchNumber(&number_zero);
+; 587  :         if (number_one_ok)
+; 588  :             DetatchNumber(&number_one);
+; 589  :     }
+; 590  : 
+; 591  :     return (result);
 
 	xor	eax, eax
 	pop	esi
 
-; 598  : }
+; 592  : }
 
 	ret	0
 $LN5@Initialize:
 
-; 425  :     if (p == NULL || !p->IS_STATIC)
+; 419  :     if (p == NULL || !p->IS_STATIC)
 
 	test	BYTE PTR _number_zero+24, 1
 	push	edi
 	je	SHORT $LN96@Initialize
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	mov	eax, DWORD PTR _number_zero+32
 	test	eax, eax
 	je	SHORT $LN96@Initialize
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	edi, DWORD PTR _number_zero+28
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [eax-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], edi
 	jne	SHORT $LN104@Initialize
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	lea	ecx, DWORD PTR [edi+2]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	eax, -858993460				; ccccccccH
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	mov	ecx, DWORD PTR _number_one+32
 $LN104@Initialize:
 
-; 397  :         p->BLOCK = NULL;
+; 391  :         p->BLOCK = NULL;
 
 	mov	DWORD PTR _number_zero+32, 0
 $LN96@Initialize:
 
-; 425  :     if (p == NULL || !p->IS_STATIC)
+; 419  :     if (p == NULL || !p->IS_STATIC)
 
 	test	BYTE PTR _number_one+24, 1
 	je	SHORT $LN123@Initialize
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	test	ecx, ecx
 	je	SHORT $LN123@Initialize
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	edi, DWORD PTR _number_one+28
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [ecx-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], edi
 	jne	SHORT $LN118@Initialize
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	lea	ecx, DWORD PTR [edi+2]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	eax, -858993460				; ccccccccH
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 $LN118@Initialize:
 
-; 397  :         p->BLOCK = NULL;
+; 391  :         p->BLOCK = NULL;
 
 	mov	DWORD PTR _number_one+32, 0
 $LN123@Initialize:
 	pop	edi
 
-; 585  :             number_one_ok = TRUE;
-; 586  :         }
-; 587  :     }
-; 588  : 
-; 589  :     if (result != PMC_STATUS_OK)
-; 590  :     {
-; 591  :         if (number_zero_ok)
-; 592  :             DetatchNumber(&number_zero);
-; 593  :         if (number_one_ok)
-; 594  :             DetatchNumber(&number_one);
-; 595  :     }
-; 596  : 
-; 597  :     return (result);
+; 579  :             number_one_ok = TRUE;
+; 580  :         }
+; 581  :     }
+; 582  : 
+; 583  :     if (result != PMC_STATUS_OK)
+; 584  :     {
+; 585  :         if (number_zero_ok)
+; 586  :             DetatchNumber(&number_zero);
+; 587  :         if (number_one_ok)
+; 588  :             DetatchNumber(&number_one);
+; 589  :     }
+; 590  : 
+; 591  :     return (result);
 
 	mov	eax, esi
 	pop	esi
 
-; 598  : }
+; 592  : }
 
 	ret	0
 _Initialize_Memory ENDP
@@ -2556,54 +2556,54 @@ _x$ = 8							; size = 4
 _op$ = 12						; size = 4
 _DuplicateNumber PROC					; COMDAT
 
-; 529  : {
+; 523  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 530  :     if (x->IS_STATIC)
+; 524  :     if (x->IS_STATIC)
 
 	mov	esi, DWORD PTR _x$[ebp]
 	mov	eax, DWORD PTR [esi+24]
 	test	al, 1
 	je	SHORT $LN2@DuplicateN
 
-; 531  :     {
-; 532  :         *op = x;
+; 525  :     {
+; 526  :         *op = x;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	mov	DWORD PTR [eax], esi
 
-; 533  :         return (PMC_STATUS_OK);
+; 527  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	esi
 
-; 549  : }
+; 543  : }
 
 	pop	ebp
 	ret	0
 $LN2@DuplicateN:
 
-; 534  :     }
-; 535  :     if (x->IS_ZERO)
+; 528  :     }
+; 529  :     if (x->IS_ZERO)
 
 	test	al, 2
 	je	SHORT $LN3@DuplicateN
 
-; 536  :     {
-; 537  :         *op = &number_zero;
+; 530  :     {
+; 531  :         *op = &number_zero;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	pop	esi
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 538  :         return (PMC_STATUS_OK);
+; 532  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 549  : }
+; 543  : }
 
 	pop	ebp
 	ret	0
@@ -2611,12 +2611,12 @@ $LN3@DuplicateN:
 	push	ebx
 	push	edi
 
-; 539  :     }
-; 540  :     __UNIT_TYPE x_bit_count = x->UNIT_BIT_COUNT;
+; 533  :     }
+; 534  :     __UNIT_TYPE x_bit_count = x->UNIT_BIT_COUNT;
 
 	mov	edi, DWORD PTR [esi+12]
 
-; 412  :     NUMBER_HEADER* p = (NUMBER_HEADER*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, sizeof(NUMBER_HEADER));
+; 406  :     NUMBER_HEADER* p = (NUMBER_HEADER*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, sizeof(NUMBER_HEADER));
 
 	push	36					; 00000024H
 	push	8
@@ -2624,25 +2624,25 @@ $LN3@DuplicateN:
 	call	DWORD PTR __imp__HeapAlloc@12
 	mov	ebx, eax
 
-; 413  :     if (p == NULL)
+; 407  :     if (p == NULL)
 
 	test	ebx, ebx
 	jne	SHORT $LN7@DuplicateN
 	pop	edi
 
-; 414  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 408  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	lea	eax, DWORD PTR [ebx-5]
 	pop	ebx
 	pop	esi
 
-; 549  : }
+; 543  : }
 
 	pop	ebp
 	ret	0
 $LN7@DuplicateN:
 
-; 415  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, light_check_code);
+; 409  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, light_check_code);
 
 	push	0
 	push	edi
@@ -2650,47 +2650,47 @@ $LN7@DuplicateN:
 	call	_InitializeNumber
 	add	esp, 12					; 0000000cH
 
-; 416  :     if (result != PMC_STATUS_OK)
+; 410  :     if (result != PMC_STATUS_OK)
 
 	test	eax, eax
 	jne	SHORT $LN15@DuplicateN
 
-; 417  :         return (result);
-; 418  :     p->IS_STATIC = FALSE;
+; 411  :         return (result);
+; 412  :     p->IS_STATIC = FALSE;
 
 	and	DWORD PTR [ebx+24], -2			; fffffffeH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	lea	ecx, DWORD PTR [edi+31]
 
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR [ebx+32]
 	mov	esi, DWORD PTR [esi+32]
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	shr	ecx, 5
 
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 546  :     CommitNumber(o);
+; 540  :     CommitNumber(o);
 
 	push	ebx
 	call	_CommitNumber
 
-; 547  :     *op = o;
+; 541  :     *op = o;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	add	esp, 4
 	mov	DWORD PTR [eax], ebx
 
-; 548  :     return (PMC_STATUS_OK);
+; 542  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN15@DuplicateN:
@@ -2698,7 +2698,7 @@ $LN15@DuplicateN:
 	pop	ebx
 	pop	esi
 
-; 549  : }
+; 543  : }
 
 	pop	ebp
 	ret	0
@@ -2711,12 +2711,12 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _CheckNumber PROC					; COMDAT
 
-; 510  : {
+; 504  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 511  :     if (p->SIGNATURE1 != PMC_SIGNATURE || p->SIGNATURE2 != PMC_UINT_SIGNATURE)
+; 505  :     if (p->SIGNATURE1 != PMC_SIGNATURE || p->SIGNATURE2 != PMC_UINT_SIGNATURE)
 
 	mov	eax, DWORD PTR _p$[ebp]
 	cmp	DWORD PTR [eax], 1231244656		; 49634d70H
@@ -2724,32 +2724,32 @@ _CheckNumber PROC					; COMDAT
 	cmp	DWORD PTR [eax+4], 1416522069		; 546e6955H
 	jne	SHORT $LN3@CheckNumbe
 
-; 513  :     if (!p->IS_ZERO)
-; 514  :     {
-; 515  :         PMC_STATUS_CODE result;
-; 516  :         if ((result = CheckBlock(p->BLOCK)) != PMC_STATUS_OK)
-; 517  :             return (result);
-; 518  : #ifdef _DEBUG
-; 519  :         __UNIT_TYPE desired_hash_code = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
-; 520  :         if (desired_hash_code != p->HASH_CODE)
-; 521  :             return (PMC_STATUS_BAD_BUFFER);
-; 522  : #endif
-; 523  :     }
-; 524  :     return (PMC_STATUS_OK);
+; 507  :     if (!p->IS_ZERO)
+; 508  :     {
+; 509  :         PMC_STATUS_CODE result;
+; 510  :         if ((result = CheckBlock(p->BLOCK)) != PMC_STATUS_OK)
+; 511  :             return (result);
+; 512  : #ifdef _DEBUG
+; 513  :         __UNIT_TYPE desired_hash_code = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
+; 514  :         if (desired_hash_code != p->HASH_CODE)
+; 515  :             return (PMC_STATUS_BAD_BUFFER);
+; 516  : #endif
+; 517  :     }
+; 518  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 525  : }
+; 519  : }
 
 	pop	ebp
 	ret	0
 $LN3@CheckNumbe:
 
-; 512  :         return (PMC_STATUS_BAD_BUFFER);
+; 506  :         return (PMC_STATUS_BAD_BUFFER);
 
 	mov	eax, -257				; fffffeffH
 
-; 525  : }
+; 519  : }
 
 	pop	ebp
 	ret	0
@@ -2770,109 +2770,109 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _CommitNumber PROC					; COMDAT
 
-; 477  : {
+; 471  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 	push	edi
 
-; 478  :     CommitBlock(p->BLOCK);
+; 472  :     CommitBlock(p->BLOCK);
 
 	mov	edi, DWORD PTR _p$[ebp]
 	mov	ecx, DWORD PTR [edi+32]
 
-; 225  :     if (buffer != NULL)
+; 219  :     if (buffer != NULL)
 
 	test	ecx, ecx
 	je	SHORT $LN8@CommitNumb
 
-; 226  :     {
-; 227  :         --buffer;
-; 228  :         __UNIT_TYPE words = buffer[0];
-; 229  : #ifdef _DEBUG
-; 230  :         __UNIT_TYPE code = CalculateCheckCode(&buffer[1], words);
-; 231  : #else
-; 232  :         __UNIT_TYPE code = 0;
-; 233  : #endif
-; 234  :         buffer[words + 1] = code;
+; 220  :     {
+; 221  :         --buffer;
+; 222  :         __UNIT_TYPE words = buffer[0];
+; 223  : #ifdef _DEBUG
+; 224  :         __UNIT_TYPE code = CalculateCheckCode(&buffer[1], words);
+; 225  : #else
+; 226  :         __UNIT_TYPE code = 0;
+; 227  : #endif
+; 228  :         buffer[words + 1] = code;
 
 	mov	eax, DWORD PTR [ecx-4]
 	mov	DWORD PTR [ecx+eax*4], 0
 	mov	ecx, DWORD PTR [edi+32]
 $LN8@CommitNumb:
 
-; 479  :     p->UNIT_BIT_COUNT = GetEffectiveBitLength(p->BLOCK, p->BLOCK_COUNT, &p->UNIT_WORD_COUNT);
+; 473  :     p->UNIT_BIT_COUNT = GetEffectiveBitLength(p->BLOCK, p->BLOCK_COUNT, &p->UNIT_WORD_COUNT);
 
 	mov	esi, DWORD PTR [edi+28]
 
-; 441  :     if (p == NULL)
+; 435  :     if (p == NULL)
 
 	test	ecx, ecx
 	je	SHORT $LN12@CommitNumb
 
-; 442  :     {
-; 443  :         *effective_word_count = 0;
-; 444  :         return (0);
-; 445  :     }
-; 446  :     p += word_count;
+; 436  :     {
+; 437  :         *effective_word_count = 0;
+; 438  :         return (0);
+; 439  :     }
+; 440  :     p += word_count;
 
 	lea	eax, DWORD PTR [ecx+esi*4]
 
-; 447  :     while (word_count != 0)
+; 441  :     while (word_count != 0)
 
 	test	esi, esi
 	je	SHORT $LN12@CommitNumb
 	npad	6
 $LL11@CommitNumb:
 
-; 448  :     {
-; 449  :         --p;
-; 450  :         if (*p != 0)
+; 442  :     {
+; 443  :         --p;
+; 444  :         if (*p != 0)
 
 	cmp	DWORD PTR [eax-4], 0
 	lea	eax, DWORD PTR [eax-4]
 	jne	SHORT $LN29@CommitNumb
 
-; 454  :         }
-; 455  :         --word_count;
+; 448  :         }
+; 449  :         --word_count;
 
 	sub	esi, 1
 	jne	SHORT $LL11@CommitNumb
 $LN12@CommitNumb:
 
-; 479  :     p->UNIT_BIT_COUNT = GetEffectiveBitLength(p->BLOCK, p->BLOCK_COUNT, &p->UNIT_WORD_COUNT);
+; 473  :     p->UNIT_BIT_COUNT = GetEffectiveBitLength(p->BLOCK, p->BLOCK_COUNT, &p->UNIT_WORD_COUNT);
 
 	xor	esi, esi
 	mov	DWORD PTR [edi+8], esi
 $LN10@CommitNumb:
 	mov	DWORD PTR [edi+12], esi
 
-; 480  :     if (p->UNIT_BIT_COUNT <= 0)
+; 474  :     if (p->UNIT_BIT_COUNT <= 0)
 
 	test	esi, esi
 	jne	SHORT $LN2@CommitNumb
 
-; 481  :     {
-; 482  :         p->HASH_CODE = 0;
-; 483  :         p->IS_ZERO = TRUE;
+; 475  :     {
+; 476  :         p->HASH_CODE = 0;
+; 477  :         p->IS_ZERO = TRUE;
 
 	mov	eax, DWORD PTR [edi+24]
 	and	eax, -21				; ffffffebH
 	mov	DWORD PTR [edi+16], esi
 
-; 484  :         p->IS_ONE = FALSE;
-; 485  :         p->IS_EVEN = TRUE;
-; 486  :         p->TRAILING_ZERO_BITS_COUNT = 0;
+; 478  :         p->IS_ONE = FALSE;
+; 479  :         p->IS_EVEN = TRUE;
+; 480  :         p->TRAILING_ZERO_BITS_COUNT = 0;
 
 	mov	DWORD PTR [edi+20], esi
 
-; 487  :         p->IS_POWER_OF_TWO = FALSE;
+; 481  :         p->IS_POWER_OF_TWO = FALSE;
 
 	or	eax, 10					; 0000000aH
 
-; 506  :     }
-; 507  : }
+; 500  :     }
+; 501  : }
 
 	mov	DWORD PTR [edi+24], eax
 	pop	edi
@@ -2881,26 +2881,26 @@ $LN10@CommitNumb:
 	ret	0
 $LN29@CommitNumb:
 
-; 452  :             *effective_word_count = word_count;
+; 446  :             *effective_word_count = word_count;
 
 	mov	DWORD PTR [edi+8], esi
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	mov	eax, DWORD PTR [eax]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	test	eax, eax
 	jne	SHORT $LN17@CommitNumb
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	shl	esi, 5
 	sub	esi, ecx
@@ -2908,33 +2908,33 @@ $LN29@CommitNumb:
 $LN17@CommitNumb:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 635  :         _BitScanReverse(&pos, x);
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, eax
 
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 31					; 0000001fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	shl	esi, 5
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 453  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
+; 447  :             return (word_count * __UNIT_TYPE_BIT_COUNT - _LZCNT_ALT_UNIT(*p));
 
 	sub	esi, ecx
 	jmp	SHORT $LN10@CommitNumb
 $LN2@CommitNumb:
 
-; 488  :     }
-; 489  :     else if (p->UNIT_BIT_COUNT == 1)
+; 482  :     }
+; 483  :     else if (p->UNIT_BIT_COUNT == 1)
 
 	push	DWORD PTR [edi+8]
 	push	DWORD PTR [edi+32]
@@ -2948,31 +2948,31 @@ $LN2@CommitNumb:
 	cmp	esi, 1
 	jne	SHORT $LN4@CommitNumb
 
-; 490  :     {
-; 491  :         p->HASH_CODE = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
-; 492  :         p->IS_ZERO = FALSE;
-; 493  :         p->IS_ONE = p->BLOCK[0] == 1; // 無条件でTRUEでも大丈夫だが念のため。
+; 484  :     {
+; 485  :         p->HASH_CODE = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
+; 486  :         p->IS_ZERO = FALSE;
+; 487  :         p->IS_ONE = p->BLOCK[0] == 1; // 無条件でTRUEでも大丈夫だが念のため。
 
 	mov	eax, DWORD PTR [ecx]
 	mov	esi, 4
 	xor	ecx, ecx
 
-; 494  :         p->IS_EVEN = FALSE;
-; 495  :         p->TRAILING_ZERO_BITS_COUNT = 0;
+; 488  :         p->IS_EVEN = FALSE;
+; 489  :         p->TRAILING_ZERO_BITS_COUNT = 0;
 
 	mov	DWORD PTR [edi+20], 0
 	cmp	eax, 1
 	cmove	ecx, esi
 	and	edx, -5					; fffffffbH
 
-; 496  :         p->IS_POWER_OF_TWO = TRUE;
+; 490  :         p->IS_POWER_OF_TWO = TRUE;
 
 	or	ecx, edx
 	and	ecx, -9					; fffffff7H
 	or	ecx, 16					; 00000010H
 
-; 506  :     }
-; 507  : }
+; 500  :     }
+; 501  : }
 
 	mov	DWORD PTR [edi+24], ecx
 	pop	edi
@@ -2981,17 +2981,17 @@ $LN2@CommitNumb:
 	ret	0
 $LN4@CommitNumb:
 
-; 497  :     }
-; 498  :     else
-; 499  :     {
-; 500  :         p->HASH_CODE = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
-; 501  :         p->IS_ZERO = FALSE;
-; 502  :         p->IS_ONE = FALSE;
+; 491  :     }
+; 492  :     else
+; 493  :     {
+; 494  :         p->HASH_CODE = CalculateCheckCode(p->BLOCK, p->UNIT_WORD_COUNT);
+; 495  :         p->IS_ZERO = FALSE;
+; 496  :         p->IS_ONE = FALSE;
 
 	and	edx, -5					; fffffffbH
 	mov	DWORD PTR [edi+24], edx
 
-; 503  :         p->IS_EVEN = !(p->BLOCK[0] & 1);
+; 497  :         p->IS_EVEN = !(p->BLOCK[0] & 1);
 
 	mov	eax, DWORD PTR [ecx]
 	shl	eax, 3
@@ -3000,56 +3000,56 @@ $LN4@CommitNumb:
 	and	eax, 8
 	xor	eax, edx
 
-; 463  :     __UNIT_TYPE bit_count = 0;
+; 457  :     __UNIT_TYPE bit_count = 0;
 
 	xor	edx, edx
 
-; 503  :         p->IS_EVEN = !(p->BLOCK[0] & 1);
+; 497  :         p->IS_EVEN = !(p->BLOCK[0] & 1);
 
 	mov	DWORD PTR [edi+24], eax
 
-; 504  :         p->TRAILING_ZERO_BITS_COUNT = GetTrailingZeroBitCount(p->BLOCK, p->UNIT_WORD_COUNT);
+; 498  :         p->TRAILING_ZERO_BITS_COUNT = GetTrailingZeroBitCount(p->BLOCK, p->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR [edi+8]
 
-; 464  :     while (word_count > 0)
+; 458  :     while (word_count > 0)
 
 	test	eax, eax
 	je	SHORT $LN21@CommitNumb
 $LL20@CommitNumb:
 
-; 465  :     {
-; 466  :         --word_count;
-; 467  :         if (*p != 0)
+; 459  :     {
+; 460  :         --word_count;
+; 461  :         if (*p != 0)
 
 	mov	esi, DWORD PTR [ecx]
 	dec	eax
 	test	esi, esi
 	jne	SHORT $LN30@CommitNumb
 
-; 469  :         bit_count += __UNIT_TYPE_BIT_COUNT;
+; 463  :         bit_count += __UNIT_TYPE_BIT_COUNT;
 
 	add	edx, 32					; 00000020H
 
-; 470  :         ++p;
+; 464  :         ++p;
 
 	add	ecx, 4
 	test	eax, eax
 	jne	SHORT $LL20@CommitNumb
 $LN21@CommitNumb:
 
-; 471  :     }
-; 472  :     // このルートには到達しないはず
-; 473  :     return (0);
+; 465  :     }
+; 466  :     // このルートには到達しないはず
+; 467  :     return (0);
 
 	xor	eax, eax
 $LN19@CommitNumb:
 
-; 504  :         p->TRAILING_ZERO_BITS_COUNT = GetTrailingZeroBitCount(p->BLOCK, p->UNIT_WORD_COUNT);
+; 498  :         p->TRAILING_ZERO_BITS_COUNT = GetTrailingZeroBitCount(p->BLOCK, p->UNIT_WORD_COUNT);
 
 	mov	DWORD PTR [edi+20], eax
 
-; 505  :         p->IS_POWER_OF_TWO = p->TRAILING_ZERO_BITS_COUNT + 1 == p->UNIT_BIT_COUNT;
+; 499  :         p->IS_POWER_OF_TWO = p->TRAILING_ZERO_BITS_COUNT + 1 == p->UNIT_BIT_COUNT;
 
 	xor	ecx, ecx
 	inc	eax
@@ -3060,8 +3060,8 @@ $LN19@CommitNumb:
 	and	eax, -17				; ffffffefH
 	or	ecx, eax
 
-; 506  :     }
-; 507  : }
+; 500  :     }
+; 501  : }
 
 	mov	DWORD PTR [edi+24], ecx
 	pop	edi
@@ -3071,12 +3071,12 @@ $LN19@CommitNumb:
 $LN30@CommitNumb:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 715  :         _BitScanForward(&pos, x);
+; 708  :         _BitScanForward(&pos, x);
 
 	bsf	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 468  :             return (bit_count + _TZCNT_ALT_UNIT(*p));
+; 462  :             return (bit_count + _TZCNT_ALT_UNIT(*p));
 
 	add	eax, edx
 	jmp	SHORT $LN19@CommitNumb
@@ -3093,13 +3093,13 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _DeallocateNumber PROC					; COMDAT
 
-; 431  : {
+; 425  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 432  :     if (p == NULL || p->IS_STATIC)
+; 426  :     if (p == NULL || p->IS_STATIC)
 
 	mov	esi, DWORD PTR _p$[ebp]
 	test	esi, esi
@@ -3107,120 +3107,120 @@ _DeallocateNumber PROC					; COMDAT
 	test	BYTE PTR [esi+24], 1
 	jne	SHORT $LN3@Deallocate
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	mov	eax, DWORD PTR [esi+32]
 	test	eax, eax
 	je	SHORT $LN11@Deallocate
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	ecx, DWORD PTR [esi+28]
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [eax-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], ecx
 	jne	SHORT $LN11@Deallocate
 
-; 209  :         {
-; 210  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
-; 211  :         }
-; 212  :         else
-; 213  :         {
-; 214  :             // 使用済みのバッファを既定のデータで塗りつぶす。
-; 215  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
+; 203  :         {
+; 204  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
+; 205  :         }
+; 206  :         else
+; 207  :         {
+; 208  :             // 使用済みのバッファを既定のデータで塗りつぶす。
+; 209  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
 
 	push	edi
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	add	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	edi, edx
 	mov	eax, -858993460				; ccccccccH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	pop	edi
 $LN11@Deallocate:
 
-; 433  :         return;
-; 434  :     CleanUpNumber(p);
-; 435  :     FillNumberHeader(p);
-; 436  :     HeapFree(hLocalHeap, 0, p);
+; 427  :         return;
+; 428  :     CleanUpNumber(p);
+; 429  :     FillNumberHeader(p);
+; 430  :     HeapFree(hLocalHeap, 0, p);
 
 	push	esi
 	push	0
 
-; 343  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 337  :             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi], -858993460		; ccccccccH
 
-; 344  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 338  :             __p[1] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+4], -858993460		; ccccccccH
 
-; 345  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 339  :             __p[2] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+8], -858993460		; ccccccccH
 
-; 346  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 340  :             __p[3] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+12], -858993460		; ccccccccH
 
-; 347  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 341  :             __p[4] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+16], -858993460		; ccccccccH
 
-; 348  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 342  :             __p[5] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+20], -858993460		; ccccccccH
 
-; 349  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 343  :             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+24], -858993460		; ccccccccH
 
-; 350  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 344  :             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+28], -858993460		; ccccccccH
 
-; 351  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+; 345  :             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
 
 	mov	DWORD PTR [esi+32], -858993460		; ccccccccH
 
-; 433  :         return;
-; 434  :     CleanUpNumber(p);
-; 435  :     FillNumberHeader(p);
-; 436  :     HeapFree(hLocalHeap, 0, p);
+; 427  :         return;
+; 428  :     CleanUpNumber(p);
+; 429  :     FillNumberHeader(p);
+; 430  :     HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 $LN3@Deallocate:
 	pop	esi
 
-; 437  : }
+; 431  : }
 
 	pop	ebp
 	ret	0
@@ -3237,13 +3237,13 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _DetatchNumber PROC					; COMDAT
 
-; 424  : {
+; 418  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 425  :     if (p == NULL || !p->IS_STATIC)
+; 419  :     if (p == NULL || !p->IS_STATIC)
 
 	mov	esi, DWORD PTR _p$[ebp]
 	test	esi, esi
@@ -3251,74 +3251,74 @@ _DetatchNumber PROC					; COMDAT
 	test	BYTE PTR [esi+24], 1
 	je	SHORT $LN3@DetatchNum
 
-; 394  :     if (p->BLOCK != NULL)
+; 388  :     if (p->BLOCK != NULL)
 
 	mov	eax, DWORD PTR [esi+32]
 	test	eax, eax
 	je	SHORT $LN3@DetatchNum
 
-; 395  :     {
-; 396  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
+; 389  :     {
+; 390  :         DeallocateBlock(p->BLOCK, p->BLOCK_COUNT);
 
 	mov	ecx, DWORD PTR [esi+28]
 
-; 207  :         __UNIT_TYPE* p = buffer - 1;
+; 201  :         __UNIT_TYPE* p = buffer - 1;
 
 	lea	edx, DWORD PTR [eax-4]
 
-; 208  :         if (*p != buffer_words)
+; 202  :         if (*p != buffer_words)
 
 	cmp	DWORD PTR [edx], ecx
 	jne	SHORT $LN11@DetatchNum
 
-; 209  :         {
-; 210  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
-; 211  :         }
-; 212  :         else
-; 213  :         {
-; 214  :             // 使用済みのバッファを既定のデータで塗りつぶす。
-; 215  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
+; 203  :         {
+; 204  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
+; 205  :         }
+; 206  :         else
+; 207  :         {
+; 208  :             // 使用済みのバッファを既定のデータで塗りつぶす。
+; 209  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
 
 	push	edi
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	add	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	edi, edx
 	mov	eax, -858993460				; ccccccccH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	pop	edi
 $LN11@DetatchNum:
 
-; 397  :         p->BLOCK = NULL;
+; 391  :         p->BLOCK = NULL;
 
 	mov	DWORD PTR [esi+32], 0
 $LN3@DetatchNum:
 	pop	esi
 
-; 426  :         return;
-; 427  :     CleanUpNumber(p);
-; 428  : }
+; 420  :         return;
+; 421  :     CleanUpNumber(p);
+; 422  : }
 
 	pop	ebp
 	ret	0
@@ -3333,13 +3333,13 @@ _bit_count$ = 12					; size = 4
 _light_check_code$ = 16					; size = 4
 _AllocateNumber PROC					; COMDAT
 
-; 411  : {
+; 405  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 412  :     NUMBER_HEADER* p = (NUMBER_HEADER*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, sizeof(NUMBER_HEADER));
+; 406  :     NUMBER_HEADER* p = (NUMBER_HEADER*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, sizeof(NUMBER_HEADER));
 
 	push	36					; 00000024H
 	push	8
@@ -3347,23 +3347,23 @@ _AllocateNumber PROC					; COMDAT
 	call	DWORD PTR __imp__HeapAlloc@12
 	mov	esi, eax
 
-; 413  :     if (p == NULL)
+; 407  :     if (p == NULL)
 
 	test	esi, esi
 	jne	SHORT $LN2@AllocateNu
 
-; 414  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 408  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	lea	eax, DWORD PTR [esi-5]
 	pop	esi
 
-; 421  : }
+; 415  : }
 
 	pop	ebp
 	ret	0
 $LN2@AllocateNu:
 
-; 415  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, light_check_code);
+; 409  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, light_check_code);
 
 	push	DWORD PTR _light_check_code$[ebp]
 	push	DWORD PTR _bit_count$[ebp]
@@ -3371,26 +3371,26 @@ $LN2@AllocateNu:
 	call	_InitializeNumber
 	add	esp, 12					; 0000000cH
 
-; 416  :     if (result != PMC_STATUS_OK)
+; 410  :     if (result != PMC_STATUS_OK)
 
 	test	eax, eax
 	jne	SHORT $LN1@AllocateNu
 
-; 417  :         return (result);
-; 418  :     p->IS_STATIC = FALSE;
-; 419  :     *pp = p;
+; 411  :         return (result);
+; 412  :     p->IS_STATIC = FALSE;
+; 413  :     *pp = p;
 
 	mov	eax, DWORD PTR _pp$[ebp]
 	and	DWORD PTR [esi+24], -2			; fffffffeH
 	mov	DWORD PTR [eax], esi
 
-; 420  :     return (PMC_STATUS_OK);
+; 414  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@AllocateNu:
 	pop	esi
 
-; 421  : }
+; 415  : }
 
 	pop	ebp
 	ret	0
@@ -3404,13 +3404,13 @@ _p$ = 8							; size = 4
 _bit_count$ = 12					; size = 4
 _AttatchNumber PROC					; COMDAT
 
-; 402  : {
+; 396  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 403  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, NULL);
+; 397  :     PMC_STATUS_CODE result = InitializeNumber(p, bit_count, NULL);
 
 	mov	esi, DWORD PTR _p$[ebp]
 	push	0
@@ -3419,20 +3419,20 @@ _AttatchNumber PROC					; COMDAT
 	call	_InitializeNumber
 	add	esp, 12					; 0000000cH
 
-; 404  :     if (result != PMC_STATUS_OK)
+; 398  :     if (result != PMC_STATUS_OK)
 
 	test	eax, eax
 	jne	SHORT $LN1@AttatchNum
 
-; 405  :         return (result);
-; 406  :     p->IS_STATIC = TRUE;
+; 399  :         return (result);
+; 400  :     p->IS_STATIC = TRUE;
 
 	or	DWORD PTR [esi+24], 1
 $LN1@AttatchNum:
 	pop	esi
 
-; 407  :     return (PMC_STATUS_OK);
-; 408  : }
+; 401  :     return (PMC_STATUS_OK);
+; 402  : }
 
 	pop	ebp
 	ret	0
@@ -3446,24 +3446,24 @@ _buffer$ = 8						; size = 4
 _code$ = 12						; size = 4
 _CheckBlockLight PROC					; COMDAT
 
-; 260  : #ifdef _DEBUG
-; 261  :     if (buffer == NULL)
+; 254  : #ifdef _DEBUG
+; 255  :     if (buffer == NULL)
+; 256  :         return (PMC_STATUS_OK);
+; 257  :     --buffer;
+; 258  :     __UNIT_TYPE words = buffer[0];
+; 259  :     __UNIT_TYPE code_desired = buffer[words + 1] ^ (__UNIT_TYPE)&buffer[words + 1];
+; 260  :     __UNIT_TYPE code_actual = code;
+; 261  :     if (code_actual == code_desired)
 ; 262  :         return (PMC_STATUS_OK);
-; 263  :     --buffer;
-; 264  :     __UNIT_TYPE words = buffer[0];
-; 265  :     __UNIT_TYPE code_desired = buffer[words + 1] ^ (__UNIT_TYPE)&buffer[words + 1];
-; 266  :     __UNIT_TYPE code_actual = code;
-; 267  :     if (code_actual == code_desired)
-; 268  :         return (PMC_STATUS_OK);
-; 269  :     else
-; 270  :         return (PMC_STATUS_BAD_BUFFER);
-; 271  : #else
-; 272  :     return (PMC_STATUS_OK);
+; 263  :     else
+; 264  :         return (PMC_STATUS_BAD_BUFFER);
+; 265  : #else
+; 266  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 273  : #endif
-; 274  : }
+; 267  : #endif
+; 268  : }
 
 	ret	0
 _CheckBlockLight ENDP
@@ -3480,68 +3480,68 @@ _buffer$ = 8						; size = 4
 _buffer_words$ = 12					; size = 4
 _DeallocateBlock PROC					; COMDAT
 
-; 204  : {
+; 198  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 205  : 	if (buffer != NULL)
+; 199  : 	if (buffer != NULL)
 
 	mov	eax, DWORD PTR _buffer$[ebp]
 	test	eax, eax
 	je	SHORT $LN4@Deallocate
 
-; 206  : 	{
-; 207  :         __UNIT_TYPE* p = buffer - 1;
-; 208  :         if (*p != buffer_words)
+; 200  : 	{
+; 201  :         __UNIT_TYPE* p = buffer - 1;
+; 202  :         if (*p != buffer_words)
 
 	mov	ecx, DWORD PTR _buffer_words$[ebp]
 	lea	edx, DWORD PTR [eax-4]
 	cmp	DWORD PTR [edx], ecx
 	jne	SHORT $LN4@Deallocate
 
-; 209  :         {
-; 210  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
-; 211  :         }
-; 212  :         else
-; 213  :         {
-; 214  :             // 使用済みのバッファを既定のデータで塗りつぶす。
-; 215  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
+; 203  :         {
+; 204  :             // もし、buffer の指す内容が壊れていることが明らかならば、二重解放の恐れがあるので解放処理はしない。
+; 205  :         }
+; 206  :         else
+; 207  :         {
+; 208  :             // 使用済みのバッファを既定のデータで塗りつぶす。
+; 209  :             _FILL_MEMORY_UNIT(p, DEFAULT_MEMORY_DATA, buffer_words + 2);
 
 	push	edi
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	edx
 	add	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	mov	edi, edx
 	mov	eax, -858993460				; ccccccccH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 168  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
 
 	rep stosd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 217  :             HeapFree(hLocalHeap, 0, p);
+; 211  :             HeapFree(hLocalHeap, 0, p);
 
 	push	DWORD PTR _hLocalHeap
 	call	DWORD PTR __imp__HeapFree@12
 	pop	edi
 $LN4@Deallocate:
 
-; 218  :         }
-; 219  : 	}
-; 220  : }
+; 212  :         }
+; 213  : 	}
+; 214  : }
 
 	pop	ebp
 	ret	0
@@ -3558,25 +3558,25 @@ _allocated_block_words$ = 12				; size = 4
 _code$ = 16						; size = 4
 _AllocateBlock PROC					; COMDAT
 
-; 162  : {
+; 156  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	mov	esi, DWORD PTR _bits$[ebp]
 	lea	esi, DWORD PTR [esi+31]
 	shr	esi, 5
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\memory.c
 
-; 169  : 	__UNIT_TYPE bytes = words2 * __UNIT_TYPE_BYTE_COUNT;
+; 163  : 	__UNIT_TYPE bytes = words2 * __UNIT_TYPE_BYTE_COUNT;
 
 	lea	eax, DWORD PTR [esi*4+8]
 
-; 170  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
+; 164  : 	__UNIT_TYPE* buffer = (__UNIT_TYPE*)HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, bytes);
 
 	push	eax
 	push	8
@@ -3584,69 +3584,69 @@ _AllocateBlock PROC					; COMDAT
 	call	DWORD PTR __imp__HeapAlloc@12
 	mov	ecx, eax
 
-; 171  : 	if (buffer == NULL)
+; 165  : 	if (buffer == NULL)
 
 	test	ecx, ecx
 	jne	SHORT $LN2@AllocateBl
 	pop	esi
 
-; 199  : }
+; 193  : }
 
 	pop	ebp
 	ret	0
 $LN2@AllocateBl:
 
-; 172  : 		return (NULL);
-; 173  : 	buffer[0] = words1;
-; 174  :     *allocated_block_words = words1;
+; 166  : 		return (NULL);
+; 167  : 	buffer[0] = words1;
+; 168  :     *allocated_block_words = words1;
 
 	mov	eax, DWORD PTR _allocated_block_words$[ebp]
 	mov	DWORD PTR [ecx], esi
 	mov	DWORD PTR [eax], esi
 
-; 175  : #ifdef _DEBUG
-; 176  :     // 乱数もどきを生成する。
-; 177  : #ifdef _M_IX86
-; 178  :     __UNIT_TYPE r = GetTickCount();
-; 179  : #elif defined(_M_IX64)
-; 180  : #ifdef _MSC_VER
-; 181  :     __UNIT_TYPE r = GetTickCount64();
-; 182  : #elif defined(__GNUC__)
-; 183  :     _UINT32_T temp = GetTickCount();
-; 184  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
-; 185  : #else
-; 186  : #error unknown compiler
-; 187  : #endif
-; 188  : #else
-; 189  : #error unknown platform
-; 190  : #endif
-; 191  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
-; 192  : #else
-; 193  :     __UNIT_TYPE check_code = 0;
-; 194  : #endif
-; 195  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
+; 169  : #ifdef _DEBUG
+; 170  :     // 乱数もどきを生成する。
+; 171  : #ifdef _M_IX86
+; 172  :     __UNIT_TYPE r = GetTickCount();
+; 173  : #elif defined(_M_IX64)
+; 174  : #ifdef _MSC_VER
+; 175  :     __UNIT_TYPE r = GetTickCount64();
+; 176  : #elif defined(__GNUC__)
+; 177  :     _UINT32_T temp = GetTickCount();
+; 178  :     __UNIT_TYPE r = _FROMWORDTODWORD(temp, temp);
+; 179  : #else
+; 180  : #error unknown compiler
+; 181  : #endif
+; 182  : #else
+; 183  : #error unknown platform
+; 184  : #endif
+; 185  :     __UNIT_TYPE check_code = configuration_info.MEMORY_VERIFICATION_ENABLED ? CalculateCheckCode(&buffer[1], words1) : CHECK_CODE_INIT | r;
+; 186  : #else
+; 187  :     __UNIT_TYPE check_code = 0;
+; 188  : #endif
+; 189  :     buffer[words1 + 1] = check_code ^ (__UNIT_TYPE)&buffer[words1 + 1];
 
 	lea	eax, DWORD PTR [esi+1]
 	lea	eax, DWORD PTR [ecx+eax*4]
 	mov	DWORD PTR [eax], eax
 
-; 196  :     if (code != NULL)
+; 190  :     if (code != NULL)
 
 	mov	eax, DWORD PTR _code$[ebp]
 	test	eax, eax
 	je	SHORT $LN3@AllocateBl
 
-; 197  :         *code = check_code;
+; 191  :         *code = check_code;
 
 	mov	DWORD PTR [eax], 0
 $LN3@AllocateBl:
 
-; 198  :     return (&buffer[1]);
+; 192  :     return (&buffer[1]);
 
 	lea	eax, DWORD PTR [ecx+4]
 	pop	esi
 
-; 199  : }
+; 193  : }
 
 	pop	ebp
 	ret	0
@@ -3658,25 +3658,25 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _DeallocateHeapArea PROC				; COMDAT
 
-; 610  :     if (hLocalHeap != NULL)
+; 604  :     if (hLocalHeap != NULL)
 
 	mov	eax, DWORD PTR _hLocalHeap
 	test	eax, eax
 	je	SHORT $LN2@Deallocate
 
-; 611  :     {
-; 612  :         HeapDestroy(hLocalHeap);
+; 605  :     {
+; 606  :         HeapDestroy(hLocalHeap);
 
 	push	eax
 	call	DWORD PTR __imp__HeapDestroy@4
 
-; 613  :         hLocalHeap = NULL;
+; 607  :         hLocalHeap = NULL;
 
 	mov	DWORD PTR _hLocalHeap, 0
 $LN2@Deallocate:
 
-; 614  :     }
-; 615  : }
+; 608  :     }
+; 609  : }
 
 	ret	0
 _DeallocateHeapArea ENDP
@@ -3687,14 +3687,14 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _AllocateHeapArea PROC					; COMDAT
 
-; 602  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
+; 596  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
 
 	push	0
 	push	4096					; 00001000H
 	push	0
 	call	DWORD PTR __imp__HeapCreate@12
 
-; 603  :     if (hLocalHeap == NULL)
+; 597  :     if (hLocalHeap == NULL)
 
 	xor	ecx, ecx
 	mov	DWORD PTR _hLocalHeap, eax
@@ -3702,9 +3702,9 @@ _AllocateHeapArea PROC					; COMDAT
 	setne	cl
 	mov	eax, ecx
 
-; 604  :         return (FALSE);
-; 605  :     return (TRUE);
-; 606  : }
+; 598  :         return (FALSE);
+; 599  :     return (TRUE);
+; 600  : }
 
 	ret	0
 _AllocateHeapArea ENDP

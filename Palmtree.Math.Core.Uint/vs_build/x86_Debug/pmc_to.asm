@@ -61,14 +61,14 @@ _value_high$ = 8					; size = 4
 _value_low$ = 12					; size = 4
 __FROMWORDTODWORD PROC
 
-; 177  :     {
+; 170  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	edx, edx
 	mov	eax, DWORD PTR _value_high$[ebp]
@@ -78,7 +78,7 @@ __FROMWORDTODWORD PROC
 	or	eax, DWORD PTR _value_low$[ebp]
 	or	edx, ecx
 
-; 179  :     }
+; 172  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -95,7 +95,7 @@ _p$ = 8							; size = 4
 _o$ = 12						; size = 4
 _PMC_To_X_L@8 PROC
 
-; 59   : {
+; 52   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -105,27 +105,27 @@ _PMC_To_X_L@8 PROC
 	mov	ecx, OFFSET __89D1FFA7_pmc_to@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 60   :     if (sizeof(__UNIT_TYPE) * 2 < sizeof(*o))
+; 53   :     if (sizeof(__UNIT_TYPE) * 2 < sizeof(*o))
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_To_X_L
 
-; 61   :     {
-; 62   :         // 32bit未満のCPUは未対応
-; 63   :         return (PMC_STATUS_NOT_SUPPORTED);
+; 54   :     {
+; 55   :         // 32bit未満のCPUは未対応
+; 56   :         return (PMC_STATUS_NOT_SUPPORTED);
 
 	mov	eax, -6					; fffffffaH
 	jmp	$LN1@PMC_To_X_L
 $LN2@PMC_To_X_L:
 
-; 64   :     }
-; 65   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 57   :     }
+; 58   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _np$[ebp], ecx
 
-; 66   :     PMC_STATUS_CODE result;
-; 67   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+; 59   :     PMC_STATUS_CODE result;
+; 60   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _np$[ebp]
 	push	edx
@@ -135,25 +135,25 @@ $LN2@PMC_To_X_L:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN3@PMC_To_X_L
 
-; 68   :         return (result);
+; 61   :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_To_X_L
 $LN3@PMC_To_X_L:
 
-; 69   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
+; 62   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	eax, DWORD PTR _np$[ebp]
 	cmp	DWORD PTR [eax+12], 64			; 00000040H
 	jbe	SHORT $LN4@PMC_To_X_L
 
-; 70   :         return (PMC_STATUS_OVERFLOW);
+; 63   :         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2					; fffffffeH
 	jmp	$LN1@PMC_To_X_L
 $LN4@PMC_To_X_L:
 
-; 71   :     if (np->IS_ZERO)
+; 64   :     if (np->IS_ZERO)
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -161,29 +161,29 @@ $LN4@PMC_To_X_L:
 	and	edx, 1
 	je	SHORT $LN5@PMC_To_X_L
 
-; 72   :     {
-; 73   :         *o = 0;
+; 65   :     {
+; 66   :         *o = 0;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], 0
 	mov	DWORD PTR [eax+4], 0
 
-; 74   :         return (PMC_STATUS_OK);
+; 67   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_To_X_L
 $LN5@PMC_To_X_L:
 
-; 75   :     }
-; 76   :     if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT)
+; 68   :     }
+; 69   :     if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT)
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	cmp	DWORD PTR [ecx+12], 32			; 00000020H
 	ja	SHORT $LN6@PMC_To_X_L
 
-; 77   :     {
-; 78   :         // 値が 1 ワードで表現できる場合
-; 79   :         *o = np->BLOCK[0];
+; 70   :     {
+; 71   :         // 値が 1 ワードで表現できる場合
+; 72   :         *o = np->BLOCK[0];
 
 	mov	edx, 4
 	imul	eax, edx, 0
@@ -195,25 +195,25 @@ $LN5@PMC_To_X_L:
 	mov	DWORD PTR [edx], eax
 	mov	DWORD PTR [edx+4], ecx
 
-; 80   :         return (PMC_STATUS_OK);
+; 73   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_To_X_L
 
-; 81   :     }
+; 74   :     }
 
 	jmp	SHORT $LN1@PMC_To_X_L
 $LN6@PMC_To_X_L:
 
-; 82   :     else if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT * 2)
+; 75   :     else if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT * 2)
 
 	mov	eax, DWORD PTR _np$[ebp]
 	cmp	DWORD PTR [eax+12], 64			; 00000040H
 	ja	SHORT $LN8@PMC_To_X_L
 
-; 83   :     {
-; 84   :         // 値が 2 ワードで表現できる場合
-; 85   :         *o = _FROMWORDTODWORD((_UINT32_T)np->BLOCK[1], (_UINT32_T)np->BLOCK[0]);
+; 76   :     {
+; 77   :         // 値が 2 ワードで表現できる場合
+; 78   :         *o = _FROMWORDTODWORD((_UINT32_T)np->BLOCK[1], (_UINT32_T)np->BLOCK[0]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 0
@@ -233,23 +233,23 @@ $LN6@PMC_To_X_L:
 	mov	DWORD PTR [ecx], eax
 	mov	DWORD PTR [ecx+4], edx
 
-; 86   :         return (PMC_STATUS_OK);
+; 79   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_To_X_L
 
-; 87   :     }
+; 80   :     }
 
 	jmp	SHORT $LN1@PMC_To_X_L
 $LN8@PMC_To_X_L:
 
-; 88   :     else
-; 89   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 81   :     else
+; 82   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 $LN1@PMC_To_X_L:
 
-; 90   : }
+; 83   : }
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -268,7 +268,7 @@ _p$ = 8							; size = 4
 _o$ = 12						; size = 4
 _PMC_To_X_I@8 PROC
 
-; 39   : {
+; 32   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -278,27 +278,27 @@ _PMC_To_X_I@8 PROC
 	mov	ecx, OFFSET __89D1FFA7_pmc_to@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 40   :     if (sizeof(__UNIT_TYPE) < sizeof(*o))
+; 33   :     if (sizeof(__UNIT_TYPE) < sizeof(*o))
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_To_X_I
 
-; 41   :     {
-; 42   :         // 32bit未満のCPUは未対応
-; 43   :         return (PMC_STATUS_NOT_SUPPORTED);
+; 34   :     {
+; 35   :         // 32bit未満のCPUは未対応
+; 36   :         return (PMC_STATUS_NOT_SUPPORTED);
 
 	mov	eax, -6					; fffffffaH
 	jmp	SHORT $LN1@PMC_To_X_I
 $LN2@PMC_To_X_I:
 
-; 44   :     }
-; 45   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 37   :     }
+; 38   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _np$[ebp], ecx
 
-; 46   :     PMC_STATUS_CODE result;
-; 47   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+; 39   :     PMC_STATUS_CODE result;
+; 40   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _np$[ebp]
 	push	edx
@@ -308,25 +308,25 @@ $LN2@PMC_To_X_I:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN3@PMC_To_X_I
 
-; 48   :         return (result);
+; 41   :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_To_X_I
 $LN3@PMC_To_X_I:
 
-; 49   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
+; 42   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	eax, DWORD PTR _np$[ebp]
 	cmp	DWORD PTR [eax+12], 32			; 00000020H
 	jbe	SHORT $LN4@PMC_To_X_I
 
-; 50   :         return (PMC_STATUS_OVERFLOW);
+; 43   :         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2					; fffffffeH
 	jmp	SHORT $LN1@PMC_To_X_I
 $LN4@PMC_To_X_I:
 
-; 51   :     if (np->IS_ZERO)
+; 44   :     if (np->IS_ZERO)
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -334,15 +334,15 @@ $LN4@PMC_To_X_I:
 	and	edx, 1
 	je	SHORT $LN5@PMC_To_X_I
 
-; 52   :         *o = 0;
+; 45   :         *o = 0;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], 0
 	jmp	SHORT $LN6@PMC_To_X_I
 $LN5@PMC_To_X_I:
 
-; 53   :     else
-; 54   :         *o = (_UINT32_T)np->BLOCK[0];
+; 46   :     else
+; 47   :         *o = (_UINT32_T)np->BLOCK[0];
 
 	mov	ecx, 4
 	imul	edx, ecx, 0
@@ -353,12 +353,12 @@ $LN5@PMC_To_X_I:
 	mov	DWORD PTR [eax], ecx
 $LN6@PMC_To_X_I:
 
-; 55   :     return (PMC_STATUS_OK);
+; 48   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_To_X_I:
 
-; 56   : }   
+; 49   : }   
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -374,18 +374,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_To PROC
 
-; 93   : {
+; 86   : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __89D1FFA7_pmc_to@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 94   :     return (PMC_STATUS_OK);
+; 87   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 95   : }
+; 88   : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

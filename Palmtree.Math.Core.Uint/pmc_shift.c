@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_shift.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/06, 22:09
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

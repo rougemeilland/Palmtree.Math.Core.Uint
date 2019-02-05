@@ -153,12 +153,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pmc.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="pmc_debug.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="pmc_internal.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -175,9 +169,16 @@
     <ClInclude Include="pmc_inline_func.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="pmc.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="pmc_uint_debug.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".dep.inc" />
+    <None Include="Palmtree.Math.Core.Uint.def" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ヘッダー ファイル">

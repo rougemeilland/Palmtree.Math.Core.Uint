@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_initialize.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/27, 20:10
- */
 
 #include <windows.h>
 #include <intrin.h>
@@ -42,7 +36,7 @@ PMC_CONFIGURATION_INFO configuration_info;
 #pragma endregion
 
 
-PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_Initialize(PMC_CONFIGURATION_INFO* config)
+PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
     configuration_info = *config;
     PROCESSOR_FEATURES feature;

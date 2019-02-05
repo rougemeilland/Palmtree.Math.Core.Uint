@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   memory.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/27, 20:10
- */
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

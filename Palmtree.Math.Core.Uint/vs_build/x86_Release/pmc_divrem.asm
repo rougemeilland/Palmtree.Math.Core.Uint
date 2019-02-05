@@ -84,36 +84,36 @@ _q_buf$ = 28						; size = 4
 _r_buf$ = 32						; size = 4
 _DivRem_X_X_using_ADX_MULX PROC				; COMDAT
 
-; 972  : {
+; 965  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 40					; 00000028H
 	push	ebx
 
-; 973  :     // u および v の最上位ワードは 0 でありうることに注意すること。
-; 974  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
-; 975  :     {
-; 976  :         while (u_buf[u_buf_len - 1] == 0)
-; 977  :             --u_buf_len;
-; 978  :         while (v_buf[v_buf_len - 1] == 0)
-; 979  :             --v_buf_len;
-; 980  :     }
+; 966  :     // u および v の最上位ワードは 0 でありうることに注意すること。
+; 967  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 968  :     {
+; 969  :         while (u_buf[u_buf_len - 1] == 0)
+; 970  :             --u_buf_len;
+; 971  :         while (v_buf[v_buf_len - 1] == 0)
+; 972  :             --v_buf_len;
+; 973  :     }
+; 974  : 
+; 975  : #ifdef _DEBUG
+; 976  :     if (v_buf[v_buf_len - 1] == 0)
+; 977  :     {
+; 978  :         ; // このルートには到達しないはず。デバッグ用。
+; 979  :     }
+; 980  : #endif
 ; 981  : 
-; 982  : #ifdef _DEBUG
-; 983  :     if (v_buf[v_buf_len - 1] == 0)
-; 984  :     {
-; 985  :         ; // このルートには到達しないはず。デバッグ用。
-; 986  :     }
-; 987  : #endif
-; 988  : 
-; 989  : #ifdef DO_TRACE
-; 990  :     ReportLabel("uとvのシフト");
-; 991  :     ReportDump("u", (__UNIT_TYPE*)u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 992  :     ReportDump("v", (__UNIT_TYPE*)v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 993  : #endif
-; 994  : 
-; 995  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
+; 982  : #ifdef DO_TRACE
+; 983  :     ReportLabel("uとvのシフト");
+; 984  :     ReportDump("u", (__UNIT_TYPE*)u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 985  :     ReportDump("v", (__UNIT_TYPE*)v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 986  : #endif
+; 987  : 
+; 988  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
 
 	mov	ebx, DWORD PTR _v_buf_len$[ebp]
 	push	esi
@@ -122,19 +122,19 @@ _DivRem_X_X_using_ADX_MULX PROC				; COMDAT
 	mov	eax, DWORD PTR [esi+ebx*4-4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 659  :         if (x == 0)
+; 652  :         if (x == 0)
 
 	test	eax, eax
 	jne	SHORT $LN18@DivRem_X_X
 
-; 660  :             return (sizeof(x) * 8);
+; 653  :             return (sizeof(x) * 8);
 
 	mov	edi, 32					; 00000020H
 	mov	DWORD PTR $T1[ebp], edi
 $LN10@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1004 :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
+; 997  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
 
 	push	0
 	push	DWORD PTR _r_buf$[ebp]
@@ -143,7 +143,7 @@ $LN10@DivRem_X_X:
 	push	DWORD PTR _u_buf$[ebp]
 	call	_LeftShift_Imp_DIV
 
-; 1005 :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
+; 998  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
 
 	push	0
 	push	DWORD PTR _work_v_buf$[ebp]
@@ -156,14 +156,14 @@ $LN10@DivRem_X_X:
 	mov	edx, DWORD PTR _u_buf_len$[ebp]
 $LN11@DivRem_X_X:
 
-; 1006 :     }
-; 1007 : #ifdef DO_TRACE
-; 1008 :     ReportDump("⇒u", (__UNIT_TYPE*)r_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1009 :     ReportDump("⇒v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1010 : #endif
-; 1011 : 
-; 1012 :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
-; 1013 :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
+; 999  :     }
+; 1000 : #ifdef DO_TRACE
+; 1001 :     ReportDump("⇒u", (__UNIT_TYPE*)r_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1002 :     ReportDump("⇒v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1003 : #endif
+; 1004 : 
+; 1005 :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
+; 1006 :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
 
 	mov	ecx, DWORD PTR _work_v_buf$[ebp]
 	lea	esi, DWORD PTR [ebx-1]
@@ -178,18 +178,18 @@ $LN11@DivRem_X_X:
 	lea	ebx, DWORD PTR [eax+ebx*4]
 $LL6@DivRem_X_X:
 
-; 370  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 363  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	ecx, DWORD PTR [ebx]
 	mov	eax, DWORD PTR [ebx+8]
 
-; 371  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 364  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	esi, DWORD PTR [esi]
 	mov	edx, DWORD PTR [ebx+4]
 	mov	DWORD PTR tv643[ebp], ecx
 
-; 372  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 365  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	ecx, DWORD PTR tv646[ebp]
 	mov	DWORD PTR _rh_hi$1$[ebp], eax
@@ -198,53 +198,53 @@ $LL6@DivRem_X_X:
 	mov	ecx, DWORD PTR [ecx]
 	mov	DWORD PTR _v2$1$[ebp], ecx
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	cmp	eax, esi
 	jne	SHORT $LN29@DivRem_X_X
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	or	esi, -1
 	jmp	SHORT $LN28@DivRem_X_X
 $LN18@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 664  :         _BitScanReverse(&pos, x);
+; 657  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, eax
 
-; 665  : #elif defined(__GNUC__)
-; 666  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 667  : #else
-; 668  : #error unknown compiler
-; 669  : #endif
-; 670  : #elif defined(_M_X64)
-; 671  : #ifdef _MSC_VER
-; 672  :         _UINT32_T pos;
-; 673  :         _BitScanReverse(&pos, x);
-; 674  : #elif defined(__GNUC__)
-; 675  :         _UINT64_T pos;
-; 676  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 677  : #else
-; 678  : #error unknown compiler
-; 679  : #endif
-; 680  : #else
-; 681  : #error unknown platform
-; 682  : #endif
-; 683  :         return (sizeof(x) * 8 - 1 - pos);
+; 658  : #elif defined(__GNUC__)
+; 659  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 660  : #else
+; 661  : #error unknown compiler
+; 662  : #endif
+; 663  : #elif defined(_M_X64)
+; 664  : #ifdef _MSC_VER
+; 665  :         _UINT32_T pos;
+; 666  :         _BitScanReverse(&pos, x);
+; 667  : #elif defined(__GNUC__)
+; 668  :         _UINT64_T pos;
+; 669  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 670  : #else
+; 671  : #error unknown compiler
+; 672  : #endif
+; 673  : #else
+; 674  : #error unknown platform
+; 675  : #endif
+; 676  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	edi, 31					; 0000001fH
 	sub	edi, eax
 	mov	DWORD PTR $T1[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 996  :     if (d_factor == 0)
+; 989  :     if (d_factor == 0)
 
 	jne	SHORT $LN10@DivRem_X_X
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 79   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	eax, DWORD PTR _r_buf$[ebp]
 	mov	edi, eax
@@ -258,32 +258,32 @@ $LN18@DivRem_X_X:
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1000 :         r_buf[u_buf_len] = 0;
+; 993  :         r_buf[u_buf_len] = 0;
 
 	mov	DWORD PTR [eax+edx*4], 0
 
-; 1001 :     }
+; 994  :     }
 
 	jmp	SHORT $LN11@DivRem_X_X
 $LN29@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	esi
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	ecx, ecx
 	or	ecx, edx
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	eax
 	push	ecx
@@ -291,79 +291,79 @@ $LN29@DivRem_X_X:
 	mov	ecx, DWORD PTR _v2$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 260  :     return (q);
+; 253  :     return (q);
 
 	mov	esi, eax
 $LN28@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	ecx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _rh_mi$1$[ebp]
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	DWORD PTR _value$1$[ebp], eax
 	mov	eax, esi
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR _rh_mi$1$[ebp], ecx
 	mov	ecx, DWORD PTR _rh_hi$1$[ebp]
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 317  :     if (rh_hi > 0)
+; 310  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN102@DivRem_X_X
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
-; 323  :     }
-; 324  :     else if (lh_mi > rh_mi)
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
+; 316  :     }
+; 317  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR _rh_mi$1$[ebp]
 	cmp	DWORD PTR _lh_mi$1$[ebp], eax
 	ja	SHORT $LN25@DivRem_X_X
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
-; 330  :     }
-; 331  :     else if (lh_mi < rh_mi)
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
+; 323  :     }
+; 324  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN102@DivRem_X_X
 
-; 381  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 374  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv643[ebp]
@@ -371,17 +371,17 @@ $LN28@DivRem_X_X:
 $LN25@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _rh_mi$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 383  :     --q_;
+; 376  :     --q_;
 
 	dec	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	DWORD PTR _v2$1$[ebp]
@@ -390,78 +390,78 @@ $LN25@DivRem_X_X:
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	DWORD PTR _rh_hi$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 317  :     if (rh_hi > 0)
+; 310  :     if (rh_hi > 0)
 
 	cmp	DWORD PTR _rh_hi$1$[ebp], 0
 	ja	SHORT $LN102@DivRem_X_X
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
-; 323  :     }
-; 324  :     else if (lh_mi > rh_mi)
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
+; 316  :     }
+; 317  :     else if (lh_mi > rh_mi)
 
 	cmp	DWORD PTR _lh_mi$1$[ebp], ecx
 	ja	SHORT $LN26@DivRem_X_X
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
-; 330  :     }
-; 331  :     else if (lh_mi < rh_mi)
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
+; 323  :     }
+; 324  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN102@DivRem_X_X
 
-; 384  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 377  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv643[ebp]
 	jbe	SHORT $LN102@DivRem_X_X
 $LN26@DivRem_X_X:
 
-; 385  :         return (q_);
-; 386  :     --q_;
+; 378  :         return (q_);
+; 379  :     --q_;
 
 	dec	esi
 $LN102@DivRem_X_X:
 
-; 1014 : 
-; 1015 :     for (;;)
-; 1016 :     {
-; 1017 :         __UNIT_TYPE_DIV q_ = CalculateQ_X(work_u_buf, work_v_buf, v_buf_len, q_index);
-; 1018 : 
-; 1019 : #ifdef DO_TRACE
-; 1020 :         ReportLabel("uの減算");
-; 1021 :         ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1022 :         ReportDump("v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1023 :         ReportVar("q_", q_);
-; 1024 : #endif
-; 1025 :         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
+; 1007 : 
+; 1008 :     for (;;)
+; 1009 :     {
+; 1010 :         __UNIT_TYPE_DIV q_ = CalculateQ_X(work_u_buf, work_v_buf, v_buf_len, q_index);
+; 1011 : 
+; 1012 : #ifdef DO_TRACE
+; 1013 :         ReportLabel("uの減算");
+; 1014 :         ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1015 :         ReportDump("v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1016 :         ReportVar("q_", q_);
+; 1017 : #endif
+; 1018 :         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
 
 	push	esi
 	push	edi
@@ -474,18 +474,18 @@ $LN102@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN12@DivRem_X_X
 
-; 1026 :         {
-; 1027 : #ifdef DO_TRACE
-; 1028 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1029 : #endif
-; 1030 :             // 桁借りが発生した場合
-; 1031 : 
-; 1032 : #ifdef DO_TRACE
-; 1033 :             ReportLabel("uの加え戻しとq_の更新");
-; 1034 :             ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1035 : #endif
-; 1036 :             --q_;
-; 1037 :             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
+; 1019 :         {
+; 1020 : #ifdef DO_TRACE
+; 1021 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1022 : #endif
+; 1023 :             // 桁借りが発生した場合
+; 1024 : 
+; 1025 : #ifdef DO_TRACE
+; 1026 :             ReportLabel("uの加え戻しとq_の更新");
+; 1027 :             ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1028 : #endif
+; 1029 :             --q_;
+; 1030 :             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
 	push	edi
 	push	DWORD PTR _v_buf_len$[ebp]
@@ -497,37 +497,37 @@ $LN102@DivRem_X_X:
 	add	esp, 20					; 00000014H
 $LN12@DivRem_X_X:
 
+; 1031 : #ifdef DO_TRACE
+; 1032 :             ReportVar("q_", q_);
+; 1033 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1034 : #endif
+; 1035 :         }
+; 1036 :         else
+; 1037 :         {
 ; 1038 : #ifdef DO_TRACE
-; 1039 :             ReportVar("q_", q_);
-; 1040 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1041 : #endif
-; 1042 :         }
-; 1043 :         else
-; 1044 :         {
-; 1045 : #ifdef DO_TRACE
-; 1046 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1047 : #endif
-; 1048 :         }
-; 1049 : 
-; 1050 :         q_buf[q_index] = q_;
+; 1039 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1040 : #endif
+; 1041 :         }
+; 1042 : 
+; 1043 :         q_buf[q_index] = q_;
 
 	mov	eax, DWORD PTR _q_buf$[ebp]
 	mov	DWORD PTR [eax+edi*4], esi
 
-; 1051 : 
-; 1052 : #ifdef DO_TRACE
-; 1053 :         ReportLabel("qの現在値");
-; 1054 :         ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1055 : #endif
-; 1056 : 
-; 1057 :         if (q_index == 0)
+; 1044 : 
+; 1045 : #ifdef DO_TRACE
+; 1046 :         ReportLabel("qの現在値");
+; 1047 :         ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1048 : #endif
+; 1049 : 
+; 1050 :         if (q_index == 0)
 
 	test	edi, edi
 	je	SHORT $LN99@DivRem_X_X
 
-; 1058 :             break;
-; 1059 :         --q_index;
-; 1060 :     }
+; 1051 :             break;
+; 1052 :         --q_index;
+; 1053 :     }
 
 	mov	esi, DWORD PTR tv647[ebp]
 	dec	edi
@@ -535,8 +535,8 @@ $LN12@DivRem_X_X:
 	jmp	$LL6@DivRem_X_X
 $LN99@DivRem_X_X:
 
-; 1061 : 
-; 1062 :     if (d_factor > 0)
+; 1054 : 
+; 1055 :     if (d_factor > 0)
 
 	mov	eax, DWORD PTR $T1[ebp]
 	pop	edi
@@ -545,7 +545,7 @@ $LN99@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN15@DivRem_X_X
 
-; 1063 :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
+; 1056 :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
 
 	mov	ecx, DWORD PTR _r_buf$[ebp]
 	push	0
@@ -559,13 +559,13 @@ $LN99@DivRem_X_X:
 	add	esp, 20					; 00000014H
 $LN15@DivRem_X_X:
 
-; 1064 : 
-; 1065 : #ifdef DO_TRACE
-; 1066 :     ReportLabel("計算終了");
-; 1067 :     ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1068 :     ReportDump("r", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1069 : #endif
-; 1070 : }
+; 1057 : 
+; 1058 : #ifdef DO_TRACE
+; 1059 :     ReportLabel("計算終了");
+; 1060 :     ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1061 :     ReportDump("r", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1062 : #endif
+; 1063 : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -619,30 +619,30 @@ _q_buf$ = 28						; size = 4
 _r_buf$ = 32						; size = 4
 _DivRem_X_X_using_ADC_MUL PROC				; COMDAT
 
-; 916  : {
+; 909  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 40					; 00000028H
 	push	ebx
 
-; 917  :     // u および v の最上位ワードは 0 でありうることに注意すること。
-; 918  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
-; 919  :     {
-; 920  :         while (u_buf[u_buf_len - 1] == 0)
-; 921  :             --u_buf_len;
-; 922  :         while (v_buf[v_buf_len - 1] == 0)
-; 923  :             --v_buf_len;
-; 924  :     }
+; 910  :     // u および v の最上位ワードは 0 でありうることに注意すること。
+; 911  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 912  :     {
+; 913  :         while (u_buf[u_buf_len - 1] == 0)
+; 914  :             --u_buf_len;
+; 915  :         while (v_buf[v_buf_len - 1] == 0)
+; 916  :             --v_buf_len;
+; 917  :     }
+; 918  : 
+; 919  : #ifdef _DEBUG
+; 920  :     if (v_buf[v_buf_len - 1] == 0)
+; 921  :     {
+; 922  :         ; // このルートには到達しないはず。デバッグ用。
+; 923  :     }
+; 924  : #endif
 ; 925  : 
-; 926  : #ifdef _DEBUG
-; 927  :     if (v_buf[v_buf_len - 1] == 0)
-; 928  :     {
-; 929  :         ; // このルートには到達しないはず。デバッグ用。
-; 930  :     }
-; 931  : #endif
-; 932  : 
-; 933  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
+; 926  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
 
 	mov	ebx, DWORD PTR _v_buf_len$[ebp]
 	push	esi
@@ -651,19 +651,19 @@ _DivRem_X_X_using_ADC_MUL PROC				; COMDAT
 	mov	eax, DWORD PTR [esi+ebx*4-4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 659  :         if (x == 0)
+; 652  :         if (x == 0)
 
 	test	eax, eax
 	jne	SHORT $LN17@DivRem_X_X
 
-; 660  :             return (sizeof(x) * 8);
+; 653  :             return (sizeof(x) * 8);
 
 	mov	edi, 32					; 00000020H
 	mov	DWORD PTR $T1[ebp], edi
 $LN10@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 942  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
+; 935  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
 
 	push	0
 	push	DWORD PTR _r_buf$[ebp]
@@ -672,7 +672,7 @@ $LN10@DivRem_X_X:
 	push	DWORD PTR _u_buf$[ebp]
 	call	_LeftShift_Imp_DIV
 
-; 943  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
+; 936  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
 
 	push	0
 	push	DWORD PTR _work_v_buf$[ebp]
@@ -685,10 +685,10 @@ $LN10@DivRem_X_X:
 	mov	edx, DWORD PTR _u_buf_len$[ebp]
 $LN11@DivRem_X_X:
 
-; 944  :     }
-; 945  : 
-; 946  :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
-; 947  :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
+; 937  :     }
+; 938  : 
+; 939  :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
+; 940  :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
 
 	mov	ecx, DWORD PTR _work_v_buf$[ebp]
 	lea	esi, DWORD PTR [ebx-1]
@@ -703,18 +703,18 @@ $LN11@DivRem_X_X:
 	lea	ebx, DWORD PTR [eax+ebx*4]
 $LL6@DivRem_X_X:
 
-; 352  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 345  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	ecx, DWORD PTR [ebx]
 	mov	eax, DWORD PTR [ebx+8]
 
-; 353  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 346  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	esi, DWORD PTR [esi]
 	mov	edx, DWORD PTR [ebx+4]
 	mov	DWORD PTR tv643[ebp], ecx
 
-; 354  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 347  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	ecx, DWORD PTR tv646[ebp]
 	mov	DWORD PTR _rh_hi$1$[ebp], eax
@@ -723,53 +723,53 @@ $LL6@DivRem_X_X:
 	mov	ecx, DWORD PTR [ecx]
 	mov	DWORD PTR _v2$1$[ebp], ecx
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	cmp	eax, esi
 	jne	SHORT $LN28@DivRem_X_X
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	or	esi, -1
 	jmp	SHORT $LN27@DivRem_X_X
 $LN17@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 664  :         _BitScanReverse(&pos, x);
+; 657  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, eax
 
-; 665  : #elif defined(__GNUC__)
-; 666  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 667  : #else
-; 668  : #error unknown compiler
-; 669  : #endif
-; 670  : #elif defined(_M_X64)
-; 671  : #ifdef _MSC_VER
-; 672  :         _UINT32_T pos;
-; 673  :         _BitScanReverse(&pos, x);
-; 674  : #elif defined(__GNUC__)
-; 675  :         _UINT64_T pos;
-; 676  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 677  : #else
-; 678  : #error unknown compiler
-; 679  : #endif
-; 680  : #else
-; 681  : #error unknown platform
-; 682  : #endif
-; 683  :         return (sizeof(x) * 8 - 1 - pos);
+; 658  : #elif defined(__GNUC__)
+; 659  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 660  : #else
+; 661  : #error unknown compiler
+; 662  : #endif
+; 663  : #elif defined(_M_X64)
+; 664  : #ifdef _MSC_VER
+; 665  :         _UINT32_T pos;
+; 666  :         _BitScanReverse(&pos, x);
+; 667  : #elif defined(__GNUC__)
+; 668  :         _UINT64_T pos;
+; 669  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 670  : #else
+; 671  : #error unknown compiler
+; 672  : #endif
+; 673  : #else
+; 674  : #error unknown platform
+; 675  : #endif
+; 676  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	edi, 31					; 0000001fH
 	sub	edi, eax
 	mov	DWORD PTR $T1[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 934  :     if (d_factor == 0)
+; 927  :     if (d_factor == 0)
 
 	jne	SHORT $LN10@DivRem_X_X
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 79   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	eax, DWORD PTR _r_buf$[ebp]
 	mov	edi, eax
@@ -783,32 +783,32 @@ $LN17@DivRem_X_X:
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 938  :         r_buf[u_buf_len] = 0;
+; 931  :         r_buf[u_buf_len] = 0;
 
 	mov	DWORD PTR [eax+edx*4], 0
 
-; 939  :     }
+; 932  :     }
 
 	jmp	SHORT $LN11@DivRem_X_X
 $LN28@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	esi
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	ecx, ecx
 	or	ecx, edx
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	eax
 	push	ecx
@@ -816,69 +816,69 @@ $LN28@DivRem_X_X:
 	mov	ecx, DWORD PTR _v2$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 260  :     return (q);
+; 253  :     return (q);
 
 	mov	esi, eax
 $LN27@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	ecx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _rh_mi$1$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	DWORD PTR _value$1$[ebp], eax
 	mov	eax, esi
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR _rh_mi$1$[ebp], ecx
 	mov	ecx, DWORD PTR _rh_hi$1$[ebp]
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 280  :     if (rh_hi > 0)
+; 273  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN101@DivRem_X_X
 
-; 281  :         return (FALSE);
-; 282  :     else if (lh_mi > rh_mi)
+; 274  :         return (FALSE);
+; 275  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR _rh_mi$1$[ebp]
 	cmp	DWORD PTR _lh_mi$1$[ebp], eax
 	ja	SHORT $LN24@DivRem_X_X
 
-; 283  :         return (TRUE);
-; 284  :     else if (lh_mi < rh_mi)
+; 276  :         return (TRUE);
+; 277  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN101@DivRem_X_X
 
-; 356  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 349  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv643[ebp]
@@ -886,17 +886,17 @@ $LN27@DivRem_X_X:
 $LN24@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _rh_mi$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 358  :     --q_;
+; 351  :     --q_;
 
 	dec	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	DWORD PTR _v2$1$[ebp]
@@ -905,63 +905,63 @@ $LN24@DivRem_X_X:
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	DWORD PTR _rh_hi$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 280  :     if (rh_hi > 0)
+; 273  :     if (rh_hi > 0)
 
 	cmp	DWORD PTR _rh_hi$1$[ebp], 0
 	ja	SHORT $LN101@DivRem_X_X
 
-; 281  :         return (FALSE);
-; 282  :     else if (lh_mi > rh_mi)
+; 274  :         return (FALSE);
+; 275  :     else if (lh_mi > rh_mi)
 
 	cmp	DWORD PTR _lh_mi$1$[ebp], ecx
 	ja	SHORT $LN25@DivRem_X_X
 
-; 283  :         return (TRUE);
-; 284  :     else if (lh_mi < rh_mi)
+; 276  :         return (TRUE);
+; 277  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN101@DivRem_X_X
 
-; 359  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 352  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv643[ebp]
 	jbe	SHORT $LN101@DivRem_X_X
 $LN25@DivRem_X_X:
 
-; 360  :         return (q_);
-; 361  :     --q_;
+; 353  :         return (q_);
+; 354  :     --q_;
 
 	dec	esi
 $LN101@DivRem_X_X:
 
-; 948  : 
-; 949  :     for (;;)
-; 950  :     {
-; 951  :         __UNIT_TYPE_DIV q_ = CalculateQ_(work_u_buf, work_v_buf, v_buf_len, q_index);
-; 952  : 
-; 953  : 
-; 954  :         if (SubtructOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
+; 941  : 
+; 942  :     for (;;)
+; 943  :     {
+; 944  :         __UNIT_TYPE_DIV q_ = CalculateQ_(work_u_buf, work_v_buf, v_buf_len, q_index);
+; 945  : 
+; 946  : 
+; 947  :         if (SubtructOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
 
 	push	esi
 	push	edi
@@ -974,10 +974,10 @@ $LN101@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN12@DivRem_X_X
 
-; 955  :         {
-; 956  :             // 桁借りが発生した場合
-; 957  :             --q_;
-; 958  :             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
+; 948  :         {
+; 949  :             // 桁借りが発生した場合
+; 950  :             --q_;
+; 951  :             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
 	push	edi
 	push	DWORD PTR _v_buf_len$[ebp]
@@ -989,21 +989,21 @@ $LN101@DivRem_X_X:
 	add	esp, 20					; 00000014H
 $LN12@DivRem_X_X:
 
-; 959  :         }
-; 960  : 
-; 961  :         q_buf[q_index] = q_;
+; 952  :         }
+; 953  : 
+; 954  :         q_buf[q_index] = q_;
 
 	mov	eax, DWORD PTR _q_buf$[ebp]
 	mov	DWORD PTR [eax+edi*4], esi
 
-; 962  :         if (q_index == 0)
+; 955  :         if (q_index == 0)
 
 	test	edi, edi
 	je	SHORT $LN98@DivRem_X_X
 
-; 963  :             break;
-; 964  :         --q_index;
-; 965  :     }
+; 956  :             break;
+; 957  :         --q_index;
+; 958  :     }
 
 	mov	esi, DWORD PTR tv647[ebp]
 	dec	edi
@@ -1011,8 +1011,8 @@ $LN12@DivRem_X_X:
 	jmp	$LL6@DivRem_X_X
 $LN98@DivRem_X_X:
 
-; 966  : 
-; 967  :     if (d_factor > 0)
+; 959  : 
+; 960  :     if (d_factor > 0)
 
 	mov	eax, DWORD PTR $T1[ebp]
 	pop	edi
@@ -1021,7 +1021,7 @@ $LN98@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN14@DivRem_X_X
 
-; 968  :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
+; 961  :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
 
 	mov	ecx, DWORD PTR _r_buf$[ebp]
 	push	0
@@ -1035,7 +1035,7 @@ $LN98@DivRem_X_X:
 	add	esp, 20					; 00000014H
 $LN14@DivRem_X_X:
 
-; 969  : }
+; 962  : }
 
 	mov	esp, ebp
 	pop	ebp
@@ -1154,26 +1154,26 @@ _c$ = 24						; size = 1
 _q_index$ = 24						; size = 4
 _AddOneLineX PROC					; COMDAT
 
-; 850  : {
+; 843  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 851  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 844  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	eax, DWORD PTR _q_index$[ebp]
 
-; 852  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
-; 853  :     __UNIT_TYPE v_count = v_buf_len;
-; 854  :     char c = 0;
+; 845  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 846  :     __UNIT_TYPE v_count = v_buf_len;
+; 847  :     char c = 0;
 
 	xor	dl, dl
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	push	ebx
 
-; 855  : 
-; 856  :     // まず 32 ワードずつ加算をする。
-; 857  :     __UNIT_TYPE count = v_count >> 5;
+; 848  : 
+; 849  :     // まず 32 ワードずつ加算をする。
+; 850  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	ebx, DWORD PTR _v_buf_len$[ebp]
 	push	esi
@@ -1184,7 +1184,7 @@ _AddOneLineX PROC					; COMDAT
 	push	edi
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 858  :     while (count != 0)
+; 851  :     while (count != 0)
 
 	test	ecx, ecx
 	je	$LN3@AddOneLine
@@ -1192,386 +1192,386 @@ _AddOneLineX PROC					; COMDAT
 $LL2@AddOneLine:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1314 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1307 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adcx	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1315 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1308 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1316 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1309 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1317 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1310 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1318 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1311 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+16]
 	mov	DWORD PTR [esi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1319 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1312 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [esi+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+20]
 	mov	DWORD PTR [esi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1320 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1313 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+24]
 	mov	DWORD PTR [esi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1321 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1314 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [esi+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+28]
 	mov	DWORD PTR [esi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1322 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1315 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [esi+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+32]
 	mov	DWORD PTR [esi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1323 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1316 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [esi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+36]
 	mov	DWORD PTR [esi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1324 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1317 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [esi+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+40]
 	mov	DWORD PTR [esi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1325 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1318 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [esi+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+44]
 	mov	DWORD PTR [esi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1326 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1319 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [esi+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+48]
 	mov	DWORD PTR [esi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1327 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1320 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [esi+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+52]
 	mov	DWORD PTR [esi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1328 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1321 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [esi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+56]
 	mov	DWORD PTR [esi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1329 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1322 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, DWORD PTR [esi+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+60]
 	mov	DWORD PTR [esi+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1330 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1323 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, DWORD PTR [esi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+64]
 	mov	DWORD PTR [esi+64], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1331 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1324 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, DWORD PTR [esi+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+68]
 	mov	DWORD PTR [esi+68], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1332 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1325 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, DWORD PTR [esi+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+72]
 	mov	DWORD PTR [esi+72], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1333 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1326 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, DWORD PTR [esi+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+76]
 	mov	DWORD PTR [esi+76], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1334 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1327 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, DWORD PTR [esi+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+80]
 	mov	DWORD PTR [esi+80], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1335 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1328 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, DWORD PTR [esi+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+84]
 	mov	DWORD PTR [esi+84], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1336 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1329 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, DWORD PTR [esi+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+88]
 	mov	DWORD PTR [esi+88], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1337 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1330 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, DWORD PTR [esi+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+92]
 	mov	DWORD PTR [esi+92], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1338 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1331 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, DWORD PTR [esi+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+96]
 	mov	DWORD PTR [esi+96], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1339 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1332 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, DWORD PTR [esi+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+100]
 	mov	DWORD PTR [esi+100], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1340 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1333 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, DWORD PTR [esi+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+104]
 	mov	DWORD PTR [esi+104], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1341 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1334 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, DWORD PTR [esi+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+108]
 	mov	DWORD PTR [esi+108], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1342 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1335 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, DWORD PTR [esi+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+112]
 	mov	DWORD PTR [esi+112], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1343 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1336 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, DWORD PTR [esi+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+116]
 	mov	DWORD PTR [esi+116], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1344 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1337 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, DWORD PTR [esi+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+120]
 	mov	DWORD PTR [esi+120], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1345 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1338 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	eax, DWORD PTR [esi+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+124]
 	mov	DWORD PTR [esi+124], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 861  :         u_ptr += 32;
+; 854  :         u_ptr += 32;
 
 	sub	esi, -128				; ffffff80H
 
-; 862  :         v_ptr += 32;
+; 855  :         v_ptr += 32;
 
 	sub	edi, -128				; ffffff80H
 	mov	BYTE PTR _c$[ebp], dl
 
-; 863  :         --count;
+; 856  :         --count;
 
 	sub	ecx, 1
 	jne	$LL2@AddOneLine
 $LN3@AddOneLine:
 
-; 864  :     }
-; 865  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 866  : 
-; 867  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 868  :     if (v_count & 0x10)
+; 857  :     }
+; 858  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 859  : 
+; 860  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 861  :     if (v_count & 0x10)
 
 	test	bl, 16					; 00000010H
 	je	SHORT $LN4@AddOneLine
 
-; 869  :     {
-; 870  :         c = _ADD_16WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 862  :     {
+; 863  :         c = _ADD_16WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	push	esi
 	push	edi
@@ -1580,249 +1580,249 @@ $LN3@AddOneLine:
 	call	__ADD_16WORDS_ADCX_DIV
 	add	esp, 16					; 00000010H
 
-; 871  :         u_ptr += 16;
+; 864  :         u_ptr += 16;
 
 	add	esi, 64					; 00000040H
 	mov	dl, al
 
-; 872  :         v_ptr += 16;
+; 865  :         v_ptr += 16;
 
 	add	edi, 64					; 00000040H
 $LN4@AddOneLine:
 
-; 873  :     }
-; 874  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 875  : 
-; 876  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 877  :     if (v_count & 0x8)
+; 866  :     }
+; 867  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 868  : 
+; 869  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 870  :     if (v_count & 0x8)
 
 	test	bl, 8
 	je	SHORT $LN5@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3626 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3619 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adcx	ecx, DWORD PTR [edi]
 	mov	DWORD PTR [esi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3627 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3620 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3628 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3621 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3629 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3622 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3630 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3623 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+16]
 	mov	DWORD PTR [esi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3631 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3624 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [esi+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+20]
 	mov	DWORD PTR [esi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3632 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3625 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+24]
 	mov	DWORD PTR [esi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3633 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3626 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [esi+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+28]
 	mov	DWORD PTR [esi+28], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 880  :         u_ptr += 8;
+; 873  :         u_ptr += 8;
 
 	add	esi, 32					; 00000020H
 
-; 881  :         v_ptr += 8;
+; 874  :         v_ptr += 8;
 
 	add	edi, 32					; 00000020H
 $LN5@AddOneLine:
 
-; 882  :     }
-; 883  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 884  : 
-; 885  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 886  :     if (v_count & 0x4)
+; 875  :     }
+; 876  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 877  : 
+; 878  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 879  :     if (v_count & 0x4)
 
 	test	bl, 4
 	je	SHORT $LN6@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4166 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4159 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adcx	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4167 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4160 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4168 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4161 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4169 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4162 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 889  :         u_ptr += 4;
+; 882  :         u_ptr += 4;
 
 	add	esi, 16					; 00000010H
 
-; 890  :         v_ptr += 4;
+; 883  :         v_ptr += 4;
 
 	add	edi, 16					; 00000010H
 $LN6@AddOneLine:
 
-; 891  :     }
-; 892  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 893  : 
-; 894  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 895  :     if (v_count & 0x2)
+; 884  :     }
+; 885  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 886  : 
+; 887  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 888  :     if (v_count & 0x2)
 
 	test	bl, 2
 	je	SHORT $LN7@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4552 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4545 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adcx	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4553 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4546 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 898  :         u_ptr += 2;
+; 891  :         u_ptr += 2;
 
 	add	esi, 8
 
-; 899  :         v_ptr += 2;
+; 892  :         v_ptr += 2;
 
 	add	edi, 8
 $LN7@AddOneLine:
 
-; 900  :     }
-; 901  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 902  : 
-; 903  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 904  :     if (v_count & 0x1)
+; 893  :     }
+; 894  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 895  : 
+; 896  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 897  :     if (v_count & 0x1)
 
 	test	bl, 1
 	je	SHORT $LN8@AddOneLine
 
-; 905  :     {
-; 906  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
+; 898  :     {
+; 899  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, DWORD PTR [edi]
@@ -1830,16 +1830,16 @@ $LN7@AddOneLine:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 907  :         ++u_ptr;
+; 900  :         ++u_ptr;
 
 	add	esi, 4
 $LN8@AddOneLine:
 
-; 908  :         ++v_ptr;
-; 909  :     }
-; 910  : 
-; 911  :     // 残りの桁の繰り上がりを計算する。
-; 912  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
+; 901  :         ++v_ptr;
+; 902  :     }
+; 903  : 
+; 904  :     // 残りの桁の繰り上がりを計算する。
+; 905  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
 
 	mov	eax, DWORD PTR _u_buf_len$[ebp]
 	lea	ecx, DWORD PTR [eax*4+4]
@@ -1847,32 +1847,32 @@ $LN8@AddOneLine:
 	add	ecx, DWORD PTR _u_buf$[ebp]
 	sar	ecx, 2
 
-; 759  :         if (u_count <= 0)
+; 752  :         if (u_count <= 0)
 
 	test	ecx, ecx
 	je	SHORT $LN131@AddOneLine
 	npad	4
 $LL113@AddOneLine:
 
-; 760  :         {
-; 761  :             // u の最上位まで達してしまった場合
-; 762  :             return;
-; 763  :         }
-; 764  :         else if (c)
+; 753  :         {
+; 754  :             // u の最上位まで達してしまった場合
+; 755  :             return;
+; 756  :         }
+; 757  :         else if (c)
 
 	test	dl, dl
 	je	SHORT $LN131@AddOneLine
 
-; 765  :         {
-; 766  :             // u の最上位に達しておらず、かつキャリーが立っている場合
-; 767  : 
-; 768  :             // 繰り上がりを継続する
-; 769  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
+; 758  :         {
+; 759  :             // u の最上位に達しておらず、かつキャリーが立っている場合
+; 760  : 
+; 761  :             // 繰り上がりを継続する
+; 762  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, 0
@@ -1880,18 +1880,18 @@ $LL113@AddOneLine:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 770  :             ++u_ptr;
+; 763  :             ++u_ptr;
 
 	add	esi, 4
 
-; 771  :             --u_count;
+; 764  :             --u_count;
 
 	sub	ecx, 1
 	jne	SHORT $LL113@AddOneLine
 $LN131@AddOneLine:
 	pop	edi
 
-; 913  : }
+; 906  : }
 
 	pop	esi
 	pop	ebx
@@ -2011,26 +2011,26 @@ _c$ = 24						; size = 1
 _q_index$ = 24						; size = 4
 _AddOneLine PROC					; COMDAT
 
-; 784  : {
+; 777  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 785  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 778  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	eax, DWORD PTR _q_index$[ebp]
 
-; 786  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
-; 787  :     __UNIT_TYPE v_count = v_buf_len;
-; 788  :     char c = 0;
+; 779  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 780  :     __UNIT_TYPE v_count = v_buf_len;
+; 781  :     char c = 0;
 
 	xor	dl, dl
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	push	ebx
 
-; 789  : 
-; 790  :     // まず 32 ワードずつ加算をする。
-; 791  :     __UNIT_TYPE count = v_count >> 5;
+; 782  : 
+; 783  :     // まず 32 ワードずつ加算をする。
+; 784  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	ebx, DWORD PTR _v_buf_len$[ebp]
 	push	esi
@@ -2041,393 +2041,393 @@ _AddOneLine PROC					; COMDAT
 	push	edi
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 792  :     while (count != 0)
+; 785  :     while (count != 0)
 
 	test	ecx, ecx
 	je	$LN3@AddOneLine
 $LL2@AddOneLine:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1061 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1054 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1062 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1055 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1063 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1056 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1064 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1057 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1065 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1058 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+16]
 	mov	DWORD PTR [esi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1066 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1059 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [esi+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+20]
 	mov	DWORD PTR [esi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1067 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1060 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+24]
 	mov	DWORD PTR [esi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1068 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1061 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [esi+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+28]
 	mov	DWORD PTR [esi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1069 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1062 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [esi+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+32]
 	mov	DWORD PTR [esi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1070 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1063 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [esi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+36]
 	mov	DWORD PTR [esi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1071 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1064 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [esi+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+40]
 	mov	DWORD PTR [esi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1072 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1065 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [esi+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+44]
 	mov	DWORD PTR [esi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1073 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1066 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [esi+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+48]
 	mov	DWORD PTR [esi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1074 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1067 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [esi+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+52]
 	mov	DWORD PTR [esi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1075 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1068 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [esi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+56]
 	mov	DWORD PTR [esi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1076 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1069 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, DWORD PTR [esi+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+60]
 	mov	DWORD PTR [esi+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1077 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1070 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, DWORD PTR [esi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+64]
 	mov	DWORD PTR [esi+64], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1078 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1071 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, DWORD PTR [esi+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+68]
 	mov	DWORD PTR [esi+68], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1079 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1072 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, DWORD PTR [esi+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+72]
 	mov	DWORD PTR [esi+72], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1080 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1073 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, DWORD PTR [esi+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+76]
 	mov	DWORD PTR [esi+76], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1081 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1074 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, DWORD PTR [esi+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+80]
 	mov	DWORD PTR [esi+80], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1082 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1075 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, DWORD PTR [esi+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+84]
 	mov	DWORD PTR [esi+84], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1083 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1076 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, DWORD PTR [esi+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+88]
 	mov	DWORD PTR [esi+88], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1084 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1077 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, DWORD PTR [esi+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+92]
 	mov	DWORD PTR [esi+92], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1085 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1078 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, DWORD PTR [esi+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+96]
 	mov	DWORD PTR [esi+96], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1086 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1079 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, DWORD PTR [esi+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+100]
 	mov	DWORD PTR [esi+100], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1087 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1080 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, DWORD PTR [esi+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+104]
 	mov	DWORD PTR [esi+104], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1088 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1081 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, DWORD PTR [esi+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+108]
 	mov	DWORD PTR [esi+108], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1089 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1082 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, DWORD PTR [esi+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+112]
 	mov	DWORD PTR [esi+112], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1090 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1083 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, DWORD PTR [esi+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+116]
 	mov	DWORD PTR [esi+116], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1091 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1084 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, DWORD PTR [esi+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+120]
 	mov	DWORD PTR [esi+120], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1092 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1085 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	eax, DWORD PTR [esi+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+124]
 	mov	DWORD PTR [esi+124], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 795  :         u_ptr += 32;
+; 788  :         u_ptr += 32;
 
 	sub	esi, -128				; ffffff80H
 
-; 796  :         v_ptr += 32;
+; 789  :         v_ptr += 32;
 
 	sub	edi, -128				; ffffff80H
 	mov	BYTE PTR _c$[ebp], dl
 
-; 797  :         --count;
+; 790  :         --count;
 
 	sub	ecx, 1
 	jne	$LL2@AddOneLine
 $LN3@AddOneLine:
 
-; 798  :     }
-; 799  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 800  : 
-; 801  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 802  :     if (v_count & 0x10)
+; 791  :     }
+; 792  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 793  : 
+; 794  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 795  :     if (v_count & 0x10)
 
 	test	bl, 16					; 00000010H
 	je	SHORT $LN4@AddOneLine
 
-; 803  :     {
-; 804  :         c = _ADD_16WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 796  :     {
+; 797  :         c = _ADD_16WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	push	esi
 	push	edi
@@ -2436,249 +2436,249 @@ $LN3@AddOneLine:
 	call	__ADD_16WORDS_ADC_DIV
 	add	esp, 16					; 00000010H
 
-; 805  :         u_ptr += 16;
+; 798  :         u_ptr += 16;
 
 	add	esi, 64					; 00000040H
 	mov	dl, al
 
-; 806  :         v_ptr += 16;
+; 799  :         v_ptr += 16;
 
 	add	edi, 64					; 00000040H
 $LN4@AddOneLine:
 
-; 807  :     }
-; 808  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 809  : 
-; 810  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 811  :     if (v_count & 0x8)
+; 800  :     }
+; 801  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 802  : 
+; 803  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 804  :     if (v_count & 0x8)
 
 	test	bl, 8
 	je	SHORT $LN5@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3541 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3534 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	ecx, DWORD PTR [edi]
 	mov	DWORD PTR [esi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3542 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3535 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3543 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3536 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3544 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3537 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3545 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3538 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+16]
 	mov	DWORD PTR [esi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3546 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3539 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [esi+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+20]
 	mov	DWORD PTR [esi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3547 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3540 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+24]
 	mov	DWORD PTR [esi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3548 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3541 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [esi+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+28]
 	mov	DWORD PTR [esi+28], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 814  :         u_ptr += 8;
+; 807  :         u_ptr += 8;
 
 	add	esi, 32					; 00000020H
 
-; 815  :         v_ptr += 8;
+; 808  :         v_ptr += 8;
 
 	add	edi, 32					; 00000020H
 $LN5@AddOneLine:
 
-; 816  :     }
-; 817  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 818  : 
-; 819  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 820  :     if (v_count & 0x4)
+; 809  :     }
+; 810  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 811  : 
+; 812  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 813  :     if (v_count & 0x4)
 
 	test	bl, 4
 	je	SHORT $LN6@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4109 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4102 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4110 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4103 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4111 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4104 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [esi+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+8]
 	mov	DWORD PTR [esi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4112 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4105 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR [esi+12], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 823  :         u_ptr += 4;
+; 816  :         u_ptr += 4;
 
 	add	esi, 16					; 00000010H
 
-; 824  :         v_ptr += 4;
+; 817  :         v_ptr += 4;
 
 	add	edi, 16					; 00000010H
 $LN6@AddOneLine:
 
-; 825  :     }
-; 826  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 827  : 
-; 828  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 829  :     if (v_count & 0x2)
+; 818  :     }
+; 819  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 820  : 
+; 821  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 822  :     if (v_count & 0x2)
 
 	test	bl, 2
 	je	SHORT $LN7@AddOneLine
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4509 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4502 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, DWORD PTR [edi]
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4510 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4503 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [esi+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [edi+4]
 	mov	DWORD PTR [esi+4], eax
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 832  :         u_ptr += 2;
+; 825  :         u_ptr += 2;
 
 	add	esi, 8
 
-; 833  :         v_ptr += 2;
+; 826  :         v_ptr += 2;
 
 	add	edi, 8
 $LN7@AddOneLine:
 
-; 834  :     }
-; 835  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 836  : 
-; 837  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 838  :     if (v_count & 0x1)
+; 827  :     }
+; 828  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 829  : 
+; 830  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 831  :     if (v_count & 0x1)
 
 	test	bl, 1
 	je	SHORT $LN8@AddOneLine
 
-; 839  :     {
-; 840  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
+; 832  :     {
+; 833  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, DWORD PTR [edi]
@@ -2686,16 +2686,16 @@ $LN7@AddOneLine:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 841  :         ++u_ptr;
+; 834  :         ++u_ptr;
 
 	add	esi, 4
 $LN8@AddOneLine:
 
-; 842  :         ++v_ptr;
-; 843  :     }
-; 844  : 
-; 845  :     // 残りの桁の繰り上がりを計算する。
-; 846  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
+; 835  :         ++v_ptr;
+; 836  :     }
+; 837  : 
+; 838  :     // 残りの桁の繰り上がりを計算する。
+; 839  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
 
 	mov	eax, DWORD PTR _u_buf_len$[ebp]
 	lea	ecx, DWORD PTR [eax*4+4]
@@ -2703,32 +2703,32 @@ $LN8@AddOneLine:
 	add	ecx, DWORD PTR _u_buf$[ebp]
 	sar	ecx, 2
 
-; 759  :         if (u_count <= 0)
+; 752  :         if (u_count <= 0)
 
 	test	ecx, ecx
 	je	SHORT $LN131@AddOneLine
 	npad	7
 $LL113@AddOneLine:
 
-; 760  :         {
-; 761  :             // u の最上位まで達してしまった場合
-; 762  :             return;
-; 763  :         }
-; 764  :         else if (c)
+; 753  :         {
+; 754  :             // u の最上位まで達してしまった場合
+; 755  :             return;
+; 756  :         }
+; 757  :         else if (c)
 
 	test	dl, dl
 	je	SHORT $LN131@AddOneLine
 
-; 765  :         {
-; 766  :             // u の最上位に達しておらず、かつキャリーが立っている場合
-; 767  : 
-; 768  :             // 繰り上がりを継続する
-; 769  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
+; 758  :         {
+; 759  :             // u の最上位に達しておらず、かつキャリーが立っている場合
+; 760  : 
+; 761  :             // 繰り上がりを継続する
+; 762  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
 
 	mov	eax, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	adc	eax, 0
@@ -2736,18 +2736,18 @@ $LL113@AddOneLine:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 770  :             ++u_ptr;
+; 763  :             ++u_ptr;
 
 	add	esi, 4
 
-; 771  :             --u_count;
+; 764  :             --u_count;
 
 	sub	ecx, 1
 	jne	SHORT $LL113@AddOneLine
 $LN131@AddOneLine:
 	pop	edi
 
-; 847  : }
+; 840  : }
 
 	pop	esi
 	pop	ebx
@@ -2766,16 +2766,16 @@ _u_ptr$ = 12						; size = 4
 _u_count$ = 16						; size = 4
 _DoCarry PROC						; COMDAT
 
-; 755  : {
+; 748  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 756  :     // 繰り上がりを続く限り行う
-; 757  :     for (;;)
-; 758  :     {
-; 759  :         if (u_count <= 0)
+; 749  :     // 繰り上がりを続く限り行う
+; 750  :     for (;;)
+; 751  :     {
+; 752  :         if (u_count <= 0)
 
 	mov	esi, DWORD PTR _u_count$[ebp]
 	test	esi, esi
@@ -2784,25 +2784,25 @@ _DoCarry PROC						; COMDAT
 	mov	al, BYTE PTR _c$[ebp]
 $LL2@DoCarry:
 
-; 760  :         {
-; 761  :             // u の最上位まで達してしまった場合
-; 762  :             return;
-; 763  :         }
-; 764  :         else if (c)
+; 753  :         {
+; 754  :             // u の最上位まで達してしまった場合
+; 755  :             return;
+; 756  :         }
+; 757  :         else if (c)
 
 	test	al, al
 	je	SHORT $LN16@DoCarry
 
-; 765  :         {
-; 766  :             // u の最上位に達しておらず、かつキャリーが立っている場合
-; 767  : 
-; 768  :             // 繰り上がりを継続する
-; 769  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
+; 758  :         {
+; 759  :             // u の最上位に達しておらず、かつキャリーが立っている場合
+; 760  : 
+; 761  :             // 繰り上がりを継続する
+; 762  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
 
 	mov	ecx, DWORD PTR [edx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	al, 255					; 000000ffH
 	adc	ecx, 0
@@ -2810,27 +2810,27 @@ $LL2@DoCarry:
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 770  :             ++u_ptr;
+; 763  :             ++u_ptr;
 
 	add	edx, 4
 
-; 771  :             --u_count;
+; 764  :             --u_count;
 
 	sub	esi, 1
 	jne	SHORT $LL2@DoCarry
 $LN16@DoCarry:
 	pop	esi
 
+; 765  :         }
+; 766  :         else
+; 767  :         {
+; 768  :             // u の最上位に達しておらず、かつキャリーが立っていない場合
+; 769  : 
+; 770  :             // 繰り上がりを中断し、復帰する。
+; 771  :             return;
 ; 772  :         }
-; 773  :         else
-; 774  :         {
-; 775  :             // u の最上位に達しておらず、かつキャリーが立っていない場合
-; 776  : 
-; 777  :             // 繰り上がりを中断し、復帰する。
-; 778  :             return;
-; 779  :         }
-; 780  :     }
-; 781  : }
+; 773  :     }
+; 774  : }
 
 	pop	ebp
 	ret	0
@@ -3097,37 +3097,37 @@ _q_index$ = 24						; size = 4
 _q_$ = 28						; size = 4
 _SubtructOneLineX PROC					; COMDAT
 
-; 604  : {
+; 597  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 605  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 598  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	eax, DWORD PTR _q_index$[ebp]
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	push	ebx
 	push	esi
 
-; 606  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
-; 607  :     __UNIT_TYPE v_count = v_buf_len;
-; 608  :     __UNIT_TYPE_DIV k = 0;
-; 609  :     char c = 0;
+; 599  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 600  :     __UNIT_TYPE v_count = v_buf_len;
+; 601  :     __UNIT_TYPE_DIV k = 0;
+; 602  :     char c = 0;
 
 	xor	bl, bl
 	mov	DWORD PTR _k$1$[ebp], 0
 	lea	ecx, DWORD PTR [ecx+eax*4]
 
-; 610  : 
-; 611  :     __UNIT_TYPE count = v_count >> 5;
+; 603  : 
+; 604  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 	mov	edx, eax
 	shr	edx, 5
 	push	edi
 
-; 612  :     while (count != 0)
+; 605  :     while (count != 0)
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 	test	edx, edx
@@ -3137,40 +3137,40 @@ _SubtructOneLineX PROC					; COMDAT
 $LL2@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	edx
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -3178,75 +3178,75 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$12[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -3254,75 +3254,75 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$11[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -3330,35 +3330,35 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$10[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [edi+24]
@@ -3366,202 +3366,202 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+28]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+28], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+32]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+32], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+36]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+36], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+40]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+40], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+44]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	setb	bl
 	mov	DWORD PTR [ecx+44], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+48]
@@ -3569,203 +3569,203 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+48], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+52]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+56]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+56], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+60]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+60], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+64]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+64], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+68]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	setb	bl
 	mov	DWORD PTR [ecx+68], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+72]
@@ -3773,203 +3773,203 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+72], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+76]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+76], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+80]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+80], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+84]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+84], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+88]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+88], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+92]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	setb	bl
 	mov	DWORD PTR [ecx+92], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+96]
@@ -3977,203 +3977,203 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+96], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+100]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+100], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+104]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+104], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+108]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+108], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+112]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+112], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+116]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	setb	bl
 	mov	DWORD PTR [ecx+116], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+120]
@@ -4181,105 +4181,105 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+120], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+124]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	edx, 0
 	adcx	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 648  :         --count;
+; 641  :         --count;
 
 	mov	edx, DWORD PTR _count$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [ecx+124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 647  :         v_ptr += 32;
+; 640  :         v_ptr += 32;
 
 	sub	edi, -128				; ffffff80H
 
-; 648  :         --count;
+; 641  :         --count;
 
 	dec	edx
 	mov	DWORD PTR _v_buf$[ebp], edi
@@ -4287,12 +4287,12 @@ $LL2@SubtructOn:
 	mov	DWORD PTR _count$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 612  :     while (count != 0)
+; 605  :     while (count != 0)
 
 	test	edx, edx
 	mov	edx, DWORD PTR _q_$[ebp]
@@ -4300,54 +4300,54 @@ $LL2@SubtructOn:
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN3@SubtructOn:
 
-; 649  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 650  :         if (sizeof(k) == sizeof(_UINT64_T))
-; 651  :             AddToMULTI64Counter(32);
-; 652  :         else
-; 653  :             AddToMULTI32Counter(32);
-; 654  : #endif
-; 655  :     }
-; 656  : 
-; 657  :     if (v_count & 0x10)
+; 642  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 643  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 644  :             AddToMULTI64Counter(32);
+; 645  :         else
+; 646  :             AddToMULTI32Counter(32);
+; 647  : #endif
+; 648  :     }
+; 649  : 
+; 650  :     if (v_count & 0x10)
 
 	test	al, 16					; 00000010H
 	je	$LN604@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	edx
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -4355,75 +4355,75 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$9[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -4431,75 +4431,75 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$8[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -4507,35 +4507,35 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$7[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [edi+24]
@@ -4543,202 +4543,202 @@ $LN3@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+28]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+28], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+32]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+32], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+36]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+36], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+40]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+40], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+44]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	setb	bl
 	mov	DWORD PTR [ecx+44], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+48]
@@ -4746,214 +4746,214 @@ $LN3@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+48], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+52]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+56]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 	mov	edx, 0
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+56], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+60]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	adcx	edx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 676  :         v_ptr += 16;
+; 669  :         v_ptr += 16;
 
 	add	edi, 64					; 00000040H
 	add	ecx, 64					; 00000040H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN604@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 685  :     if (v_count & 0x8)
+; 678  :     if (v_count & 0x8)
 
 	test	al, 8
 	je	$LN824@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -4961,75 +4961,75 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$6[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -5037,75 +5037,75 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$5[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -5113,35 +5113,35 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$4[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+24]
@@ -5149,105 +5149,105 @@ $LN604@SubtructOn:
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+28]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 696  :         v_ptr += 8;
+; 689  :         v_ptr += 8;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	edx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 696  :         v_ptr += 8;
+; 689  :         v_ptr += 8;
 
 	add	edi, 32					; 00000020H
 	add	ecx, 32					; 00000020H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 685  :     if (v_count & 0x8)
+; 678  :     if (v_count & 0x8)
 
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 	jmp	SHORT $LN704@SubtructOn
@@ -5255,54 +5255,54 @@ $LN824@SubtructOn:
 	mov	edx, DWORD PTR _k$1$[ebp]
 $LN704@SubtructOn:
 
-; 697  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 698  :         if (sizeof(k) == sizeof(_UINT64_T))
-; 699  :             AddToMULTI64Counter(8);
-; 700  :         else
-; 701  :             AddToMULTI32Counter(8);
-; 702  : #endif
-; 703  :     }
-; 704  : 
-; 705  :     if (v_count & 0x4)
+; 690  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 691  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 692  :             AddToMULTI64Counter(8);
+; 693  :         else
+; 694  :             AddToMULTI32Counter(8);
+; 695  : #endif
+; 696  :     }
+; 697  : 
+; 698  :     if (v_count & 0x4)
 
 	test	al, 4
 	je	$LN756@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -5310,197 +5310,197 @@ $LN704@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$3[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 	adcx	eax, edx
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$2[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 712  :         v_ptr += 4;
+; 705  :         v_ptr += 4;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	edx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 712  :         v_ptr += 4;
+; 705  :         v_ptr += 4;
 
 	add	edi, 16					; 00000010H
 	add	ecx, 16					; 00000010H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN756@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 721  :     if (v_count & 0x2)
+; 714  :     if (v_count & 0x2)
 
 	test	al, 2
 	je	SHORT $LN784@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	mov	eax, 0
 	adcx	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -5508,68 +5508,68 @@ $LN756@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$1[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edx, 0
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 726  :         v_ptr += 2;
+; 719  :         v_ptr += 2;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, edx
 	mov	DWORD PTR _k$1$[ebp], eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 725  :         u_ptr += 2;
+; 718  :         u_ptr += 2;
 
 	add	ecx, 8
 
-; 726  :         v_ptr += 2;
+; 719  :         v_ptr += 2;
 
 	add	edi, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [eax], edx
 	mov	edx, DWORD PTR _k$1$[ebp]
@@ -5577,31 +5577,31 @@ $LN756@SubtructOn:
 $LN784@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 735  :     if (v_count & 0x1)
+; 728  :     if (v_count & 0x1)
 
 	test	al, 1
 	je	SHORT $LN800@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	add	esi, DWORD PTR _k$1$[ebp]
 	adcx	edx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
@@ -5609,82 +5609,82 @@ $LN784@SubtructOn:
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 738  :         u_ptr += 1;
+; 731  :         u_ptr += 1;
 
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 329  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN800@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 748  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
+; 741  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, edx
 	mov	DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 751  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 744  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	mov	eax, DWORD PTR _u_buf_len$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 749  :     u_ptr += 1;
+; 742  :     u_ptr += 1;
 
 	add	ecx, 4
 
-; 751  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 744  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	lea	esi, DWORD PTR [eax*4+4]
 	sub	esi, ecx
 	add	esi, DWORD PTR _u_buf$[ebp]
 	sar	esi, 2
 
-; 395  :         if (u_count <= 0)
+; 388  :         if (u_count <= 0)
 
 	test	esi, esi
 	je	SHORT $LN818@SubtructOn
 $LL805@SubtructOn:
 
-; 400  :             {
-; 401  :                 // かつそれでも桁借りを行う必要がある場合
-; 402  : 
-; 403  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 404  :                 return (TRUE);
-; 405  :             }
-; 406  : 
-; 407  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 408  : 
-; 409  :             return (FALSE);
-; 410  :         }
-; 411  :         else if (c)
+; 393  :             {
+; 394  :                 // かつそれでも桁借りを行う必要がある場合
+; 395  : 
+; 396  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 397  :                 return (TRUE);
+; 398  :             }
+; 399  : 
+; 400  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 401  : 
+; 402  :             return (FALSE);
+; 403  :         }
+; 404  :         else if (c)
 
 	test	dl, dl
 	je	SHORT $LN811@SubtructOn
 
-; 412  :         {
-; 413  :             // u の最上位に達しておらず、かつボローが立っている場合
-; 414  : 
-; 415  :             // 桁借りを継続する
-; 416  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
+; 405  :         {
+; 406  :             // u の最上位に達しておらず、かつボローが立っている場合
+; 407  : 
+; 408  :             // 桁借りを継続する
+; 409  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	sbb	eax, 0
@@ -5692,34 +5692,34 @@ $LL805@SubtructOn:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 417  :             ++up;
+; 410  :             ++up;
 
 	add	ecx, 4
 
-; 418  :             --u_count;
+; 411  :             --u_count;
 
 	sub	esi, 1
 	jne	SHORT $LL805@SubtructOn
 $LN818@SubtructOn:
 
-; 396  :         {
-; 397  :             // u の最上位まで達してしまった場合
-; 398  : 
-; 399  :             if (c)
+; 389  :         {
+; 390  :             // u の最上位まで達してしまった場合
+; 391  : 
+; 392  :             if (c)
 
 	xor	eax, eax
 	test	dl, dl
 	pop	edi
 
-; 752  : }
+; 745  : }
 
 	pop	esi
 
-; 399  :             if (c)
+; 392  :             if (c)
 
 	setne	al
 
-; 752  : }
+; 745  : }
 
 	pop	ebx
 	mov	esp, ebp
@@ -5992,37 +5992,37 @@ _q_index$ = 24						; size = 4
 _q_$ = 28						; size = 4
 _SubtructOneLine PROC					; COMDAT
 
-; 453  : {
+; 446  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 454  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 447  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	eax, DWORD PTR _q_index$[ebp]
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	push	ebx
 	push	esi
 
-; 455  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
-; 456  :     __UNIT_TYPE v_count = v_buf_len;
-; 457  :     __UNIT_TYPE_DIV k = 0;
-; 458  :     char c = 0;
+; 448  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 449  :     __UNIT_TYPE v_count = v_buf_len;
+; 450  :     __UNIT_TYPE_DIV k = 0;
+; 451  :     char c = 0;
 
 	xor	bl, bl
 	mov	DWORD PTR _k$1$[ebp], 0
 	lea	ecx, DWORD PTR [ecx+eax*4]
 
-; 459  : 
-; 460  :     __UNIT_TYPE count = v_count >> 5;
+; 452  : 
+; 453  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 	mov	edx, eax
 	shr	edx, 5
 	push	edi
 
-; 461  :     while (count != 0)
+; 454  :     while (count != 0)
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 	test	edx, edx
@@ -6032,42 +6032,42 @@ _SubtructOneLine PROC					; COMDAT
 $LL2@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	edx
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -6075,79 +6075,79 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$12[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -6155,79 +6155,79 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$11[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -6235,309 +6235,309 @@ $LL2@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$10[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+24]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+28]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+28], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+32]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+32], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+36]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+36], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+40]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+40], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+44]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+44], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+48]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+48], eax
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+52]
@@ -6545,475 +6545,475 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+56]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+56], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+60]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+60], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+64]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+64], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+68]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+68], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+72]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+72], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+76]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+76], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+80]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+80], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+84]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+84], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+88]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+88], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+92]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+92], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+96]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+96], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+100]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+100], eax
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+104]
@@ -7021,265 +7021,265 @@ $LL2@SubtructOn:
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+104], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+108]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+108], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+112]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+112], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+116]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+116], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+120]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+120], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+124]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+124], eax
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 495  :         u_ptr += 32;
+; 488  :         u_ptr += 32;
 
 	sub	ecx, -128				; ffffff80H
 
-; 496  :         v_ptr += 32;
+; 489  :         v_ptr += 32;
 
 	sub	edi, -128				; ffffff80H
 	mov	DWORD PTR _v_buf$[ebp], edi
 
-; 497  :         --count;
+; 490  :         --count;
 
 	mov	edx, DWORD PTR _count$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 497  :         --count;
+; 490  :         --count;
 
 	dec	edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 497  :         --count;
+; 490  :         --count;
 
 	mov	DWORD PTR _count$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 461  :     while (count != 0)
+; 454  :     while (count != 0)
 
 	test	edx, edx
 	mov	edx, DWORD PTR _q_$[ebp]
@@ -7287,56 +7287,56 @@ $LL2@SubtructOn:
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN3@SubtructOn:
 
-; 498  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 499  :         if (sizeof(k) == sizeof(_UINT64_T))
-; 500  :             AddToMULTI64Counter(32);
-; 501  :         else
-; 502  :             AddToMULTI32Counter(32);
-; 503  : #endif
-; 504  :     }
-; 505  : 
-; 506  :     if (v_count & 0x10)
+; 491  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 492  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 493  :             AddToMULTI64Counter(32);
+; 494  :         else
+; 495  :             AddToMULTI32Counter(32);
+; 496  : #endif
+; 497  :     }
+; 498  : 
+; 499  :     if (v_count & 0x10)
 
 	test	al, 16					; 00000010H
 	je	$LN604@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	edx
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -7344,79 +7344,79 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$9[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -7424,79 +7424,79 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$8[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -7504,309 +7504,309 @@ $LN3@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$7[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+24]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+28]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+28], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+32]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+32], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+36]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+36], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+40]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+40], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+44]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+44], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+48]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+48], eax
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	eax, DWORD PTR [eax+52]
@@ -7814,182 +7814,182 @@ $LN3@SubtructOn:
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+56]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	eax, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+56], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi+60]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 	adc	edx, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 525  :         v_ptr += 16;
+; 518  :         v_ptr += 16;
 
 	add	edi, 64					; 00000040H
 	add	ecx, 64					; 00000040H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN604@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 534  :     if (v_count & 0x8)
+; 527  :     if (v_count & 0x8)
 
 	test	al, 8
 	je	$LN824@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -7997,79 +7997,79 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$6[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
@@ -8077,79 +8077,79 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$5[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+12], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+16]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+16], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+20]
 	mul	DWORD PTR _q_$[ebp]
@@ -8157,153 +8157,153 @@ $LN604@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$4[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+20], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+24]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+24], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+28]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 545  :         v_ptr += 8;
+; 538  :         v_ptr += 8;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edx, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 545  :         v_ptr += 8;
+; 538  :         v_ptr += 8;
 
 	add	edi, 32					; 00000020H
 	add	ecx, 32					; 00000020H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 534  :     if (v_count & 0x8)
+; 527  :     if (v_count & 0x8)
 
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 	jmp	SHORT $LN704@SubtructOn
@@ -8311,56 +8311,56 @@ $LN824@SubtructOn:
 	mov	edx, DWORD PTR _k$1$[ebp]
 $LN704@SubtructOn:
 
-; 546  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 547  :         if (sizeof(k) == sizeof(_UINT64_T))
-; 548  :             AddToMULTI64Counter(8);
-; 549  :         else
-; 550  :             AddToMULTI32Counter(8);
-; 551  : #endif
-; 552  :     }
-; 553  : 
-; 554  :     if (v_count & 0x4)
+; 539  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 540  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 541  :             AddToMULTI64Counter(8);
+; 542  :         else
+; 543  :             AddToMULTI32Counter(8);
+; 544  : #endif
+; 545  :     }
+; 546  : 
+; 547  :     if (v_count & 0x4)
 
 	test	al, 4
 	je	$LN756@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -8368,194 +8368,194 @@ $LN704@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$3[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _t_hi$2$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+8]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _t_hi$2$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+8], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+12]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+12]
 	mov	DWORD PTR _t_lo$2[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 561  :         v_ptr += 4;
+; 554  :         v_ptr += 4;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edx, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], edx
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 561  :         v_ptr += 4;
+; 554  :         v_ptr += 4;
 
 	add	edi, 16					; 00000010H
 	add	ecx, 16					; 00000010H
 	mov	DWORD PTR _v_buf$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 	mov	eax, DWORD PTR _v_buf_len$[ebp]
 $LN756@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 570  :     if (v_count & 0x2)
+; 563  :     if (v_count & 0x2)
 
 	test	al, 2
 	je	SHORT $LN784@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 	mov	edi, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
 	mov	DWORD PTR [ecx], eax
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax+4]
 	mul	DWORD PTR _q_$[ebp]
@@ -8563,70 +8563,70 @@ $LN756@SubtructOn:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	mov	DWORD PTR _t_lo$1[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 575  :         v_ptr += 2;
+; 568  :         v_ptr += 2;
 
 	mov	edi, DWORD PTR _v_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR _k$1$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	eax, esi
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 574  :         u_ptr += 2;
+; 567  :         u_ptr += 2;
 
 	add	ecx, 8
 
-; 575  :         v_ptr += 2;
+; 568  :         v_ptr += 2;
 
 	add	edi, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [eax], edx
 	mov	edx, DWORD PTR _k$1$[ebp]
@@ -8634,30 +8634,30 @@ $LN756@SubtructOn:
 $LN784@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 584  :     if (v_count & 0x1)
+; 577  :     if (v_count & 0x1)
 
 	test	al, 1
 	je	SHORT $LN800@SubtructOn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [edi]
 	mul	DWORD PTR _q_$[ebp]
 	mov	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	esi, DWORD PTR _k$1$[ebp]
 	adc	edx, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, esi
@@ -8665,83 +8665,83 @@ $LN784@SubtructOn:
 	setb	bl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 587  :         u_ptr += 1;
+; 580  :         u_ptr += 1;
 
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 329  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN800@SubtructOn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 597  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
+; 590  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	bl, 255					; 000000ffH
 	sbb	eax, edx
 	mov	DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 600  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 593  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	mov	eax, DWORD PTR _u_buf_len$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 598  :     u_ptr += 1;
+; 591  :     u_ptr += 1;
 
 	add	ecx, 4
 
-; 600  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 593  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	lea	esi, DWORD PTR [eax*4+4]
 	sub	esi, ecx
 	add	esi, DWORD PTR _u_buf$[ebp]
 	sar	esi, 2
 
-; 395  :         if (u_count <= 0)
+; 388  :         if (u_count <= 0)
 
 	test	esi, esi
 	je	SHORT $LN818@SubtructOn
 	npad	6
 $LL805@SubtructOn:
 
-; 400  :             {
-; 401  :                 // かつそれでも桁借りを行う必要がある場合
-; 402  : 
-; 403  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 404  :                 return (TRUE);
-; 405  :             }
-; 406  : 
-; 407  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 408  : 
-; 409  :             return (FALSE);
-; 410  :         }
-; 411  :         else if (c)
+; 393  :             {
+; 394  :                 // かつそれでも桁借りを行う必要がある場合
+; 395  : 
+; 396  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 397  :                 return (TRUE);
+; 398  :             }
+; 399  : 
+; 400  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 401  : 
+; 402  :             return (FALSE);
+; 403  :         }
+; 404  :         else if (c)
 
 	test	dl, dl
 	je	SHORT $LN811@SubtructOn
 
-; 412  :         {
-; 413  :             // u の最上位に達しておらず、かつボローが立っている場合
-; 414  : 
-; 415  :             // 桁借りを継続する
-; 416  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
+; 405  :         {
+; 406  :             // u の最上位に達しておらず、かつボローが立っている場合
+; 407  : 
+; 408  :             // 桁借りを継続する
+; 409  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
 
 	mov	eax, DWORD PTR [ecx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	dl, 255					; 000000ffH
 	sbb	eax, 0
@@ -8749,34 +8749,34 @@ $LL805@SubtructOn:
 	setb	dl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 417  :             ++up;
+; 410  :             ++up;
 
 	add	ecx, 4
 
-; 418  :             --u_count;
+; 411  :             --u_count;
 
 	sub	esi, 1
 	jne	SHORT $LL805@SubtructOn
 $LN818@SubtructOn:
 
-; 396  :         {
-; 397  :             // u の最上位まで達してしまった場合
-; 398  : 
-; 399  :             if (c)
+; 389  :         {
+; 390  :             // u の最上位まで達してしまった場合
+; 391  : 
+; 392  :             if (c)
 
 	xor	eax, eax
 	test	dl, dl
 	pop	edi
 
-; 601  : }
+; 594  : }
 
 	pop	esi
 
-; 399  :             if (c)
+; 392  :             if (c)
 
 	setne	al
 
-; 601  : }
+; 594  : }
 
 	pop	ebx
 	mov	esp, ebp
@@ -8815,98 +8815,98 @@ _q_$ = 20						; size = 4
 _up$ = 24						; size = 4
 __MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 
-; 442  : {
+; 435  : {
 
 	push	ebp
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _vp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 442  : {
+; 435  : {
 
 	push	ebx
 	push	esi
 
-; 443  :     __UNIT_TYPE_DIV t_hi;
-; 444  :     __UNIT_TYPE_DIV t_lo;
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
-; 446  :     _ADDX_UNIT_DIV(_ADDX_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
+; 436  :     __UNIT_TYPE_DIV t_hi;
+; 437  :     __UNIT_TYPE_DIV t_lo;
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 439  :     _ADDX_UNIT_DIV(_ADDX_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
 
 	mov	esi, DWORD PTR _k$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax]
 	mul	DWORD PTR _q_$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 442  : {
+; 435  : {
 
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, eax
 	mov	ebx, edx
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	edi, DWORD PTR [esi]
 	mov	eax, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	edx, DWORD PTR _up$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ebx, eax
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	ecx, DWORD PTR [edx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ecx, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 449  :     return (c);
+; 442  :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [edx], ecx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 448  :     *k = t_hi;
+; 441  :     *k = t_hi;
 
 	mov	DWORD PTR [esi], ebx
 
-; 449  :     return (c);
+; 442  :     return (c);
 
 	pop	esi
 	pop	ebx
 
-; 450  : }
+; 443  : }
 
 	pop	ebp
 	ret	0
@@ -8935,100 +8935,100 @@ _q_$ = 20						; size = 4
 _up$ = 24						; size = 4
 __MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 
-; 431  : {
+; 424  : {
 
 	push	ebp
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _vp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 431  : {
+; 424  : {
 
 	push	ebx
 	push	esi
 
-; 432  :     __UNIT_TYPE_DIV t_hi;
-; 433  :     __UNIT_TYPE_DIV t_lo;
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
-; 435  :     _ADD_UNIT_DIV(_ADD_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
+; 425  :     __UNIT_TYPE_DIV t_hi;
+; 426  :     __UNIT_TYPE_DIV t_lo;
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 428  :     _ADD_UNIT_DIV(_ADD_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
 
 	mov	esi, DWORD PTR _k$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR [eax]
 	mul	DWORD PTR _q_$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 431  : {
+; 424  : {
 
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, eax
 	mov	ebx, edx
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	edi, DWORD PTR [esi]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	edx, DWORD PTR _up$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ebx, 0
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	ecx, DWORD PTR [edx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ecx, edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 438  :     return (c);
+; 431  :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR [edx], ecx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 437  :     *k = t_hi;
+; 430  :     *k = t_hi;
 
 	mov	DWORD PTR [esi], ebx
 
-; 438  :     return (c);
+; 431  :     return (c);
 
 	pop	esi
 	pop	ebx
 
-; 439  : }
+; 432  : }
 
 	pop	ebp
 	ret	0
@@ -9045,15 +9045,15 @@ _up$ = 12						; size = 4
 _u_count$ = 16						; size = 4
 _DoBorrow PROC						; COMDAT
 
-; 391  : {
+; 384  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 392  :     // 桁借りを続く限り行う
-; 393  :     for (;;)
-; 394  :     {
-; 395  :         if (u_count <= 0)
+; 385  :     // 桁借りを続く限り行う
+; 386  :     for (;;)
+; 387  :     {
+; 388  :         if (u_count <= 0)
 
 	mov	al, BYTE PTR _c$[ebp]
 	push	esi
@@ -9063,27 +9063,27 @@ _DoBorrow PROC						; COMDAT
 	mov	edx, DWORD PTR _up$[ebp]
 $LL2@DoBorrow:
 
-; 405  :             }
-; 406  : 
-; 407  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 408  : 
-; 409  :             return (FALSE);
-; 410  :         }
-; 411  :         else if (c)
+; 398  :             }
+; 399  : 
+; 400  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 401  : 
+; 402  :             return (FALSE);
+; 403  :         }
+; 404  :         else if (c)
 
 	test	al, al
 	je	SHORT $LN8@DoBorrow
 
-; 412  :         {
-; 413  :             // u の最上位に達しておらず、かつボローが立っている場合
-; 414  : 
-; 415  :             // 桁借りを継続する
-; 416  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
+; 405  :         {
+; 406  :             // u の最上位に達しておらず、かつボローが立っている場合
+; 407  : 
+; 408  :             // 桁借りを継続する
+; 409  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
 
 	mov	ecx, DWORD PTR [edx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	add	al, 255					; 000000ffH
 	sbb	ecx, 0
@@ -9091,55 +9091,55 @@ $LL2@DoBorrow:
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 417  :             ++up;
+; 410  :             ++up;
 
 	add	edx, 4
 
-; 418  :             --u_count;
+; 411  :             --u_count;
 
 	sub	esi, 1
 	jne	SHORT $LL2@DoBorrow
 $LN14@DoBorrow:
 
-; 396  :         {
-; 397  :             // u の最上位まで達してしまった場合
-; 398  : 
-; 399  :             if (c)
+; 389  :         {
+; 390  :             // u の最上位まで達してしまった場合
+; 391  : 
+; 392  :             if (c)
 
 	test	al, al
 	je	SHORT $LN8@DoBorrow
 
-; 400  :             {
-; 401  :                 // かつそれでも桁借りを行う必要がある場合
-; 402  : 
-; 403  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 404  :                 return (TRUE);
+; 393  :             {
+; 394  :                 // かつそれでも桁借りを行う必要がある場合
+; 395  : 
+; 396  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 397  :                 return (TRUE);
 
 	mov	eax, 1
 	pop	esi
 
-; 426  :         }
-; 427  :     }
-; 428  : }
+; 419  :         }
+; 420  :     }
+; 421  : }
 
 	pop	ebp
 	ret	0
 $LN8@DoBorrow:
 
-; 419  :         }
-; 420  :         else
-; 421  :         {
-; 422  :             // u の最上位に達しておらず、かつボローが立っていない場合
-; 423  : 
-; 424  :             // 桁借りを中断し復帰する。
-; 425  :             return (FALSE);
+; 412  :         }
+; 413  :         else
+; 414  :         {
+; 415  :             // u の最上位に達しておらず、かつボローが立っていない場合
+; 416  : 
+; 417  :             // 桁借りを中断し復帰する。
+; 418  :             return (FALSE);
 
 	xor	eax, eax
 	pop	esi
 
-; 426  :         }
-; 427  :     }
-; 428  : }
+; 419  :         }
+; 420  :     }
+; 421  : }
 
 	pop	ebp
 	ret	0
@@ -9175,17 +9175,17 @@ _v1$1$ = 20						; size = 4
 _q_index$ = 20						; size = 4
 _CalculateQ_X PROC					; COMDAT
 
-; 366  : {
+; 359  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 367  :     __UNIT_TYPE u_index = q_index + v_buf_len;
+; 360  :     __UNIT_TYPE u_index = q_index + v_buf_len;
 
 	mov	edx, DWORD PTR _v_buf_len$[ebp]
 
-; 368  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
+; 361  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
 
 	mov	eax, DWORD PTR _u_buf$[ebp]
 	mov	ecx, DWORD PTR _q_index$[ebp]
@@ -9195,76 +9195,76 @@ _CalculateQ_X PROC					; COMDAT
 	push	edi
 	mov	ebx, DWORD PTR [eax+ecx*4]
 
-; 369  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
+; 362  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
 
 	mov	edi, DWORD PTR [eax+ecx*4-4]
 
-; 370  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 363  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	ecx, DWORD PTR [eax+ecx*4-8]
 
-; 371  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 364  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR tv328[ebp], ecx
 	mov	esi, DWORD PTR [eax+edx*4-4]
 
-; 372  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 365  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	eax, DWORD PTR [eax+edx*4-8]
 	mov	DWORD PTR _v1$1$[ebp], esi
 	mov	DWORD PTR _v2$1$[ebp], eax
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	cmp	ebx, esi
 	jne	SHORT $LN6@CalculateQ
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	or	esi, -1
 	jmp	SHORT $LN5@CalculateQ
 $LN6@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	esi
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	ecx, ecx
 	mov	eax, ebx
 	or	ecx, edi
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	eax
 	push	ecx
 	call	__aulldiv
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 260  :     return (q);
+; 253  :     return (q);
 
 	mov	esi, eax
 $LN5@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, edi
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _v2$1$[ebp]
 	mov	DWORD PTR _value$1$[ebp], eax
@@ -9272,78 +9272,78 @@ $LN5@CalculateQ:
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR _rh_mi$1$[ebp], ecx
 	mov	ecx, ebx
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 317  :     if (rh_hi > 0)
+; 310  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN74@CalculateQ
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
-; 323  :     }
-; 324  :     else if (lh_mi > rh_mi)
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
+; 316  :     }
+; 317  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR _rh_mi$1$[ebp]
 	cmp	DWORD PTR _lh_mi$1$[ebp], eax
 	ja	SHORT $LN2@CalculateQ
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
-; 330  :     }
-; 331  :     else if (lh_mi < rh_mi)
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
+; 323  :     }
+; 324  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN74@CalculateQ
 
-; 373  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
-; 374  : #ifdef DO_TRACE
-; 375  :     ReportLabel("q_ の計算");
-; 376  :     ReportVar("uj", uj);
-; 377  :     ReportVar("uj1", uj_1);
-; 378  :     ReportVar("v1", v1);
-; 379  :     ReportVar("q_", q_);
-; 380  : #endif
-; 381  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 366  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
+; 367  : #ifdef DO_TRACE
+; 368  :     ReportLabel("q_ の計算");
+; 369  :     ReportVar("uj", uj);
+; 370  :     ReportVar("uj1", uj_1);
+; 371  :     ReportVar("v1", v1);
+; 372  :     ReportVar("q_", q_);
+; 373  : #endif
+; 374  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv328[ebp]
 	jbe	SHORT $LN74@CalculateQ
 $LN2@CalculateQ:
 
-; 382  :         return (q_);
-; 383  :     --q_;
+; 375  :         return (q_);
+; 376  :     --q_;
 
 	dec	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	DWORD PTR _v2$1$[ebp]
@@ -9352,54 +9352,54 @@ $LN2@CalculateQ:
 	mov	eax, esi
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ebx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 317  :     if (rh_hi > 0)
+; 310  :     if (rh_hi > 0)
 
 	test	ebx, ebx
 	jne	SHORT $LN74@CalculateQ
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
-; 323  :     }
-; 324  :     else if (lh_mi > rh_mi)
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
+; 316  :     }
+; 317  :     else if (lh_mi > rh_mi)
 
 	cmp	ecx, edi
 	ja	SHORT $LN3@CalculateQ
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
-; 330  :     }
-; 331  :     else if (lh_mi < rh_mi)
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
+; 323  :     }
+; 324  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN74@CalculateQ
 
-; 384  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 377  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv328[ebp]
@@ -9407,13 +9407,13 @@ $LN2@CalculateQ:
 $LN3@CalculateQ:
 	pop	edi
 
-; 385  :         return (q_);
-; 386  :     --q_;
+; 378  :         return (q_);
+; 379  :     --q_;
 
 	lea	eax, DWORD PTR [esi-1]
 
-; 387  :     return (q_);
-; 388  : }
+; 380  :     return (q_);
+; 381  : }
 
 	pop	esi
 	pop	ebx
@@ -9460,17 +9460,17 @@ _v1$1$ = 20						; size = 4
 _q_index$ = 20						; size = 4
 _CalculateQ_ PROC					; COMDAT
 
-; 348  : {
+; 341  : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 349  :     __UNIT_TYPE u_index = q_index + v_buf_len;
+; 342  :     __UNIT_TYPE u_index = q_index + v_buf_len;
 
 	mov	edx, DWORD PTR _v_buf_len$[ebp]
 
-; 350  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
+; 343  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
 
 	mov	eax, DWORD PTR _u_buf$[ebp]
 	mov	ecx, DWORD PTR _q_index$[ebp]
@@ -9480,76 +9480,76 @@ _CalculateQ_ PROC					; COMDAT
 	push	edi
 	mov	ebx, DWORD PTR [eax+ecx*4]
 
-; 351  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
+; 344  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
 
 	mov	edi, DWORD PTR [eax+ecx*4-4]
 
-; 352  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 345  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	ecx, DWORD PTR [eax+ecx*4-8]
 
-; 353  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 346  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR tv328[ebp], ecx
 	mov	esi, DWORD PTR [eax+edx*4-4]
 
-; 354  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 347  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	eax, DWORD PTR [eax+edx*4-8]
 	mov	DWORD PTR _v1$1$[ebp], esi
 	mov	DWORD PTR _v2$1$[ebp], eax
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	cmp	ebx, esi
 	jne	SHORT $LN6@CalculateQ
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	or	esi, -1
 	jmp	SHORT $LN5@CalculateQ
 $LN6@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	esi
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	ecx, ecx
 	mov	eax, ebx
 	or	ecx, edi
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	eax
 	push	ecx
 	call	__aulldiv
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 260  :     return (q);
+; 253  :     return (q);
 
 	mov	esi, eax
 $LN5@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, edi
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR _v2$1$[ebp]
 	mov	DWORD PTR _value$1$[ebp], eax
@@ -9557,61 +9557,61 @@ $LN5@CalculateQ:
 	mov	DWORD PTR _lh_mi$1$[ebp], edx
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	DWORD PTR _rh_mi$1$[ebp], ecx
 	mov	ecx, ebx
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 280  :     if (rh_hi > 0)
+; 273  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN74@CalculateQ
 
-; 281  :         return (FALSE);
-; 282  :     else if (lh_mi > rh_mi)
+; 274  :         return (FALSE);
+; 275  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR _rh_mi$1$[ebp]
 	cmp	DWORD PTR _lh_mi$1$[ebp], eax
 	ja	SHORT $LN2@CalculateQ
 
-; 283  :         return (TRUE);
-; 284  :     else if (lh_mi < rh_mi)
+; 276  :         return (TRUE);
+; 277  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN74@CalculateQ
 
-; 355  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
-; 356  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 348  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
+; 349  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv328[ebp]
 	jbe	SHORT $LN74@CalculateQ
 $LN2@CalculateQ:
 
-; 357  :         return (q_);
-; 358  :     --q_;
+; 350  :         return (q_);
+; 351  :     --q_;
 
 	dec	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, esi
 	mul	DWORD PTR _v2$1$[ebp]
@@ -9620,44 +9620,44 @@ $LN2@CalculateQ:
 	mov	eax, esi
 	mul	DWORD PTR _v1$1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	edi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ebx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 280  :     if (rh_hi > 0)
+; 273  :     if (rh_hi > 0)
 
 	test	ebx, ebx
 	jne	SHORT $LN74@CalculateQ
 
-; 281  :         return (FALSE);
-; 282  :     else if (lh_mi > rh_mi)
+; 274  :         return (FALSE);
+; 275  :     else if (lh_mi > rh_mi)
 
 	cmp	ecx, edi
 	ja	SHORT $LN3@CalculateQ
 
-; 283  :         return (TRUE);
-; 284  :     else if (lh_mi < rh_mi)
+; 276  :         return (TRUE);
+; 277  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN74@CalculateQ
 
-; 359  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 352  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR _value$1$[ebp]
 	cmp	eax, DWORD PTR tv328[ebp]
@@ -9665,13 +9665,13 @@ $LN2@CalculateQ:
 $LN3@CalculateQ:
 	pop	edi
 
-; 360  :         return (q_);
-; 361  :     --q_;
+; 353  :         return (q_);
+; 354  :     --q_;
 
 	lea	eax, DWORD PTR [esi-1]
 
-; 362  :     return (q_);
-; 363  : }
+; 355  :     return (q_);
+; 356  : }
 
 	pop	esi
 	pop	ebx
@@ -9709,87 +9709,87 @@ _v1$ = 24						; size = 4
 _v2$ = 28						; size = 4
 _CheckQ_X PROC						; COMDAT
 
-; 291  : {
+; 284  : {
 
 	push	ebp
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _q_$[ebp]
 	mul	DWORD PTR _v2$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _uj$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 291  : {
+; 284  : {
 
 	push	ebx
 	push	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	esi, DWORD PTR _uj_1$[ebp]
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	ebx, eax
 	mov	eax, DWORD PTR _q_$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 291  : {
+; 284  : {
 
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 	mul	DWORD PTR _v1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 317  :     if (rh_hi > 0)
+; 310  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN27@CheckQ_X
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
-; 323  :     }
-; 324  :     else if (lh_mi > rh_mi)
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
+; 316  :     }
+; 317  :     else if (lh_mi > rh_mi)
 
 	cmp	edi, esi
 	jbe	SHORT $LN6@CheckQ_X
 
-; 344  :     }
-; 345  : }
+; 337  :     }
+; 338  : }
 
 	pop	edi
 	pop	esi
@@ -9799,35 +9799,35 @@ _CheckQ_X PROC						; COMDAT
 	ret	0
 $LN6@CheckQ_X:
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
-; 330  :     }
-; 331  :     else if (lh_mi < rh_mi)
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
+; 323  :     }
+; 324  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN27@CheckQ_X
 
+; 325  :     {
+; 326  : #ifdef DO_TRACE
+; 327  :         ReportVar("result", 0);
+; 328  : #endif
+; 329  :         return (FALSE);
+; 330  :     }
+; 331  :     else
 ; 332  :     {
 ; 333  : #ifdef DO_TRACE
-; 334  :         ReportVar("result", 0);
+; 334  :         ReportVar("result", lh_lo > rh_lo);
 ; 335  : #endif
-; 336  :         return (FALSE);
-; 337  :     }
-; 338  :     else
-; 339  :     {
-; 340  : #ifdef DO_TRACE
-; 341  :         ReportVar("result", lh_lo > rh_lo);
-; 342  : #endif
-; 343  :         return (lh_lo > rh_lo);
+; 336  :         return (lh_lo > rh_lo);
 
 	cmp	DWORD PTR _uj_2$[ebp], ebx
 	pop	edi
 	sbb	eax, eax
 
-; 344  :     }
-; 345  : }
+; 337  :     }
+; 338  : }
 
 	pop	esi
 	neg	eax
@@ -9864,81 +9864,81 @@ _v1$ = 24						; size = 4
 _v2$ = 28						; size = 4
 _CheckQ_ PROC						; COMDAT
 
-; 264  : {
+; 257  : {
 
 	push	ebp
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _q_$[ebp]
 	mul	DWORD PTR _v2$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	ecx, DWORD PTR _uj$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 264  : {
+; 257  : {
 
 	push	ebx
 	push	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	esi, DWORD PTR _uj_1$[ebp]
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	ebx, eax
 	mov	eax, DWORD PTR _q_$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 264  : {
+; 257  : {
 
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 	mul	DWORD PTR _v1$[ebp]
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sub	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	sbb	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 280  :     if (rh_hi > 0)
+; 273  :     if (rh_hi > 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN27@CheckQ_
 
-; 281  :         return (FALSE);
-; 282  :     else if (lh_mi > rh_mi)
+; 274  :         return (FALSE);
+; 275  :     else if (lh_mi > rh_mi)
 
 	cmp	edi, esi
 	jbe	SHORT $LN6@CheckQ_
 
-; 288  : }
+; 281  : }
 
 	pop	edi
 	pop	esi
@@ -9948,20 +9948,20 @@ _CheckQ_ PROC						; COMDAT
 	ret	0
 $LN6@CheckQ_:
 
-; 283  :         return (TRUE);
-; 284  :     else if (lh_mi < rh_mi)
+; 276  :         return (TRUE);
+; 277  :     else if (lh_mi < rh_mi)
 
 	jb	SHORT $LN27@CheckQ_
 
-; 285  :         return (FALSE);
-; 286  :     else
-; 287  :         return (lh_lo > rh_lo);
+; 278  :         return (FALSE);
+; 279  :     else
+; 280  :         return (lh_lo > rh_lo);
 
 	cmp	DWORD PTR _uj_2$[ebp], ebx
 	pop	edi
 	sbb	eax, eax
 
-; 288  : }
+; 281  : }
 
 	pop	esi
 	neg	eax
@@ -9989,52 +9989,52 @@ _uj_1$ = 12						; size = 4
 _v1$ = 16						; size = 4
 _AsumeQ_ PROC						; COMDAT
 
-; 249  : {
+; 242  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	mov	ecx, DWORD PTR _uj$[ebp]
 	mov	edx, DWORD PTR _v1$[ebp]
 	cmp	ecx, edx
 	jne	SHORT $LN2@AsumeQ_
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	or	eax, -1
 
-; 261  : }
+; 254  : }
 
 	pop	ebp
 	ret	0
 $LN2@AsumeQ_:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	edx
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR _uj_1$[ebp]
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	ecx
 	push	eax
 	call	__aulldiv
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 261  : }
+; 254  : }
 
 	pop	ebp
 	ret	0
@@ -10060,74 +10060,74 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_2WORDS_ADCX_DIV PROC				; COMDAT
 
-; 4550 : {
+; 4543 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 4552 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4545 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4550 : {
+; 4543 : {
 
 	push	esi
 
-; 4552 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4545 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4552 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4545 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adcx	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4553 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4546 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	ecx, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ecx, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4589 :     return (c);
+; 4582 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4589 :     return (c);
+; 4582 :     return (c);
 
 	pop	esi
 
-; 4590 : }
+; 4583 : }
 
 	pop	ebp
 	ret	0
@@ -10153,74 +10153,74 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_2WORDS_ADC_DIV PROC				; COMDAT
 
-; 4507 : {
+; 4500 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 4509 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4502 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4507 : {
+; 4500 : {
 
 	push	esi
 
-; 4509 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4502 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4509 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4502 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adc	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4510 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4503 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	ecx, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ecx, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4546 :     return (c);
+; 4539 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4546 :     return (c);
+; 4539 :     return (c);
 
 	pop	esi
 
-; 4547 : }
+; 4540 : }
 
 	pop	ebp
 	ret	0
@@ -10250,96 +10250,96 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 
-; 4164 : {
+; 4157 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 4166 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4159 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4164 : {
+; 4157 : {
 
 	push	esi
 
-; 4166 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4159 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4166 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4159 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adcx	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4167 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4160 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4168 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4161 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4169 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4162 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	ecx, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ecx, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4217 :     return (c);
+; 4210 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4217 :     return (c);
+; 4210 :     return (c);
 
 	pop	esi
 
-; 4218 : }
+; 4211 : }
 
 	pop	ebp
 	ret	0
@@ -10369,96 +10369,96 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_4WORDS_ADC_DIV PROC				; COMDAT
 
-; 4107 : {
+; 4100 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 4109 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4102 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4107 : {
+; 4100 : {
 
 	push	esi
 
-; 4109 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4102 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4109 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4102 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adc	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4110 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4103 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4111 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4104 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4112 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4105 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	ecx, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ecx, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4160 :     return (c);
+; 4153 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4160 :     return (c);
+; 4153 :     return (c);
 
 	pop	esi
 
-; 4161 : }
+; 4154 : }
 
 	pop	ebp
 	ret	0
@@ -10494,134 +10494,134 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 
-; 3624 : {
+; 3617 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 3625 : #ifdef _MSC_VER
-; 3626 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3618 : #ifdef _MSC_VER
+; 3619 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3624 : {
+; 3617 : {
 
 	push	esi
 
-; 3625 : #ifdef _MSC_VER
-; 3626 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3618 : #ifdef _MSC_VER
+; 3619 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adcx	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3627 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3620 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3628 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3621 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3629 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3622 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3630 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3623 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3631 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3624 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3632 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3625 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3633 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3626 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	ecx, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ecx, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3705 :     return (c);
+; 3698 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3705 :     return (c);
+; 3698 :     return (c);
 
 	pop	esi
 
-; 3706 : }
+; 3699 : }
 
 	pop	ebp
 	ret	0
@@ -10657,134 +10657,134 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_8WORDS_ADC_DIV PROC				; COMDAT
 
-; 3539 : {
+; 3532 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 3540 : #ifdef _MSC_VER
-; 3541 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3533 : #ifdef _MSC_VER
+; 3534 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3539 : {
+; 3532 : {
 
 	push	esi
 
-; 3540 : #ifdef _MSC_VER
-; 3541 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3533 : #ifdef _MSC_VER
+; 3534 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adc	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3542 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3535 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3543 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3536 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3544 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3537 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3545 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3538 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3546 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3539 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3547 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3540 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3548 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3541 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	ecx, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ecx, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3620 :     return (c);
+; 3613 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3620 :     return (c);
+; 3613 :     return (c);
 
 	pop	esi
 
-; 3621 : }
+; 3614 : }
 
 	pop	ebp
 	ret	0
@@ -10836,222 +10836,222 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 
-; 2776 : {
+; 2769 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 2777 : #ifdef _MSC_VER
-; 2778 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2770 : #ifdef _MSC_VER
+; 2771 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2776 : {
+; 2769 : {
 
 	push	esi
 
-; 2777 : #ifdef _MSC_VER
-; 2778 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2770 : #ifdef _MSC_VER
+; 2771 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adcx	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2779 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 2772 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2780 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 2773 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2781 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 2774 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2782 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 2775 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2783 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 2776 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2784 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 2777 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2785 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 2778 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2786 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 2779 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [edx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+32]
 	mov	DWORD PTR [edi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2787 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 2780 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [edx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+36]
 	mov	DWORD PTR [edi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2788 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 2781 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [edx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+40]
 	mov	DWORD PTR [edi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2789 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 2782 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [edx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+44]
 	mov	DWORD PTR [edi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2790 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 2783 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [edx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+48]
 	mov	DWORD PTR [edi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2791 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 2784 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [edx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+52]
 	mov	DWORD PTR [edi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2792 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 2785 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [edx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+56]
 	mov	DWORD PTR [edi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2793 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 2786 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	ecx, DWORD PTR [edx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ecx, DWORD PTR [esi+60]
 	mov	DWORD PTR [edi+60], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2913 :     return (c);
+; 2906 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2913 :     return (c);
+; 2906 :     return (c);
 
 	pop	esi
 
-; 2914 : }
+; 2907 : }
 
 	pop	ebp
 	ret	0
@@ -11103,222 +11103,222 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_16WORDS_ADC_DIV PROC				; COMDAT
 
-; 2635 : {
+; 2628 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 2636 : #ifdef _MSC_VER
-; 2637 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2629 : #ifdef _MSC_VER
+; 2630 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2635 : {
+; 2628 : {
 
 	push	esi
 
-; 2636 : #ifdef _MSC_VER
-; 2637 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2629 : #ifdef _MSC_VER
+; 2630 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adc	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2638 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 2631 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2639 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 2632 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2640 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 2633 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2641 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 2634 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2642 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 2635 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2643 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 2636 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2644 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 2637 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2645 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 2638 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [edx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+32]
 	mov	DWORD PTR [edi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2646 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 2639 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [edx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+36]
 	mov	DWORD PTR [edi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2647 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 2640 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [edx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+40]
 	mov	DWORD PTR [edi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2648 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 2641 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [edx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+44]
 	mov	DWORD PTR [edi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2649 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 2642 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [edx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+48]
 	mov	DWORD PTR [edi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2650 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 2643 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [edx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+52]
 	mov	DWORD PTR [edi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2651 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 2644 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [edx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+56]
 	mov	DWORD PTR [edi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2652 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 2645 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	ecx, DWORD PTR [edx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ecx, DWORD PTR [esi+60]
 	mov	DWORD PTR [edi+60], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2772 :     return (c);
+; 2765 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2772 :     return (c);
+; 2765 :     return (c);
 
 	pop	esi
 
-; 2773 : }
+; 2766 : }
 
 	pop	ebp
 	ret	0
@@ -11402,398 +11402,398 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 
-; 1312 : {
+; 1305 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 1313 : #ifdef _MSC_VER
-; 1314 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1306 : #ifdef _MSC_VER
+; 1307 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1312 : {
+; 1305 : {
 
 	push	esi
 
-; 1313 : #ifdef _MSC_VER
-; 1314 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1306 : #ifdef _MSC_VER
+; 1307 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adcx	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1315 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1308 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1316 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1309 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1317 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1310 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1318 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1311 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1319 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1312 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1320 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1313 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1321 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1314 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1322 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1315 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [edx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+32]
 	mov	DWORD PTR [edi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1323 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1316 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [edx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+36]
 	mov	DWORD PTR [edi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1324 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1317 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [edx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+40]
 	mov	DWORD PTR [edi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1325 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1318 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [edx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+44]
 	mov	DWORD PTR [edi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1326 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1319 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [edx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+48]
 	mov	DWORD PTR [edi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1327 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1320 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [edx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+52]
 	mov	DWORD PTR [edi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1328 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1321 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [edx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+56]
 	mov	DWORD PTR [edi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1329 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1322 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, DWORD PTR [edx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+60]
 	mov	DWORD PTR [edi+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1330 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1323 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, DWORD PTR [edx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+64]
 	mov	DWORD PTR [edi+64], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1331 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1324 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, DWORD PTR [edx+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+68]
 	mov	DWORD PTR [edi+68], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1332 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1325 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, DWORD PTR [edx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+72]
 	mov	DWORD PTR [edi+72], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1333 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1326 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, DWORD PTR [edx+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+76]
 	mov	DWORD PTR [edi+76], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1334 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1327 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, DWORD PTR [edx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+80]
 	mov	DWORD PTR [edi+80], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1335 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1328 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, DWORD PTR [edx+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+84]
 	mov	DWORD PTR [edi+84], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1336 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1329 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, DWORD PTR [edx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+88]
 	mov	DWORD PTR [edi+88], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1337 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1330 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, DWORD PTR [edx+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+92]
 	mov	DWORD PTR [edi+92], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1338 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1331 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, DWORD PTR [edx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+96]
 	mov	DWORD PTR [edi+96], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1339 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1332 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, DWORD PTR [edx+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+100]
 	mov	DWORD PTR [edi+100], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1340 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1333 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, DWORD PTR [edx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+104]
 	mov	DWORD PTR [edi+104], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1341 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1334 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, DWORD PTR [edx+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+108]
 	mov	DWORD PTR [edi+108], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1342 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1335 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, DWORD PTR [edx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+112]
 	mov	DWORD PTR [edi+112], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1343 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1336 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, DWORD PTR [edx+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+116]
 	mov	DWORD PTR [edi+116], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1344 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1337 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, DWORD PTR [edx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	eax, DWORD PTR [esi+120]
 	mov	DWORD PTR [edi+120], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1345 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1338 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	ecx, DWORD PTR [edx+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	adcx	ecx, DWORD PTR [esi+124]
 	mov	DWORD PTR [edi+124], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1561 :     return (c);
+; 1554 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1561 :     return (c);
+; 1554 :     return (c);
 
 	pop	esi
 
-; 1562 : }
+; 1555 : }
 
 	pop	ebp
 	ret	0
@@ -11877,398 +11877,398 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_32WORDS_ADC_DIV PROC				; COMDAT
 
-; 1059 : {
+; 1052 : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 1060 : #ifdef _MSC_VER
-; 1061 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1053 : #ifdef _MSC_VER
+; 1054 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	edx, DWORD PTR _xp$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _c$[ebp]
 	add	al, 255					; 000000ffH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1059 : {
+; 1052 : {
 
 	push	esi
 
-; 1060 : #ifdef _MSC_VER
-; 1061 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1053 : #ifdef _MSC_VER
+; 1054 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	esi, DWORD PTR _yp$[ebp]
 	mov	ecx, DWORD PTR [edx]
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	edi, DWORD PTR _zp$[ebp]
 	adc	ecx, DWORD PTR [esi]
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1062 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1055 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+4]
 	mov	DWORD PTR [edi+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1063 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1056 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, DWORD PTR [edx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+8]
 	mov	DWORD PTR [edi+8], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1064 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1057 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, DWORD PTR [edx+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+12]
 	mov	DWORD PTR [edi+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1065 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1058 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, DWORD PTR [edx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+16]
 	mov	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1066 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1059 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, DWORD PTR [edx+20]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+20]
 	mov	DWORD PTR [edi+20], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1067 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1060 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, DWORD PTR [edx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+24]
 	mov	DWORD PTR [edi+24], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1068 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1061 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, DWORD PTR [edx+28]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+28]
 	mov	DWORD PTR [edi+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1069 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1062 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, DWORD PTR [edx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+32]
 	mov	DWORD PTR [edi+32], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1070 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1063 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, DWORD PTR [edx+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+36]
 	mov	DWORD PTR [edi+36], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1071 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1064 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, DWORD PTR [edx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+40]
 	mov	DWORD PTR [edi+40], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1072 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1065 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, DWORD PTR [edx+44]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+44]
 	mov	DWORD PTR [edi+44], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1073 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1066 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, DWORD PTR [edx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+48]
 	mov	DWORD PTR [edi+48], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1074 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1067 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, DWORD PTR [edx+52]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+52]
 	mov	DWORD PTR [edi+52], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1075 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1068 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, DWORD PTR [edx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+56]
 	mov	DWORD PTR [edi+56], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1076 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1069 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, DWORD PTR [edx+60]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+60]
 	mov	DWORD PTR [edi+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1077 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1070 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, DWORD PTR [edx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+64]
 	mov	DWORD PTR [edi+64], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1078 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1071 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, DWORD PTR [edx+68]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+68]
 	mov	DWORD PTR [edi+68], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1079 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1072 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, DWORD PTR [edx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+72]
 	mov	DWORD PTR [edi+72], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1080 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1073 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, DWORD PTR [edx+76]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+76]
 	mov	DWORD PTR [edi+76], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1081 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1074 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, DWORD PTR [edx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+80]
 	mov	DWORD PTR [edi+80], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1082 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1075 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, DWORD PTR [edx+84]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+84]
 	mov	DWORD PTR [edi+84], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1083 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1076 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, DWORD PTR [edx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+88]
 	mov	DWORD PTR [edi+88], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1084 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1077 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, DWORD PTR [edx+92]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+92]
 	mov	DWORD PTR [edi+92], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1085 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1078 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, DWORD PTR [edx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+96]
 	mov	DWORD PTR [edi+96], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1086 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1079 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, DWORD PTR [edx+100]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+100]
 	mov	DWORD PTR [edi+100], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1087 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1080 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, DWORD PTR [edx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+104]
 	mov	DWORD PTR [edi+104], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1088 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1081 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, DWORD PTR [edx+108]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+108]
 	mov	DWORD PTR [edi+108], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1089 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1082 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, DWORD PTR [edx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+112]
 	mov	DWORD PTR [edi+112], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1090 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1083 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, DWORD PTR [edx+116]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+116]
 	mov	DWORD PTR [edi+116], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1091 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1084 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, DWORD PTR [edx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	eax, DWORD PTR [esi+120]
 	mov	DWORD PTR [edi+120], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1092 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1085 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	ecx, DWORD PTR [edx+124]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	ecx, DWORD PTR [esi+124]
 	mov	DWORD PTR [edi+124], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1308 :     return (c);
+; 1301 :     return (c);
 
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1308 :     return (c);
+; 1301 :     return (c);
 
 	pop	esi
 
-; 1309 : }
+; 1302 : }
 
 	pop	ebp
 	ret	0
@@ -12281,58 +12281,58 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT_DIV PROC				; COMDAT
 
-; 658  :     {
+; 651  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 659  :         if (x == 0)
+; 652  :         if (x == 0)
 
 	mov	eax, DWORD PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 660  :             return (sizeof(x) * 8);
+; 653  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 684  :     }
+; 677  :     }
 
 	pop	ebp
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 661  : #ifdef _M_IX86
-; 662  :         _UINT32_T pos;
-; 663  : #ifdef _MSC_VER
-; 664  :         _BitScanReverse(&pos, x);
+; 654  : #ifdef _M_IX86
+; 655  :         _UINT32_T pos;
+; 656  : #ifdef _MSC_VER
+; 657  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 665  : #elif defined(__GNUC__)
-; 666  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 667  : #else
-; 668  : #error unknown compiler
-; 669  : #endif
-; 670  : #elif defined(_M_X64)
-; 671  : #ifdef _MSC_VER
-; 672  :         _UINT32_T pos;
-; 673  :         _BitScanReverse(&pos, x);
-; 674  : #elif defined(__GNUC__)
-; 675  :         _UINT64_T pos;
-; 676  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 677  : #else
-; 678  : #error unknown compiler
-; 679  : #endif
-; 680  : #else
-; 681  : #error unknown platform
-; 682  : #endif
-; 683  :         return (sizeof(x) * 8 - 1 - pos);
+; 658  : #elif defined(__GNUC__)
+; 659  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 660  : #else
+; 661  : #error unknown compiler
+; 662  : #endif
+; 663  : #elif defined(_M_X64)
+; 664  : #ifdef _MSC_VER
+; 665  :         _UINT32_T pos;
+; 666  :         _BitScanReverse(&pos, x);
+; 667  : #elif defined(__GNUC__)
+; 668  :         _UINT64_T pos;
+; 669  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 670  : #else
+; 671  : #error unknown compiler
+; 672  : #endif
+; 673  : #else
+; 674  : #error unknown platform
+; 675  : #endif
+; 676  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, ecx
 
-; 684  :     }
+; 677  :     }
 
 	pop	ebp
 	ret	0
@@ -12345,58 +12345,58 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 629  :     {
+; 622  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	mov	eax, DWORD PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 655  :     }
+; 648  :     }
 
 	pop	ebp
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, ecx
 
-; 655  :     }
+; 648  :     }
 
 	pop	ebp
 	ret	0
@@ -12409,44 +12409,44 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 4
 __LZCNT_ALT_32 PROC					; COMDAT
 
-; 596  :     {
+; 589  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	mov	eax, DWORD PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 608  :     }
+; 601  :     }
 
 	pop	ebp
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, ecx
 
-; 608  :     }
+; 601  :     }
 
 	pop	ebp
 	ret	0
@@ -12464,28 +12464,28 @@ _v$ = 16						; size = 4
 _q$ = 20						; size = 4
 __DIVREM_SINGLE_UNIT PROC				; COMDAT
 
-; 428  :     {
+; 421  :     {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR _r$[ebp]
 	xor	ecx, ecx
 	or	ecx, DWORD PTR _u$[ebp]
 
-; 428  :     {
+; 421  :     {
 
 	push	ebx
 
-; 429  : #ifdef _MSC_VER
-; 430  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 431  :         {
-; 432  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
-; 433  :             _UINT64_T t = _FROMWORDTODWORD(r, u);
-; 434  :             *q = (_UINT32_T)(t / v);
+; 422  : #ifdef _MSC_VER
+; 423  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 424  :         {
+; 425  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
+; 426  :             _UINT64_T t = _FROMWORDTODWORD(r, u);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
@@ -12498,44 +12498,44 @@ __DIVREM_SINGLE_UNIT PROC				; COMDAT
 	mov	DWORD PTR tv69[ebp+4], edx
 	mov	edx, DWORD PTR _q$[ebp]
 
-; 435  :             return ((_UINT32_T)(t % v));
+; 428  :             return ((_UINT32_T)(t % v));
 
 	pop	ebx
 	mov	DWORD PTR [edx], eax
 	mov	eax, ecx
 
-; 436  :         }
-; 437  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 438  :         {
-; 439  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
-; 440  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
-; 441  :             // ・128bit 整数のデータ型が用意されていない。
-; 442  :             // ・x64 ではインラインアセンブラがサポートされていない。
-; 443  :             *q = 0;
-; 444  :             return (0);
-; 445  :         }
-; 446  :         else
-; 447  :         {
-; 448  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 449  :             *q = 0;
-; 450  :             return (0);
-; 451  :         }
-; 452  : #elif defined(__GNUC__)
-; 453  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 454  :             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
-; 455  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 456  :             __asm__("divq %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
-; 457  :         else
-; 458  :         {
-; 459  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 460  :             *q = 0;
-; 461  :             r = 0;
-; 462  :         }
-; 463  :         return (r);
-; 464  : #else
-; 465  : #error unknown compiler
-; 466  : #endif
-; 467  :     }
+; 429  :         }
+; 430  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 431  :         {
+; 432  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
+; 433  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
+; 434  :             // ・128bit 整数のデータ型が用意されていない。
+; 435  :             // ・x64 ではインラインアセンブラがサポートされていない。
+; 436  :             *q = 0;
+; 437  :             return (0);
+; 438  :         }
+; 439  :         else
+; 440  :         {
+; 441  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 442  :             *q = 0;
+; 443  :             return (0);
+; 444  :         }
+; 445  : #elif defined(__GNUC__)
+; 446  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 447  :             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+; 448  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 449  :             __asm__("divq %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+; 450  :         else
+; 451  :         {
+; 452  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 453  :             *q = 0;
+; 454  :             r = 0;
+; 455  :         }
+; 456  :         return (r);
+; 457  : #else
+; 458  : #error unknown compiler
+; 459  : #endif
+; 460  :     }
 
 	mov	esp, ebp
 	pop	ebp
@@ -12554,28 +12554,28 @@ _v$ = 16						; size = 4
 _r$ = 20						; size = 4
 __DIVREM_UNIT PROC					; COMDAT
 
-; 384  :     {
+; 377  :     {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR _u_high$[ebp]
 	xor	ecx, ecx
 	or	ecx, DWORD PTR _u_low$[ebp]
 
-; 384  :     {
+; 377  :     {
 
 	push	ebx
 
-; 385  : #ifdef _MSC_VER
-; 386  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 387  :         {
-; 388  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
-; 389  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
-; 390  :             *r = (_UINT32_T)(t % v);
+; 378  : #ifdef _MSC_VER
+; 379  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 380  :         {
+; 381  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
+; 382  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	push	ebx
 	push	0
@@ -12588,44 +12588,44 @@ __DIVREM_UNIT PROC					; COMDAT
 	mov	DWORD PTR tv70[ebp+4], edx
 	mov	edx, DWORD PTR _r$[ebp]
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	pop	ebx
 	mov	DWORD PTR [edx], ecx
 
-; 392  :         }
-; 393  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 394  :         {
-; 395  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
-; 396  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
-; 397  :             // ・128bit 整数のデータ型が用意されていない。
-; 398  :             // ・x64 ではインラインアセンブラがサポートされていない。
-; 399  :             *r = 0;
-; 400  :             return (0);
-; 401  :         }
-; 402  :         else
-; 403  :         {
-; 404  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 405  :             *r = 0;
-; 406  :             return (0);
-; 407  :         }
-; 408  : #elif defined(__GNUC__)
-; 409  :         __UNIT_TYPE q;
-; 410  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 411  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 412  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 413  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 414  :         else
-; 415  :         {
-; 416  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 417  :             *r = 0;
-; 418  :             q = 0;
-; 419  :         }
-; 420  :         return (q);
-; 421  : #else
-; 422  : #error unknown compiler
-; 423  : #endif
-; 424  :     }
+; 385  :         }
+; 386  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 387  :         {
+; 388  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
+; 389  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
+; 390  :             // ・128bit 整数のデータ型が用意されていない。
+; 391  :             // ・x64 ではインラインアセンブラがサポートされていない。
+; 392  :             *r = 0;
+; 393  :             return (0);
+; 394  :         }
+; 395  :         else
+; 396  :         {
+; 397  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 398  :             *r = 0;
+; 399  :             return (0);
+; 400  :         }
+; 401  : #elif defined(__GNUC__)
+; 402  :         __UNIT_TYPE q;
+; 403  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 404  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 405  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 406  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 407  :         else
+; 408  :         {
+; 409  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 410  :             *r = 0;
+; 411  :             q = 0;
+; 412  :         }
+; 413  :         return (q);
+; 414  : #else
+; 415  : #error unknown compiler
+; 416  : #endif
+; 417  :     }
 
 	mov	esp, ebp
 	pop	ebp
@@ -12641,38 +12641,38 @@ _v$ = 12						; size = 4
 _w_hi$ = 16						; size = 4
 __MULTIPLYX_UNIT_DIV PROC				; COMDAT
 
-; 362  :     {
+; 355  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 363  : #ifdef _MSC_VER
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 356  : #ifdef _MSC_VER
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mul	DWORD PTR _v$[ebp]
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	ecx, DWORD PTR _w_hi$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 365  : #elif defined(__GNUC__)
-; 366  : #ifdef _M_IX86
-; 367  :         _UINT32_T w_lo;
-; 368  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 369  :         return (w_lo);
-; 370  : #elif defined(_M_X64)
-; 371  :         _UINT64_T w_lo;
-; 372  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 373  :         return (w_lo);
-; 374  : #else
-; 375  : #error unknown platform
-; 376  : #endif
-; 377  : #else
-; 378  : #error unknown compiler
-; 379  : #endif
-; 380  :     }
+; 358  : #elif defined(__GNUC__)
+; 359  : #ifdef _M_IX86
+; 360  :         _UINT32_T w_lo;
+; 361  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 362  :         return (w_lo);
+; 363  : #elif defined(_M_X64)
+; 364  :         _UINT64_T w_lo;
+; 365  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 366  :         return (w_lo);
+; 367  : #else
+; 368  : #error unknown platform
+; 369  : #endif
+; 370  : #else
+; 371  : #error unknown compiler
+; 372  : #endif
+; 373  :     }
 
 	pop	ebp
 	ret	0
@@ -12687,36 +12687,36 @@ _v$ = 12						; size = 4
 _w_hi$ = 16						; size = 4
 __MULTIPLY_UNIT_DIV PROC				; COMDAT
 
-; 316  :     {
+; 309  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 317  : #ifdef _MSC_VER
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 310  : #ifdef _MSC_VER
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mul	DWORD PTR _v$[ebp]
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	ecx, DWORD PTR _w_hi$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 319  : #elif defined(__GNUC__)
-; 320  : #ifdef _M_IX86
-; 321  :         _UINT32_T w_lo;
-; 322  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
-; 323  :         return (w_lo);
-; 324  : #elif defined(_M_X64)
-; 325  :         return (_umul128(u, v, w_hi));
-; 326  : #else
-; 327  : #error unknown platform
-; 328  : #endif
-; 329  : #else
-; 330  : #error unknown compiler
-; 331  : #endif
-; 332  :     }
+; 312  : #elif defined(__GNUC__)
+; 313  : #ifdef _M_IX86
+; 314  :         _UINT32_T w_lo;
+; 315  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
+; 316  :         return (w_lo);
+; 317  : #elif defined(_M_X64)
+; 318  :         return (_umul128(u, v, w_hi));
+; 319  : #else
+; 320  : #error unknown platform
+; 321  : #endif
+; 322  : #else
+; 323  : #error unknown compiler
+; 324  : #endif
+; 325  :     }
 
 	pop	ebp
 	ret	0
@@ -12732,13 +12732,13 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __SUBTRUCT_UNIT_DIV PROC				; COMDAT
 
-; 280  :     {
+; 273  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 281  : #ifdef _MSC_VER
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 274  : #ifdef _MSC_VER
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	al, BYTE PTR _borrow$[ebp]
 	mov	edx, DWORD PTR _w$[ebp]
@@ -12748,18 +12748,18 @@ __SUBTRUCT_UNIT_DIV PROC				; COMDAT
 	setb	al
 	mov	DWORD PTR [edx], ecx
 
-; 283  : #elif defined(__GNUC__)
-; 284  : #ifdef _M_IX86
-; 285  :         return (_subborrow_u32(borrow, u, v, w));
-; 286  : #elif defined(_M_X64)
-; 287  :         return (_subborrow_u64(borrow, u, v, w));
-; 288  : #else
-; 289  : #error unknown platform
-; 290  : #endif
-; 291  : #else
-; 292  : #error unknown compiler
-; 293  : #endif
-; 294  :     }
+; 276  : #elif defined(__GNUC__)
+; 277  : #ifdef _M_IX86
+; 278  :         return (_subborrow_u32(borrow, u, v, w));
+; 279  : #elif defined(_M_X64)
+; 280  :         return (_subborrow_u64(borrow, u, v, w));
+; 281  : #else
+; 282  : #error unknown platform
+; 283  : #endif
+; 284  : #else
+; 285  : #error unknown compiler
+; 286  : #endif
+; 287  :     }
 
 	pop	ebp
 	ret	0
@@ -12775,13 +12775,13 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADDX_UNIT_DIV PROC					; COMDAT
 
-; 252  :     {
+; 245  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 253  : #ifdef _MSC_VER
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 246  : #ifdef _MSC_VER
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _carry$[ebp]
 	mov	edx, DWORD PTR _w$[ebp]
@@ -12791,18 +12791,18 @@ __ADDX_UNIT_DIV PROC					; COMDAT
 	setb	al
 	mov	DWORD PTR [edx], ecx
 
-; 255  : #elif defined(__GNUC__)
-; 256  : #ifdef _M_IX86
-; 257  :         return (_addcarryx_u32(carry, u, v, w));
-; 258  : #elif defined(_M_X64)
-; 259  :         return (_addcarryx_u64(carry, u, v, w));
-; 260  : #else
-; 261  : #error unknown platform
-; 262  : #endif
-; 263  : #else
-; 264  : #error unknown compiler
-; 265  : #endif
-; 266  :     }
+; 248  : #elif defined(__GNUC__)
+; 249  : #ifdef _M_IX86
+; 250  :         return (_addcarryx_u32(carry, u, v, w));
+; 251  : #elif defined(_M_X64)
+; 252  :         return (_addcarryx_u64(carry, u, v, w));
+; 253  : #else
+; 254  : #error unknown platform
+; 255  : #endif
+; 256  : #else
+; 257  : #error unknown compiler
+; 258  : #endif
+; 259  :     }
 
 	pop	ebp
 	ret	0
@@ -12818,13 +12818,13 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADD_UNIT_DIV PROC					; COMDAT
 
-; 224  :     {
+; 217  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 225  : #ifdef _MSC_VER
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 218  : #ifdef _MSC_VER
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _carry$[ebp]
 	mov	edx, DWORD PTR _w$[ebp]
@@ -12834,18 +12834,18 @@ __ADD_UNIT_DIV PROC					; COMDAT
 	setb	al
 	mov	DWORD PTR [edx], ecx
 
-; 227  : #elif defined(__GNUC__)
-; 228  : #ifdef _M_IX86
-; 229  :         return (_addcarry_u32(carry, u, v, w));
-; 230  : #elif defined(_M_X64)
-; 231  :         return (_addcarry_u64(carry, u, v, w));
-; 232  : #else
-; 233  : #error unknown platform
-; 234  : #endif
-; 235  : #else
-; 236  : #error unknown compiler
-; 237  : #endif
-; 238  :     }
+; 220  : #elif defined(__GNUC__)
+; 221  : #ifdef _M_IX86
+; 222  :         return (_addcarry_u32(carry, u, v, w));
+; 223  : #elif defined(_M_X64)
+; 224  :         return (_addcarry_u64(carry, u, v, w));
+; 225  : #else
+; 226  : #error unknown platform
+; 227  : #endif
+; 228  : #else
+; 229  : #error unknown compiler
+; 230  : #endif
+; 231  :     }
 
 	pop	ebp
 	ret	0
@@ -12859,22 +12859,22 @@ _value$ = 8						; size = 8
 _result_high$ = 16					; size = 4
 __FROMDWORDTOWORD PROC					; COMDAT
 
-; 182  :     {
+; 175  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	eax, DWORD PTR _result_high$[ebp]
 	mov	ecx, DWORD PTR _value$[ebp+4]
 	mov	DWORD PTR [eax], ecx
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 
-; 185  :     }
+; 178  :     }
 
 	pop	ebp
 	ret	0
@@ -12888,18 +12888,18 @@ _value_high$ = 8					; size = 4
 _value_low$ = 12					; size = 4
 __FROMWORDTODWORD PROC					; COMDAT
 
-; 177  :     {
+; 170  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR _value_high$[ebp]
 	xor	eax, eax
 	or	eax, DWORD PTR _value_low$[ebp]
 
-; 179  :     }
+; 172  :     }
 
 	pop	ebp
 	ret	0
@@ -12914,13 +12914,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 77   :     {
+; 70   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 78   : #ifdef _M_IX86
-; 79   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 71   : #ifdef _M_IX86
+; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -12931,18 +12931,18 @@ __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 	pop	edi
 	pop	esi
 
-; 80   : #elif defined(_M_X64)
-; 81   : #ifdef _MSC_VER
-; 82   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 83   : #elif defined(__GNUC__)
-; 84   :         __movsq(d, s, count);
-; 85   : #else
-; 86   : #error unknown compiler
-; 87   : #endif
-; 88   : #else
-; 89   : #error unknown platform
-; 90   : #endif
-; 91   :     }
+; 73   : #elif defined(_M_X64)
+; 74   : #ifdef _MSC_VER
+; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   : #elif defined(__GNUC__)
+; 77   :         __movsq(d, s, count);
+; 78   : #else
+; 79   : #error unknown compiler
+; 80   : #endif
+; 81   : #else
+; 82   : #error unknown platform
+; 83   : #endif
+; 84   :     }
 
 	pop	ebp
 	ret	0
@@ -12957,13 +12957,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 66   :     {
+; 59   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 67   : #ifdef _M_IX86
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 60   : #ifdef _M_IX86
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -12974,12 +12974,12 @@ __COPY_MEMORY_UNIT PROC					; COMDAT
 	pop	edi
 	pop	esi
 
-; 69   : #elif defined(_M_X64)
-; 70   :         __movsq(d, s, count);
-; 71   : #else
-; 72   : #error unknown platform
-; 73   : #endif
-; 74   :     }
+; 62   : #elif defined(_M_X64)
+; 63   :         __movsq(d, s, count);
+; 64   : #else
+; 65   : #error unknown platform
+; 66   : #endif
+; 67   :     }
 
 	pop	ebp
 	ret	0
@@ -12992,18 +12992,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC				; COMDAT
 
-; 357  :     {
+; 350  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 358  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 359  :     }
+; 352  :     }
 
 	pop	ebp
 	ret	0
@@ -13016,18 +13016,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC				; COMDAT
 
-; 351  :     {
+; 344  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 353  :     }
+; 346  :     }
 
 	pop	ebp
 	ret	0
@@ -13040,18 +13040,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC					; COMDAT
 
-; 345  :     {
+; 338  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 346  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 347  :     }
+; 340  :     }
 
 	pop	ebp
 	ret	0
@@ -13064,18 +13064,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC					; COMDAT
 
-; 339  :     {
+; 332  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 341  :     }
+; 334  :     }
 
 	pop	ebp
 	ret	0
@@ -13087,11 +13087,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC				; COMDAT
 
-; 335  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 336  :     }
+; 329  :     }
 
 	ret	0
 _IncrementMULTI64Counter ENDP
@@ -13102,11 +13102,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC				; COMDAT
 
-; 329  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 330  :     }
+; 323  :     }
 
 	ret	0
 _IncrementMULTI32Counter ENDP
@@ -13117,11 +13117,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC				; COMDAT
 
-; 323  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 324  :     }
+; 317  :     }
 
 	ret	0
 _IncrementDIV64Counter ENDP
@@ -13132,11 +13132,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC				; COMDAT
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 318  :     }
+; 311  :     }
 
 	ret	0
 _IncrementDIV32Counter ENDP
@@ -13159,43 +13159,43 @@ _q$ = 16						; size = 4
 _r$ = 20						; size = 4
 _PMC_DivRem_X_X@16 PROC					; COMDAT
 
-; 1592 : {
+; 1585 : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 16					; 00000010H
 	push	esi
 
-; 1593 :     if (u == NULL)
+; 1586 :     if (u == NULL)
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
 	test	esi, esi
 	je	$LN34@PMC_DivRem
 
-; 1594 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1595 :     if (v == NULL)
+; 1587 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1588 :     if (v == NULL)
 
 	mov	edi, DWORD PTR _v$[ebp]
 	test	edi, edi
 	je	$LN34@PMC_DivRem
 
-; 1596 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1597 :     if (q == NULL)
+; 1589 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1590 :     if (q == NULL)
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	$LN34@PMC_DivRem
 
-; 1598 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1599 :     if (r == NULL)
+; 1591 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1592 :     if (r == NULL)
 
 	cmp	DWORD PTR _r$[ebp], 0
 	je	$LN34@PMC_DivRem
 
-; 1601 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
-; 1602 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 1603 :     PMC_STATUS_CODE result;
-; 1604 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1594 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1595 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1596 :     PMC_STATUS_CODE result;
+; 1597 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	push	esi
 	call	_CheckNumber
@@ -13203,8 +13203,8 @@ _PMC_DivRem_X_X@16 PROC					; COMDAT
 	test	eax, eax
 	jne	SHORT $LN1@PMC_DivRem
 
-; 1605 :         return (result);
-; 1606 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1598 :         return (result);
+; 1599 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	push	edi
 	call	_CheckNumber
@@ -13212,30 +13212,30 @@ _PMC_DivRem_X_X@16 PROC					; COMDAT
 	test	eax, eax
 	jne	SHORT $LN1@PMC_DivRem
 
-; 1607 :         return (result);
-; 1608 :     if (nv->IS_ZERO)
+; 1600 :         return (result);
+; 1601 :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR [edi+24]
 	test	al, 2
 	je	SHORT $LN8@PMC_DivRem
 
-; 1609 :     {
-; 1610 :         // v が 0 である場合
-; 1611 : 
-; 1612 :         // 0 による除算はエラーで返す
-; 1613 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1602 :     {
+; 1603 :         // v が 0 である場合
+; 1604 : 
+; 1605 :         // 0 による除算はエラーで返す
+; 1606 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	pop	edi
 	mov	eax, -3					; fffffffdH
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13243,43 +13243,43 @@ _PMC_DivRem_X_X@16 PROC					; COMDAT
 	ret	16					; 00000010H
 $LN8@PMC_DivRem:
 
-; 1614 :     }
-; 1615 :     NUMBER_HEADER* nq;
-; 1616 :     NUMBER_HEADER* nr;
-; 1617 :     if (nu->IS_ZERO)
+; 1607 :     }
+; 1608 :     NUMBER_HEADER* nq;
+; 1609 :     NUMBER_HEADER* nr;
+; 1610 :     if (nu->IS_ZERO)
 
 	test	BYTE PTR [esi+24], 2
 	push	ebx
 	je	SHORT $LN9@PMC_DivRem
 
-; 1618 :     {
-; 1619 :         // u が 0 である場合
-; 1620 : 
-; 1621 :         // q = 0, r = 0 を返す
-; 1622 :         nq = &number_zero;
+; 1611 :     {
+; 1612 :         // u が 0 である場合
+; 1613 : 
+; 1614 :         // q = 0, r = 0 を返す
+; 1615 :         nq = &number_zero;
 
 	mov	eax, OFFSET _number_zero
 
-; 1623 :         nr = &number_zero;
-; 1624 :     }
+; 1616 :         nr = &number_zero;
+; 1617 :     }
 
 	jmp	$LN37@PMC_DivRem
 $LN9@PMC_DivRem:
 
-; 1625 :     else
-; 1626 :     {
-; 1627 :         // u が 0 ではない場合
-; 1628 : 
-; 1629 :         if (nv->IS_ONE)
+; 1618 :     else
+; 1619 :     {
+; 1620 :         // u が 0 ではない場合
+; 1621 : 
+; 1622 :         if (nv->IS_ONE)
 
 	test	al, 4
 	je	SHORT $LN11@PMC_DivRem
 
-; 1630 :         {
-; 1631 :             // v が 1 である場合
-; 1632 : 
-; 1633 :             // q = u, r = 0 を返す
-; 1634 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1623 :         {
+; 1624 :             // v が 1 である場合
+; 1625 : 
+; 1626 :             // q = u, r = 0 を返す
+; 1627 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq$[ebp]
 	push	eax
@@ -13293,14 +13293,14 @@ $LN36@PMC_DivRem:
 $LN1@PMC_DivRem:
 	pop	edi
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13308,33 +13308,33 @@ $LN1@PMC_DivRem:
 	ret	16					; 00000010H
 $LN11@PMC_DivRem:
 
-; 1635 :                 return (result);
-; 1636 :             nr = &number_zero;
-; 1637 :         }
-; 1638 :         else
-; 1639 :         {
-; 1640 :             // u > 0 かつ v > 1 である場合
-; 1641 : 
-; 1642 :             // x と y の商・剰余を計算する
-; 1643 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1628 :                 return (result);
+; 1629 :             nr = &number_zero;
+; 1630 :         }
+; 1631 :         else
+; 1632 :         {
+; 1633 :             // u > 0 かつ v > 1 である場合
+; 1634 : 
+; 1635 :             // x と y の商・剰余を計算する
+; 1636 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ebx, DWORD PTR [esi+12]
 
-; 1644 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1637 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR [edi+12]
 
-; 1645 :             if (u_bit_count < v_bit_count)
+; 1638 :             if (u_bit_count < v_bit_count)
 
 	cmp	ebx, ecx
 	jae	SHORT $LN14@PMC_DivRem
 
-; 1646 :             {
-; 1647 :                 // 明らかに u < v である場合
-; 1648 : 
-; 1649 :                 // q = 0, r = u を返す。
-; 1650 :                 nq = &number_zero;
-; 1651 :                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
+; 1639 :             {
+; 1640 :                 // 明らかに u < v である場合
+; 1641 : 
+; 1642 :                 // q = 0, r = u を返す。
+; 1643 :                 nq = &number_zero;
+; 1644 :                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nr$[ebp]
 	mov	DWORD PTR _nq$[ebp], OFFSET _number_zero
@@ -13345,20 +13345,20 @@ $LN11@PMC_DivRem:
 	test	eax, eax
 	jne	SHORT $LN36@PMC_DivRem
 
-; 1720 :                 if (nq->IS_ZERO)
-; 1721 :                 {
-; 1722 :                     DeallocateNumber(nq);
-; 1723 :                     nq = &number_zero;
-; 1724 :                 }
-; 1725 :                 if (nr->IS_ZERO)
-; 1726 :                 {
-; 1727 :                     DeallocateNumber(nr);
-; 1728 :                     nr = &number_zero;
-; 1729 :                 }
-; 1730 :             }
-; 1731 :         }
-; 1732 :     }
-; 1733 :     *q = nq;
+; 1713 :                 if (nq->IS_ZERO)
+; 1714 :                 {
+; 1715 :                     DeallocateNumber(nq);
+; 1716 :                     nq = &number_zero;
+; 1717 :                 }
+; 1718 :                 if (nr->IS_ZERO)
+; 1719 :                 {
+; 1720 :                     DeallocateNumber(nr);
+; 1721 :                     nr = &number_zero;
+; 1722 :                 }
+; 1723 :             }
+; 1724 :         }
+; 1725 :     }
+; 1726 :     *q = nq;
 
 	mov	edx, DWORD PTR _q$[ebp]
 	mov	eax, DWORD PTR _nq$[ebp]
@@ -13366,19 +13366,19 @@ $LN11@PMC_DivRem:
 	pop	ebx
 	mov	DWORD PTR [edx], eax
 
-; 1734 :     *r = nr;
+; 1727 :     *r = nr;
 
 	mov	eax, DWORD PTR _r$[ebp]
 	pop	edi
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -13388,9 +13388,9 @@ $LN11@PMC_DivRem:
 	ret	16					; 00000010H
 $LN14@PMC_DivRem:
 
-; 1652 :                     return (result);
-; 1653 :             }
-; 1654 :             else if (v_bit_count <= sizeof(__UNIT_TYPE_DIV) * 8)
+; 1645 :                     return (result);
+; 1646 :             }
+; 1647 :             else if (v_bit_count <= sizeof(__UNIT_TYPE_DIV) * 8)
 
 	mov	eax, ebx
 	sub	eax, ecx
@@ -13403,22 +13403,22 @@ $LN14@PMC_DivRem:
 	push	eax
 	ja	$LN17@PMC_DivRem
 
-; 1655 :             {
-; 1656 :                 // 除数が 1 ワードで表現できる場合
-; 1657 : 
-; 1658 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1659 :                 __UNIT_TYPE nq_light_check_code;
-; 1660 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1648 :             {
+; 1649 :                 // 除数が 1 ワードで表現できる場合
+; 1650 : 
+; 1651 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1652 :                 __UNIT_TYPE nq_light_check_code;
+; 1653 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	call	_AllocateNumber
 	add	esp, 12					; 0000000cH
 	test	eax, eax
 	jne	SHORT $LN36@PMC_DivRem
 
-; 1661 :                     return (result);
-; 1662 :                 __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
-; 1663 :                 __UNIT_TYPE nr_light_check_code;
-; 1664 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+; 1654 :                     return (result);
+; 1655 :                 __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+; 1656 :                 __UNIT_TYPE nr_light_check_code;
+; 1657 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nr_light_check_code$4[ebp]
 	push	eax
@@ -13431,11 +13431,11 @@ $LN14@PMC_DivRem:
 	test	ebx, ebx
 	jne	$LN43@PMC_DivRem
 
-; 1665 :                 {
-; 1666 :                     DeallocateNumber(nq);
-; 1667 :                     return (result);
-; 1668 :                 }
-; 1669 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+; 1658 :                 {
+; 1659 :                     DeallocateNumber(nq);
+; 1660 :                     return (result);
+; 1661 :                 }
+; 1662 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	eax, DWORD PTR _nr$[ebp]
 	push	DWORD PTR [eax+32]
@@ -13449,7 +13449,7 @@ $LN14@PMC_DivRem:
 	push	DWORD PTR [esi+32]
 	call	_DivRem_X_1W
 
-; 1670 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1663 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$6[ebp]
@@ -13459,8 +13459,8 @@ $LN14@PMC_DivRem:
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1671 :                     return (result);
-; 1672 :                 if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
+; 1664 :                     return (result);
+; 1665 :                 if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nr$[ebp]
 	push	DWORD PTR _nr_light_check_code$4[ebp]
@@ -13470,49 +13470,49 @@ $LN14@PMC_DivRem:
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1673 :                     return (result);
-; 1674 :                 CommitNumber(nq);
+; 1666 :                     return (result);
+; 1667 :                 CommitNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_CommitNumber
 
-; 1675 :                 CommitNumber(nr);
+; 1668 :                 CommitNumber(nr);
 
 	push	DWORD PTR _nr$[ebp]
 	call	_CommitNumber
 	add	esp, 8
 
-; 1676 :                 if (nq->IS_ZERO)
-; 1677 :                 {
-; 1678 :                     DeallocateNumber(nq);
-; 1679 :                     nq = &number_zero;
-; 1680 :                 }
-; 1681 :                 if (nr->IS_ZERO)
-; 1682 :                 {
-; 1683 :                     DeallocateNumber(nr);
-; 1684 :                     nr = &number_zero;
-; 1685 :                 }
-; 1686 :             }
+; 1669 :                 if (nq->IS_ZERO)
+; 1670 :                 {
+; 1671 :                     DeallocateNumber(nq);
+; 1672 :                     nq = &number_zero;
+; 1673 :                 }
+; 1674 :                 if (nr->IS_ZERO)
+; 1675 :                 {
+; 1676 :                     DeallocateNumber(nr);
+; 1677 :                     nr = &number_zero;
+; 1678 :                 }
+; 1679 :             }
 
 	jmp	$LN42@PMC_DivRem
 $LN17@PMC_DivRem:
 
-; 1687 :             else
-; 1688 :             {
-; 1689 :                 // 除数を表現するのに 2 ワード以上必要な場合
-; 1690 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1691 :                 __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1692 :                 __UNIT_TYPE nq_light_check_code;
-; 1693 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1680 :             else
+; 1681 :             {
+; 1682 :                 // 除数を表現するのに 2 ワード以上必要な場合
+; 1683 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1684 :                 __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1685 :                 __UNIT_TYPE nq_light_check_code;
+; 1686 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	call	_AllocateNumber
 	add	esp, 12					; 0000000cH
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1694 :                     return (result);
-; 1695 :                 __UNIT_TYPE nr_light_check_code;
-; 1696 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+; 1687 :                     return (result);
+; 1688 :                 __UNIT_TYPE nr_light_check_code;
+; 1689 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nr_light_check_code$1[ebp]
 	push	eax
@@ -13527,27 +13527,27 @@ $LN17@PMC_DivRem:
 	je	SHORT $LN26@PMC_DivRem
 $LN43@PMC_DivRem:
 
-; 1697 :                 {
-; 1698 :                     DeallocateNumber(nq);
+; 1690 :                 {
+; 1691 :                     DeallocateNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 1699 :                     return (result);
+; 1692 :                     return (result);
 
 	mov	eax, ebx
 	pop	ebx
 	pop	edi
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13555,10 +13555,10 @@ $LN43@PMC_DivRem:
 	ret	16					; 00000010H
 $LN26@PMC_DivRem:
 
-; 1700 :                 }
-; 1701 :                 __UNIT_TYPE work_v_buf_code;
-; 1702 :                 __UNIT_TYPE work_v_buf_words;
-; 1703 :                 __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
+; 1693 :                 }
+; 1694 :                 __UNIT_TYPE work_v_buf_code;
+; 1695 :                 __UNIT_TYPE work_v_buf_words;
+; 1696 :                 __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
 
 	lea	eax, DWORD PTR _work_v_buf_code$3[ebp]
 	push	eax
@@ -13571,32 +13571,32 @@ $LN26@PMC_DivRem:
 	mov	ebx, eax
 	add	esp, 12					; 0000000cH
 
-; 1704 :                 if (work_v_buf == NULL)
+; 1697 :                 if (work_v_buf == NULL)
 
 	test	ebx, ebx
 	jne	SHORT $LN27@PMC_DivRem
 
-; 1705 :                 {
-; 1706 :                     DeallocateNumber(nq);
+; 1698 :                 {
+; 1699 :                     DeallocateNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 1707 :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 1700 :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	lea	eax, DWORD PTR [ebx-5]
 	pop	ebx
 	pop	edi
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13604,9 +13604,9 @@ $LN26@PMC_DivRem:
 	ret	16					; 00000010H
 $LN27@PMC_DivRem:
 
-; 1708 :                 }
-; 1709 : 
-; 1710 :                 (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+; 1701 :                 }
+; 1702 : 
+; 1703 :                 (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	eax, DWORD PTR _nr$[ebp]
 	push	DWORD PTR [eax+32]
@@ -13623,7 +13623,7 @@ $LN27@PMC_DivRem:
 	push	DWORD PTR [esi+32]
 	call	DWORD PTR _fp_DivRem_X_X
 
-; 1711 :                 if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 1704 :                 if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _work_v_buf_code$3[ebp]
 	push	ebx
@@ -13632,8 +13632,8 @@ $LN27@PMC_DivRem:
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1712 :                     return (result);
-; 1713 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1705 :                     return (result);
+; 1706 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$5[ebp]
@@ -13643,8 +13643,8 @@ $LN27@PMC_DivRem:
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1714 :                     return (result);
-; 1715 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1707 :                     return (result);
+; 1708 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$5[ebp]
@@ -13654,39 +13654,39 @@ $LN27@PMC_DivRem:
 	test	eax, eax
 	jne	$LN36@PMC_DivRem
 
-; 1716 :                     return (result);
-; 1717 :                 DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+; 1709 :                     return (result);
+; 1710 :                 DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
 
 	push	DWORD PTR _work_v_buf_words$2[ebp]
 	push	ebx
 	call	_DeallocateBlock
 
-; 1718 :                 CommitNumber(nq);
+; 1711 :                 CommitNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_CommitNumber
 
-; 1719 :                 CommitNumber(nr);
+; 1712 :                 CommitNumber(nr);
 
 	push	DWORD PTR _nr$[ebp]
 	call	_CommitNumber
 	add	esp, 16					; 00000010H
 $LN42@PMC_DivRem:
 
-; 1720 :                 if (nq->IS_ZERO)
-; 1721 :                 {
-; 1722 :                     DeallocateNumber(nq);
-; 1723 :                     nq = &number_zero;
-; 1724 :                 }
-; 1725 :                 if (nr->IS_ZERO)
-; 1726 :                 {
-; 1727 :                     DeallocateNumber(nr);
-; 1728 :                     nr = &number_zero;
-; 1729 :                 }
-; 1730 :             }
-; 1731 :         }
-; 1732 :     }
-; 1733 :     *q = nq;
+; 1713 :                 if (nq->IS_ZERO)
+; 1714 :                 {
+; 1715 :                     DeallocateNumber(nq);
+; 1716 :                     nq = &number_zero;
+; 1717 :                 }
+; 1718 :                 if (nr->IS_ZERO)
+; 1719 :                 {
+; 1720 :                     DeallocateNumber(nr);
+; 1721 :                     nr = &number_zero;
+; 1722 :                 }
+; 1723 :             }
+; 1724 :         }
+; 1725 :     }
+; 1726 :     *q = nq;
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	test	BYTE PTR [eax+24], 2
@@ -13712,14 +13712,14 @@ $LN32@PMC_DivRem:
 	pop	ebx
 	pop	edi
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	DWORD PTR [edx], eax
@@ -13732,18 +13732,18 @@ $LN32@PMC_DivRem:
 $LN34@PMC_DivRem:
 	pop	edi
 
-; 1600 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1593 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
-; 1737 :         return (result);
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
-; 1739 :         return (result);
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
-; 1742 : }
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1730 :         return (result);
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1732 :         return (result);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
+; 1735 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13777,7 +13777,7 @@ _r_buf$7 = 24						; size = 4
 _r$ = 24						; size = 4
 _PMC_DivRem_X_L@20 PROC					; COMDAT
 
-; 1407 : {
+; 1400 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -13785,33 +13785,33 @@ _PMC_DivRem_X_L@20 PROC					; COMDAT
 	push	esi
 	push	edi
 
-; 1408 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(v))
-; 1409 :     {
-; 1410 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 1411 :         return (PMC_STATUS_INTERNAL_ERROR);
-; 1412 :     }
-; 1413 :     if (u == NULL)
+; 1401 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(v))
+; 1402 :     {
+; 1403 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 1404 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1405 :     }
+; 1406 :     if (u == NULL)
 
 	mov	edi, DWORD PTR _u$[ebp]
 	test	edi, edi
 	je	$LN45@PMC_DivRem
 
-; 1414 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1415 :     if (q == NULL)
+; 1407 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1408 :     if (q == NULL)
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	$LN45@PMC_DivRem
 
-; 1416 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1417 :     if (r == NULL)
+; 1409 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1410 :     if (r == NULL)
 
 	mov	esi, DWORD PTR _r$[ebp]
 	test	esi, esi
 	je	$LN45@PMC_DivRem
 
-; 1419 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
-; 1420 :     PMC_STATUS_CODE result;
-; 1421 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1412 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1413 :     PMC_STATUS_CODE result;
+; 1414 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	push	edi
 	call	_CheckNumber
@@ -13819,8 +13819,8 @@ _PMC_DivRem_X_L@20 PROC					; COMDAT
 	test	eax, eax
 	jne	$LN1@PMC_DivRem
 
-; 1422 :         return (result);
-; 1423 :     if (v == 0)
+; 1415 :         return (result);
+; 1416 :     if (v == 0)
 
 	mov	edx, DWORD PTR _v$[ebp]
 	mov	eax, edx
@@ -13828,16 +13828,16 @@ _PMC_DivRem_X_L@20 PROC					; COMDAT
 	or	eax, ecx
 	jne	SHORT $LN7@PMC_DivRem
 
-; 1424 :     {
-; 1425 :         // v が 0 である場合
-; 1426 : 
-; 1427 :         // 0 による除算はエラーで返す
-; 1428 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1417 :     {
+; 1418 :         // v が 0 である場合
+; 1419 : 
+; 1420 :         // 0 による除算はエラーで返す
+; 1421 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	pop	edi
 	mov	eax, -3					; fffffffdH
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13845,60 +13845,60 @@ _PMC_DivRem_X_L@20 PROC					; COMDAT
 	ret	20					; 00000014H
 $LN7@PMC_DivRem:
 
-; 1429 :     }
-; 1430 :     NUMBER_HEADER* nq;
-; 1431 :     if (nu->IS_ZERO)
+; 1422 :     }
+; 1423 :     NUMBER_HEADER* nq;
+; 1424 :     if (nu->IS_ZERO)
 
 	test	BYTE PTR [edi+24], 2
 	push	ebx
 	je	SHORT $LN8@PMC_DivRem
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	mov	ecx, OFFSET _number_zero
@@ -13908,15 +13908,15 @@ $LN7@PMC_DivRem:
 	pop	edi
 	mov	DWORD PTR [eax], ecx
 
-; 1584 : #ifdef _DEBUG
-; 1585 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
-; 1586 :         return (result);
-; 1587 : #endif
-; 1588 :     return (PMC_STATUS_OK);
+; 1577 : #ifdef _DEBUG
+; 1578 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+; 1579 :         return (result);
+; 1580 : #endif
+; 1581 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -13924,29 +13924,29 @@ $LN7@PMC_DivRem:
 	ret	20					; 00000014H
 $LN8@PMC_DivRem:
 
-; 1432 :     {
-; 1433 :         // x が 0 である場合
-; 1434 : 
-; 1435 :         // q = 0, r = 0 を返す
-; 1436 :         nq = &number_zero;
-; 1437 :         *r = 0;
-; 1438 :     }
-; 1439 :     else
-; 1440 :     {
-; 1441 :         // u が 0 ではない場合
-; 1442 : 
-; 1443 :         if (v == 1)
+; 1425 :     {
+; 1426 :         // x が 0 である場合
+; 1427 : 
+; 1428 :         // q = 0, r = 0 を返す
+; 1429 :         nq = &number_zero;
+; 1430 :         *r = 0;
+; 1431 :     }
+; 1432 :     else
+; 1433 :     {
+; 1434 :         // u が 0 ではない場合
+; 1435 : 
+; 1436 :         if (v == 1)
 
 	cmp	edx, 1
 	jne	SHORT $LN10@PMC_DivRem
 	test	ecx, ecx
 	jne	SHORT $LN10@PMC_DivRem
 
-; 1444 :         {
-; 1445 :             // v が 1 である場合
-; 1446 : 
-; 1447 :             // q = u, r = 0 を返す
-; 1448 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1437 :         {
+; 1438 :             // v が 1 である場合
+; 1439 : 
+; 1440 :             // q = u, r = 0 を返す
+; 1441 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq$[ebp]
 	push	eax
@@ -13956,66 +13956,66 @@ $LN8@PMC_DivRem:
 	test	eax, eax
 	jne	$LN46@PMC_DivRem
 
-; 1449 :                 return (result);
-; 1450 :             *r = 0;
-; 1451 :         }
+; 1442 :                 return (result);
+; 1443 :             *r = 0;
+; 1444 :         }
 
 	mov	ecx, DWORD PTR _nq$[ebp]
 	mov	DWORD PTR [esi], eax
 	mov	DWORD PTR [esi+4], eax
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	pop	ebx
 	pop	edi
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14025,28 +14025,28 @@ $LN8@PMC_DivRem:
 	ret	20					; 00000014H
 $LN10@PMC_DivRem:
 
-; 1452 :         else
-; 1453 :         {
-; 1454 :             // u > 0 かつ v > 1 である場合
-; 1455 : 
-; 1456 :             // u と v の商・剰余を計算する
-; 1457 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1445 :         else
+; 1446 :         {
+; 1447 :             // u > 0 かつ v > 1 である場合
+; 1448 : 
+; 1449 :             // u と v の商・剰余を計算する
+; 1450 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ebx, DWORD PTR [edi+12]
 
-; 1458 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
-; 1459 :             {
-; 1460 :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 1461 :                 _UINT32_T v_hi;
-; 1462 :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
-; 1463 :                 if (v_hi == 0)
+; 1451 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
+; 1452 :             {
+; 1453 :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 1454 :                 _UINT32_T v_hi;
+; 1455 :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
+; 1456 :                 if (v_hi == 0)
 
 	test	ecx, ecx
 	jne	$LN15@PMC_DivRem
 
-; 1464 :                 {
-; 1465 :                     // v の値が 32bit で表現可能な場合
-; 1466 :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
+; 1457 :                 {
+; 1458 :                     // v の値が 32bit で表現可能な場合
+; 1459 :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
 
 	push	edx
 	call	__LZCNT_ALT_32
@@ -14054,17 +14054,17 @@ $LN10@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1467 :                     if (u_bit_count < v_bit_count)
+; 1460 :                     if (u_bit_count < v_bit_count)
 
 	cmp	ebx, ecx
 	jae	SHORT $LN17@PMC_DivRem
 
-; 1468 :                     {
-; 1469 :                         // 明らかに u < v である場合
-; 1470 : 
-; 1471 :                         // q = 0, r = u を返す。
-; 1472 :                         nq = &number_zero;
-; 1473 :                         *r = nu->BLOCK[0];
+; 1461 :                     {
+; 1462 :                         // 明らかに u < v である場合
+; 1463 : 
+; 1464 :                         // q = 0, r = u を返す。
+; 1465 :                         nq = &number_zero;
+; 1466 :                         *r = nu->BLOCK[0];
 
 	mov	eax, DWORD PTR [edi+32]
 	mov	ecx, OFFSET _number_zero
@@ -14074,57 +14074,57 @@ $LN10@PMC_DivRem:
 	mov	eax, DWORD PTR [eax]
 	mov	DWORD PTR [esi], eax
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	mov	DWORD PTR [esi+4], 0
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14134,12 +14134,12 @@ $LN10@PMC_DivRem:
 	ret	20					; 00000014H
 $LN17@PMC_DivRem:
 
-; 1474 :                     }
-; 1475 :                     else
-; 1476 :                     {
-; 1477 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1478 :                         __UNIT_TYPE nq_light_check_code;
-; 1479 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1467 :                     }
+; 1468 :                     else
+; 1469 :                     {
+; 1470 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1471 :                         __UNIT_TYPE nq_light_check_code;
+; 1472 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq_light_check_code$5[ebp]
 	sub	ebx, ecx
@@ -14153,12 +14153,12 @@ $LN17@PMC_DivRem:
 	test	eax, eax
 	jne	$LN46@PMC_DivRem
 
-; 1480 :                             return (result);
-; 1481 :                         __UNIT_TYPE_DIV r_buf = 0;
+; 1473 :                             return (result);
+; 1474 :                         __UNIT_TYPE_DIV r_buf = 0;
 
 	mov	DWORD PTR _r_buf$7[ebp], eax
 
-; 1482 :                         DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1475 :                         DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
 
 	lea	eax, DWORD PTR _r_buf$7[ebp]
 	push	eax
@@ -14172,7 +14172,7 @@ $LN17@PMC_DivRem:
 	push	DWORD PTR [edi+32]
 	call	_DivRem_X_1W
 
-; 1483 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1476 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$5[ebp]
@@ -14182,34 +14182,34 @@ $LN17@PMC_DivRem:
 	test	eax, eax
 	jne	$LN46@PMC_DivRem
 
-; 1484 :                             return (result);
-; 1485 :                         CommitNumber(nq);
+; 1477 :                             return (result);
+; 1478 :                         CommitNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_CommitNumber
 
-; 1486 :                         *r = r_buf;
+; 1479 :                         *r = r_buf;
 
 	mov	eax, DWORD PTR _r_buf$7[ebp]
 	add	esp, 4
 	mov	DWORD PTR [esi], eax
 	mov	DWORD PTR [esi+4], 0
 
-; 1487 :                         if (nq->IS_ZERO)
-; 1488 :                         {
-; 1489 :                             DeallocateNumber(nq);
-; 1490 :                             nq = &number_zero;
-; 1491 :                         }
-; 1492 :                     }
-; 1493 :                 }
+; 1480 :                         if (nq->IS_ZERO)
+; 1481 :                         {
+; 1482 :                             DeallocateNumber(nq);
+; 1483 :                             nq = &number_zero;
+; 1484 :                         }
+; 1485 :                     }
+; 1486 :                 }
 
 	jmp	$LN49@PMC_DivRem
 $LN15@PMC_DivRem:
 
-; 1494 :                 else
-; 1495 :                 {
-; 1496 :                     // v の値が 32bit では表現できない場合
-; 1497 :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
+; 1487 :                 else
+; 1488 :                 {
+; 1489 :                     // v の値が 32bit では表現できない場合
+; 1490 :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
 
 	push	ecx
 	call	__LZCNT_ALT_32
@@ -14217,12 +14217,12 @@ $LN15@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1498 :                     if (u_bit_count < v_bit_count)
+; 1491 :                     if (u_bit_count < v_bit_count)
 
 	cmp	ebx, ecx
 	jae	SHORT $LN22@PMC_DivRem
 
-; 1509 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
+; 1502 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
 
 	cmp	DWORD PTR [edi+8], 1
 	mov	ecx, OFFSET _number_zero
@@ -14233,69 +14233,69 @@ $LN15@PMC_DivRem:
 	mov	edx, DWORD PTR [edx+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1510 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
+; 1503 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
 
 	mov	DWORD PTR [esi+4], edx
 	mov	DWORD PTR [esi], eax
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	pop	ebx
 	pop	edi
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14306,78 +14306,78 @@ $LN15@PMC_DivRem:
 $LN37@PMC_DivRem:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1509 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
+; 1502 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
 
 	xor	edx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1510 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
+; 1503 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
 
 	mov	DWORD PTR [esi+4], edx
 	mov	DWORD PTR [esi], eax
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	pop	ebx
 	pop	edi
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14387,14 +14387,14 @@ $LN37@PMC_DivRem:
 	ret	20					; 00000014H
 $LN22@PMC_DivRem:
 
-; 1511 :                         }
-; 1512 :                     }
-; 1513 :                     else
-; 1514 :                     {
-; 1515 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1516 :                         __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1517 :                         __UNIT_TYPE nq_light_check_code;
-; 1518 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1504 :                         }
+; 1505 :                     }
+; 1506 :                     else
+; 1507 :                     {
+; 1508 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1509 :                         __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1510 :                         __UNIT_TYPE nq_light_check_code;
+; 1511 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq_light_check_code$6[ebp]
 	push	eax
@@ -14409,18 +14409,18 @@ $LN22@PMC_DivRem:
 	test	eax, eax
 	jne	SHORT $LN46@PMC_DivRem
 
-; 1519 :                             return (result);
-; 1520 :                         __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+; 1512 :                             return (result);
+; 1513 :                         __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	DWORD PTR _v_buf$1[ebp], eax
 	mov	eax, DWORD PTR _v$[ebp+4]
 	mov	DWORD PTR _v_buf$1[ebp+4], eax
 
-; 1521 :                         __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
-; 1522 :                         __UNIT_TYPE r_buf_code;
-; 1523 :                         __UNIT_TYPE r_buf_words;
-; 1524 :                         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+; 1514 :                         __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+; 1515 :                         __UNIT_TYPE r_buf_code;
+; 1516 :                         __UNIT_TYPE r_buf_words;
+; 1517 :                         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
 
 	lea	eax, DWORD PTR _r_buf_code$4[ebp]
 	push	eax
@@ -14434,19 +14434,19 @@ $LN22@PMC_DivRem:
 	mov	ebx, eax
 	add	esp, 12					; 0000000cH
 
-; 1525 :                         if (r_buf == NULL)
+; 1518 :                         if (r_buf == NULL)
 
 	test	ebx, ebx
 	jne	SHORT $LN27@PMC_DivRem
 
-; 1526 :                         {
-; 1527 :                             DeallocateNumber(nq);
+; 1519 :                         {
+; 1520 :                             DeallocateNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 1528 :                             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 1521 :                             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	lea	eax, DWORD PTR [ebx-5]
 $LN46@PMC_DivRem:
@@ -14454,7 +14454,7 @@ $LN46@PMC_DivRem:
 $LN1@PMC_DivRem:
 	pop	edi
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -14462,8 +14462,8 @@ $LN1@PMC_DivRem:
 	ret	20					; 00000014H
 $LN27@PMC_DivRem:
 
-; 1529 :                         }
-; 1530 :                         (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
+; 1522 :                         }
+; 1523 :                         (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	ebx
@@ -14479,7 +14479,7 @@ $LN27@PMC_DivRem:
 	push	DWORD PTR [edi+32]
 	call	DWORD PTR _fp_DivRem_X_X
 
-; 1531 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1524 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$6[ebp]
@@ -14489,8 +14489,8 @@ $LN27@PMC_DivRem:
 	test	eax, eax
 	jne	SHORT $LN46@PMC_DivRem
 
-; 1532 :                             return (result);
-; 1533 :                         if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
+; 1525 :                             return (result);
+; 1526 :                         if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _r_buf_code$4[ebp]
 	push	ebx
@@ -14499,25 +14499,25 @@ $LN27@PMC_DivRem:
 	test	eax, eax
 	jne	SHORT $LN46@PMC_DivRem
 
-; 1534 :                             return (result);
-; 1535 :                         CommitNumber(nq);
+; 1527 :                             return (result);
+; 1528 :                         CommitNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_CommitNumber
 
-; 1537 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
+; 1530 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
 
 	push	DWORD PTR _r_buf_words$3[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	ecx, DWORD PTR [ebx+4]
 	xor	eax, eax
 	or	eax, DWORD PTR [ebx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1537 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
+; 1530 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
 
 	push	ebx
 	mov	DWORD PTR [esi], eax
@@ -14526,52 +14526,52 @@ $LN27@PMC_DivRem:
 	add	esp, 12					; 0000000cH
 $LN49@PMC_DivRem:
 
-; 1538 :                         if (nq->IS_ZERO)
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
-; 1541 :                             nq = &number_zero;
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1531 :                         if (nq->IS_ZERO)
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
+; 1534 :                             nq = &number_zero;
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1546 :                 if (u_bit_count < v_bit_count)
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
 ; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
-; 1553 :                 if (u_bit_count < v_bit_count)
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
-; 1559 :                     *r = nu->BLOCK[0];
-; 1560 :                 }
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-; 1566 :                         return (result);
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-; 1570 :                         return (result);
-; 1571 :                     CommitNumber(nq);
-; 1572 :                     *r = r_buf;
-; 1573 :                     if (nq->IS_ZERO)
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
-; 1576 :                         nq = &number_zero;
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
+; 1552 :                     *r = nu->BLOCK[0];
+; 1553 :                 }
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1559 :                         return (result);
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1563 :                         return (result);
+; 1564 :                     CommitNumber(nq);
+; 1565 :                     *r = r_buf;
+; 1566 :                     if (nq->IS_ZERO)
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
+; 1569 :                         nq = &number_zero;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	ecx, DWORD PTR _nq$[ebp]
 	test	BYTE PTR [ecx+24], 2
@@ -14585,7 +14585,7 @@ $LN30@PMC_DivRem:
 	pop	ebx
 	pop	edi
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14596,11 +14596,11 @@ $LN30@PMC_DivRem:
 $LN45@PMC_DivRem:
 	pop	edi
 
-; 1418 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1411 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 
-; 1589 : }
+; 1582 : }
 
 	pop	esi
 	mov	esp, ebp
@@ -14621,40 +14621,40 @@ _r_buf$2 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMC_DivRem_X_I@16 PROC					; COMDAT
 
-; 1152 : {
+; 1145 : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 1153 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
-; 1154 :     {
-; 1155 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 1156 :         return (PMC_STATUS_INTERNAL_ERROR);
-; 1157 :     }
-; 1158 :     if (u == NULL)
+; 1146 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
+; 1147 :     {
+; 1148 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 1149 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1150 :     }
+; 1151 :     if (u == NULL)
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
 	test	esi, esi
 	je	$LN19@PMC_DivRem
 
-; 1159 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1160 :     if (q == NULL)
+; 1152 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1153 :     if (q == NULL)
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	$LN19@PMC_DivRem
 
-; 1161 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1162 :     if (r == NULL)
+; 1154 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1155 :     if (r == NULL)
 
 	mov	edi, DWORD PTR _r$[ebp]
 	test	edi, edi
 	je	$LN19@PMC_DivRem
 
-; 1164 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
-; 1165 :     PMC_STATUS_CODE result;
-; 1166 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1157 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1158 :     PMC_STATUS_CODE result;
+; 1159 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	push	esi
 	call	_CheckNumber
@@ -14662,19 +14662,19 @@ _PMC_DivRem_X_I@16 PROC					; COMDAT
 	test	eax, eax
 	jne	SHORT $LN1@PMC_DivRem
 
-; 1167 :         return (result);
-; 1168 :     if (v == 0)
+; 1160 :         return (result);
+; 1161 :     if (v == 0)
 
 	push	ebx
 	mov	ebx, DWORD PTR _v$[ebp]
 	test	ebx, ebx
 	jne	SHORT $LN7@PMC_DivRem
 
-; 1169 :     {
-; 1170 :         // v が 0 である場合
-; 1171 : 
-; 1172 :         // 0 による除算はエラーで返す
-; 1173 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1162 :     {
+; 1163 :         // v が 0 である場合
+; 1164 : 
+; 1165 :         // 0 による除算はエラーで返す
+; 1166 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	lea	eax, DWORD PTR [ebx-3]
 $LN20@PMC_DivRem:
@@ -14682,26 +14682,26 @@ $LN20@PMC_DivRem:
 $LN1@PMC_DivRem:
 	pop	edi
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	pop	ebp
 	ret	16					; 00000010H
 $LN7@PMC_DivRem:
 
-; 1174 :     }
-; 1175 :     NUMBER_HEADER* nq;
-; 1176 :     if (nu->IS_ZERO)
+; 1167 :     }
+; 1168 :     NUMBER_HEADER* nq;
+; 1169 :     if (nu->IS_ZERO)
 
 	test	BYTE PTR [esi+24], 2
 	je	SHORT $LN8@PMC_DivRem
 
-; 1227 :                     nq = &number_zero;
-; 1228 :                 }
-; 1229 :             }
-; 1230 :         }
-; 1231 :     }
-; 1232 :     *q = nq;
+; 1220 :                     nq = &number_zero;
+; 1221 :                 }
+; 1222 :             }
+; 1223 :         }
+; 1224 :     }
+; 1225 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	mov	ecx, OFFSET _number_zero
@@ -14710,42 +14710,42 @@ $LN7@PMC_DivRem:
 	pop	edi
 	mov	DWORD PTR [eax], ecx
 
-; 1233 : #ifdef _DEBUG
-; 1234 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
-; 1235 :         return (result);
-; 1236 : #endif
-; 1237 :     return (PMC_STATUS_OK);
+; 1226 : #ifdef _DEBUG
+; 1227 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+; 1228 :         return (result);
+; 1229 : #endif
+; 1230 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	pop	ebp
 	ret	16					; 00000010H
 $LN8@PMC_DivRem:
 
-; 1177 :     {
-; 1178 :         // u が 0 である場合
-; 1179 : 
-; 1180 :         // q = 0, r = 0 を返す
-; 1181 :         nq = &number_zero;
-; 1182 :         *r = 0;
-; 1183 :     }
-; 1184 :     else
-; 1185 :     {
-; 1186 :         // u が 0 ではない場合
-; 1187 : 
-; 1188 :         if (v == 1)
+; 1170 :     {
+; 1171 :         // u が 0 である場合
+; 1172 : 
+; 1173 :         // q = 0, r = 0 を返す
+; 1174 :         nq = &number_zero;
+; 1175 :         *r = 0;
+; 1176 :     }
+; 1177 :     else
+; 1178 :     {
+; 1179 :         // u が 0 ではない場合
+; 1180 : 
+; 1181 :         if (v == 1)
 
 	cmp	ebx, 1
 	jne	SHORT $LN10@PMC_DivRem
 
-; 1189 :         {
-; 1190 :             // v が 1 である場合
-; 1191 : 
-; 1192 :             // q = u, r = 0 を返す
-; 1193 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1182 :         {
+; 1183 :             // v が 1 である場合
+; 1184 : 
+; 1185 :             // q = u, r = 0 を返す
+; 1186 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq$[ebp]
 	push	eax
@@ -14755,25 +14755,25 @@ $LN8@PMC_DivRem:
 	test	eax, eax
 	jne	SHORT $LN20@PMC_DivRem
 
-; 1194 :                 return (result);
-; 1195 :             *r = 0;
-; 1196 :         }
+; 1187 :                 return (result);
+; 1188 :             *r = 0;
+; 1189 :         }
 
 	mov	ecx, DWORD PTR _nq$[ebp]
 	mov	DWORD PTR [edi], eax
 
-; 1227 :                     nq = &number_zero;
-; 1228 :                 }
-; 1229 :             }
-; 1230 :         }
-; 1231 :     }
-; 1232 :     *q = nq;
+; 1220 :                     nq = &number_zero;
+; 1221 :                 }
+; 1222 :             }
+; 1223 :         }
+; 1224 :     }
+; 1225 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	pop	ebx
 	pop	edi
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14782,16 +14782,16 @@ $LN8@PMC_DivRem:
 	ret	16					; 00000010H
 $LN10@PMC_DivRem:
 
-; 1197 :         else
-; 1198 :         {
-; 1199 :             // u と v がともに 0 ではない場合
-; 1200 : 
-; 1201 :             // x と y の商・剰余を計算する
-; 1202 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1190 :         else
+; 1191 :         {
+; 1192 :             // u と v がともに 0 ではない場合
+; 1193 : 
+; 1194 :             // x と y の商・剰余を計算する
+; 1195 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR [esi+12]
 
-; 1203 :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 1196 :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	push	ebx
 	call	__LZCNT_ALT_32
@@ -14799,17 +14799,17 @@ $LN10@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1204 :             if (u_bit_count < v_bit_count)
+; 1197 :             if (u_bit_count < v_bit_count)
 
 	cmp	edx, ecx
 	jae	SHORT $LN13@PMC_DivRem
 
-; 1205 :             {
-; 1206 :                 // 明らかに u < v である場合
-; 1207 : 
-; 1208 :                 // q = 0, r = u を返す。
-; 1209 :                 nq = &number_zero;
-; 1210 :                 *r = (_UINT32_T)nu->BLOCK[0];
+; 1198 :             {
+; 1199 :                 // 明らかに u < v である場合
+; 1200 : 
+; 1201 :                 // q = 0, r = u を返す。
+; 1202 :                 nq = &number_zero;
+; 1203 :                 *r = (_UINT32_T)nu->BLOCK[0];
 
 	mov	eax, DWORD PTR [esi+32]
 	mov	ecx, OFFSET _number_zero
@@ -14818,17 +14818,17 @@ $LN10@PMC_DivRem:
 	mov	eax, DWORD PTR [eax]
 	mov	DWORD PTR [edi], eax
 
-; 1227 :                     nq = &number_zero;
-; 1228 :                 }
-; 1229 :             }
-; 1230 :         }
-; 1231 :     }
-; 1232 :     *q = nq;
+; 1220 :                     nq = &number_zero;
+; 1221 :                 }
+; 1222 :             }
+; 1223 :         }
+; 1224 :     }
+; 1225 :     *q = nq;
 
 	mov	eax, DWORD PTR _q$[ebp]
 	pop	edi
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14837,12 +14837,12 @@ $LN10@PMC_DivRem:
 	ret	16					; 00000010H
 $LN13@PMC_DivRem:
 
-; 1211 :             }
-; 1212 :             else
-; 1213 :             {
-; 1214 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-; 1215 :                 __UNIT_TYPE nq_light_check_code;
-; 1216 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1204 :             }
+; 1205 :             else
+; 1206 :             {
+; 1207 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1208 :                 __UNIT_TYPE nq_light_check_code;
+; 1209 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nq_light_check_code$1[ebp]
 	sub	edx, ecx
@@ -14856,12 +14856,12 @@ $LN13@PMC_DivRem:
 	test	eax, eax
 	jne	$LN20@PMC_DivRem
 
-; 1217 :                     return (result);
-; 1218 :                 __UNIT_TYPE_DIV r_buf = 0;
+; 1210 :                     return (result);
+; 1211 :                 __UNIT_TYPE_DIV r_buf = 0;
 
 	mov	DWORD PTR _r_buf$2[ebp], eax
 
-; 1219 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1212 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
 
 	lea	eax, DWORD PTR _r_buf$2[ebp]
 	push	eax
@@ -14874,7 +14874,7 @@ $LN13@PMC_DivRem:
 	push	DWORD PTR [esi+32]
 	call	_DivRem_X_1W
 
-; 1220 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1213 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nq$[ebp]
 	push	DWORD PTR _nq_light_check_code$1[ebp]
@@ -14884,14 +14884,14 @@ $LN13@PMC_DivRem:
 	test	eax, eax
 	jne	$LN20@PMC_DivRem
 
-; 1221 :                     return (result);
-; 1222 :                 CommitNumber(nq);
+; 1214 :                     return (result);
+; 1215 :                 CommitNumber(nq);
 
 	push	DWORD PTR _nq$[ebp]
 	call	_CommitNumber
 
-; 1223 :                 *r = (_UINT32_T)r_buf;
-; 1224 :                 if (nq->IS_ZERO)
+; 1216 :                 *r = (_UINT32_T)r_buf;
+; 1217 :                 if (nq->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nq$[ebp]
 	add	esp, 4
@@ -14900,19 +14900,19 @@ $LN13@PMC_DivRem:
 	test	BYTE PTR [ecx+24], 2
 	je	SHORT $LN17@PMC_DivRem
 
-; 1225 :                 {
-; 1226 :                     DeallocateNumber(nq);
+; 1218 :                 {
+; 1219 :                     DeallocateNumber(nq);
 
 	push	ecx
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 1227 :                     nq = &number_zero;
-; 1228 :                 }
-; 1229 :             }
-; 1230 :         }
-; 1231 :     }
-; 1232 :     *q = nq;
+; 1220 :                     nq = &number_zero;
+; 1221 :                 }
+; 1222 :             }
+; 1223 :         }
+; 1224 :     }
+; 1225 :     *q = nq;
 
 	mov	ecx, OFFSET _number_zero
 $LN17@PMC_DivRem:
@@ -14920,7 +14920,7 @@ $LN17@PMC_DivRem:
 	pop	ebx
 	pop	edi
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ecx
@@ -14930,11 +14930,11 @@ $LN17@PMC_DivRem:
 $LN19@PMC_DivRem:
 	pop	edi
 
-; 1163 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1156 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 
-; 1238 : }
+; 1231 : }
 
 	pop	esi
 	pop	ebp
@@ -14977,7 +14977,7 @@ _q$ = 20						; size = 4
 _r$ = 24						; size = 4
 _PMC_DivRem_L_X@20 PROC					; COMDAT
 
-; 1241 : {
+; 1234 : {
 
 	push	ebp
 	mov	ebp, esp
@@ -14992,31 +14992,31 @@ _PMC_DivRem_L_X@20 PROC					; COMDAT
 	push	edi
 	mov	edi, DWORD PTR _q$[ebp]
 
-; 1242 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(u))
-; 1243 :     {
-; 1244 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 1245 :         return (PMC_STATUS_INTERNAL_ERROR);
-; 1246 :     }
-; 1247 :     if (v == NULL)
+; 1235 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(u))
+; 1236 :     {
+; 1237 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 1238 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1239 :     }
+; 1240 :     if (v == NULL)
 
 	test	esi, esi
 	je	$LN61@PMC_DivRem
 
-; 1248 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1249 :     if (q == NULL)
+; 1241 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1242 :     if (q == NULL)
 
 	test	edi, edi
 	je	$LN61@PMC_DivRem
 
-; 1250 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1251 :     if (r == NULL)
+; 1243 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1244 :     if (r == NULL)
 
 	test	ebx, ebx
 	je	$LN61@PMC_DivRem
 
-; 1253 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 1254 :     PMC_STATUS_CODE result;
-; 1255 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1246 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1247 :     PMC_STATUS_CODE result;
+; 1248 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	push	esi
 	call	_CheckNumber
@@ -15024,13 +15024,13 @@ _PMC_DivRem_L_X@20 PROC					; COMDAT
 	test	eax, eax
 	jne	$LN1@PMC_DivRem
 
-; 1256 :         return (result);
-; 1257 :     if (nv->IS_ZERO)
+; 1249 :         return (result);
+; 1250 :     if (nv->IS_ZERO)
 
 	test	BYTE PTR [esi+24], 2
 	je	SHORT $LN7@PMC_DivRem
 
-; 1404 : }
+; 1397 : }
 
 	pop	edi
 	pop	esi
@@ -15044,13 +15044,13 @@ _PMC_DivRem_L_X@20 PROC					; COMDAT
 	ret	20					; 00000014H
 $LN7@PMC_DivRem:
 
-; 1258 :     {
-; 1259 :         // v が 0 である場合
-; 1260 : 
-; 1261 :         // 0 による除算はエラーで返す
-; 1262 :         return (PMC_STATUS_DIVISION_BY_ZERO);
-; 1263 :     }
-; 1264 :     if (u == 0)
+; 1251 :     {
+; 1252 :         // v が 0 である場合
+; 1253 : 
+; 1254 :         // 0 による除算はエラーで返す
+; 1255 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1256 :     }
+; 1257 :     if (u == 0)
 
 	mov	edx, DWORD PTR _u$[ebp]
 	mov	eax, edx
@@ -15058,17 +15058,17 @@ $LN7@PMC_DivRem:
 	or	eax, ecx
 	jne	SHORT $LN8@PMC_DivRem
 
-; 1265 :     {
-; 1266 :         // x が 0 である場合
-; 1267 : 
-; 1268 :         // q = 0, r = 0 を返す
-; 1269 :         *q = 0;
+; 1258 :     {
+; 1259 :         // x が 0 である場合
+; 1260 : 
+; 1261 :         // q = 0, r = 0 を返す
+; 1262 :         *q = 0;
 
 	mov	DWORD PTR [edi], eax
 	mov	DWORD PTR [edi+4], eax
 	pop	edi
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], eax
@@ -15082,32 +15082,32 @@ $LN7@PMC_DivRem:
 	ret	20					; 00000014H
 $LN8@PMC_DivRem:
 
-; 1270 :         *r = 0;
-; 1271 :     }
-; 1272 :     else
-; 1273 :     {
-; 1274 :         // u が 0 ではない場合
-; 1275 : 
-; 1276 :         if (nv->IS_ONE)
+; 1263 :         *r = 0;
+; 1264 :     }
+; 1265 :     else
+; 1266 :     {
+; 1267 :         // u が 0 ではない場合
+; 1268 : 
+; 1269 :         if (nv->IS_ONE)
 
 	test	BYTE PTR [esi+24], 4
 	je	SHORT $LN10@PMC_DivRem
 
-; 1277 :         {
-; 1278 :             // v が 1 である場合
-; 1279 : 
-; 1280 :             // q = u, r = 0 を返す
-; 1281 :             *q = u;
+; 1270 :         {
+; 1271 :             // v が 1 である場合
+; 1272 : 
+; 1273 :             // q = u, r = 0 を返す
+; 1274 :             *q = u;
 
 	mov	DWORD PTR [edi], edx
 
-; 1403 :     return (PMC_STATUS_OK);
+; 1396 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	mov	DWORD PTR [edi+4], ecx
 	pop	edi
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], 0
@@ -15121,26 +15121,26 @@ $LN8@PMC_DivRem:
 	ret	20					; 00000014H
 $LN10@PMC_DivRem:
 
-; 1282 :             *r = 0;
-; 1283 :         }
-; 1284 :         else
-; 1285 :         {
-; 1286 :             // u > 0 かつ v > 1 である場合
-; 1287 : 
-; 1288 :             // u と v の商・剰余を計算する
-; 1289 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
-; 1290 :             {
-; 1291 :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 1292 :                 _UINT32_T u_hi;
-; 1293 :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
-; 1294 :                 if (u_hi == 0)
+; 1275 :             *r = 0;
+; 1276 :         }
+; 1277 :         else
+; 1278 :         {
+; 1279 :             // u > 0 かつ v > 1 である場合
+; 1280 : 
+; 1281 :             // u と v の商・剰余を計算する
+; 1282 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
+; 1283 :             {
+; 1284 :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 1285 :                 _UINT32_T u_hi;
+; 1286 :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
+; 1287 :                 if (u_hi == 0)
 
 	test	ecx, ecx
 	jne	$LN14@PMC_DivRem
 
-; 1295 :                 {
-; 1296 :                     // u の値が 32bit で表現可能な場合
-; 1297 :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
+; 1288 :                 {
+; 1289 :                     // u の値が 32bit で表現可能な場合
+; 1290 :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
 
 	push	edx
 	call	__LZCNT_ALT_32
@@ -15148,27 +15148,27 @@ $LN10@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1298 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 1299 :                     if (u_bit_count < v_bit_count)
+; 1291 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1292 :                     if (u_bit_count < v_bit_count)
 
 	cmp	ecx, DWORD PTR [esi+12]
 	jae	SHORT $LN16@PMC_DivRem
 
-; 1300 :                     {
-; 1301 :                         // 明らかに u < v である場合
-; 1302 : 
-; 1303 :                         // q = 0, r = u を返す。
-; 1304 :                         *q = 0;
+; 1293 :                     {
+; 1294 :                         // 明らかに u < v である場合
+; 1295 : 
+; 1296 :                         // q = 0, r = u を返す。
+; 1297 :                         *q = 0;
 
 	mov	DWORD PTR [edi], 0
 
-; 1403 :     return (PMC_STATUS_OK);
+; 1396 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	mov	DWORD PTR [edi+4], 0
 	pop	edi
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], edx
@@ -15182,12 +15182,12 @@ $LN10@PMC_DivRem:
 	ret	20					; 00000014H
 $LN16@PMC_DivRem:
 
-; 1313 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1306 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	eax, DWORD PTR [esi+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	mov	esi, DWORD PTR [eax]
@@ -15201,30 +15201,30 @@ $LN16@PMC_DivRem:
 	push	DWORD PTR _u$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1313 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1306 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	DWORD PTR [edi], eax
 	mov	DWORD PTR [edi+4], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 390  :             *r = (_UINT32_T)(t % v);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	call	__aullrem
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1314 :                         *r = temp_r;
+; 1307 :                         *r = temp_r;
 
 	mov	DWORD PTR [ebx], eax
 	mov	DWORD PTR [ebx+4], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	xor	eax, eax
@@ -15237,18 +15237,18 @@ $LN16@PMC_DivRem:
 	ret	20					; 00000014H
 $LN14@PMC_DivRem:
 
-; 1315 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1316 :                         if (sizeof(r) == sizeof(_UINT64_T))
-; 1317 :                             IncrementDIV64Counter();
-; 1318 :                         else
-; 1319 :                             IncrementDIV32Counter();
-; 1320 : #endif
-; 1321 :                     }
-; 1322 :                 }
-; 1323 :                 else
-; 1324 :                 {
-; 1325 :                     // v の値が 32bit では表現できない場合
-; 1326 :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
+; 1308 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1309 :                         if (sizeof(r) == sizeof(_UINT64_T))
+; 1310 :                             IncrementDIV64Counter();
+; 1311 :                         else
+; 1312 :                             IncrementDIV32Counter();
+; 1313 : #endif
+; 1314 :                     }
+; 1315 :                 }
+; 1316 :                 else
+; 1317 :                 {
+; 1318 :                     // v の値が 32bit では表現できない場合
+; 1319 :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
 
 	push	ecx
 	call	__LZCNT_ALT_32
@@ -15256,19 +15256,19 @@ $LN14@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1327 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 1328 :                     if (u_bit_count < v_bit_count)
+; 1320 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1321 :                     if (u_bit_count < v_bit_count)
 
 	mov	eax, DWORD PTR [esi+12]
 	cmp	ecx, eax
 	jae	SHORT $LN20@PMC_DivRem
 
-; 1329 :                     {
-; 1330 :                         // 明らかに u < v である場合
-; 1331 : 
-; 1332 :                         // q = 0, r = u を返す。
-; 1333 :                         *q = 0;
-; 1334 :                         *r = u;
+; 1322 :                     {
+; 1323 :                         // 明らかに u < v である場合
+; 1324 : 
+; 1325 :                         // q = 0, r = u を返す。
+; 1326 :                         *q = 0;
+; 1327 :                         *r = u;
 
 	mov	eax, DWORD PTR _u$[ebp+4]
 	mov	DWORD PTR [edi], 0
@@ -15276,11 +15276,11 @@ $LN14@PMC_DivRem:
 	pop	edi
 	mov	DWORD PTR [ebx+4], eax
 
-; 1403 :     return (PMC_STATUS_OK);
+; 1396 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], edx
@@ -15293,12 +15293,12 @@ $LN14@PMC_DivRem:
 	ret	20					; 00000014H
 $LN20@PMC_DivRem:
 
-; 1335 :                     }
-; 1336 :                     else
-; 1337 :                     {
-; 1338 :                         // u のビット長が 33 以上 64 以下であり、かつ、u のビット長が v のビット長以上(v のビット長は多くとも64以下)である場合
-; 1339 : 
-; 1340 :                         if (nv->UNIT_BIT_COUNT <= sizeof(__UNIT_TYPE_DIV) * 8)
+; 1328 :                     }
+; 1329 :                     else
+; 1330 :                     {
+; 1331 :                         // u のビット長が 33 以上 64 以下であり、かつ、u のビット長が v のビット長以上(v のビット長は多くとも64以下)である場合
+; 1332 : 
+; 1333 :                         if (nv->UNIT_BIT_COUNT <= sizeof(__UNIT_TYPE_DIV) * 8)
 
 	cmp	eax, 32					; 00000020H
 	mov	DWORD PTR _q_buf$7[ebp], 0
@@ -15307,14 +15307,14 @@ $LN20@PMC_DivRem:
 	mov	DWORD PTR _q_buf$7[ebp+8], 0
 	ja	SHORT $LN22@PMC_DivRem
 
-; 1341 :                         {
-; 1342 :                             // v が 32bit で表現できる場合
-; 1343 : 
-; 1344 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+; 1334 :                         {
+; 1335 :                             // v が 32bit で表現できる場合
+; 1336 : 
+; 1337 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
 
 	mov	DWORD PTR _u_buf$4[ebp+4], eax
 
-; 1348 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
+; 1341 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
 
 	lea	eax, DWORD PTR _r_buf$2[ebp]
 	push	eax
@@ -15329,46 +15329,46 @@ $LN20@PMC_DivRem:
 	call	_DivRem_X_1W
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	ecx, DWORD PTR _q_buf$7[ebp+4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1348 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
+; 1341 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
 
 	add	esp, 20					; 00000014H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1350 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
+; 1343 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
 
 	mov	DWORD PTR [edi+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, DWORD PTR _q_buf$7[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1350 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
+; 1343 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
 
 	mov	DWORD PTR [edi], eax
 
-; 1351 :                             *r = r_buf;
+; 1344 :                             *r = r_buf;
 
 	mov	eax, DWORD PTR _r_buf$2[ebp]
 	pop	edi
 
-; 1403 :     return (PMC_STATUS_OK);
+; 1396 :     return (PMC_STATUS_OK);
 
 	mov	DWORD PTR [ebx], eax
 	xor	eax, eax
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx+4], 0
@@ -15381,17 +15381,17 @@ $LN20@PMC_DivRem:
 	ret	20					; 00000014H
 $LN22@PMC_DivRem:
 
-; 1352 :                         }
-; 1353 :                         else
-; 1354 :                         {
-; 1355 :                             // v が 32bit では表現できない場合
-; 1356 : 
-; 1357 :                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
-; 1358 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+; 1345 :                         }
+; 1346 :                         else
+; 1347 :                         {
+; 1348 :                             // v が 32bit では表現できない場合
+; 1349 : 
+; 1350 :                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
+; 1351 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
 
 	mov	DWORD PTR _u_buf$1[ebp+4], eax
 
-; 1362 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
+; 1355 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
 
 	lea	eax, DWORD PTR _r_buf$5[ebp]
 	push	eax
@@ -15415,45 +15415,45 @@ $LN22@PMC_DivRem:
 	call	DWORD PTR _fp_DivRem_X_X
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	ecx, DWORD PTR _q_buf$6[ebp+4]
 	xor	eax, eax
 	or	eax, DWORD PTR _q_buf$6[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1362 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
+; 1355 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
 
 	add	esp, 28					; 0000001cH
 
-; 1363 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
+; 1356 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
 
 	mov	DWORD PTR [edi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR _r_buf$5[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1363 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
+; 1356 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
 
 	mov	DWORD PTR [edi+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	ecx, DWORD PTR _r_buf$5[ebp+4]
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1403 :     return (PMC_STATUS_OK);
+; 1396 :     return (PMC_STATUS_OK);
 
 	mov	DWORD PTR [ebx], eax
 	xor	eax, eax
 
-; 1404 : }
+; 1397 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx+4], ecx
@@ -15466,12 +15466,12 @@ $LN22@PMC_DivRem:
 	ret	20					; 00000014H
 $LN61@PMC_DivRem:
 
-; 1252 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1245 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 $LN1@PMC_DivRem:
 
-; 1404 : }
+; 1397 : }
 
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	pop	edi
@@ -15500,42 +15500,42 @@ _q$ = 16						; size = 4
 _r$ = 20						; size = 4
 _PMC_DivRem_I_X@16 PROC					; COMDAT
 
-; 1073 : {
+; 1066 : {
 
 	push	ebp
 	mov	ebp, esp
 	push	ebx
 	push	esi
 
-; 1074 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
-; 1075 :     {
-; 1076 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 1077 :         return (PMC_STATUS_INTERNAL_ERROR);
-; 1078 :     }
-; 1079 :     if (v == NULL)
+; 1067 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
+; 1068 :     {
+; 1069 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 1070 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1071 :     }
+; 1072 :     if (v == NULL)
 
 	mov	esi, DWORD PTR _v$[ebp]
 	push	edi
 	test	esi, esi
 	je	$LN29@PMC_DivRem
 
-; 1080 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1081 :     if (q == NULL)
+; 1073 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1074 :     if (q == NULL)
 
 	mov	edi, DWORD PTR _q$[ebp]
 	test	edi, edi
 	je	$LN29@PMC_DivRem
 
-; 1082 :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 1083 :     if (r == NULL)
+; 1075 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1076 :     if (r == NULL)
 
 	mov	ebx, DWORD PTR _r$[ebp]
 	test	ebx, ebx
 	je	$LN29@PMC_DivRem
 
-; 1085 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 1086 :     PMC_STATUS_CODE result;
-; 1087 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1078 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1079 :     PMC_STATUS_CODE result;
+; 1080 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	push	esi
 	call	_CheckNumber
@@ -15543,14 +15543,14 @@ _PMC_DivRem_I_X@16 PROC					; COMDAT
 	test	eax, eax
 	jne	$LN1@PMC_DivRem
 
-; 1088 :         return (result);
-; 1089 :     if (nv->IS_ZERO)
+; 1081 :         return (result);
+; 1082 :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR [esi+24]
 	test	al, 2
 	je	SHORT $LN7@PMC_DivRem
 
-; 1149 : }
+; 1142 : }
 
 	pop	edi
 	pop	esi
@@ -15560,41 +15560,41 @@ _PMC_DivRem_I_X@16 PROC					; COMDAT
 	ret	16					; 00000010H
 $LN7@PMC_DivRem:
 
-; 1090 :     {
-; 1091 :         // v が 0 である場合
-; 1092 : 
-; 1093 :         // 0 による除算はエラーで返す
-; 1094 :         return (PMC_STATUS_DIVISION_BY_ZERO);
-; 1095 :     }
-; 1096 :     if (u == 0)
+; 1083 :     {
+; 1084 :         // v が 0 である場合
+; 1085 : 
+; 1086 :         // 0 による除算はエラーで返す
+; 1087 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1088 :     }
+; 1089 :     if (u == 0)
 
 	mov	edx, DWORD PTR _u$[ebp]
 	test	edx, edx
 	jne	SHORT $LN8@PMC_DivRem
 
-; 1097 :     {
-; 1098 :         // u が 0 である場合
-; 1099 : 
-; 1100 :         // q = 0, r = 0 を返す
-; 1101 :         *q = 0;
+; 1090 :     {
+; 1091 :         // u が 0 である場合
+; 1092 : 
+; 1093 :         // q = 0, r = 0 を返す
+; 1094 :         *q = 0;
 
 	mov	DWORD PTR [edi], edx
 
-; 1139 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1140 :                 if (sizeof(r) == sizeof(_UINT64_T))
-; 1141 :                     IncrementDIV64Counter();
-; 1142 :                 else
-; 1143 :                     IncrementDIV32Counter();
-; 1144 : #endif
-; 1145 :             }
-; 1146 :         }
-; 1147 :     }
-; 1148 :     return (PMC_STATUS_OK);
+; 1132 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1133 :                 if (sizeof(r) == sizeof(_UINT64_T))
+; 1134 :                     IncrementDIV64Counter();
+; 1135 :                 else
+; 1136 :                     IncrementDIV32Counter();
+; 1137 : #endif
+; 1138 :             }
+; 1139 :         }
+; 1140 :     }
+; 1141 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 1149 : }
+; 1142 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], edx
@@ -15603,40 +15603,40 @@ $LN7@PMC_DivRem:
 	ret	16					; 00000010H
 $LN8@PMC_DivRem:
 
-; 1102 :         *r = 0;
-; 1103 :     }
-; 1104 :     else
-; 1105 :     {
-; 1106 :         // u が 0 ではない場合
-; 1107 : 
-; 1108 :         if (nv->IS_ONE)
+; 1095 :         *r = 0;
+; 1096 :     }
+; 1097 :     else
+; 1098 :     {
+; 1099 :         // u が 0 ではない場合
+; 1100 : 
+; 1101 :         if (nv->IS_ONE)
 
 	test	al, 4
 	je	SHORT $LN10@PMC_DivRem
 
-; 1109 :         {
-; 1110 :             // v が 1 である場合
-; 1111 : 
-; 1112 :             // q = u, r = 0 を返す
-; 1113 :             *q = u;
+; 1102 :         {
+; 1103 :             // v が 1 である場合
+; 1104 : 
+; 1105 :             // q = u, r = 0 を返す
+; 1106 :             *q = u;
 
 	mov	DWORD PTR [edi], edx
 
-; 1139 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1140 :                 if (sizeof(r) == sizeof(_UINT64_T))
-; 1141 :                     IncrementDIV64Counter();
-; 1142 :                 else
-; 1143 :                     IncrementDIV32Counter();
-; 1144 : #endif
-; 1145 :             }
-; 1146 :         }
-; 1147 :     }
-; 1148 :     return (PMC_STATUS_OK);
+; 1132 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1133 :                 if (sizeof(r) == sizeof(_UINT64_T))
+; 1134 :                     IncrementDIV64Counter();
+; 1135 :                 else
+; 1136 :                     IncrementDIV32Counter();
+; 1137 : #endif
+; 1138 :             }
+; 1139 :         }
+; 1140 :     }
+; 1141 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 1149 : }
+; 1142 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], 0
@@ -15645,14 +15645,14 @@ $LN8@PMC_DivRem:
 	ret	16					; 00000010H
 $LN10@PMC_DivRem:
 
-; 1114 :             *r = 0;
-; 1115 :         }
-; 1116 :         else
-; 1117 :         {
-; 1118 :             // u と v がともに 0 ではない場合
-; 1119 : 
-; 1120 :             // x と y の商・剰余を計算する
-; 1121 :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
+; 1107 :             *r = 0;
+; 1108 :         }
+; 1109 :         else
+; 1110 :         {
+; 1111 :             // u と v がともに 0 ではない場合
+; 1112 : 
+; 1113 :             // x と y の商・剰余を計算する
+; 1114 :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
 
 	push	edx
 	call	__LZCNT_ALT_32
@@ -15660,35 +15660,35 @@ $LN10@PMC_DivRem:
 	add	esp, 4
 	sub	ecx, eax
 
-; 1122 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 1123 :             if (u_bit_count < v_bit_count)
+; 1115 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1116 :             if (u_bit_count < v_bit_count)
 
 	cmp	ecx, DWORD PTR [esi+12]
 	jae	SHORT $LN12@PMC_DivRem
 
-; 1124 :             {
-; 1125 :                 // 明らかに u < v である場合
-; 1126 : 
-; 1127 :                 // q = 0, r = u を返す。
-; 1128 :                 *q = 0;
+; 1117 :             {
+; 1118 :                 // 明らかに u < v である場合
+; 1119 : 
+; 1120 :                 // q = 0, r = u を返す。
+; 1121 :                 *q = 0;
 
 	mov	DWORD PTR [edi], 0
 
-; 1139 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1140 :                 if (sizeof(r) == sizeof(_UINT64_T))
-; 1141 :                     IncrementDIV64Counter();
-; 1142 :                 else
-; 1143 :                     IncrementDIV32Counter();
-; 1144 : #endif
-; 1145 :             }
-; 1146 :         }
-; 1147 :     }
-; 1148 :     return (PMC_STATUS_OK);
+; 1132 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1133 :                 if (sizeof(r) == sizeof(_UINT64_T))
+; 1134 :                     IncrementDIV64Counter();
+; 1135 :                 else
+; 1136 :                     IncrementDIV32Counter();
+; 1137 : #endif
+; 1138 :             }
+; 1139 :         }
+; 1140 :     }
+; 1141 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 1149 : }
+; 1142 : }
 
 	pop	esi
 	mov	DWORD PTR [ebx], edx
@@ -15697,12 +15697,12 @@ $LN10@PMC_DivRem:
 	ret	16					; 00000010H
 $LN12@PMC_DivRem:
 
-; 1137 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1130 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	eax, DWORD PTR [esi+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	mov	esi, DWORD PTR [eax]
@@ -15716,28 +15716,28 @@ $LN12@PMC_DivRem:
 	push	DWORD PTR _u$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1137 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1130 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	DWORD PTR [edi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 390  :             *r = (_UINT32_T)(t % v);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	call	__aullrem
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1138 :                 *r = temp_r;
+; 1131 :                 *r = temp_r;
 
 	mov	DWORD PTR [ebx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 1149 : }
+; 1142 : }
 
 	pop	esi
 	xor	eax, eax
@@ -15746,13 +15746,13 @@ $LN12@PMC_DivRem:
 	ret	16					; 00000010H
 $LN29@PMC_DivRem:
 
-; 1084 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1077 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 $LN1@PMC_DivRem:
 	pop	edi
 
-; 1149 : }
+; 1142 : }
 
 	pop	esi
 	pop	ebx
@@ -15767,14 +15767,14 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_DivRem PROC					; COMDAT
 
-; 1745 : {
+; 1738 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	eax, DWORD PTR _feature$[ebp]
 
-; 1746 :     fp_DivRem_X_X = feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2 ? DivRem_X_X_using_ADX_MULX : DivRem_X_X_using_ADC_MUL;
-; 1747 :     return (PMC_STATUS_OK);
+; 1739 :     fp_DivRem_X_X = feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2 ? DivRem_X_X_using_ADX_MULX : DivRem_X_X_using_ADC_MUL;
+; 1740 :     return (PMC_STATUS_OK);
 
 	mov	ecx, OFFSET _DivRem_X_X_using_ADX_MULX
 	mov	edx, OFFSET _DivRem_X_X_using_ADC_MUL
@@ -15785,7 +15785,7 @@ _Initialize_DivRem PROC					; COMDAT
 	xor	eax, eax
 	mov	DWORD PTR _fp_DivRem_X_X, ecx
 
-; 1748 : }
+; 1741 : }
 
 	pop	ebp
 	ret	0
@@ -15817,23 +15817,23 @@ _q_buf$ = 28						; size = 4
 _r_buf$ = 32						; size = 4
 _DivRem_X_X PROC					; COMDAT
 
-; 46   : {
+; 39   : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 47   :     __UNIT_TYPE_DIV* u_buf_2 = (__UNIT_TYPE_DIV*)u_buf;
-; 48   :     __UNIT_TYPE u_count_2 = u_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
-; 49   :     __UNIT_TYPE_DIV* v_buf_2 = (__UNIT_TYPE_DIV*)v_buf;
-; 50   :     __UNIT_TYPE v_count_2 = v_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
-; 51   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
-; 52   :     {
-; 53   :         if (u_buf_2[u_count_2 - 1] == 0)
-; 54   :             --u_count_2;
-; 55   :         if (v_buf_2[v_count_2 - 1] == 0)
-; 56   :             --v_count_2;
-; 57   :     }
-; 58   :     if (v_count_2 == 1)
+; 40   :     __UNIT_TYPE_DIV* u_buf_2 = (__UNIT_TYPE_DIV*)u_buf;
+; 41   :     __UNIT_TYPE u_count_2 = u_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
+; 42   :     __UNIT_TYPE_DIV* v_buf_2 = (__UNIT_TYPE_DIV*)v_buf;
+; 43   :     __UNIT_TYPE v_count_2 = v_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
+; 44   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 45   :     {
+; 46   :         if (u_buf_2[u_count_2 - 1] == 0)
+; 47   :             --u_count_2;
+; 48   :         if (v_buf_2[v_count_2 - 1] == 0)
+; 49   :             --v_count_2;
+; 50   :     }
+; 51   :     if (v_count_2 == 1)
 
 	mov	eax, DWORD PTR _v_count$[ebp]
 	push	esi
@@ -15841,8 +15841,8 @@ _DivRem_X_X PROC					; COMDAT
 	cmp	eax, 1
 	jne	SHORT $LN5@DivRem_X_X
 
-; 59   :     {
-; 60   :         if (u_count_2 == 1)
+; 52   :     {
+; 53   :         if (u_count_2 == 1)
 
 	mov	eax, DWORD PTR _v_buf$[ebp]
 	mov	edi, DWORD PTR [eax]
@@ -15851,32 +15851,32 @@ _DivRem_X_X PROC					; COMDAT
 	jne	SHORT $LN7@DivRem_X_X
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR _u_buf$[ebp]
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	edi
 	push	0
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	esi, DWORD PTR [eax]
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	push	esi
 	call	__aulldiv
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 64   :             q_buf[0] = q;
+; 57   :             q_buf[0] = q;
 
 	mov	ecx, DWORD PTR _q_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 390  :             *r = (_UINT32_T)(t % v);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	edi
@@ -15884,46 +15884,46 @@ _DivRem_X_X PROC					; COMDAT
 	push	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 64   :             q_buf[0] = q;
+; 57   :             q_buf[0] = q;
 
 	mov	DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 390  :             *r = (_UINT32_T)(t % v);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	call	__aullrem
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 65   :             r_buf[0] = r;
+; 58   :             r_buf[0] = r;
 
 	mov	ecx, DWORD PTR _r_buf$[ebp]
 	mov	DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 90   : }
+; 83   : }
 
 	pop	esi
 	pop	ebp
 	ret	0
 $LN7@DivRem_X_X:
 
-; 66   : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 67   :             if (sizeof(r) == sizeof(_UINT64_T))
-; 68   :                 IncrementDIV64Counter();
-; 69   :             else
-; 70   :                 IncrementDIV32Counter();
-; 71   : #endif
-; 72   :         }
-; 73   :         else
-; 74   :         {
-; 75   :             __UNIT_TYPE_DIV r;
-; 76   :             DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
+; 59   : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 60   :             if (sizeof(r) == sizeof(_UINT64_T))
+; 61   :                 IncrementDIV64Counter();
+; 62   :             else
+; 63   :                 IncrementDIV32Counter();
+; 64   : #endif
+; 65   :         }
+; 66   :         else
+; 67   :         {
+; 68   :             __UNIT_TYPE_DIV r;
+; 69   :             DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
 
 	lea	ecx, DWORD PTR _r$1[ebp]
 	push	ecx
@@ -15933,7 +15933,7 @@ $LN7@DivRem_X_X:
 	push	DWORD PTR _u_buf$[ebp]
 	call	_DivRem_X_1W
 
-; 77   :             r_buf[0] = r;
+; 70   :             r_buf[0] = r;
 
 	mov	ecx, DWORD PTR _r_buf$[ebp]
 	add	esp, 20					; 00000014H
@@ -15941,46 +15941,46 @@ $LN7@DivRem_X_X:
 	pop	edi
 	mov	DWORD PTR [ecx], eax
 
-; 90   : }
+; 83   : }
 
 	pop	esi
 	pop	ebp
 	ret	0
 $LN5@DivRem_X_X:
 
-; 78   :         }
-; 79   :     }
-; 80   :     else
-; 81   :     {
-; 82   :         if (u_count_2 < v_count_2)
+; 71   :         }
+; 72   :     }
+; 73   :     else
+; 74   :     {
+; 75   :         if (u_count_2 < v_count_2)
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	cmp	ecx, eax
 	jae	SHORT $LN11@DivRem_X_X
 
-; 84   :             q_buf[0] = 0;
+; 77   :             q_buf[0] = 0;
 
 	mov	eax, DWORD PTR _q_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR _r_buf$[ebp]
 	mov	esi, DWORD PTR _u_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 84   :             q_buf[0] = 0;
+; 77   :             q_buf[0] = 0;
 
 	mov	DWORD PTR [eax], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 	pop	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 90   : }
+; 83   : }
 
 	pop	esi
 	pop	ebp
@@ -15992,10 +15992,10 @@ $LN11@DivRem_X_X:
 	mov	DWORD PTR _u_count$[ebp], ecx
 	pop	ebp
 
-; 85   :             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
-; 86   :         }
-; 87   :         else
-; 88   :             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
+; 78   :             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
+; 79   :         }
+; 80   :         else
+; 81   :             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
 
 	jmp	DWORD PTR _fp_DivRem_X_X
 _DivRem_X_X ENDP
@@ -16163,30 +16163,30 @@ _q_buf$ = 20						; size = 4
 _r_buf$ = 24						; size = 4
 _DivRem_X_1W PROC					; COMDAT
 
-; 93   : {
+; 86   : {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 94   :     // u の最上位ワードは 0 でありうることに注意すること。
-; 95   :     __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
+; 87   :     // u の最上位ワードは 0 でありうることに注意すること。
+; 88   :     __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
 
 	mov	ecx, DWORD PTR _u_buf_len$[ebp]
 
-; 96   :     __UNIT_TYPE_DIV* qp = q_buf + u_buf_len - 1;
-; 97   :     __UNIT_TYPE u_count = u_buf_len;
-; 98   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
-; 99   :     {
-; 100  :         while (*up == 0)
-; 101  :         {
-; 102  :             --up;
-; 103  :             --qp;
-; 104  :             --u_count;
-; 105  :         }
-; 106  :     }
-; 107  :     __UNIT_TYPE_DIV r = 0;
-; 108  :     __UNIT_TYPE count = u_count >> 5;
+; 89   :     __UNIT_TYPE_DIV* qp = q_buf + u_buf_len - 1;
+; 90   :     __UNIT_TYPE u_count = u_buf_len;
+; 91   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 92   :     {
+; 93   :         while (*up == 0)
+; 94   :         {
+; 95   :             --up;
+; 96   :             --qp;
+; 97   :             --u_count;
+; 98   :         }
+; 99   :     }
+; 100  :     __UNIT_TYPE_DIV r = 0;
+; 101  :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	eax, ecx
 	push	ebx
@@ -16203,25 +16203,25 @@ _DivRem_X_1W PROC					; COMDAT
 	lea	edi, DWORD PTR [edi+ecx*4]
 	mov	ecx, DWORD PTR _v$[ebp]
 
-; 109  :     while (count != 0)
+; 102  :     while (count != 0)
 
 	test	eax, eax
 	je	$LN555@DivRem_X_1
 $LL4@DivRem_X_1:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	ecx
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -16233,12 +16233,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-4]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16251,12 +16251,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-4], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-8]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16269,12 +16269,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-8], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-12]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16287,12 +16287,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-12], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-16]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16305,12 +16305,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-16], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-20]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16320,12 +16320,12 @@ $LL4@DivRem_X_1:
 	pop	ebx
 	mov	DWORD PTR [esi-20], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-24]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv6350[ebp+4], edx
 	push	ebx
@@ -16341,12 +16341,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-24], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-28]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16359,12 +16359,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-28], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-32]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16377,12 +16377,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-32], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-36]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16395,12 +16395,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-36], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-40]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16413,12 +16413,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-40], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-44]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16431,12 +16431,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-44], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-48]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv6284[ebp+4], edx
 	push	ecx
@@ -16449,12 +16449,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-48], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-52]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16467,12 +16467,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-52], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-56]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16485,12 +16485,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-56], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-60]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16503,12 +16503,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-60], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-64]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16521,12 +16521,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-64], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-68]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16539,12 +16539,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-68], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-72]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16557,12 +16557,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-72], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-76]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16575,12 +16575,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-76], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-80]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16593,12 +16593,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-80], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-84]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16611,12 +16611,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-84], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-88]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16629,12 +16629,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-88], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-92]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16645,28 +16645,28 @@ $LL4@DivRem_X_1:
 	push	ebx
 	mov	DWORD PTR [esi-92], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	0
 	push	DWORD PTR _v$[ebp]
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, ecx
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv6152[ebp+4], edx
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR [edi-96]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	eax
 	push	edx
@@ -16678,12 +16678,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-96], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-100]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16696,12 +16696,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-100], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-104]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16714,12 +16714,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-104], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-108]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16732,12 +16732,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-108], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-112]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16750,12 +16750,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-112], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-116]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16768,12 +16768,12 @@ $LL4@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-116], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-120]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16783,19 +16783,19 @@ $LL4@DivRem_X_1:
 	pop	ebx
 	mov	DWORD PTR [esi-120], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv6075[ebp+4], edx
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, DWORD PTR [edi-124]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
@@ -16809,68 +16809,68 @@ $LL4@DivRem_X_1:
 	mov	DWORD PTR [esi-124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 145  :         --count;
+; 138  :         --count;
 
 	mov	ecx, DWORD PTR _count$1$[ebp]
 	add	edi, -128				; ffffff80H
 	dec	ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv6064[ebp+4], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 144  :         qp -= 32;
+; 137  :         qp -= 32;
 
 	add	esi, -128				; ffffff80H
 
-; 145  :         --count;
+; 138  :         --count;
 
 	mov	DWORD PTR _count$1$[ebp], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 32					; 00000020H
 	mov	edx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 109  :     while (count != 0)
+; 102  :     while (count != 0)
 
 	test	ecx, ecx
 	mov	ecx, DWORD PTR _v$[ebp]
 	jne	$LL4@DivRem_X_1
 $LN555@DivRem_X_1:
 
-; 146  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 147  :         if (sizeof(r) == sizeof(_UINT64_T))
-; 148  :             AddToDIV64Counter(32);
-; 149  :         else
-; 150  :             AddToDIV32Counter(32);
-; 151  : #endif
-; 152  :     }
-; 153  : 
-; 154  :     if (u_count & 0x10)
+; 139  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 140  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 141  :             AddToDIV64Counter(32);
+; 142  :         else
+; 143  :             AddToDIV32Counter(32);
+; 144  : #endif
+; 145  :     }
+; 146  : 
+; 147  :     if (u_count & 0x10)
 
 	mov	eax, DWORD PTR _u_buf_len$[ebp]
 	test	al, 16					; 00000010H
 	je	$LN415@DivRem_X_1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	ecx
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -16882,12 +16882,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-4]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16900,12 +16900,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-4], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-8]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16918,12 +16918,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-8], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-12]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16936,12 +16936,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-12], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-16]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16954,12 +16954,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-16], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-20]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -16969,12 +16969,12 @@ $LN555@DivRem_X_1:
 	pop	ebx
 	mov	DWORD PTR [esi-20], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-24]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv5996[ebp+4], edx
 	push	ebx
@@ -16990,12 +16990,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-24], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-28]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17008,12 +17008,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-28], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-32]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17026,12 +17026,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-32], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-36]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17044,12 +17044,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-36], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-40]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17062,12 +17062,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-40], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-44]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17080,12 +17080,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-44], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-48]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv5930[ebp+4], edx
 	push	ecx
@@ -17098,12 +17098,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-48], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-52]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17116,12 +17116,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-52], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-56]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17134,12 +17134,12 @@ $LN555@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-56], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-60]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17152,16 +17152,16 @@ $LN555@DivRem_X_1:
 	mov	DWORD PTR tv5886[ebp+4], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 172  :         up -= 16;
+; 165  :         up -= 16;
 
 	sub	edi, 64					; 00000040H
 
-; 173  :         qp -= 16;
+; 166  :         qp -= 16;
 
 	sub	esi, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 16					; 00000010H
 	mov	ecx, OFFSET _statistics_info+12
@@ -17170,24 +17170,24 @@ $LN555@DivRem_X_1:
 $LN415@DivRem_X_1:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 182  :     if (u_count & 0x8)
+; 175  :     if (u_count & 0x8)
 
 	test	al, 8
 	je	$LN483@DivRem_X_1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	DWORD PTR _v$[ebp]
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -17199,12 +17199,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-4]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17217,12 +17217,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-4], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-8]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17235,12 +17235,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-8], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-12]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17253,12 +17253,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-12], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-16]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17271,12 +17271,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-16], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-20]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17286,12 +17286,12 @@ $LN415@DivRem_X_1:
 	pop	ebx
 	mov	DWORD PTR [esi-20], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-24]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	DWORD PTR tv5819[ebp+4], edx
 	push	ebx
@@ -17307,12 +17307,12 @@ $LN415@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-24], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-28]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17325,16 +17325,16 @@ $LN415@DivRem_X_1:
 	mov	DWORD PTR tv5797[ebp+4], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 192  :         up -= 8;
+; 185  :         up -= 8;
 
 	sub	edi, 32					; 00000020H
 
-; 193  :         qp -= 8;
+; 186  :         qp -= 8;
 
 	sub	esi, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 8
 	mov	ecx, OFFSET _statistics_info+12
@@ -17343,24 +17343,24 @@ $LN415@DivRem_X_1:
 $LN483@DivRem_X_1:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 202  :     if (u_count & 0x4)
+; 195  :     if (u_count & 0x4)
 
 	test	al, 4
 	je	$LN519@DivRem_X_1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	DWORD PTR _v$[ebp]
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -17372,12 +17372,12 @@ $LN483@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-4]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17390,12 +17390,12 @@ $LN483@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-4], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-8]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17408,12 +17408,12 @@ $LN483@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi-8], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-12]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17426,16 +17426,16 @@ $LN483@DivRem_X_1:
 	mov	DWORD PTR tv5752[ebp+4], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 208  :         up -= 4;
+; 201  :         up -= 4;
 
 	sub	edi, 16					; 00000010H
 
-; 209  :         qp -= 4;
+; 202  :         qp -= 4;
 
 	sub	esi, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 4
 	mov	ecx, OFFSET _statistics_info+12
@@ -17444,24 +17444,24 @@ $LN483@DivRem_X_1:
 $LN519@DivRem_X_1:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 218  :     if (u_count & 0x2)
+; 211  :     if (u_count & 0x2)
 
 	test	al, 2
 	je	SHORT $LN539@DivRem_X_1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	DWORD PTR _v$[ebp]
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -17473,12 +17473,12 @@ $LN519@DivRem_X_1:
 	push	DWORD PTR _v$[ebp]
 	mov	DWORD PTR [esi], eax
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi-4]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ecx
 	push	eax
@@ -17491,16 +17491,16 @@ $LN519@DivRem_X_1:
 	mov	DWORD PTR tv5729[ebp+4], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 222  :         up -= 2;
+; 215  :         up -= 2;
 
 	sub	edi, 8
 
-; 223  :         qp -= 2;
+; 216  :         qp -= 2;
 
 	sub	esi, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	mov	ecx, OFFSET _statistics_info+12
@@ -17509,24 +17509,24 @@ $LN519@DivRem_X_1:
 $LN539@DivRem_X_1:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 232  :     if (u_count & 0x1)
+; 225  :     if (u_count & 0x1)
 
 	test	al, 1
 	je	SHORT $LN557@DivRem_X_1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	0
 	push	DWORD PTR _v$[ebp]
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, DWORD PTR [edi]
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	push	ebx
 	push	eax
@@ -17537,17 +17537,17 @@ $LN539@DivRem_X_1:
 	mov	DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 
-; 245  :     *r_buf = r;
+; 238  :     *r_buf = r;
 
 	mov	eax, DWORD PTR _r_buf$[ebp]
 	pop	edi
 
-; 246  : }
+; 239  : }
 
 	pop	esi
 	pop	ebx
@@ -17557,12 +17557,12 @@ $LN539@DivRem_X_1:
 	ret	0
 $LN557@DivRem_X_1:
 
-; 245  :     *r_buf = r;
+; 238  :     *r_buf = r;
 
 	mov	eax, DWORD PTR _r_buf$[ebp]
 	pop	edi
 
-; 246  : }
+; 239  : }
 
 	pop	esi
 	mov	DWORD PTR [eax], ebx

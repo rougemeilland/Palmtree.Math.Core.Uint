@@ -31,7 +31,7 @@ LC3:
 _TEST_PMC_Equals_I_X:
 LFB72:
 	.file 1 "../TEST_op_Equals.c"
-	.loc 1 40 1
+	.loc 1 33 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -43,16 +43,16 @@ LFB72:
 	subl	$32, %esp
 	.cfi_offset 6, -12
 	.cfi_offset 3, -16
-	.loc 1 45 139
+	.loc 1 38 139
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 45 87
+	.loc 1 38 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 45 85
+	.loc 1 38 85
 	leal	-20(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	28(%ebp), %edx
@@ -63,33 +63,33 @@ LFB72:
 LVL0:
 	subl	$12, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 45 5
+	.loc 1 38 5
 	cmpl	$0, -12(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 45 22
+	.loc 1 38 22
 	movl	$1, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC1, (%esp)
 	call	_FormatTestLabel
-	.loc 1 45 5
+	.loc 1 38 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 46 128
+	.loc 1 39 128
 	movl	-16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC2, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 46 85
+	.loc 1 39 85
 	movl	12(%ebp), %eax
 	movl	228(%eax), %eax
-	.loc 1 46 83
+	.loc 1 39 83
 	movl	-20(%ebp), %edx
 	leal	-24(%ebp), %ecx
 	movl	%ecx, 8(%esp)
@@ -100,55 +100,55 @@ LVL0:
 LVL1:
 	subl	$12, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 46 5
+	.loc 1 39 5
 	cmpl	$0, -16(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 46 22
+	.loc 1 39 22
 	movl	$2, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC1, (%esp)
 	call	_FormatTestLabel
-	.loc 1 46 5
+	.loc 1 39 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 47 5
+	.loc 1 40 5
 	movl	-24(%ebp), %eax
 	cmpl	%eax, 32(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 47 22
+	.loc 1 40 22
 	movl	$3, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC1, (%esp)
 	call	_FormatTestLabel
-	.loc 1 47 5
+	.loc 1 40 5
 	movl	$LC3, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 48 8
+	.loc 1 41 8
 	cmpl	$0, -12(%ebp)
 	jne	L3
-	.loc 1 49 11
+	.loc 1 42 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 49 9
+	.loc 1 42 9
 	movl	-20(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL2:
 	subl	$4, %esp
 L3:
-	.loc 1 50 1
+	.loc 1 43 1
 	nop
 	leal	-8(%ebp), %esp
 	popl	%ebx
@@ -177,7 +177,7 @@ LC5:
 	.def	_TEST_PMC_Equals_L_X;	.scl	2;	.type	32;	.endef
 _TEST_PMC_Equals_L_X:
 LFB73:
-	.loc 1 53 1
+	.loc 1 46 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -193,16 +193,16 @@ LFB73:
 	movl	%eax, -32(%ebp)
 	movl	24(%ebp), %eax
 	movl	%eax, -28(%ebp)
-	.loc 1 58 139
+	.loc 1 51 139
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 58 87
+	.loc 1 51 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 58 85
+	.loc 1 51 85
 	leal	-20(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	32(%ebp), %edx
@@ -213,33 +213,33 @@ LFB73:
 LVL3:
 	subl	$12, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 58 5
+	.loc 1 51 5
 	cmpl	$0, -12(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 58 22
+	.loc 1 51 22
 	movl	$1, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC4, (%esp)
 	call	_FormatTestLabel
-	.loc 1 58 5
+	.loc 1 51 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 59 128
+	.loc 1 52 128
 	movl	-16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC5, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 59 85
+	.loc 1 52 85
 	movl	12(%ebp), %eax
 	movl	232(%eax), %ecx
-	.loc 1 59 83
+	.loc 1 52 83
 	movl	-20(%ebp), %eax
 	leal	-24(%ebp), %edx
 	movl	%edx, 12(%esp)
@@ -252,55 +252,55 @@ LVL3:
 LVL4:
 	subl	$16, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 59 5
+	.loc 1 52 5
 	cmpl	$0, -16(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 59 22
+	.loc 1 52 22
 	movl	$2, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC4, (%esp)
 	call	_FormatTestLabel
-	.loc 1 59 5
+	.loc 1 52 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 60 5
+	.loc 1 53 5
 	movl	-24(%ebp), %eax
 	cmpl	%eax, 36(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 60 22
+	.loc 1 53 22
 	movl	$3, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC4, (%esp)
 	call	_FormatTestLabel
-	.loc 1 60 5
+	.loc 1 53 5
 	movl	$LC3, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 61 8
+	.loc 1 54 8
 	cmpl	$0, -12(%ebp)
 	jne	L6
-	.loc 1 62 11
+	.loc 1 55 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 62 9
+	.loc 1 55 9
 	movl	-20(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL5:
 	subl	$4, %esp
 L6:
-	.loc 1 63 1
+	.loc 1 56 1
 	nop
 	leal	-8(%ebp), %esp
 	popl	%ebx
@@ -329,7 +329,7 @@ LC7:
 	.def	_TEST_PMC_Equals_X_I;	.scl	2;	.type	32;	.endef
 _TEST_PMC_Equals_X_I:
 LFB74:
-	.loc 1 66 1
+	.loc 1 59 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -341,16 +341,16 @@ LFB74:
 	subl	$32, %esp
 	.cfi_offset 6, -12
 	.cfi_offset 3, -16
-	.loc 1 71 139
+	.loc 1 64 139
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 71 87
+	.loc 1 64 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 71 85
+	.loc 1 64 85
 	leal	-20(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	24(%ebp), %edx
@@ -361,33 +361,33 @@ LFB74:
 LVL6:
 	subl	$12, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 71 5
+	.loc 1 64 5
 	cmpl	$0, -12(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 71 22
+	.loc 1 64 22
 	movl	$1, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC6, (%esp)
 	call	_FormatTestLabel
-	.loc 1 71 5
+	.loc 1 64 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 72 128
+	.loc 1 65 128
 	movl	-16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC7, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 72 85
+	.loc 1 65 85
 	movl	12(%ebp), %eax
 	movl	236(%eax), %eax
-	.loc 1 72 83
+	.loc 1 65 83
 	movl	-20(%ebp), %edx
 	leal	-24(%ebp), %ecx
 	movl	%ecx, 8(%esp)
@@ -398,55 +398,55 @@ LVL6:
 LVL7:
 	subl	$12, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 72 5
+	.loc 1 65 5
 	cmpl	$0, -16(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 72 22
+	.loc 1 65 22
 	movl	$2, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC6, (%esp)
 	call	_FormatTestLabel
-	.loc 1 72 5
+	.loc 1 65 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 73 5
+	.loc 1 66 5
 	movl	-24(%ebp), %eax
 	cmpl	%eax, 32(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 73 22
+	.loc 1 66 22
 	movl	$3, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC6, (%esp)
 	call	_FormatTestLabel
-	.loc 1 73 5
+	.loc 1 66 5
 	movl	$LC3, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 74 8
+	.loc 1 67 8
 	cmpl	$0, -12(%ebp)
 	jne	L9
-	.loc 1 75 11
+	.loc 1 68 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 75 9
+	.loc 1 68 9
 	movl	-20(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL8:
 	subl	$4, %esp
 L9:
-	.loc 1 76 1
+	.loc 1 69 1
 	nop
 	leal	-8(%ebp), %esp
 	popl	%ebx
@@ -475,7 +475,7 @@ LC9:
 	.def	_TEST_PMC_Equals_X_L;	.scl	2;	.type	32;	.endef
 _TEST_PMC_Equals_X_L:
 LFB75:
-	.loc 1 79 1
+	.loc 1 72 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -491,16 +491,16 @@ LFB75:
 	movl	%eax, -32(%ebp)
 	movl	32(%ebp), %eax
 	movl	%eax, -28(%ebp)
-	.loc 1 84 139
+	.loc 1 77 139
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 84 87
+	.loc 1 77 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 84 85
+	.loc 1 77 85
 	leal	-20(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	24(%ebp), %edx
@@ -511,33 +511,33 @@ LFB75:
 LVL9:
 	subl	$12, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 84 5
+	.loc 1 77 5
 	cmpl	$0, -12(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 84 22
+	.loc 1 77 22
 	movl	$1, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC8, (%esp)
 	call	_FormatTestLabel
-	.loc 1 84 5
+	.loc 1 77 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 85 128
+	.loc 1 78 128
 	movl	-16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC9, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 85 85
+	.loc 1 78 85
 	movl	12(%ebp), %eax
 	movl	240(%eax), %ecx
-	.loc 1 85 83
+	.loc 1 78 83
 	movl	-20(%ebp), %ebx
 	leal	-24(%ebp), %eax
 	movl	%eax, 12(%esp)
@@ -550,55 +550,55 @@ LVL9:
 LVL10:
 	subl	$16, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 85 5
+	.loc 1 78 5
 	cmpl	$0, -16(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 85 22
+	.loc 1 78 22
 	movl	$2, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC8, (%esp)
 	call	_FormatTestLabel
-	.loc 1 85 5
+	.loc 1 78 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 86 5
+	.loc 1 79 5
 	movl	-24(%ebp), %eax
 	cmpl	%eax, 36(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 86 22
+	.loc 1 79 22
 	movl	$3, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC6, (%esp)
 	call	_FormatTestLabel
-	.loc 1 86 5
+	.loc 1 79 5
 	movl	$LC3, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 87 8
+	.loc 1 80 8
 	cmpl	$0, -12(%ebp)
 	jne	L12
-	.loc 1 88 11
+	.loc 1 81 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 88 9
+	.loc 1 81 9
 	movl	-20(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL11:
 	subl	$4, %esp
 L12:
-	.loc 1 89 1
+	.loc 1 82 1
 	nop
 	leal	-8(%ebp), %esp
 	popl	%ebx
@@ -627,7 +627,7 @@ LC11:
 	.def	_TEST_PMC_Equals_X_X;	.scl	2;	.type	32;	.endef
 _TEST_PMC_Equals_X_X:
 LFB76:
-	.loc 1 92 1
+	.loc 1 85 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -639,16 +639,16 @@ LFB76:
 	subl	$48, %esp
 	.cfi_offset 6, -12
 	.cfi_offset 3, -16
-	.loc 1 99 139
+	.loc 1 92 139
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 99 87
+	.loc 1 92 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 99 85
+	.loc 1 92 85
 	leal	-24(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	24(%ebp), %edx
@@ -659,33 +659,33 @@ LFB76:
 LVL12:
 	subl	$12, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 99 5
+	.loc 1 92 5
 	cmpl	$0, -12(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 99 22
+	.loc 1 92 22
 	movl	$1, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC10, (%esp)
 	call	_FormatTestLabel
-	.loc 1 99 5
+	.loc 1 92 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 100 139
+	.loc 1 93 139
 	movl	-16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC0, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 100 87
+	.loc 1 93 87
 	movl	12(%ebp), %eax
 	movl	24(%eax), %eax
-	.loc 1 100 85
+	.loc 1 93 85
 	leal	-28(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	32(%ebp), %edx
@@ -696,33 +696,33 @@ LVL12:
 LVL13:
 	subl	$12, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 100 5
+	.loc 1 93 5
 	cmpl	$0, -16(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 100 22
+	.loc 1 93 22
 	movl	$2, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC10, (%esp)
 	call	_FormatTestLabel
-	.loc 1 100 5
+	.loc 1 93 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 101 128
+	.loc 1 94 128
 	movl	-20(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC11, (%esp)
 	call	_FormatTestMesssage
 	movl	%eax, %esi
-	.loc 1 101 85
+	.loc 1 94 85
 	movl	12(%ebp), %eax
 	movl	244(%eax), %eax
-	.loc 1 101 83
+	.loc 1 94 83
 	movl	-28(%ebp), %ecx
 	movl	-24(%ebp), %edx
 	leal	-32(%ebp), %ebx
@@ -733,68 +733,68 @@ LVL13:
 LVL14:
 	subl	$12, %esp
 	movl	%eax, -20(%ebp)
-	.loc 1 101 5
+	.loc 1 94 5
 	cmpl	$0, -20(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 101 22
+	.loc 1 94 22
 	movl	$3, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC10, (%esp)
 	call	_FormatTestLabel
-	.loc 1 101 5
+	.loc 1 94 5
 	movl	%esi, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 102 5
+	.loc 1 95 5
 	movl	-32(%ebp), %eax
 	cmpl	%eax, 36(%ebp)
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 1 102 22
+	.loc 1 95 22
 	movl	$4, 8(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC6, (%esp)
 	call	_FormatTestLabel
-	.loc 1 102 5
+	.loc 1 95 5
 	movl	$LC3, 12(%esp)
 	movl	%ebx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_TEST_Assert
-	.loc 1 103 8
+	.loc 1 96 8
 	cmpl	$0, -16(%ebp)
 	jne	L14
-	.loc 1 104 11
+	.loc 1 97 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 104 9
+	.loc 1 97 9
 	movl	-28(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL15:
 	subl	$4, %esp
 L14:
-	.loc 1 105 8
+	.loc 1 98 8
 	cmpl	$0, -12(%ebp)
 	jne	L16
-	.loc 1 106 11
+	.loc 1 99 11
 	movl	12(%ebp), %eax
 	movl	16(%eax), %eax
-	.loc 1 106 9
+	.loc 1 99 9
 	movl	-24(%ebp), %edx
 	movl	%edx, (%esp)
 	call	*%eax
 LVL16:
 	subl	$4, %esp
 L16:
-	.loc 1 107 1
+	.loc 1 100 1
 	nop
 	leal	-8(%ebp), %esp
 	popl	%ebx
@@ -836,10 +836,10 @@ Letext0:
 	.file 27 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/commdlg.h"
 	.file 28 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdint.h"
 	.file 29 "../pmc.h"
-	.file 30 "../pmc_debug.h"
+	.file 30 "../pmc_uint_debug.h"
 	.section	.debug_info,"dr"
 Ldebug_info0:
-	.long	0x5c61
+	.long	0x5c60
 	.word	0x4
 	.secrel32	Ldebug_abbrev0
 	.byte	0x4
@@ -4643,71 +4643,71 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "_INT32_T\0"
 	.byte	0x1d
-	.byte	0x5b
+	.byte	0x55
 	.byte	0x11
 	.long	0x4988
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1d
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x4998
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1d
-	.byte	0x60
+	.byte	0x5a
 	.byte	0x12
 	.long	0x49a9
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x1d
-	.byte	0x6b
+	.byte	0x65
 	.byte	0xd
 	.long	0xe6
 	.uleb128 0x3
 	.ascii "PMC_PROPERTY_CODE\0"
 	.byte	0x1d
-	.byte	0x6d
+	.byte	0x67
 	.byte	0xd
 	.long	0xe6
 	.uleb128 0x3
 	.ascii "PMC_NUMBER_STYLE_CODE\0"
 	.byte	0x1d
-	.byte	0x6f
+	.byte	0x69
 	.byte	0xd
 	.long	0xe6
 	.uleb128 0x10
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
-	.byte	0x71
+	.byte	0x6b
 	.byte	0x10
 	.long	0x4abb
 	.uleb128 0x11
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
-	.byte	0x73
+	.byte	0x6d
 	.byte	0xa
 	.long	0x11d
 	.byte	0
 	.uleb128 0x11
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1d
-	.byte	0x74
+	.byte	0x6e
 	.byte	0xa
 	.long	0x11d
 	.byte	0x4
 	.uleb128 0x11
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1d
-	.byte	0x75
+	.byte	0x6f
 	.byte	0xa
 	.long	0x11d
 	.byte	0x8
 	.uleb128 0x11
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1d
-	.byte	0x76
+	.byte	0x70
 	.byte	0xa
 	.long	0x11d
 	.byte	0xc
@@ -4715,55 +4715,55 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1d
-	.byte	0x77
+	.byte	0x71
 	.byte	0x3
 	.long	0x4a3f
 	.uleb128 0x10
 	.ascii "__tag_PMC_NUMBER_FORMAT_OPTION\0"
 	.byte	0x28
 	.byte	0x1d
-	.byte	0x79
+	.byte	0x73
 	.byte	0x10
 	.long	0x4b89
 	.uleb128 0x11
 	.ascii "DecimalDigits\0"
 	.byte	0x1d
-	.byte	0x7b
+	.byte	0x75
 	.byte	0x9
 	.long	0xe6
 	.byte	0
 	.uleb128 0x11
 	.ascii "GroupSeparator\0"
 	.byte	0x1d
-	.byte	0x7c
+	.byte	0x76
 	.byte	0xd
 	.long	0x4b89
 	.byte	0x4
 	.uleb128 0x11
 	.ascii "DecimalSeparator\0"
 	.byte	0x1d
-	.byte	0x7d
+	.byte	0x77
 	.byte	0xd
 	.long	0x4b89
 	.byte	0xa
 	.uleb128 0x11
 	.ascii "PositiveSign\0"
 	.byte	0x1d
-	.byte	0x7e
+	.byte	0x78
 	.byte	0xd
 	.long	0x4b89
 	.byte	0x10
 	.uleb128 0x11
 	.ascii "NegativeSign\0"
 	.byte	0x1d
-	.byte	0x7f
+	.byte	0x79
 	.byte	0xd
 	.long	0x4b89
 	.byte	0x16
 	.uleb128 0x11
 	.ascii "GroupSizes\0"
 	.byte	0x1d
-	.byte	0x80
+	.byte	0x7a
 	.byte	0xa
 	.long	0x4b99
 	.byte	0x1c
@@ -4785,20 +4785,20 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "PMC_NUMBER_FORMAT_OPTION\0"
 	.byte	0x1d
-	.byte	0x81
+	.byte	0x7b
 	.byte	0x3
 	.long	0x4ad7
 	.uleb128 0x17
 	.ascii "__tag_PMC_UINT_ENTRY_POINTS\0"
 	.word	0x114
 	.byte	0x1d
-	.byte	0x83
+	.byte	0x7d
 	.byte	0x10
 	.long	0x539e
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x1d
-	.byte	0x86
+	.byte	0x80
 	.byte	0xe
 	.long	0xd6
 	.byte	0x4
@@ -4808,7 +4808,7 @@ Ldebug_info0:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ADX\0"
 	.byte	0x1d
-	.byte	0x87
+	.byte	0x81
 	.byte	0xe
 	.long	0xd6
 	.byte	0x4
@@ -4818,7 +4818,7 @@ Ldebug_info0:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI1\0"
 	.byte	0x1d
-	.byte	0x88
+	.byte	0x82
 	.byte	0xe
 	.long	0xd6
 	.byte	0x4
@@ -4828,7 +4828,7 @@ Ldebug_info0:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI2\0"
 	.byte	0x1d
-	.byte	0x89
+	.byte	0x83
 	.byte	0xe
 	.long	0xd6
 	.byte	0x4
@@ -4838,7 +4838,7 @@ Ldebug_info0:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ABM\0"
 	.byte	0x1d
-	.byte	0x8a
+	.byte	0x84
 	.byte	0xe
 	.long	0xd6
 	.byte	0x4
@@ -4848,476 +4848,476 @@ Ldebug_info0:
 	.uleb128 0x11
 	.ascii "PMC_GetStatisticsInfo\0"
 	.byte	0x1d
-	.byte	0x8d
+	.byte	0x87
 	.byte	0x2a
 	.long	0x53af
 	.byte	0x4
 	.uleb128 0x11
 	.ascii "PMC_From_I\0"
 	.byte	0x1d
-	.byte	0x90
+	.byte	0x8a
 	.byte	0x35
 	.long	0x53c9
 	.byte	0x8
 	.uleb128 0x11
 	.ascii "PMC_From_L\0"
 	.byte	0x1d
-	.byte	0x93
+	.byte	0x8d
 	.byte	0x35
 	.long	0x53e3
 	.byte	0xc
 	.uleb128 0x11
 	.ascii "PMC_Dispose\0"
 	.byte	0x1d
-	.byte	0x96
+	.byte	0x90
 	.byte	0x2a
 	.long	0x53f4
 	.byte	0x10
 	.uleb128 0x11
 	.ascii "PMC_GetPropertyValue_X_I\0"
 	.byte	0x1d
-	.byte	0x99
+	.byte	0x93
 	.byte	0x34
 	.long	0x5419
 	.byte	0x14
 	.uleb128 0x11
 	.ascii "PMC_FromByteArray\0"
 	.byte	0x1d
-	.byte	0x9c
+	.byte	0x96
 	.byte	0x34
 	.long	0x5438
 	.byte	0x18
 	.uleb128 0x11
 	.ascii "PMC_ToByteArray\0"
 	.byte	0x1d
-	.byte	0x9d
+	.byte	0x97
 	.byte	0x34
 	.long	0x5462
 	.byte	0x1c
 	.uleb128 0x11
 	.ascii "PMC_Clone_X\0"
 	.byte	0x1d
-	.byte	0xa0
+	.byte	0x9a
 	.byte	0x34
 	.long	0x547c
 	.byte	0x20
 	.uleb128 0x11
 	.ascii "PMC_To_X_I\0"
 	.byte	0x1d
-	.byte	0xa3
+	.byte	0x9d
 	.byte	0x35
 	.long	0x549c
 	.byte	0x24
 	.uleb128 0x11
 	.ascii "PMC_To_X_L\0"
 	.byte	0x1d
-	.byte	0xa4
+	.byte	0x9e
 	.byte	0x35
 	.long	0x54bc
 	.byte	0x28
 	.uleb128 0x11
 	.ascii "PMC_ToString\0"
 	.byte	0x1d
-	.byte	0xa7
+	.byte	0xa1
 	.byte	0x34
 	.long	0x54f0
 	.byte	0x2c
 	.uleb128 0x11
 	.ascii "PMC_TryParse\0"
 	.byte	0x1d
-	.byte	0xaa
+	.byte	0xa4
 	.byte	0x34
 	.long	0x5514
 	.byte	0x30
 	.uleb128 0x11
 	.ascii "PMC_Add_I_X\0"
 	.byte	0x1d
-	.byte	0xad
+	.byte	0xa7
 	.byte	0x34
 	.long	0x5533
 	.byte	0x34
 	.uleb128 0x11
 	.ascii "PMC_Add_L_X\0"
 	.byte	0x1d
-	.byte	0xae
+	.byte	0xa8
 	.byte	0x34
 	.long	0x5552
 	.byte	0x38
 	.uleb128 0x11
 	.ascii "PMC_Add_X_I\0"
 	.byte	0x1d
-	.byte	0xaf
+	.byte	0xa9
 	.byte	0x34
 	.long	0x5571
 	.byte	0x3c
 	.uleb128 0x11
 	.ascii "PMC_Add_X_L\0"
 	.byte	0x1d
-	.byte	0xb0
+	.byte	0xaa
 	.byte	0x34
 	.long	0x5590
 	.byte	0x40
 	.uleb128 0x11
 	.ascii "PMC_Add_X_X\0"
 	.byte	0x1d
-	.byte	0xb1
+	.byte	0xab
 	.byte	0x34
 	.long	0x55af
 	.byte	0x44
 	.uleb128 0x11
 	.ascii "PMC_Subtruct_I_X\0"
 	.byte	0x1d
-	.byte	0xb4
+	.byte	0xae
 	.byte	0x34
 	.long	0x55ce
 	.byte	0x48
 	.uleb128 0x11
 	.ascii "PMC_Subtruct_L_X\0"
 	.byte	0x1d
-	.byte	0xb5
+	.byte	0xaf
 	.byte	0x34
 	.long	0x55ed
 	.byte	0x4c
 	.uleb128 0x11
 	.ascii "PMC_Subtruct_X_I\0"
 	.byte	0x1d
-	.byte	0xb6
+	.byte	0xb0
 	.byte	0x34
 	.long	0x5571
 	.byte	0x50
 	.uleb128 0x11
 	.ascii "PMC_Subtruct_X_L\0"
 	.byte	0x1d
-	.byte	0xb7
+	.byte	0xb1
 	.byte	0x34
 	.long	0x5590
 	.byte	0x54
 	.uleb128 0x11
 	.ascii "PMC_Subtruct_X_X\0"
 	.byte	0x1d
-	.byte	0xb8
+	.byte	0xb2
 	.byte	0x34
 	.long	0x55af
 	.byte	0x58
 	.uleb128 0x11
 	.ascii "PMC_Multiply_I_X\0"
 	.byte	0x1d
-	.byte	0xbb
+	.byte	0xb5
 	.byte	0x34
 	.long	0x5533
 	.byte	0x5c
 	.uleb128 0x11
 	.ascii "PMC_Multiply_L_X\0"
 	.byte	0x1d
-	.byte	0xbc
+	.byte	0xb6
 	.byte	0x34
 	.long	0x5552
 	.byte	0x60
 	.uleb128 0x11
 	.ascii "PMC_Multiply_X_I\0"
 	.byte	0x1d
-	.byte	0xbd
+	.byte	0xb7
 	.byte	0x34
 	.long	0x5571
 	.byte	0x64
 	.uleb128 0x11
 	.ascii "PMC_Multiply_X_L\0"
 	.byte	0x1d
-	.byte	0xbe
+	.byte	0xb8
 	.byte	0x34
 	.long	0x5590
 	.byte	0x68
 	.uleb128 0x11
 	.ascii "PMC_Multiply_X_X\0"
 	.byte	0x1d
-	.byte	0xbf
+	.byte	0xb9
 	.byte	0x34
 	.long	0x55af
 	.byte	0x6c
 	.uleb128 0x11
 	.ascii "PMC_DivRem_I_X\0"
 	.byte	0x1d
-	.byte	0xc2
+	.byte	0xbc
 	.byte	0x34
 	.long	0x5611
 	.byte	0x70
 	.uleb128 0x11
 	.ascii "PMC_DivRem_L_X\0"
 	.byte	0x1d
-	.byte	0xc3
+	.byte	0xbd
 	.byte	0x34
 	.long	0x5635
 	.byte	0x74
 	.uleb128 0x11
 	.ascii "PMC_DivRem_X_I\0"
 	.byte	0x1d
-	.byte	0xc4
+	.byte	0xbe
 	.byte	0x34
 	.long	0x5659
 	.byte	0x78
 	.uleb128 0x11
 	.ascii "PMC_DivRem_X_L\0"
 	.byte	0x1d
-	.byte	0xc5
+	.byte	0xbf
 	.byte	0x34
 	.long	0x567d
 	.byte	0x7c
 	.uleb128 0x11
 	.ascii "PMC_DivRem_X_X\0"
 	.byte	0x1d
-	.byte	0xc6
+	.byte	0xc0
 	.byte	0x34
 	.long	0x56a1
 	.byte	0x80
 	.uleb128 0x11
 	.ascii "PMC_LeftShift_X_I\0"
 	.byte	0x1d
-	.byte	0xc9
+	.byte	0xc3
 	.byte	0x34
 	.long	0x5571
 	.byte	0x84
 	.uleb128 0x11
 	.ascii "PMC_LeftShift_X_L\0"
 	.byte	0x1d
-	.byte	0xca
+	.byte	0xc4
 	.byte	0x34
 	.long	0x5590
 	.byte	0x88
 	.uleb128 0x11
 	.ascii "PMC_RightShift_X_I\0"
 	.byte	0x1d
-	.byte	0xcd
+	.byte	0xc7
 	.byte	0x34
 	.long	0x5571
 	.byte	0x8c
 	.uleb128 0x11
 	.ascii "PMC_RightShift_X_L\0"
 	.byte	0x1d
-	.byte	0xce
+	.byte	0xc8
 	.byte	0x34
 	.long	0x5590
 	.byte	0x90
 	.uleb128 0x11
 	.ascii "PMC_BitwiseAnd_I_X\0"
 	.byte	0x1d
-	.byte	0xd1
+	.byte	0xcb
 	.byte	0x34
 	.long	0x55ce
 	.byte	0x94
 	.uleb128 0x11
 	.ascii "PMC_BitwiseAnd_L_X\0"
 	.byte	0x1d
-	.byte	0xd2
+	.byte	0xcc
 	.byte	0x34
 	.long	0x55ed
 	.byte	0x98
 	.uleb128 0x11
 	.ascii "PMC_BitwiseAnd_X_I\0"
 	.byte	0x1d
-	.byte	0xd3
+	.byte	0xcd
 	.byte	0x34
 	.long	0x56c0
 	.byte	0x9c
 	.uleb128 0x11
 	.ascii "PMC_BitwiseAnd_X_L\0"
 	.byte	0x1d
-	.byte	0xd4
+	.byte	0xce
 	.byte	0x34
 	.long	0x56df
 	.byte	0xa0
 	.uleb128 0x11
 	.ascii "PMC_BitwiseAnd_X_X\0"
 	.byte	0x1d
-	.byte	0xd5
+	.byte	0xcf
 	.byte	0x34
 	.long	0x55af
 	.byte	0xa4
 	.uleb128 0x11
 	.ascii "PMC_BitwiseOr_I_X\0"
 	.byte	0x1d
-	.byte	0xd8
+	.byte	0xd2
 	.byte	0x34
 	.long	0x5533
 	.byte	0xa8
 	.uleb128 0x11
 	.ascii "PMC_BitwiseOr_L_X\0"
 	.byte	0x1d
-	.byte	0xd9
+	.byte	0xd3
 	.byte	0x34
 	.long	0x5552
 	.byte	0xac
 	.uleb128 0x11
 	.ascii "PMC_BitwiseOr_X_I\0"
 	.byte	0x1d
-	.byte	0xda
+	.byte	0xd4
 	.byte	0x34
 	.long	0x5571
 	.byte	0xb0
 	.uleb128 0x11
 	.ascii "PMC_BitwiseOr_X_L\0"
 	.byte	0x1d
-	.byte	0xdb
+	.byte	0xd5
 	.byte	0x34
 	.long	0x5590
 	.byte	0xb4
 	.uleb128 0x11
 	.ascii "PMC_BitwiseOr_X_X\0"
 	.byte	0x1d
-	.byte	0xdc
+	.byte	0xd6
 	.byte	0x34
 	.long	0x55af
 	.byte	0xb8
 	.uleb128 0x11
 	.ascii "PMC_ExclusiveOr_I_X\0"
 	.byte	0x1d
-	.byte	0xdf
+	.byte	0xd9
 	.byte	0x34
 	.long	0x5533
 	.byte	0xbc
 	.uleb128 0x11
 	.ascii "PMC_ExclusiveOr_L_X\0"
 	.byte	0x1d
-	.byte	0xe0
+	.byte	0xda
 	.byte	0x34
 	.long	0x5552
 	.byte	0xc0
 	.uleb128 0x11
 	.ascii "PMC_ExclusiveOr_X_I\0"
 	.byte	0x1d
-	.byte	0xe1
+	.byte	0xdb
 	.byte	0x34
 	.long	0x5571
 	.byte	0xc4
 	.uleb128 0x11
 	.ascii "PMC_ExclusiveOr_X_L\0"
 	.byte	0x1d
-	.byte	0xe2
+	.byte	0xdc
 	.byte	0x34
 	.long	0x5590
 	.byte	0xc8
 	.uleb128 0x11
 	.ascii "PMC_ExclusiveOr_X_X\0"
 	.byte	0x1d
-	.byte	0xe3
+	.byte	0xdd
 	.byte	0x34
 	.long	0x55af
 	.byte	0xcc
 	.uleb128 0x11
 	.ascii "PMC_Compare_I_X\0"
 	.byte	0x1d
-	.byte	0xe6
+	.byte	0xe0
 	.byte	0x34
 	.long	0x56fe
 	.byte	0xd0
 	.uleb128 0x11
 	.ascii "PMC_Compare_L_X\0"
 	.byte	0x1d
-	.byte	0xe7
+	.byte	0xe1
 	.byte	0x34
 	.long	0x571d
 	.byte	0xd4
 	.uleb128 0x11
 	.ascii "PMC_Compare_X_I\0"
 	.byte	0x1d
-	.byte	0xe8
+	.byte	0xe2
 	.byte	0x34
 	.long	0x573c
 	.byte	0xd8
 	.uleb128 0x11
 	.ascii "PMC_Compare_X_L\0"
 	.byte	0x1d
-	.byte	0xe9
+	.byte	0xe3
 	.byte	0x34
 	.long	0x575b
 	.byte	0xdc
 	.uleb128 0x11
 	.ascii "PMC_Compare_X_X\0"
 	.byte	0x1d
-	.byte	0xea
+	.byte	0xe4
 	.byte	0x34
 	.long	0x577a
 	.byte	0xe0
 	.uleb128 0x11
 	.ascii "PMC_Equals_I_X\0"
 	.byte	0x1d
-	.byte	0xed
+	.byte	0xe7
 	.byte	0x34
 	.long	0x56fe
 	.byte	0xe4
 	.uleb128 0x11
 	.ascii "PMC_Equals_L_X\0"
 	.byte	0x1d
-	.byte	0xee
+	.byte	0xe8
 	.byte	0x34
 	.long	0x571d
 	.byte	0xe8
 	.uleb128 0x11
 	.ascii "PMC_Equals_X_I\0"
 	.byte	0x1d
-	.byte	0xef
+	.byte	0xe9
 	.byte	0x34
 	.long	0x573c
 	.byte	0xec
 	.uleb128 0x11
 	.ascii "PMC_Equals_X_L\0"
 	.byte	0x1d
-	.byte	0xf0
+	.byte	0xea
 	.byte	0x34
 	.long	0x575b
 	.byte	0xf0
 	.uleb128 0x11
 	.ascii "PMC_Equals_X_X\0"
 	.byte	0x1d
-	.byte	0xf1
+	.byte	0xeb
 	.byte	0x34
 	.long	0x577a
 	.byte	0xf4
 	.uleb128 0x11
 	.ascii "PMC_GreatestCommonDivisor_I_X\0"
 	.byte	0x1d
-	.byte	0xf4
+	.byte	0xee
 	.byte	0x34
 	.long	0x5533
 	.byte	0xf8
 	.uleb128 0x11
 	.ascii "PMC_GreatestCommonDivisor_L_X\0"
 	.byte	0x1d
-	.byte	0xf5
+	.byte	0xef
 	.byte	0x34
 	.long	0x5552
 	.byte	0xfc
 	.uleb128 0x19
 	.ascii "PMC_GreatestCommonDivisor_X_I\0"
 	.byte	0x1d
-	.byte	0xf6
+	.byte	0xf0
 	.byte	0x34
 	.long	0x5571
 	.word	0x100
 	.uleb128 0x19
 	.ascii "PMC_GreatestCommonDivisor_X_L\0"
 	.byte	0x1d
-	.byte	0xf7
+	.byte	0xf1
 	.byte	0x34
 	.long	0x5590
 	.word	0x104
 	.uleb128 0x19
 	.ascii "PMC_GreatestCommonDivisor_X_X\0"
 	.byte	0x1d
-	.byte	0xf8
+	.byte	0xf2
 	.byte	0x34
 	.long	0x55af
 	.word	0x108
 	.uleb128 0x19
 	.ascii "PMC_Pow_X_I\0"
 	.byte	0x1d
-	.byte	0xfb
+	.byte	0xf5
 	.byte	0x34
 	.long	0x5571
 	.word	0x10c
 	.uleb128 0x19
 	.ascii "PMC_ModPow_X_X_X\0"
 	.byte	0x1d
-	.byte	0xfe
+	.byte	0xf8
 	.byte	0x34
 	.long	0x579e
 	.word	0x110
@@ -5758,82 +5758,82 @@ Ldebug_info0:
 	.uleb128 0x6
 	.byte	0x4
 	.long	0x5780
-	.uleb128 0x5
+	.uleb128 0x3
 	.ascii "PMC_UINT_ENTRY_POINTS\0"
 	.byte	0x1d
-	.word	0x100
+	.byte	0xfa
 	.byte	0x3
 	.long	0x4bca
 	.uleb128 0x10
 	.ascii "__tag_PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x8
 	.byte	0x1e
-	.byte	0x29
+	.byte	0x23
 	.byte	0x10
-	.long	0x5805
+	.long	0x5804
 	.uleb128 0x11
 	.ascii "log\0"
 	.byte	0x1e
-	.byte	0x2b
+	.byte	0x25
 	.byte	0x27
-	.long	0x5815
+	.long	0x5814
 	.byte	0
 	.uleb128 0x11
 	.ascii "pause\0"
 	.byte	0x1e
-	.byte	0x2c
+	.byte	0x26
 	.byte	0x28
 	.long	0x1d59
 	.byte	0x4
 	.byte	0
 	.uleb128 0x1a
 	.long	0xe6
-	.long	0x5815
+	.long	0x5814
 	.uleb128 0xf
 	.long	0x1d60
 	.uleb128 0x1b
 	.byte	0
 	.uleb128 0x6
 	.byte	0x4
-	.long	0x5805
+	.long	0x5804
 	.uleb128 0x3
 	.ascii "PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x1e
-	.byte	0x2d
+	.byte	0x27
 	.byte	0x3
-	.long	0x57c3
+	.long	0x57c2
 	.uleb128 0x1c
 	.ascii "TEST_PMC_Equals_X_X\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x6
 	.long	LFB76
 	.long	LFE76-LFB76
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x1d
 	.ascii "env\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x31
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x1d
 	.ascii "ep\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x4d
-	.long	0x5942
+	.long	0x5941
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
 	.uleb128 0x1d
 	.ascii "no\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x55
 	.long	0xe6
 	.uleb128 0x2
@@ -5842,7 +5842,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "x_buf\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x67
 	.long	0x726
 	.uleb128 0x2
@@ -5851,7 +5851,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF1
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x75
 	.long	0xc7
 	.uleb128 0x2
@@ -5860,7 +5860,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "y_buf\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x8f
 	.long	0x726
 	.uleb128 0x2
@@ -5869,7 +5869,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "y_buf_size\0"
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0x9d
 	.long	0xc7
 	.uleb128 0x2
@@ -5878,7 +5878,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF2
 	.byte	0x1
-	.byte	0x5b
+	.byte	0x54
 	.byte	0xb0
 	.long	0xe6
 	.uleb128 0x2
@@ -5887,7 +5887,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
-	.byte	0x5d
+	.byte	0x56
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -5896,7 +5896,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "y\0"
 	.byte	0x1
-	.byte	0x5e
+	.byte	0x57
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -5905,7 +5905,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF3
 	.byte	0x1
-	.byte	0x5f
+	.byte	0x58
 	.byte	0x9
 	.long	0xe6
 	.uleb128 0x2
@@ -5914,7 +5914,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x1
-	.byte	0x60
+	.byte	0x59
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -5923,7 +5923,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF5
 	.byte	0x1
-	.byte	0x61
+	.byte	0x5a
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -5932,7 +5932,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "y_result\0"
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5b
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -5941,42 +5941,42 @@ Ldebug_info0:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x4
-	.long	0x581b
+	.long	0x581a
 	.uleb128 0x6
 	.byte	0x4
 	.long	0x57a4
 	.uleb128 0x1c
 	.ascii "TEST_PMC_Equals_X_L\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x6
 	.long	LFB75
 	.long	LFE75-LFB75
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5a10
+	.long	0x5a0f
 	.uleb128 0x1d
 	.ascii "env\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x31
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x1d
 	.ascii "ep\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x4d
-	.long	0x5942
+	.long	0x5941
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
 	.uleb128 0x1d
 	.ascii "no\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x55
 	.long	0xe6
 	.uleb128 0x2
@@ -5985,7 +5985,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "x_buf\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x67
 	.long	0x726
 	.uleb128 0x2
@@ -5994,7 +5994,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF1
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x75
 	.long	0xc7
 	.uleb128 0x2
@@ -6003,7 +6003,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "y\0"
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x91
 	.long	0x72c
 	.uleb128 0x2
@@ -6012,7 +6012,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF2
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x47
 	.byte	0x9c
 	.long	0xe6
 	.uleb128 0x2
@@ -6021,7 +6021,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
-	.byte	0x50
+	.byte	0x49
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -6030,7 +6030,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF3
 	.byte	0x1
-	.byte	0x51
+	.byte	0x4a
 	.byte	0x9
 	.long	0xe6
 	.uleb128 0x2
@@ -6039,7 +6039,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x1
-	.byte	0x52
+	.byte	0x4b
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6048,7 +6048,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF5
 	.byte	0x1
-	.byte	0x53
+	.byte	0x4c
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6058,35 +6058,35 @@ Ldebug_info0:
 	.uleb128 0x1c
 	.ascii "TEST_PMC_Equals_X_I\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x6
 	.long	LFB74
 	.long	LFE74-LFB74
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5ad8
+	.long	0x5ad7
 	.uleb128 0x1d
 	.ascii "env\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x31
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x1d
 	.ascii "ep\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x4d
-	.long	0x5942
+	.long	0x5941
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
 	.uleb128 0x1d
 	.ascii "no\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x55
 	.long	0xe6
 	.uleb128 0x2
@@ -6095,7 +6095,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "x_buf\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x67
 	.long	0x726
 	.uleb128 0x2
@@ -6104,7 +6104,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF1
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x75
 	.long	0xc7
 	.uleb128 0x2
@@ -6113,7 +6113,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "y\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x91
 	.long	0xd6
 	.uleb128 0x2
@@ -6122,7 +6122,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF2
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x9c
 	.long	0xe6
 	.uleb128 0x2
@@ -6131,7 +6131,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
-	.byte	0x43
+	.byte	0x3c
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -6140,7 +6140,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF3
 	.byte	0x1
-	.byte	0x44
+	.byte	0x3d
 	.byte	0x9
 	.long	0xe6
 	.uleb128 0x2
@@ -6149,7 +6149,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x1
-	.byte	0x45
+	.byte	0x3e
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6158,7 +6158,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF5
 	.byte	0x1
-	.byte	0x46
+	.byte	0x3f
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6168,35 +6168,35 @@ Ldebug_info0:
 	.uleb128 0x1c
 	.ascii "TEST_PMC_Equals_L_X\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x6
 	.long	LFB73
 	.long	LFE73-LFB73
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5ba0
+	.long	0x5b9f
 	.uleb128 0x1d
 	.ascii "env\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x31
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x1d
 	.ascii "ep\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x4d
-	.long	0x5942
+	.long	0x5941
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
 	.uleb128 0x1d
 	.ascii "no\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x55
 	.long	0xe6
 	.uleb128 0x2
@@ -6205,7 +6205,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "u\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x69
 	.long	0x72c
 	.uleb128 0x2
@@ -6214,7 +6214,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "v_buf\0"
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x7b
 	.long	0x726
 	.uleb128 0x2
@@ -6223,7 +6223,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF6
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x89
 	.long	0xc7
 	.uleb128 0x2
@@ -6232,7 +6232,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF7
 	.byte	0x1
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x9d
 	.long	0xe6
 	.uleb128 0x2
@@ -6241,7 +6241,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x1
-	.byte	0x36
+	.byte	0x2f
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -6250,7 +6250,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF8
 	.byte	0x1
-	.byte	0x37
+	.byte	0x30
 	.byte	0x9
 	.long	0xe6
 	.uleb128 0x2
@@ -6259,7 +6259,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x1
-	.byte	0x38
+	.byte	0x31
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6268,7 +6268,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF9
 	.byte	0x1
-	.byte	0x39
+	.byte	0x32
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6278,7 +6278,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "TEST_PMC_Equals_I_X\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x6
 	.long	LFB72
 	.long	LFE72-LFB72
@@ -6287,25 +6287,25 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "env\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x31
-	.long	0x593c
+	.long	0x593b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x1d
 	.ascii "ep\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x4d
-	.long	0x5942
+	.long	0x5941
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
 	.uleb128 0x1d
 	.ascii "no\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x55
 	.long	0xe6
 	.uleb128 0x2
@@ -6314,7 +6314,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "u\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x69
 	.long	0xd6
 	.uleb128 0x2
@@ -6323,7 +6323,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "v_buf\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x7b
 	.long	0x726
 	.uleb128 0x2
@@ -6332,7 +6332,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF6
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x89
 	.long	0xc7
 	.uleb128 0x2
@@ -6341,7 +6341,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.secrel32	LASF7
 	.byte	0x1
-	.byte	0x27
+	.byte	0x20
 	.byte	0x9d
 	.long	0xe6
 	.uleb128 0x2
@@ -6350,7 +6350,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x22
 	.byte	0xc
 	.long	0x746
 	.uleb128 0x2
@@ -6359,7 +6359,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF8
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x23
 	.byte	0x9
 	.long	0xe6
 	.uleb128 0x2
@@ -6368,7 +6368,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x1
-	.byte	0x2b
+	.byte	0x24
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2
@@ -6377,7 +6377,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF9
 	.byte	0x1
-	.byte	0x2c
+	.byte	0x25
 	.byte	0x15
 	.long	0x49ef
 	.uleb128 0x2

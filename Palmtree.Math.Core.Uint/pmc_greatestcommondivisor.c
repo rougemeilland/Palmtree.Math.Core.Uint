@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_greatestcommondivisor.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/25, 15:39
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

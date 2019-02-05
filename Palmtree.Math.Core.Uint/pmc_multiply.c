@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_multiply.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/06, 7:19
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

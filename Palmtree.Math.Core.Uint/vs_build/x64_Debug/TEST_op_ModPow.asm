@@ -18,7 +18,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __C90C8F96_test_op_modpow@c DB 01H
 msvcjmc	ENDS
 PUBLIC	TEST_PMC_ModPow_X_X_X
@@ -193,7 +193,7 @@ __JustMyCode_Default PROC				; COMDAT
 __JustMyCode_Default ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_debug.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_debug.h
 ;	COMDAT _EQUALS_MEMORY
 _TEXT	SEGMENT
 buffer1$ = 224
@@ -202,7 +202,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 155  : {
+; 149  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -217,29 +217,29 @@ _EQUALS_MEMORY PROC					; COMDAT
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	rcx, QWORD PTR [rsp+264]
-	lea	rcx, OFFSET FLAT:__95056B1C_pmc_debug@h
+	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 156  :     if (count1 != count2)
+; 150  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 157  :         return (-1);
+; 151  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 158  :     while (count1 > 0)
+; 152  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 159  :     {
-; 160  :         if (*buffer1 != *buffer2)
+; 153  :     {
+; 154  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -248,41 +248,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 161  :             return (-1);
+; 155  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 162  :         ++buffer1;
+; 156  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 163  :         ++buffer2;
+; 157  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 164  :         --count1;
+; 158  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 165  :     }
+; 159  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 166  :     return (0);
+; 160  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 167  : }
+; 161  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -331,7 +331,7 @@ desired_r_buf$ = 1120
 desired_r_buf_size$ = 1128
 TEST_PMC_ModPow_X_X_X PROC				; COMDAT
 
-; 40   : {
+; 33   : {
 
 $LN20:
 	mov	QWORD PTR [rsp+32], r9
@@ -353,18 +353,18 @@ $LN20:
 	lea	rcx, OFFSET FLAT:__C90C8F96_test_op_modpow@c
 	call	__CheckForDebuggerJustMyCode
 
-; 41   :     HANDLE v;
-; 42   :     HANDLE e;
-; 43   :     HANDLE m;
-; 44   :     HANDLE r;
-; 45   :     unsigned char actual_r_buf[256];
-; 46   :     size_t actual_r_buf_size;
-; 47   :     PMC_STATUS_CODE result;
-; 48   :     PMC_STATUS_CODE v_result;
-; 49   :     PMC_STATUS_CODE e_result;
-; 50   :     PMC_STATUS_CODE m_result;
-; 51   :     PMC_STATUS_CODE r_result;
-; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 34   :     HANDLE v;
+; 35   :     HANDLE e;
+; 36   :     HANDLE m;
+; 37   :     HANDLE r;
+; 38   :     unsigned char actual_r_buf[256];
+; 39   :     size_t actual_r_buf_size;
+; 40   :     PMC_STATUS_CODE result;
+; 41   :     PMC_STATUS_CODE v_result;
+; 42   :     PMC_STATUS_CODE e_result;
+; 43   :     PMC_STATUS_CODE m_result;
+; 44   :     PMC_STATUS_CODE r_result;
+; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -394,7 +394,7 @@ $LN9@TEST_PMC_M:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 53   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 2), (e_result = ep->PMC_FromByteArray(e_buf, e_buf_size, &e)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", e_result));
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 2), (e_result = ep->PMC_FromByteArray(e_buf, e_buf_size, &e)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", e_result));
 
 	lea	r8, QWORD PTR e$[rbp]
 	mov	rdx, QWORD PTR e_buf_size$[rbp]
@@ -424,7 +424,7 @@ $LN11@TEST_PMC_M:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 3), (m_result = ep->PMC_FromByteArray(m_buf, m_buf_size, &m)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", m_result));
+; 47   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 3), (m_result = ep->PMC_FromByteArray(m_buf, m_buf_size, &m)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", m_result));
 
 	lea	r8, QWORD PTR m$[rbp]
 	mov	rdx, QWORD PTR m_buf_size$[rbp]
@@ -454,7 +454,7 @@ $LN13@TEST_PMC_M:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 4), (r_result = ep->PMC_ModPow_X_X_X(v, e, m, &r)) == desired_result_code, FormatTestMesssage(L"PMC_ModPow_X_X_Xの復帰コードが期待通りではない(%d)", r_result));
+; 48   :     TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 4), (r_result = ep->PMC_ModPow_X_X_X(v, e, m, &r)) == desired_result_code, FormatTestMesssage(L"PMC_ModPow_X_X_Xの復帰コードが期待通りではない(%d)", r_result));
 
 	lea	r9, QWORD PTR r$[rbp]
 	mov	r8, QWORD PTR m$[rbp]
@@ -486,13 +486,13 @@ $LN15@TEST_PMC_M:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 56   :     if (desired_result_code == PMC_STATUS_OK)
+; 49   :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_M
 
-; 57   :     {
-; 58   :         TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 5), (result = ep->PMC_ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 50   :     {
+; 51   :         TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 5), (result = ep->PMC_ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_r_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -523,7 +523,7 @@ $LN17@TEST_PMC_M:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 59   :         TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 6), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"データの内容が一致しない");
+; 52   :         TEST_Assert(env, FormatTestLabel(L"PMC_ModPow_X_X_X (%d.%d)", no, 6), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_r_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_r_buf$[rbp]
@@ -548,56 +548,56 @@ $LN19@TEST_PMC_M:
 	call	TEST_Assert
 $LN2@TEST_PMC_M:
 
-; 60   :     }
-; 61   :     if (r_result == PMC_STATUS_OK)
+; 53   :     }
+; 54   :     if (r_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR r_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_M
 
-; 62   :         ep->PMC_Dispose(r);
+; 55   :         ep->PMC_Dispose(r);
 
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_M:
 
-; 63   :     if (m_result == PMC_STATUS_OK)
+; 56   :     if (m_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR m_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_M
 
-; 64   :         ep->PMC_Dispose(m);
+; 57   :         ep->PMC_Dispose(m);
 
 	mov	rcx, QWORD PTR m$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_M:
 
-; 65   :     if (e_result == PMC_STATUS_OK)
+; 58   :     if (e_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR e_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_M
 
-; 66   :         ep->PMC_Dispose(e);
+; 59   :         ep->PMC_Dispose(e);
 
 	mov	rcx, QWORD PTR e$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN5@TEST_PMC_M:
 
-; 67   :     if (v_result == PMC_STATUS_OK)
+; 60   :     if (v_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_M
 
-; 68   :         ep->PMC_Dispose(v);
+; 61   :         ep->PMC_Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN6@TEST_PMC_M:
 
-; 69   : }
+; 62   : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_ModPow_X_X_X$rtcFrameData

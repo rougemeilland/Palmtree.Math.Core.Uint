@@ -7,7 +7,7 @@
 _ZERO_MEMORY_BYTE:
 .LFB4321:
 	.file 1 "../pmc_inline_func.h"
-	.loc 1 94 5
+	.loc 1 87 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -52,7 +52,7 @@ _ZERO_MEMORY_BYTE:
 	movq	%rdx, -120(%rbp)
 .LBE9:
 .LBE8:
-	.loc 1 96 5
+	.loc 1 89 5
 	nop
 	addq	$40, %rsp
 	popq	%rdi
@@ -69,7 +69,7 @@ _ZERO_MEMORY_BYTE:
 cpuid:
 .LFB4371:
 	.file 3 "../cpuid.c"
-	.loc 3 40 1
+	.loc 3 33 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -90,7 +90,7 @@ cpuid:
 	movq	%rdx, -56(%rbp)
 	movq	%r8, -48(%rbp)
 	movq	%r9, -40(%rbp)
-	.loc 3 42 5
+	.loc 3 35 5
 	movl	-64(%rbp), %edx
 	leaq	-128(%rbp), %rax
 	movq	%rax, -104(%rbp)
@@ -121,27 +121,27 @@ cpuid:
 	movl	%edx, (%r9)
 .LBE11:
 .LBE10:
-	.loc 3 43 22
+	.loc 3 36 22
 	movl	-128(%rbp), %edx
-	.loc 3 43 14
+	.loc 3 36 14
 	movq	-56(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 44 22
+	.loc 3 37 22
 	movl	-124(%rbp), %edx
-	.loc 3 44 14
+	.loc 3 37 14
 	movq	-48(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 45 22
+	.loc 3 38 22
 	movl	-120(%rbp), %edx
-	.loc 3 45 14
+	.loc 3 38 14
 	movq	-40(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 46 22
+	.loc 3 39 22
 	movl	-116(%rbp), %edx
-	.loc 3 46 14
+	.loc 3 39 14
 	movq	-32(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 47 1
+	.loc 3 40 1
 	nop
 	addq	$40, %rsp
 	popq	%rbx
@@ -157,7 +157,7 @@ cpuid:
 	.seh_proc	cpuidex
 cpuidex:
 .LFB4372:
-	.loc 3 50 1
+	.loc 3 43 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -178,7 +178,7 @@ cpuidex:
 	movl	%edx, -56(%rbp)
 	movq	%r8, -48(%rbp)
 	movq	%r9, -40(%rbp)
-	.loc 3 52 5
+	.loc 3 45 5
 	movl	-56(%rbp), %edx
 	movl	-64(%rbp), %ecx
 	leaq	-128(%rbp), %rax
@@ -213,27 +213,27 @@ cpuidex:
 	movl	%edx, (%r9)
 .LBE13:
 .LBE12:
-	.loc 3 53 22
+	.loc 3 46 22
 	movl	-128(%rbp), %edx
-	.loc 3 53 14
+	.loc 3 46 14
 	movq	-48(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 54 22
+	.loc 3 47 22
 	movl	-124(%rbp), %edx
-	.loc 3 54 14
+	.loc 3 47 14
 	movq	-40(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 55 22
+	.loc 3 48 22
 	movl	-120(%rbp), %edx
-	.loc 3 55 14
+	.loc 3 48 14
 	movq	-32(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 56 22
+	.loc 3 49 22
 	movl	-116(%rbp), %edx
-	.loc 3 56 14
+	.loc 3 49 14
 	movq	-24(%rbp), %rax
 	movl	%edx, (%rax)
-	.loc 3 57 1
+	.loc 3 50 1
 	nop
 	addq	$40, %rsp
 	popq	%rbx
@@ -250,7 +250,7 @@ cpuidex:
 	.seh_proc	GetCPUInfo
 GetCPUInfo:
 .LFB4373:
-	.loc 3 60 1
+	.loc 3 53 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -263,13 +263,13 @@ GetCPUInfo:
 	.seh_stackalloc	80
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
-	.loc 3 65 15
+	.loc 3 58 15
 	movl	$0, -4(%rbp)
-	.loc 3 66 15
+	.loc 3 59 15
 	movl	$0, -8(%rbp)
-	.loc 3 67 15
+	.loc 3 60 15
 	movl	$0, -12(%rbp)
-	.loc 3 68 5
+	.loc 3 61 5
 	leaq	-24(%rbp), %r8
 	leaq	-20(%rbp), %rcx
 	leaq	-16(%rbp), %rax
@@ -280,17 +280,17 @@ GetCPUInfo:
 	movq	%rax, %rdx
 	movl	$0, %ecx
 	call	cpuid
-	.loc 3 69 21
+	.loc 3 62 21
 	movl	-16(%rbp), %eax
 	movl	%eax, -4(%rbp)
-	.loc 3 70 5
+	.loc 3 63 5
 	movl	$4, %edx
 	movq	16(%rbp), %rcx
 	call	_ZERO_MEMORY_BYTE
-	.loc 3 71 8
+	.loc 3 64 8
 	cmpl	$0, -4(%rbp)
 	je	.L5
-	.loc 3 73 9
+	.loc 3 66 9
 	leaq	-24(%rbp), %r8
 	leaq	-20(%rbp), %rcx
 	leaq	-16(%rbp), %rax
@@ -301,12 +301,12 @@ GetCPUInfo:
 	movq	%rax, %rdx
 	movl	$1, %ecx
 	call	cpuid
-	.loc 3 74 54
+	.loc 3 67 54
 	movl	-24(%rbp), %eax
 	shrl	$23, %eax
-	.loc 3 74 61
+	.loc 3 67 61
 	andl	$1, %eax
-	.loc 3 74 43
+	.loc 3 67 43
 	movq	16(%rbp), %rdx
 	andl	$1, %eax
 	movl	%eax, %ecx
@@ -315,10 +315,10 @@ GetCPUInfo:
 	orl	%ecx, %eax
 	movb	%al, (%rdx)
 .L5:
-	.loc 3 76 8
+	.loc 3 69 8
 	cmpl	$6, -4(%rbp)
 	jbe	.L6
-	.loc 3 78 9
+	.loc 3 71 9
 	leaq	-20(%rbp), %rcx
 	leaq	-16(%rbp), %rdx
 	leaq	-28(%rbp), %rax
@@ -330,15 +330,15 @@ GetCPUInfo:
 	movl	$0, %edx
 	movl	$7, %ecx
 	call	cpuidex
-	.loc 3 79 24
+	.loc 3 72 24
 	movl	-16(%rbp), %eax
 	movl	%eax, -8(%rbp)
-	.loc 3 80 52
+	.loc 3 73 52
 	movl	-20(%rbp), %eax
 	shrl	$3, %eax
-	.loc 3 80 58
+	.loc 3 73 58
 	andl	$1, %eax
-	.loc 3 80 41
+	.loc 3 73 41
 	movq	16(%rbp), %rdx
 	andl	$1, %eax
 	leal	0(,%rax,4), %ecx
@@ -346,12 +346,12 @@ GetCPUInfo:
 	andl	$-5, %eax
 	orl	%ecx, %eax
 	movb	%al, (%rdx)
-	.loc 3 81 51
+	.loc 3 74 51
 	movl	-20(%rbp), %eax
 	shrl	$8, %eax
-	.loc 3 81 57
+	.loc 3 74 57
 	andl	$1, %eax
-	.loc 3 81 40
+	.loc 3 74 40
 	movq	16(%rbp), %rdx
 	andl	$1, %eax
 	leal	(%rax,%rax), %ecx
@@ -359,12 +359,12 @@ GetCPUInfo:
 	andl	$-3, %eax
 	orl	%ecx, %eax
 	movb	%al, (%rdx)
-	.loc 3 82 52
+	.loc 3 75 52
 	movl	-20(%rbp), %eax
 	shrl	$19, %eax
-	.loc 3 82 59
+	.loc 3 75 59
 	andl	$1, %eax
-	.loc 3 82 41
+	.loc 3 75 41
 	movq	16(%rbp), %rdx
 	andl	$1, %eax
 	leal	0(,%rax,8), %ecx
@@ -373,7 +373,7 @@ GetCPUInfo:
 	orl	%ecx, %eax
 	movb	%al, (%rdx)
 .L6:
-	.loc 3 84 5
+	.loc 3 77 5
 	leaq	-24(%rbp), %r8
 	leaq	-20(%rbp), %rcx
 	leaq	-16(%rbp), %rax
@@ -384,13 +384,13 @@ GetCPUInfo:
 	movq	%rax, %rdx
 	movl	$-2147483648, %ecx
 	call	cpuid
-	.loc 3 85 24
+	.loc 3 78 24
 	movl	-16(%rbp), %eax
 	movl	%eax, -12(%rbp)
-	.loc 3 86 8
+	.loc 3 79 8
 	cmpl	$-2147483648, -12(%rbp)
 	jbe	.L8
-	.loc 3 88 9
+	.loc 3 81 9
 	leaq	-24(%rbp), %r8
 	leaq	-20(%rbp), %rcx
 	leaq	-16(%rbp), %rax
@@ -401,12 +401,12 @@ GetCPUInfo:
 	movq	%rax, %rdx
 	movl	$-2147483647, %ecx
 	call	cpuid
-	.loc 3 89 51
+	.loc 3 82 51
 	movl	-24(%rbp), %eax
 	shrl	$5, %eax
-	.loc 3 89 57
+	.loc 3 82 57
 	andl	$1, %eax
-	.loc 3 89 40
+	.loc 3 82 40
 	movq	16(%rbp), %rdx
 	andl	$1, %eax
 	sall	$4, %eax
@@ -416,7 +416,7 @@ GetCPUInfo:
 	orl	%ecx, %eax
 	movb	%al, (%rdx)
 .L8:
-	.loc 3 91 1
+	.loc 3 84 1
 	nop
 	addq	$80, %rsp
 	popq	%rbp
@@ -4241,26 +4241,26 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1f
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x496a
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1f
-	.byte	0x60
+	.byte	0x5a
 	.byte	0x12
 	.long	0x497b
 	.uleb128 0x14
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1f
-	.byte	0x65
+	.byte	0x5f
 	.byte	0x10
 	.long	0x49ff
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1f
-	.byte	0x67
+	.byte	0x61
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4271,41 +4271,41 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1f
-	.byte	0x68
+	.byte	0x62
 	.byte	0x3
 	.long	0x49b0
 	.uleb128 0x14
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x71
+	.byte	0x6b
 	.byte	0x10
 	.long	0x4a9a
 	.uleb128 0x15
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x73
+	.byte	0x6d
 	.byte	0xa
 	.long	0x137
 	.byte	0
 	.uleb128 0x15
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x74
+	.byte	0x6e
 	.byte	0xa
 	.long	0x137
 	.byte	0x4
 	.uleb128 0x15
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x75
+	.byte	0x6f
 	.byte	0xa
 	.long	0x137
 	.byte	0x8
 	.uleb128 0x15
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x76
+	.byte	0x70
 	.byte	0xa
 	.long	0x137
 	.byte	0xc
@@ -4313,7 +4313,7 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x77
+	.byte	0x71
 	.byte	0x3
 	.long	0x4a1e
 	.uleb128 0x6
@@ -4323,13 +4323,13 @@ GetCPUInfo:
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x20
-	.byte	0x29
+	.byte	0x23
 	.byte	0x10
 	.long	0x4b8d
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x20
-	.byte	0x2c
+	.byte	0x26
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4339,7 +4339,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ADX\0"
 	.byte	0x20
-	.byte	0x2f
+	.byte	0x29
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4349,7 +4349,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI1\0"
 	.byte	0x20
-	.byte	0x32
+	.byte	0x2c
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4359,7 +4359,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI2\0"
 	.byte	0x20
-	.byte	0x35
+	.byte	0x2f
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4369,7 +4369,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ABM\0"
 	.byte	0x20
-	.byte	0x38
+	.byte	0x32
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4380,68 +4380,68 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "PROCESSOR_FEATURES\0"
 	.byte	0x20
-	.byte	0x39
+	.byte	0x33
 	.byte	0x3
 	.long	0x4abc
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
-	.byte	0x34
+	.byte	0x2e
 	.byte	0x13
 	.long	0x499e
 	.uleb128 0x14
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x22
-	.byte	0x2d
+	.byte	0x26
 	.byte	0x14
 	.long	0x4cf9
 	.uleb128 0x15
 	.ascii "SIGNATURE1\0"
 	.byte	0x22
-	.byte	0x2f
+	.byte	0x28
 	.byte	0x13
 	.long	0x498c
 	.byte	0
 	.uleb128 0x15
 	.ascii "SIGNATURE2\0"
 	.byte	0x22
-	.byte	0x30
+	.byte	0x29
 	.byte	0x13
 	.long	0x498c
 	.byte	0x4
 	.uleb128 0x15
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x22
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x15
 	.long	0x4ba8
 	.byte	0x8
 	.uleb128 0x15
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x22
-	.byte	0x32
+	.byte	0x2b
 	.byte	0x15
 	.long	0x4ba8
 	.byte	0x10
 	.uleb128 0x15
 	.ascii "HASH_CODE\0"
 	.byte	0x22
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x15
 	.long	0x4ba8
 	.byte	0x18
 	.uleb128 0x15
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x15
 	.long	0x4ba8
 	.byte	0x20
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
 	.byte	0x22
-	.byte	0x35
+	.byte	0x2e
 	.byte	0x12
 	.long	0x458
 	.byte	0x4
@@ -4451,7 +4451,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x22
-	.byte	0x36
+	.byte	0x2f
 	.byte	0x12
 	.long	0x458
 	.byte	0x4
@@ -4461,7 +4461,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
 	.byte	0x22
-	.byte	0x37
+	.byte	0x30
 	.byte	0x12
 	.long	0x458
 	.byte	0x4
@@ -4471,7 +4471,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
 	.byte	0x22
-	.byte	0x38
+	.byte	0x31
 	.byte	0x12
 	.long	0x458
 	.byte	0x4
@@ -4481,7 +4481,7 @@ GetCPUInfo:
 	.uleb128 0x18
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x22
-	.byte	0x39
+	.byte	0x32
 	.byte	0x12
 	.long	0x458
 	.byte	0x4
@@ -4491,14 +4491,14 @@ GetCPUInfo:
 	.uleb128 0x15
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x22
-	.byte	0x3b
+	.byte	0x34
 	.byte	0x10
 	.long	0xc6
 	.byte	0x30
 	.uleb128 0x15
 	.ascii "BLOCK\0"
 	.byte	0x22
-	.byte	0x3f
+	.byte	0x38
 	.byte	0x16
 	.long	0x4cf9
 	.byte	0x38
@@ -4509,31 +4509,31 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
-	.byte	0x40
+	.byte	0x39
 	.byte	0x7
 	.long	0x4bbc
 	.uleb128 0x10
 	.ascii "configuration_info\0"
 	.byte	0x22
-	.byte	0x46
+	.byte	0x3f
 	.byte	0x23
 	.long	0x49ff
 	.uleb128 0x10
 	.ascii "number_zero\0"
 	.byte	0x22
-	.byte	0x49
+	.byte	0x42
 	.byte	0x1a
 	.long	0x4cff
 	.uleb128 0x10
 	.ascii "number_one\0"
 	.byte	0x22
-	.byte	0x4c
+	.byte	0x45
 	.byte	0x1a
 	.long	0x4cff
 	.uleb128 0x10
 	.ascii "statistics_info\0"
 	.byte	0x22
-	.byte	0x4f
+	.byte	0x48
 	.byte	0x20
 	.long	0x4a9a
 	.uleb128 0x19
@@ -4546,7 +4546,7 @@ GetCPUInfo:
 	.uleb128 0x11
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x134
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4d94
 	.uleb128 0x6
@@ -4555,7 +4555,7 @@ GetCPUInfo:
 	.uleb128 0x1b
 	.ascii "GetCPUInfo\0"
 	.byte	0x3
-	.byte	0x3b
+	.byte	0x34
 	.byte	0x6
 	.quad	.LFB4373
 	.quad	.LFE4373-.LFB4373
@@ -4565,7 +4565,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "feature\0"
 	.byte	0x3
-	.byte	0x3b
+	.byte	0x34
 	.byte	0x25
 	.long	0x4e62
 	.uleb128 0x2
@@ -4574,7 +4574,7 @@ GetCPUInfo:
 	.uleb128 0x1d
 	.secrel32	.LASF1
 	.byte	0x3
-	.byte	0x3d
+	.byte	0x36
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4583,7 +4583,7 @@ GetCPUInfo:
 	.uleb128 0x1d
 	.secrel32	.LASF2
 	.byte	0x3
-	.byte	0x3e
+	.byte	0x37
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4592,7 +4592,7 @@ GetCPUInfo:
 	.uleb128 0x1d
 	.secrel32	.LASF3
 	.byte	0x3
-	.byte	0x3f
+	.byte	0x38
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4601,7 +4601,7 @@ GetCPUInfo:
 	.uleb128 0x1d
 	.secrel32	.LASF4
 	.byte	0x3
-	.byte	0x40
+	.byte	0x39
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4610,7 +4610,7 @@ GetCPUInfo:
 	.uleb128 0x1e
 	.ascii "max_function_no\0"
 	.byte	0x3
-	.byte	0x41
+	.byte	0x3a
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4619,7 +4619,7 @@ GetCPUInfo:
 	.uleb128 0x1e
 	.ascii "max_subleaf_no\0"
 	.byte	0x3
-	.byte	0x42
+	.byte	0x3b
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4628,7 +4628,7 @@ GetCPUInfo:
 	.uleb128 0x1e
 	.ascii "max_ex_function_no\0"
 	.byte	0x3
-	.byte	0x43
+	.byte	0x3c
 	.byte	0xf
 	.long	0x498c
 	.uleb128 0x2
@@ -4641,7 +4641,7 @@ GetCPUInfo:
 	.uleb128 0x1f
 	.ascii "cpuidex\0"
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x16
 	.quad	.LFB4372
 	.quad	.LFE4372-.LFB4372
@@ -4651,7 +4651,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "op\0"
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x28
 	.long	0x498c
 	.uleb128 0x2
@@ -4660,7 +4660,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "subop\0"
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x36
 	.long	0x498c
 	.uleb128 0x2
@@ -4669,7 +4669,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF1
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x48
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4678,7 +4678,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF2
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x5c
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4687,7 +4687,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF3
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x70
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4696,7 +4696,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF4
 	.byte	0x3
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x84
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4705,7 +4705,7 @@ GetCPUInfo:
 	.uleb128 0x1e
 	.ascii "regbuf\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0xf
 	.long	0x4f29
 	.uleb128 0x2
@@ -4716,7 +4716,7 @@ GetCPUInfo:
 	.quad	.LBB12
 	.quad	.LBE12-.LBB12
 	.byte	0x3
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x5
 	.uleb128 0x22
 	.long	0x5095
@@ -4745,7 +4745,7 @@ GetCPUInfo:
 	.uleb128 0x1f
 	.ascii "cpuid\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x16
 	.quad	.LFB4371
 	.quad	.LFE4371-.LFB4371
@@ -4755,7 +4755,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "op\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x26
 	.long	0x498c
 	.uleb128 0x2
@@ -4764,7 +4764,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF1
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x35
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4773,7 +4773,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF2
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x49
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4782,7 +4782,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF3
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x5d
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4791,7 +4791,7 @@ GetCPUInfo:
 	.uleb128 0x20
 	.secrel32	.LASF4
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x71
 	.long	0x4ab6
 	.uleb128 0x2
@@ -4800,7 +4800,7 @@ GetCPUInfo:
 	.uleb128 0x1e
 	.ascii "regbuf\0"
 	.byte	0x3
-	.byte	0x29
+	.byte	0x22
 	.byte	0xf
 	.long	0x4f29
 	.uleb128 0x2
@@ -4811,7 +4811,7 @@ GetCPUInfo:
 	.quad	.LBB10
 	.quad	.LBE10-.LBB10
 	.byte	0x3
-	.byte	0x2a
+	.byte	0x23
 	.byte	0x5
 	.uleb128 0x22
 	.long	0x50d1
@@ -4828,7 +4828,7 @@ GetCPUInfo:
 	.uleb128 0x1f
 	.ascii "_ZERO_MEMORY_BYTE\0"
 	.byte	0x1
-	.byte	0x5d
+	.byte	0x56
 	.byte	0x1a
 	.quad	.LFB4321
 	.quad	.LFE4321-.LFB4321
@@ -4838,7 +4838,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "d\0"
 	.byte	0x1
-	.byte	0x5d
+	.byte	0x56
 	.byte	0x32
 	.long	0x7b2
 	.uleb128 0x2
@@ -4847,7 +4847,7 @@ GetCPUInfo:
 	.uleb128 0x1c
 	.ascii "count\0"
 	.byte	0x1
-	.byte	0x5d
+	.byte	0x56
 	.byte	0x3c
 	.long	0xc6
 	.uleb128 0x2
@@ -4858,7 +4858,7 @@ GetCPUInfo:
 	.quad	.LBB8
 	.quad	.LBE8-.LBB8
 	.byte	0x1
-	.byte	0x5f
+	.byte	0x58
 	.byte	0x9
 	.uleb128 0x22
 	.long	0x510e

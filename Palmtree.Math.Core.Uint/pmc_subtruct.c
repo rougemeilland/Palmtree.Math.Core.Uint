@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_subtruct.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/05, 22:34
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

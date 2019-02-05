@@ -30,7 +30,7 @@ function_code$ = 56
 o$ = 64
 PMC_GetPropertyValue_X_I PROC				; COMDAT
 
-; 38   : {
+; 31   : {
 
 $LN15:
 	mov	QWORD PTR [rsp+8], rbx
@@ -41,28 +41,28 @@ $LN15:
 	mov	ebx, edx
 	mov	rdi, rcx
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	test	rcx, rcx
 	je	$LN13@PMC_GetPro
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 41   :     if (o == NULL)
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 34   :     if (o == NULL)
 
 	test	r8, r8
 	je	$LN13@PMC_GetPro
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_GetPro
 
-; 46   :         return (result);
-; 47   :     switch (function_code)
+; 39   :         return (result);
+; 40   :     switch (function_code)
 
 	sub	ebx, 1
 	je	SHORT $LN7@PMC_GetPro
@@ -73,22 +73,22 @@ $LN15:
 	cmp	ebx, 1
 	jne	SHORT $LN13@PMC_GetPro
 
-; 58   :     case PMC_PROPERTY_IS_ZERO:
-; 59   :         *o = nx->IS_ZERO;
+; 51   :     case PMC_PROPERTY_IS_ZERO:
+; 52   :         *o = nx->IS_ZERO;
 
 	mov	eax, DWORD PTR [rdi+40]
 	shr	eax, 1
 	and	eax, ebx
 	mov	DWORD PTR [rsi], eax
 
-; 60   :         return (PMC_STATUS_OK);
+; 53   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 63   :     }
-; 64   : }
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 56   :     }
+; 57   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -97,22 +97,22 @@ $LN15:
 	ret	0
 $LN9@PMC_GetPro:
 
-; 55   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 56   :         *o = nx->IS_POWER_OF_TWO;
+; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
+; 49   :         *o = nx->IS_POWER_OF_TWO;
 
 	mov	eax, DWORD PTR [rdi+40]
 	shr	eax, 4
 	and	eax, 1
 	mov	DWORD PTR [rsi], eax
 
-; 57   :         return (PMC_STATUS_OK);
+; 50   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 63   :     }
-; 64   : }
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 56   :     }
+; 57   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -121,22 +121,22 @@ $LN9@PMC_GetPro:
 	ret	0
 $LN8@PMC_GetPro:
 
-; 52   :     case PMC_PROPERTY_IS_ONE:
-; 53   :         *o = nx->IS_ONE;
+; 45   :     case PMC_PROPERTY_IS_ONE:
+; 46   :         *o = nx->IS_ONE;
 
 	mov	eax, DWORD PTR [rdi+40]
 	shr	eax, 2
 	and	eax, 1
 	mov	DWORD PTR [rsi], eax
 
-; 54   :         return (PMC_STATUS_OK);
+; 47   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 63   :     }
-; 64   : }
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 56   :     }
+; 57   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -145,23 +145,23 @@ $LN8@PMC_GetPro:
 	ret	0
 $LN7@PMC_GetPro:
 
-; 48   :     {
-; 49   :     case PMC_PROPERTY_IS_EVEN:
-; 50   :         *o = nx->IS_EVEN;
+; 41   :     {
+; 42   :     case PMC_PROPERTY_IS_EVEN:
+; 43   :         *o = nx->IS_EVEN;
 
 	mov	eax, DWORD PTR [rdi+40]
 	shr	eax, 3
 	and	eax, 1
 	mov	DWORD PTR [rsi], eax
 
-; 51   :         return (PMC_STATUS_OK);
+; 44   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 63   :     }
-; 64   : }
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 56   :     }
+; 57   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -185,11 +185,11 @@ _TEXT	SEGMENT
 feature$ = 8
 Initialize_GetPropertyValue PROC			; COMDAT
 
-; 68   :     return (PMC_STATUS_OK);
+; 61   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 69   : }
+; 62   : }
 
 	ret	0
 Initialize_GetPropertyValue ENDP

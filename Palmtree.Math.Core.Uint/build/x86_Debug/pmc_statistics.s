@@ -7,34 +7,34 @@ Ltext0:
 _PMC_GetStatisticsInfo@4:
 LFB71:
 	.file 1 "../pmc_statistics.c"
-	.loc 1 40 1
+	.loc 1 34 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
-	.loc 1 41 39
+	.loc 1 35 39
 	movl	_statistics_info+12, %edx
-	.loc 1 41 22
+	.loc 1 35 22
 	movl	8(%ebp), %eax
 	movl	%edx, 12(%eax)
-	.loc 1 42 39
+	.loc 1 36 39
 	movl	_statistics_info+8, %edx
-	.loc 1 42 22
+	.loc 1 36 22
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%eax)
-	.loc 1 43 41
+	.loc 1 37 41
 	movl	_statistics_info+4, %edx
-	.loc 1 43 24
+	.loc 1 37 24
 	movl	8(%ebp), %eax
 	movl	%edx, 4(%eax)
-	.loc 1 44 41
+	.loc 1 38 41
 	movl	_statistics_info, %edx
-	.loc 1 44 24
+	.loc 1 38 24
 	movl	8(%ebp), %eax
 	movl	%edx, (%eax)
-	.loc 1 45 1
+	.loc 1 39 1
 	nop
 	popl	%ebp
 	.cfi_restore 5
@@ -4012,34 +4012,34 @@ Ldebug_info0:
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
-	.byte	0x71
+	.byte	0x6b
 	.byte	0x10
 	.long	0x4c8b
 	.uleb128 0x11
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
-	.byte	0x73
+	.byte	0x6d
 	.byte	0xa
 	.long	0x109
 	.byte	0
 	.uleb128 0x11
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1d
-	.byte	0x74
+	.byte	0x6e
 	.byte	0xa
 	.long	0x109
 	.byte	0x4
 	.uleb128 0x11
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1d
-	.byte	0x75
+	.byte	0x6f
 	.byte	0xa
 	.long	0x109
 	.byte	0x8
 	.uleb128 0x11
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1d
-	.byte	0x76
+	.byte	0x70
 	.byte	0xa
 	.long	0x109
 	.byte	0xc
@@ -4047,7 +4047,7 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1d
-	.byte	0x77
+	.byte	0x71
 	.byte	0x3
 	.long	0x4c0f
 	.uleb128 0x6
@@ -4056,7 +4056,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "statistics_info\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x1e
 	.byte	0x15
 	.long	0x4c8b
 	.uleb128 0x5
@@ -4065,7 +4065,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "PMC_GetStatisticsInfo\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x21
 	.byte	0x23
 	.ascii "PMC_GetStatisticsInfo@4\0"
 	.long	LFB71
@@ -4075,7 +4075,7 @@ Ldebug_info0:
 	.uleb128 0x1c
 	.ascii "buffer\0"
 	.byte	0x1
-	.byte	0x27
+	.byte	0x21
 	.byte	0x4e
 	.long	0x4ca7
 	.uleb128 0x2

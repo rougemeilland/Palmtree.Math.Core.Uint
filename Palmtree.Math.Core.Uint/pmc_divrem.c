@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_divrem.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/07, 21:08
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

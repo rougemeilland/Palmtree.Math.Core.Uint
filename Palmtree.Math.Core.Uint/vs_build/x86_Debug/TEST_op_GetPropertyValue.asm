@@ -22,7 +22,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __8E312870_test_op_getpropertyvalue@c DB 01H
 msvcjmc	ENDS
 PUBLIC	_TEST_PMC_GetPropertyValue_X_I
@@ -110,7 +110,7 @@ _function_code$ = 28					; size = 4
 _desired_value$ = 32					; size = 4
 _TEST_PMC_GetPropertyValue_X_I PROC
 
-; 40   : {
+; 33   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -124,11 +124,11 @@ _TEST_PMC_GetPropertyValue_X_I PROC
 	mov	ecx, OFFSET __8E312870_test_op_getpropertyvalue@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 41   :     HANDLE x;
-; 42   :     _INT32_T actual_value;
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     PMC_STATUS_CODE x_result;
-; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 34   :     HANDLE x;
+; 35   :     _INT32_T actual_value;
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     PMC_STATUS_CODE x_result;
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -170,7 +170,7 @@ $LN5@TEST_PMC_G:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 2), (result = ep->PMC_GetPropertyValue_X_I(x, function_code, &actual_value)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_GetPropertyValue_X_Iの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 2), (result = ep->PMC_GetPropertyValue_X_I(x, function_code, &actual_value)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_GetPropertyValue_X_Iの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_value$[ebp]
@@ -212,7 +212,7 @@ $LN7@TEST_PMC_G:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 47   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 3), actual_value == desired_value, L"データの内容が一致しない");
+; 40   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 3), actual_value == desired_value, L"データの内容が一致しない");
 
 	mov	eax, DWORD PTR _actual_value$[ebp]
 	cmp	eax, DWORD PTR _desired_value$[ebp]
@@ -237,12 +237,12 @@ $LN9@TEST_PMC_G:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 48   :     if (x_result == PMC_STATUS_OK)
+; 41   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_G
 
-; 49   :         ep->PMC_Dispose(x);
+; 42   :         ep->PMC_Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]
@@ -254,7 +254,7 @@ $LN9@TEST_PMC_G:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_G:
 
-; 50   : }
+; 43   : }
 
 	push	edx
 	mov	ecx, ebp

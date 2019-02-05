@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_bitwiseand.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/13, 13:37
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

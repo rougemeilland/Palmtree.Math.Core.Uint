@@ -5,7 +5,7 @@ Ltext0:
 _pause_console:
 LFB83:
 	.file 1 "../main.c"
-	.loc 1 29 1
+	.loc 1 54 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -13,9 +13,9 @@ LFB83:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$8, %esp
-	.loc 1 30 5
+	.loc 1 55 5
 	call	_getchar
-	.loc 1 31 1
+	.loc 1 56 1
 	nop
 	leave
 	.cfi_restore 5
@@ -56,7 +56,7 @@ LC11:
 	.def	_main;	.scl	2;	.type	32;	.endef
 _main:
 LFB84:
-	.loc 1 37 1
+	.loc 1 62 1
 	.cfi_startproc
 	leal	4(%esp), %ecx
 	.cfi_def_cfa 1, 0
@@ -70,17 +70,17 @@ LFB84:
 	.cfi_escape 0xf,0x3,0x75,0x78,0x6
 	.cfi_escape 0x10,0x3,0x2,0x75,0x7c
 	subl	$576, %esp
-	.loc 1 37 1
+	.loc 1 62 1
 	call	___main
 LVL0:
-	.loc 1 38 5
+	.loc 1 63 5
 	movl	$LC0, 4(%esp)
 	movl	$0, (%esp)
 	call	_setlocale
-	.loc 1 40 5
+	.loc 1 65 5
 	movl	$LC1, (%esp)
 	call	_puts
-	.loc 1 43 5
+	.loc 1 68 5
 	movl	$261, 8(%esp)
 	leal	-281(%ebp), %eax
 	movl	%eax, 4(%esp)
@@ -89,14 +89,14 @@ LVL0:
 	call	*%eax
 LVL1:
 	subl	$12, %esp
-	.loc 1 44 6
+	.loc 1 69 6
 	movl	$92, 4(%esp)
 	leal	-281(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_strrchr
-	.loc 1 44 33
+	.loc 1 69 33
 	movb	$0, (%eax)
-	.loc 1 47 5
+	.loc 1 72 5
 	leal	-281(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	$260, 4(%esp)
@@ -105,7 +105,7 @@ LVL1:
 	movl	__imp__strcpy_s, %eax
 	call	*%eax
 LVL2:
-	.loc 1 48 5
+	.loc 1 73 5
 	movl	$LC2, 8(%esp)
 	movl	$260, 4(%esp)
 	leal	-542(%ebp), %eax
@@ -113,7 +113,7 @@ LVL2:
 	movl	__imp__strcat_s, %eax
 	call	*%eax
 LVL3:
-	.loc 1 49 5
+	.loc 1 74 5
 	movl	$LC3, 8(%esp)
 	movl	$260, 4(%esp)
 	leal	-542(%ebp), %eax
@@ -121,12 +121,12 @@ LVL3:
 	movl	__imp__strcat_s, %eax
 	call	*%eax
 LVL4:
-	.loc 1 51 5
+	.loc 1 76 5
 	leal	-542(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	$LC4, (%esp)
 	call	_printf
-	.loc 1 53 19
+	.loc 1 78 19
 	leal	-542(%ebp), %eax
 	movl	%eax, (%esp)
 	movl	__imp__LoadLibraryA@4, %eax
@@ -134,16 +134,16 @@ LVL4:
 LVL5:
 	subl	$4, %esp
 	movl	%eax, -16(%ebp)
-	.loc 1 54 8
+	.loc 1 79 8
 	cmpl	$0, -16(%ebp)
 	jne	L3
 LBB2:
-	.loc 1 56 21
+	.loc 1 81 21
 	movl	__imp__GetLastError@0, %eax
 	call	*%eax
 LVL6:
 	movl	%eax, -20(%ebp)
-	.loc 1 57 9
+	.loc 1 82 9
 	movl	-20(%ebp), %ebx
 	movl	$2, (%esp)
 	movl	__imp____acrt_iob_func, %eax
@@ -156,14 +156,14 @@ LVL7:
 	movl	$LC5, 4(%esp)
 	movl	%edx, (%esp)
 	call	_fprintf
-	.loc 1 58 9
+	.loc 1 83 9
 	call	_getchar
-	.loc 1 59 16
+	.loc 1 84 16
 	movl	$1, %eax
 	jmp	L9
 L3:
 LBE2:
-	.loc 1 62 75
+	.loc 1 87 75
 	movl	$LC6, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
@@ -172,10 +172,10 @@ LBE2:
 LVL8:
 	subl	$8, %esp
 	movl	%eax, -12(%ebp)
-	.loc 1 63 8
+	.loc 1 88 8
 	cmpl	$0, -12(%ebp)
 	jne	L5
-	.loc 1 64 79
+	.loc 1 89 79
 	movl	$LC7, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
@@ -185,10 +185,10 @@ LVL9:
 	subl	$8, %esp
 	movl	%eax, -12(%ebp)
 L5:
-	.loc 1 65 8
+	.loc 1 90 8
 	cmpl	$0, -12(%ebp)
 	jne	L6
-	.loc 1 66 79
+	.loc 1 91 79
 	movl	$LC8, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
@@ -198,10 +198,10 @@ LVL10:
 	subl	$8, %esp
 	movl	%eax, -12(%ebp)
 L6:
-	.loc 1 67 8
+	.loc 1 92 8
 	cmpl	$0, -12(%ebp)
 	jne	L7
-	.loc 1 68 79
+	.loc 1 93 79
 	movl	$LC9, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
@@ -211,10 +211,10 @@ LVL11:
 	subl	$8, %esp
 	movl	%eax, -12(%ebp)
 L7:
-	.loc 1 69 8
+	.loc 1 94 8
 	cmpl	$0, -12(%ebp)
 	jne	L8
-	.loc 1 71 9
+	.loc 1 96 9
 	movl	$2, (%esp)
 	movl	__imp____acrt_iob_func, %eax
 	call	*%eax
@@ -226,30 +226,30 @@ LVL12:
 	movl	$LC10, 4(%esp)
 	movl	%eax, (%esp)
 	call	_fprintf
-	.loc 1 72 9
+	.loc 1 97 9
 	call	_getchar
-	.loc 1 73 16
+	.loc 1 98 16
 	movl	$1, %eax
 	jmp	L9
 L8:
-	.loc 1 76 19
+	.loc 1 101 19
 	movl	$_wprintf, -552(%ebp)
-	.loc 1 77 21
+	.loc 1 102 21
 	movl	$_pause_console, -548(%ebp)
-	.loc 1 78 6
+	.loc 1 103 6
 	leal	-552(%ebp), %eax
 	movl	%eax, (%esp)
 	movl	-12(%ebp), %eax
 	call	*%eax
 LVL13:
 	subl	$4, %esp
-	.loc 1 79 5
+	.loc 1 104 5
 	movl	$LC11, (%esp)
 	call	_puts
-	.loc 1 83 12
+	.loc 1 108 12
 	movl	$0, %eax
 L9:
-	.loc 1 84 1 discriminator 1
+	.loc 1 109 1 discriminator 1
 	leal	-8(%ebp), %esp
 	popl	%ecx
 	.cfi_restore 1
@@ -4281,20 +4281,20 @@ Ldebug_info0:
 	.ascii "__tag_PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x8
 	.byte	0x1
-	.byte	0x14
+	.byte	0x2d
 	.byte	0x8
 	.long	0x4c06
 	.uleb128 0xf
 	.ascii "log\0"
 	.byte	0x1
-	.byte	0x16
+	.byte	0x2f
 	.byte	0xc
 	.long	0x4c16
 	.byte	0
 	.uleb128 0xf
 	.ascii "pause\0"
 	.byte	0x1
-	.byte	0x17
+	.byte	0x30
 	.byte	0xd
 	.long	0x4c1d
 	.byte	0x4
@@ -4316,13 +4316,13 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x1
-	.byte	0x1a
+	.byte	0x33
 	.byte	0x2c
 	.long	0x4bc4
 	.uleb128 0x19
 	.ascii "main\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0x5
 	.long	0xd6
 	.long	LFB84
@@ -4333,7 +4333,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "argc\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0xe
 	.long	0xd6
 	.uleb128 0x2
@@ -4342,7 +4342,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "argv\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0x1b
 	.long	0x1f8a
 	.uleb128 0x2
@@ -4351,7 +4351,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "module_path\0"
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x43
 	.byte	0xa
 	.long	0x4d6e
 	.uleb128 0x3
@@ -4360,7 +4360,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "dll_file_path\0"
 	.byte	0x1
-	.byte	0x2e
+	.byte	0x47
 	.byte	0xa
 	.long	0x4d6e
 	.uleb128 0x3
@@ -4369,7 +4369,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "hLib\0"
 	.byte	0x1
-	.byte	0x35
+	.byte	0x4e
 	.byte	0xc
 	.long	0x99c
 	.uleb128 0x2
@@ -4378,7 +4378,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "proc\0"
 	.byte	0x1
-	.byte	0x3d
+	.byte	0x56
 	.byte	0x28
 	.long	0x4d90
 	.uleb128 0x2
@@ -4387,7 +4387,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "debug_env\0"
 	.byte	0x1
-	.byte	0x4b
+	.byte	0x64
 	.byte	0x1b
 	.long	0x4c23
 	.uleb128 0x3
@@ -4400,7 +4400,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "err\0"
 	.byte	0x1
-	.byte	0x38
+	.byte	0x51
 	.byte	0xf
 	.long	0x816
 	.uleb128 0x2
@@ -4465,7 +4465,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "pause_console\0"
 	.byte	0x1
-	.byte	0x1c
+	.byte	0x35
 	.byte	0xd
 	.long	LFB83
 	.long	LFE83-LFB83

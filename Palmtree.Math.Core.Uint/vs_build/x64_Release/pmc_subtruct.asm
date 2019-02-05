@@ -115,47 +115,47 @@ wp$ = 40
 w_count$ = 48
 Subtruct_X_2W PROC					; COMDAT
 
-; 98   : {
+; 91   : {
 
 	mov	r11, r9
 	mov	r9, rcx
 	mov	r10, rdx
 
-; 99   :     if (u_count < 2)
+; 92   :     if (u_count < 2)
 
 	cmp	rdx, 2
 	jae	SHORT $LN2@Subtruct_X
 
-; 100  :     {
-; 101  :         // u が 1 ワードしかなかった場合
-; 102  : 
-; 103  :         // 明らかに演算結果が負になるのでエラーを通知する。
-; 104  :         return (PMC_STATUS_INTERNAL_BORROW);
+; 93   :     {
+; 94   :         // u が 1 ワードしかなかった場合
+; 95   : 
+; 96   :         // 明らかに演算結果が負になるのでエラーを通知する。
+; 97   :         return (PMC_STATUS_INTERNAL_BORROW);
 
 	mov	eax, -258				; fffffffffffffefeH
 
-; 116  :         w_count -= 2;
-; 117  : 
-; 118  :         // 残りの桁の繰り上がりを計算し、復帰する。
-; 119  :         return (DoBorrow(c, up, u_count, wp, w_count));
-; 120  :     }
-; 121  : }
+; 109  :         w_count -= 2;
+; 110  : 
+; 111  :         // 残りの桁の繰り上がりを計算し、復帰する。
+; 112  :         return (DoBorrow(c, up, u_count, wp, w_count));
+; 113  :     }
+; 114  : }
 
 	ret	0
 $LN2@Subtruct_X:
 
-; 105  :     }
-; 106  :     else
-; 107  :     {
-; 108  :         // x が 2 ワード以上あった場合
-; 109  : 
-; 110  :         // 最下位のワードの減算をする
-; 111  :         char c = _SUBTRUCT_UNIT(0, *up++, v_lo, wp++);
+; 98   :     }
+; 99   :     else
+; 100  :     {
+; 101  :         // x が 2 ワード以上あった場合
+; 102  : 
+; 103  :         // 最下位のワードの減算をする
+; 104  :         char c = _SUBTRUCT_UNIT(0, *up++, v_lo, wp++);
 
 	mov	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	mov	rdx, QWORD PTR wp$[rsp]
 	sub	rax, r11
@@ -164,61 +164,61 @@ $LN2@Subtruct_X:
 	mov	QWORD PTR [rdx], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 114  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
+; 107  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
 
 	mov	rax, QWORD PTR [r9+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, r8
 	mov	QWORD PTR [rdx+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 114  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
+; 107  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
 
 	lea	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	setb	r8b
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 115  :         u_count -= 2;
+; 108  :         u_count -= 2;
 
 	lea	rdx, QWORD PTR [r10-2]
 	add	r9, 16
 
-; 44   :         if (u_count <= 0)
+; 37   :         if (u_count <= 0)
 
 	test	rdx, rdx
 	je	SHORT $LN25@Subtruct_X
 	npad	7
 $LL10@Subtruct_X:
 
-; 49   :             {
-; 50   :                 // かつそれでも桁借りを行う必要がある場合
-; 51   : 
-; 52   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 53   :                 return (PMC_STATUS_INTERNAL_BORROW);
-; 54   :             }
-; 55   : 
-; 56   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 57   : 
-; 58   :             return (PMC_STATUS_OK);
-; 59   :         }
-; 60   :         else if (c)
+; 42   :             {
+; 43   :                 // かつそれでも桁借りを行う必要がある場合
+; 44   : 
+; 45   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 46   :                 return (PMC_STATUS_INTERNAL_BORROW);
+; 47   :             }
+; 48   : 
+; 49   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 50   : 
+; 51   :             return (PMC_STATUS_OK);
+; 52   :         }
+; 53   :         else if (c)
 
 	test	r8b, r8b
 	je	SHORT $LN24@Subtruct_X
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	mov	rcx, QWORD PTR [r9]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	r8b, -1
 	sbb	rcx, 0
@@ -226,37 +226,37 @@ $LL10@Subtruct_X:
 	setb	r8b
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	add	r9, 8
 	add	rax, 8
 
-; 66   :             --u_count;
+; 59   :             --u_count;
 
 	sub	rdx, 1
 	jne	SHORT $LL10@Subtruct_X
 $LN25@Subtruct_X:
 
-; 45   :         {
-; 46   :             // x の最上位まで達してしまった場合
-; 47   : 
-; 48   :             if (c)
+; 38   :         {
+; 39   :             // x の最上位まで達してしまった場合
+; 40   : 
+; 41   :             if (c)
 
 	neg	r8b
 	sbb	eax, eax
 	and	eax, -258				; fffffffffffffefeH
 
-; 116  :         w_count -= 2;
-; 117  : 
-; 118  :         // 残りの桁の繰り上がりを計算し、復帰する。
-; 119  :         return (DoBorrow(c, up, u_count, wp, w_count));
-; 120  :     }
-; 121  : }
+; 109  :         w_count -= 2;
+; 110  : 
+; 111  :         // 残りの桁の繰り上がりを計算し、復帰する。
+; 112  :         return (DoBorrow(c, up, u_count, wp, w_count));
+; 113  :     }
+; 114  : }
 
 	ret	0
 $LN24@Subtruct_X:
 
-; 74   :             while (u_count > 0)
+; 67   :             while (u_count > 0)
 
 	test	rdx, rdx
 	je	SHORT $LN14@Subtruct_X
@@ -264,31 +264,31 @@ $LN24@Subtruct_X:
 	npad	8
 $LL13@Subtruct_X:
 
-; 75   :             {
-; 76   :                 *wp++ = *up++;
+; 68   :             {
+; 69   :                 *wp++ = *up++;
 
 	mov	rcx, QWORD PTR [r9+rax]
 	mov	QWORD PTR [rax], rcx
 	lea	rax, QWORD PTR [rax+8]
 
-; 77   :                 --u_count;
+; 70   :                 --u_count;
 
 	sub	rdx, 1
 	jne	SHORT $LL13@Subtruct_X
 $LN14@Subtruct_X:
 
-; 78   :                 --w_count;
-; 79   :             }
-; 80   :             return (PMC_STATUS_OK);
+; 71   :                 --w_count;
+; 72   :             }
+; 73   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 116  :         w_count -= 2;
-; 117  : 
-; 118  :         // 残りの桁の繰り上がりを計算し、復帰する。
-; 119  :         return (DoBorrow(c, up, u_count, wp, w_count));
-; 120  :     }
-; 121  : }
+; 109  :         w_count -= 2;
+; 110  : 
+; 111  :         // 残りの桁の繰り上がりを計算し、復帰する。
+; 112  :         return (DoBorrow(c, up, u_count, wp, w_count));
+; 113  :     }
+; 114  : }
 
 	ret	0
 Subtruct_X_2W ENDP
@@ -310,63 +310,63 @@ wp$ = 32
 w_count$ = 40
 Subtruct_X_1W PROC					; COMDAT
 
-; 88   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
+; 81   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
 
 	mov	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sub	rax, r8
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 88   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
+; 81   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
 
 	lea	rax, QWORD PTR [r9+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	setb	r8b
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 88   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
+; 81   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
 
 	lea	r9, QWORD PTR [rcx+8]
 
-; 89   :     --u_count;
+; 82   :     --u_count;
 
 	sub	rdx, 1
 
-; 44   :         if (u_count <= 0)
+; 37   :         if (u_count <= 0)
 
 	je	SHORT $LN21@Subtruct_X
 	npad	5
 $LL6@Subtruct_X:
 
-; 49   :             {
-; 50   :                 // かつそれでも桁借りを行う必要がある場合
-; 51   : 
-; 52   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 53   :                 return (PMC_STATUS_INTERNAL_BORROW);
-; 54   :             }
-; 55   : 
-; 56   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 57   : 
-; 58   :             return (PMC_STATUS_OK);
-; 59   :         }
-; 60   :         else if (c)
+; 42   :             {
+; 43   :                 // かつそれでも桁借りを行う必要がある場合
+; 44   : 
+; 45   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 46   :                 return (PMC_STATUS_INTERNAL_BORROW);
+; 47   :             }
+; 48   : 
+; 49   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 50   : 
+; 51   :             return (PMC_STATUS_OK);
+; 52   :         }
+; 53   :         else if (c)
 
 	test	r8b, r8b
 	je	SHORT $LN20@Subtruct_X
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	mov	rcx, QWORD PTR [r9]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	r8b, -1
 	sbb	rcx, 0
@@ -374,32 +374,32 @@ $LL6@Subtruct_X:
 	setb	r8b
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	add	r9, 8
 	add	rax, 8
 
-; 66   :             --u_count;
+; 59   :             --u_count;
 
 	sub	rdx, 1
 	jne	SHORT $LL6@Subtruct_X
 $LN21@Subtruct_X:
 
-; 45   :         {
-; 46   :             // x の最上位まで達してしまった場合
-; 47   : 
-; 48   :             if (c)
+; 38   :         {
+; 39   :             // x の最上位まで達してしまった場合
+; 40   : 
+; 41   :             if (c)
 
 	neg	r8b
 	sbb	eax, eax
 	and	eax, -258				; fffffffffffffefeH
 
-; 94   : }
+; 87   : }
 
 	ret	0
 $LN20@Subtruct_X:
 
-; 74   :             while (u_count > 0)
+; 67   :             while (u_count > 0)
 
 	test	rdx, rdx
 	je	SHORT $LN10@Subtruct_X
@@ -407,27 +407,27 @@ $LN20@Subtruct_X:
 	npad	8
 $LL9@Subtruct_X:
 
-; 75   :             {
-; 76   :                 *wp++ = *up++;
+; 68   :             {
+; 69   :                 *wp++ = *up++;
 
 	mov	rcx, QWORD PTR [r9+rax]
 	mov	QWORD PTR [rax], rcx
 	lea	rax, QWORD PTR [rax+8]
 
-; 77   :                 --u_count;
+; 70   :                 --u_count;
 
 	sub	rdx, 1
 	jne	SHORT $LL9@Subtruct_X
 $LN10@Subtruct_X:
 
-; 90   :     --w_count;
-; 91   : 
-; 92   :     // 残りの桁の繰上りを行い復帰する。
-; 93   :     return (DoBorrow(c, up, u_count, wp, w_count));
+; 83   :     --w_count;
+; 84   : 
+; 85   :     // 残りの桁の繰上りを行い復帰する。
+; 86   :     return (DoBorrow(c, up, u_count, wp, w_count));
 
 	xor	eax, eax
 
-; 94   : }
+; 87   : }
 
 	ret	0
 Subtruct_X_1W ENDP
@@ -445,32 +445,32 @@ wp$ = 32
 w_count$ = 40
 DoBorrow PROC						; COMDAT
 
-; 41   :     // 桁借りを続く限り行う
-; 42   :     for (;;)
-; 43   :     {
-; 44   :         if (u_count <= 0)
+; 34   :     // 桁借りを続く限り行う
+; 35   :     for (;;)
+; 36   :     {
+; 37   :         if (u_count <= 0)
 
 	test	r8, r8
 	je	SHORT $LN17@DoBorrow
 $LL2@DoBorrow:
 
-; 54   :             }
-; 55   : 
-; 56   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 57   : 
-; 58   :             return (PMC_STATUS_OK);
-; 59   :         }
-; 60   :         else if (c)
+; 47   :             }
+; 48   : 
+; 49   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 50   : 
+; 51   :             return (PMC_STATUS_OK);
+; 52   :         }
+; 53   :         else if (c)
 
 	test	cl, cl
 	je	SHORT $LN16@DoBorrow
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, 0
@@ -478,48 +478,48 @@ $LL2@DoBorrow:
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	add	rdx, 8
 	add	r9, 8
 
-; 66   :             --u_count;
+; 59   :             --u_count;
 
 	sub	r8, 1
 	jne	SHORT $LL2@DoBorrow
 $LN17@DoBorrow:
 
-; 45   :         {
-; 46   :             // x の最上位まで達してしまった場合
-; 47   : 
-; 48   :             if (c)
+; 38   :         {
+; 39   :             // x の最上位まで達してしまった場合
+; 40   : 
+; 41   :             if (c)
 
 	test	cl, cl
 	je	SHORT $LN6@DoBorrow
 
-; 49   :             {
-; 50   :                 // かつそれでも桁借りを行う必要がある場合
-; 51   : 
-; 52   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 53   :                 return (PMC_STATUS_INTERNAL_BORROW);
+; 42   :             {
+; 43   :                 // かつそれでも桁借りを行う必要がある場合
+; 44   : 
+; 45   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 46   :                 return (PMC_STATUS_INTERNAL_BORROW);
 
 	mov	eax, -258				; fffffffffffffefeH
 
-; 81   :         }
-; 82   :     }
-; 83   : }
+; 74   :         }
+; 75   :     }
+; 76   : }
 
 	ret	0
 $LN16@DoBorrow:
 
-; 67   :             --w_count;
-; 68   :         }
-; 69   :         else
-; 70   :         {
-; 71   :             // xの最上位に達しておらず、かつボローが立っていない場合
-; 72   : 
-; 73   :             // 桁借りを中断し、xの残りのデータをzにそのまま複写し、正常復帰する。
-; 74   :             while (u_count > 0)
+; 60   :             --w_count;
+; 61   :         }
+; 62   :         else
+; 63   :         {
+; 64   :             // xの最上位に達しておらず、かつボローが立っていない場合
+; 65   : 
+; 66   :             // 桁借りを中断し、xの残りのデータをzにそのまま複写し、正常復帰する。
+; 67   :             while (u_count > 0)
 
 	test	r8, r8
 	je	SHORT $LN6@DoBorrow
@@ -527,28 +527,28 @@ $LN16@DoBorrow:
 	npad	7
 $LL5@DoBorrow:
 
-; 75   :             {
-; 76   :                 *wp++ = *up++;
+; 68   :             {
+; 69   :                 *wp++ = *up++;
 
 	mov	rax, QWORD PTR [rdx+r9]
 	mov	QWORD PTR [r9], rax
 	lea	r9, QWORD PTR [r9+8]
 
-; 77   :                 --u_count;
+; 70   :                 --u_count;
 
 	sub	r8, 1
 	jne	SHORT $LL5@DoBorrow
 $LN6@DoBorrow:
 
-; 78   :                 --w_count;
-; 79   :             }
-; 80   :             return (PMC_STATUS_OK);
+; 71   :                 --w_count;
+; 72   :             }
+; 73   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 81   :         }
-; 82   :     }
-; 83   : }
+; 74   :         }
+; 75   :     }
+; 76   : }
 
 	ret	0
 DoBorrow ENDP
@@ -567,32 +567,32 @@ yp$ = 24
 zp$ = 32
 _SUBTRUCT_2WORDS_SBB PROC				; COMDAT
 
-; 4465 : #ifdef _MSC_VER
-; 4466 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4458 : #ifdef _MSC_VER
+; 4459 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4467 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4460 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rcx, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rcx, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rcx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4504 : }
+; 4497 : }
 
 	ret	0
 _SUBTRUCT_2WORDS_SBB ENDP
@@ -615,54 +615,54 @@ yp$ = 24
 zp$ = 32
 _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 
-; 4051 : #ifdef _MSC_VER
-; 4052 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4044 : #ifdef _MSC_VER
+; 4045 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4053 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4046 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4054 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 4047 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4055 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 4048 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rcx, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rcx, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rcx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4104 : }
+; 4097 : }
 
 	ret	0
 _SUBTRUCT_4WORDS_SBB ENDP
@@ -693,98 +693,98 @@ yp$ = 24
 zp$ = 32
 _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 
-; 3455 : #ifdef _MSC_VER
-; 3456 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3448 : #ifdef _MSC_VER
+; 3449 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3457 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3450 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3458 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3451 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3459 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3452 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3460 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 3453 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	rax, QWORD PTR [rdx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+32]
 	mov	QWORD PTR [r9+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3461 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 3454 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	rax, QWORD PTR [rdx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+40]
 	mov	QWORD PTR [r9+40], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3462 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 3455 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	rax, QWORD PTR [rdx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+48]
 	mov	QWORD PTR [r9+48], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3463 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 3456 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	rcx, QWORD PTR [rdx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rcx, QWORD PTR [r8+56]
 	mov	QWORD PTR [r9+56], rcx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3536 : }
+; 3529 : }
 
 	ret	0
 _SUBTRUCT_8WORDS_SBB ENDP
@@ -831,186 +831,186 @@ yp$ = 24
 zp$ = 32
 _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 
-; 2495 : #ifdef _MSC_VER
-; 2496 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 2488 : #ifdef _MSC_VER
+; 2489 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2497 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 2490 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2498 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 2491 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2499 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 2492 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2500 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 2493 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	rax, QWORD PTR [rdx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+32]
 	mov	QWORD PTR [r9+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2501 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 2494 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	rax, QWORD PTR [rdx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+40]
 	mov	QWORD PTR [r9+40], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2502 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 2495 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	rax, QWORD PTR [rdx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+48]
 	mov	QWORD PTR [r9+48], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2503 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 2496 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	rax, QWORD PTR [rdx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+56]
 	mov	QWORD PTR [r9+56], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2504 :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
+; 2497 :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	rax, QWORD PTR [rdx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+64]
 	mov	QWORD PTR [r9+64], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2505 :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
+; 2498 :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	rax, QWORD PTR [rdx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+72]
 	mov	QWORD PTR [r9+72], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2506 :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
+; 2499 :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	rax, QWORD PTR [rdx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+80]
 	mov	QWORD PTR [r9+80], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2507 :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
+; 2500 :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	rax, QWORD PTR [rdx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+88]
 	mov	QWORD PTR [r9+88], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2508 :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
+; 2501 :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	rax, QWORD PTR [rdx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+96]
 	mov	QWORD PTR [r9+96], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2509 :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
+; 2502 :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	rax, QWORD PTR [rdx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+104]
 	mov	QWORD PTR [r9+104], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2510 :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
+; 2503 :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	rax, QWORD PTR [rdx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+112]
 	mov	QWORD PTR [r9+112], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2511 :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
+; 2504 :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	rcx, QWORD PTR [rdx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rcx, QWORD PTR [r8+120]
 	mov	QWORD PTR [r9+120], rcx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 2632 : }
+; 2625 : }
 
 	ret	0
 _SUBTRUCT_16WORDS_SBB ENDP
@@ -1089,362 +1089,362 @@ yp$ = 24
 zp$ = 32
 _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 
-; 807  : #ifdef _MSC_VER
-; 808  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 800  : #ifdef _MSC_VER
+; 801  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 809  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 802  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 810  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 803  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 811  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 804  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 812  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 805  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	rax, QWORD PTR [rdx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+32]
 	mov	QWORD PTR [r9+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 813  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 806  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	rax, QWORD PTR [rdx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+40]
 	mov	QWORD PTR [r9+40], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 814  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 807  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	rax, QWORD PTR [rdx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+48]
 	mov	QWORD PTR [r9+48], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 815  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 808  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	rax, QWORD PTR [rdx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+56]
 	mov	QWORD PTR [r9+56], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 816  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
+; 809  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	rax, QWORD PTR [rdx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+64]
 	mov	QWORD PTR [r9+64], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 817  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
+; 810  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	rax, QWORD PTR [rdx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+72]
 	mov	QWORD PTR [r9+72], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 818  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
+; 811  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	rax, QWORD PTR [rdx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+80]
 	mov	QWORD PTR [r9+80], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 819  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
+; 812  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	rax, QWORD PTR [rdx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+88]
 	mov	QWORD PTR [r9+88], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 820  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
+; 813  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	rax, QWORD PTR [rdx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+96]
 	mov	QWORD PTR [r9+96], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 821  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
+; 814  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	rax, QWORD PTR [rdx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+104]
 	mov	QWORD PTR [r9+104], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 822  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
+; 815  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	rax, QWORD PTR [rdx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+112]
 	mov	QWORD PTR [r9+112], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 823  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
+; 816  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	rax, QWORD PTR [rdx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+120]
 	mov	QWORD PTR [r9+120], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 824  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
+; 817  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
 
 	mov	rax, QWORD PTR [rdx+128]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+128]
 	mov	QWORD PTR [r9+128], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 825  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
+; 818  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
 
 	mov	rax, QWORD PTR [rdx+136]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+136]
 	mov	QWORD PTR [r9+136], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 826  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
+; 819  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
 
 	mov	rax, QWORD PTR [rdx+144]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+144]
 	mov	QWORD PTR [r9+144], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 827  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
+; 820  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
 
 	mov	rax, QWORD PTR [rdx+152]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+152]
 	mov	QWORD PTR [r9+152], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 828  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
+; 821  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
 
 	mov	rax, QWORD PTR [rdx+160]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+160]
 	mov	QWORD PTR [r9+160], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 829  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
+; 822  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
 
 	mov	rax, QWORD PTR [rdx+168]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+168]
 	mov	QWORD PTR [r9+168], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 830  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
+; 823  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
 
 	mov	rax, QWORD PTR [rdx+176]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+176]
 	mov	QWORD PTR [r9+176], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 831  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
+; 824  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
 
 	mov	rax, QWORD PTR [rdx+184]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+184]
 	mov	QWORD PTR [r9+184], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 832  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
+; 825  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
 
 	mov	rax, QWORD PTR [rdx+192]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+192]
 	mov	QWORD PTR [r9+192], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 833  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
+; 826  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
 
 	mov	rax, QWORD PTR [rdx+200]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+200]
 	mov	QWORD PTR [r9+200], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 834  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
+; 827  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
 
 	mov	rax, QWORD PTR [rdx+208]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+208]
 	mov	QWORD PTR [r9+208], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 835  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
+; 828  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
 
 	mov	rax, QWORD PTR [rdx+216]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+216]
 	mov	QWORD PTR [r9+216], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 836  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
+; 829  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
 
 	mov	rax, QWORD PTR [rdx+224]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+224]
 	mov	QWORD PTR [r9+224], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 837  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
+; 830  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
 
 	mov	rax, QWORD PTR [rdx+232]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+232]
 	mov	QWORD PTR [r9+232], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 838  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
+; 831  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
 
 	mov	rax, QWORD PTR [rdx+240]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+240]
 	mov	QWORD PTR [r9+240], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 839  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
+; 832  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
 
 	mov	rcx, QWORD PTR [rdx+248]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rcx, QWORD PTR [r8+248]
 	mov	QWORD PTR [r9+248], rcx
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 1056 : }
+; 1049 : }
 
 	ret	0
 _SUBTRUCT_32WORDS_SBB ENDP
@@ -1456,51 +1456,51 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 
-; 655  :     }
+; 648  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
 
 	bsr	rcx, rcx
 
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 63					; 0000003fH
 	sub	eax, ecx
 
-; 655  :     }
+; 648  :     }
 
 	ret	0
 _LZCNT_ALT_UNIT ENDP
@@ -1512,37 +1512,37 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_32 PROC					; COMDAT
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 608  :     }
+; 601  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, ecx
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31
 	sub	eax, ecx
 
-; 608  :     }
+; 601  :     }
 
 	ret	0
 _LZCNT_ALT_32 ENDP
@@ -1557,20 +1557,20 @@ v$ = 24
 w$ = 32
 _SUBTRUCT_UNIT PROC					; COMDAT
 
-; 270  : #ifdef _M_IX86
-; 271  :         return (_subborrow_u32(borrow, u, v, w));
-; 272  : #elif defined(_M_X64)
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 263  : #ifdef _M_IX86
+; 264  :         return (_subborrow_u32(borrow, u, v, w));
+; 265  : #elif defined(_M_X64)
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rdx, r8
 	mov	QWORD PTR [r9], rdx
 	setb	al
 
-; 274  : #else
-; 275  : #error unknown platform
-; 276  : #endif
-; 277  :     }
+; 267  : #else
+; 268  : #error unknown platform
+; 269  : #endif
+; 270  :     }
 
 	ret	0
 _SUBTRUCT_UNIT ENDP
@@ -1583,17 +1583,17 @@ value$ = 8
 result_high$ = 16
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, rcx
 	shr	rax, 32					; 00000020H
 	mov	DWORD PTR [rdx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, ecx
 
-; 185  :     }
+; 178  :     }
 
 	ret	0
 _FROMDWORDTOWORD ENDP
@@ -1606,14 +1606,14 @@ value_high$ = 8
 value_low$ = 16
 _FROMWORDTODWORD PROC					; COMDAT
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, ecx
 	shl	rax, 32					; 00000020H
 	mov	ecx, edx
 	or	rax, rcx
 
-; 179  :     }
+; 172  :     }
 
 	ret	0
 _FROMWORDTODWORD ENDP
@@ -1629,7 +1629,7 @@ o$ = 80
 nz_light_check_code$1 = 88
 PMC_Subtruct_X_X PROC					; COMDAT
 
-; 665  : {
+; 658  : {
 
 $LN23:
 	mov	QWORD PTR [rsp+16], rbx
@@ -1640,74 +1640,74 @@ $LN23:
 	mov	rdi, rdx
 	mov	rbx, rcx
 
-; 666  :     if (x == NULL)
+; 659  :     if (x == NULL)
 
 	test	rcx, rcx
 	je	$LN20@PMC_Subtru
 
-; 667  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 668  :     if (y == NULL)
+; 660  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 661  :     if (y == NULL)
 
 	test	rdx, rdx
 	je	$LN20@PMC_Subtru
 
-; 669  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 670  :     if (o == NULL)
+; 662  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 663  :     if (o == NULL)
 
 	test	r8, r8
 	je	$LN20@PMC_Subtru
 
-; 672  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
-; 673  :     NUMBER_HEADER* ny = (NUMBER_HEADER*)y;
-; 674  :     PMC_STATUS_CODE result;
-; 675  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 665  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 666  :     NUMBER_HEADER* ny = (NUMBER_HEADER*)y;
+; 667  :     PMC_STATUS_CODE result;
+; 668  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 676  :         return (result);
-; 677  :     if ((result = CheckNumber(ny)) != PMC_STATUS_OK)
+; 669  :         return (result);
+; 670  :     if ((result = CheckNumber(ny)) != PMC_STATUS_OK)
 
 	mov	rcx, rdi
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 678  :         return (result);
-; 679  :     NUMBER_HEADER* nz;
-; 680  :     if (nx->IS_ZERO)
+; 671  :         return (result);
+; 672  :     NUMBER_HEADER* nz;
+; 673  :     if (nx->IS_ZERO)
 
 	mov	eax, DWORD PTR [rdi+40]
 	and	eax, 2
 	test	BYTE PTR [rbx+40], 2
 	je	SHORT $LN7@PMC_Subtru
 
-; 681  :     {
-; 682  :         if (ny->IS_ZERO)
+; 674  :     {
+; 675  :         if (ny->IS_ZERO)
 
 	test	eax, eax
 	je	SHORT $LN19@PMC_Subtru
 
-; 683  :         {
-; 684  :             // y が 0 である場合
-; 685  : 
-; 686  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 687  :             *o = &number_zero;
+; 676  :         {
+; 677  :             // y が 0 である場合
+; 678  : 
+; 679  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 680  :             *o = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 
-; 735  :     }
-; 736  : #ifdef _DEBUG
-; 737  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 738  :         return (result);
-; 739  : #endif
-; 740  :     return (PMC_STATUS_OK);
+; 728  :     }
+; 729  : #ifdef _DEBUG
+; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 731  :         return (result);
+; 732  : #endif
+; 733  :     return (PMC_STATUS_OK);
 
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1716,29 +1716,29 @@ $LN23:
 	ret	0
 $LN7@PMC_Subtru:
 
+; 681  :         }
+; 682  :         else
+; 683  :         {
+; 684  :             // y が 0 ではない場合
+; 685  : 
+; 686  :             // 演算結果は負となってしまうのでエラーを返す。
+; 687  :             return (PMC_STATUS_OVERFLOW);
 ; 688  :         }
-; 689  :         else
-; 690  :         {
-; 691  :             // y が 0 ではない場合
-; 692  : 
-; 693  :             // 演算結果は負となってしまうのでエラーを返す。
-; 694  :             return (PMC_STATUS_OVERFLOW);
-; 695  :         }
-; 696  :     }
-; 697  :     else
-; 698  :     {
-; 699  :         // x が 0 ではない場合
-; 700  : 
-; 701  :         if (ny->IS_ZERO)
+; 689  :     }
+; 690  :     else
+; 691  :     {
+; 692  :         // x が 0 ではない場合
+; 693  : 
+; 694  :         if (ny->IS_ZERO)
 
 	test	eax, eax
 	je	SHORT $LN11@PMC_Subtru
 
-; 702  :         {
-; 703  :             // y が 0 である場合
-; 704  : 
-; 705  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 706  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
+; 695  :         {
+; 696  :             // y が 0 である場合
+; 697  : 
+; 698  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 699  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nz$[rsp]
 	mov	rcx, rbx
@@ -1746,7 +1746,7 @@ $LN7@PMC_Subtru:
 	test	eax, eax
 	je	$LN12@PMC_Subtru
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1755,31 +1755,31 @@ $LN7@PMC_Subtru:
 	ret	0
 $LN11@PMC_Subtru:
 
-; 707  :                 return (result);
-; 708  :         }
-; 709  :         else
-; 710  :         {
-; 711  :             // x と y がともに 0 ではない場合
-; 712  : 
-; 713  :             // x と y の差を計算する
-; 714  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 700  :                 return (result);
+; 701  :         }
+; 702  :         else
+; 703  :         {
+; 704  :             // x と y がともに 0 ではない場合
+; 705  : 
+; 706  :             // x と y の差を計算する
+; 707  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	rdx, QWORD PTR [rbx+16]
 
-; 715  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
-; 716  :             if (x_bit_count < y_bit_count)
+; 708  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
+; 709  :             if (x_bit_count < y_bit_count)
 
 	cmp	rdx, QWORD PTR [rdi+16]
 	jae	SHORT $LN14@PMC_Subtru
 $LN19@PMC_Subtru:
 
-; 717  :             {
-; 718  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 719  :                 return (PMC_STATUS_OVERFLOW);
+; 710  :             {
+; 711  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 712  :                 return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1788,10 +1788,10 @@ $LN19@PMC_Subtru:
 	ret	0
 $LN14@PMC_Subtru:
 
-; 720  :             }
-; 721  :             __UNIT_TYPE z_bit_count = x_bit_count;
-; 722  :             __UNIT_TYPE nz_light_check_code;
-; 723  :             if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 713  :             }
+; 714  :             __UNIT_TYPE z_bit_count = x_bit_count;
+; 715  :             __UNIT_TYPE nz_light_check_code;
+; 716  :             if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$1[rsp]
 	lea	rcx, QWORD PTR nz$[rsp]
@@ -1799,8 +1799,8 @@ $LN14@PMC_Subtru:
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 724  :                 return (result);
-; 725  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 717  :                 return (result);
+; 718  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nz$[rsp]
 	mov	r9, QWORD PTR [rdi+8]
@@ -1817,19 +1817,19 @@ $LN14@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN16@PMC_Subtru
 
-; 726  :             {
-; 727  :                 DeallocateNumber(nz);
+; 719  :             {
+; 720  :                 DeallocateNumber(nz);
 
 	call	DeallocateNumber
 
-; 728  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 721  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	mov	eax, -2
 	cmp	ebx, -258				; fffffffffffffefeH
 	cmove	ebx, eax
 	mov	eax, ebx
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1838,8 +1838,8 @@ $LN14@PMC_Subtru:
 	ret	0
 $LN16@PMC_Subtru:
 
-; 729  :             }
-; 730  :             if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 722  :             }
+; 723  :             if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$1[rsp]
 	mov	rcx, QWORD PTR [rcx+56]
@@ -1847,29 +1847,29 @@ $LN16@PMC_Subtru:
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
 
-; 731  :                 return (result);
-; 732  :             CommitNumber(nz);
+; 724  :                 return (result);
+; 725  :             CommitNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rsp]
 	call	CommitNumber
 $LN12@PMC_Subtru:
 
-; 733  :         }
-; 734  :         *o = nz;
+; 726  :         }
+; 727  :         *o = nz;
 
 	mov	rax, QWORD PTR nz$[rsp]
 
-; 735  :     }
-; 736  : #ifdef _DEBUG
-; 737  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 738  :         return (result);
-; 739  : #endif
-; 740  :     return (PMC_STATUS_OK);
+; 728  :     }
+; 729  : #ifdef _DEBUG
+; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 731  :         return (result);
+; 732  : #endif
+; 733  :     return (PMC_STATUS_OK);
 
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1878,12 +1878,12 @@ $LN12@PMC_Subtru:
 	ret	0
 $LN20@PMC_Subtru:
 
-; 671  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 664  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_Subtru:
 
-; 741  : }
+; 734  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1905,7 +1905,7 @@ o$ = 80
 nz_light_check_code$1 = 88
 PMC_Subtruct_X_L PROC					; COMDAT
 
-; 524  : {
+; 517  : {
 
 $LN69:
 	mov	QWORD PTR [rsp+16], rbx
@@ -1916,61 +1916,61 @@ $LN69:
 	mov	rdi, rdx
 	mov	rbx, rcx
 
-; 525  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(y) * 8)
-; 526  :     {
-; 527  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 528  :         return (PMC_STATUS_INTERNAL_ERROR);
-; 529  :     }
-; 530  :     if (x == NULL)
+; 518  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(y) * 8)
+; 519  :     {
+; 520  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 521  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 522  :     }
+; 523  :     if (x == NULL)
 
 	test	rcx, rcx
 	je	$LN65@PMC_Subtru
 
-; 531  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 532  :     if (o == NULL)
+; 524  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 525  :     if (o == NULL)
 
 	test	r8, r8
 	je	$LN65@PMC_Subtru
 
-; 534  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
-; 535  :     PMC_STATUS_CODE result;
-; 536  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 527  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 528  :     PMC_STATUS_CODE result;
+; 529  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 537  :         return (result);
-; 538  :     NUMBER_HEADER* nz;
-; 539  :     if (nx->IS_ZERO)
+; 530  :         return (result);
+; 531  :     NUMBER_HEADER* nz;
+; 532  :     if (nx->IS_ZERO)
 
 	test	BYTE PTR [rbx+40], 2
 	je	SHORT $LN6@PMC_Subtru
 
-; 540  :     {
-; 541  :         // x が 0 である場合
-; 542  : 
-; 543  :         if (y == 0)
+; 533  :     {
+; 534  :         // x が 0 である場合
+; 535  : 
+; 536  :         if (y == 0)
 
 	test	rdi, rdi
 	jne	SHORT $LN64@PMC_Subtru
 
-; 652  :                 nz = &number_zero;
-; 653  :             }
-; 654  :         }
-; 655  :         *o = nz;
-; 656  :     }
-; 657  : #ifdef _DEBUG
-; 658  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 659  :         return (result);
-; 660  : #endif
-; 661  :     return (PMC_STATUS_OK);
+; 645  :                 nz = &number_zero;
+; 646  :             }
+; 647  :         }
+; 648  :         *o = nz;
+; 649  :     }
+; 650  : #ifdef _DEBUG
+; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 652  :         return (result);
+; 653  : #endif
+; 654  :     return (PMC_STATUS_OK);
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -1979,34 +1979,34 @@ $LN69:
 	ret	0
 $LN6@PMC_Subtru:
 
+; 537  :         {
+; 538  :             // y が 0 である場合
+; 539  : 
+; 540  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 541  :             *o = &number_zero;
+; 542  :         }
+; 543  :         else
 ; 544  :         {
-; 545  :             // y が 0 である場合
+; 545  :             // y が 0 ではない場合
 ; 546  : 
-; 547  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 548  :             *o = &number_zero;
+; 547  :             // 演算結果は負となってしまうのでエラーを返す。
+; 548  :             return (PMC_STATUS_OVERFLOW);
 ; 549  :         }
-; 550  :         else
-; 551  :         {
-; 552  :             // y が 0 ではない場合
-; 553  : 
-; 554  :             // 演算結果は負となってしまうのでエラーを返す。
-; 555  :             return (PMC_STATUS_OVERFLOW);
-; 556  :         }
-; 557  :     }
-; 558  :     else
-; 559  :     {
-; 560  :         // x が 0 ではない場合
-; 561  : 
-; 562  :         if (y == 0)
+; 550  :     }
+; 551  :     else
+; 552  :     {
+; 553  :         // x が 0 ではない場合
+; 554  : 
+; 555  :         if (y == 0)
 
 	test	rdi, rdi
 	jne	SHORT $LN10@PMC_Subtru
 
-; 563  :         {
-; 564  :             // y が 0 である場合
-; 565  : 
-; 566  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 567  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
+; 556  :         {
+; 557  :             // y が 0 である場合
+; 558  : 
+; 559  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 560  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nz$[rsp]
 	mov	rcx, rbx
@@ -2015,21 +2015,21 @@ $LN6@PMC_Subtru:
 	jne	$LN1@PMC_Subtru
 	mov	rax, QWORD PTR nz$[rsp]
 
-; 652  :                 nz = &number_zero;
-; 653  :             }
-; 654  :         }
-; 655  :         *o = nz;
-; 656  :     }
-; 657  : #ifdef _DEBUG
-; 658  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 659  :         return (result);
-; 660  : #endif
-; 661  :     return (PMC_STATUS_OK);
+; 645  :                 nz = &number_zero;
+; 646  :             }
+; 647  :         }
+; 648  :         *o = nz;
+; 649  :     }
+; 650  : #ifdef _DEBUG
+; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 652  :         return (result);
+; 653  : #endif
+; 654  :     return (PMC_STATUS_OK);
 
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2038,98 +2038,98 @@ $LN6@PMC_Subtru:
 	ret	0
 $LN10@PMC_Subtru:
 
-; 568  :                 return (result);
-; 569  :         }
-; 570  :         else
-; 571  :         {
-; 572  :             // x と y がともに 0 ではない場合
-; 573  : 
-; 574  :             // x と y の差を計算する
-; 575  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(y) * 8)
-; 576  :             {
-; 577  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 578  : 
-; 579  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
-; 580  :                 _UINT32_T y_hi;
-; 581  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(y, &y_hi);
-; 582  :                 if (y_hi == 0)
-; 583  :                 {
-; 584  :                     // y の値が 32bit で表現可能な場合
-; 585  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
-; 586  :                     if (x_bit_count < y_bit_count)
-; 587  :                     {
-; 588  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 589  :                         return (PMC_STATUS_OVERFLOW);
-; 590  :                     }
-; 591  :                     __UNIT_TYPE z_bit_count = x_bit_count;
-; 592  :                     __UNIT_TYPE nz_light_check_code;
-; 593  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 561  :                 return (result);
+; 562  :         }
+; 563  :         else
+; 564  :         {
+; 565  :             // x と y がともに 0 ではない場合
+; 566  : 
+; 567  :             // x と y の差を計算する
+; 568  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(y) * 8)
+; 569  :             {
+; 570  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 571  : 
+; 572  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 573  :                 _UINT32_T y_hi;
+; 574  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(y, &y_hi);
+; 575  :                 if (y_hi == 0)
+; 576  :                 {
+; 577  :                     // y の値が 32bit で表現可能な場合
+; 578  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
+; 579  :                     if (x_bit_count < y_bit_count)
+; 580  :                     {
+; 581  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 582  :                         return (PMC_STATUS_OVERFLOW);
+; 583  :                     }
+; 584  :                     __UNIT_TYPE z_bit_count = x_bit_count;
+; 585  :                     __UNIT_TYPE nz_light_check_code;
+; 586  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 587  :                         return (result);
+; 588  :                     if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 589  :                     {
+; 590  :                         DeallocateNumber(nz);
+; 591  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 592  :                     }
+; 593  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 ; 594  :                         return (result);
-; 595  :                     if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
-; 596  :                     {
-; 597  :                         DeallocateNumber(nz);
-; 598  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
-; 599  :                     }
-; 600  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
-; 601  :                         return (result);
-; 602  :                 }
-; 603  :                 else
-; 604  :                 {
-; 605  :                     // y の値が 32bit では表現できない場合
-; 606  :                     __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_32(y_hi);
-; 607  :                     if (x_bit_count < y_bit_count)
-; 608  :                     {
-; 609  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 610  :                         return (PMC_STATUS_OVERFLOW);
-; 611  :                     }
-; 612  :                     __UNIT_TYPE z_bit_count = x_bit_count;
-; 613  :                     __UNIT_TYPE nz_light_check_code;
-; 614  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 595  :                 }
+; 596  :                 else
+; 597  :                 {
+; 598  :                     // y の値が 32bit では表現できない場合
+; 599  :                     __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_32(y_hi);
+; 600  :                     if (x_bit_count < y_bit_count)
+; 601  :                     {
+; 602  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 603  :                         return (PMC_STATUS_OVERFLOW);
+; 604  :                     }
+; 605  :                     __UNIT_TYPE z_bit_count = x_bit_count;
+; 606  :                     __UNIT_TYPE nz_light_check_code;
+; 607  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 608  :                         return (result);
+; 609  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 610  :                     {
+; 611  :                         DeallocateNumber(nz);
+; 612  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 613  :                     }
+; 614  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 ; 615  :                         return (result);
-; 616  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
-; 617  :                     {
-; 618  :                         DeallocateNumber(nz);
-; 619  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
-; 620  :                     }
-; 621  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
-; 622  :                         return (result);
-; 623  :                 }
-; 624  :             }
-; 625  :             else
-; 626  :             {
-; 627  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 628  : 
-; 629  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 616  :                 }
+; 617  :             }
+; 618  :             else
+; 619  :             {
+; 620  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 621  : 
+; 622  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	rdx, QWORD PTR [rbx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 	bsr	rax, rdi
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 630  :                 __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)y);
+; 623  :                 __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)y);
 
 	movsxd	rax, ecx
 	mov	ecx, 64					; 00000040H
 	sub	rcx, rax
 
-; 631  :                 if (x_bit_count < y_bit_count)
+; 624  :                 if (x_bit_count < y_bit_count)
 
 	cmp	rdx, rcx
 	jae	SHORT $LN25@PMC_Subtru
 $LN64@PMC_Subtru:
 
-; 632  :                 {
-; 633  :                     // 演算結果は負となってしまうのでエラーを返す。
-; 634  :                     return (PMC_STATUS_OVERFLOW);
+; 625  :                 {
+; 626  :                     // 演算結果は負となってしまうのでエラーを返す。
+; 627  :                     return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2138,10 +2138,10 @@ $LN64@PMC_Subtru:
 	ret	0
 $LN25@PMC_Subtru:
 
-; 635  :                 }
-; 636  :                 __UNIT_TYPE z_bit_count = x_bit_count;
-; 637  :                 __UNIT_TYPE nz_light_check_code;
-; 638  :                 if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 628  :                 }
+; 629  :                 __UNIT_TYPE z_bit_count = x_bit_count;
+; 630  :                 __UNIT_TYPE nz_light_check_code;
+; 631  :                 if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$1[rsp]
 	lea	rcx, QWORD PTR nz$[rsp]
@@ -2149,8 +2149,8 @@ $LN25@PMC_Subtru:
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 639  :                     return (result);
-; 640  :                 if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, (__UNIT_TYPE)y, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 632  :                     return (result);
+; 633  :                 if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, (__UNIT_TYPE)y, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	r9, QWORD PTR nz$[rsp]
 	mov	r8, rdi
@@ -2165,19 +2165,19 @@ $LN25@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN27@PMC_Subtru
 
-; 641  :                 {
-; 642  :                     DeallocateNumber(nz);
+; 634  :                 {
+; 635  :                     DeallocateNumber(nz);
 
 	call	DeallocateNumber
 
-; 643  :                     return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 636  :                     return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	mov	eax, -2
 	cmp	ebx, -258				; fffffffffffffefeH
 	cmove	ebx, eax
 	mov	eax, ebx
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2186,8 +2186,8 @@ $LN25@PMC_Subtru:
 	ret	0
 $LN27@PMC_Subtru:
 
-; 644  :                 }
-; 645  :                 if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 637  :                 }
+; 638  :                 if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$1[rsp]
 	mov	rcx, QWORD PTR [rcx+56]
@@ -2195,42 +2195,42 @@ $LN27@PMC_Subtru:
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
 
-; 646  :                     return (result);
-; 647  :             }
-; 648  :             CommitNumber(nz);
+; 639  :                     return (result);
+; 640  :             }
+; 641  :             CommitNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rsp]
 	call	CommitNumber
 
-; 649  :             if (nz->IS_ZERO)
+; 642  :             if (nz->IS_ZERO)
 
 	mov	rax, QWORD PTR nz$[rsp]
 	test	BYTE PTR [rax+40], 2
 	je	SHORT $LN29@PMC_Subtru
 
-; 650  :             {
-; 651  :                 DeallocateNumber(nz);
+; 643  :             {
+; 644  :                 DeallocateNumber(nz);
 
 	mov	rcx, rax
 	call	DeallocateNumber
 
-; 652  :                 nz = &number_zero;
-; 653  :             }
-; 654  :         }
-; 655  :         *o = nz;
-; 656  :     }
-; 657  : #ifdef _DEBUG
-; 658  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-; 659  :         return (result);
-; 660  : #endif
-; 661  :     return (PMC_STATUS_OK);
+; 645  :                 nz = &number_zero;
+; 646  :             }
+; 647  :         }
+; 648  :         *o = nz;
+; 649  :     }
+; 650  : #ifdef _DEBUG
+; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 652  :         return (result);
+; 653  : #endif
+; 654  :     return (PMC_STATUS_OK);
 
 	lea	rax, OFFSET FLAT:number_zero
 $LN29@PMC_Subtru:
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2239,12 +2239,12 @@ $LN29@PMC_Subtru:
 	ret	0
 $LN65@PMC_Subtru:
 
-; 533  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 526  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_Subtru:
 
-; 662  : }
+; 655  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2266,7 +2266,7 @@ w$ = 80
 w_light_check_code$1 = 88
 PMC_Subtruct_X_I PROC					; COMDAT
 
-; 269  : {
+; 262  : {
 
 $LN27:
 	mov	QWORD PTR [rsp+16], rbx
@@ -2277,61 +2277,61 @@ $LN27:
 	mov	rsi, r8
 	mov	rbx, rcx
 
-; 270  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
-; 271  :     {
-; 272  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 273  :         return (PMC_STATUS_INTERNAL_ERROR);
-; 274  :     }
-; 275  :     if (u == NULL)
+; 263  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 264  :     {
+; 265  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 266  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 267  :     }
+; 268  :     if (u == NULL)
 
 	test	rcx, rcx
 	je	$LN23@PMC_Subtru
 
-; 276  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 277  :     if (w == NULL)
+; 269  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 270  :     if (w == NULL)
 
 	test	r8, r8
 	je	$LN23@PMC_Subtru
 
-; 279  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
-; 280  :     PMC_STATUS_CODE result;
-; 281  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 272  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 273  :     PMC_STATUS_CODE result;
+; 274  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 282  :         return (result);
-; 283  :     NUMBER_HEADER* nw;
-; 284  :     if (nu->IS_ZERO)
+; 275  :         return (result);
+; 276  :     NUMBER_HEADER* nw;
+; 277  :     if (nu->IS_ZERO)
 
 	test	BYTE PTR [rbx+40], 2
 	je	SHORT $LN6@PMC_Subtru
 
-; 285  :     {
-; 286  :         // u が 0 である場合
-; 287  : 
-; 288  :         if (v == 0)
+; 278  :     {
+; 279  :         // u が 0 である場合
+; 280  : 
+; 281  :         if (v == 0)
 
 	test	edi, edi
 	jne	SHORT $LN22@PMC_Subtru
 
-; 342  :                 nw = &number_zero;
-; 343  :             }
-; 344  :         }
-; 345  :         *w = nw;
-; 346  :     }
-; 347  : #ifdef _DEBUG
-; 348  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
-; 349  :         return (result);
-; 350  : #endif
-; 351  :     return (PMC_STATUS_OK);
+; 335  :                 nw = &number_zero;
+; 336  :             }
+; 337  :         }
+; 338  :         *w = nw;
+; 339  :     }
+; 340  : #ifdef _DEBUG
+; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 342  :         return (result);
+; 343  : #endif
+; 344  :     return (PMC_STATUS_OK);
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2340,34 +2340,34 @@ $LN27:
 	ret	0
 $LN6@PMC_Subtru:
 
+; 282  :         {
+; 283  :             // v が 0 である場合
+; 284  : 
+; 285  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 286  :             *w = &number_zero;
+; 287  :         }
+; 288  :         else
 ; 289  :         {
-; 290  :             // v が 0 である場合
+; 290  :             // v が 0 ではない場合
 ; 291  : 
-; 292  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 293  :             *w = &number_zero;
+; 292  :             // 演算結果は負となってしまうのでエラーを返す。
+; 293  :             return (PMC_STATUS_OVERFLOW);
 ; 294  :         }
-; 295  :         else
-; 296  :         {
-; 297  :             // v が 0 ではない場合
-; 298  : 
-; 299  :             // 演算結果は負となってしまうのでエラーを返す。
-; 300  :             return (PMC_STATUS_OVERFLOW);
-; 301  :         }
-; 302  :     }
-; 303  :     else
-; 304  :     {
-; 305  :         // u が 0 ではない場合
-; 306  : 
-; 307  :         if (v == 0)
+; 295  :     }
+; 296  :     else
+; 297  :     {
+; 298  :         // u が 0 ではない場合
+; 299  : 
+; 300  :         if (v == 0)
 
 	test	edi, edi
 	jne	SHORT $LN10@PMC_Subtru
 
-; 308  :         {
-; 309  :             // v が 0 である場合
-; 310  : 
-; 311  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 312  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
+; 301  :         {
+; 302  :             // v が 0 である場合
+; 303  : 
+; 304  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 305  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nw$[rsp]
 	mov	rcx, rbx
@@ -2376,21 +2376,21 @@ $LN6@PMC_Subtru:
 	jne	$LN1@PMC_Subtru
 	mov	rax, QWORD PTR nw$[rsp]
 
-; 342  :                 nw = &number_zero;
-; 343  :             }
-; 344  :         }
-; 345  :         *w = nw;
-; 346  :     }
-; 347  : #ifdef _DEBUG
-; 348  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
-; 349  :         return (result);
-; 350  : #endif
-; 351  :     return (PMC_STATUS_OK);
+; 335  :                 nw = &number_zero;
+; 336  :             }
+; 337  :         }
+; 338  :         *w = nw;
+; 339  :     }
+; 340  : #ifdef _DEBUG
+; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 342  :         return (result);
+; 343  : #endif
+; 344  :     return (PMC_STATUS_OK);
 
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2399,44 +2399,44 @@ $LN6@PMC_Subtru:
 	ret	0
 $LN10@PMC_Subtru:
 
-; 313  :                 return (result);
-; 314  :         }
-; 315  :         else
-; 316  :         {
-; 317  :             // u と v がともに 0 ではない場合
-; 318  : 
-; 319  :             // u と v の差を計算する
-; 320  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 306  :                 return (result);
+; 307  :         }
+; 308  :         else
+; 309  :         {
+; 310  :             // u と v がともに 0 ではない場合
+; 311  : 
+; 312  :             // u と v の差を計算する
+; 313  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rdx, QWORD PTR [rbx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 31
 	bsr	eax, edi
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 321  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 314  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	movsxd	rax, ecx
 	mov	ecx, 32					; 00000020H
 	sub	rcx, rax
 
-; 322  :             if (u_bit_count < v_bit_count)
+; 315  :             if (u_bit_count < v_bit_count)
 
 	cmp	rdx, rcx
 	jae	SHORT $LN13@PMC_Subtru
 $LN22@PMC_Subtru:
 
-; 323  :             {
-; 324  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 325  :                 return (PMC_STATUS_OVERFLOW);
+; 316  :             {
+; 317  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 318  :                 return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2445,10 +2445,10 @@ $LN22@PMC_Subtru:
 	ret	0
 $LN13@PMC_Subtru:
 
-; 326  :             }
-; 327  :             __UNIT_TYPE w_bit_count = u_bit_count;
-; 328  :             __UNIT_TYPE w_light_check_code;
-; 329  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 319  :             }
+; 320  :             __UNIT_TYPE w_bit_count = u_bit_count;
+; 321  :             __UNIT_TYPE w_light_check_code;
+; 322  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR w_light_check_code$1[rsp]
 	lea	rcx, QWORD PTR nw$[rsp]
@@ -2456,8 +2456,8 @@ $LN13@PMC_Subtru:
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 330  :                 return (result);
-; 331  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 323  :                 return (result);
+; 324  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	r9, QWORD PTR nw$[rsp]
 	mov	r8, rdi
@@ -2472,19 +2472,19 @@ $LN13@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN15@PMC_Subtru
 
-; 332  :             {
-; 333  :                 DeallocateNumber(nw);
+; 325  :             {
+; 326  :                 DeallocateNumber(nw);
 
 	call	DeallocateNumber
 
-; 334  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 327  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	mov	eax, -2
 	cmp	ebx, -258				; fffffffffffffefeH
 	cmove	ebx, eax
 	mov	eax, ebx
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2493,8 +2493,8 @@ $LN13@PMC_Subtru:
 	ret	0
 $LN15@PMC_Subtru:
 
-; 335  :             }
-; 336  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 328  :             }
+; 329  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
 	mov	rcx, QWORD PTR [rcx+56]
@@ -2502,41 +2502,41 @@ $LN15@PMC_Subtru:
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
 
-; 337  :                 return (result);
-; 338  :             CommitNumber(nw);
+; 330  :                 return (result);
+; 331  :             CommitNumber(nw);
 
 	mov	rcx, QWORD PTR nw$[rsp]
 	call	CommitNumber
 
-; 339  :             if (nw->IS_ZERO)
+; 332  :             if (nw->IS_ZERO)
 
 	mov	rax, QWORD PTR nw$[rsp]
 	test	BYTE PTR [rax+40], 2
 	je	SHORT $LN17@PMC_Subtru
 
-; 340  :             {
-; 341  :                 DeallocateNumber(nw);
+; 333  :             {
+; 334  :                 DeallocateNumber(nw);
 
 	mov	rcx, rax
 	call	DeallocateNumber
 
-; 342  :                 nw = &number_zero;
-; 343  :             }
-; 344  :         }
-; 345  :         *w = nw;
-; 346  :     }
-; 347  : #ifdef _DEBUG
-; 348  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
-; 349  :         return (result);
-; 350  : #endif
-; 351  :     return (PMC_STATUS_OK);
+; 335  :                 nw = &number_zero;
+; 336  :             }
+; 337  :         }
+; 338  :         *w = nw;
+; 339  :     }
+; 340  : #ifdef _DEBUG
+; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 342  :         return (result);
+; 343  : #endif
+; 344  :     return (PMC_STATUS_OK);
 
 	lea	rax, OFFSET FLAT:number_zero
 $LN17@PMC_Subtru:
 	mov	QWORD PTR [rsi], rax
 	xor	eax, eax
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2545,12 +2545,12 @@ $LN17@PMC_Subtru:
 	ret	0
 $LN23@PMC_Subtru:
 
-; 278  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 271  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_Subtru:
 
-; 352  : }
+; 345  : }
 
 	mov	rbx, QWORD PTR [rsp+72]
 	mov	rsi, QWORD PTR [rsp+80]
@@ -2572,7 +2572,7 @@ v$ = 56
 w$ = 64
 PMC_Subtruct_L_X PROC					; COMDAT
 
-; 355  : {
+; 348  : {
 
 $LN58:
 	mov	QWORD PTR [rsp+8], rbx
@@ -2583,69 +2583,69 @@ $LN58:
 	mov	rsi, rdx
 	mov	rbx, rcx
 
-; 356  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
-; 357  :     {
-; 358  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 359  :         return (PMC_STATUS_INTERNAL_ERROR);
-; 360  :     }
-; 361  :     if (v == NULL)
+; 349  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
+; 350  :     {
+; 351  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 352  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 353  :     }
+; 354  :     if (v == NULL)
 
 	test	rdx, rdx
 	je	$LN55@PMC_Subtru
 
-; 362  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 363  :     if (w == NULL)
+; 355  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 356  :     if (w == NULL)
 
 	test	r8, r8
 	je	$LN55@PMC_Subtru
 
-; 365  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 366  :     PMC_STATUS_CODE result;
-; 367  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 358  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 359  :     PMC_STATUS_CODE result;
+; 360  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, rdx
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 368  :         return (result);
-; 369  :     if (u == 0)
+; 361  :         return (result);
+; 362  :     if (u == 0)
 
 	mov	eax, DWORD PTR [rsi+40]
 	and	eax, 2
 	test	rbx, rbx
 	jne	SHORT $LN6@PMC_Subtru
 
-; 370  :     {
-; 371  :         // u が 0 である場合
-; 372  : 
-; 373  :         if (nv->IS_ZERO)
+; 363  :     {
+; 364  :         // u が 0 である場合
+; 365  : 
+; 366  :         if (nv->IS_ZERO)
 
 	test	eax, eax
 	je	SHORT $LN54@PMC_Subtru
 
-; 374  :         {
-; 375  :             // v が 0 である場合
-; 376  : 
-; 377  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 378  :             *w = 0;
+; 367  :         {
+; 368  :             // v が 0 である場合
+; 369  : 
+; 370  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 371  :             *w = 0;
 
 	mov	QWORD PTR [rdi], rbx
 
-; 511  :                     }
-; 512  :                     else
-; 513  :                     {
-; 514  :                         *w = temp_w;
-; 515  :                     }
-; 516  :                 }
-; 517  :             }
-; 518  :         }
-; 519  :     }
-; 520  :     return (PMC_STATUS_OK);
+; 504  :                     }
+; 505  :                     else
+; 506  :                     {
+; 507  :                         *w = temp_w;
+; 508  :                     }
+; 509  :                 }
+; 510  :             }
+; 511  :         }
+; 512  :     }
+; 513  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 521  : }
+; 514  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2654,101 +2654,101 @@ $LN58:
 	ret	0
 $LN6@PMC_Subtru:
 
+; 372  :         }
+; 373  :         else
+; 374  :         {
+; 375  :             // v が 0 ではない場合
+; 376  : 
+; 377  :             // 演算結果は負となってしまうのでエラーを返す。
+; 378  :             return (PMC_STATUS_OVERFLOW);
 ; 379  :         }
-; 380  :         else
-; 381  :         {
-; 382  :             // v が 0 ではない場合
-; 383  : 
-; 384  :             // 演算結果は負となってしまうのでエラーを返す。
-; 385  :             return (PMC_STATUS_OVERFLOW);
-; 386  :         }
-; 387  :     }
-; 388  :     else
-; 389  :     {
-; 390  :         // u が 0 ではない場合
-; 391  : 
-; 392  :         if (nv->IS_ZERO)
+; 380  :     }
+; 381  :     else
+; 382  :     {
+; 383  :         // u が 0 ではない場合
+; 384  : 
+; 385  :         if (nv->IS_ZERO)
 
 	test	eax, eax
 	jne	SHORT $LN56@PMC_Subtru
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 644  :         _BitScanReverse64(&pos, x);
+; 637  :         _BitScanReverse64(&pos, x);
 
 	bsr	rax, rbx
 
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 490  :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
+; 483  :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
 
 	movsxd	rax, ecx
 	mov	ecx, 64					; 00000040H
 	sub	rcx, rax
 
-; 491  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 492  :                 if (u_bit_count < v_bit_count)
+; 484  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 485  :                 if (u_bit_count < v_bit_count)
 
 	cmp	rcx, QWORD PTR [rsi+16]
 	jb	SHORT $LN54@PMC_Subtru
 
+; 486  :                 {
+; 487  :                     // 明らかに u < v である場合
+; 488  : 
+; 489  :                     // 演算結果は負となってしまうのでエラーを返す。
+; 490  :                     return (PMC_STATUS_OVERFLOW);
+; 491  :                 }
+; 492  :                 else
 ; 493  :                 {
-; 494  :                     // 明らかに u < v である場合
+; 494  :                     // u のビット長が v のビット長以上である場合
 ; 495  : 
-; 496  :                     // 演算結果は負となってしまうのでエラーを返す。
-; 497  :                     return (PMC_STATUS_OVERFLOW);
-; 498  :                 }
-; 499  :                 else
-; 500  :                 {
-; 501  :                     // u のビット長が v のビット長以上である場合
-; 502  : 
-; 503  :                     // u が 64bit 整数で表現できるので v も 64bit 整数で表現できる
-; 504  : 
-; 505  :                     __UNIT_TYPE temp_w;
-; 506  :                     char borrow = _SUBTRUCT_UNIT(0, (__UNIT_TYPE)u, nv->BLOCK[0], &temp_w);
+; 496  :                     // u が 64bit 整数で表現できるので v も 64bit 整数で表現できる
+; 497  : 
+; 498  :                     __UNIT_TYPE temp_w;
+; 499  :                     char borrow = _SUBTRUCT_UNIT(0, (__UNIT_TYPE)u, nv->BLOCK[0], &temp_w);
 
 	mov	rax, QWORD PTR [rsi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sub	rbx, QWORD PTR [rax]
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 507  :                     if (borrow)
+; 500  :                     if (borrow)
 
 	test	al, al
 	jne	SHORT $LN54@PMC_Subtru
 $LN56@PMC_Subtru:
 
-; 511  :                     }
-; 512  :                     else
-; 513  :                     {
-; 514  :                         *w = temp_w;
-; 515  :                     }
-; 516  :                 }
-; 517  :             }
-; 518  :         }
-; 519  :     }
-; 520  :     return (PMC_STATUS_OK);
+; 504  :                     }
+; 505  :                     else
+; 506  :                     {
+; 507  :                         *w = temp_w;
+; 508  :                     }
+; 509  :                 }
+; 510  :             }
+; 511  :         }
+; 512  :     }
+; 513  :     return (PMC_STATUS_OK);
 
 	mov	QWORD PTR [rdi], rbx
 	xor	eax, eax
 
-; 521  : }
+; 514  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2757,13 +2757,13 @@ $LN56@PMC_Subtru:
 	ret	0
 $LN54@PMC_Subtru:
 
-; 508  :                     {
-; 509  :                         // ボローが発生した場合は演算結果が負なのでエラーとする
-; 510  :                         return (PMC_STATUS_OVERFLOW);
+; 501  :                     {
+; 502  :                         // ボローが発生した場合は演算結果が負なのでエラーとする
+; 503  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 
-; 521  : }
+; 514  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2772,12 +2772,12 @@ $LN54@PMC_Subtru:
 	ret	0
 $LN55@PMC_Subtru:
 
-; 364  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 357  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_Subtru:
 
-; 521  : }
+; 514  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2799,7 +2799,7 @@ v$ = 56
 w$ = 64
 PMC_Subtruct_I_X PROC					; COMDAT
 
-; 189  : {
+; 182  : {
 
 $LN25:
 	mov	QWORD PTR [rsp+8], rbx
@@ -2810,64 +2810,64 @@ $LN25:
 	mov	rbx, r8
 	mov	rdi, rdx
 
-; 190  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
-; 191  :     {
-; 192  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 193  :         return (PMC_STATUS_INTERNAL_ERROR);
-; 194  :     }
-; 195  :     if (v == NULL)
+; 183  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 184  :     {
+; 185  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 186  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 187  :     }
+; 188  :     if (v == NULL)
 
 	test	rdx, rdx
 	je	$LN23@PMC_Subtru
 
-; 196  :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 197  :     if (w == NULL)
+; 189  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 190  :     if (w == NULL)
 
 	test	rbx, rbx
 	je	$LN23@PMC_Subtru
 
-; 199  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 200  :     PMC_STATUS_CODE result;
-; 201  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 192  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 193  :     PMC_STATUS_CODE result;
+; 194  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, rdx
 	call	CheckNumber
 	test	eax, eax
 	jne	$LN1@PMC_Subtru
 
-; 202  :         return (result);
-; 203  :     if (u == 0)
+; 195  :         return (result);
+; 196  :     if (u == 0)
 
 	mov	eax, DWORD PTR [rdi+40]
 	and	eax, 2
 	test	esi, esi
 	jne	SHORT $LN6@PMC_Subtru
 
-; 204  :     {
-; 205  :         // u が 0 である場合
-; 206  : 
-; 207  :         if (nv->IS_ZERO)
+; 197  :     {
+; 198  :         // u が 0 である場合
+; 199  : 
+; 200  :         if (nv->IS_ZERO)
 
 	test	eax, eax
 	je	SHORT $LN22@PMC_Subtru
 
-; 208  :         {
-; 209  :             // v が 0 である場合
-; 210  : 
-; 211  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 212  :             *w = 0;
+; 201  :         {
+; 202  :             // v が 0 である場合
+; 203  : 
+; 204  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 205  :             *w = 0;
 
 	mov	DWORD PTR [rbx], esi
 
-; 261  :                 }
-; 262  :             }
-; 263  :         }
-; 264  :     }
-; 265  :     return (PMC_STATUS_OK);
+; 254  :                 }
+; 255  :             }
+; 256  :         }
+; 257  :     }
+; 258  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 266  : }
+; 259  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2876,41 +2876,41 @@ $LN25:
 	ret	0
 $LN6@PMC_Subtru:
 
+; 206  :         }
+; 207  :         else
+; 208  :         {
+; 209  :             // v が 0 ではない場合
+; 210  : 
+; 211  :             // 演算結果は負となってしまうのでエラーを返す。
+; 212  :             return (PMC_STATUS_OVERFLOW);
 ; 213  :         }
-; 214  :         else
-; 215  :         {
-; 216  :             // v が 0 ではない場合
-; 217  : 
-; 218  :             // 演算結果は負となってしまうのでエラーを返す。
-; 219  :             return (PMC_STATUS_OVERFLOW);
-; 220  :         }
-; 221  :     }
-; 222  :     else
-; 223  :     {
-; 224  :         // u が 0 ではない場合
-; 225  : 
-; 226  :         if (nv->IS_ZERO)
+; 214  :     }
+; 215  :     else
+; 216  :     {
+; 217  :         // u が 0 ではない場合
+; 218  : 
+; 219  :         if (nv->IS_ZERO)
 
 	test	eax, eax
 	je	SHORT $LN10@PMC_Subtru
 
-; 227  :         {
-; 228  :             // v が 0 である場合
-; 229  : 
-; 230  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 231  :             *w = u;
+; 220  :         {
+; 221  :             // v が 0 である場合
+; 222  : 
+; 223  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 224  :             *w = u;
 
 	mov	DWORD PTR [rbx], esi
 
-; 261  :                 }
-; 262  :             }
-; 263  :         }
-; 264  :     }
-; 265  :     return (PMC_STATUS_OK);
+; 254  :                 }
+; 255  :             }
+; 256  :         }
+; 257  :     }
+; 258  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 266  : }
+; 259  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2920,77 +2920,77 @@ $LN6@PMC_Subtru:
 $LN10@PMC_Subtru:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 601  :         _BitScanReverse(&pos, x);
+; 594  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, esi
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 31
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 238  :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
+; 231  :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
 
 	movsxd	rax, ecx
 	mov	ecx, 32					; 00000020H
 	sub	rcx, rax
 
-; 239  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 240  :             if (u_bit_count < v_bit_count)
+; 232  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 233  :             if (u_bit_count < v_bit_count)
 
 	cmp	rcx, QWORD PTR [rdi+16]
 	jb	SHORT $LN22@PMC_Subtru
 
-; 241  :             {
-; 242  :                 // 明らかに u < v である場合
-; 243  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 244  :                 return (PMC_STATUS_OVERFLOW);
-; 245  :             }
-; 246  :             else
-; 247  :             {
-; 248  :                 // u のビット長が v のビット長以上である場合
-; 249  : 
-; 250  :                 // u が 32bit 整数なので、v も32bit 整数で表現できる
-; 251  :                 __UNIT_TYPE temp_w;
-; 252  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
+; 234  :             {
+; 235  :                 // 明らかに u < v である場合
+; 236  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 237  :                 return (PMC_STATUS_OVERFLOW);
+; 238  :             }
+; 239  :             else
+; 240  :             {
+; 241  :                 // u のビット長が v のビット長以上である場合
+; 242  : 
+; 243  :                 // u が 32bit 整数なので、v も32bit 整数で表現できる
+; 244  :                 __UNIT_TYPE temp_w;
+; 245  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
 
 	mov	rax, QWORD PTR [rdi+56]
 	mov	rcx, rsi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sub	rcx, QWORD PTR [rax]
 	setb	al
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 253  :                 if (borrow)
+; 246  :                 if (borrow)
 
 	test	al, al
 	jne	SHORT $LN22@PMC_Subtru
 
-; 257  :                 }
-; 258  :                 else
-; 259  :                 {
-; 260  :                     *w = (_UINT32_T)temp_w;
+; 250  :                 }
+; 251  :                 else
+; 252  :                 {
+; 253  :                     *w = (_UINT32_T)temp_w;
 
 	mov	DWORD PTR [rbx], ecx
 
-; 261  :                 }
-; 262  :             }
-; 263  :         }
-; 264  :     }
-; 265  :     return (PMC_STATUS_OK);
+; 254  :                 }
+; 255  :             }
+; 256  :         }
+; 257  :     }
+; 258  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 266  : }
+; 259  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -2999,13 +2999,13 @@ $LN10@PMC_Subtru:
 	ret	0
 $LN22@PMC_Subtru:
 
-; 254  :                 {
-; 255  :                     // ボローが発生した場合は演算結果が負なのでエラーとする
-; 256  :                     return (PMC_STATUS_OVERFLOW);
+; 247  :                 {
+; 248  :                     // ボローが発生した場合は演算結果が負なのでエラーとする
+; 249  :                     return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 
-; 266  : }
+; 259  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -3014,12 +3014,12 @@ $LN22@PMC_Subtru:
 	ret	0
 $LN23@PMC_Subtru:
 
-; 198  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 191  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_Subtru:
 
-; 266  : }
+; 259  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	mov	rsi, QWORD PTR [rsp+56]
@@ -3035,11 +3035,11 @@ _TEXT	SEGMENT
 feature$ = 8
 Initialize_Subtruct PROC				; COMDAT
 
-; 745  :     return (PMC_STATUS_OK);
+; 738  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 746  : }
+; 739  : }
 
 	ret	0
 Initialize_Subtruct ENDP
@@ -3156,16 +3156,16 @@ wp$ = 80
 w_count$ = 88
 Subtruct_Imp PROC					; COMDAT
 
-; 125  : {
+; 118  : {
 
 $LN140:
 	push	rbx
 	sub	rsp, 32					; 00000020H
 
-; 126  :     char c = 0;
-; 127  : 
-; 128  :     // まず 32 ワードずつ減算をする。
-; 129  :     __UNIT_TYPE count = v_count >> 5;
+; 119  :     char c = 0;
+; 120  : 
+; 121  :     // まず 32 ワードずつ減算をする。
+; 122  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rbx, r9
 	mov	r10, rdx
@@ -3174,7 +3174,7 @@ $LN140:
 	xor	cl, cl
 	mov	r11, r9
 
-; 130  :     while (count != 0)
+; 123  :     while (count != 0)
 
 	mov	r9, QWORD PTR wp$[rsp]
 	test	rbx, rbx
@@ -3183,650 +3183,650 @@ $LN140:
 $LL2@Subtruct_I:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 808  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 801  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 809  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 802  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 810  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 803  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 811  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 804  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 812  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 805  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	rax, QWORD PTR [rdx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+32]
 	mov	QWORD PTR [r9+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 813  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 806  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	rax, QWORD PTR [rdx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+40]
 	mov	QWORD PTR [r9+40], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 814  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 807  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	rax, QWORD PTR [rdx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+48]
 	mov	QWORD PTR [r9+48], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 815  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 808  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	rax, QWORD PTR [rdx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+56]
 	mov	QWORD PTR [r9+56], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 816  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
+; 809  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	rax, QWORD PTR [rdx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+64]
 	mov	QWORD PTR [r9+64], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 817  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
+; 810  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	rax, QWORD PTR [rdx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+72]
 	mov	QWORD PTR [r9+72], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 818  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
+; 811  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	rax, QWORD PTR [rdx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+80]
 	mov	QWORD PTR [r9+80], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 819  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
+; 812  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	rax, QWORD PTR [rdx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+88]
 	mov	QWORD PTR [r9+88], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 820  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
+; 813  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	rax, QWORD PTR [rdx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+96]
 	mov	QWORD PTR [r9+96], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 821  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
+; 814  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	rax, QWORD PTR [rdx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+104]
 	mov	QWORD PTR [r9+104], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 822  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
+; 815  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	rax, QWORD PTR [rdx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+112]
 	mov	QWORD PTR [r9+112], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 823  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
+; 816  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	rax, QWORD PTR [rdx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+120]
 	mov	QWORD PTR [r9+120], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 824  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
+; 817  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
 
 	mov	rax, QWORD PTR [rdx+128]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+128]
 	mov	QWORD PTR [r9+128], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 825  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
+; 818  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
 
 	mov	rax, QWORD PTR [rdx+136]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+136]
 	mov	QWORD PTR [r9+136], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 826  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
+; 819  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
 
 	mov	rax, QWORD PTR [rdx+144]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+144]
 	mov	QWORD PTR [r9+144], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 827  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
+; 820  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
 
 	mov	rax, QWORD PTR [rdx+152]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+152]
 	mov	QWORD PTR [r9+152], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 828  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
+; 821  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
 
 	mov	rax, QWORD PTR [rdx+160]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+160]
 	mov	QWORD PTR [r9+160], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 829  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
+; 822  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
 
 	mov	rax, QWORD PTR [rdx+168]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+168]
 	mov	QWORD PTR [r9+168], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 830  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
+; 823  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
 
 	mov	rax, QWORD PTR [rdx+176]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+176]
 	mov	QWORD PTR [r9+176], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 831  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
+; 824  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
 
 	mov	rax, QWORD PTR [rdx+184]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+184]
 	mov	QWORD PTR [r9+184], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 832  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
+; 825  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
 
 	mov	rax, QWORD PTR [rdx+192]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+192]
 	mov	QWORD PTR [r9+192], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 833  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
+; 826  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
 
 	mov	rax, QWORD PTR [rdx+200]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+200]
 	mov	QWORD PTR [r9+200], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 834  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
+; 827  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
 
 	mov	rax, QWORD PTR [rdx+208]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+208]
 	mov	QWORD PTR [r9+208], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 835  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
+; 828  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
 
 	mov	rax, QWORD PTR [rdx+216]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+216]
 	mov	QWORD PTR [r9+216], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 836  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
+; 829  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
 
 	mov	rax, QWORD PTR [rdx+224]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+224]
 	mov	QWORD PTR [r9+224], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 837  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
+; 830  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
 
 	mov	rax, QWORD PTR [rdx+232]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+232]
 	mov	QWORD PTR [r9+232], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 838  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
+; 831  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
 
 	mov	rax, QWORD PTR [rdx+240]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+240]
 	mov	QWORD PTR [r9+240], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 839  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
+; 832  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
 
 	mov	rax, QWORD PTR [rdx+248]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+248]
 	mov	QWORD PTR [r9+248], rax
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 133  :         up += 32;
+; 126  :         up += 32;
 
 	add	rdx, 256				; 00000100H
 
-; 134  :         vp += 32;
+; 127  :         vp += 32;
 
 	add	r8, 256					; 00000100H
 
-; 135  :         wp += 32;
+; 128  :         wp += 32;
 
 	add	r9, 256					; 00000100H
 
-; 136  :         --count;
+; 129  :         --count;
 
 	sub	rbx, 1
 	jne	$LL2@Subtruct_I
 $LN3@Subtruct_I:
 
-; 137  :     }
-; 138  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 139  : 
-; 140  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード減算を行う。
-; 141  :     if (v_count & 0x10)
+; 130  :     }
+; 131  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 132  : 
+; 133  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード減算を行う。
+; 134  :     if (v_count & 0x10)
 
 	test	r11b, 16
 	je	SHORT $LN4@Subtruct_I
 
-; 142  :     {
-; 143  :         c = _SUBTRUCT_16WORDS_SBB(c, up, vp, wp);
+; 135  :     {
+; 136  :         c = _SUBTRUCT_16WORDS_SBB(c, up, vp, wp);
 
 	call	_SUBTRUCT_16WORDS_SBB
 
-; 144  :         up += 16;
+; 137  :         up += 16;
 
 	sub	rdx, -128				; ffffffffffffff80H
 
-; 145  :         vp += 16;
+; 138  :         vp += 16;
 
 	sub	r8, -128				; ffffffffffffff80H
 
-; 146  :         wp += 16;
+; 139  :         wp += 16;
 
 	sub	r9, -128				; ffffffffffffff80H
 	movzx	ecx, al
 $LN4@Subtruct_I:
 
-; 147  :     }
-; 148  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 149  : 
-; 150  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード減算を行う。
-; 151  :     if (v_count & 0x8)
+; 140  :     }
+; 141  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 142  : 
+; 143  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード減算を行う。
+; 144  :     if (v_count & 0x8)
 
 	test	r11b, 8
 	je	SHORT $LN5@Subtruct_I
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3456 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3449 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3457 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3450 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3458 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3451 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3459 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3452 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3460 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 3453 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	rax, QWORD PTR [rdx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+32]
 	mov	QWORD PTR [r9+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3461 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 3454 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	rax, QWORD PTR [rdx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+40]
 	mov	QWORD PTR [r9+40], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3462 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 3455 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	rax, QWORD PTR [rdx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+48]
 	mov	QWORD PTR [r9+48], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 3463 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 3456 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	rax, QWORD PTR [rdx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+56]
 	mov	QWORD PTR [r9+56], rax
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 154  :         up += 8;
+; 147  :         up += 8;
 
 	add	rdx, 64					; 00000040H
 
-; 155  :         vp += 8;
+; 148  :         vp += 8;
 
 	add	r8, 64					; 00000040H
 
-; 156  :         wp += 8;
+; 149  :         wp += 8;
 
 	add	r9, 64					; 00000040H
 $LN5@Subtruct_I:
 
-; 157  :     }
-; 158  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 159  : 
-; 160  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード減算を行う。
-; 161  :     if (v_count & 0x4)
+; 150  :     }
+; 151  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 152  : 
+; 153  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード減算を行う。
+; 154  :     if (v_count & 0x4)
 
 	test	r11b, 4
 	je	SHORT $LN6@Subtruct_I
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4052 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4045 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4053 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4046 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4054 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 4047 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	rax, QWORD PTR [rdx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+16]
 	mov	QWORD PTR [r9+16], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4055 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 4048 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	rax, QWORD PTR [rdx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+24]
 	mov	QWORD PTR [r9+24], rax
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 164  :         up += 4;
+; 157  :         up += 4;
 
 	add	rdx, 32					; 00000020H
 
-; 165  :         vp += 4;
+; 158  :         vp += 4;
 
 	add	r8, 32					; 00000020H
 
-; 166  :         wp += 4;
+; 159  :         wp += 4;
 
 	add	r9, 32					; 00000020H
 $LN6@Subtruct_I:
 
-; 167  :     }
-; 168  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 169  : 
-; 170  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード減算を行う。
-; 171  :     if (v_count & 0x2)
+; 160  :     }
+; 161  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 162  : 
+; 163  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード減算を行う。
+; 164  :     if (v_count & 0x2)
 
 	test	r11b, 2
 	je	SHORT $LN7@Subtruct_I
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4466 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4459 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
 	mov	QWORD PTR [r9], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\autogenerated_inline_func.h
 
-; 4467 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4460 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	rax, QWORD PTR [rdx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	sbb	rax, QWORD PTR [r8+8]
 	mov	QWORD PTR [r9+8], rax
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 174  :         up += 2;
+; 167  :         up += 2;
 
 	add	rdx, 16
 
-; 175  :         vp += 2;
+; 168  :         vp += 2;
 
 	add	r8, 16
 
-; 176  :         wp += 2;
+; 169  :         wp += 2;
 
 	add	r9, 16
 $LN7@Subtruct_I:
 
-; 177  :     }
-; 178  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 179  : 
-; 180  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード減算を行う。
-; 181  :     if (v_count & 1)
+; 170  :     }
+; 171  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 172  : 
+; 173  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード減算を行う。
+; 174  :     if (v_count & 1)
 
 	test	r11b, 1
 	je	SHORT $LN8@Subtruct_I
 
-; 182  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
+; 175  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, QWORD PTR [r8]
@@ -3834,45 +3834,45 @@ $LN7@Subtruct_I:
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 182  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
+; 175  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
 
 	add	rdx, 8
 	add	r9, 8
 $LN8@Subtruct_I:
 
-; 183  : 
-; 184  :     // 残りの桁の繰り上がりを計算し、復帰する。
-; 185  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
+; 176  : 
+; 177  :     // 残りの桁の繰り上がりを計算し、復帰する。
+; 178  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
 
 	sub	r10, r11
 
-; 44   :         if (u_count <= 0)
+; 37   :         if (u_count <= 0)
 
 	je	SHORT $LN129@Subtruct_I
 $LL113@Subtruct_I:
 
-; 49   :             {
-; 50   :                 // かつそれでも桁借りを行う必要がある場合
-; 51   : 
-; 52   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 53   :                 return (PMC_STATUS_INTERNAL_BORROW);
-; 54   :             }
-; 55   : 
-; 56   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 57   : 
-; 58   :             return (PMC_STATUS_OK);
-; 59   :         }
-; 60   :         else if (c)
+; 42   :             {
+; 43   :                 // かつそれでも桁借りを行う必要がある場合
+; 44   : 
+; 45   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 46   :                 return (PMC_STATUS_INTERNAL_BORROW);
+; 47   :             }
+; 48   : 
+; 49   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 50   : 
+; 51   :             return (PMC_STATUS_OK);
+; 52   :         }
+; 53   :         else if (c)
 
 	test	cl, cl
 	je	SHORT $LN128@Subtruct_I
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	mov	rax, QWORD PTR [rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	add	cl, -1
 	sbb	rax, 0
@@ -3880,34 +3880,34 @@ $LL113@Subtruct_I:
 	setb	cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	add	rdx, 8
 	add	r9, 8
 
-; 66   :             --u_count;
+; 59   :             --u_count;
 
 	sub	r10, 1
 	jne	SHORT $LL113@Subtruct_I
 $LN129@Subtruct_I:
 
-; 45   :         {
-; 46   :             // x の最上位まで達してしまった場合
-; 47   : 
-; 48   :             if (c)
+; 38   :         {
+; 39   :             // x の最上位まで達してしまった場合
+; 40   : 
+; 41   :             if (c)
 
 	neg	cl
 	sbb	eax, eax
 	and	eax, -258				; fffffffffffffefeH
 
-; 186  : }
+; 179  : }
 
 	add	rsp, 32					; 00000020H
 	pop	rbx
 	ret	0
 $LN128@Subtruct_I:
 
-; 74   :             while (u_count > 0)
+; 67   :             while (u_count > 0)
 
 	test	r10, r10
 	je	SHORT $LN117@Subtruct_I
@@ -3915,26 +3915,26 @@ $LN128@Subtruct_I:
 	npad	2
 $LL116@Subtruct_I:
 
-; 75   :             {
-; 76   :                 *wp++ = *up++;
+; 68   :             {
+; 69   :                 *wp++ = *up++;
 
 	mov	rax, QWORD PTR [rdx+r9]
 	mov	QWORD PTR [r9], rax
 	lea	r9, QWORD PTR [r9+8]
 
-; 77   :                 --u_count;
+; 70   :                 --u_count;
 
 	sub	r10, 1
 	jne	SHORT $LL116@Subtruct_I
 $LN117@Subtruct_I:
 
-; 183  : 
-; 184  :     // 残りの桁の繰り上がりを計算し、復帰する。
-; 185  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
+; 176  : 
+; 177  :     // 残りの桁の繰り上がりを計算し、復帰する。
+; 178  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
 
 	xor	eax, eax
 
-; 186  : }
+; 179  : }
 
 	add	rsp, 32					; 00000020H
 	pop	rbx

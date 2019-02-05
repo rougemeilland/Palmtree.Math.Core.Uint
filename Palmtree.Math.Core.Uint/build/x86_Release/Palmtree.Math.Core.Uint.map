@@ -225,7 +225,7 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
                 0x6cf09180                PMC_GreatestCommonDivisor_X_X@12
                 0x6cf094a0                Initialize_GreatestCommonDivisor
  .text          0x6cf094b0      0x430 ../build/x86_Release/pmc_initialize.o
-                0x6cf094b0                PMC_Initialize@4
+                0x6cf094b0                PMC_UINT_Initialize@4
  .text          0x6cf098e0      0xa80 ../build/x86_Release/pmc_modpow.o
                 0x6cf098e0                PMC_ModPow_X_X_X@16
                 0x6cf0a350                Initialize_ModPow
@@ -658,9 +658,9 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
                 [!provide]                PROVIDE (_end = .)
                 0x6cf1a000                __end__ = .
 
-.rsrc           0x6cf1a000      0x600
+.rsrc           0x6cf1a000      0x400
  *(.rsrc)
- .rsrc          0x6cf1a000      0x5a0 ../build/x86_Release/version.o
+ .rsrc          0x6cf1a000      0x378 ../build/x86_Release/version.o
  *(.rsrc$*)
 
 .reloc          0x6cf1b000      0xa00

@@ -711,7 +711,7 @@ v$ = 680
 w$ = 688
 PMC_Multiply_X_L_Imp PROC				; COMDAT
 
-; 553  : {
+; 546  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -728,8 +728,8 @@ PMC_Multiply_X_L_Imp PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 554  :     PMC_STATUS_CODE result;
-; 555  :     if (u->IS_ZERO)
+; 547  :     PMC_STATUS_CODE result;
+; 548  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -738,22 +738,22 @@ PMC_Multiply_X_L_Imp PROC				; COMDAT
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 556  :     {
-; 557  :         // x が 0 である場合
-; 558  : 
-; 559  :         // y の値にかかわらず 0 を返す。
-; 560  :         *w = &number_zero;
+; 549  :     {
+; 550  :         // x が 0 である場合
+; 551  : 
+; 552  :         // y の値にかかわらず 0 を返す。
+; 553  :         *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 561  :     }
+; 554  :     }
 
 	jmp	$LN3@PMC_Multip
 $LN2@PMC_Multip:
 
-; 562  :     else if (u->IS_ONE)
+; 555  :     else if (u->IS_ONE)
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -762,34 +762,34 @@ $LN2@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN4@PMC_Multip
 
-; 563  :     {
-; 564  :         // x が 1 である場合
-; 565  :         if (v == 0)
+; 556  :     {
+; 557  :         // x が 1 である場合
+; 558  :         if (v == 0)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN6@PMC_Multip
 
-; 566  :         {
-; 567  :             // y が 0 である場合
-; 568  : 
-; 569  :             //  0  を返す。
-; 570  :             *w = &number_zero;
+; 559  :         {
+; 560  :             // y が 0 である場合
+; 561  : 
+; 562  :             //  0  を返す。
+; 563  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 571  :         }
+; 564  :         }
 
 	jmp	SHORT $LN7@PMC_Multip
 $LN6@PMC_Multip:
 
-; 572  :         else
-; 573  :         {
-; 574  :             // y が 0 ではない場合
-; 575  : 
-; 576  :             // 乗算結果は y に等しいため、y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 577  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
+; 565  :         else
+; 566  :         {
+; 567  :             // y が 0 ではない場合
+; 568  : 
+; 569  :             // 乗算結果は y に等しいため、y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 570  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR v$[rbp]
@@ -798,53 +798,53 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN8@PMC_Multip
 
-; 578  :                 return (result);
+; 571  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN8@PMC_Multip:
 $LN7@PMC_Multip:
 
-; 579  :         }
-; 580  :     }
+; 572  :         }
+; 573  :     }
 
 	jmp	$LN5@PMC_Multip
 $LN4@PMC_Multip:
 
-; 581  :     else
-; 582  :     {
-; 583  :         // x が 0 と 1 のどちらでもない場合
-; 584  : 
-; 585  :         if (v == 0)
+; 574  :     else
+; 575  :     {
+; 576  :         // x が 0 と 1 のどちらでもない場合
+; 577  : 
+; 578  :         if (v == 0)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN9@PMC_Multip
 
-; 586  :         {
-; 587  :             // y が 0 である場合
-; 588  : 
-; 589  :             //  0  を返す。
-; 590  :             *w = &number_zero;
+; 579  :         {
+; 580  :             // y が 0 である場合
+; 581  : 
+; 582  :             //  0  を返す。
+; 583  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 591  :         }
+; 584  :         }
 
 	jmp	$LN10@PMC_Multip
 $LN9@PMC_Multip:
 
-; 592  :         else if (v == 1)
+; 585  :         else if (v == 1)
 
 	cmp	QWORD PTR v$[rbp], 1
 	jne	SHORT $LN11@PMC_Multip
 
-; 593  :         {
-; 594  :             // y が 1 である場合
-; 595  : 
-; 596  :             // 乗算結果は x に等しいため、x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 597  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+; 586  :         {
+; 587  :             // y が 1 である場合
+; 588  : 
+; 589  :             // 乗算結果は x に等しいため、x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 590  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
@@ -853,53 +853,53 @@ $LN9@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN13@PMC_Multip
 
-; 598  :                 return (result);
+; 591  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN13@PMC_Multip:
 
-; 599  :         }
+; 592  :         }
 
 	jmp	$LN12@PMC_Multip
 $LN11@PMC_Multip:
 
-; 600  :         else
-; 601  :         {
-; 602  :             // x と y がともに 0 、1 のどちらでもない場合
-; 603  : 
-; 604  :             // x と y の積を計算する
-; 605  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 593  :         else
+; 594  :         {
+; 595  :             // x と y がともに 0 、1 のどちらでもない場合
+; 596  : 
+; 597  :             // x と y の積を計算する
+; 598  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	$LN14@PMC_Multip
 
-; 606  :             {
-; 607  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 608  : 
-; 609  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
+; 599  :             {
+; 600  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 601  : 
+; 602  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR x_bit_count$7[rbp], rax
 
-; 610  :                 _UINT32_T y_hi;
-; 611  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(v, &y_hi);
+; 603  :                 _UINT32_T y_hi;
+; 604  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(v, &y_hi);
 
 	lea	rdx, QWORD PTR y_hi$8[rbp]
 	mov	rcx, QWORD PTR v$[rbp]
 	call	_FROMDWORDTOWORD
 	mov	DWORD PTR y_lo$9[rbp], eax
 
-; 612  :                 if (y_hi == 0)
+; 605  :                 if (y_hi == 0)
 
 	cmp	DWORD PTR y_hi$8[rbp], 0
 	jne	$LN16@PMC_Multip
 
-; 613  :                 {
-; 614  :                     // y の値が 32bit で表現可能な場合
-; 615  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
+; 606  :                 {
+; 607  :                     // y の値が 32bit で表現可能な場合
+; 608  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
 
 	mov	ecx, DWORD PTR y_lo$9[rbp]
 	call	_LZCNT_ALT_32
@@ -909,7 +909,7 @@ $LN11@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$10[rbp], rax
 
-; 616  :                     __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
+; 609  :                     __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
 
 	mov	rax, QWORD PTR y_bit_count$10[rbp]
 	mov	rcx, QWORD PTR x_bit_count$7[rbp]
@@ -917,8 +917,8 @@ $LN11@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR z_bit_count$11[rbp], rax
 
-; 617  :                     __UNIT_TYPE nz_light_check_code;
-; 618  :                     if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 610  :                     __UNIT_TYPE nz_light_check_code;
+; 611  :                     if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$12[rbp]
 	mov	rdx, QWORD PTR z_bit_count$11[rbp]
@@ -928,13 +928,13 @@ $LN11@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_Multip
 
-; 619  :                         return (result);
+; 612  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN18@PMC_Multip:
 
-; 620  :                     (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, y_lo, (*w)->BLOCK);
+; 613  :                     (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, y_lo, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -947,7 +947,7 @@ $LN18@PMC_Multip:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_Multiply_X_1W
 
-; 621  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 614  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -958,21 +958,21 @@ $LN18@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN19@PMC_Multip
 
-; 622  :                         return (result);
+; 615  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN19@PMC_Multip:
 
-; 623  :                 }
+; 616  :                 }
 
 	jmp	$LN17@PMC_Multip
 $LN16@PMC_Multip:
 
-; 624  :                 else
-; 625  :                 {
-; 626  :                     // y の値が 32bit では表現できない場合
-; 627  :                     __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(y_hi);
+; 617  :                 else
+; 618  :                 {
+; 619  :                     // y の値が 32bit では表現できない場合
+; 620  :                     __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(y_hi);
 
 	mov	ecx, DWORD PTR y_hi$8[rbp]
 	call	_LZCNT_ALT_32
@@ -982,7 +982,7 @@ $LN16@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$13[rbp], rax
 
-; 628  :                     __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
+; 621  :                     __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
 
 	mov	rax, QWORD PTR y_bit_count$13[rbp]
 	mov	rcx, QWORD PTR x_bit_count$7[rbp]
@@ -990,8 +990,8 @@ $LN16@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR z_bit_count$14[rbp], rax
 
-; 629  :                     __UNIT_TYPE nz_light_check_code;
-; 630  :                     if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 622  :                     __UNIT_TYPE nz_light_check_code;
+; 623  :                     if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$15[rbp]
 	mov	rdx, QWORD PTR z_bit_count$14[rbp]
@@ -1001,13 +1001,13 @@ $LN16@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN20@PMC_Multip
 
-; 631  :                         return (result);
+; 624  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN20@PMC_Multip:
 
-; 632  :                     (*fp_Multiply_X_2W)(u->BLOCK, u->UNIT_WORD_COUNT, y_hi, y_lo, (*w)->BLOCK);
+; 625  :                     (*fp_Multiply_X_2W)(u->BLOCK, u->UNIT_WORD_COUNT, y_hi, y_lo, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1023,7 +1023,7 @@ $LN20@PMC_Multip:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_Multiply_X_2W
 
-; 633  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 626  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1034,36 +1034,36 @@ $LN20@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN21@PMC_Multip
 
-; 634  :                         return (result);
+; 627  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN21@PMC_Multip:
 $LN17@PMC_Multip:
 
-; 635  :                 }
-; 636  :                 CommitNumber(*w);
+; 628  :                 }
+; 629  :                 CommitNumber(*w);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
 	call	CommitNumber
 
-; 637  :             }
+; 630  :             }
 
 	jmp	$LN15@PMC_Multip
 $LN14@PMC_Multip:
 
-; 638  :             else
-; 639  :             {
-; 640  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 641  : 
-; 642  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
+; 631  :             else
+; 632  :             {
+; 633  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 634  : 
+; 635  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR x_bit_count$16[rbp], rax
 
-; 643  :                 __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 636  :                 __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	call	_LZCNT_ALT_UNIT
@@ -1073,7 +1073,7 @@ $LN14@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$17[rbp], rax
 
-; 644  :                 __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
+; 637  :                 __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
 
 	mov	rax, QWORD PTR y_bit_count$17[rbp]
 	mov	rcx, QWORD PTR x_bit_count$16[rbp]
@@ -1081,8 +1081,8 @@ $LN14@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR z_bit_count$18[rbp], rax
 
-; 645  :                 __UNIT_TYPE nz_light_check_code;
-; 646  :                 if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 638  :                 __UNIT_TYPE nz_light_check_code;
+; 639  :                 if ((result = AllocateNumber(w, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$19[rbp]
 	mov	rdx, QWORD PTR z_bit_count$18[rbp]
@@ -1092,13 +1092,13 @@ $LN14@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN22@PMC_Multip
 
-; 647  :                     return (result);
+; 640  :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN22@PMC_Multip:
 
-; 648  :                 (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK);
+; 641  :                 (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1110,7 +1110,7 @@ $LN22@PMC_Multip:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_Multiply_X_1W
 
-; 649  :                 if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 642  :                 if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1121,13 +1121,13 @@ $LN22@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN23@PMC_Multip
 
-; 650  :                     return (result);
+; 643  :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN23@PMC_Multip:
 
-; 651  :                 CommitNumber(*w);
+; 644  :                 CommitNumber(*w);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -1138,15 +1138,15 @@ $LN10@PMC_Multip:
 $LN5@PMC_Multip:
 $LN3@PMC_Multip:
 
-; 652  :             }
-; 653  :         }
-; 654  :     }
-; 655  :     return (PMC_STATUS_OK);
+; 645  :             }
+; 646  :         }
+; 647  :     }
+; 648  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 656  : }
+; 649  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -1173,7 +1173,7 @@ v$ = 392
 w$ = 400
 PMC_Multiply_X_I_Imp PROC				; COMDAT
 
-; 439  : {
+; 432  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	DWORD PTR [rsp+16], edx
@@ -1190,8 +1190,8 @@ PMC_Multiply_X_I_Imp PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 440  :     PMC_STATUS_CODE result;
-; 441  :     if (u->IS_ZERO)
+; 433  :     PMC_STATUS_CODE result;
+; 434  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -1200,22 +1200,22 @@ PMC_Multiply_X_I_Imp PROC				; COMDAT
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 442  :     {
-; 443  :         // u が 0 である場合
-; 444  : 
-; 445  :         // v の値にかかわらず 0 を返す。
-; 446  :         *w = &number_zero;
+; 435  :     {
+; 436  :         // u が 0 である場合
+; 437  : 
+; 438  :         // v の値にかかわらず 0 を返す。
+; 439  :         *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 447  :     }
+; 440  :     }
 
 	jmp	$LN3@PMC_Multip
 $LN2@PMC_Multip:
 
-; 448  :     else if (u->IS_ONE)
+; 441  :     else if (u->IS_ONE)
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -1224,34 +1224,34 @@ $LN2@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN4@PMC_Multip
 
-; 449  :     {
-; 450  :         // u が 1 である場合
-; 451  :         if (v == 0)
+; 442  :     {
+; 443  :         // u が 1 である場合
+; 444  :         if (v == 0)
 
 	cmp	DWORD PTR v$[rbp], 0
 	jne	SHORT $LN6@PMC_Multip
 
-; 452  :         {
-; 453  :             // v が 0 である場合
-; 454  : 
-; 455  :             //  0  を返す。
-; 456  :             *w = &number_zero;
+; 445  :         {
+; 446  :             // v が 0 である場合
+; 447  : 
+; 448  :             //  0  を返す。
+; 449  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 457  :         }
+; 450  :         }
 
 	jmp	SHORT $LN7@PMC_Multip
 $LN6@PMC_Multip:
 
-; 458  :         else
-; 459  :         {
-; 460  :             // y が 0 ではない場合
-; 461  : 
-; 462  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 463  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
+; 451  :         else
+; 452  :         {
+; 453  :             // y が 0 ではない場合
+; 454  : 
+; 455  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 456  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w$[rbp]
 	mov	ecx, DWORD PTR v$[rbp]
@@ -1260,53 +1260,53 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN8@PMC_Multip
 
-; 464  :                 return (result);
+; 457  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN8@PMC_Multip:
 $LN7@PMC_Multip:
 
-; 465  :         }
-; 466  :     }
+; 458  :         }
+; 459  :     }
 
 	jmp	$LN5@PMC_Multip
 $LN4@PMC_Multip:
 
-; 467  :     else
-; 468  :     {
-; 469  :         // u が 0 と 1 のどちらでもない場合
-; 470  : 
-; 471  :         if (v == 0)
+; 460  :     else
+; 461  :     {
+; 462  :         // u が 0 と 1 のどちらでもない場合
+; 463  : 
+; 464  :         if (v == 0)
 
 	cmp	DWORD PTR v$[rbp], 0
 	jne	SHORT $LN9@PMC_Multip
 
-; 472  :         {
-; 473  :             // v が 0 である場合
-; 474  : 
-; 475  :             //  0  を返す。
-; 476  :             *w = &number_zero;
+; 465  :         {
+; 466  :             // v が 0 である場合
+; 467  : 
+; 468  :             //  0  を返す。
+; 469  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 477  :         }
+; 470  :         }
 
 	jmp	$LN10@PMC_Multip
 $LN9@PMC_Multip:
 
-; 478  :         else if (v == 1)
+; 471  :         else if (v == 1)
 
 	cmp	DWORD PTR v$[rbp], 1
 	jne	SHORT $LN11@PMC_Multip
 
-; 479  :         {
-; 480  :             // v が 1 である場合
-; 481  : 
-; 482  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 483  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+; 472  :         {
+; 473  :             // v が 1 である場合
+; 474  : 
+; 475  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 476  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
@@ -1315,29 +1315,29 @@ $LN9@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN13@PMC_Multip
 
-; 484  :                 return (result);
+; 477  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN13@PMC_Multip:
 
-; 485  :         }
+; 478  :         }
 
 	jmp	$LN12@PMC_Multip
 $LN11@PMC_Multip:
 
-; 486  :         else
-; 487  :         {
-; 488  :             // u と v がともに 0 、1 のどちらでもない場合
-; 489  : 
-; 490  :             // u と v の積を計算する
-; 491  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 479  :         else
+; 480  :         {
+; 481  :             // u と v がともに 0 、1 のどちらでもない場合
+; 482  : 
+; 483  :             // u と v の積を計算する
+; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
-; 492  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 485  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	mov	ecx, DWORD PTR v$[rbp]
 	call	_LZCNT_ALT_32
@@ -1347,7 +1347,7 @@ $LN11@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$5[rbp], rax
 
-; 493  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
+; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
 
 	mov	rax, QWORD PTR v_bit_count$5[rbp]
 	mov	rcx, QWORD PTR u_bit_count$4[rbp]
@@ -1355,8 +1355,8 @@ $LN11@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR w_bit_count$6[rbp], rax
 
-; 494  :             __UNIT_TYPE w_light_check_code;
-; 495  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 487  :             __UNIT_TYPE w_light_check_code;
+; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR w_light_check_code$7[rbp]
 	mov	rdx, QWORD PTR w_bit_count$6[rbp]
@@ -1366,13 +1366,13 @@ $LN11@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN14@PMC_Multip
 
-; 496  :                 return (result);
+; 489  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN14@PMC_Multip:
 
-; 497  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
+; 490  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1385,7 +1385,7 @@ $LN14@PMC_Multip:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_Multiply_X_1W
 
-; 498  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
@@ -1396,13 +1396,13 @@ $LN14@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN15@PMC_Multip
 
-; 499  :                 return (result);
+; 492  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN15@PMC_Multip:
 
-; 500  :             CommitNumber(*w);
+; 493  :             CommitNumber(*w);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -1412,14 +1412,14 @@ $LN10@PMC_Multip:
 $LN5@PMC_Multip:
 $LN3@PMC_Multip:
 
-; 501  :         }
-; 502  :     }
-; 503  :     return (PMC_STATUS_OK);
+; 494  :         }
+; 495  :     }
+; 496  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 504  : }
+; 497  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -1448,7 +1448,7 @@ v_count$ = 408
 w_buf$ = 416
 Multiply_X_X_using_MULX_ADCX PROC			; COMDAT
 
-; 414  : {
+; 407  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1466,66 +1466,66 @@ Multiply_X_X_using_MULX_ADCX PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 415  :     // x のワード長が y のワード長以上であるようにする
-; 416  :     if (u_count < v_count)
+; 408  :     // x のワード長が y のワード長以上であるようにする
+; 409  :     if (u_count < v_count)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	cmp	QWORD PTR u_count$[rbp], rax
 	jae	SHORT $LN5@Multiply_X
 
-; 417  :     {
-; 418  :         __UNIT_TYPE* t_buf = u_buf;
+; 410  :     {
+; 411  :         __UNIT_TYPE* t_buf = u_buf;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	QWORD PTR t_buf$1[rbp], rax
 
-; 419  :         u_buf = v_buf;
+; 412  :         u_buf = v_buf;
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 420  :         v_buf = t_buf;
+; 413  :         v_buf = t_buf;
 
 	mov	rax, QWORD PTR t_buf$1[rbp]
 	mov	QWORD PTR v_buf$[rbp], rax
 
-; 421  :         __UNIT_TYPE t_count = u_count;
+; 414  :         __UNIT_TYPE t_count = u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	mov	QWORD PTR t_count$2[rbp], rax
 
-; 422  :         u_count = v_count;
+; 415  :         u_count = v_count;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 423  :         v_count = t_count;
+; 416  :         v_count = t_count;
 
 	mov	rax, QWORD PTR t_count$2[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 $LN5@Multiply_X:
 
-; 424  :     }
-; 425  :     __UNIT_TYPE* up = u_buf;
+; 417  :     }
+; 418  :     __UNIT_TYPE* up = u_buf;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	QWORD PTR up$[rbp], rax
 
-; 426  :     __UNIT_TYPE* vp = v_buf;
+; 419  :     __UNIT_TYPE* vp = v_buf;
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	QWORD PTR vp$[rbp], rax
 
-; 427  :     __UNIT_TYPE* wp = w_buf;
+; 420  :     __UNIT_TYPE* wp = w_buf;
 
 	mov	rax, QWORD PTR w_buf$[rbp]
 	mov	QWORD PTR wp$[rbp], rax
 $LN4@Multiply_X:
 
-; 428  : 
-; 429  :     do
-; 430  :     {
-; 431  :         Multiply_WORD_using_MULX_ADCX(up, u_count, *vp, wp);
+; 421  : 
+; 422  :     do
+; 423  :     {
+; 424  :         Multiply_WORD_using_MULX_ADCX(up, u_count, *vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	rax, QWORD PTR vp$[rbp]
@@ -1534,30 +1534,30 @@ $LN4@Multiply_X:
 	mov	rcx, QWORD PTR up$[rbp]
 	call	Multiply_WORD_using_MULX_ADCX
 
-; 432  :         ++vp;
+; 425  :         ++vp;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR vp$[rbp], rax
 
-; 433  :         ++wp;
+; 426  :         ++wp;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR wp$[rbp], rax
 
-; 434  :         --v_count;
+; 427  :         --v_count;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	dec	rax
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 435  :     } while (v_count != 0);
+; 428  :     } while (v_count != 0);
 
 	cmp	QWORD PTR v_count$[rbp], 0
 	jne	SHORT $LN4@Multiply_X
 
-; 436  : }
+; 429  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -1581,7 +1581,7 @@ v_count$ = 408
 w_buf$ = 416
 Multiply_X_X_using_MUL_ADC PROC				; COMDAT
 
-; 389  : {
+; 382  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1599,66 +1599,66 @@ Multiply_X_X_using_MUL_ADC PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 390  :     // x のワード長が y のワード長以上であるようにする
-; 391  :     if (u_count < v_count)
+; 383  :     // x のワード長が y のワード長以上であるようにする
+; 384  :     if (u_count < v_count)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	cmp	QWORD PTR u_count$[rbp], rax
 	jae	SHORT $LN5@Multiply_X
 
-; 392  :     {
-; 393  :         __UNIT_TYPE* t_buf = u_buf;
+; 385  :     {
+; 386  :         __UNIT_TYPE* t_buf = u_buf;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	QWORD PTR t_buf$1[rbp], rax
 
-; 394  :         u_buf = v_buf;
+; 387  :         u_buf = v_buf;
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 395  :         v_buf = t_buf;
+; 388  :         v_buf = t_buf;
 
 	mov	rax, QWORD PTR t_buf$1[rbp]
 	mov	QWORD PTR v_buf$[rbp], rax
 
-; 396  :         __UNIT_TYPE t_count = u_count;
+; 389  :         __UNIT_TYPE t_count = u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	mov	QWORD PTR t_count$2[rbp], rax
 
-; 397  :         u_count = v_count;
+; 390  :         u_count = v_count;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 398  :         v_count = t_count;
+; 391  :         v_count = t_count;
 
 	mov	rax, QWORD PTR t_count$2[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 $LN5@Multiply_X:
 
-; 399  :     }
-; 400  :     __UNIT_TYPE* up = u_buf;
+; 392  :     }
+; 393  :     __UNIT_TYPE* up = u_buf;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	QWORD PTR up$[rbp], rax
 
-; 401  :     __UNIT_TYPE* vp = v_buf;
+; 394  :     __UNIT_TYPE* vp = v_buf;
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	QWORD PTR vp$[rbp], rax
 
-; 402  :     __UNIT_TYPE* wp = w_buf;
+; 395  :     __UNIT_TYPE* wp = w_buf;
 
 	mov	rax, QWORD PTR w_buf$[rbp]
 	mov	QWORD PTR wp$[rbp], rax
 $LN4@Multiply_X:
 
-; 403  : 
-; 404  :     do
-; 405  :     {
-; 406  :         Multiply_WORD_using_MUL_ADC(up, u_count, *vp, wp);
+; 396  : 
+; 397  :     do
+; 398  :     {
+; 399  :         Multiply_WORD_using_MUL_ADC(up, u_count, *vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	rax, QWORD PTR vp$[rbp]
@@ -1667,30 +1667,30 @@ $LN4@Multiply_X:
 	mov	rcx, QWORD PTR up$[rbp]
 	call	Multiply_WORD_using_MUL_ADC
 
-; 407  :         ++vp;
+; 400  :         ++vp;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR vp$[rbp], rax
 
-; 408  :         ++wp;
+; 401  :         ++wp;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR wp$[rbp], rax
 
-; 409  :         --v_count;
+; 402  :         --v_count;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	dec	rax
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 410  :     } while (v_count != 0);
+; 403  :     } while (v_count != 0);
 
 	cmp	QWORD PTR v_count$[rbp], 0
 	jne	SHORT $LN4@Multiply_X
 
-; 411  : }
+; 404  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -1709,7 +1709,7 @@ v_lo$ = 248
 w_buf$ = 256
 Multiply_X_2W_using_MULX_ADCX PROC			; COMDAT
 
-; 383  : {
+; 376  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1727,7 +1727,7 @@ Multiply_X_2W_using_MULX_ADCX PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 384  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v_lo, &w_buf[0]);
+; 377  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v_lo, &w_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1740,7 +1740,7 @@ Multiply_X_2W_using_MULX_ADCX PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MULX_ADCX
 
-; 385  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v_hi, &w_buf[1]);
+; 378  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v_hi, &w_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1753,7 +1753,7 @@ Multiply_X_2W_using_MULX_ADCX PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MULX_ADCX
 
-; 386  : }
+; 379  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1772,7 +1772,7 @@ v_lo$ = 248
 w_buf$ = 256
 Multiply_X_2W_using_MUL_ADC PROC			; COMDAT
 
-; 377  : {
+; 370  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1790,7 +1790,7 @@ Multiply_X_2W_using_MUL_ADC PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 378  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v_lo, &w_buf[0]);
+; 371  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v_lo, &w_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1803,7 +1803,7 @@ Multiply_X_2W_using_MUL_ADC PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MUL_ADC
 
-; 379  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v_hi, &w_buf[1]);
+; 372  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v_hi, &w_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1816,7 +1816,7 @@ Multiply_X_2W_using_MUL_ADC PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MUL_ADC
 
-; 380  : }
+; 373  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1834,7 +1834,7 @@ v$ = 240
 w_buf$ = 248
 Multiply_X_1W_using_MULX_ADCX PROC			; COMDAT
 
-; 372  : {
+; 365  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1852,7 +1852,7 @@ Multiply_X_1W_using_MULX_ADCX PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 373  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v, w_buf);
+; 366  :     Multiply_WORD_using_MULX_ADCX(u_buf, u_count, v, w_buf);
 
 	mov	r9, QWORD PTR w_buf$[rbp]
 	mov	r8, QWORD PTR v$[rbp]
@@ -1860,7 +1860,7 @@ Multiply_X_1W_using_MULX_ADCX PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MULX_ADCX
 
-; 374  : }
+; 367  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1878,7 +1878,7 @@ v$ = 240
 w_buf$ = 248
 Multiply_X_1W_using_MUL_ADC PROC			; COMDAT
 
-; 367  : {
+; 360  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1896,7 +1896,7 @@ Multiply_X_1W_using_MUL_ADC PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 368  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v, w_buf);
+; 361  :     Multiply_WORD_using_MUL_ADC(u_buf, u_count, v, w_buf);
 
 	mov	r9, QWORD PTR w_buf$[rbp]
 	mov	r8, QWORD PTR v$[rbp]
@@ -1904,7 +1904,7 @@ Multiply_X_1W_using_MUL_ADC PROC			; COMDAT
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	Multiply_WORD_using_MUL_ADC
 
-; 369  : }
+; 362  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1924,7 +1924,7 @@ v$ = 304
 wp$ = 312
 Multiply_WORD_using_MULX_ADCX PROC			; COMDAT
 
-; 219  : {
+; 212  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1942,25 +1942,25 @@ Multiply_WORD_using_MULX_ADCX PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 220  :     __UNIT_TYPE k = 0;
+; 213  :     __UNIT_TYPE k = 0;
 
 	mov	QWORD PTR k$[rbp], 0
 
-; 221  :     __UNIT_TYPE count = u_count >> 5;
+; 214  :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@Multiply_W:
 
-; 222  : 
-; 223  :     while (count != 0)
+; 215  : 
+; 216  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	$LN3@Multiply_W
 
-; 224  :     {
-; 225  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 217  :     {
+; 218  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1979,7 +1979,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 226  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 219  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1998,7 +1998,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 227  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 220  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -2017,7 +2017,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 228  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 221  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -2036,7 +2036,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 229  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 222  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -2055,7 +2055,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 230  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 223  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -2074,7 +2074,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 231  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 224  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -2093,7 +2093,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 232  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 225  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -2112,7 +2112,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 233  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[8], v, &wp[8]);
+; 226  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[8], v, &wp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -2131,7 +2131,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 234  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[9], v, &wp[9]);
+; 227  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[9], v, &wp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -2150,7 +2150,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 235  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[10], v, &wp[10]);
+; 228  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[10], v, &wp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -2169,7 +2169,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 236  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[11], v, &wp[11]);
+; 229  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[11], v, &wp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -2188,7 +2188,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 237  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[12], v, &wp[12]);
+; 230  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[12], v, &wp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -2207,7 +2207,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 238  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[13], v, &wp[13]);
+; 231  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[13], v, &wp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -2226,7 +2226,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 239  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[14], v, &wp[14]);
+; 232  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[14], v, &wp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -2245,7 +2245,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 240  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[15], v, &wp[15]);
+; 233  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[15], v, &wp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -2264,7 +2264,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 241  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[16], v, &wp[16]);
+; 234  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[16], v, &wp[16]);
 
 	mov	eax, 8
 	imul	rax, rax, 16
@@ -2283,7 +2283,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 242  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[17], v, &wp[17]);
+; 235  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[17], v, &wp[17]);
 
 	mov	eax, 8
 	imul	rax, rax, 17
@@ -2302,7 +2302,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 243  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[18], v, &wp[18]);
+; 236  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[18], v, &wp[18]);
 
 	mov	eax, 8
 	imul	rax, rax, 18
@@ -2321,7 +2321,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 244  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[19], v, &wp[19]);
+; 237  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[19], v, &wp[19]);
 
 	mov	eax, 8
 	imul	rax, rax, 19
@@ -2340,7 +2340,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 245  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[20], v, &wp[20]);
+; 238  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[20], v, &wp[20]);
 
 	mov	eax, 8
 	imul	rax, rax, 20
@@ -2359,7 +2359,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 246  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[21], v, &wp[21]);
+; 239  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[21], v, &wp[21]);
 
 	mov	eax, 8
 	imul	rax, rax, 21
@@ -2378,7 +2378,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 247  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[22], v, &wp[22]);
+; 240  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[22], v, &wp[22]);
 
 	mov	eax, 8
 	imul	rax, rax, 22
@@ -2397,7 +2397,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 248  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[23], v, &wp[23]);
+; 241  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[23], v, &wp[23]);
 
 	mov	eax, 8
 	imul	rax, rax, 23
@@ -2416,7 +2416,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 249  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[24], v, &wp[24]);
+; 242  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[24], v, &wp[24]);
 
 	mov	eax, 8
 	imul	rax, rax, 24
@@ -2435,7 +2435,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 250  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[25], v, &wp[25]);
+; 243  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[25], v, &wp[25]);
 
 	mov	eax, 8
 	imul	rax, rax, 25
@@ -2454,7 +2454,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 251  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[26], v, &wp[26]);
+; 244  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[26], v, &wp[26]);
 
 	mov	eax, 8
 	imul	rax, rax, 26
@@ -2473,7 +2473,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 252  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[27], v, &wp[27]);
+; 245  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[27], v, &wp[27]);
 
 	mov	eax, 8
 	imul	rax, rax, 27
@@ -2492,7 +2492,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 253  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[28], v, &wp[28]);
+; 246  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[28], v, &wp[28]);
 
 	mov	eax, 8
 	imul	rax, rax, 28
@@ -2511,7 +2511,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 254  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[29], v, &wp[29]);
+; 247  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[29], v, &wp[29]);
 
 	mov	eax, 8
 	imul	rax, rax, 29
@@ -2530,7 +2530,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 255  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[30], v, &wp[30]);
+; 248  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[30], v, &wp[30]);
 
 	mov	eax, 8
 	imul	rax, rax, 30
@@ -2549,7 +2549,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 256  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[31], v, &wp[31]);
+; 249  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[31], v, &wp[31]);
 
 	mov	eax, 8
 	imul	rax, rax, 31
@@ -2568,61 +2568,61 @@ $LN2@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 257  :         up += 32;
+; 250  :         up += 32;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR up$[rbp], rax
 
-; 258  :         wp += 32;
+; 251  :         wp += 32;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 259  :         --count;
+; 252  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 260  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 261  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 253  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 254  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@Multiply_W
 
-; 262  :             AddToMULTI32Counter(32);
+; 255  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN5@Multiply_W
 $LN4@Multiply_W:
 
-; 263  :         else
-; 264  :             AddToMULTI64Counter(32);
+; 256  :         else
+; 257  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 $LN5@Multiply_W:
 
-; 265  : #endif
-; 266  :     }
+; 258  : #endif
+; 259  :     }
 
 	jmp	$LN2@Multiply_W
 $LN3@Multiply_W:
 
-; 267  : 
-; 268  :     if (u_count & 0x10)
+; 260  : 
+; 261  :     if (u_count & 0x10)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@Multiply_W
 
-; 269  :     {
-; 270  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 262  :     {
+; 263  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -2641,7 +2641,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 271  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 264  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -2660,7 +2660,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 272  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 265  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -2679,7 +2679,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 273  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 266  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -2698,7 +2698,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 274  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 267  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -2717,7 +2717,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 275  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 268  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -2736,7 +2736,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 276  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 269  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -2755,7 +2755,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 277  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 270  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -2774,7 +2774,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 278  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[8], v, &wp[8]);
+; 271  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[8], v, &wp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -2793,7 +2793,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 279  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[9], v, &wp[9]);
+; 272  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[9], v, &wp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -2812,7 +2812,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 280  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[10], v, &wp[10]);
+; 273  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[10], v, &wp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -2831,7 +2831,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 281  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[11], v, &wp[11]);
+; 274  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[11], v, &wp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -2850,7 +2850,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 282  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[12], v, &wp[12]);
+; 275  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[12], v, &wp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -2869,7 +2869,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 283  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[13], v, &wp[13]);
+; 276  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[13], v, &wp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -2888,7 +2888,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 284  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[14], v, &wp[14]);
+; 277  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[14], v, &wp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -2907,7 +2907,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 285  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[15], v, &wp[15]);
+; 278  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[15], v, &wp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -2926,52 +2926,52 @@ $LN3@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 286  :         up += 16;
+; 279  :         up += 16;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR up$[rbp], rax
 
-; 287  :         wp += 16;
+; 280  :         wp += 16;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 288  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 289  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 281  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 282  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@Multiply_W
 
-; 290  :             AddToMULTI32Counter(16);
+; 283  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN8@Multiply_W
 $LN7@Multiply_W:
 
-; 291  :         else
-; 292  :             AddToMULTI64Counter(16);
+; 284  :         else
+; 285  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 $LN8@Multiply_W:
 $LN6@Multiply_W:
 
-; 293  : #endif
-; 294  :     }
-; 295  : 
-; 296  :     if (u_count & 0x8)
+; 286  : #endif
+; 287  :     }
+; 288  : 
+; 289  :     if (u_count & 0x8)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@Multiply_W
 
-; 297  :     {
-; 298  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 290  :     {
+; 291  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -2990,7 +2990,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 299  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 292  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3009,7 +3009,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 300  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 293  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3028,7 +3028,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 301  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 294  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3047,7 +3047,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 302  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 295  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -3066,7 +3066,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 303  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 296  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -3085,7 +3085,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 304  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 297  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -3104,7 +3104,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 305  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 298  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -3123,52 +3123,52 @@ $LN6@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 306  :         up += 8;
+; 299  :         up += 8;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR up$[rbp], rax
 
-; 307  :         wp += 8;
+; 300  :         wp += 8;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 308  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 309  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 301  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 302  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@Multiply_W
 
-; 310  :             AddToMULTI32Counter(8);
+; 303  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN11@Multiply_W
 $LN10@Multiply_W:
 
-; 311  :         else
-; 312  :             AddToMULTI64Counter(8);
+; 304  :         else
+; 305  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 $LN11@Multiply_W:
 $LN9@Multiply_W:
 
-; 313  : #endif
-; 314  :     }
-; 315  : 
-; 316  :     if (u_count & 0x4)
+; 306  : #endif
+; 307  :     }
+; 308  : 
+; 309  :     if (u_count & 0x4)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@Multiply_W
 
-; 317  :     {
-; 318  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 310  :     {
+; 311  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3187,7 +3187,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 319  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 312  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3206,7 +3206,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 320  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 313  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3225,7 +3225,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 321  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 314  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3244,52 +3244,52 @@ $LN9@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 322  :         up += 4;
+; 315  :         up += 4;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR up$[rbp], rax
 
-; 323  :         wp += 4;
+; 316  :         wp += 4;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 324  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 325  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 317  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 318  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@Multiply_W
 
-; 326  :             AddToMULTI32Counter(4);
+; 319  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN14@Multiply_W
 $LN13@Multiply_W:
 
-; 327  :         else
-; 328  :             AddToMULTI64Counter(4);
+; 320  :         else
+; 321  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 $LN14@Multiply_W:
 $LN12@Multiply_W:
 
-; 329  : #endif
-; 330  :     }
-; 331  : 
-; 332  :     if (u_count & 0x2)
+; 322  : #endif
+; 323  :     }
+; 324  : 
+; 325  :     if (u_count & 0x2)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@Multiply_W
 
-; 333  :     {
-; 334  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 326  :     {
+; 327  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3308,7 +3308,7 @@ $LN12@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 335  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 328  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3327,52 +3327,52 @@ $LN12@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 336  :         up += 2;
+; 329  :         up += 2;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 16
 	mov	QWORD PTR up$[rbp], rax
 
-; 337  :         wp += 2;
+; 330  :         wp += 2;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 16
 	mov	QWORD PTR wp$[rbp], rax
 
-; 338  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 339  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 331  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 332  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@Multiply_W
 
-; 340  :             AddToMULTI32Counter(2);
+; 333  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN17@Multiply_W
 $LN16@Multiply_W:
 
-; 341  :         else
-; 342  :             AddToMULTI64Counter(2);
+; 334  :         else
+; 335  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 $LN17@Multiply_W:
 $LN15@Multiply_W:
 
-; 343  : #endif
-; 344  :     }
-; 345  : 
-; 346  :     if (u_count & 0x1)
+; 336  : #endif
+; 337  :     }
+; 338  : 
+; 339  :     if (u_count & 0x1)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@Multiply_W
 
-; 347  :     {
-; 348  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 340  :     {
+; 341  :         k = _MULTIPLYX_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3391,59 +3391,59 @@ $LN15@Multiply_W:
 	call	_MULTIPLYX_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 349  :         up += 1;
+; 342  :         up += 1;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 8
 	mov	QWORD PTR up$[rbp], rax
 
-; 350  :         wp += 1;
+; 343  :         wp += 1;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR wp$[rbp], rax
 
-; 351  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 352  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 344  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 345  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@Multiply_W
 
-; 353  :             IncrementMULTI32Counter();
+; 346  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 	jmp	SHORT $LN20@Multiply_W
 $LN19@Multiply_W:
 
-; 354  :         else
-; 355  :             IncrementMULTI64Counter();
+; 347  :         else
+; 348  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 $LN20@Multiply_W:
 $LN18@Multiply_W:
 
-; 356  : #endif
-; 357  :     }
-; 358  : 
-; 359  :     if (k != 0)
+; 349  : #endif
+; 350  :     }
+; 351  : 
+; 352  :     if (k != 0)
 
 	cmp	QWORD PTR k$[rbp], 0
 	je	SHORT $LN21@Multiply_W
 
-; 360  :         *wp = k;
+; 353  :         *wp = k;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	rcx, QWORD PTR k$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN21@Multiply_W:
 
-; 361  : 
-; 362  :     return (PMC_STATUS_OK);
+; 354  : 
+; 355  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 363  : }
+; 356  : }
 
 	lea	rsp, QWORD PTR [rbp+264]
 	pop	rdi
@@ -3463,7 +3463,7 @@ v$ = 304
 wp$ = 312
 Multiply_WORD_using_MUL_ADC PROC			; COMDAT
 
-; 72   : {
+; 65   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -3481,25 +3481,25 @@ Multiply_WORD_using_MUL_ADC PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 73   :     __UNIT_TYPE k = 0;
+; 66   :     __UNIT_TYPE k = 0;
 
 	mov	QWORD PTR k$[rbp], 0
 
-; 74   :     __UNIT_TYPE count = u_count >> 5;
+; 67   :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@Multiply_W:
 
-; 75   : 
-; 76   :     while (count != 0)
+; 68   : 
+; 69   :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	$LN3@Multiply_W
 
-; 77   :     {
-; 78   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 70   :     {
+; 71   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3518,7 +3518,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 79   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 72   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3537,7 +3537,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 80   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 73   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3556,7 +3556,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 81   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 74   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3575,7 +3575,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 82   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 75   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -3594,7 +3594,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 83   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 76   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -3613,7 +3613,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 84   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 77   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -3632,7 +3632,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 85   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 78   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -3651,7 +3651,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 86   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[8], v, &wp[8]);
+; 79   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[8], v, &wp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -3670,7 +3670,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 87   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[9], v, &wp[9]);
+; 80   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[9], v, &wp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -3689,7 +3689,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 88   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[10], v, &wp[10]);
+; 81   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[10], v, &wp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -3708,7 +3708,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 89   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[11], v, &wp[11]);
+; 82   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[11], v, &wp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -3727,7 +3727,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 90   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[12], v, &wp[12]);
+; 83   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[12], v, &wp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -3746,7 +3746,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 91   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[13], v, &wp[13]);
+; 84   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[13], v, &wp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -3765,7 +3765,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 92   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[14], v, &wp[14]);
+; 85   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[14], v, &wp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -3784,7 +3784,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 93   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[15], v, &wp[15]);
+; 86   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[15], v, &wp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -3803,7 +3803,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 94   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[16], v, &wp[16]);
+; 87   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[16], v, &wp[16]);
 
 	mov	eax, 8
 	imul	rax, rax, 16
@@ -3822,7 +3822,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 95   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[17], v, &wp[17]);
+; 88   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[17], v, &wp[17]);
 
 	mov	eax, 8
 	imul	rax, rax, 17
@@ -3841,7 +3841,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 96   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[18], v, &wp[18]);
+; 89   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[18], v, &wp[18]);
 
 	mov	eax, 8
 	imul	rax, rax, 18
@@ -3860,7 +3860,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 97   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[19], v, &wp[19]);
+; 90   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[19], v, &wp[19]);
 
 	mov	eax, 8
 	imul	rax, rax, 19
@@ -3879,7 +3879,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 98   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[20], v, &wp[20]);
+; 91   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[20], v, &wp[20]);
 
 	mov	eax, 8
 	imul	rax, rax, 20
@@ -3898,7 +3898,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 99   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[21], v, &wp[21]);
+; 92   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[21], v, &wp[21]);
 
 	mov	eax, 8
 	imul	rax, rax, 21
@@ -3917,7 +3917,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 100  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[22], v, &wp[22]);
+; 93   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[22], v, &wp[22]);
 
 	mov	eax, 8
 	imul	rax, rax, 22
@@ -3936,7 +3936,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 101  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[23], v, &wp[23]);
+; 94   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[23], v, &wp[23]);
 
 	mov	eax, 8
 	imul	rax, rax, 23
@@ -3955,7 +3955,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 102  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[24], v, &wp[24]);
+; 95   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[24], v, &wp[24]);
 
 	mov	eax, 8
 	imul	rax, rax, 24
@@ -3974,7 +3974,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 103  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[25], v, &wp[25]);
+; 96   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[25], v, &wp[25]);
 
 	mov	eax, 8
 	imul	rax, rax, 25
@@ -3993,7 +3993,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 104  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[26], v, &wp[26]);
+; 97   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[26], v, &wp[26]);
 
 	mov	eax, 8
 	imul	rax, rax, 26
@@ -4012,7 +4012,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 105  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[27], v, &wp[27]);
+; 98   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[27], v, &wp[27]);
 
 	mov	eax, 8
 	imul	rax, rax, 27
@@ -4031,7 +4031,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 106  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[28], v, &wp[28]);
+; 99   :         k = _MULTIPLY_DIGIT_UNIT(k, &up[28], v, &wp[28]);
 
 	mov	eax, 8
 	imul	rax, rax, 28
@@ -4050,7 +4050,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 107  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[29], v, &wp[29]);
+; 100  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[29], v, &wp[29]);
 
 	mov	eax, 8
 	imul	rax, rax, 29
@@ -4069,7 +4069,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 108  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[30], v, &wp[30]);
+; 101  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[30], v, &wp[30]);
 
 	mov	eax, 8
 	imul	rax, rax, 30
@@ -4088,7 +4088,7 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 109  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[31], v, &wp[31]);
+; 102  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[31], v, &wp[31]);
 
 	mov	eax, 8
 	imul	rax, rax, 31
@@ -4107,61 +4107,61 @@ $LN2@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 110  :         up += 32;
+; 103  :         up += 32;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR up$[rbp], rax
 
-; 111  :         wp += 32;
+; 104  :         wp += 32;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 112  :         --count;
+; 105  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 113  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 114  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 106  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 107  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@Multiply_W
 
-; 115  :             AddToMULTI32Counter(32);
+; 108  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN5@Multiply_W
 $LN4@Multiply_W:
 
-; 116  :         else
-; 117  :             AddToMULTI64Counter(32);
+; 109  :         else
+; 110  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 $LN5@Multiply_W:
 
-; 118  : #endif
-; 119  :     }
+; 111  : #endif
+; 112  :     }
 
 	jmp	$LN2@Multiply_W
 $LN3@Multiply_W:
 
-; 120  : 
-; 121  :     if (u_count & 0x10)
+; 113  : 
+; 114  :     if (u_count & 0x10)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@Multiply_W
 
-; 122  :     {
-; 123  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 115  :     {
+; 116  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4180,7 +4180,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 124  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 117  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4199,7 +4199,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 125  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 118  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4218,7 +4218,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 126  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 119  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -4237,7 +4237,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 127  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 120  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -4256,7 +4256,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 128  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 121  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -4275,7 +4275,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 129  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 122  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -4294,7 +4294,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 130  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 123  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -4313,7 +4313,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 131  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[8], v, &wp[8]);
+; 124  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[8], v, &wp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -4332,7 +4332,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 132  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[9], v, &wp[9]);
+; 125  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[9], v, &wp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -4351,7 +4351,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 133  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[10], v, &wp[10]);
+; 126  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[10], v, &wp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -4370,7 +4370,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 134  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[11], v, &wp[11]);
+; 127  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[11], v, &wp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -4389,7 +4389,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 135  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[12], v, &wp[12]);
+; 128  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[12], v, &wp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -4408,7 +4408,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 136  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[13], v, &wp[13]);
+; 129  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[13], v, &wp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -4427,7 +4427,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 137  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[14], v, &wp[14]);
+; 130  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[14], v, &wp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -4446,7 +4446,7 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 138  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[15], v, &wp[15]);
+; 131  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[15], v, &wp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -4465,52 +4465,52 @@ $LN3@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 139  :         up += 16;
+; 132  :         up += 16;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR up$[rbp], rax
 
-; 140  :         wp += 16;
+; 133  :         wp += 16;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 141  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 142  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 134  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 135  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@Multiply_W
 
-; 143  :             AddToMULTI32Counter(16);
+; 136  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN8@Multiply_W
 $LN7@Multiply_W:
 
-; 144  :         else
-; 145  :             AddToMULTI64Counter(16);
+; 137  :         else
+; 138  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 $LN8@Multiply_W:
 $LN6@Multiply_W:
 
-; 146  : #endif
-; 147  :     }
-; 148  : 
-; 149  :     if (u_count & 0x8)
+; 139  : #endif
+; 140  :     }
+; 141  : 
+; 142  :     if (u_count & 0x8)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@Multiply_W
 
-; 150  :     {
-; 151  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 143  :     {
+; 144  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4529,7 +4529,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 152  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 145  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4548,7 +4548,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 153  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 146  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4567,7 +4567,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 154  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 147  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -4586,7 +4586,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 155  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
+; 148  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[4], v, &wp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -4605,7 +4605,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 156  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
+; 149  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[5], v, &wp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -4624,7 +4624,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 157  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
+; 150  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[6], v, &wp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -4643,7 +4643,7 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 158  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
+; 151  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[7], v, &wp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -4662,52 +4662,52 @@ $LN6@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 159  :         up += 8;
+; 152  :         up += 8;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR up$[rbp], rax
 
-; 160  :         wp += 8;
+; 153  :         wp += 8;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 161  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 162  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 154  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 155  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@Multiply_W
 
-; 163  :             AddToMULTI32Counter(8);
+; 156  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN11@Multiply_W
 $LN10@Multiply_W:
 
-; 164  :         else
-; 165  :             AddToMULTI64Counter(8);
+; 157  :         else
+; 158  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 $LN11@Multiply_W:
 $LN9@Multiply_W:
 
-; 166  : #endif
-; 167  :     }
-; 168  : 
-; 169  :     if (u_count & 0x4)
+; 159  : #endif
+; 160  :     }
+; 161  : 
+; 162  :     if (u_count & 0x4)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@Multiply_W
 
-; 170  :     {
-; 171  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 163  :     {
+; 164  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4726,7 +4726,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 172  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 165  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4745,7 +4745,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 173  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
+; 166  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[2], v, &wp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4764,7 +4764,7 @@ $LN9@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 174  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
+; 167  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[3], v, &wp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -4783,52 +4783,52 @@ $LN9@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 175  :         up += 4;
+; 168  :         up += 4;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR up$[rbp], rax
 
-; 176  :         wp += 4;
+; 169  :         wp += 4;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 177  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 178  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 170  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 171  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@Multiply_W
 
-; 179  :             AddToMULTI32Counter(4);
+; 172  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN14@Multiply_W
 $LN13@Multiply_W:
 
-; 180  :         else
-; 181  :             AddToMULTI64Counter(4);
+; 173  :         else
+; 174  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 $LN14@Multiply_W:
 $LN12@Multiply_W:
 
-; 182  : #endif
-; 183  :     }
-; 184  : 
-; 185  :     if (u_count & 0x2)
+; 175  : #endif
+; 176  :     }
+; 177  : 
+; 178  :     if (u_count & 0x2)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@Multiply_W
 
-; 186  :     {
-; 187  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 179  :     {
+; 180  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4847,7 +4847,7 @@ $LN12@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 188  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
+; 181  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[1], v, &wp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4866,52 +4866,52 @@ $LN12@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 189  :         up += 2;
+; 182  :         up += 2;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 16
 	mov	QWORD PTR up$[rbp], rax
 
-; 190  :         wp += 2;
+; 183  :         wp += 2;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 16
 	mov	QWORD PTR wp$[rbp], rax
 
-; 191  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 192  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 184  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 185  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@Multiply_W
 
-; 193  :             AddToMULTI32Counter(2);
+; 186  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN17@Multiply_W
 $LN16@Multiply_W:
 
-; 194  :         else
-; 195  :             AddToMULTI64Counter(2);
+; 187  :         else
+; 188  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 $LN17@Multiply_W:
 $LN15@Multiply_W:
 
-; 196  : #endif
-; 197  :     }
-; 198  : 
-; 199  :     if (u_count & 0x1)
+; 189  : #endif
+; 190  :     }
+; 191  : 
+; 192  :     if (u_count & 0x1)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@Multiply_W
 
-; 200  :     {
-; 201  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
+; 193  :     {
+; 194  :         k = _MULTIPLY_DIGIT_UNIT(k, &up[0], v, &wp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4930,59 +4930,59 @@ $LN15@Multiply_W:
 	call	_MULTIPLY_DIGIT_UNIT
 	mov	QWORD PTR k$[rbp], rax
 
-; 202  :         up += 1;
+; 195  :         up += 1;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 8
 	mov	QWORD PTR up$[rbp], rax
 
-; 203  :         wp += 1;
+; 196  :         wp += 1;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 8
 	mov	QWORD PTR wp$[rbp], rax
 
-; 204  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 205  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 197  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 198  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@Multiply_W
 
-; 206  :             IncrementMULTI32Counter();
+; 199  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 	jmp	SHORT $LN20@Multiply_W
 $LN19@Multiply_W:
 
-; 207  :         else
-; 208  :             IncrementMULTI64Counter();
+; 200  :         else
+; 201  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 $LN20@Multiply_W:
 $LN18@Multiply_W:
 
-; 209  : #endif
-; 210  :     }
-; 211  : 
-; 212  :     if (k != 0)
+; 202  : #endif
+; 203  :     }
+; 204  : 
+; 205  :     if (k != 0)
 
 	cmp	QWORD PTR k$[rbp], 0
 	je	SHORT $LN21@Multiply_W
 
-; 213  :         *wp = k;
+; 206  :         *wp = k;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	rcx, QWORD PTR k$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN21@Multiply_W:
 
-; 214  : 
-; 215  :     return (PMC_STATUS_OK);
+; 207  : 
+; 208  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 216  : }
+; 209  : }
 
 	lea	rsp, QWORD PTR [rbp+264]
 	pop	rdi
@@ -5002,7 +5002,7 @@ v$ = 304
 wp$ = 312
 _MULTIPLYX_DIGIT_UNIT PROC				; COMDAT
 
-; 60   : {
+; 53   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -5020,9 +5020,9 @@ _MULTIPLYX_DIGIT_UNIT PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 61   :     __UNIT_TYPE t_hi;
-; 62   :     __UNIT_TYPE t_lo;
-; 63   :     t_lo = _MULTIPLYX_UNIT(*up, v, &t_hi);
+; 54   :     __UNIT_TYPE t_hi;
+; 55   :     __UNIT_TYPE t_lo;
+; 56   :     t_lo = _MULTIPLYX_UNIT(*up, v, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -5031,7 +5031,7 @@ _MULTIPLYX_DIGIT_UNIT PROC				; COMDAT
 	call	_MULTIPLYX_UNIT
 	mov	QWORD PTR t_lo$[rbp], rax
 
-; 64   :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, *wp, &t_lo), t_hi, 0, &t_hi);
+; 57   :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, *wp, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	rax, QWORD PTR wp$[rbp]
@@ -5045,7 +5045,7 @@ _MULTIPLYX_DIGIT_UNIT PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADDX_UNIT
 
-; 65   :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, k, &t_lo), t_hi, 0, &t_hi);
+; 58   :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, k, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	r8, QWORD PTR k$[rbp]
@@ -5058,22 +5058,22 @@ _MULTIPLYX_DIGIT_UNIT PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADDX_UNIT
 
-; 66   :     *wp = t_lo;
+; 59   :     *wp = t_lo;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	rcx, QWORD PTR t_lo$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 67   :     k = t_hi;
+; 60   :     k = t_hi;
 
 	mov	rax, QWORD PTR t_hi$[rbp]
 	mov	QWORD PTR k$[rbp], rax
 
-; 68   :     return (k);
+; 61   :     return (k);
 
 	mov	rax, QWORD PTR k$[rbp]
 
-; 69   : }
+; 62   : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5098,7 +5098,7 @@ v$ = 304
 wp$ = 312
 _MULTIPLY_DIGIT_UNIT PROC				; COMDAT
 
-; 48   : {
+; 41   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -5116,9 +5116,9 @@ _MULTIPLY_DIGIT_UNIT PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 49   :     __UNIT_TYPE t_hi;
-; 50   :     __UNIT_TYPE t_lo;
-; 51   :     t_lo = _MULTIPLY_UNIT(*up, v, &t_hi);
+; 42   :     __UNIT_TYPE t_hi;
+; 43   :     __UNIT_TYPE t_lo;
+; 44   :     t_lo = _MULTIPLY_UNIT(*up, v, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -5127,7 +5127,7 @@ _MULTIPLY_DIGIT_UNIT PROC				; COMDAT
 	call	_MULTIPLY_UNIT
 	mov	QWORD PTR t_lo$[rbp], rax
 
-; 52   :     _ADD_UNIT(_ADD_UNIT(0, t_lo, *wp, &t_lo), t_hi, 0, &t_hi);
+; 45   :     _ADD_UNIT(_ADD_UNIT(0, t_lo, *wp, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	rax, QWORD PTR wp$[rbp]
@@ -5141,7 +5141,7 @@ _MULTIPLY_DIGIT_UNIT PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADD_UNIT
 
-; 53   :     _ADD_UNIT(_ADD_UNIT(0, t_lo, k, &t_lo), t_hi, 0, &t_hi);
+; 46   :     _ADD_UNIT(_ADD_UNIT(0, t_lo, k, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	r8, QWORD PTR k$[rbp]
@@ -5154,22 +5154,22 @@ _MULTIPLY_DIGIT_UNIT PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADD_UNIT
 
-; 54   :     *wp = t_lo;
+; 47   :     *wp = t_lo;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	rcx, QWORD PTR t_lo$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 55   :     k = t_hi;
+; 48   :     k = t_hi;
 
 	mov	rax, QWORD PTR t_hi$[rbp]
 	mov	QWORD PTR k$[rbp], rax
 
-; 56   :     return (k);
+; 49   :     return (k);
 
 	mov	rax, QWORD PTR k$[rbp]
 
-; 57   : }
+; 50   : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5190,7 +5190,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 629  :     {
+; 622  :     {
 
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -5205,45 +5205,45 @@ _LZCNT_ALT_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
 
 	mov	rax, QWORD PTR x$[rbp]
 	bsr	rax, rax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 63					; 0000003fH
@@ -5251,7 +5251,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5272,7 +5272,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_32 PROC					; COMDAT
 
-; 596  :     {
+; 589  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5287,31 +5287,31 @@ _LZCNT_ALT_32 PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	cmp	DWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	mov	eax, DWORD PTR x$[rbp]
 	bsr	eax, eax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 31
@@ -5319,7 +5319,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 608  :     }
+; 601  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5341,7 +5341,7 @@ v$ = 232
 w_hi$ = 240
 _MULTIPLYX_UNIT PROC					; COMDAT
 
-; 335  :     {
+; 328  :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -5358,11 +5358,11 @@ _MULTIPLYX_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 336  : #ifdef _MSC_VER
-; 337  : #ifdef _M_IX86
-; 338  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
-; 339  : #elif defined(_M_X64)
-; 340  :         return (_mulx_u64(u, v, w_hi));
+; 329  : #ifdef _MSC_VER
+; 330  : #ifdef _M_IX86
+; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  : #elif defined(_M_X64)
+; 333  :         return (_mulx_u64(u, v, w_hi));
 
 	mov	rdx, QWORD PTR v$[rbp]
 	mulx	rax, rcx, QWORD PTR u$[rbp]
@@ -5370,25 +5370,25 @@ _MULTIPLYX_UNIT PROC					; COMDAT
 	mov	QWORD PTR [rdx], rax
 	mov	rax, rcx
 
-; 341  : #else
-; 342  : #error unknown platform
-; 343  : #endif
-; 344  : #elif defined(__GNUC__)
-; 345  : #ifdef _M_IX86
-; 346  :         _UINT32_T w_lo;
-; 347  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 348  :         return (w_lo);
-; 349  : #elif defined(_M_X64)
-; 350  :         _UINT64_T w_lo;
-; 351  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 352  :         return (w_lo);
-; 353  : #else
-; 354  : #error unknown platform
-; 355  : #endif
-; 356  : #else
-; 357  : #error unknown compiler
-; 358  : #endif
-; 359  :     }
+; 334  : #else
+; 335  : #error unknown platform
+; 336  : #endif
+; 337  : #elif defined(__GNUC__)
+; 338  : #ifdef _M_IX86
+; 339  :         _UINT32_T w_lo;
+; 340  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 341  :         return (w_lo);
+; 342  : #elif defined(_M_X64)
+; 343  :         _UINT64_T w_lo;
+; 344  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 345  :         return (w_lo);
+; 346  : #else
+; 347  : #error unknown platform
+; 348  : #endif
+; 349  : #else
+; 350  : #error unknown compiler
+; 351  : #endif
+; 352  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5406,7 +5406,7 @@ v$ = 248
 w_hi$ = 256
 _MULTIPLY_UNIT PROC					; COMDAT
 
-; 297  :     {
+; 290  :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -5423,18 +5423,18 @@ _MULTIPLY_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 298  : #ifdef _M_IX86
-; 299  : #ifdef _MSC_VER
-; 300  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
-; 301  : #elif defined(__GNUC__)
-; 302  :         _UINT32_T w_lo;
-; 303  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
-; 304  :         return (w_lo);
-; 305  : #else
-; 306  : #error unknown compiler
-; 307  : #endif
-; 308  : #elif defined(_M_X64)
-; 309  :         return (_umul128(u, v, w_hi));
+; 291  : #ifdef _M_IX86
+; 292  : #ifdef _MSC_VER
+; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  : #elif defined(__GNUC__)
+; 295  :         _UINT32_T w_lo;
+; 296  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
+; 297  :         return (w_lo);
+; 298  : #else
+; 299  : #error unknown compiler
+; 300  : #endif
+; 301  : #elif defined(_M_X64)
+; 302  :         return (_umul128(u, v, w_hi));
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR tv69[rbp], rax
@@ -5445,10 +5445,10 @@ _MULTIPLY_UNIT PROC					; COMDAT
 	mov	rcx, QWORD PTR w_hi$[rbp]
 	mov	QWORD PTR [rcx], rdx
 
-; 310  : #else
-; 311  : #error unknown platform
-; 312  : #endif
-; 313  :     }
+; 303  : #else
+; 304  : #error unknown platform
+; 305  : #endif
+; 306  :     }
 
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
@@ -5466,7 +5466,7 @@ v$ = 240
 w$ = 248
 _ADDX_UNIT PROC						; COMDAT
 
-; 241  :     {
+; 234  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -5484,10 +5484,10 @@ _ADDX_UNIT PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 242  : #ifdef _M_IX86
-; 243  :         return (_addcarryx_u32(carry, u, v, w));
-; 244  : #elif defined(_M_X64)
-; 245  :         return (_addcarryx_u64(carry, u, v, w));
+; 235  : #ifdef _M_IX86
+; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  : #elif defined(_M_X64)
+; 238  :         return (_addcarryx_u64(carry, u, v, w));
 
 	mov	rax, QWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR carry$[rbp]
@@ -5498,10 +5498,10 @@ _ADDX_UNIT PROC						; COMDAT
 	mov	QWORD PTR [rdx], rax
 	movzx	eax, cl
 
-; 246  : #else
-; 247  : #error unknown platform
-; 248  : #endif
-; 249  :     }
+; 239  : #else
+; 240  : #error unknown platform
+; 241  : #endif
+; 242  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5519,7 +5519,7 @@ v$ = 240
 w$ = 248
 _ADD_UNIT PROC						; COMDAT
 
-; 213  :     {
+; 206  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -5537,10 +5537,10 @@ _ADD_UNIT PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 214  : #ifdef _M_IX86
-; 215  :         return (_addcarry_u32(carry, u, v, w));
-; 216  : #elif defined(_M_X64)
-; 217  :         return (_addcarry_u64(carry, u, v, w));
+; 207  : #ifdef _M_IX86
+; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  : #elif defined(_M_X64)
+; 210  :         return (_addcarry_u64(carry, u, v, w));
 
 	mov	rax, QWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR carry$[rbp]
@@ -5551,10 +5551,10 @@ _ADD_UNIT PROC						; COMDAT
 	mov	QWORD PTR [rdx], rax
 	movzx	eax, cl
 
-; 218  : #else
-; 219  : #error unknown platform
-; 220  : #endif
-; 221  :     }
+; 211  : #else
+; 212  : #error unknown platform
+; 213  : #endif
+; 214  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5570,7 +5570,7 @@ value$ = 224
 result_high$ = 232
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 182  :     {
+; 175  :     {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -5586,18 +5586,18 @@ _FROMDWORDTOWORD PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, QWORD PTR value$[rbp]
 	shr	rax, 32					; 00000020H
 	mov	rcx, QWORD PTR result_high$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR value$[rbp]
 
-; 185  :     }
+; 178  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5612,7 +5612,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 357  :     {
+; 350  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5627,13 +5627,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 358  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 359  :     }
+; 352  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5648,7 +5648,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 351  :     {
+; 344  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5663,13 +5663,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 353  :     }
+; 346  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5683,7 +5683,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 334  :     {
+; 327  :     {
 
 	push	rbp
 	push	rdi
@@ -5696,12 +5696,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 335  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 336  :     }
+; 329  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5715,7 +5715,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 328  :     {
+; 321  :     {
 
 	push	rbp
 	push	rdi
@@ -5728,12 +5728,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 329  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 330  :     }
+; 323  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5758,7 +5758,7 @@ v$ = 488
 w$ = 496
 PMC_Multiply_X_X PROC					; COMDAT
 
-; 705  : {
+; 698  : {
 
 $LN23:
 	mov	QWORD PTR [rsp+24], r8
@@ -5776,51 +5776,51 @@ $LN23:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 706  :     if (u == NULL)
+; 699  :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN2@PMC_Multip
 
-; 707  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 700  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Multip
 $LN2@PMC_Multip:
 
-; 708  :     if (v == NULL)
+; 701  :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_Multip
 
-; 709  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 702  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Multip
 $LN3@PMC_Multip:
 
-; 710  :     if (w == NULL)
+; 703  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Multip
 
-; 711  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 704  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Multip
 $LN4@PMC_Multip:
 
-; 712  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 705  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR nu$[rbp], rax
 
-; 713  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 706  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 714  :     PMC_STATUS_CODE result;
-; 715  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 707  :     PMC_STATUS_CODE result;
+; 708  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nu$[rbp]
 	call	CheckNumber
@@ -5828,13 +5828,13 @@ $LN4@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Multip
 
-; 716  :         return (result);
+; 709  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN5@PMC_Multip:
 
-; 717  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 710  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -5842,14 +5842,14 @@ $LN5@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Multip
 
-; 718  :         return (result);
+; 711  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN6@PMC_Multip:
 
-; 719  :     NUMBER_HEADER* nw;
-; 720  :     if (nu->IS_ZERO)
+; 712  :     NUMBER_HEADER* nw;
+; 713  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5858,22 +5858,22 @@ $LN6@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN7@PMC_Multip
 
-; 721  :     {
-; 722  :         // x が 0 である場合
-; 723  : 
-; 724  :         // y の値にかかわらず 0 を返す。
-; 725  :         *w = &number_zero;
+; 714  :     {
+; 715  :         // x が 0 である場合
+; 716  : 
+; 717  :         // y の値にかかわらず 0 を返す。
+; 718  :         *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 726  :     }
+; 719  :     }
 
 	jmp	$LN8@PMC_Multip
 $LN7@PMC_Multip:
 
-; 727  :     else if (nu->IS_ONE)
+; 720  :     else if (nu->IS_ONE)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5882,9 +5882,9 @@ $LN7@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN9@PMC_Multip
 
-; 728  :     {
-; 729  :         // x が 1 である場合
-; 730  :         if (nv->IS_ZERO)
+; 721  :     {
+; 722  :         // x が 1 である場合
+; 723  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5893,27 +5893,27 @@ $LN7@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN11@PMC_Multip
 
-; 731  :         {
-; 732  :             // y が 0 である場合
-; 733  : 
-; 734  :             //  0  を返す。
-; 735  :             *w = &number_zero;
+; 724  :         {
+; 725  :             // y が 0 である場合
+; 726  : 
+; 727  :             //  0  を返す。
+; 728  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 736  :         }
+; 729  :         }
 
 	jmp	SHORT $LN12@PMC_Multip
 $LN11@PMC_Multip:
 
-; 737  :         else
-; 738  :         {
-; 739  :             // y が 0 ではない場合
-; 740  : 
-; 741  :             // 乗算結果は y に等しいため、y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 742  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
+; 730  :         else
+; 731  :         {
+; 732  :             // y が 0 ではない場合
+; 733  : 
+; 734  :             // 乗算結果は y に等しいため、y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 735  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nw$[rbp]
 	mov	rcx, QWORD PTR nv$[rbp]
@@ -5922,30 +5922,30 @@ $LN11@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN13@PMC_Multip
 
-; 743  :                 return (result);
+; 736  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN13@PMC_Multip:
 
-; 744  :             *w = nw;
+; 737  :             *w = nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN12@PMC_Multip:
 
-; 745  :         }
-; 746  :     }
+; 738  :         }
+; 739  :     }
 
 	jmp	$LN10@PMC_Multip
 $LN9@PMC_Multip:
 
-; 747  :     else
-; 748  :     {
-; 749  :         // x が 0 と 1 のどちらでもない場合
-; 750  : 
-; 751  :         if (nv->IS_ZERO)
+; 740  :     else
+; 741  :     {
+; 742  :         // x が 0 と 1 のどちらでもない場合
+; 743  : 
+; 744  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5954,21 +5954,21 @@ $LN9@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN14@PMC_Multip
 
-; 752  :         {
-; 753  :             // y が 0 である場合
-; 754  : 
-; 755  :             //  0  を返す。
-; 756  :             nw = &number_zero;
+; 745  :         {
+; 746  :             // y が 0 である場合
+; 747  : 
+; 748  :             //  0  を返す。
+; 749  :             nw = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nw$[rbp], rax
 
-; 757  :         }
+; 750  :         }
 
 	jmp	$LN15@PMC_Multip
 $LN14@PMC_Multip:
 
-; 758  :         else if (nv->IS_ONE)
+; 751  :         else if (nv->IS_ONE)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5977,11 +5977,11 @@ $LN14@PMC_Multip:
 	test	eax, eax
 	je	SHORT $LN16@PMC_Multip
 
-; 759  :         {
-; 760  :             // y が 1 である場合
-; 761  : 
-; 762  :             // 乗算結果は x に等しいため、x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 763  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
+; 752  :         {
+; 753  :             // y が 1 である場合
+; 754  : 
+; 755  :             // 乗算結果は x に等しいため、x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 756  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nw$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -5990,35 +5990,35 @@ $LN14@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_Multip
 
-; 764  :                 return (result);
+; 757  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN18@PMC_Multip:
 
-; 765  :         }
+; 758  :         }
 
 	jmp	$LN17@PMC_Multip
 $LN16@PMC_Multip:
 
-; 766  :         else
-; 767  :         {
-; 768  :             // x と y がともに 0 、1 のどちらでもない場合
-; 769  : 
-; 770  :             // x と y の積を計算する
-; 771  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 759  :         else
+; 760  :         {
+; 761  :             // x と y がともに 0 、1 のどちらでもない場合
+; 762  : 
+; 763  :             // x と y の積を計算する
+; 764  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$5[rbp], rax
 
-; 772  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 765  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$6[rbp], rax
 
-; 773  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
+; 766  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
 
 	mov	rax, QWORD PTR v_bit_count$6[rbp]
 	mov	rcx, QWORD PTR u_bit_count$5[rbp]
@@ -6026,8 +6026,8 @@ $LN16@PMC_Multip:
 	mov	rax, rcx
 	mov	QWORD PTR w_bit_count$7[rbp], rax
 
-; 774  :             __UNIT_TYPE w_light_check_code;
-; 775  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 767  :             __UNIT_TYPE w_light_check_code;
+; 768  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR w_light_check_code$8[rbp]
 	mov	rdx, QWORD PTR w_bit_count$7[rbp]
@@ -6037,13 +6037,13 @@ $LN16@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN19@PMC_Multip
 
-; 776  :                 return (result);
+; 769  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Multip
 $LN19@PMC_Multip:
 
-; 777  :             (*fp_Multiply_X_X)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
+; 770  :             (*fp_Multiply_X_X)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rbp]
 	mov	rax, QWORD PTR [rax+56]
@@ -6058,7 +6058,7 @@ $LN19@PMC_Multip:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_Multiply_X_X
 
-; 778  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 771  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$8[rbp]
 	mov	rax, QWORD PTR nw$[rbp]
@@ -6068,21 +6068,21 @@ $LN19@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN20@PMC_Multip
 
-; 779  :                 return (result);
+; 772  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN20@PMC_Multip:
 
-; 780  :             CommitNumber(nw);
+; 773  :             CommitNumber(nw);
 
 	mov	rcx, QWORD PTR nw$[rbp]
 	call	CommitNumber
 $LN17@PMC_Multip:
 $LN15@PMC_Multip:
 
-; 781  :         }
-; 782  :         *w = nw;
+; 774  :         }
+; 775  :         *w = nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -6090,9 +6090,9 @@ $LN15@PMC_Multip:
 $LN10@PMC_Multip:
 $LN8@PMC_Multip:
 
-; 783  :     }
-; 784  : #ifdef _DEBUG
-; 785  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 776  :     }
+; 777  : #ifdef _DEBUG
+; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6101,19 +6101,19 @@ $LN8@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN21@PMC_Multip
 
-; 786  :         return (result);
+; 779  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN21@PMC_Multip:
 
-; 787  : #endif
-; 788  :     return (PMC_STATUS_OK);
+; 780  : #endif
+; 781  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 789  : }
+; 782  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -6136,7 +6136,7 @@ v$ = 264
 w$ = 272
 PMC_Multiply_X_L PROC					; COMDAT
 
-; 682  : {
+; 675  : {
 
 $LN9:
 	mov	QWORD PTR [rsp+24], r8
@@ -6154,45 +6154,45 @@ $LN9:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 683  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
+; 676  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 684  :     {
-; 685  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 686  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 677  :     {
+; 678  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 679  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Multip
 $LN2@PMC_Multip:
 
-; 687  :     }
-; 688  :     if (u == NULL)
+; 680  :     }
+; 681  :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN3@PMC_Multip
 
-; 689  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 682  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN3@PMC_Multip:
 
-; 690  :     if (w == NULL)
+; 683  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Multip
 
-; 691  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 684  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN4@PMC_Multip:
 
-; 692  :     PMC_STATUS_CODE result;
-; 693  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 685  :     PMC_STATUS_CODE result;
+; 686  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR u$[rbp]
 	call	CheckNumber
@@ -6200,13 +6200,13 @@ $LN4@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Multip
 
-; 694  :         return (result);
+; 687  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN5@PMC_Multip:
 
-; 695  :     if ((result = PMC_Multiply_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 688  :     if ((result = PMC_Multiply_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	r8, QWORD PTR w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -6216,14 +6216,14 @@ $LN5@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Multip
 
-; 696  :         return (result);
+; 689  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN6@PMC_Multip:
 
-; 697  : #ifdef _DEBUG
-; 698  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 690  : #ifdef _DEBUG
+; 691  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6232,19 +6232,19 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_Multip
 
-; 699  :         return (result);
+; 692  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN7@PMC_Multip:
 
-; 700  : #endif
-; 701  :     return (PMC_STATUS_OK);
+; 693  : #endif
+; 694  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 702  : }
+; 695  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6262,7 +6262,7 @@ v$ = 264
 w$ = 272
 PMC_Multiply_X_I PROC					; COMDAT
 
-; 530  : {
+; 523  : {
 
 $LN9:
 	mov	QWORD PTR [rsp+24], r8
@@ -6280,45 +6280,45 @@ $LN9:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 531  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 524  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 532  :     {
-; 533  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 534  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 525  :     {
+; 526  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 527  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Multip
 $LN2@PMC_Multip:
 
-; 535  :     }
-; 536  :     if (u == NULL)
+; 528  :     }
+; 529  :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN3@PMC_Multip
 
-; 537  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 530  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN3@PMC_Multip:
 
-; 538  :     if (w == NULL)
+; 531  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Multip
 
-; 539  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 532  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN4@PMC_Multip:
 
-; 540  :     PMC_STATUS_CODE result;
-; 541  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 533  :     PMC_STATUS_CODE result;
+; 534  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR u$[rbp]
 	call	CheckNumber
@@ -6326,13 +6326,13 @@ $LN4@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Multip
 
-; 542  :         return (result);
+; 535  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN5@PMC_Multip:
 
-; 543  :     if ((result = PMC_Multiply_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 536  :     if ((result = PMC_Multiply_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	r8, QWORD PTR w$[rbp]
 	mov	edx, DWORD PTR v$[rbp]
@@ -6342,14 +6342,14 @@ $LN5@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Multip
 
-; 544  :         return (result);
+; 537  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN6@PMC_Multip:
 
-; 545  : #ifdef _DEBUG
-; 546  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 538  : #ifdef _DEBUG
+; 539  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6358,19 +6358,19 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_Multip
 
-; 547  :         return (result);
+; 540  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN7@PMC_Multip:
 
-; 548  : #endif
-; 549  :     return (PMC_STATUS_OK);
+; 541  : #endif
+; 542  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 550  : }
+; 543  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6388,7 +6388,7 @@ v$ = 264
 w$ = 272
 PMC_Multiply_L_X PROC					; COMDAT
 
-; 659  : {
+; 652  : {
 
 $LN9:
 	mov	QWORD PTR [rsp+24], r8
@@ -6406,45 +6406,45 @@ $LN9:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 660  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
+; 653  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 661  :     {
-; 662  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 663  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 654  :     {
+; 655  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 656  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Multip
 $LN2@PMC_Multip:
 
-; 664  :     }
-; 665  :     if (v == NULL)
+; 657  :     }
+; 658  :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_Multip
 
-; 666  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 659  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN3@PMC_Multip:
 
-; 667  :     if (w == NULL)
+; 660  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Multip
 
-; 668  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 661  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN4@PMC_Multip:
 
-; 669  :     PMC_STATUS_CODE result;
-; 670  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 662  :     PMC_STATUS_CODE result;
+; 663  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR v$[rbp]
 	call	CheckNumber
@@ -6452,13 +6452,13 @@ $LN4@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Multip
 
-; 671  :         return (result);
+; 664  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN5@PMC_Multip:
 
-; 672  :     if ((result = PMC_Multiply_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 665  :     if ((result = PMC_Multiply_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	r8, QWORD PTR w$[rbp]
 	mov	rdx, QWORD PTR u$[rbp]
@@ -6468,14 +6468,14 @@ $LN5@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Multip
 
-; 673  :         return (result);
+; 666  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN6@PMC_Multip:
 
-; 674  : #ifdef _DEBUG
-; 675  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 667  : #ifdef _DEBUG
+; 668  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6484,19 +6484,19 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_Multip
 
-; 676  :         return (result);
+; 669  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN7@PMC_Multip:
 
-; 677  : #endif
-; 678  :     return (PMC_STATUS_OK);
+; 670  : #endif
+; 671  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 679  : }
+; 672  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6514,7 +6514,7 @@ v$ = 264
 w$ = 272
 PMC_Multiply_I_X PROC					; COMDAT
 
-; 507  : {
+; 500  : {
 
 $LN9:
 	mov	QWORD PTR [rsp+24], r8
@@ -6532,45 +6532,45 @@ $LN9:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 508  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 501  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
 
-; 509  :     {
-; 510  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 511  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 502  :     {
+; 503  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 504  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Multip
 $LN2@PMC_Multip:
 
-; 512  :     }
-; 513  :     if (v == NULL)
+; 505  :     }
+; 506  :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_Multip
 
-; 514  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 507  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN3@PMC_Multip:
 
-; 515  :     if (w == NULL)
+; 508  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Multip
 
-; 516  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 509  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@PMC_Multip
 $LN4@PMC_Multip:
 
-; 517  :     PMC_STATUS_CODE result;
-; 518  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 510  :     PMC_STATUS_CODE result;
+; 511  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR v$[rbp]
 	call	CheckNumber
@@ -6578,13 +6578,13 @@ $LN4@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Multip
 
-; 519  :         return (result);
+; 512  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN5@PMC_Multip:
 
-; 520  :     if ((result = PMC_Multiply_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 513  :     if ((result = PMC_Multiply_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	r8, QWORD PTR w$[rbp]
 	mov	edx, DWORD PTR u$[rbp]
@@ -6594,14 +6594,14 @@ $LN5@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Multip
 
-; 521  :         return (result);
+; 514  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN6@PMC_Multip:
 
-; 522  : #ifdef _DEBUG
-; 523  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 515  : #ifdef _DEBUG
+; 516  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6610,19 +6610,19 @@ $LN6@PMC_Multip:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_Multip
 
-; 524  :         return (result);
+; 517  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Multip
 $LN7@PMC_Multip:
 
-; 525  : #endif
-; 526  :     return (PMC_STATUS_OK);
+; 518  : #endif
+; 519  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Multip:
 
-; 527  : }
+; 520  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6637,7 +6637,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_Multiply PROC				; COMDAT
 
-; 792  : {
+; 785  : {
 
 $LN5:
 	mov	QWORD PTR [rsp+8], rcx
@@ -6653,7 +6653,7 @@ $LN5:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 793  :     if (feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2)
+; 786  :     if (feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2)
 
 	mov	rax, QWORD PTR feature$[rbp]
 	mov	eax, DWORD PTR [rax]
@@ -6668,51 +6668,51 @@ $LN5:
 	test	eax, eax
 	je	SHORT $LN2@Initialize
 
-; 794  :     {
-; 795  :         fp_Multiply_X_1W = Multiply_X_1W_using_MULX_ADCX;
+; 787  :     {
+; 788  :         fp_Multiply_X_1W = Multiply_X_1W_using_MULX_ADCX;
 
 	lea	rax, OFFSET FLAT:Multiply_X_1W_using_MULX_ADCX
 	mov	QWORD PTR fp_Multiply_X_1W, rax
 
-; 796  :         fp_Multiply_X_2W = Multiply_X_2W_using_MULX_ADCX;
+; 789  :         fp_Multiply_X_2W = Multiply_X_2W_using_MULX_ADCX;
 
 	lea	rax, OFFSET FLAT:Multiply_X_2W_using_MULX_ADCX
 	mov	QWORD PTR fp_Multiply_X_2W, rax
 
-; 797  :         fp_Multiply_X_X = Multiply_X_X_using_MULX_ADCX;
+; 790  :         fp_Multiply_X_X = Multiply_X_X_using_MULX_ADCX;
 
 	lea	rax, OFFSET FLAT:Multiply_X_X_using_MULX_ADCX
 	mov	QWORD PTR fp_Multiply_X_X, rax
 
-; 798  :     }
+; 791  :     }
 
 	jmp	SHORT $LN3@Initialize
 $LN2@Initialize:
 
-; 799  :     else
-; 800  :     {
-; 801  :         fp_Multiply_X_1W = Multiply_X_1W_using_MUL_ADC;
+; 792  :     else
+; 793  :     {
+; 794  :         fp_Multiply_X_1W = Multiply_X_1W_using_MUL_ADC;
 
 	lea	rax, OFFSET FLAT:Multiply_X_1W_using_MUL_ADC
 	mov	QWORD PTR fp_Multiply_X_1W, rax
 
-; 802  :         fp_Multiply_X_2W = Multiply_X_2W_using_MUL_ADC;
+; 795  :         fp_Multiply_X_2W = Multiply_X_2W_using_MUL_ADC;
 
 	lea	rax, OFFSET FLAT:Multiply_X_2W_using_MUL_ADC
 	mov	QWORD PTR fp_Multiply_X_2W, rax
 
-; 803  :         fp_Multiply_X_X = Multiply_X_X_using_MUL_ADC;
+; 796  :         fp_Multiply_X_X = Multiply_X_X_using_MUL_ADC;
 
 	lea	rax, OFFSET FLAT:Multiply_X_X_using_MUL_ADC
 	mov	QWORD PTR fp_Multiply_X_X, rax
 $LN3@Initialize:
 
-; 804  :     }
-; 805  :     return (PMC_STATUS_OK);
+; 797  :     }
+; 798  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 806  : }
+; 799  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -6731,7 +6731,7 @@ v_count$ = 248
 w$ = 256
 Multiply_X_X_Imp PROC					; COMDAT
 
-; 43   : {
+; 36   : {
 
 $LN3:
 	mov	QWORD PTR [rsp+32], r9
@@ -6750,7 +6750,7 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__B6A081C3_pmc_multiply@c
 	call	__CheckForDebuggerJustMyCode
 
-; 44   :     (*fp_Multiply_X_X)(u, u_count,  v,  v_count,  w);
+; 37   :     (*fp_Multiply_X_X)(u, u_count,  v,  v_count,  w);
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	QWORD PTR [rsp+32], rax
@@ -6760,7 +6760,7 @@ $LN3:
 	mov	rcx, QWORD PTR u$[rbp]
 	call	QWORD PTR fp_Multiply_X_X
 
-; 45   : }
+; 38   : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

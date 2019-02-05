@@ -7,7 +7,7 @@
 pause_console:
 .LFB4285:
 	.file 1 "../main.c"
-	.loc 1 29 1
+	.loc 1 54 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -19,9 +19,9 @@ pause_console:
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	.loc 1 30 5
+	.loc 1 55 5
 	call	getchar
-	.loc 1 31 1
+	.loc 1 56 1
 	nop
 	addq	$32, %rsp
 	popq	%rbp
@@ -65,7 +65,7 @@ pause_console:
 	.seh_proc	main
 main:
 .LFB4286:
-	.loc 1 37 1
+	.loc 1 62 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -84,17 +84,17 @@ main:
 	.seh_endprologue
 	movl	%ecx, 528(%rbp)
 	movq	%rdx, 536(%rbp)
-	.loc 1 37 1
+	.loc 1 62 1
 	call	__main
 .LVL0:
-	.loc 1 38 5
+	.loc 1 63 5
 	leaq	.LC0(%rip), %rdx
 	movl	$0, %ecx
 	call	setlocale
-	.loc 1 40 5
+	.loc 1 65 5
 	leaq	.LC1(%rip), %rcx
 	call	puts
-	.loc 1 43 5
+	.loc 1 68 5
 	leaq	208(%rbp), %rax
 	movl	$261, %r8d
 	movq	%rax, %rdx
@@ -102,14 +102,14 @@ main:
 	movq	__imp_GetModuleFileNameA(%rip), %rax
 	call	*%rax
 .LVL1:
-	.loc 1 44 6
+	.loc 1 69 6
 	leaq	208(%rbp), %rax
 	movl	$92, %edx
 	movq	%rax, %rcx
 	call	strrchr
-	.loc 1 44 33
+	.loc 1 69 33
 	movb	$0, (%rax)
-	.loc 1 47 5
+	.loc 1 72 5
 	leaq	208(%rbp), %rdx
 	leaq	-64(%rbp), %rax
 	movq	%rdx, %r8
@@ -118,7 +118,7 @@ main:
 	movq	__imp_strcpy_s(%rip), %rax
 	call	*%rax
 .LVL2:
-	.loc 1 48 5
+	.loc 1 73 5
 	leaq	-64(%rbp), %rax
 	leaq	.LC2(%rip), %r8
 	movl	$260, %edx
@@ -126,7 +126,7 @@ main:
 	movq	__imp_strcat_s(%rip), %rax
 	call	*%rax
 .LVL3:
-	.loc 1 49 5
+	.loc 1 74 5
 	leaq	-64(%rbp), %rax
 	leaq	.LC3(%rip), %r8
 	movl	$260, %edx
@@ -134,28 +134,28 @@ main:
 	movq	__imp_strcat_s(%rip), %rax
 	call	*%rax
 .LVL4:
-	.loc 1 51 5
+	.loc 1 76 5
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rdx
 	leaq	.LC4(%rip), %rcx
 	call	printf
-	.loc 1 53 19
+	.loc 1 78 19
 	leaq	-64(%rbp), %rax
 	movq	%rax, %rcx
 	movq	__imp_LoadLibraryA(%rip), %rax
 	call	*%rax
 .LVL5:
 	movq	%rax, 480(%rbp)
-	.loc 1 54 8
+	.loc 1 79 8
 	cmpq	$0, 480(%rbp)
 	jne	.L3
 .LBB2:
-	.loc 1 56 21
+	.loc 1 81 21
 	movq	__imp_GetLastError(%rip), %rax
 	call	*%rax
 .LVL6:
 	movl	%eax, 476(%rbp)
-	.loc 1 57 9
+	.loc 1 82 9
 	movl	476(%rbp), %ebx
 	movl	$2, %ecx
 	movq	__imp___acrt_iob_func(%rip), %rax
@@ -167,14 +167,14 @@ main:
 	movl	%ebx, %r8d
 	leaq	.LC5(%rip), %rdx
 	call	fprintf
-	.loc 1 58 9
+	.loc 1 83 9
 	call	getchar
-	.loc 1 59 16
+	.loc 1 84 16
 	movl	$1, %eax
 	jmp	.L9
 .L3:
 .LBE2:
-	.loc 1 62 47
+	.loc 1 87 47
 	movq	480(%rbp), %rax
 	leaq	.LC6(%rip), %rdx
 	movq	%rax, %rcx
@@ -182,10 +182,10 @@ main:
 	call	*%rax
 .LVL8:
 	movq	%rax, 488(%rbp)
-	.loc 1 63 8
+	.loc 1 88 8
 	cmpq	$0, 488(%rbp)
 	jne	.L5
-	.loc 1 64 51
+	.loc 1 89 51
 	movq	480(%rbp), %rax
 	leaq	.LC7(%rip), %rdx
 	movq	%rax, %rcx
@@ -194,10 +194,10 @@ main:
 .LVL9:
 	movq	%rax, 488(%rbp)
 .L5:
-	.loc 1 65 8
+	.loc 1 90 8
 	cmpq	$0, 488(%rbp)
 	jne	.L6
-	.loc 1 66 51
+	.loc 1 91 51
 	movq	480(%rbp), %rax
 	leaq	.LC8(%rip), %rdx
 	movq	%rax, %rcx
@@ -206,10 +206,10 @@ main:
 .LVL10:
 	movq	%rax, 488(%rbp)
 .L6:
-	.loc 1 67 8
+	.loc 1 92 8
 	cmpq	$0, 488(%rbp)
 	jne	.L7
-	.loc 1 68 51
+	.loc 1 93 51
 	movq	480(%rbp), %rax
 	leaq	.LC9(%rip), %rdx
 	movq	%rax, %rcx
@@ -218,10 +218,10 @@ main:
 .LVL11:
 	movq	%rax, 488(%rbp)
 .L7:
-	.loc 1 69 8
+	.loc 1 94 8
 	cmpq	$0, 488(%rbp)
 	jne	.L8
-	.loc 1 71 9
+	.loc 1 96 9
 	movl	$2, %ecx
 	movq	__imp___acrt_iob_func(%rip), %rax
 	call	*%rax
@@ -235,31 +235,31 @@ main:
 	leaq	.LC6(%rip), %r8
 	leaq	.LC10(%rip), %rdx
 	call	fprintf
-	.loc 1 72 9
+	.loc 1 97 9
 	call	getchar
-	.loc 1 73 16
+	.loc 1 98 16
 	movl	$1, %eax
 	jmp	.L9
 .L8:
-	.loc 1 76 19
+	.loc 1 101 19
 	movq	.refptr.wprintf(%rip), %rax
 	movq	%rax, -80(%rbp)
-	.loc 1 77 21
+	.loc 1 102 21
 	leaq	pause_console(%rip), %rax
 	movq	%rax, -72(%rbp)
-	.loc 1 78 6
+	.loc 1 103 6
 	leaq	-80(%rbp), %rax
 	movq	488(%rbp), %rdx
 	movq	%rax, %rcx
 	call	*%rdx
 .LVL13:
-	.loc 1 79 5
+	.loc 1 104 5
 	leaq	.LC11(%rip), %rcx
 	call	puts
-	.loc 1 83 12
+	.loc 1 108 12
 	movl	$0, %eax
 .L9:
-	.loc 1 84 1 discriminator 1
+	.loc 1 109 1 discriminator 1
 	addq	$632, %rsp
 	popq	%rbx
 	.cfi_restore 3
@@ -4208,20 +4208,20 @@ main:
 	.ascii "__tag_PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x10
 	.byte	0x1
-	.byte	0x14
+	.byte	0x2d
 	.byte	0x8
 	.long	0x4b61
 	.uleb128 0x11
 	.ascii "log\0"
 	.byte	0x1
-	.byte	0x16
+	.byte	0x2f
 	.byte	0xc
 	.long	0x4b71
 	.byte	0
 	.uleb128 0x11
 	.ascii "pause\0"
 	.byte	0x1
-	.byte	0x17
+	.byte	0x30
 	.byte	0xd
 	.long	0x9be
 	.byte	0x8
@@ -4239,13 +4239,13 @@ main:
 	.uleb128 0x3
 	.ascii "PMC_DEBUG_ENVIRONMENT\0"
 	.byte	0x1
-	.byte	0x1a
+	.byte	0x33
 	.byte	0x2c
 	.long	0x4b1f
 	.uleb128 0x1b
 	.ascii "main\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0x5
 	.long	0x129
 	.quad	.LFB4286
@@ -4256,7 +4256,7 @@ main:
 	.uleb128 0x1c
 	.ascii "argc\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0xe
 	.long	0x129
 	.uleb128 0x2
@@ -4265,7 +4265,7 @@ main:
 	.uleb128 0x1c
 	.ascii "argv\0"
 	.byte	0x1
-	.byte	0x24
+	.byte	0x3d
 	.byte	0x1b
 	.long	0xa34
 	.uleb128 0x2
@@ -4274,7 +4274,7 @@ main:
 	.uleb128 0x1d
 	.ascii "module_path\0"
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x43
 	.byte	0xa
 	.long	0x4d02
 	.uleb128 0x3
@@ -4283,7 +4283,7 @@ main:
 	.uleb128 0x1d
 	.ascii "dll_file_path\0"
 	.byte	0x1
-	.byte	0x2e
+	.byte	0x47
 	.byte	0xa
 	.long	0x4d02
 	.uleb128 0x3
@@ -4292,7 +4292,7 @@ main:
 	.uleb128 0x1d
 	.ascii "hLib\0"
 	.byte	0x1
-	.byte	0x35
+	.byte	0x4e
 	.byte	0xc
 	.long	0x8f0
 	.uleb128 0x2
@@ -4301,7 +4301,7 @@ main:
 	.uleb128 0x1d
 	.ascii "proc\0"
 	.byte	0x1
-	.byte	0x3d
+	.byte	0x56
 	.byte	0xc
 	.long	0x4d24
 	.uleb128 0x2
@@ -4310,7 +4310,7 @@ main:
 	.uleb128 0x1d
 	.ascii "debug_env\0"
 	.byte	0x1
-	.byte	0x4b
+	.byte	0x64
 	.byte	0x1b
 	.long	0x4b77
 	.uleb128 0x3
@@ -4323,7 +4323,7 @@ main:
 	.uleb128 0x1d
 	.ascii "err\0"
 	.byte	0x1
-	.byte	0x38
+	.byte	0x51
 	.byte	0xf
 	.long	0x784
 	.uleb128 0x2
@@ -4388,7 +4388,7 @@ main:
 	.uleb128 0x21
 	.ascii "pause_console\0"
 	.byte	0x1
-	.byte	0x1c
+	.byte	0x35
 	.byte	0xd
 	.quad	.LFB4285
 	.quad	.LFE4285-.LFB4285

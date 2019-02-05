@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../pmc_exclusiveor.c"
-# 33 "../pmc_exclusiveor.c"
+# 26 "../pmc_exclusiveor.c"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -100622,13 +100622,13 @@ typedef struct _MODEMSETTINGS {
   DWORD ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 34 "../pmc_exclusiveor.c" 2
+# 27 "../pmc_exclusiveor.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h" 1 3 4
@@ -100685,7 +100685,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -100693,14 +100693,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100872,11 +100872,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -100896,7 +100896,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -100915,15 +100915,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
 
 typedef _UINT64_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -101253,17 +101253,17 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 381 "../pmc_uint_internal.h"
+# 374 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 395 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
     }
 #pragma endregion
-# 35 "../pmc_exclusiveor.c" 2
+# 28 "../pmc_exclusiveor.c" 2
 # 1 "../pmc_inline_func.h" 1
-# 35 "../pmc_inline_func.h"
+# 28 "../pmc_inline_func.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/setjmp.h" 1 3
@@ -102222,13 +102222,13 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     char _InterlockedXor8_np(char *,char);
     short _InterlockedXor16_np(short *,short);
     __extension__ long long _InterlockedXor64_np(long long *,long long);
-# 36 "../pmc_inline_func.h" 2
+# 29 "../pmc_inline_func.h" 2
 
 # 1 "../pmc_internal.h" 1
-# 38 "../pmc_inline_func.h" 2
-# 48 "../pmc_inline_func.h"
+# 31 "../pmc_inline_func.h" 2
+# 41 "../pmc_inline_func.h"
     
-# 48 "../pmc_inline_func.h"
+# 41 "../pmc_inline_func.h"
    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
     {
         __movsb(d, s, count);
@@ -102479,7 +102479,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 309 "../pmc_inline_func.h"
+# 302 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102488,7 +102488,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 325 "../pmc_inline_func.h"
+# 318 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102500,7 +102500,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 350 "../pmc_inline_func.h"
+# 343 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102514,7 +102514,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 371 "../pmc_inline_func.h"
+# 364 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102529,7 +102529,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
     {
-# 409 "../pmc_inline_func.h"
+# 402 "../pmc_inline_func.h"
         __UNIT_TYPE q;
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
@@ -102550,7 +102550,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
     {
-# 453 "../pmc_inline_func.h"
+# 446 "../pmc_inline_func.h"
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
@@ -102584,9 +102584,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 485 "../pmc_inline_func.h" 3
+# 478 "../pmc_inline_func.h" 3
                __rolq
-# 485 "../pmc_inline_func.h"
+# 478 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102599,9 +102599,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 496 "../pmc_inline_func.h" 3
+# 489 "../pmc_inline_func.h" 3
                __rorq
-# 496 "../pmc_inline_func.h"
+# 489 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102665,7 +102665,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
     {
-# 571 "../pmc_inline_func.h"
+# 564 "../pmc_inline_func.h"
         return (_lzcnt_u64(value));
 
 
@@ -102727,7 +102727,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 646 "../pmc_inline_func.h"
+# 639 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102743,7 +102743,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 675 "../pmc_inline_func.h"
+# 668 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102781,7 +102781,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 726 "../pmc_inline_func.h"
+# 719 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102839,7 +102839,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
         return (x);
     }
-# 36 "../pmc_exclusiveor.c" 2
+# 29 "../pmc_exclusiveor.c" 2
 
 
 
@@ -103045,15 +103045,15 @@ PMC_STATUS_CODE PMC_ExclusiveOr_I_X(_UINT32_T u, HANDLE v, HANDLE* w)
         return ((-256));
     }
     if (v == 
-# 240 "../pmc_exclusiveor.c" 3 4
+# 233 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 240 "../pmc_exclusiveor.c"
+# 233 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (w == 
-# 242 "../pmc_exclusiveor.c" 3 4
+# 235 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 242 "../pmc_exclusiveor.c"
+# 235 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)v;
@@ -103077,15 +103077,15 @@ PMC_STATUS_CODE PMC_ExclusiveOr_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
         return ((-256));
     }
     if (u == 
-# 264 "../pmc_exclusiveor.c" 3 4
+# 257 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 264 "../pmc_exclusiveor.c"
+# 257 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (w == 
-# 266 "../pmc_exclusiveor.c" 3 4
+# 259 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 266 "../pmc_exclusiveor.c"
+# 259 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -103191,15 +103191,15 @@ PMC_STATUS_CODE PMC_ExclusiveOr_L_X(_UINT64_T u, HANDLE v, HANDLE* w)
         return ((-256));
     }
     if (v == 
-# 370 "../pmc_exclusiveor.c" 3 4
+# 363 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 370 "../pmc_exclusiveor.c"
+# 363 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (w == 
-# 372 "../pmc_exclusiveor.c" 3 4
+# 365 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 372 "../pmc_exclusiveor.c"
+# 365 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)v;
@@ -103223,15 +103223,15 @@ PMC_STATUS_CODE PMC_ExclusiveOr_X_L(HANDLE u, _UINT64_T v, HANDLE* w)
         return ((-256));
     }
     if (u == 
-# 394 "../pmc_exclusiveor.c" 3 4
+# 387 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 394 "../pmc_exclusiveor.c"
+# 387 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (w == 
-# 396 "../pmc_exclusiveor.c" 3 4
+# 389 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 396 "../pmc_exclusiveor.c"
+# 389 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -103250,21 +103250,21 @@ PMC_STATUS_CODE PMC_ExclusiveOr_X_L(HANDLE u, _UINT64_T v, HANDLE* w)
 PMC_STATUS_CODE PMC_ExclusiveOr_X_X(HANDLE u, HANDLE v, HANDLE* w)
 {
     if (u == 
-# 413 "../pmc_exclusiveor.c" 3 4
+# 406 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 413 "../pmc_exclusiveor.c"
+# 406 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (v == 
-# 415 "../pmc_exclusiveor.c" 3 4
+# 408 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 415 "../pmc_exclusiveor.c"
+# 408 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     if (w == 
-# 417 "../pmc_exclusiveor.c" 3 4
+# 410 "../pmc_exclusiveor.c" 3 4
             ((void *)0)
-# 417 "../pmc_exclusiveor.c"
+# 410 "../pmc_exclusiveor.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;

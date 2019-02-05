@@ -1552,7 +1552,7 @@ q_buf$ = 392
 r_buf$ = 400
 DivRem_X_X_using_ADX_MULX PROC				; COMDAT
 
-; 972  : {
+; 965  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1570,23 +1570,23 @@ DivRem_X_X_using_ADX_MULX PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 973  :     // u および v の最上位ワードは 0 でありうることに注意すること。
-; 974  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 966  :     // u および v の最上位ワードは 0 でありうることに注意すること。
+; 967  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN9@DivRem_X_X
 $LN2@DivRem_X_X:
 
-; 975  :     {
-; 976  :         while (u_buf[u_buf_len - 1] == 0)
+; 968  :     {
+; 969  :         while (u_buf[u_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN3@DivRem_X_X
 
-; 977  :             --u_buf_len;
+; 970  :             --u_buf_len;
 
 	mov	rax, QWORD PTR u_buf_len$[rbp]
 	dec	rax
@@ -1595,14 +1595,14 @@ $LN2@DivRem_X_X:
 $LN3@DivRem_X_X:
 $LN4@DivRem_X_X:
 
-; 978  :         while (v_buf[v_buf_len - 1] == 0)
+; 971  :         while (v_buf[v_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN5@DivRem_X_X
 
-; 979  :             --v_buf_len;
+; 972  :             --v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	dec	rax
@@ -1611,26 +1611,26 @@ $LN4@DivRem_X_X:
 $LN5@DivRem_X_X:
 $LN9@DivRem_X_X:
 
-; 980  :     }
-; 981  : 
-; 982  : #ifdef _DEBUG
-; 983  :     if (v_buf[v_buf_len - 1] == 0)
+; 973  :     }
+; 974  : 
+; 975  : #ifdef _DEBUG
+; 976  :     if (v_buf[v_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 
-; 984  :     {
-; 985  :         ; // このルートには到達しないはず。デバッグ用。
-; 986  :     }
-; 987  : #endif
-; 988  : 
-; 989  : #ifdef DO_TRACE
-; 990  :     ReportLabel("uとvのシフト");
-; 991  :     ReportDump("u", (__UNIT_TYPE*)u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 992  :     ReportDump("v", (__UNIT_TYPE*)v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 993  : #endif
-; 994  : 
-; 995  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
+; 977  :     {
+; 978  :         ; // このルートには到達しないはず。デバッグ用。
+; 979  :     }
+; 980  : #endif
+; 981  : 
+; 982  : #ifdef DO_TRACE
+; 983  :     ReportLabel("uとvのシフト");
+; 984  :     ReportDump("u", (__UNIT_TYPE*)u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 985  :     ReportDump("v", (__UNIT_TYPE*)v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 986  : #endif
+; 987  : 
+; 988  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
@@ -1638,40 +1638,40 @@ $LN9@DivRem_X_X:
 	call	_LZCNT_ALT_UNIT_DIV
 	mov	DWORD PTR d_factor$[rbp], eax
 
-; 996  :     if (d_factor == 0)
+; 989  :     if (d_factor == 0)
 
 	cmp	DWORD PTR d_factor$[rbp], 0
 	jne	SHORT $LN11@DivRem_X_X
 
-; 997  :     {
-; 998  :         _COPY_MEMORY_UNIT_DIV(r_buf, u_buf, u_buf_len);
+; 990  :     {
+; 991  :         _COPY_MEMORY_UNIT_DIV(r_buf, u_buf, u_buf_len);
 
 	mov	r8, QWORD PTR u_buf_len$[rbp]
 	mov	rdx, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR r_buf$[rbp]
 	call	_COPY_MEMORY_UNIT_DIV
 
-; 999  :         _COPY_MEMORY_UNIT_DIV(work_v_buf, v_buf, v_buf_len);
+; 992  :         _COPY_MEMORY_UNIT_DIV(work_v_buf, v_buf, v_buf_len);
 
 	mov	r8, QWORD PTR v_buf_len$[rbp]
 	mov	rdx, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR work_v_buf$[rbp]
 	call	_COPY_MEMORY_UNIT_DIV
 
-; 1000 :         r_buf[u_buf_len] = 0;
+; 993  :         r_buf[u_buf_len] = 0;
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	mov	DWORD PTR [rax+rcx*4], 0
 
-; 1001 :     }
+; 994  :     }
 
 	jmp	SHORT $LN12@DivRem_X_X
 $LN11@DivRem_X_X:
 
-; 1002 :     else
-; 1003 :     {
-; 1004 :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
+; 995  :     else
+; 996  :     {
+; 997  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	DWORD PTR [rsp+32], 0
@@ -1681,7 +1681,7 @@ $LN11@DivRem_X_X:
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	LeftShift_Imp_DIV
 
-; 1005 :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
+; 998  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	DWORD PTR [rsp+32], 0
@@ -1692,18 +1692,18 @@ $LN11@DivRem_X_X:
 	call	LeftShift_Imp_DIV
 $LN12@DivRem_X_X:
 
-; 1006 :     }
-; 1007 : #ifdef DO_TRACE
-; 1008 :     ReportDump("⇒u", (__UNIT_TYPE*)r_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1009 :     ReportDump("⇒v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1010 : #endif
-; 1011 : 
-; 1012 :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
+; 999  :     }
+; 1000 : #ifdef DO_TRACE
+; 1001 :     ReportDump("⇒u", (__UNIT_TYPE*)r_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1002 :     ReportDump("⇒v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1003 : #endif
+; 1004 : 
+; 1005 :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	QWORD PTR work_u_buf$[rbp], rax
 
-; 1013 :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
+; 1006 :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -1712,10 +1712,10 @@ $LN12@DivRem_X_X:
 	mov	QWORD PTR q_index$[rbp], rax
 $LN6@DivRem_X_X:
 
-; 1014 : 
-; 1015 :     for (;;)
-; 1016 :     {
-; 1017 :         __UNIT_TYPE_DIV q_ = CalculateQ_X(work_u_buf, work_v_buf, v_buf_len, q_index);
+; 1007 : 
+; 1008 :     for (;;)
+; 1009 :     {
+; 1010 :         __UNIT_TYPE_DIV q_ = CalculateQ_X(work_u_buf, work_v_buf, v_buf_len, q_index);
 
 	mov	r9, QWORD PTR q_index$[rbp]
 	mov	r8, QWORD PTR v_buf_len$[rbp]
@@ -1724,14 +1724,14 @@ $LN6@DivRem_X_X:
 	call	CalculateQ_X
 	mov	DWORD PTR q_$1[rbp], eax
 
-; 1018 : 
-; 1019 : #ifdef DO_TRACE
-; 1020 :         ReportLabel("uの減算");
-; 1021 :         ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1022 :         ReportDump("v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1023 :         ReportVar("q_", q_);
-; 1024 : #endif
-; 1025 :         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
+; 1011 : 
+; 1012 : #ifdef DO_TRACE
+; 1013 :         ReportLabel("uの減算");
+; 1014 :         ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1015 :         ReportDump("v", (__UNIT_TYPE*)work_v_buf, _DIVIDE_CEILING_UNIT(v_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1016 :         ReportVar("q_", q_);
+; 1017 : #endif
+; 1018 :         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
 
 	mov	eax, DWORD PTR q_$1[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -1745,23 +1745,23 @@ $LN6@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN13@DivRem_X_X
 
-; 1026 :         {
-; 1027 : #ifdef DO_TRACE
-; 1028 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1029 : #endif
-; 1030 :             // 桁借りが発生した場合
-; 1031 : 
-; 1032 : #ifdef DO_TRACE
-; 1033 :             ReportLabel("uの加え戻しとq_の更新");
-; 1034 :             ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1035 : #endif
-; 1036 :             --q_;
+; 1019 :         {
+; 1020 : #ifdef DO_TRACE
+; 1021 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1022 : #endif
+; 1023 :             // 桁借りが発生した場合
+; 1024 : 
+; 1025 : #ifdef DO_TRACE
+; 1026 :             ReportLabel("uの加え戻しとq_の更新");
+; 1027 :             ReportDump("u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1028 : #endif
+; 1029 :             --q_;
 
 	mov	eax, DWORD PTR q_$1[rbp]
 	dec	eax
 	mov	DWORD PTR q_$1[rbp], eax
 
-; 1037 :             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
+; 1030 :             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
 	mov	rax, QWORD PTR q_index$[rbp]
 	mov	QWORD PTR [rsp+32], rax
@@ -1772,59 +1772,59 @@ $LN6@DivRem_X_X:
 	call	AddOneLineX
 $LN13@DivRem_X_X:
 
+; 1031 : #ifdef DO_TRACE
+; 1032 :             ReportVar("q_", q_);
+; 1033 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1034 : #endif
+; 1035 :         }
+; 1036 :         else
+; 1037 :         {
 ; 1038 : #ifdef DO_TRACE
-; 1039 :             ReportVar("q_", q_);
-; 1040 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1041 : #endif
-; 1042 :         }
-; 1043 :         else
-; 1044 :         {
-; 1045 : #ifdef DO_TRACE
-; 1046 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1047 : #endif
-; 1048 :         }
-; 1049 : 
-; 1050 :         q_buf[q_index] = q_;
+; 1039 :             ReportDump("⇒u", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT(u_buf_len * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1040 : #endif
+; 1041 :         }
+; 1042 : 
+; 1043 :         q_buf[q_index] = q_;
 
 	mov	rax, QWORD PTR q_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	mov	edx, DWORD PTR q_$1[rbp]
 	mov	DWORD PTR [rax+rcx*4], edx
 
-; 1051 : 
-; 1052 : #ifdef DO_TRACE
-; 1053 :         ReportLabel("qの現在値");
-; 1054 :         ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1055 : #endif
-; 1056 : 
-; 1057 :         if (q_index == 0)
+; 1044 : 
+; 1045 : #ifdef DO_TRACE
+; 1046 :         ReportLabel("qの現在値");
+; 1047 :         ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1048 : #endif
+; 1049 : 
+; 1050 :         if (q_index == 0)
 
 	cmp	QWORD PTR q_index$[rbp], 0
 	jne	SHORT $LN15@DivRem_X_X
 
-; 1058 :             break;
+; 1051 :             break;
 
 	jmp	SHORT $LN7@DivRem_X_X
 $LN15@DivRem_X_X:
 
-; 1059 :         --q_index;
+; 1052 :         --q_index;
 
 	mov	rax, QWORD PTR q_index$[rbp]
 	dec	rax
 	mov	QWORD PTR q_index$[rbp], rax
 
-; 1060 :     }
+; 1053 :     }
 
 	jmp	$LN6@DivRem_X_X
 $LN7@DivRem_X_X:
 
-; 1061 : 
-; 1062 :     if (d_factor > 0)
+; 1054 : 
+; 1055 :     if (d_factor > 0)
 
 	cmp	DWORD PTR d_factor$[rbp], 0
 	jbe	SHORT $LN16@DivRem_X_X
 
-; 1063 :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
+; 1056 :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -1837,13 +1837,13 @@ $LN7@DivRem_X_X:
 	call	RightShift_Imp_DIV
 $LN16@DivRem_X_X:
 
-; 1064 : 
-; 1065 : #ifdef DO_TRACE
-; 1066 :     ReportLabel("計算終了");
-; 1067 :     ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1068 :     ReportDump("r", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
-; 1069 : #endif
-; 1070 : }
+; 1057 : 
+; 1058 : #ifdef DO_TRACE
+; 1059 :     ReportLabel("計算終了");
+; 1060 :     ReportDump("q", (__UNIT_TYPE*)q_buf, _DIVIDE_CEILING_UNIT((u_buf_len - v_buf_len) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1061 :     ReportDump("r", (__UNIT_TYPE*)work_u_buf, _DIVIDE_CEILING_UNIT((u_buf_len + 1) * sizeof(__UNIT_TYPE_DIV), sizeof(__UNIT_TYPE)));
+; 1062 : #endif
+; 1063 : }
 
 	lea	rsp, QWORD PTR [rbp+328]
 	pop	rdi
@@ -1868,7 +1868,7 @@ q_buf$ = 392
 r_buf$ = 400
 DivRem_X_X_using_ADC_MUL PROC				; COMDAT
 
-; 916  : {
+; 909  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1886,23 +1886,23 @@ DivRem_X_X_using_ADC_MUL PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 917  :     // u および v の最上位ワードは 0 でありうることに注意すること。
-; 918  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 910  :     // u および v の最上位ワードは 0 でありうることに注意すること。
+; 911  :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN9@DivRem_X_X
 $LN2@DivRem_X_X:
 
-; 919  :     {
-; 920  :         while (u_buf[u_buf_len - 1] == 0)
+; 912  :     {
+; 913  :         while (u_buf[u_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN3@DivRem_X_X
 
-; 921  :             --u_buf_len;
+; 914  :             --u_buf_len;
 
 	mov	rax, QWORD PTR u_buf_len$[rbp]
 	dec	rax
@@ -1911,14 +1911,14 @@ $LN2@DivRem_X_X:
 $LN3@DivRem_X_X:
 $LN4@DivRem_X_X:
 
-; 922  :         while (v_buf[v_buf_len - 1] == 0)
+; 915  :         while (v_buf[v_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN5@DivRem_X_X
 
-; 923  :             --v_buf_len;
+; 916  :             --v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	dec	rax
@@ -1927,20 +1927,20 @@ $LN4@DivRem_X_X:
 $LN5@DivRem_X_X:
 $LN9@DivRem_X_X:
 
-; 924  :     }
-; 925  : 
-; 926  : #ifdef _DEBUG
-; 927  :     if (v_buf[v_buf_len - 1] == 0)
+; 917  :     }
+; 918  : 
+; 919  : #ifdef _DEBUG
+; 920  :     if (v_buf[v_buf_len - 1] == 0)
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 
-; 928  :     {
-; 929  :         ; // このルートには到達しないはず。デバッグ用。
-; 930  :     }
-; 931  : #endif
-; 932  : 
-; 933  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
+; 921  :     {
+; 922  :         ; // このルートには到達しないはず。デバッグ用。
+; 923  :     }
+; 924  : #endif
+; 925  : 
+; 926  :     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
@@ -1948,40 +1948,40 @@ $LN9@DivRem_X_X:
 	call	_LZCNT_ALT_UNIT_DIV
 	mov	DWORD PTR d_factor$[rbp], eax
 
-; 934  :     if (d_factor == 0)
+; 927  :     if (d_factor == 0)
 
 	cmp	DWORD PTR d_factor$[rbp], 0
 	jne	SHORT $LN11@DivRem_X_X
 
-; 935  :     {
-; 936  :         _COPY_MEMORY_UNIT_DIV(r_buf, u_buf, u_buf_len);
+; 928  :     {
+; 929  :         _COPY_MEMORY_UNIT_DIV(r_buf, u_buf, u_buf_len);
 
 	mov	r8, QWORD PTR u_buf_len$[rbp]
 	mov	rdx, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR r_buf$[rbp]
 	call	_COPY_MEMORY_UNIT_DIV
 
-; 937  :         _COPY_MEMORY_UNIT_DIV(work_v_buf, v_buf, v_buf_len);
+; 930  :         _COPY_MEMORY_UNIT_DIV(work_v_buf, v_buf, v_buf_len);
 
 	mov	r8, QWORD PTR v_buf_len$[rbp]
 	mov	rdx, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR work_v_buf$[rbp]
 	call	_COPY_MEMORY_UNIT_DIV
 
-; 938  :         r_buf[u_buf_len] = 0;
+; 931  :         r_buf[u_buf_len] = 0;
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	mov	DWORD PTR [rax+rcx*4], 0
 
-; 939  :     }
+; 932  :     }
 
 	jmp	SHORT $LN12@DivRem_X_X
 $LN11@DivRem_X_X:
 
-; 940  :     else
-; 941  :     {
-; 942  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
+; 933  :     else
+; 934  :     {
+; 935  :         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	DWORD PTR [rsp+32], 0
@@ -1991,7 +1991,7 @@ $LN11@DivRem_X_X:
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	call	LeftShift_Imp_DIV
 
-; 943  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
+; 936  :         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	DWORD PTR [rsp+32], 0
@@ -2002,14 +2002,14 @@ $LN11@DivRem_X_X:
 	call	LeftShift_Imp_DIV
 $LN12@DivRem_X_X:
 
-; 944  :     }
-; 945  : 
-; 946  :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
+; 937  :     }
+; 938  : 
+; 939  :     __UNIT_TYPE_DIV* work_u_buf = r_buf;
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	QWORD PTR work_u_buf$[rbp], rax
 
-; 947  :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
+; 940  :     __UNIT_TYPE q_index = u_buf_len - v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -2018,10 +2018,10 @@ $LN12@DivRem_X_X:
 	mov	QWORD PTR q_index$[rbp], rax
 $LN6@DivRem_X_X:
 
-; 948  : 
-; 949  :     for (;;)
-; 950  :     {
-; 951  :         __UNIT_TYPE_DIV q_ = CalculateQ_(work_u_buf, work_v_buf, v_buf_len, q_index);
+; 941  : 
+; 942  :     for (;;)
+; 943  :     {
+; 944  :         __UNIT_TYPE_DIV q_ = CalculateQ_(work_u_buf, work_v_buf, v_buf_len, q_index);
 
 	mov	r9, QWORD PTR q_index$[rbp]
 	mov	r8, QWORD PTR v_buf_len$[rbp]
@@ -2030,9 +2030,9 @@ $LN6@DivRem_X_X:
 	call	CalculateQ_
 	mov	DWORD PTR q_$1[rbp], eax
 
-; 952  : 
-; 953  : 
-; 954  :         if (SubtructOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
+; 945  : 
+; 946  : 
+; 947  :         if (SubtructOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
 
 	mov	eax, DWORD PTR q_$1[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -2046,15 +2046,15 @@ $LN6@DivRem_X_X:
 	test	eax, eax
 	je	SHORT $LN13@DivRem_X_X
 
-; 955  :         {
-; 956  :             // 桁借りが発生した場合
-; 957  :             --q_;
+; 948  :         {
+; 949  :             // 桁借りが発生した場合
+; 950  :             --q_;
 
 	mov	eax, DWORD PTR q_$1[rbp]
 	dec	eax
 	mov	DWORD PTR q_$1[rbp], eax
 
-; 958  :             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
+; 951  :             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
 	mov	rax, QWORD PTR q_index$[rbp]
 	mov	QWORD PTR [rsp+32], rax
@@ -2065,43 +2065,43 @@ $LN6@DivRem_X_X:
 	call	AddOneLine
 $LN13@DivRem_X_X:
 
-; 959  :         }
-; 960  : 
-; 961  :         q_buf[q_index] = q_;
+; 952  :         }
+; 953  : 
+; 954  :         q_buf[q_index] = q_;
 
 	mov	rax, QWORD PTR q_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	mov	edx, DWORD PTR q_$1[rbp]
 	mov	DWORD PTR [rax+rcx*4], edx
 
-; 962  :         if (q_index == 0)
+; 955  :         if (q_index == 0)
 
 	cmp	QWORD PTR q_index$[rbp], 0
 	jne	SHORT $LN14@DivRem_X_X
 
-; 963  :             break;
+; 956  :             break;
 
 	jmp	SHORT $LN7@DivRem_X_X
 $LN14@DivRem_X_X:
 
-; 964  :         --q_index;
+; 957  :         --q_index;
 
 	mov	rax, QWORD PTR q_index$[rbp]
 	dec	rax
 	mov	QWORD PTR q_index$[rbp], rax
 
-; 965  :     }
+; 958  :     }
 
 	jmp	$LN6@DivRem_X_X
 $LN7@DivRem_X_X:
 
-; 966  : 
-; 967  :     if (d_factor > 0)
+; 959  : 
+; 960  :     if (d_factor > 0)
 
 	cmp	DWORD PTR d_factor$[rbp], 0
 	jbe	SHORT $LN15@DivRem_X_X
 
-; 968  :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
+; 961  :         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, FALSE);
 
 	mov	eax, DWORD PTR d_factor$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -2114,7 +2114,7 @@ $LN7@DivRem_X_X:
 	call	RightShift_Imp_DIV
 $LN15@DivRem_X_X:
 
-; 969  : }
+; 962  : }
 
 	lea	rsp, QWORD PTR [rbp+328]
 	pop	rdi
@@ -2138,7 +2138,7 @@ v_buf_len$ = 408
 q_index$ = 416
 AddOneLineX PROC					; COMDAT
 
-; 850  : {
+; 843  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -2156,14 +2156,14 @@ AddOneLineX PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 851  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 844  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4]
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 852  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 845  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -2172,31 +2172,31 @@ AddOneLineX PROC					; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 853  :     __UNIT_TYPE v_count = v_buf_len;
+; 846  :     __UNIT_TYPE v_count = v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 854  :     char c = 0;
+; 847  :     char c = 0;
 
 	mov	BYTE PTR c$[rbp], 0
 
-; 855  : 
-; 856  :     // まず 32 ワードずつ加算をする。
-; 857  :     __UNIT_TYPE count = v_count >> 5;
+; 848  : 
+; 849  :     // まず 32 ワードずつ加算をする。
+; 850  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@AddOneLine:
 
-; 858  :     while (count != 0)
+; 851  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	SHORT $LN3@AddOneLine
 
-; 859  :     {
-; 860  :         c = _ADD_32WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 852  :     {
+; 853  :         c = _ADD_32WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2205,41 +2205,41 @@ $LN2@AddOneLine:
 	call	_ADD_32WORDS_ADCX_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 861  :         u_ptr += 32;
+; 854  :         u_ptr += 32;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 862  :         v_ptr += 32;
+; 855  :         v_ptr += 32;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 863  :         --count;
+; 856  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 864  :     }
+; 857  :     }
 
 	jmp	SHORT $LN2@AddOneLine
 $LN3@AddOneLine:
 
-; 865  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 866  : 
-; 867  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 868  :     if (v_count & 0x10)
+; 858  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 859  : 
+; 860  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 861  :     if (v_count & 0x10)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	SHORT $LN4@AddOneLine
 
-; 869  :     {
-; 870  :         c = _ADD_16WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 862  :     {
+; 863  :         c = _ADD_16WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2248,32 +2248,32 @@ $LN3@AddOneLine:
 	call	_ADD_16WORDS_ADCX_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 871  :         u_ptr += 16;
+; 864  :         u_ptr += 16;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 872  :         v_ptr += 16;
+; 865  :         v_ptr += 16;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN4@AddOneLine:
 
-; 873  :     }
-; 874  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 875  : 
-; 876  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 877  :     if (v_count & 0x8)
+; 866  :     }
+; 867  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 868  : 
+; 869  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 870  :     if (v_count & 0x8)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	SHORT $LN5@AddOneLine
 
-; 878  :     {
-; 879  :         c = _ADD_8WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 871  :     {
+; 872  :         c = _ADD_8WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2282,32 +2282,32 @@ $LN4@AddOneLine:
 	call	_ADD_8WORDS_ADCX_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 880  :         u_ptr += 8;
+; 873  :         u_ptr += 8;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 881  :         v_ptr += 8;
+; 874  :         v_ptr += 8;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN5@AddOneLine:
 
-; 882  :     }
-; 883  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 884  : 
-; 885  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 886  :     if (v_count & 0x4)
+; 875  :     }
+; 876  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 877  : 
+; 878  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 879  :     if (v_count & 0x4)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	SHORT $LN6@AddOneLine
 
-; 887  :     {
-; 888  :         c = _ADD_4WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 880  :     {
+; 881  :         c = _ADD_4WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2316,32 +2316,32 @@ $LN5@AddOneLine:
 	call	_ADD_4WORDS_ADCX_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 889  :         u_ptr += 4;
+; 882  :         u_ptr += 4;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 890  :         v_ptr += 4;
+; 883  :         v_ptr += 4;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN6@AddOneLine:
 
-; 891  :     }
-; 892  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 893  : 
-; 894  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 895  :     if (v_count & 0x2)
+; 884  :     }
+; 885  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 886  : 
+; 887  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 888  :     if (v_count & 0x2)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	SHORT $LN7@AddOneLine
 
-; 896  :     {
-; 897  :         c = _ADD_2WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
+; 889  :     {
+; 890  :         c = _ADD_2WORDS_ADCX_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2350,32 +2350,32 @@ $LN6@AddOneLine:
 	call	_ADD_2WORDS_ADCX_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 898  :         u_ptr += 2;
+; 891  :         u_ptr += 2;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 899  :         v_ptr += 2;
+; 892  :         v_ptr += 2;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN7@AddOneLine:
 
-; 900  :     }
-; 901  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 902  : 
-; 903  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 904  :     if (v_count & 0x1)
+; 893  :     }
+; 894  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 895  : 
+; 896  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 897  :     if (v_count & 0x1)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN8@AddOneLine
 
-; 905  :     {
-; 906  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
+; 898  :     {
+; 899  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	rax, QWORD PTR v_ptr$[rbp]
@@ -2386,23 +2386,23 @@ $LN7@AddOneLine:
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 907  :         ++u_ptr;
+; 900  :         ++u_ptr;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 908  :         ++v_ptr;
+; 901  :         ++v_ptr;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN8@AddOneLine:
 
-; 909  :     }
-; 910  : 
-; 911  :     // 残りの桁の繰り上がりを計算する。
-; 912  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
+; 902  :     }
+; 903  : 
+; 904  :     // 残りの桁の繰り上がりを計算する。
+; 905  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -2414,7 +2414,7 @@ $LN8@AddOneLine:
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoCarry
 
-; 913  : }
+; 906  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -2438,7 +2438,7 @@ v_buf_len$ = 408
 q_index$ = 416
 AddOneLine PROC						; COMDAT
 
-; 784  : {
+; 777  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -2456,14 +2456,14 @@ AddOneLine PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 785  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 778  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4]
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 786  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 779  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -2472,31 +2472,31 @@ AddOneLine PROC						; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 787  :     __UNIT_TYPE v_count = v_buf_len;
+; 780  :     __UNIT_TYPE v_count = v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 788  :     char c = 0;
+; 781  :     char c = 0;
 
 	mov	BYTE PTR c$[rbp], 0
 
-; 789  : 
-; 790  :     // まず 32 ワードずつ加算をする。
-; 791  :     __UNIT_TYPE count = v_count >> 5;
+; 782  : 
+; 783  :     // まず 32 ワードずつ加算をする。
+; 784  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@AddOneLine:
 
-; 792  :     while (count != 0)
+; 785  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	SHORT $LN3@AddOneLine
 
-; 793  :     {
-; 794  :         c = _ADD_32WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 786  :     {
+; 787  :         c = _ADD_32WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2505,41 +2505,41 @@ $LN2@AddOneLine:
 	call	_ADD_32WORDS_ADC_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 795  :         u_ptr += 32;
+; 788  :         u_ptr += 32;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 796  :         v_ptr += 32;
+; 789  :         v_ptr += 32;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 797  :         --count;
+; 790  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 798  :     }
+; 791  :     }
 
 	jmp	SHORT $LN2@AddOneLine
 $LN3@AddOneLine:
 
-; 799  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 800  : 
-; 801  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 802  :     if (v_count & 0x10)
+; 792  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 793  : 
+; 794  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 795  :     if (v_count & 0x10)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	SHORT $LN4@AddOneLine
 
-; 803  :     {
-; 804  :         c = _ADD_16WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 796  :     {
+; 797  :         c = _ADD_16WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2548,32 +2548,32 @@ $LN3@AddOneLine:
 	call	_ADD_16WORDS_ADC_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 805  :         u_ptr += 16;
+; 798  :         u_ptr += 16;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 806  :         v_ptr += 16;
+; 799  :         v_ptr += 16;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN4@AddOneLine:
 
-; 807  :     }
-; 808  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 809  : 
-; 810  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 811  :     if (v_count & 0x8)
+; 800  :     }
+; 801  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 802  : 
+; 803  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 804  :     if (v_count & 0x8)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	SHORT $LN5@AddOneLine
 
-; 812  :     {
-; 813  :         c = _ADD_8WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 805  :     {
+; 806  :         c = _ADD_8WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2582,32 +2582,32 @@ $LN4@AddOneLine:
 	call	_ADD_8WORDS_ADC_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 814  :         u_ptr += 8;
+; 807  :         u_ptr += 8;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 815  :         v_ptr += 8;
+; 808  :         v_ptr += 8;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN5@AddOneLine:
 
-; 816  :     }
-; 817  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 818  : 
-; 819  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 820  :     if (v_count & 0x4)
+; 809  :     }
+; 810  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 811  : 
+; 812  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 813  :     if (v_count & 0x4)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	SHORT $LN6@AddOneLine
 
-; 821  :     {
-; 822  :         c = _ADD_4WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 814  :     {
+; 815  :         c = _ADD_4WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2616,32 +2616,32 @@ $LN5@AddOneLine:
 	call	_ADD_4WORDS_ADC_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 823  :         u_ptr += 4;
+; 816  :         u_ptr += 4;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 824  :         v_ptr += 4;
+; 817  :         v_ptr += 4;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN6@AddOneLine:
 
-; 825  :     }
-; 826  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 827  : 
-; 828  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 829  :     if (v_count & 0x2)
+; 818  :     }
+; 819  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 820  : 
+; 821  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 822  :     if (v_count & 0x2)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	SHORT $LN7@AddOneLine
 
-; 830  :     {
-; 831  :         c = _ADD_2WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
+; 823  :     {
+; 824  :         c = _ADD_2WORDS_ADC_DIV(c, u_ptr, v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8, QWORD PTR v_ptr$[rbp]
@@ -2650,32 +2650,32 @@ $LN6@AddOneLine:
 	call	_ADD_2WORDS_ADC_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 832  :         u_ptr += 2;
+; 825  :         u_ptr += 2;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 833  :         v_ptr += 2;
+; 826  :         v_ptr += 2;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN7@AddOneLine:
 
-; 834  :     }
-; 835  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 836  : 
-; 837  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 838  :     if (v_count & 0x1)
+; 827  :     }
+; 828  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 829  : 
+; 830  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 831  :     if (v_count & 0x1)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN8@AddOneLine
 
-; 839  :     {
-; 840  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
+; 832  :     {
+; 833  :         c = _ADD_UNIT_DIV(c, *u_ptr, *v_ptr, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	rax, QWORD PTR v_ptr$[rbp]
@@ -2686,23 +2686,23 @@ $LN7@AddOneLine:
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 841  :         ++u_ptr;
+; 834  :         ++u_ptr;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 842  :         ++v_ptr;
+; 835  :         ++v_ptr;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR v_ptr$[rbp], rax
 $LN8@AddOneLine:
 
-; 843  :     }
-; 844  : 
-; 845  :     // 残りの桁の繰り上がりを計算する。
-; 846  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
+; 836  :     }
+; 837  : 
+; 838  :     // 残りの桁の繰り上がりを計算する。
+; 839  :     DoCarry(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr);
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -2714,7 +2714,7 @@ $LN8@AddOneLine:
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoCarry
 
-; 847  : }
+; 840  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -2731,7 +2731,7 @@ u_ptr$ = 232
 u_count$ = 240
 DoCarry	PROC						; COMDAT
 
-; 755  : {
+; 748  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -2749,36 +2749,36 @@ DoCarry	PROC						; COMDAT
 	call	__CheckForDebuggerJustMyCode
 $LN2@DoCarry:
 
-; 756  :     // 繰り上がりを続く限り行う
-; 757  :     for (;;)
-; 758  :     {
-; 759  :         if (u_count <= 0)
+; 749  :     // 繰り上がりを続く限り行う
+; 750  :     for (;;)
+; 751  :     {
+; 752  :         if (u_count <= 0)
 
 	cmp	QWORD PTR u_count$[rbp], 0
 	ja	SHORT $LN5@DoCarry
 
-; 760  :         {
-; 761  :             // u の最上位まで達してしまった場合
-; 762  :             return;
+; 753  :         {
+; 754  :             // u の最上位まで達してしまった場合
+; 755  :             return;
 
 	jmp	SHORT $LN1@DoCarry
 
-; 763  :         }
+; 756  :         }
 
 	jmp	SHORT $LN6@DoCarry
 $LN5@DoCarry:
 
-; 764  :         else if (c)
+; 757  :         else if (c)
 
 	movsx	eax, BYTE PTR c$[rbp]
 	test	eax, eax
 	je	SHORT $LN7@DoCarry
 
-; 765  :         {
-; 766  :             // u の最上位に達しておらず、かつキャリーが立っている場合
-; 767  : 
-; 768  :             // 繰り上がりを継続する
-; 769  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
+; 758  :         {
+; 759  :             // u の最上位に達しておらず、かつキャリーが立っている場合
+; 760  : 
+; 761  :             // 繰り上がりを継続する
+; 762  :             c = _ADD_UNIT_DIV(c, *u_ptr, 0, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	xor	r8d, r8d
@@ -2788,41 +2788,41 @@ $LN5@DoCarry:
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 770  :             ++u_ptr;
+; 763  :             ++u_ptr;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 771  :             --u_count;
+; 764  :             --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 772  :         }
+; 765  :         }
 
 	jmp	SHORT $LN8@DoCarry
 $LN7@DoCarry:
 
-; 773  :         else
-; 774  :         {
-; 775  :             // u の最上位に達しておらず、かつキャリーが立っていない場合
-; 776  : 
-; 777  :             // 繰り上がりを中断し、復帰する。
-; 778  :             return;
+; 766  :         else
+; 767  :         {
+; 768  :             // u の最上位に達しておらず、かつキャリーが立っていない場合
+; 769  : 
+; 770  :             // 繰り上がりを中断し、復帰する。
+; 771  :             return;
 
 	jmp	SHORT $LN1@DoCarry
 $LN8@DoCarry:
 $LN6@DoCarry:
 
-; 779  :         }
-; 780  :     }
+; 772  :         }
+; 773  :     }
 
 	jmp	SHORT $LN2@DoCarry
 $LN1@DoCarry:
 
-; 781  : }
+; 774  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -2848,7 +2848,7 @@ q_index$ = 448
 q_$ = 456
 SubtructOneLineX PROC					; COMDAT
 
-; 604  : {
+; 597  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -2866,14 +2866,14 @@ SubtructOneLineX PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 605  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 598  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4]
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 606  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 599  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -2882,34 +2882,34 @@ SubtructOneLineX PROC					; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 607  :     __UNIT_TYPE v_count = v_buf_len;
+; 600  :     __UNIT_TYPE v_count = v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 608  :     __UNIT_TYPE_DIV k = 0;
+; 601  :     __UNIT_TYPE_DIV k = 0;
 
 	mov	DWORD PTR k$[rbp], 0
 
-; 609  :     char c = 0;
+; 602  :     char c = 0;
 
 	mov	BYTE PTR c$[rbp], 0
 
-; 610  : 
-; 611  :     __UNIT_TYPE count = v_count >> 5;
+; 603  : 
+; 604  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@SubtructOn:
 
-; 612  :     while (count != 0)
+; 605  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	$LN3@SubtructOn
 
-; 613  :     {
-; 614  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 606  :     {
+; 607  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -2929,7 +2929,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 615  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 608  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -2949,7 +2949,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 616  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 609  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -2969,7 +2969,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 617  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 610  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -2989,7 +2989,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 618  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 611  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -3009,7 +3009,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 619  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 612  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -3029,7 +3029,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 620  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 613  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -3049,7 +3049,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 621  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 614  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -3069,7 +3069,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 622  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
+; 615  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -3089,7 +3089,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 623  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
+; 616  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -3109,7 +3109,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 624  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
+; 617  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -3129,7 +3129,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 625  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
+; 618  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -3149,7 +3149,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 626  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
+; 619  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -3169,7 +3169,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 627  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
+; 620  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -3189,7 +3189,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 628  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
+; 621  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -3209,7 +3209,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 629  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
+; 622  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -3229,7 +3229,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 630  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[16], q_, &u_ptr[16]);
+; 623  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[16], q_, &u_ptr[16]);
 
 	mov	eax, 4
 	imul	rax, rax, 16
@@ -3249,7 +3249,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 631  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[17], q_, &u_ptr[17]);
+; 624  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[17], q_, &u_ptr[17]);
 
 	mov	eax, 4
 	imul	rax, rax, 17
@@ -3269,7 +3269,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 632  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[18], q_, &u_ptr[18]);
+; 625  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[18], q_, &u_ptr[18]);
 
 	mov	eax, 4
 	imul	rax, rax, 18
@@ -3289,7 +3289,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 633  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[19], q_, &u_ptr[19]);
+; 626  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[19], q_, &u_ptr[19]);
 
 	mov	eax, 4
 	imul	rax, rax, 19
@@ -3309,7 +3309,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 634  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[20], q_, &u_ptr[20]);
+; 627  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[20], q_, &u_ptr[20]);
 
 	mov	eax, 4
 	imul	rax, rax, 20
@@ -3329,7 +3329,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 635  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[21], q_, &u_ptr[21]);
+; 628  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[21], q_, &u_ptr[21]);
 
 	mov	eax, 4
 	imul	rax, rax, 21
@@ -3349,7 +3349,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 636  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[22], q_, &u_ptr[22]);
+; 629  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[22], q_, &u_ptr[22]);
 
 	mov	eax, 4
 	imul	rax, rax, 22
@@ -3369,7 +3369,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 637  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[23], q_, &u_ptr[23]);
+; 630  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[23], q_, &u_ptr[23]);
 
 	mov	eax, 4
 	imul	rax, rax, 23
@@ -3389,7 +3389,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 638  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[24], q_, &u_ptr[24]);
+; 631  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[24], q_, &u_ptr[24]);
 
 	mov	eax, 4
 	imul	rax, rax, 24
@@ -3409,7 +3409,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 639  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[25], q_, &u_ptr[25]);
+; 632  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[25], q_, &u_ptr[25]);
 
 	mov	eax, 4
 	imul	rax, rax, 25
@@ -3429,7 +3429,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 640  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[26], q_, &u_ptr[26]);
+; 633  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[26], q_, &u_ptr[26]);
 
 	mov	eax, 4
 	imul	rax, rax, 26
@@ -3449,7 +3449,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 641  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[27], q_, &u_ptr[27]);
+; 634  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[27], q_, &u_ptr[27]);
 
 	mov	eax, 4
 	imul	rax, rax, 27
@@ -3469,7 +3469,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 642  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[28], q_, &u_ptr[28]);
+; 635  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[28], q_, &u_ptr[28]);
 
 	mov	eax, 4
 	imul	rax, rax, 28
@@ -3489,7 +3489,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 643  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[29], q_, &u_ptr[29]);
+; 636  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[29], q_, &u_ptr[29]);
 
 	mov	eax, 4
 	imul	rax, rax, 29
@@ -3509,7 +3509,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 644  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[30], q_, &u_ptr[30]);
+; 637  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[30], q_, &u_ptr[30]);
 
 	mov	eax, 4
 	imul	rax, rax, 30
@@ -3529,7 +3529,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 645  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[31], q_, &u_ptr[31]);
+; 638  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[31], q_, &u_ptr[31]);
 
 	mov	eax, 4
 	imul	rax, rax, 31
@@ -3549,61 +3549,61 @@ $LN2@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 646  :         u_ptr += 32;
+; 639  :         u_ptr += 32;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 647  :         v_ptr += 32;
+; 640  :         v_ptr += 32;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 648  :         --count;
+; 641  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 649  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 650  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 642  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 643  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@SubtructOn
 
-; 651  :             AddToMULTI64Counter(32);
+; 644  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN5@SubtructOn
 $LN4@SubtructOn:
 
-; 652  :         else
-; 653  :             AddToMULTI32Counter(32);
+; 645  :         else
+; 646  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 $LN5@SubtructOn:
 
-; 654  : #endif
-; 655  :     }
+; 647  : #endif
+; 648  :     }
 
 	jmp	$LN2@SubtructOn
 $LN3@SubtructOn:
 
-; 656  : 
-; 657  :     if (v_count & 0x10)
+; 649  : 
+; 650  :     if (v_count & 0x10)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@SubtructOn
 
-; 658  :     {
-; 659  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 651  :     {
+; 652  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -3623,7 +3623,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 660  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 653  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -3643,7 +3643,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 661  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 654  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -3663,7 +3663,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 662  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 655  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -3683,7 +3683,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 663  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 656  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -3703,7 +3703,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 664  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 657  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -3723,7 +3723,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 665  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 658  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -3743,7 +3743,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 666  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 659  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -3763,7 +3763,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 667  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
+; 660  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -3783,7 +3783,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 668  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
+; 661  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -3803,7 +3803,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 669  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
+; 662  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -3823,7 +3823,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 670  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
+; 663  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -3843,7 +3843,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 671  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
+; 664  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -3863,7 +3863,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 672  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
+; 665  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -3883,7 +3883,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 673  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
+; 666  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -3903,7 +3903,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 674  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
+; 667  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -3923,52 +3923,52 @@ $LN3@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 675  :         u_ptr += 16;
+; 668  :         u_ptr += 16;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 676  :         v_ptr += 16;
+; 669  :         v_ptr += 16;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 677  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 678  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 670  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 671  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@SubtructOn
 
-; 679  :             AddToMULTI64Counter(16);
+; 672  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN8@SubtructOn
 $LN7@SubtructOn:
 
-; 680  :         else
-; 681  :             AddToMULTI32Counter(16);
+; 673  :         else
+; 674  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 $LN8@SubtructOn:
 $LN6@SubtructOn:
 
-; 682  : #endif
-; 683  :     }
-; 684  : 
-; 685  :     if (v_count & 0x8)
+; 675  : #endif
+; 676  :     }
+; 677  : 
+; 678  :     if (v_count & 0x8)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@SubtructOn
 
-; 686  :     {
-; 687  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 679  :     {
+; 680  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -3988,7 +3988,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 688  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 681  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -4008,7 +4008,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 689  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 682  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -4028,7 +4028,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 690  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 683  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -4048,7 +4048,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 691  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 684  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -4068,7 +4068,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 692  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 685  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -4088,7 +4088,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 693  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 686  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -4108,7 +4108,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 694  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 687  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -4128,52 +4128,52 @@ $LN6@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 695  :         u_ptr += 8;
+; 688  :         u_ptr += 8;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 696  :         v_ptr += 8;
+; 689  :         v_ptr += 8;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 697  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 698  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 690  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 691  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@SubtructOn
 
-; 699  :             AddToMULTI64Counter(8);
+; 692  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN11@SubtructOn
 $LN10@SubtructOn:
 
-; 700  :         else
-; 701  :             AddToMULTI32Counter(8);
+; 693  :         else
+; 694  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 $LN11@SubtructOn:
 $LN9@SubtructOn:
 
-; 702  : #endif
-; 703  :     }
-; 704  : 
-; 705  :     if (v_count & 0x4)
+; 695  : #endif
+; 696  :     }
+; 697  : 
+; 698  :     if (v_count & 0x4)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@SubtructOn
 
-; 706  :     {
-; 707  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 699  :     {
+; 700  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -4193,7 +4193,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 708  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 701  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -4213,7 +4213,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 709  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 702  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -4233,7 +4233,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 710  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 703  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -4253,52 +4253,52 @@ $LN9@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 711  :         u_ptr += 4;
+; 704  :         u_ptr += 4;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 712  :         v_ptr += 4;
+; 705  :         v_ptr += 4;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 713  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 714  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 706  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 707  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@SubtructOn
 
-; 715  :             AddToMULTI64Counter(4);
+; 708  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN14@SubtructOn
 $LN13@SubtructOn:
 
-; 716  :         else
-; 717  :             AddToMULTI32Counter(4);
+; 709  :         else
+; 710  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 $LN14@SubtructOn:
 $LN12@SubtructOn:
 
-; 718  : #endif
-; 719  :     }
-; 720  : 
-; 721  :     if (v_count & 0x2)
+; 711  : #endif
+; 712  :     }
+; 713  : 
+; 714  :     if (v_count & 0x2)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@SubtructOn
 
-; 722  :     {
-; 723  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 715  :     {
+; 716  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -4318,7 +4318,7 @@ $LN12@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 724  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 717  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -4338,52 +4338,52 @@ $LN12@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 725  :         u_ptr += 2;
+; 718  :         u_ptr += 2;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 726  :         v_ptr += 2;
+; 719  :         v_ptr += 2;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 727  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 728  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 720  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 721  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@SubtructOn
 
-; 729  :             AddToMULTI64Counter(2);
+; 722  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN17@SubtructOn
 $LN16@SubtructOn:
 
-; 730  :         else
-; 731  :             AddToMULTI32Counter(2);
+; 723  :         else
+; 724  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 $LN17@SubtructOn:
 $LN15@SubtructOn:
 
-; 732  : #endif
-; 733  :     }
-; 734  : 
-; 735  :     if (v_count & 0x1)
+; 725  : #endif
+; 726  :     }
+; 727  : 
+; 728  :     if (v_count & 0x1)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@SubtructOn
 
-; 736  :     {
-; 737  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 729  :     {
+; 730  :         c = _MULTIPLYX_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -4403,42 +4403,42 @@ $LN15@SubtructOn:
 	call	_MULTIPLYX_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 738  :         u_ptr += 1;
+; 731  :         u_ptr += 1;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 739  :         v_ptr += 1;
+; 732  :         v_ptr += 1;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 740  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 741  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 733  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 734  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@SubtructOn
 
-; 742  :             IncrementMULTI64Counter();
+; 735  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 	jmp	SHORT $LN20@SubtructOn
 $LN19@SubtructOn:
 
-; 743  :         else
-; 744  :             IncrementMULTI32Counter();
+; 736  :         else
+; 737  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 $LN20@SubtructOn:
 $LN18@SubtructOn:
 
-; 745  : #endif
-; 746  :     }
-; 747  : 
-; 748  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
+; 738  : #endif
+; 739  :     }
+; 740  : 
+; 741  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8d, DWORD PTR k$[rbp]
@@ -4448,14 +4448,14 @@ $LN18@SubtructOn:
 	call	_SUBTRUCT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 749  :     u_ptr += 1;
+; 742  :     u_ptr += 1;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 750  : 
-; 751  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 743  : 
+; 744  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -4467,7 +4467,7 @@ $LN18@SubtructOn:
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoBorrow
 
-; 752  : }
+; 745  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -4498,7 +4498,7 @@ q_index$ = 448
 q_$ = 456
 SubtructOneLine PROC					; COMDAT
 
-; 453  : {
+; 446  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -4516,14 +4516,14 @@ SubtructOneLine PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 454  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
+; 447  :     __UNIT_TYPE_DIV* u_ptr = &u_buf[q_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4]
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 455  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
+; 448  :     __UNIT_TYPE_DIV* v_ptr = &v_buf[0];
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -4532,34 +4532,34 @@ SubtructOneLine PROC					; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 456  :     __UNIT_TYPE v_count = v_buf_len;
+; 449  :     __UNIT_TYPE v_count = v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	QWORD PTR v_count$[rbp], rax
 
-; 457  :     __UNIT_TYPE_DIV k = 0;
+; 450  :     __UNIT_TYPE_DIV k = 0;
 
 	mov	DWORD PTR k$[rbp], 0
 
-; 458  :     char c = 0;
+; 451  :     char c = 0;
 
 	mov	BYTE PTR c$[rbp], 0
 
-; 459  : 
-; 460  :     __UNIT_TYPE count = v_count >> 5;
+; 452  : 
+; 453  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@SubtructOn:
 
-; 461  :     while (count != 0)
+; 454  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	$LN3@SubtructOn
 
-; 462  :     {
-; 463  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 455  :     {
+; 456  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -4579,7 +4579,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 464  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 457  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -4599,7 +4599,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 465  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 458  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -4619,7 +4619,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 466  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 459  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -4639,7 +4639,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 467  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 460  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -4659,7 +4659,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 468  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 461  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -4679,7 +4679,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 469  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 462  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -4699,7 +4699,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 470  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 463  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -4719,7 +4719,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 471  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
+; 464  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -4739,7 +4739,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 472  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
+; 465  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -4759,7 +4759,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 473  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
+; 466  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -4779,7 +4779,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 474  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
+; 467  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -4799,7 +4799,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 475  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
+; 468  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -4819,7 +4819,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 476  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
+; 469  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -4839,7 +4839,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 477  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
+; 470  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -4859,7 +4859,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 478  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
+; 471  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -4879,7 +4879,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 479  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[16], q_, &u_ptr[16]);
+; 472  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[16], q_, &u_ptr[16]);
 
 	mov	eax, 4
 	imul	rax, rax, 16
@@ -4899,7 +4899,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 480  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[17], q_, &u_ptr[17]);
+; 473  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[17], q_, &u_ptr[17]);
 
 	mov	eax, 4
 	imul	rax, rax, 17
@@ -4919,7 +4919,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 481  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[18], q_, &u_ptr[18]);
+; 474  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[18], q_, &u_ptr[18]);
 
 	mov	eax, 4
 	imul	rax, rax, 18
@@ -4939,7 +4939,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 482  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[19], q_, &u_ptr[19]);
+; 475  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[19], q_, &u_ptr[19]);
 
 	mov	eax, 4
 	imul	rax, rax, 19
@@ -4959,7 +4959,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 483  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[20], q_, &u_ptr[20]);
+; 476  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[20], q_, &u_ptr[20]);
 
 	mov	eax, 4
 	imul	rax, rax, 20
@@ -4979,7 +4979,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 484  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[21], q_, &u_ptr[21]);
+; 477  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[21], q_, &u_ptr[21]);
 
 	mov	eax, 4
 	imul	rax, rax, 21
@@ -4999,7 +4999,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 485  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[22], q_, &u_ptr[22]);
+; 478  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[22], q_, &u_ptr[22]);
 
 	mov	eax, 4
 	imul	rax, rax, 22
@@ -5019,7 +5019,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 486  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[23], q_, &u_ptr[23]);
+; 479  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[23], q_, &u_ptr[23]);
 
 	mov	eax, 4
 	imul	rax, rax, 23
@@ -5039,7 +5039,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 487  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[24], q_, &u_ptr[24]);
+; 480  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[24], q_, &u_ptr[24]);
 
 	mov	eax, 4
 	imul	rax, rax, 24
@@ -5059,7 +5059,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 488  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[25], q_, &u_ptr[25]);
+; 481  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[25], q_, &u_ptr[25]);
 
 	mov	eax, 4
 	imul	rax, rax, 25
@@ -5079,7 +5079,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 489  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[26], q_, &u_ptr[26]);
+; 482  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[26], q_, &u_ptr[26]);
 
 	mov	eax, 4
 	imul	rax, rax, 26
@@ -5099,7 +5099,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 490  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[27], q_, &u_ptr[27]);
+; 483  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[27], q_, &u_ptr[27]);
 
 	mov	eax, 4
 	imul	rax, rax, 27
@@ -5119,7 +5119,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 491  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[28], q_, &u_ptr[28]);
+; 484  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[28], q_, &u_ptr[28]);
 
 	mov	eax, 4
 	imul	rax, rax, 28
@@ -5139,7 +5139,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 492  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[29], q_, &u_ptr[29]);
+; 485  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[29], q_, &u_ptr[29]);
 
 	mov	eax, 4
 	imul	rax, rax, 29
@@ -5159,7 +5159,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 493  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[30], q_, &u_ptr[30]);
+; 486  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[30], q_, &u_ptr[30]);
 
 	mov	eax, 4
 	imul	rax, rax, 30
@@ -5179,7 +5179,7 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 494  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[31], q_, &u_ptr[31]);
+; 487  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[31], q_, &u_ptr[31]);
 
 	mov	eax, 4
 	imul	rax, rax, 31
@@ -5199,61 +5199,61 @@ $LN2@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 495  :         u_ptr += 32;
+; 488  :         u_ptr += 32;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 496  :         v_ptr += 32;
+; 489  :         v_ptr += 32;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 497  :         --count;
+; 490  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 498  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 499  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 491  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 492  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@SubtructOn
 
-; 500  :             AddToMULTI64Counter(32);
+; 493  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN5@SubtructOn
 $LN4@SubtructOn:
 
-; 501  :         else
-; 502  :             AddToMULTI32Counter(32);
+; 494  :         else
+; 495  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 $LN5@SubtructOn:
 
-; 503  : #endif
-; 504  :     }
+; 496  : #endif
+; 497  :     }
 
 	jmp	$LN2@SubtructOn
 $LN3@SubtructOn:
 
-; 505  : 
-; 506  :     if (v_count & 0x10)
+; 498  : 
+; 499  :     if (v_count & 0x10)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@SubtructOn
 
-; 507  :     {
-; 508  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 500  :     {
+; 501  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -5273,7 +5273,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 509  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 502  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -5293,7 +5293,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 510  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 503  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -5313,7 +5313,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 511  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 504  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -5333,7 +5333,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 512  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 505  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -5353,7 +5353,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 513  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 506  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -5373,7 +5373,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 514  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 507  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -5393,7 +5393,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 515  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 508  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -5413,7 +5413,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 516  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
+; 509  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[8], q_, &u_ptr[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -5433,7 +5433,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 517  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
+; 510  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[9], q_, &u_ptr[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -5453,7 +5453,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 518  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
+; 511  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[10], q_, &u_ptr[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -5473,7 +5473,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 519  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
+; 512  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[11], q_, &u_ptr[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -5493,7 +5493,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 520  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
+; 513  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[12], q_, &u_ptr[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -5513,7 +5513,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 521  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
+; 514  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[13], q_, &u_ptr[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -5533,7 +5533,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 522  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
+; 515  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[14], q_, &u_ptr[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -5553,7 +5553,7 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 523  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
+; 516  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[15], q_, &u_ptr[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -5573,52 +5573,52 @@ $LN3@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 524  :         u_ptr += 16;
+; 517  :         u_ptr += 16;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 525  :         v_ptr += 16;
+; 518  :         v_ptr += 16;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 526  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 527  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 519  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 520  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@SubtructOn
 
-; 528  :             AddToMULTI64Counter(16);
+; 521  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN8@SubtructOn
 $LN7@SubtructOn:
 
-; 529  :         else
-; 530  :             AddToMULTI32Counter(16);
+; 522  :         else
+; 523  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 $LN8@SubtructOn:
 $LN6@SubtructOn:
 
-; 531  : #endif
-; 532  :     }
-; 533  : 
-; 534  :     if (v_count & 0x8)
+; 524  : #endif
+; 525  :     }
+; 526  : 
+; 527  :     if (v_count & 0x8)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@SubtructOn
 
-; 535  :     {
-; 536  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 528  :     {
+; 529  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -5638,7 +5638,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 537  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 530  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -5658,7 +5658,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 538  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 531  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -5678,7 +5678,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 539  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 532  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -5698,7 +5698,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 540  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
+; 533  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[4], q_, &u_ptr[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -5718,7 +5718,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 541  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
+; 534  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[5], q_, &u_ptr[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -5738,7 +5738,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 542  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
+; 535  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[6], q_, &u_ptr[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -5758,7 +5758,7 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 543  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
+; 536  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[7], q_, &u_ptr[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -5778,52 +5778,52 @@ $LN6@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 544  :         u_ptr += 8;
+; 537  :         u_ptr += 8;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 545  :         v_ptr += 8;
+; 538  :         v_ptr += 8;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 546  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 547  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 539  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 540  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@SubtructOn
 
-; 548  :             AddToMULTI64Counter(8);
+; 541  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN11@SubtructOn
 $LN10@SubtructOn:
 
-; 549  :         else
-; 550  :             AddToMULTI32Counter(8);
+; 542  :         else
+; 543  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 $LN11@SubtructOn:
 $LN9@SubtructOn:
 
-; 551  : #endif
-; 552  :     }
-; 553  : 
-; 554  :     if (v_count & 0x4)
+; 544  : #endif
+; 545  :     }
+; 546  : 
+; 547  :     if (v_count & 0x4)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@SubtructOn
 
-; 555  :     {
-; 556  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 548  :     {
+; 549  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -5843,7 +5843,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 557  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 550  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -5863,7 +5863,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 558  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
+; 551  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[2], q_, &u_ptr[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -5883,7 +5883,7 @@ $LN9@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 559  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
+; 552  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[3], q_, &u_ptr[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -5903,52 +5903,52 @@ $LN9@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 560  :         u_ptr += 4;
+; 553  :         u_ptr += 4;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 561  :         v_ptr += 4;
+; 554  :         v_ptr += 4;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 16
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 562  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 563  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 555  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 556  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@SubtructOn
 
-; 564  :             AddToMULTI64Counter(4);
+; 557  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN14@SubtructOn
 $LN13@SubtructOn:
 
-; 565  :         else
-; 566  :             AddToMULTI32Counter(4);
+; 558  :         else
+; 559  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 $LN14@SubtructOn:
 $LN12@SubtructOn:
 
-; 567  : #endif
-; 568  :     }
-; 569  : 
-; 570  :     if (v_count & 0x2)
+; 560  : #endif
+; 561  :     }
+; 562  : 
+; 563  :     if (v_count & 0x2)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@SubtructOn
 
-; 571  :     {
-; 572  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 564  :     {
+; 565  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -5968,7 +5968,7 @@ $LN12@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 573  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
+; 566  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[1], q_, &u_ptr[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -5988,52 +5988,52 @@ $LN12@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 574  :         u_ptr += 2;
+; 567  :         u_ptr += 2;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 575  :         v_ptr += 2;
+; 568  :         v_ptr += 2;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 8
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 576  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 577  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 569  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 570  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@SubtructOn
 
-; 578  :             AddToMULTI64Counter(2);
+; 571  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN17@SubtructOn
 $LN16@SubtructOn:
 
-; 579  :         else
-; 580  :             AddToMULTI32Counter(2);
+; 572  :         else
+; 573  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 $LN17@SubtructOn:
 $LN15@SubtructOn:
 
-; 581  : #endif
-; 582  :     }
-; 583  : 
-; 584  :     if (v_count & 0x1)
+; 574  : #endif
+; 575  :     }
+; 576  : 
+; 577  :     if (v_count & 0x1)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@SubtructOn
 
-; 585  :     {
-; 586  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
+; 578  :     {
+; 579  :         c = _MULTIPLY_DIGIT_UNIT_DIV(c, &k, &v_ptr[0], q_, &u_ptr[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -6053,42 +6053,42 @@ $LN15@SubtructOn:
 	call	_MULTIPLY_DIGIT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 587  :         u_ptr += 1;
+; 580  :         u_ptr += 1;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 588  :         v_ptr += 1;
+; 581  :         v_ptr += 1;
 
 	mov	rax, QWORD PTR v_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR v_ptr$[rbp], rax
 
-; 589  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 590  :         if (sizeof(k) == sizeof(_UINT64_T))
+; 582  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 583  :         if (sizeof(k) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@SubtructOn
 
-; 591  :             IncrementMULTI64Counter();
+; 584  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 	jmp	SHORT $LN20@SubtructOn
 $LN19@SubtructOn:
 
-; 592  :         else
-; 593  :             IncrementMULTI32Counter();
+; 585  :         else
+; 586  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 $LN20@SubtructOn:
 $LN18@SubtructOn:
 
-; 594  : #endif
-; 595  :     }
-; 596  : 
-; 597  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
+; 587  : #endif
+; 588  :     }
+; 589  : 
+; 590  :     c = _SUBTRUCT_UNIT_DIV(c, *u_ptr, k, u_ptr);
 
 	mov	r9, QWORD PTR u_ptr$[rbp]
 	mov	r8d, DWORD PTR k$[rbp]
@@ -6098,14 +6098,14 @@ $LN18@SubtructOn:
 	call	_SUBTRUCT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 598  :     u_ptr += 1;
+; 591  :     u_ptr += 1;
 
 	mov	rax, QWORD PTR u_ptr$[rbp]
 	add	rax, 4
 	mov	QWORD PTR u_ptr$[rbp], rax
 
-; 599  : 
-; 600  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
+; 592  : 
+; 593  :     return (DoBorrow(c, u_ptr, u_buf + u_buf_len + 1 - u_ptr));
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
@@ -6117,7 +6117,7 @@ $LN18@SubtructOn:
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoBorrow
 
-; 601  : }
+; 594  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -6143,7 +6143,7 @@ q_$ = 312
 up$ = 320
 _MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 
-; 442  : {
+; 435  : {
 
 	mov	DWORD PTR [rsp+32], r9d
 	mov	QWORD PTR [rsp+24], r8
@@ -6161,9 +6161,9 @@ _MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 443  :     __UNIT_TYPE_DIV t_hi;
-; 444  :     __UNIT_TYPE_DIV t_lo;
-; 445  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
+; 436  :     __UNIT_TYPE_DIV t_hi;
+; 437  :     __UNIT_TYPE_DIV t_lo;
+; 438  :     t_lo = _MULTIPLYX_UNIT_DIV(*vp, q_, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	edx, DWORD PTR q_$[rbp]
@@ -6172,7 +6172,7 @@ _MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 	call	_MULTIPLYX_UNIT_DIV
 	mov	DWORD PTR t_lo$[rbp], eax
 
-; 446  :     _ADDX_UNIT_DIV(_ADDX_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
+; 439  :     _ADDX_UNIT_DIV(_ADDX_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	rax, QWORD PTR k$[rbp]
@@ -6186,7 +6186,7 @@ _MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADDX_UNIT_DIV
 
-; 447  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 440  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	r9, QWORD PTR up$[rbp]
 	mov	r8d, DWORD PTR t_lo$[rbp]
@@ -6196,17 +6196,17 @@ _MULTIPLYX_DIGIT_UNIT_DIV PROC				; COMDAT
 	call	_SUBTRUCT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 448  :     *k = t_hi;
+; 441  :     *k = t_hi;
 
 	mov	rax, QWORD PTR k$[rbp]
 	mov	ecx, DWORD PTR t_hi$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 449  :     return (c);
+; 442  :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 450  : }
+; 443  : }
 
 	mov	edi, eax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -6232,7 +6232,7 @@ q_$ = 312
 up$ = 320
 _MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 
-; 431  : {
+; 424  : {
 
 	mov	DWORD PTR [rsp+32], r9d
 	mov	QWORD PTR [rsp+24], r8
@@ -6250,9 +6250,9 @@ _MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 432  :     __UNIT_TYPE_DIV t_hi;
-; 433  :     __UNIT_TYPE_DIV t_lo;
-; 434  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
+; 425  :     __UNIT_TYPE_DIV t_hi;
+; 426  :     __UNIT_TYPE_DIV t_lo;
+; 427  :     t_lo = _MULTIPLY_UNIT_DIV(*vp, q_, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	edx, DWORD PTR q_$[rbp]
@@ -6261,7 +6261,7 @@ _MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 	call	_MULTIPLY_UNIT_DIV
 	mov	DWORD PTR t_lo$[rbp], eax
 
-; 435  :     _ADD_UNIT_DIV(_ADD_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
+; 428  :     _ADD_UNIT_DIV(_ADD_UNIT_DIV(0, t_lo, *k, &t_lo), t_hi, 0, &t_hi);
 
 	lea	r9, QWORD PTR t_lo$[rbp]
 	mov	rax, QWORD PTR k$[rbp]
@@ -6275,7 +6275,7 @@ _MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 	movzx	ecx, al
 	call	_ADD_UNIT_DIV
 
-; 436  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
+; 429  :     c = _SUBTRUCT_UNIT_DIV(c, *up, t_lo, up);
 
 	mov	r9, QWORD PTR up$[rbp]
 	mov	r8d, DWORD PTR t_lo$[rbp]
@@ -6285,17 +6285,17 @@ _MULTIPLY_DIGIT_UNIT_DIV PROC				; COMDAT
 	call	_SUBTRUCT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 437  :     *k = t_hi;
+; 430  :     *k = t_hi;
 
 	mov	rax, QWORD PTR k$[rbp]
 	mov	ecx, DWORD PTR t_hi$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 438  :     return (c);
+; 431  :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 439  : }
+; 432  : }
 
 	mov	edi, eax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -6317,7 +6317,7 @@ up$ = 232
 u_count$ = 240
 DoBorrow PROC						; COMDAT
 
-; 391  : {
+; 384  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -6335,58 +6335,58 @@ DoBorrow PROC						; COMDAT
 	call	__CheckForDebuggerJustMyCode
 $LN2@DoBorrow:
 
-; 392  :     // 桁借りを続く限り行う
-; 393  :     for (;;)
-; 394  :     {
-; 395  :         if (u_count <= 0)
+; 385  :     // 桁借りを続く限り行う
+; 386  :     for (;;)
+; 387  :     {
+; 388  :         if (u_count <= 0)
 
 	cmp	QWORD PTR u_count$[rbp], 0
 	ja	SHORT $LN5@DoBorrow
 
-; 396  :         {
-; 397  :             // u の最上位まで達してしまった場合
-; 398  : 
-; 399  :             if (c)
+; 389  :         {
+; 390  :             // u の最上位まで達してしまった場合
+; 391  : 
+; 392  :             if (c)
 
 	movsx	eax, BYTE PTR c$[rbp]
 	test	eax, eax
 	je	SHORT $LN7@DoBorrow
 
-; 400  :             {
-; 401  :                 // かつそれでも桁借りを行う必要がある場合
-; 402  : 
-; 403  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 404  :                 return (TRUE);
+; 393  :             {
+; 394  :                 // かつそれでも桁借りを行う必要がある場合
+; 395  : 
+; 396  :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 397  :                 return (TRUE);
 
 	mov	eax, 1
 	jmp	SHORT $LN1@DoBorrow
 $LN7@DoBorrow:
 
-; 405  :             }
-; 406  : 
-; 407  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 408  : 
-; 409  :             return (FALSE);
+; 398  :             }
+; 399  : 
+; 400  :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 401  : 
+; 402  :             return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DoBorrow
 
-; 410  :         }
+; 403  :         }
 
 	jmp	SHORT $LN6@DoBorrow
 $LN5@DoBorrow:
 
-; 411  :         else if (c)
+; 404  :         else if (c)
 
 	movsx	eax, BYTE PTR c$[rbp]
 	test	eax, eax
 	je	SHORT $LN8@DoBorrow
 
-; 412  :         {
-; 413  :             // u の最上位に達しておらず、かつボローが立っている場合
-; 414  : 
-; 415  :             // 桁借りを継続する
-; 416  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
+; 405  :         {
+; 406  :             // u の最上位に達しておらず、かつボローが立っている場合
+; 407  : 
+; 408  :             // 桁借りを継続する
+; 409  :             c = _SUBTRUCT_UNIT_DIV(c, *up, 0, up);
 
 	mov	r9, QWORD PTR up$[rbp]
 	xor	r8d, r8d
@@ -6396,42 +6396,42 @@ $LN5@DoBorrow:
 	call	_SUBTRUCT_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 417  :             ++up;
+; 410  :             ++up;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 4
 	mov	QWORD PTR up$[rbp], rax
 
-; 418  :             --u_count;
+; 411  :             --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 419  :         }
+; 412  :         }
 
 	jmp	SHORT $LN9@DoBorrow
 $LN8@DoBorrow:
 
-; 420  :         else
-; 421  :         {
-; 422  :             // u の最上位に達しておらず、かつボローが立っていない場合
-; 423  : 
-; 424  :             // 桁借りを中断し復帰する。
-; 425  :             return (FALSE);
+; 413  :         else
+; 414  :         {
+; 415  :             // u の最上位に達しておらず、かつボローが立っていない場合
+; 416  : 
+; 417  :             // 桁借りを中断し復帰する。
+; 418  :             return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DoBorrow
 $LN9@DoBorrow:
 $LN6@DoBorrow:
 
-; 426  :         }
-; 427  :     }
+; 419  :         }
+; 420  :     }
 
 	jmp	SHORT $LN2@DoBorrow
 $LN1@DoBorrow:
 
-; 428  : }
+; 421  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -6456,7 +6456,7 @@ v_buf_len$ = 464
 q_index$ = 472
 CalculateQ_X PROC					; COMDAT
 
-; 366  : {
+; 359  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -6474,7 +6474,7 @@ CalculateQ_X PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 367  :     __UNIT_TYPE u_index = q_index + v_buf_len;
+; 360  :     __UNIT_TYPE u_index = q_index + v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
@@ -6482,42 +6482,42 @@ CalculateQ_X PROC					; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR u_index$[rbp], rax
 
-; 368  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
+; 361  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4]
 	mov	DWORD PTR uj$[rbp], eax
 
-; 369  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
+; 362  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-4]
 	mov	DWORD PTR uj_1$[rbp], eax
 
-; 370  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 363  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-8]
 	mov	DWORD PTR uj_2$[rbp], eax
 
-; 371  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 364  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-4]
 	mov	DWORD PTR v1$[rbp], eax
 
-; 372  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 365  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-8]
 	mov	DWORD PTR v2$[rbp], eax
 
-; 373  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
+; 366  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
 
 	mov	r8d, DWORD PTR v1$[rbp]
 	mov	edx, DWORD PTR uj_1$[rbp]
@@ -6525,14 +6525,14 @@ CalculateQ_X PROC					; COMDAT
 	call	AsumeQ_
 	mov	DWORD PTR q_$[rbp], eax
 
-; 374  : #ifdef DO_TRACE
-; 375  :     ReportLabel("q_ の計算");
-; 376  :     ReportVar("uj", uj);
-; 377  :     ReportVar("uj1", uj_1);
-; 378  :     ReportVar("v1", v1);
-; 379  :     ReportVar("q_", q_);
-; 380  : #endif
-; 381  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 367  : #ifdef DO_TRACE
+; 368  :     ReportLabel("q_ の計算");
+; 369  :     ReportVar("uj", uj);
+; 370  :     ReportVar("uj1", uj_1);
+; 371  :     ReportVar("v1", v1);
+; 372  :     ReportVar("q_", q_);
+; 373  : #endif
+; 374  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR v2$[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -6546,19 +6546,19 @@ CalculateQ_X PROC					; COMDAT
 	test	eax, eax
 	jne	SHORT $LN2@CalculateQ
 
-; 382  :         return (q_);
+; 375  :         return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 	jmp	SHORT $LN1@CalculateQ
 $LN2@CalculateQ:
 
-; 383  :     --q_;
+; 376  :     --q_;
 
 	mov	eax, DWORD PTR q_$[rbp]
 	dec	eax
 	mov	DWORD PTR q_$[rbp], eax
 
-; 384  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
+; 377  :     if (!CheckQ_X(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR v2$[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -6572,24 +6572,24 @@ $LN2@CalculateQ:
 	test	eax, eax
 	jne	SHORT $LN3@CalculateQ
 
-; 385  :         return (q_);
+; 378  :         return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 	jmp	SHORT $LN1@CalculateQ
 $LN3@CalculateQ:
 
-; 386  :     --q_;
+; 379  :     --q_;
 
 	mov	eax, DWORD PTR q_$[rbp]
 	dec	eax
 	mov	DWORD PTR q_$[rbp], eax
 
-; 387  :     return (q_);
+; 380  :     return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 $LN1@CalculateQ:
 
-; 388  : }
+; 381  : }
 
 	lea	rsp, QWORD PTR [rbp+424]
 	pop	rdi
@@ -6614,7 +6614,7 @@ v_buf_len$ = 464
 q_index$ = 472
 CalculateQ_ PROC					; COMDAT
 
-; 348  : {
+; 341  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -6632,7 +6632,7 @@ CalculateQ_ PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 349  :     __UNIT_TYPE u_index = q_index + v_buf_len;
+; 342  :     __UNIT_TYPE u_index = q_index + v_buf_len;
 
 	mov	rax, QWORD PTR v_buf_len$[rbp]
 	mov	rcx, QWORD PTR q_index$[rbp]
@@ -6640,42 +6640,42 @@ CalculateQ_ PROC					; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR u_index$[rbp], rax
 
-; 350  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
+; 343  :     __UNIT_TYPE_DIV uj = u_buf[u_index];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4]
 	mov	DWORD PTR uj$[rbp], eax
 
-; 351  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
+; 344  :     __UNIT_TYPE_DIV uj_1 = u_buf[u_index - 1];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-4]
 	mov	DWORD PTR uj_1$[rbp], eax
 
-; 352  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
+; 345  :     __UNIT_TYPE_DIV uj_2 = u_buf[u_index - 2];
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_index$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-8]
 	mov	DWORD PTR uj_2$[rbp], eax
 
-; 353  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
+; 346  :     __UNIT_TYPE_DIV v1 = v_buf[v_buf_len - 1];
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-4]
 	mov	DWORD PTR v1$[rbp], eax
 
-; 354  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
+; 347  :     __UNIT_TYPE_DIV v2 = v_buf[v_buf_len - 2];
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	rcx, QWORD PTR v_buf_len$[rbp]
 	mov	eax, DWORD PTR [rax+rcx*4-8]
 	mov	DWORD PTR v2$[rbp], eax
 
-; 355  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
+; 348  :     __UNIT_TYPE_DIV q_ = AsumeQ_(uj, uj_1, v1);
 
 	mov	r8d, DWORD PTR v1$[rbp]
 	mov	edx, DWORD PTR uj_1$[rbp]
@@ -6683,7 +6683,7 @@ CalculateQ_ PROC					; COMDAT
 	call	AsumeQ_
 	mov	DWORD PTR q_$[rbp], eax
 
-; 356  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 349  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR v2$[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -6697,19 +6697,19 @@ CalculateQ_ PROC					; COMDAT
 	test	eax, eax
 	jne	SHORT $LN2@CalculateQ
 
-; 357  :         return (q_);
+; 350  :         return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 	jmp	SHORT $LN1@CalculateQ
 $LN2@CalculateQ:
 
-; 358  :     --q_;
+; 351  :     --q_;
 
 	mov	eax, DWORD PTR q_$[rbp]
 	dec	eax
 	mov	DWORD PTR q_$[rbp], eax
 
-; 359  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
+; 352  :     if (!CheckQ_(q_, uj, uj_1, uj_2, v1, v2))
 
 	mov	eax, DWORD PTR v2$[rbp]
 	mov	DWORD PTR [rsp+40], eax
@@ -6723,24 +6723,24 @@ $LN2@CalculateQ:
 	test	eax, eax
 	jne	SHORT $LN3@CalculateQ
 
-; 360  :         return (q_);
+; 353  :         return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 	jmp	SHORT $LN1@CalculateQ
 $LN3@CalculateQ:
 
-; 361  :     --q_;
+; 354  :     --q_;
 
 	mov	eax, DWORD PTR q_$[rbp]
 	dec	eax
 	mov	DWORD PTR q_$[rbp], eax
 
-; 362  :     return (q_);
+; 355  :     return (q_);
 
 	mov	eax, DWORD PTR q_$[rbp]
 $LN1@CalculateQ:
 
-; 363  : }
+; 356  : }
 
 	lea	rsp, QWORD PTR [rbp+424]
 	pop	rdi
@@ -6768,7 +6768,7 @@ v1$ = 480
 v2$ = 488
 CheckQ_X PROC						; COMDAT
 
-; 291  : {
+; 284  : {
 
 	mov	DWORD PTR [rsp+32], r9d
 	mov	DWORD PTR [rsp+24], r8d
@@ -6786,17 +6786,17 @@ CheckQ_X PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 292  : #ifdef DO_TRACE
-; 293  :     ReportLabel("q_ の検査");
-; 294  :     ReportVar("q_", q_);
-; 295  :     ReportVar("uj", uj);
-; 296  :     ReportVar("uj1", uj_1);
-; 297  :     ReportVar("uj2", uj_2);
-; 298  :     ReportVar("v1", v1);
-; 299  :     ReportVar("v2", v2);
-; 300  : #endif
-; 301  :     __UNIT_TYPE_DIV lh_mi;
-; 302  :     __UNIT_TYPE_DIV lh_lo = _MULTIPLYX_UNIT_DIV(v2, q_, &lh_mi);
+; 285  : #ifdef DO_TRACE
+; 286  :     ReportLabel("q_ の検査");
+; 287  :     ReportVar("q_", q_);
+; 288  :     ReportVar("uj", uj);
+; 289  :     ReportVar("uj1", uj_1);
+; 290  :     ReportVar("uj2", uj_2);
+; 291  :     ReportVar("v1", v1);
+; 292  :     ReportVar("v2", v2);
+; 293  : #endif
+; 294  :     __UNIT_TYPE_DIV lh_mi;
+; 295  :     __UNIT_TYPE_DIV lh_lo = _MULTIPLYX_UNIT_DIV(v2, q_, &lh_mi);
 
 	lea	r8, QWORD PTR lh_mi$[rbp]
 	mov	edx, DWORD PTR q_$[rbp]
@@ -6804,15 +6804,15 @@ CheckQ_X PROC						; COMDAT
 	call	_MULTIPLYX_UNIT_DIV
 	mov	DWORD PTR lh_lo$[rbp], eax
 
-; 303  :     __UNIT_TYPE_DIV rh_hi;
-; 304  :     __UNIT_TYPE_DIV rh_mi;
-; 305  :     __UNIT_TYPE_DIV rh_lo = uj_2;
+; 296  :     __UNIT_TYPE_DIV rh_hi;
+; 297  :     __UNIT_TYPE_DIV rh_mi;
+; 298  :     __UNIT_TYPE_DIV rh_lo = uj_2;
 
 	mov	eax, DWORD PTR uj_2$[rbp]
 	mov	DWORD PTR rh_lo$[rbp], eax
 
-; 306  :     __UNIT_TYPE_DIV t_hi;
-; 307  :     __UNIT_TYPE_DIV t_mi = _MULTIPLYX_UNIT_DIV(q_, v1, &t_hi);
+; 299  :     __UNIT_TYPE_DIV t_hi;
+; 300  :     __UNIT_TYPE_DIV t_mi = _MULTIPLYX_UNIT_DIV(q_, v1, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	edx, DWORD PTR v1$[rbp]
@@ -6820,8 +6820,8 @@ CheckQ_X PROC						; COMDAT
 	call	_MULTIPLYX_UNIT_DIV
 	mov	DWORD PTR t_mi$[rbp], eax
 
-; 308  : 
-; 309  :     _SUBTRUCT_UNIT_DIV(_SUBTRUCT_UNIT_DIV(0, uj_1, t_mi, &rh_mi), uj, t_hi, &rh_hi);
+; 301  : 
+; 302  :     _SUBTRUCT_UNIT_DIV(_SUBTRUCT_UNIT_DIV(0, uj_1, t_mi, &rh_mi), uj, t_hi, &rh_hi);
 
 	lea	r9, QWORD PTR rh_mi$[rbp]
 	mov	r8d, DWORD PTR t_mi$[rbp]
@@ -6834,94 +6834,94 @@ CheckQ_X PROC						; COMDAT
 	movzx	ecx, al
 	call	_SUBTRUCT_UNIT_DIV
 
-; 310  : 
-; 311  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 312  :     if (sizeof(q_) == sizeof(_UINT64_T))
+; 303  : 
+; 304  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 305  :     if (sizeof(q_) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@CheckQ_X
 
-; 313  :         AddToMULTI64Counter(2);
+; 306  :         AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN3@CheckQ_X
 $LN2@CheckQ_X:
 
-; 314  :     else
-; 315  :         AddToMULTI32Counter(2);
+; 307  :     else
+; 308  :         AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 $LN3@CheckQ_X:
 
-; 316  : #endif
-; 317  :     if (rh_hi > 0)
+; 309  : #endif
+; 310  :     if (rh_hi > 0)
 
 	cmp	DWORD PTR rh_hi$[rbp], 0
 	jbe	SHORT $LN4@CheckQ_X
 
-; 318  :     {
-; 319  : #ifdef DO_TRACE
-; 320  :         ReportVar("result", 0);
-; 321  : #endif
-; 322  :         return (FALSE);
+; 311  :     {
+; 312  : #ifdef DO_TRACE
+; 313  :         ReportVar("result", 0);
+; 314  : #endif
+; 315  :         return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@CheckQ_X
 
-; 323  :     }
+; 316  :     }
 
 	jmp	SHORT $LN5@CheckQ_X
 $LN4@CheckQ_X:
 
-; 324  :     else if (lh_mi > rh_mi)
+; 317  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR rh_mi$[rbp]
 	cmp	DWORD PTR lh_mi$[rbp], eax
 	jbe	SHORT $LN6@CheckQ_X
 
-; 325  :     {
-; 326  : #ifdef DO_TRACE
-; 327  :         ReportVar("result", 1);
-; 328  : #endif
-; 329  :         return (TRUE);
+; 318  :     {
+; 319  : #ifdef DO_TRACE
+; 320  :         ReportVar("result", 1);
+; 321  : #endif
+; 322  :         return (TRUE);
 
 	mov	eax, 1
 	jmp	SHORT $LN1@CheckQ_X
 
-; 330  :     }
+; 323  :     }
 
 	jmp	SHORT $LN7@CheckQ_X
 $LN6@CheckQ_X:
 
-; 331  :     else if (lh_mi < rh_mi)
+; 324  :     else if (lh_mi < rh_mi)
 
 	mov	eax, DWORD PTR rh_mi$[rbp]
 	cmp	DWORD PTR lh_mi$[rbp], eax
 	jae	SHORT $LN8@CheckQ_X
 
-; 332  :     {
-; 333  : #ifdef DO_TRACE
-; 334  :         ReportVar("result", 0);
-; 335  : #endif
-; 336  :         return (FALSE);
+; 325  :     {
+; 326  : #ifdef DO_TRACE
+; 327  :         ReportVar("result", 0);
+; 328  : #endif
+; 329  :         return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@CheckQ_X
 
-; 337  :     }
+; 330  :     }
 
 	jmp	SHORT $LN9@CheckQ_X
 $LN8@CheckQ_X:
 
-; 338  :     else
-; 339  :     {
-; 340  : #ifdef DO_TRACE
-; 341  :         ReportVar("result", lh_lo > rh_lo);
-; 342  : #endif
-; 343  :         return (lh_lo > rh_lo);
+; 331  :     else
+; 332  :     {
+; 333  : #ifdef DO_TRACE
+; 334  :         ReportVar("result", lh_lo > rh_lo);
+; 335  : #endif
+; 336  :         return (lh_lo > rh_lo);
 
 	mov	eax, DWORD PTR rh_lo$[rbp]
 	cmp	DWORD PTR lh_lo$[rbp], eax
@@ -6937,8 +6937,8 @@ $LN7@CheckQ_X:
 $LN5@CheckQ_X:
 $LN1@CheckQ_X:
 
-; 344  :     }
-; 345  : }
+; 337  :     }
+; 338  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -6971,7 +6971,7 @@ v1$ = 480
 v2$ = 488
 CheckQ_	PROC						; COMDAT
 
-; 264  : {
+; 257  : {
 
 	mov	DWORD PTR [rsp+32], r9d
 	mov	DWORD PTR [rsp+24], r8d
@@ -6989,8 +6989,8 @@ CheckQ_	PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 265  :     __UNIT_TYPE_DIV lh_mi;
-; 266  :     __UNIT_TYPE_DIV lh_lo = _MULTIPLY_UNIT_DIV(v2, q_, &lh_mi);
+; 258  :     __UNIT_TYPE_DIV lh_mi;
+; 259  :     __UNIT_TYPE_DIV lh_lo = _MULTIPLY_UNIT_DIV(v2, q_, &lh_mi);
 
 	lea	r8, QWORD PTR lh_mi$[rbp]
 	mov	edx, DWORD PTR q_$[rbp]
@@ -6998,15 +6998,15 @@ CheckQ_	PROC						; COMDAT
 	call	_MULTIPLY_UNIT_DIV
 	mov	DWORD PTR lh_lo$[rbp], eax
 
-; 267  :     __UNIT_TYPE_DIV rh_hi;
-; 268  :     __UNIT_TYPE_DIV rh_mi;
-; 269  :     __UNIT_TYPE_DIV rh_lo = uj_2;
+; 260  :     __UNIT_TYPE_DIV rh_hi;
+; 261  :     __UNIT_TYPE_DIV rh_mi;
+; 262  :     __UNIT_TYPE_DIV rh_lo = uj_2;
 
 	mov	eax, DWORD PTR uj_2$[rbp]
 	mov	DWORD PTR rh_lo$[rbp], eax
 
-; 270  :     __UNIT_TYPE_DIV t_hi;
-; 271  :     __UNIT_TYPE_DIV t_mi = _MULTIPLY_UNIT_DIV(q_, v1, &t_hi);
+; 263  :     __UNIT_TYPE_DIV t_hi;
+; 264  :     __UNIT_TYPE_DIV t_mi = _MULTIPLY_UNIT_DIV(q_, v1, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	edx, DWORD PTR v1$[rbp]
@@ -7014,7 +7014,7 @@ CheckQ_	PROC						; COMDAT
 	call	_MULTIPLY_UNIT_DIV
 	mov	DWORD PTR t_mi$[rbp], eax
 
-; 272  :     _SUBTRUCT_UNIT_DIV(_SUBTRUCT_UNIT_DIV(0, uj_1, t_mi, &rh_mi), uj, t_hi, &rh_hi);
+; 265  :     _SUBTRUCT_UNIT_DIV(_SUBTRUCT_UNIT_DIV(0, uj_1, t_mi, &rh_mi), uj, t_hi, &rh_hi);
 
 	lea	r9, QWORD PTR rh_mi$[rbp]
 	mov	r8d, DWORD PTR t_mi$[rbp]
@@ -7027,69 +7027,69 @@ CheckQ_	PROC						; COMDAT
 	movzx	ecx, al
 	call	_SUBTRUCT_UNIT_DIV
 
-; 273  : 
-; 274  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 275  :     if (sizeof(q_) == sizeof(_UINT64_T))
+; 266  : 
+; 267  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 268  :     if (sizeof(q_) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@CheckQ_
 
-; 276  :         AddToMULTI64Counter(2);
+; 269  :         AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 	jmp	SHORT $LN3@CheckQ_
 $LN2@CheckQ_:
 
-; 277  :     else
-; 278  :         AddToMULTI32Counter(2);
+; 270  :     else
+; 271  :         AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 $LN3@CheckQ_:
 
-; 279  : #endif
-; 280  :     if (rh_hi > 0)
+; 272  : #endif
+; 273  :     if (rh_hi > 0)
 
 	cmp	DWORD PTR rh_hi$[rbp], 0
 	jbe	SHORT $LN4@CheckQ_
 
-; 281  :         return (FALSE);
+; 274  :         return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@CheckQ_
 	jmp	SHORT $LN5@CheckQ_
 $LN4@CheckQ_:
 
-; 282  :     else if (lh_mi > rh_mi)
+; 275  :     else if (lh_mi > rh_mi)
 
 	mov	eax, DWORD PTR rh_mi$[rbp]
 	cmp	DWORD PTR lh_mi$[rbp], eax
 	jbe	SHORT $LN6@CheckQ_
 
-; 283  :         return (TRUE);
+; 276  :         return (TRUE);
 
 	mov	eax, 1
 	jmp	SHORT $LN1@CheckQ_
 	jmp	SHORT $LN7@CheckQ_
 $LN6@CheckQ_:
 
-; 284  :     else if (lh_mi < rh_mi)
+; 277  :     else if (lh_mi < rh_mi)
 
 	mov	eax, DWORD PTR rh_mi$[rbp]
 	cmp	DWORD PTR lh_mi$[rbp], eax
 	jae	SHORT $LN8@CheckQ_
 
-; 285  :         return (FALSE);
+; 278  :         return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@CheckQ_
 	jmp	SHORT $LN9@CheckQ_
 $LN8@CheckQ_:
 
-; 286  :     else
-; 287  :         return (lh_lo > rh_lo);
+; 279  :     else
+; 280  :         return (lh_lo > rh_lo);
 
 	mov	eax, DWORD PTR rh_lo$[rbp]
 	cmp	DWORD PTR lh_lo$[rbp], eax
@@ -7105,7 +7105,7 @@ $LN7@CheckQ_:
 $LN5@CheckQ_:
 $LN1@CheckQ_:
 
-; 288  : }
+; 281  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -7129,7 +7129,7 @@ uj_1$ = 296
 v1$ = 304
 AsumeQ_	PROC						; COMDAT
 
-; 249  : {
+; 242  : {
 
 	mov	DWORD PTR [rsp+24], r8d
 	mov	DWORD PTR [rsp+16], edx
@@ -7146,20 +7146,20 @@ AsumeQ_	PROC						; COMDAT
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 250  :     if (uj == v1)
+; 243  :     if (uj == v1)
 
 	mov	eax, DWORD PTR v1$[rbp]
 	cmp	DWORD PTR uj$[rbp], eax
 	jne	SHORT $LN2@AsumeQ_
 
-; 251  :         return (-1);
+; 244  :         return (-1);
 
 	mov	eax, -1					; ffffffffH
 	jmp	SHORT $LN1@AsumeQ_
 $LN2@AsumeQ_:
 
-; 252  :     __UNIT_TYPE_DIV r;
-; 253  :     __UNIT_TYPE_DIV q = _DIVREM_UNIT(uj, uj_1, v1, &r);
+; 245  :     __UNIT_TYPE_DIV r;
+; 246  :     __UNIT_TYPE_DIV q = _DIVREM_UNIT(uj, uj_1, v1, &r);
 
 	lea	r9, QWORD PTR r$[rbp]
 	mov	r8d, DWORD PTR v1$[rbp]
@@ -7168,32 +7168,32 @@ $LN2@AsumeQ_:
 	call	_DIVREM_UNIT
 	mov	DWORD PTR q$[rbp], eax
 
-; 254  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 255  :     if (sizeof(v1) == sizeof(_UINT64_T))
+; 247  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 248  :     if (sizeof(v1) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN3@AsumeQ_
 
-; 256  :         IncrementDIV64Counter();
+; 249  :         IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN4@AsumeQ_
 $LN3@AsumeQ_:
 
-; 257  :     else
-; 258  :         IncrementDIV32Counter();
+; 250  :     else
+; 251  :         IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN4@AsumeQ_:
 
-; 259  : #endif
-; 260  :     return (q);
+; 252  : #endif
+; 253  :     return (q);
 
 	mov	eax, DWORD PTR q$[rbp]
 $LN1@AsumeQ_:
 
-; 261  : }
+; 254  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -7216,7 +7216,7 @@ yp$ = 240
 zp$ = 248
 _ADD_2WORDS_ADCX_DIV PROC				; COMDAT
 
-; 4550 : {
+; 4543 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -7234,8 +7234,8 @@ _ADD_2WORDS_ADCX_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4551 : #ifdef _MSC_VER
-; 4552 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4544 : #ifdef _MSC_VER
+; 4545 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -7255,7 +7255,7 @@ _ADD_2WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4553 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4546 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -7275,46 +7275,46 @@ _ADD_2WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4554 : #elif defined(__GNUC__)
-; 4555 : #ifdef _M_IX86
-; 4556 :     __asm__ volatile (
-; 4557 :         "addb\t$-1, %0\n\t"
-; 4558 :         "movl\t(%1), %%ecx\n\t"
-; 4559 :         "adcxl\t(%2), %%ecx\n\t"
-; 4560 :         "movl\t%%ecx, (%3)\n\t"
-; 4561 :         "movl\t4(%1), %%ecx\n\t"
-; 4562 :         "adcxl\t4(%2), %%ecx\n\t"
-; 4563 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4564 :         "setc\t%0"
-; 4565 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4566 :         :
-; 4567 :         : "cc", "memory", "%ecx"
-; 4568 : );
-; 4569 : #elif defined(_M_IX64)
-; 4570 :     __asm__ volatile (
-; 4571 :         "addb\t$-1, %0\n\t"
-; 4572 :         "movq\t(%1), %%rcx\n\t"
-; 4573 :         "adcxq\t(%2), %%rcx\n\t"
-; 4574 :         "movq\t%%rcx, (%3)\n\t"
-; 4575 :         "movq\t8(%1), %%rcx\n\t"
-; 4576 :         "adcxq\t8(%2), %%rcx\n\t"
-; 4577 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4578 :         "setc\t%0"
-; 4579 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4580 :         :
-; 4581 :         : "cc", "memory", "%rcx"
-; 4582 : );
-; 4583 : #else
-; 4584 : #error unknown platform
-; 4585 : #endif
-; 4586 : #else
-; 4587 : #error unknown compiler
-; 4588 : #endif
-; 4589 :     return (c);
+; 4547 : #elif defined(__GNUC__)
+; 4548 : #ifdef _M_IX86
+; 4549 :     __asm__ volatile (
+; 4550 :         "addb\t$-1, %0\n\t"
+; 4551 :         "movl\t(%1), %%ecx\n\t"
+; 4552 :         "adcxl\t(%2), %%ecx\n\t"
+; 4553 :         "movl\t%%ecx, (%3)\n\t"
+; 4554 :         "movl\t4(%1), %%ecx\n\t"
+; 4555 :         "adcxl\t4(%2), %%ecx\n\t"
+; 4556 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4557 :         "setc\t%0"
+; 4558 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4559 :         :
+; 4560 :         : "cc", "memory", "%ecx"
+; 4561 : );
+; 4562 : #elif defined(_M_IX64)
+; 4563 :     __asm__ volatile (
+; 4564 :         "addb\t$-1, %0\n\t"
+; 4565 :         "movq\t(%1), %%rcx\n\t"
+; 4566 :         "adcxq\t(%2), %%rcx\n\t"
+; 4567 :         "movq\t%%rcx, (%3)\n\t"
+; 4568 :         "movq\t8(%1), %%rcx\n\t"
+; 4569 :         "adcxq\t8(%2), %%rcx\n\t"
+; 4570 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4571 :         "setc\t%0"
+; 4572 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4573 :         :
+; 4574 :         : "cc", "memory", "%rcx"
+; 4575 : );
+; 4576 : #else
+; 4577 : #error unknown platform
+; 4578 : #endif
+; 4579 : #else
+; 4580 : #error unknown compiler
+; 4581 : #endif
+; 4582 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4590 : }
+; 4583 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -7332,7 +7332,7 @@ yp$ = 240
 zp$ = 248
 _ADD_2WORDS_ADC_DIV PROC				; COMDAT
 
-; 4507 : {
+; 4500 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -7350,8 +7350,8 @@ _ADD_2WORDS_ADC_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4508 : #ifdef _MSC_VER
-; 4509 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4501 : #ifdef _MSC_VER
+; 4502 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -7371,7 +7371,7 @@ _ADD_2WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4510 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4503 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -7391,46 +7391,46 @@ _ADD_2WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4511 : #elif defined(__GNUC__)
-; 4512 : #ifdef _M_IX86
-; 4513 :     __asm__ volatile (
-; 4514 :         "addb\t$-1, %0\n\t"
-; 4515 :         "movl\t(%1), %%ecx\n\t"
-; 4516 :         "adcl\t(%2), %%ecx\n\t"
-; 4517 :         "movl\t%%ecx, (%3)\n\t"
-; 4518 :         "movl\t4(%1), %%ecx\n\t"
-; 4519 :         "adcl\t4(%2), %%ecx\n\t"
-; 4520 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4521 :         "setc\t%0"
-; 4522 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4523 :         :
-; 4524 :         : "cc", "memory", "%ecx"
-; 4525 : );
-; 4526 : #elif defined(_M_IX64)
-; 4527 :     __asm__ volatile (
-; 4528 :         "addb\t$-1, %0\n\t"
-; 4529 :         "movq\t(%1), %%rcx\n\t"
-; 4530 :         "adcq\t(%2), %%rcx\n\t"
-; 4531 :         "movq\t%%rcx, (%3)\n\t"
-; 4532 :         "movq\t8(%1), %%rcx\n\t"
-; 4533 :         "adcq\t8(%2), %%rcx\n\t"
-; 4534 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4535 :         "setc\t%0"
-; 4536 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4537 :         :
-; 4538 :         : "cc", "memory", "%rcx"
-; 4539 : );
-; 4540 : #else
-; 4541 : #error unknown platform
-; 4542 : #endif
-; 4543 : #else
-; 4544 : #error unknown compiler
-; 4545 : #endif
-; 4546 :     return (c);
+; 4504 : #elif defined(__GNUC__)
+; 4505 : #ifdef _M_IX86
+; 4506 :     __asm__ volatile (
+; 4507 :         "addb\t$-1, %0\n\t"
+; 4508 :         "movl\t(%1), %%ecx\n\t"
+; 4509 :         "adcl\t(%2), %%ecx\n\t"
+; 4510 :         "movl\t%%ecx, (%3)\n\t"
+; 4511 :         "movl\t4(%1), %%ecx\n\t"
+; 4512 :         "adcl\t4(%2), %%ecx\n\t"
+; 4513 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4514 :         "setc\t%0"
+; 4515 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4516 :         :
+; 4517 :         : "cc", "memory", "%ecx"
+; 4518 : );
+; 4519 : #elif defined(_M_IX64)
+; 4520 :     __asm__ volatile (
+; 4521 :         "addb\t$-1, %0\n\t"
+; 4522 :         "movq\t(%1), %%rcx\n\t"
+; 4523 :         "adcq\t(%2), %%rcx\n\t"
+; 4524 :         "movq\t%%rcx, (%3)\n\t"
+; 4525 :         "movq\t8(%1), %%rcx\n\t"
+; 4526 :         "adcq\t8(%2), %%rcx\n\t"
+; 4527 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4528 :         "setc\t%0"
+; 4529 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4530 :         :
+; 4531 :         : "cc", "memory", "%rcx"
+; 4532 : );
+; 4533 : #else
+; 4534 : #error unknown platform
+; 4535 : #endif
+; 4536 : #else
+; 4537 : #error unknown compiler
+; 4538 : #endif
+; 4539 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4547 : }
+; 4540 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -7448,7 +7448,7 @@ yp$ = 240
 zp$ = 248
 _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 
-; 4164 : {
+; 4157 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -7466,8 +7466,8 @@ _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4165 : #ifdef _MSC_VER
-; 4166 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4158 : #ifdef _MSC_VER
+; 4159 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -7487,7 +7487,7 @@ _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4167 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4160 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -7507,7 +7507,7 @@ _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4168 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4161 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -7527,7 +7527,7 @@ _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4169 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4162 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -7547,58 +7547,58 @@ _ADD_4WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4170 : #elif defined(__GNUC__)
-; 4171 : #ifdef _M_IX86
-; 4172 :     __asm__ volatile (
-; 4173 :         "addb\t$-1, %0\n\t"
-; 4174 :         "movl\t(%1), %%ecx\n\t"
-; 4175 :         "adcxl\t(%2), %%ecx\n\t"
-; 4176 :         "movl\t%%ecx, (%3)\n\t"
-; 4177 :         "movl\t4(%1), %%ecx\n\t"
-; 4178 :         "adcxl\t4(%2), %%ecx\n\t"
-; 4179 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4180 :         "movl\t8(%1), %%ecx\n\t"
-; 4181 :         "adcxl\t8(%2), %%ecx\n\t"
-; 4182 :         "movl\t%%ecx, 8(%3)\n\t"
-; 4183 :         "movl\t12(%1), %%ecx\n\t"
-; 4184 :         "adcxl\t12(%2), %%ecx\n\t"
-; 4185 :         "movl\t%%ecx, 12(%3)\n\t"
-; 4186 :         "setc\t%0"
-; 4187 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4188 :         :
-; 4189 :         : "cc", "memory", "%ecx"
-; 4190 : );
-; 4191 : #elif defined(_M_IX64)
-; 4192 :     __asm__ volatile (
-; 4193 :         "addb\t$-1, %0\n\t"
-; 4194 :         "movq\t(%1), %%rcx\n\t"
-; 4195 :         "adcxq\t(%2), %%rcx\n\t"
-; 4196 :         "movq\t%%rcx, (%3)\n\t"
-; 4197 :         "movq\t8(%1), %%rcx\n\t"
-; 4198 :         "adcxq\t8(%2), %%rcx\n\t"
-; 4199 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4200 :         "movq\t16(%1), %%rcx\n\t"
-; 4201 :         "adcxq\t16(%2), %%rcx\n\t"
-; 4202 :         "movq\t%%rcx, 16(%3)\n\t"
-; 4203 :         "movq\t24(%1), %%rcx\n\t"
-; 4204 :         "adcxq\t24(%2), %%rcx\n\t"
-; 4205 :         "movq\t%%rcx, 24(%3)\n\t"
-; 4206 :         "setc\t%0"
-; 4207 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4208 :         :
-; 4209 :         : "cc", "memory", "%rcx"
-; 4210 : );
-; 4211 : #else
-; 4212 : #error unknown platform
-; 4213 : #endif
-; 4214 : #else
-; 4215 : #error unknown compiler
-; 4216 : #endif
-; 4217 :     return (c);
+; 4163 : #elif defined(__GNUC__)
+; 4164 : #ifdef _M_IX86
+; 4165 :     __asm__ volatile (
+; 4166 :         "addb\t$-1, %0\n\t"
+; 4167 :         "movl\t(%1), %%ecx\n\t"
+; 4168 :         "adcxl\t(%2), %%ecx\n\t"
+; 4169 :         "movl\t%%ecx, (%3)\n\t"
+; 4170 :         "movl\t4(%1), %%ecx\n\t"
+; 4171 :         "adcxl\t4(%2), %%ecx\n\t"
+; 4172 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4173 :         "movl\t8(%1), %%ecx\n\t"
+; 4174 :         "adcxl\t8(%2), %%ecx\n\t"
+; 4175 :         "movl\t%%ecx, 8(%3)\n\t"
+; 4176 :         "movl\t12(%1), %%ecx\n\t"
+; 4177 :         "adcxl\t12(%2), %%ecx\n\t"
+; 4178 :         "movl\t%%ecx, 12(%3)\n\t"
+; 4179 :         "setc\t%0"
+; 4180 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4181 :         :
+; 4182 :         : "cc", "memory", "%ecx"
+; 4183 : );
+; 4184 : #elif defined(_M_IX64)
+; 4185 :     __asm__ volatile (
+; 4186 :         "addb\t$-1, %0\n\t"
+; 4187 :         "movq\t(%1), %%rcx\n\t"
+; 4188 :         "adcxq\t(%2), %%rcx\n\t"
+; 4189 :         "movq\t%%rcx, (%3)\n\t"
+; 4190 :         "movq\t8(%1), %%rcx\n\t"
+; 4191 :         "adcxq\t8(%2), %%rcx\n\t"
+; 4192 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4193 :         "movq\t16(%1), %%rcx\n\t"
+; 4194 :         "adcxq\t16(%2), %%rcx\n\t"
+; 4195 :         "movq\t%%rcx, 16(%3)\n\t"
+; 4196 :         "movq\t24(%1), %%rcx\n\t"
+; 4197 :         "adcxq\t24(%2), %%rcx\n\t"
+; 4198 :         "movq\t%%rcx, 24(%3)\n\t"
+; 4199 :         "setc\t%0"
+; 4200 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4201 :         :
+; 4202 :         : "cc", "memory", "%rcx"
+; 4203 : );
+; 4204 : #else
+; 4205 : #error unknown platform
+; 4206 : #endif
+; 4207 : #else
+; 4208 : #error unknown compiler
+; 4209 : #endif
+; 4210 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4218 : }
+; 4211 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -7616,7 +7616,7 @@ yp$ = 240
 zp$ = 248
 _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 
-; 4107 : {
+; 4100 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -7634,8 +7634,8 @@ _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4108 : #ifdef _MSC_VER
-; 4109 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 4101 : #ifdef _MSC_VER
+; 4102 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -7655,7 +7655,7 @@ _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4110 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 4103 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -7675,7 +7675,7 @@ _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4111 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 4104 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -7695,7 +7695,7 @@ _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4112 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 4105 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -7715,58 +7715,58 @@ _ADD_4WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 4113 : #elif defined(__GNUC__)
-; 4114 : #ifdef _M_IX86
-; 4115 :     __asm__ volatile (
-; 4116 :         "addb\t$-1, %0\n\t"
-; 4117 :         "movl\t(%1), %%ecx\n\t"
-; 4118 :         "adcl\t(%2), %%ecx\n\t"
-; 4119 :         "movl\t%%ecx, (%3)\n\t"
-; 4120 :         "movl\t4(%1), %%ecx\n\t"
-; 4121 :         "adcl\t4(%2), %%ecx\n\t"
-; 4122 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4123 :         "movl\t8(%1), %%ecx\n\t"
-; 4124 :         "adcl\t8(%2), %%ecx\n\t"
-; 4125 :         "movl\t%%ecx, 8(%3)\n\t"
-; 4126 :         "movl\t12(%1), %%ecx\n\t"
-; 4127 :         "adcl\t12(%2), %%ecx\n\t"
-; 4128 :         "movl\t%%ecx, 12(%3)\n\t"
-; 4129 :         "setc\t%0"
-; 4130 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4131 :         :
-; 4132 :         : "cc", "memory", "%ecx"
-; 4133 : );
-; 4134 : #elif defined(_M_IX64)
-; 4135 :     __asm__ volatile (
-; 4136 :         "addb\t$-1, %0\n\t"
-; 4137 :         "movq\t(%1), %%rcx\n\t"
-; 4138 :         "adcq\t(%2), %%rcx\n\t"
-; 4139 :         "movq\t%%rcx, (%3)\n\t"
-; 4140 :         "movq\t8(%1), %%rcx\n\t"
-; 4141 :         "adcq\t8(%2), %%rcx\n\t"
-; 4142 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4143 :         "movq\t16(%1), %%rcx\n\t"
-; 4144 :         "adcq\t16(%2), %%rcx\n\t"
-; 4145 :         "movq\t%%rcx, 16(%3)\n\t"
-; 4146 :         "movq\t24(%1), %%rcx\n\t"
-; 4147 :         "adcq\t24(%2), %%rcx\n\t"
-; 4148 :         "movq\t%%rcx, 24(%3)\n\t"
-; 4149 :         "setc\t%0"
-; 4150 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4151 :         :
-; 4152 :         : "cc", "memory", "%rcx"
-; 4153 : );
-; 4154 : #else
-; 4155 : #error unknown platform
-; 4156 : #endif
-; 4157 : #else
-; 4158 : #error unknown compiler
-; 4159 : #endif
-; 4160 :     return (c);
+; 4106 : #elif defined(__GNUC__)
+; 4107 : #ifdef _M_IX86
+; 4108 :     __asm__ volatile (
+; 4109 :         "addb\t$-1, %0\n\t"
+; 4110 :         "movl\t(%1), %%ecx\n\t"
+; 4111 :         "adcl\t(%2), %%ecx\n\t"
+; 4112 :         "movl\t%%ecx, (%3)\n\t"
+; 4113 :         "movl\t4(%1), %%ecx\n\t"
+; 4114 :         "adcl\t4(%2), %%ecx\n\t"
+; 4115 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4116 :         "movl\t8(%1), %%ecx\n\t"
+; 4117 :         "adcl\t8(%2), %%ecx\n\t"
+; 4118 :         "movl\t%%ecx, 8(%3)\n\t"
+; 4119 :         "movl\t12(%1), %%ecx\n\t"
+; 4120 :         "adcl\t12(%2), %%ecx\n\t"
+; 4121 :         "movl\t%%ecx, 12(%3)\n\t"
+; 4122 :         "setc\t%0"
+; 4123 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4124 :         :
+; 4125 :         : "cc", "memory", "%ecx"
+; 4126 : );
+; 4127 : #elif defined(_M_IX64)
+; 4128 :     __asm__ volatile (
+; 4129 :         "addb\t$-1, %0\n\t"
+; 4130 :         "movq\t(%1), %%rcx\n\t"
+; 4131 :         "adcq\t(%2), %%rcx\n\t"
+; 4132 :         "movq\t%%rcx, (%3)\n\t"
+; 4133 :         "movq\t8(%1), %%rcx\n\t"
+; 4134 :         "adcq\t8(%2), %%rcx\n\t"
+; 4135 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4136 :         "movq\t16(%1), %%rcx\n\t"
+; 4137 :         "adcq\t16(%2), %%rcx\n\t"
+; 4138 :         "movq\t%%rcx, 16(%3)\n\t"
+; 4139 :         "movq\t24(%1), %%rcx\n\t"
+; 4140 :         "adcq\t24(%2), %%rcx\n\t"
+; 4141 :         "movq\t%%rcx, 24(%3)\n\t"
+; 4142 :         "setc\t%0"
+; 4143 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4144 :         :
+; 4145 :         : "cc", "memory", "%rcx"
+; 4146 : );
+; 4147 : #else
+; 4148 : #error unknown platform
+; 4149 : #endif
+; 4150 : #else
+; 4151 : #error unknown compiler
+; 4152 : #endif
+; 4153 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4161 : }
+; 4154 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -7784,7 +7784,7 @@ yp$ = 240
 zp$ = 248
 _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 
-; 3624 : {
+; 3617 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -7802,8 +7802,8 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 3625 : #ifdef _MSC_VER
-; 3626 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3618 : #ifdef _MSC_VER
+; 3619 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -7823,7 +7823,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3627 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3620 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -7843,7 +7843,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3628 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3621 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -7863,7 +7863,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3629 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3622 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -7883,7 +7883,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3630 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3623 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -7903,7 +7903,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3631 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3624 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -7923,7 +7923,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3632 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3625 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -7943,7 +7943,7 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3633 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3626 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -7963,82 +7963,82 @@ _ADD_8WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3634 : #elif defined(__GNUC__)
-; 3635 : #ifdef _M_IX86
-; 3636 :     __asm__ volatile (
-; 3637 :         "addb\t$-1, %0\n\t"
-; 3638 :         "movl\t(%1), %%ecx\n\t"
-; 3639 :         "adcxl\t(%2), %%ecx\n\t"
-; 3640 :         "movl\t%%ecx, (%3)\n\t"
-; 3641 :         "movl\t4(%1), %%ecx\n\t"
-; 3642 :         "adcxl\t4(%2), %%ecx\n\t"
-; 3643 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3644 :         "movl\t8(%1), %%ecx\n\t"
-; 3645 :         "adcxl\t8(%2), %%ecx\n\t"
-; 3646 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3647 :         "movl\t12(%1), %%ecx\n\t"
-; 3648 :         "adcxl\t12(%2), %%ecx\n\t"
-; 3649 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3650 :         "movl\t16(%1), %%ecx\n\t"
-; 3651 :         "adcxl\t16(%2), %%ecx\n\t"
-; 3652 :         "movl\t%%ecx, 16(%3)\n\t"
-; 3653 :         "movl\t20(%1), %%ecx\n\t"
-; 3654 :         "adcxl\t20(%2), %%ecx\n\t"
-; 3655 :         "movl\t%%ecx, 20(%3)\n\t"
-; 3656 :         "movl\t24(%1), %%ecx\n\t"
-; 3657 :         "adcxl\t24(%2), %%ecx\n\t"
-; 3658 :         "movl\t%%ecx, 24(%3)\n\t"
-; 3659 :         "movl\t28(%1), %%ecx\n\t"
-; 3660 :         "adcxl\t28(%2), %%ecx\n\t"
-; 3661 :         "movl\t%%ecx, 28(%3)\n\t"
-; 3662 :         "setc\t%0"
-; 3663 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3664 :         :
-; 3665 :         : "cc", "memory", "%ecx"
-; 3666 : );
-; 3667 : #elif defined(_M_IX64)
-; 3668 :     __asm__ volatile (
-; 3669 :         "addb\t$-1, %0\n\t"
-; 3670 :         "movq\t(%1), %%rcx\n\t"
-; 3671 :         "adcxq\t(%2), %%rcx\n\t"
-; 3672 :         "movq\t%%rcx, (%3)\n\t"
-; 3673 :         "movq\t8(%1), %%rcx\n\t"
-; 3674 :         "adcxq\t8(%2), %%rcx\n\t"
-; 3675 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3676 :         "movq\t16(%1), %%rcx\n\t"
-; 3677 :         "adcxq\t16(%2), %%rcx\n\t"
-; 3678 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3679 :         "movq\t24(%1), %%rcx\n\t"
-; 3680 :         "adcxq\t24(%2), %%rcx\n\t"
-; 3681 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3682 :         "movq\t32(%1), %%rcx\n\t"
-; 3683 :         "adcxq\t32(%2), %%rcx\n\t"
-; 3684 :         "movq\t%%rcx, 32(%3)\n\t"
-; 3685 :         "movq\t40(%1), %%rcx\n\t"
-; 3686 :         "adcxq\t40(%2), %%rcx\n\t"
-; 3687 :         "movq\t%%rcx, 40(%3)\n\t"
-; 3688 :         "movq\t48(%1), %%rcx\n\t"
-; 3689 :         "adcxq\t48(%2), %%rcx\n\t"
-; 3690 :         "movq\t%%rcx, 48(%3)\n\t"
-; 3691 :         "movq\t56(%1), %%rcx\n\t"
-; 3692 :         "adcxq\t56(%2), %%rcx\n\t"
-; 3693 :         "movq\t%%rcx, 56(%3)\n\t"
-; 3694 :         "setc\t%0"
-; 3695 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3696 :         :
-; 3697 :         : "cc", "memory", "%rcx"
-; 3698 : );
-; 3699 : #else
-; 3700 : #error unknown platform
-; 3701 : #endif
-; 3702 : #else
-; 3703 : #error unknown compiler
-; 3704 : #endif
-; 3705 :     return (c);
+; 3627 : #elif defined(__GNUC__)
+; 3628 : #ifdef _M_IX86
+; 3629 :     __asm__ volatile (
+; 3630 :         "addb\t$-1, %0\n\t"
+; 3631 :         "movl\t(%1), %%ecx\n\t"
+; 3632 :         "adcxl\t(%2), %%ecx\n\t"
+; 3633 :         "movl\t%%ecx, (%3)\n\t"
+; 3634 :         "movl\t4(%1), %%ecx\n\t"
+; 3635 :         "adcxl\t4(%2), %%ecx\n\t"
+; 3636 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3637 :         "movl\t8(%1), %%ecx\n\t"
+; 3638 :         "adcxl\t8(%2), %%ecx\n\t"
+; 3639 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3640 :         "movl\t12(%1), %%ecx\n\t"
+; 3641 :         "adcxl\t12(%2), %%ecx\n\t"
+; 3642 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3643 :         "movl\t16(%1), %%ecx\n\t"
+; 3644 :         "adcxl\t16(%2), %%ecx\n\t"
+; 3645 :         "movl\t%%ecx, 16(%3)\n\t"
+; 3646 :         "movl\t20(%1), %%ecx\n\t"
+; 3647 :         "adcxl\t20(%2), %%ecx\n\t"
+; 3648 :         "movl\t%%ecx, 20(%3)\n\t"
+; 3649 :         "movl\t24(%1), %%ecx\n\t"
+; 3650 :         "adcxl\t24(%2), %%ecx\n\t"
+; 3651 :         "movl\t%%ecx, 24(%3)\n\t"
+; 3652 :         "movl\t28(%1), %%ecx\n\t"
+; 3653 :         "adcxl\t28(%2), %%ecx\n\t"
+; 3654 :         "movl\t%%ecx, 28(%3)\n\t"
+; 3655 :         "setc\t%0"
+; 3656 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3657 :         :
+; 3658 :         : "cc", "memory", "%ecx"
+; 3659 : );
+; 3660 : #elif defined(_M_IX64)
+; 3661 :     __asm__ volatile (
+; 3662 :         "addb\t$-1, %0\n\t"
+; 3663 :         "movq\t(%1), %%rcx\n\t"
+; 3664 :         "adcxq\t(%2), %%rcx\n\t"
+; 3665 :         "movq\t%%rcx, (%3)\n\t"
+; 3666 :         "movq\t8(%1), %%rcx\n\t"
+; 3667 :         "adcxq\t8(%2), %%rcx\n\t"
+; 3668 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3669 :         "movq\t16(%1), %%rcx\n\t"
+; 3670 :         "adcxq\t16(%2), %%rcx\n\t"
+; 3671 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3672 :         "movq\t24(%1), %%rcx\n\t"
+; 3673 :         "adcxq\t24(%2), %%rcx\n\t"
+; 3674 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3675 :         "movq\t32(%1), %%rcx\n\t"
+; 3676 :         "adcxq\t32(%2), %%rcx\n\t"
+; 3677 :         "movq\t%%rcx, 32(%3)\n\t"
+; 3678 :         "movq\t40(%1), %%rcx\n\t"
+; 3679 :         "adcxq\t40(%2), %%rcx\n\t"
+; 3680 :         "movq\t%%rcx, 40(%3)\n\t"
+; 3681 :         "movq\t48(%1), %%rcx\n\t"
+; 3682 :         "adcxq\t48(%2), %%rcx\n\t"
+; 3683 :         "movq\t%%rcx, 48(%3)\n\t"
+; 3684 :         "movq\t56(%1), %%rcx\n\t"
+; 3685 :         "adcxq\t56(%2), %%rcx\n\t"
+; 3686 :         "movq\t%%rcx, 56(%3)\n\t"
+; 3687 :         "setc\t%0"
+; 3688 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3689 :         :
+; 3690 :         : "cc", "memory", "%rcx"
+; 3691 : );
+; 3692 : #else
+; 3693 : #error unknown platform
+; 3694 : #endif
+; 3695 : #else
+; 3696 : #error unknown compiler
+; 3697 : #endif
+; 3698 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 3706 : }
+; 3699 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8056,7 +8056,7 @@ yp$ = 240
 zp$ = 248
 _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 
-; 3539 : {
+; 3532 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -8074,8 +8074,8 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 3540 : #ifdef _MSC_VER
-; 3541 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 3533 : #ifdef _MSC_VER
+; 3534 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -8095,7 +8095,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3542 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 3535 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -8115,7 +8115,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3543 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 3536 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -8135,7 +8135,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3544 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 3537 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -8155,7 +8155,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3545 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 3538 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -8175,7 +8175,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3546 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 3539 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -8195,7 +8195,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3547 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 3540 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -8215,7 +8215,7 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3548 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 3541 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -8235,82 +8235,82 @@ _ADD_8WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 3549 : #elif defined(__GNUC__)
-; 3550 : #ifdef _M_IX86
-; 3551 :     __asm__ volatile (
-; 3552 :         "addb\t$-1, %0\n\t"
-; 3553 :         "movl\t(%1), %%ecx\n\t"
-; 3554 :         "adcl\t(%2), %%ecx\n\t"
-; 3555 :         "movl\t%%ecx, (%3)\n\t"
-; 3556 :         "movl\t4(%1), %%ecx\n\t"
-; 3557 :         "adcl\t4(%2), %%ecx\n\t"
-; 3558 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3559 :         "movl\t8(%1), %%ecx\n\t"
-; 3560 :         "adcl\t8(%2), %%ecx\n\t"
-; 3561 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3562 :         "movl\t12(%1), %%ecx\n\t"
-; 3563 :         "adcl\t12(%2), %%ecx\n\t"
-; 3564 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3565 :         "movl\t16(%1), %%ecx\n\t"
-; 3566 :         "adcl\t16(%2), %%ecx\n\t"
-; 3567 :         "movl\t%%ecx, 16(%3)\n\t"
-; 3568 :         "movl\t20(%1), %%ecx\n\t"
-; 3569 :         "adcl\t20(%2), %%ecx\n\t"
-; 3570 :         "movl\t%%ecx, 20(%3)\n\t"
-; 3571 :         "movl\t24(%1), %%ecx\n\t"
-; 3572 :         "adcl\t24(%2), %%ecx\n\t"
-; 3573 :         "movl\t%%ecx, 24(%3)\n\t"
-; 3574 :         "movl\t28(%1), %%ecx\n\t"
-; 3575 :         "adcl\t28(%2), %%ecx\n\t"
-; 3576 :         "movl\t%%ecx, 28(%3)\n\t"
-; 3577 :         "setc\t%0"
-; 3578 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3579 :         :
-; 3580 :         : "cc", "memory", "%ecx"
-; 3581 : );
-; 3582 : #elif defined(_M_IX64)
-; 3583 :     __asm__ volatile (
-; 3584 :         "addb\t$-1, %0\n\t"
-; 3585 :         "movq\t(%1), %%rcx\n\t"
-; 3586 :         "adcq\t(%2), %%rcx\n\t"
-; 3587 :         "movq\t%%rcx, (%3)\n\t"
-; 3588 :         "movq\t8(%1), %%rcx\n\t"
-; 3589 :         "adcq\t8(%2), %%rcx\n\t"
-; 3590 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3591 :         "movq\t16(%1), %%rcx\n\t"
-; 3592 :         "adcq\t16(%2), %%rcx\n\t"
-; 3593 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3594 :         "movq\t24(%1), %%rcx\n\t"
-; 3595 :         "adcq\t24(%2), %%rcx\n\t"
-; 3596 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3597 :         "movq\t32(%1), %%rcx\n\t"
-; 3598 :         "adcq\t32(%2), %%rcx\n\t"
-; 3599 :         "movq\t%%rcx, 32(%3)\n\t"
-; 3600 :         "movq\t40(%1), %%rcx\n\t"
-; 3601 :         "adcq\t40(%2), %%rcx\n\t"
-; 3602 :         "movq\t%%rcx, 40(%3)\n\t"
-; 3603 :         "movq\t48(%1), %%rcx\n\t"
-; 3604 :         "adcq\t48(%2), %%rcx\n\t"
-; 3605 :         "movq\t%%rcx, 48(%3)\n\t"
-; 3606 :         "movq\t56(%1), %%rcx\n\t"
-; 3607 :         "adcq\t56(%2), %%rcx\n\t"
-; 3608 :         "movq\t%%rcx, 56(%3)\n\t"
-; 3609 :         "setc\t%0"
-; 3610 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3611 :         :
-; 3612 :         : "cc", "memory", "%rcx"
-; 3613 : );
-; 3614 : #else
-; 3615 : #error unknown platform
-; 3616 : #endif
-; 3617 : #else
-; 3618 : #error unknown compiler
-; 3619 : #endif
-; 3620 :     return (c);
+; 3542 : #elif defined(__GNUC__)
+; 3543 : #ifdef _M_IX86
+; 3544 :     __asm__ volatile (
+; 3545 :         "addb\t$-1, %0\n\t"
+; 3546 :         "movl\t(%1), %%ecx\n\t"
+; 3547 :         "adcl\t(%2), %%ecx\n\t"
+; 3548 :         "movl\t%%ecx, (%3)\n\t"
+; 3549 :         "movl\t4(%1), %%ecx\n\t"
+; 3550 :         "adcl\t4(%2), %%ecx\n\t"
+; 3551 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3552 :         "movl\t8(%1), %%ecx\n\t"
+; 3553 :         "adcl\t8(%2), %%ecx\n\t"
+; 3554 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3555 :         "movl\t12(%1), %%ecx\n\t"
+; 3556 :         "adcl\t12(%2), %%ecx\n\t"
+; 3557 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3558 :         "movl\t16(%1), %%ecx\n\t"
+; 3559 :         "adcl\t16(%2), %%ecx\n\t"
+; 3560 :         "movl\t%%ecx, 16(%3)\n\t"
+; 3561 :         "movl\t20(%1), %%ecx\n\t"
+; 3562 :         "adcl\t20(%2), %%ecx\n\t"
+; 3563 :         "movl\t%%ecx, 20(%3)\n\t"
+; 3564 :         "movl\t24(%1), %%ecx\n\t"
+; 3565 :         "adcl\t24(%2), %%ecx\n\t"
+; 3566 :         "movl\t%%ecx, 24(%3)\n\t"
+; 3567 :         "movl\t28(%1), %%ecx\n\t"
+; 3568 :         "adcl\t28(%2), %%ecx\n\t"
+; 3569 :         "movl\t%%ecx, 28(%3)\n\t"
+; 3570 :         "setc\t%0"
+; 3571 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3572 :         :
+; 3573 :         : "cc", "memory", "%ecx"
+; 3574 : );
+; 3575 : #elif defined(_M_IX64)
+; 3576 :     __asm__ volatile (
+; 3577 :         "addb\t$-1, %0\n\t"
+; 3578 :         "movq\t(%1), %%rcx\n\t"
+; 3579 :         "adcq\t(%2), %%rcx\n\t"
+; 3580 :         "movq\t%%rcx, (%3)\n\t"
+; 3581 :         "movq\t8(%1), %%rcx\n\t"
+; 3582 :         "adcq\t8(%2), %%rcx\n\t"
+; 3583 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3584 :         "movq\t16(%1), %%rcx\n\t"
+; 3585 :         "adcq\t16(%2), %%rcx\n\t"
+; 3586 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3587 :         "movq\t24(%1), %%rcx\n\t"
+; 3588 :         "adcq\t24(%2), %%rcx\n\t"
+; 3589 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3590 :         "movq\t32(%1), %%rcx\n\t"
+; 3591 :         "adcq\t32(%2), %%rcx\n\t"
+; 3592 :         "movq\t%%rcx, 32(%3)\n\t"
+; 3593 :         "movq\t40(%1), %%rcx\n\t"
+; 3594 :         "adcq\t40(%2), %%rcx\n\t"
+; 3595 :         "movq\t%%rcx, 40(%3)\n\t"
+; 3596 :         "movq\t48(%1), %%rcx\n\t"
+; 3597 :         "adcq\t48(%2), %%rcx\n\t"
+; 3598 :         "movq\t%%rcx, 48(%3)\n\t"
+; 3599 :         "movq\t56(%1), %%rcx\n\t"
+; 3600 :         "adcq\t56(%2), %%rcx\n\t"
+; 3601 :         "movq\t%%rcx, 56(%3)\n\t"
+; 3602 :         "setc\t%0"
+; 3603 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3604 :         :
+; 3605 :         : "cc", "memory", "%rcx"
+; 3606 : );
+; 3607 : #else
+; 3608 : #error unknown platform
+; 3609 : #endif
+; 3610 : #else
+; 3611 : #error unknown compiler
+; 3612 : #endif
+; 3613 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 3621 : }
+; 3614 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8328,7 +8328,7 @@ yp$ = 240
 zp$ = 248
 _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 
-; 2776 : {
+; 2769 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -8346,8 +8346,8 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 2777 : #ifdef _MSC_VER
-; 2778 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2770 : #ifdef _MSC_VER
+; 2771 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -8367,7 +8367,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2779 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 2772 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -8387,7 +8387,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2780 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 2773 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -8407,7 +8407,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2781 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 2774 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -8427,7 +8427,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2782 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 2775 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -8447,7 +8447,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2783 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 2776 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -8467,7 +8467,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2784 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 2777 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -8487,7 +8487,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2785 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 2778 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -8507,7 +8507,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2786 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 2779 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -8527,7 +8527,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2787 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 2780 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -8547,7 +8547,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2788 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 2781 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -8567,7 +8567,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2789 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 2782 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -8587,7 +8587,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2790 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 2783 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -8607,7 +8607,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2791 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 2784 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -8627,7 +8627,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2792 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 2785 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -8647,7 +8647,7 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2793 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 2786 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -8667,130 +8667,130 @@ _ADD_16WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2794 : #elif defined(__GNUC__)
-; 2795 : #ifdef _M_IX86
-; 2796 :     __asm__ volatile (
-; 2797 :         "addb\t$-1, %0\n\t"
-; 2798 :         "movl\t(%1), %%ecx\n\t"
-; 2799 :         "adcxl\t(%2), %%ecx\n\t"
-; 2800 :         "movl\t%%ecx, (%3)\n\t"
-; 2801 :         "movl\t4(%1), %%ecx\n\t"
-; 2802 :         "adcxl\t4(%2), %%ecx\n\t"
-; 2803 :         "movl\t%%ecx, 4(%3)\n\t"
-; 2804 :         "movl\t8(%1), %%ecx\n\t"
-; 2805 :         "adcxl\t8(%2), %%ecx\n\t"
-; 2806 :         "movl\t%%ecx, 8(%3)\n\t"
-; 2807 :         "movl\t12(%1), %%ecx\n\t"
-; 2808 :         "adcxl\t12(%2), %%ecx\n\t"
-; 2809 :         "movl\t%%ecx, 12(%3)\n\t"
-; 2810 :         "movl\t16(%1), %%ecx\n\t"
-; 2811 :         "adcxl\t16(%2), %%ecx\n\t"
-; 2812 :         "movl\t%%ecx, 16(%3)\n\t"
-; 2813 :         "movl\t20(%1), %%ecx\n\t"
-; 2814 :         "adcxl\t20(%2), %%ecx\n\t"
-; 2815 :         "movl\t%%ecx, 20(%3)\n\t"
-; 2816 :         "movl\t24(%1), %%ecx\n\t"
-; 2817 :         "adcxl\t24(%2), %%ecx\n\t"
-; 2818 :         "movl\t%%ecx, 24(%3)\n\t"
-; 2819 :         "movl\t28(%1), %%ecx\n\t"
-; 2820 :         "adcxl\t28(%2), %%ecx\n\t"
-; 2821 :         "movl\t%%ecx, 28(%3)\n\t"
-; 2822 :         "movl\t32(%1), %%ecx\n\t"
-; 2823 :         "adcxl\t32(%2), %%ecx\n\t"
-; 2824 :         "movl\t%%ecx, 32(%3)\n\t"
-; 2825 :         "movl\t36(%1), %%ecx\n\t"
-; 2826 :         "adcxl\t36(%2), %%ecx\n\t"
-; 2827 :         "movl\t%%ecx, 36(%3)\n\t"
-; 2828 :         "movl\t40(%1), %%ecx\n\t"
-; 2829 :         "adcxl\t40(%2), %%ecx\n\t"
-; 2830 :         "movl\t%%ecx, 40(%3)\n\t"
-; 2831 :         "movl\t44(%1), %%ecx\n\t"
-; 2832 :         "adcxl\t44(%2), %%ecx\n\t"
-; 2833 :         "movl\t%%ecx, 44(%3)\n\t"
-; 2834 :         "movl\t48(%1), %%ecx\n\t"
-; 2835 :         "adcxl\t48(%2), %%ecx\n\t"
-; 2836 :         "movl\t%%ecx, 48(%3)\n\t"
-; 2837 :         "movl\t52(%1), %%ecx\n\t"
-; 2838 :         "adcxl\t52(%2), %%ecx\n\t"
-; 2839 :         "movl\t%%ecx, 52(%3)\n\t"
-; 2840 :         "movl\t56(%1), %%ecx\n\t"
-; 2841 :         "adcxl\t56(%2), %%ecx\n\t"
-; 2842 :         "movl\t%%ecx, 56(%3)\n\t"
-; 2843 :         "movl\t60(%1), %%ecx\n\t"
-; 2844 :         "adcxl\t60(%2), %%ecx\n\t"
-; 2845 :         "movl\t%%ecx, 60(%3)\n\t"
-; 2846 :         "setc\t%0"
-; 2847 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2848 :         :
-; 2849 :         : "cc", "memory", "%ecx"
-; 2850 : );
-; 2851 : #elif defined(_M_IX64)
-; 2852 :     __asm__ volatile (
-; 2853 :         "addb\t$-1, %0\n\t"
-; 2854 :         "movq\t(%1), %%rcx\n\t"
-; 2855 :         "adcxq\t(%2), %%rcx\n\t"
-; 2856 :         "movq\t%%rcx, (%3)\n\t"
-; 2857 :         "movq\t8(%1), %%rcx\n\t"
-; 2858 :         "adcxq\t8(%2), %%rcx\n\t"
-; 2859 :         "movq\t%%rcx, 8(%3)\n\t"
-; 2860 :         "movq\t16(%1), %%rcx\n\t"
-; 2861 :         "adcxq\t16(%2), %%rcx\n\t"
-; 2862 :         "movq\t%%rcx, 16(%3)\n\t"
-; 2863 :         "movq\t24(%1), %%rcx\n\t"
-; 2864 :         "adcxq\t24(%2), %%rcx\n\t"
-; 2865 :         "movq\t%%rcx, 24(%3)\n\t"
-; 2866 :         "movq\t32(%1), %%rcx\n\t"
-; 2867 :         "adcxq\t32(%2), %%rcx\n\t"
-; 2868 :         "movq\t%%rcx, 32(%3)\n\t"
-; 2869 :         "movq\t40(%1), %%rcx\n\t"
-; 2870 :         "adcxq\t40(%2), %%rcx\n\t"
-; 2871 :         "movq\t%%rcx, 40(%3)\n\t"
-; 2872 :         "movq\t48(%1), %%rcx\n\t"
-; 2873 :         "adcxq\t48(%2), %%rcx\n\t"
-; 2874 :         "movq\t%%rcx, 48(%3)\n\t"
-; 2875 :         "movq\t56(%1), %%rcx\n\t"
-; 2876 :         "adcxq\t56(%2), %%rcx\n\t"
-; 2877 :         "movq\t%%rcx, 56(%3)\n\t"
-; 2878 :         "movq\t64(%1), %%rcx\n\t"
-; 2879 :         "adcxq\t64(%2), %%rcx\n\t"
-; 2880 :         "movq\t%%rcx, 64(%3)\n\t"
-; 2881 :         "movq\t72(%1), %%rcx\n\t"
-; 2882 :         "adcxq\t72(%2), %%rcx\n\t"
-; 2883 :         "movq\t%%rcx, 72(%3)\n\t"
-; 2884 :         "movq\t80(%1), %%rcx\n\t"
-; 2885 :         "adcxq\t80(%2), %%rcx\n\t"
-; 2886 :         "movq\t%%rcx, 80(%3)\n\t"
-; 2887 :         "movq\t88(%1), %%rcx\n\t"
-; 2888 :         "adcxq\t88(%2), %%rcx\n\t"
-; 2889 :         "movq\t%%rcx, 88(%3)\n\t"
-; 2890 :         "movq\t96(%1), %%rcx\n\t"
-; 2891 :         "adcxq\t96(%2), %%rcx\n\t"
-; 2892 :         "movq\t%%rcx, 96(%3)\n\t"
-; 2893 :         "movq\t104(%1), %%rcx\n\t"
-; 2894 :         "adcxq\t104(%2), %%rcx\n\t"
-; 2895 :         "movq\t%%rcx, 104(%3)\n\t"
-; 2896 :         "movq\t112(%1), %%rcx\n\t"
-; 2897 :         "adcxq\t112(%2), %%rcx\n\t"
-; 2898 :         "movq\t%%rcx, 112(%3)\n\t"
-; 2899 :         "movq\t120(%1), %%rcx\n\t"
-; 2900 :         "adcxq\t120(%2), %%rcx\n\t"
-; 2901 :         "movq\t%%rcx, 120(%3)\n\t"
-; 2902 :         "setc\t%0"
-; 2903 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2904 :         :
-; 2905 :         : "cc", "memory", "%rcx"
-; 2906 : );
-; 2907 : #else
-; 2908 : #error unknown platform
-; 2909 : #endif
-; 2910 : #else
-; 2911 : #error unknown compiler
-; 2912 : #endif
-; 2913 :     return (c);
+; 2787 : #elif defined(__GNUC__)
+; 2788 : #ifdef _M_IX86
+; 2789 :     __asm__ volatile (
+; 2790 :         "addb\t$-1, %0\n\t"
+; 2791 :         "movl\t(%1), %%ecx\n\t"
+; 2792 :         "adcxl\t(%2), %%ecx\n\t"
+; 2793 :         "movl\t%%ecx, (%3)\n\t"
+; 2794 :         "movl\t4(%1), %%ecx\n\t"
+; 2795 :         "adcxl\t4(%2), %%ecx\n\t"
+; 2796 :         "movl\t%%ecx, 4(%3)\n\t"
+; 2797 :         "movl\t8(%1), %%ecx\n\t"
+; 2798 :         "adcxl\t8(%2), %%ecx\n\t"
+; 2799 :         "movl\t%%ecx, 8(%3)\n\t"
+; 2800 :         "movl\t12(%1), %%ecx\n\t"
+; 2801 :         "adcxl\t12(%2), %%ecx\n\t"
+; 2802 :         "movl\t%%ecx, 12(%3)\n\t"
+; 2803 :         "movl\t16(%1), %%ecx\n\t"
+; 2804 :         "adcxl\t16(%2), %%ecx\n\t"
+; 2805 :         "movl\t%%ecx, 16(%3)\n\t"
+; 2806 :         "movl\t20(%1), %%ecx\n\t"
+; 2807 :         "adcxl\t20(%2), %%ecx\n\t"
+; 2808 :         "movl\t%%ecx, 20(%3)\n\t"
+; 2809 :         "movl\t24(%1), %%ecx\n\t"
+; 2810 :         "adcxl\t24(%2), %%ecx\n\t"
+; 2811 :         "movl\t%%ecx, 24(%3)\n\t"
+; 2812 :         "movl\t28(%1), %%ecx\n\t"
+; 2813 :         "adcxl\t28(%2), %%ecx\n\t"
+; 2814 :         "movl\t%%ecx, 28(%3)\n\t"
+; 2815 :         "movl\t32(%1), %%ecx\n\t"
+; 2816 :         "adcxl\t32(%2), %%ecx\n\t"
+; 2817 :         "movl\t%%ecx, 32(%3)\n\t"
+; 2818 :         "movl\t36(%1), %%ecx\n\t"
+; 2819 :         "adcxl\t36(%2), %%ecx\n\t"
+; 2820 :         "movl\t%%ecx, 36(%3)\n\t"
+; 2821 :         "movl\t40(%1), %%ecx\n\t"
+; 2822 :         "adcxl\t40(%2), %%ecx\n\t"
+; 2823 :         "movl\t%%ecx, 40(%3)\n\t"
+; 2824 :         "movl\t44(%1), %%ecx\n\t"
+; 2825 :         "adcxl\t44(%2), %%ecx\n\t"
+; 2826 :         "movl\t%%ecx, 44(%3)\n\t"
+; 2827 :         "movl\t48(%1), %%ecx\n\t"
+; 2828 :         "adcxl\t48(%2), %%ecx\n\t"
+; 2829 :         "movl\t%%ecx, 48(%3)\n\t"
+; 2830 :         "movl\t52(%1), %%ecx\n\t"
+; 2831 :         "adcxl\t52(%2), %%ecx\n\t"
+; 2832 :         "movl\t%%ecx, 52(%3)\n\t"
+; 2833 :         "movl\t56(%1), %%ecx\n\t"
+; 2834 :         "adcxl\t56(%2), %%ecx\n\t"
+; 2835 :         "movl\t%%ecx, 56(%3)\n\t"
+; 2836 :         "movl\t60(%1), %%ecx\n\t"
+; 2837 :         "adcxl\t60(%2), %%ecx\n\t"
+; 2838 :         "movl\t%%ecx, 60(%3)\n\t"
+; 2839 :         "setc\t%0"
+; 2840 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2841 :         :
+; 2842 :         : "cc", "memory", "%ecx"
+; 2843 : );
+; 2844 : #elif defined(_M_IX64)
+; 2845 :     __asm__ volatile (
+; 2846 :         "addb\t$-1, %0\n\t"
+; 2847 :         "movq\t(%1), %%rcx\n\t"
+; 2848 :         "adcxq\t(%2), %%rcx\n\t"
+; 2849 :         "movq\t%%rcx, (%3)\n\t"
+; 2850 :         "movq\t8(%1), %%rcx\n\t"
+; 2851 :         "adcxq\t8(%2), %%rcx\n\t"
+; 2852 :         "movq\t%%rcx, 8(%3)\n\t"
+; 2853 :         "movq\t16(%1), %%rcx\n\t"
+; 2854 :         "adcxq\t16(%2), %%rcx\n\t"
+; 2855 :         "movq\t%%rcx, 16(%3)\n\t"
+; 2856 :         "movq\t24(%1), %%rcx\n\t"
+; 2857 :         "adcxq\t24(%2), %%rcx\n\t"
+; 2858 :         "movq\t%%rcx, 24(%3)\n\t"
+; 2859 :         "movq\t32(%1), %%rcx\n\t"
+; 2860 :         "adcxq\t32(%2), %%rcx\n\t"
+; 2861 :         "movq\t%%rcx, 32(%3)\n\t"
+; 2862 :         "movq\t40(%1), %%rcx\n\t"
+; 2863 :         "adcxq\t40(%2), %%rcx\n\t"
+; 2864 :         "movq\t%%rcx, 40(%3)\n\t"
+; 2865 :         "movq\t48(%1), %%rcx\n\t"
+; 2866 :         "adcxq\t48(%2), %%rcx\n\t"
+; 2867 :         "movq\t%%rcx, 48(%3)\n\t"
+; 2868 :         "movq\t56(%1), %%rcx\n\t"
+; 2869 :         "adcxq\t56(%2), %%rcx\n\t"
+; 2870 :         "movq\t%%rcx, 56(%3)\n\t"
+; 2871 :         "movq\t64(%1), %%rcx\n\t"
+; 2872 :         "adcxq\t64(%2), %%rcx\n\t"
+; 2873 :         "movq\t%%rcx, 64(%3)\n\t"
+; 2874 :         "movq\t72(%1), %%rcx\n\t"
+; 2875 :         "adcxq\t72(%2), %%rcx\n\t"
+; 2876 :         "movq\t%%rcx, 72(%3)\n\t"
+; 2877 :         "movq\t80(%1), %%rcx\n\t"
+; 2878 :         "adcxq\t80(%2), %%rcx\n\t"
+; 2879 :         "movq\t%%rcx, 80(%3)\n\t"
+; 2880 :         "movq\t88(%1), %%rcx\n\t"
+; 2881 :         "adcxq\t88(%2), %%rcx\n\t"
+; 2882 :         "movq\t%%rcx, 88(%3)\n\t"
+; 2883 :         "movq\t96(%1), %%rcx\n\t"
+; 2884 :         "adcxq\t96(%2), %%rcx\n\t"
+; 2885 :         "movq\t%%rcx, 96(%3)\n\t"
+; 2886 :         "movq\t104(%1), %%rcx\n\t"
+; 2887 :         "adcxq\t104(%2), %%rcx\n\t"
+; 2888 :         "movq\t%%rcx, 104(%3)\n\t"
+; 2889 :         "movq\t112(%1), %%rcx\n\t"
+; 2890 :         "adcxq\t112(%2), %%rcx\n\t"
+; 2891 :         "movq\t%%rcx, 112(%3)\n\t"
+; 2892 :         "movq\t120(%1), %%rcx\n\t"
+; 2893 :         "adcxq\t120(%2), %%rcx\n\t"
+; 2894 :         "movq\t%%rcx, 120(%3)\n\t"
+; 2895 :         "setc\t%0"
+; 2896 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2897 :         :
+; 2898 :         : "cc", "memory", "%rcx"
+; 2899 : );
+; 2900 : #else
+; 2901 : #error unknown platform
+; 2902 : #endif
+; 2903 : #else
+; 2904 : #error unknown compiler
+; 2905 : #endif
+; 2906 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 2914 : }
+; 2907 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8808,7 +8808,7 @@ yp$ = 240
 zp$ = 248
 _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 
-; 2635 : {
+; 2628 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -8826,8 +8826,8 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 2636 : #ifdef _MSC_VER
-; 2637 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 2629 : #ifdef _MSC_VER
+; 2630 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -8847,7 +8847,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2638 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 2631 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -8867,7 +8867,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2639 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 2632 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -8887,7 +8887,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2640 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 2633 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -8907,7 +8907,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2641 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 2634 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -8927,7 +8927,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2642 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 2635 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -8947,7 +8947,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2643 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 2636 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -8967,7 +8967,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2644 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 2637 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -8987,7 +8987,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2645 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 2638 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -9007,7 +9007,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2646 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 2639 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -9027,7 +9027,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2647 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 2640 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -9047,7 +9047,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2648 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 2641 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -9067,7 +9067,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2649 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 2642 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -9087,7 +9087,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2650 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 2643 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -9107,7 +9107,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2651 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 2644 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -9127,7 +9127,7 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2652 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 2645 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -9147,130 +9147,130 @@ _ADD_16WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 2653 : #elif defined(__GNUC__)
-; 2654 : #ifdef _M_IX86
-; 2655 :     __asm__ volatile (
-; 2656 :         "addb\t$-1, %0\n\t"
-; 2657 :         "movl\t(%1), %%ecx\n\t"
-; 2658 :         "adcl\t(%2), %%ecx\n\t"
-; 2659 :         "movl\t%%ecx, (%3)\n\t"
-; 2660 :         "movl\t4(%1), %%ecx\n\t"
-; 2661 :         "adcl\t4(%2), %%ecx\n\t"
-; 2662 :         "movl\t%%ecx, 4(%3)\n\t"
-; 2663 :         "movl\t8(%1), %%ecx\n\t"
-; 2664 :         "adcl\t8(%2), %%ecx\n\t"
-; 2665 :         "movl\t%%ecx, 8(%3)\n\t"
-; 2666 :         "movl\t12(%1), %%ecx\n\t"
-; 2667 :         "adcl\t12(%2), %%ecx\n\t"
-; 2668 :         "movl\t%%ecx, 12(%3)\n\t"
-; 2669 :         "movl\t16(%1), %%ecx\n\t"
-; 2670 :         "adcl\t16(%2), %%ecx\n\t"
-; 2671 :         "movl\t%%ecx, 16(%3)\n\t"
-; 2672 :         "movl\t20(%1), %%ecx\n\t"
-; 2673 :         "adcl\t20(%2), %%ecx\n\t"
-; 2674 :         "movl\t%%ecx, 20(%3)\n\t"
-; 2675 :         "movl\t24(%1), %%ecx\n\t"
-; 2676 :         "adcl\t24(%2), %%ecx\n\t"
-; 2677 :         "movl\t%%ecx, 24(%3)\n\t"
-; 2678 :         "movl\t28(%1), %%ecx\n\t"
-; 2679 :         "adcl\t28(%2), %%ecx\n\t"
-; 2680 :         "movl\t%%ecx, 28(%3)\n\t"
-; 2681 :         "movl\t32(%1), %%ecx\n\t"
-; 2682 :         "adcl\t32(%2), %%ecx\n\t"
-; 2683 :         "movl\t%%ecx, 32(%3)\n\t"
-; 2684 :         "movl\t36(%1), %%ecx\n\t"
-; 2685 :         "adcl\t36(%2), %%ecx\n\t"
-; 2686 :         "movl\t%%ecx, 36(%3)\n\t"
-; 2687 :         "movl\t40(%1), %%ecx\n\t"
-; 2688 :         "adcl\t40(%2), %%ecx\n\t"
-; 2689 :         "movl\t%%ecx, 40(%3)\n\t"
-; 2690 :         "movl\t44(%1), %%ecx\n\t"
-; 2691 :         "adcl\t44(%2), %%ecx\n\t"
-; 2692 :         "movl\t%%ecx, 44(%3)\n\t"
-; 2693 :         "movl\t48(%1), %%ecx\n\t"
-; 2694 :         "adcl\t48(%2), %%ecx\n\t"
-; 2695 :         "movl\t%%ecx, 48(%3)\n\t"
-; 2696 :         "movl\t52(%1), %%ecx\n\t"
-; 2697 :         "adcl\t52(%2), %%ecx\n\t"
-; 2698 :         "movl\t%%ecx, 52(%3)\n\t"
-; 2699 :         "movl\t56(%1), %%ecx\n\t"
-; 2700 :         "adcl\t56(%2), %%ecx\n\t"
-; 2701 :         "movl\t%%ecx, 56(%3)\n\t"
-; 2702 :         "movl\t60(%1), %%ecx\n\t"
-; 2703 :         "adcl\t60(%2), %%ecx\n\t"
-; 2704 :         "movl\t%%ecx, 60(%3)\n\t"
-; 2705 :         "setc\t%0"
-; 2706 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2707 :         :
-; 2708 :         : "cc", "memory", "%ecx"
-; 2709 : );
-; 2710 : #elif defined(_M_IX64)
-; 2711 :     __asm__ volatile (
-; 2712 :         "addb\t$-1, %0\n\t"
-; 2713 :         "movq\t(%1), %%rcx\n\t"
-; 2714 :         "adcq\t(%2), %%rcx\n\t"
-; 2715 :         "movq\t%%rcx, (%3)\n\t"
-; 2716 :         "movq\t8(%1), %%rcx\n\t"
-; 2717 :         "adcq\t8(%2), %%rcx\n\t"
-; 2718 :         "movq\t%%rcx, 8(%3)\n\t"
-; 2719 :         "movq\t16(%1), %%rcx\n\t"
-; 2720 :         "adcq\t16(%2), %%rcx\n\t"
-; 2721 :         "movq\t%%rcx, 16(%3)\n\t"
-; 2722 :         "movq\t24(%1), %%rcx\n\t"
-; 2723 :         "adcq\t24(%2), %%rcx\n\t"
-; 2724 :         "movq\t%%rcx, 24(%3)\n\t"
-; 2725 :         "movq\t32(%1), %%rcx\n\t"
-; 2726 :         "adcq\t32(%2), %%rcx\n\t"
-; 2727 :         "movq\t%%rcx, 32(%3)\n\t"
-; 2728 :         "movq\t40(%1), %%rcx\n\t"
-; 2729 :         "adcq\t40(%2), %%rcx\n\t"
-; 2730 :         "movq\t%%rcx, 40(%3)\n\t"
-; 2731 :         "movq\t48(%1), %%rcx\n\t"
-; 2732 :         "adcq\t48(%2), %%rcx\n\t"
-; 2733 :         "movq\t%%rcx, 48(%3)\n\t"
-; 2734 :         "movq\t56(%1), %%rcx\n\t"
-; 2735 :         "adcq\t56(%2), %%rcx\n\t"
-; 2736 :         "movq\t%%rcx, 56(%3)\n\t"
-; 2737 :         "movq\t64(%1), %%rcx\n\t"
-; 2738 :         "adcq\t64(%2), %%rcx\n\t"
-; 2739 :         "movq\t%%rcx, 64(%3)\n\t"
-; 2740 :         "movq\t72(%1), %%rcx\n\t"
-; 2741 :         "adcq\t72(%2), %%rcx\n\t"
-; 2742 :         "movq\t%%rcx, 72(%3)\n\t"
-; 2743 :         "movq\t80(%1), %%rcx\n\t"
-; 2744 :         "adcq\t80(%2), %%rcx\n\t"
-; 2745 :         "movq\t%%rcx, 80(%3)\n\t"
-; 2746 :         "movq\t88(%1), %%rcx\n\t"
-; 2747 :         "adcq\t88(%2), %%rcx\n\t"
-; 2748 :         "movq\t%%rcx, 88(%3)\n\t"
-; 2749 :         "movq\t96(%1), %%rcx\n\t"
-; 2750 :         "adcq\t96(%2), %%rcx\n\t"
-; 2751 :         "movq\t%%rcx, 96(%3)\n\t"
-; 2752 :         "movq\t104(%1), %%rcx\n\t"
-; 2753 :         "adcq\t104(%2), %%rcx\n\t"
-; 2754 :         "movq\t%%rcx, 104(%3)\n\t"
-; 2755 :         "movq\t112(%1), %%rcx\n\t"
-; 2756 :         "adcq\t112(%2), %%rcx\n\t"
-; 2757 :         "movq\t%%rcx, 112(%3)\n\t"
-; 2758 :         "movq\t120(%1), %%rcx\n\t"
-; 2759 :         "adcq\t120(%2), %%rcx\n\t"
-; 2760 :         "movq\t%%rcx, 120(%3)\n\t"
-; 2761 :         "setc\t%0"
-; 2762 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2763 :         :
-; 2764 :         : "cc", "memory", "%rcx"
-; 2765 : );
-; 2766 : #else
-; 2767 : #error unknown platform
-; 2768 : #endif
-; 2769 : #else
-; 2770 : #error unknown compiler
-; 2771 : #endif
-; 2772 :     return (c);
+; 2646 : #elif defined(__GNUC__)
+; 2647 : #ifdef _M_IX86
+; 2648 :     __asm__ volatile (
+; 2649 :         "addb\t$-1, %0\n\t"
+; 2650 :         "movl\t(%1), %%ecx\n\t"
+; 2651 :         "adcl\t(%2), %%ecx\n\t"
+; 2652 :         "movl\t%%ecx, (%3)\n\t"
+; 2653 :         "movl\t4(%1), %%ecx\n\t"
+; 2654 :         "adcl\t4(%2), %%ecx\n\t"
+; 2655 :         "movl\t%%ecx, 4(%3)\n\t"
+; 2656 :         "movl\t8(%1), %%ecx\n\t"
+; 2657 :         "adcl\t8(%2), %%ecx\n\t"
+; 2658 :         "movl\t%%ecx, 8(%3)\n\t"
+; 2659 :         "movl\t12(%1), %%ecx\n\t"
+; 2660 :         "adcl\t12(%2), %%ecx\n\t"
+; 2661 :         "movl\t%%ecx, 12(%3)\n\t"
+; 2662 :         "movl\t16(%1), %%ecx\n\t"
+; 2663 :         "adcl\t16(%2), %%ecx\n\t"
+; 2664 :         "movl\t%%ecx, 16(%3)\n\t"
+; 2665 :         "movl\t20(%1), %%ecx\n\t"
+; 2666 :         "adcl\t20(%2), %%ecx\n\t"
+; 2667 :         "movl\t%%ecx, 20(%3)\n\t"
+; 2668 :         "movl\t24(%1), %%ecx\n\t"
+; 2669 :         "adcl\t24(%2), %%ecx\n\t"
+; 2670 :         "movl\t%%ecx, 24(%3)\n\t"
+; 2671 :         "movl\t28(%1), %%ecx\n\t"
+; 2672 :         "adcl\t28(%2), %%ecx\n\t"
+; 2673 :         "movl\t%%ecx, 28(%3)\n\t"
+; 2674 :         "movl\t32(%1), %%ecx\n\t"
+; 2675 :         "adcl\t32(%2), %%ecx\n\t"
+; 2676 :         "movl\t%%ecx, 32(%3)\n\t"
+; 2677 :         "movl\t36(%1), %%ecx\n\t"
+; 2678 :         "adcl\t36(%2), %%ecx\n\t"
+; 2679 :         "movl\t%%ecx, 36(%3)\n\t"
+; 2680 :         "movl\t40(%1), %%ecx\n\t"
+; 2681 :         "adcl\t40(%2), %%ecx\n\t"
+; 2682 :         "movl\t%%ecx, 40(%3)\n\t"
+; 2683 :         "movl\t44(%1), %%ecx\n\t"
+; 2684 :         "adcl\t44(%2), %%ecx\n\t"
+; 2685 :         "movl\t%%ecx, 44(%3)\n\t"
+; 2686 :         "movl\t48(%1), %%ecx\n\t"
+; 2687 :         "adcl\t48(%2), %%ecx\n\t"
+; 2688 :         "movl\t%%ecx, 48(%3)\n\t"
+; 2689 :         "movl\t52(%1), %%ecx\n\t"
+; 2690 :         "adcl\t52(%2), %%ecx\n\t"
+; 2691 :         "movl\t%%ecx, 52(%3)\n\t"
+; 2692 :         "movl\t56(%1), %%ecx\n\t"
+; 2693 :         "adcl\t56(%2), %%ecx\n\t"
+; 2694 :         "movl\t%%ecx, 56(%3)\n\t"
+; 2695 :         "movl\t60(%1), %%ecx\n\t"
+; 2696 :         "adcl\t60(%2), %%ecx\n\t"
+; 2697 :         "movl\t%%ecx, 60(%3)\n\t"
+; 2698 :         "setc\t%0"
+; 2699 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2700 :         :
+; 2701 :         : "cc", "memory", "%ecx"
+; 2702 : );
+; 2703 : #elif defined(_M_IX64)
+; 2704 :     __asm__ volatile (
+; 2705 :         "addb\t$-1, %0\n\t"
+; 2706 :         "movq\t(%1), %%rcx\n\t"
+; 2707 :         "adcq\t(%2), %%rcx\n\t"
+; 2708 :         "movq\t%%rcx, (%3)\n\t"
+; 2709 :         "movq\t8(%1), %%rcx\n\t"
+; 2710 :         "adcq\t8(%2), %%rcx\n\t"
+; 2711 :         "movq\t%%rcx, 8(%3)\n\t"
+; 2712 :         "movq\t16(%1), %%rcx\n\t"
+; 2713 :         "adcq\t16(%2), %%rcx\n\t"
+; 2714 :         "movq\t%%rcx, 16(%3)\n\t"
+; 2715 :         "movq\t24(%1), %%rcx\n\t"
+; 2716 :         "adcq\t24(%2), %%rcx\n\t"
+; 2717 :         "movq\t%%rcx, 24(%3)\n\t"
+; 2718 :         "movq\t32(%1), %%rcx\n\t"
+; 2719 :         "adcq\t32(%2), %%rcx\n\t"
+; 2720 :         "movq\t%%rcx, 32(%3)\n\t"
+; 2721 :         "movq\t40(%1), %%rcx\n\t"
+; 2722 :         "adcq\t40(%2), %%rcx\n\t"
+; 2723 :         "movq\t%%rcx, 40(%3)\n\t"
+; 2724 :         "movq\t48(%1), %%rcx\n\t"
+; 2725 :         "adcq\t48(%2), %%rcx\n\t"
+; 2726 :         "movq\t%%rcx, 48(%3)\n\t"
+; 2727 :         "movq\t56(%1), %%rcx\n\t"
+; 2728 :         "adcq\t56(%2), %%rcx\n\t"
+; 2729 :         "movq\t%%rcx, 56(%3)\n\t"
+; 2730 :         "movq\t64(%1), %%rcx\n\t"
+; 2731 :         "adcq\t64(%2), %%rcx\n\t"
+; 2732 :         "movq\t%%rcx, 64(%3)\n\t"
+; 2733 :         "movq\t72(%1), %%rcx\n\t"
+; 2734 :         "adcq\t72(%2), %%rcx\n\t"
+; 2735 :         "movq\t%%rcx, 72(%3)\n\t"
+; 2736 :         "movq\t80(%1), %%rcx\n\t"
+; 2737 :         "adcq\t80(%2), %%rcx\n\t"
+; 2738 :         "movq\t%%rcx, 80(%3)\n\t"
+; 2739 :         "movq\t88(%1), %%rcx\n\t"
+; 2740 :         "adcq\t88(%2), %%rcx\n\t"
+; 2741 :         "movq\t%%rcx, 88(%3)\n\t"
+; 2742 :         "movq\t96(%1), %%rcx\n\t"
+; 2743 :         "adcq\t96(%2), %%rcx\n\t"
+; 2744 :         "movq\t%%rcx, 96(%3)\n\t"
+; 2745 :         "movq\t104(%1), %%rcx\n\t"
+; 2746 :         "adcq\t104(%2), %%rcx\n\t"
+; 2747 :         "movq\t%%rcx, 104(%3)\n\t"
+; 2748 :         "movq\t112(%1), %%rcx\n\t"
+; 2749 :         "adcq\t112(%2), %%rcx\n\t"
+; 2750 :         "movq\t%%rcx, 112(%3)\n\t"
+; 2751 :         "movq\t120(%1), %%rcx\n\t"
+; 2752 :         "adcq\t120(%2), %%rcx\n\t"
+; 2753 :         "movq\t%%rcx, 120(%3)\n\t"
+; 2754 :         "setc\t%0"
+; 2755 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2756 :         :
+; 2757 :         : "cc", "memory", "%rcx"
+; 2758 : );
+; 2759 : #else
+; 2760 : #error unknown platform
+; 2761 : #endif
+; 2762 : #else
+; 2763 : #error unknown compiler
+; 2764 : #endif
+; 2765 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 2773 : }
+; 2766 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -9288,7 +9288,7 @@ yp$ = 240
 zp$ = 248
 _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 
-; 1312 : {
+; 1305 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -9306,8 +9306,8 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 1313 : #ifdef _MSC_VER
-; 1314 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1306 : #ifdef _MSC_VER
+; 1307 :     c = _ADDX_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -9327,7 +9327,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1315 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1308 :     c = _ADDX_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -9347,7 +9347,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1316 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1309 :     c = _ADDX_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -9367,7 +9367,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1317 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1310 :     c = _ADDX_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -9387,7 +9387,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1318 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1311 :     c = _ADDX_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -9407,7 +9407,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1319 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1312 :     c = _ADDX_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -9427,7 +9427,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1320 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1313 :     c = _ADDX_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -9447,7 +9447,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1321 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1314 :     c = _ADDX_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -9467,7 +9467,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1322 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1315 :     c = _ADDX_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -9487,7 +9487,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1323 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1316 :     c = _ADDX_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -9507,7 +9507,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1324 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1317 :     c = _ADDX_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -9527,7 +9527,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1325 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1318 :     c = _ADDX_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -9547,7 +9547,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1326 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1319 :     c = _ADDX_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -9567,7 +9567,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1327 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1320 :     c = _ADDX_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -9587,7 +9587,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1328 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1321 :     c = _ADDX_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -9607,7 +9607,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1329 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1322 :     c = _ADDX_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -9627,7 +9627,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1330 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1323 :     c = _ADDX_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, 4
 	imul	rax, rax, 16
@@ -9647,7 +9647,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1331 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1324 :     c = _ADDX_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, 4
 	imul	rax, rax, 17
@@ -9667,7 +9667,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1332 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1325 :     c = _ADDX_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, 4
 	imul	rax, rax, 18
@@ -9687,7 +9687,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1333 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1326 :     c = _ADDX_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, 4
 	imul	rax, rax, 19
@@ -9707,7 +9707,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1334 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1327 :     c = _ADDX_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, 4
 	imul	rax, rax, 20
@@ -9727,7 +9727,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1335 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1328 :     c = _ADDX_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, 4
 	imul	rax, rax, 21
@@ -9747,7 +9747,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1336 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1329 :     c = _ADDX_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, 4
 	imul	rax, rax, 22
@@ -9767,7 +9767,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1337 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1330 :     c = _ADDX_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, 4
 	imul	rax, rax, 23
@@ -9787,7 +9787,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1338 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1331 :     c = _ADDX_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, 4
 	imul	rax, rax, 24
@@ -9807,7 +9807,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1339 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1332 :     c = _ADDX_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, 4
 	imul	rax, rax, 25
@@ -9827,7 +9827,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1340 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1333 :     c = _ADDX_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, 4
 	imul	rax, rax, 26
@@ -9847,7 +9847,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1341 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1334 :     c = _ADDX_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, 4
 	imul	rax, rax, 27
@@ -9867,7 +9867,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1342 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1335 :     c = _ADDX_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, 4
 	imul	rax, rax, 28
@@ -9887,7 +9887,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1343 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1336 :     c = _ADDX_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, 4
 	imul	rax, rax, 29
@@ -9907,7 +9907,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1344 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1337 :     c = _ADDX_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, 4
 	imul	rax, rax, 30
@@ -9927,7 +9927,7 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1345 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1338 :     c = _ADDX_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	eax, 4
 	imul	rax, rax, 31
@@ -9947,226 +9947,226 @@ _ADD_32WORDS_ADCX_DIV PROC				; COMDAT
 	call	_ADDX_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1346 : #elif defined(__GNUC__)
-; 1347 : #ifdef _M_IX86
-; 1348 :     __asm__ volatile (
-; 1349 :         "addb\t$-1, %0\n\t"
-; 1350 :         "movl\t(%1), %%ecx\n\t"
-; 1351 :         "adcxl\t(%2), %%ecx\n\t"
-; 1352 :         "movl\t%%ecx, (%3)\n\t"
-; 1353 :         "movl\t4(%1), %%ecx\n\t"
-; 1354 :         "adcxl\t4(%2), %%ecx\n\t"
-; 1355 :         "movl\t%%ecx, 4(%3)\n\t"
-; 1356 :         "movl\t8(%1), %%ecx\n\t"
-; 1357 :         "adcxl\t8(%2), %%ecx\n\t"
-; 1358 :         "movl\t%%ecx, 8(%3)\n\t"
-; 1359 :         "movl\t12(%1), %%ecx\n\t"
-; 1360 :         "adcxl\t12(%2), %%ecx\n\t"
-; 1361 :         "movl\t%%ecx, 12(%3)\n\t"
-; 1362 :         "movl\t16(%1), %%ecx\n\t"
-; 1363 :         "adcxl\t16(%2), %%ecx\n\t"
-; 1364 :         "movl\t%%ecx, 16(%3)\n\t"
-; 1365 :         "movl\t20(%1), %%ecx\n\t"
-; 1366 :         "adcxl\t20(%2), %%ecx\n\t"
-; 1367 :         "movl\t%%ecx, 20(%3)\n\t"
-; 1368 :         "movl\t24(%1), %%ecx\n\t"
-; 1369 :         "adcxl\t24(%2), %%ecx\n\t"
-; 1370 :         "movl\t%%ecx, 24(%3)\n\t"
-; 1371 :         "movl\t28(%1), %%ecx\n\t"
-; 1372 :         "adcxl\t28(%2), %%ecx\n\t"
-; 1373 :         "movl\t%%ecx, 28(%3)\n\t"
-; 1374 :         "movl\t32(%1), %%ecx\n\t"
-; 1375 :         "adcxl\t32(%2), %%ecx\n\t"
-; 1376 :         "movl\t%%ecx, 32(%3)\n\t"
-; 1377 :         "movl\t36(%1), %%ecx\n\t"
-; 1378 :         "adcxl\t36(%2), %%ecx\n\t"
-; 1379 :         "movl\t%%ecx, 36(%3)\n\t"
-; 1380 :         "movl\t40(%1), %%ecx\n\t"
-; 1381 :         "adcxl\t40(%2), %%ecx\n\t"
-; 1382 :         "movl\t%%ecx, 40(%3)\n\t"
-; 1383 :         "movl\t44(%1), %%ecx\n\t"
-; 1384 :         "adcxl\t44(%2), %%ecx\n\t"
-; 1385 :         "movl\t%%ecx, 44(%3)\n\t"
-; 1386 :         "movl\t48(%1), %%ecx\n\t"
-; 1387 :         "adcxl\t48(%2), %%ecx\n\t"
-; 1388 :         "movl\t%%ecx, 48(%3)\n\t"
-; 1389 :         "movl\t52(%1), %%ecx\n\t"
-; 1390 :         "adcxl\t52(%2), %%ecx\n\t"
-; 1391 :         "movl\t%%ecx, 52(%3)\n\t"
-; 1392 :         "movl\t56(%1), %%ecx\n\t"
-; 1393 :         "adcxl\t56(%2), %%ecx\n\t"
-; 1394 :         "movl\t%%ecx, 56(%3)\n\t"
-; 1395 :         "movl\t60(%1), %%ecx\n\t"
-; 1396 :         "adcxl\t60(%2), %%ecx\n\t"
-; 1397 :         "movl\t%%ecx, 60(%3)\n\t"
-; 1398 :         "movl\t64(%1), %%ecx\n\t"
-; 1399 :         "adcxl\t64(%2), %%ecx\n\t"
-; 1400 :         "movl\t%%ecx, 64(%3)\n\t"
-; 1401 :         "movl\t68(%1), %%ecx\n\t"
-; 1402 :         "adcxl\t68(%2), %%ecx\n\t"
-; 1403 :         "movl\t%%ecx, 68(%3)\n\t"
-; 1404 :         "movl\t72(%1), %%ecx\n\t"
-; 1405 :         "adcxl\t72(%2), %%ecx\n\t"
-; 1406 :         "movl\t%%ecx, 72(%3)\n\t"
-; 1407 :         "movl\t76(%1), %%ecx\n\t"
-; 1408 :         "adcxl\t76(%2), %%ecx\n\t"
-; 1409 :         "movl\t%%ecx, 76(%3)\n\t"
-; 1410 :         "movl\t80(%1), %%ecx\n\t"
-; 1411 :         "adcxl\t80(%2), %%ecx\n\t"
-; 1412 :         "movl\t%%ecx, 80(%3)\n\t"
-; 1413 :         "movl\t84(%1), %%ecx\n\t"
-; 1414 :         "adcxl\t84(%2), %%ecx\n\t"
-; 1415 :         "movl\t%%ecx, 84(%3)\n\t"
-; 1416 :         "movl\t88(%1), %%ecx\n\t"
-; 1417 :         "adcxl\t88(%2), %%ecx\n\t"
-; 1418 :         "movl\t%%ecx, 88(%3)\n\t"
-; 1419 :         "movl\t92(%1), %%ecx\n\t"
-; 1420 :         "adcxl\t92(%2), %%ecx\n\t"
-; 1421 :         "movl\t%%ecx, 92(%3)\n\t"
-; 1422 :         "movl\t96(%1), %%ecx\n\t"
-; 1423 :         "adcxl\t96(%2), %%ecx\n\t"
-; 1424 :         "movl\t%%ecx, 96(%3)\n\t"
-; 1425 :         "movl\t100(%1), %%ecx\n\t"
-; 1426 :         "adcxl\t100(%2), %%ecx\n\t"
-; 1427 :         "movl\t%%ecx, 100(%3)\n\t"
-; 1428 :         "movl\t104(%1), %%ecx\n\t"
-; 1429 :         "adcxl\t104(%2), %%ecx\n\t"
-; 1430 :         "movl\t%%ecx, 104(%3)\n\t"
-; 1431 :         "movl\t108(%1), %%ecx\n\t"
-; 1432 :         "adcxl\t108(%2), %%ecx\n\t"
-; 1433 :         "movl\t%%ecx, 108(%3)\n\t"
-; 1434 :         "movl\t112(%1), %%ecx\n\t"
-; 1435 :         "adcxl\t112(%2), %%ecx\n\t"
-; 1436 :         "movl\t%%ecx, 112(%3)\n\t"
-; 1437 :         "movl\t116(%1), %%ecx\n\t"
-; 1438 :         "adcxl\t116(%2), %%ecx\n\t"
-; 1439 :         "movl\t%%ecx, 116(%3)\n\t"
-; 1440 :         "movl\t120(%1), %%ecx\n\t"
-; 1441 :         "adcxl\t120(%2), %%ecx\n\t"
-; 1442 :         "movl\t%%ecx, 120(%3)\n\t"
-; 1443 :         "movl\t124(%1), %%ecx\n\t"
-; 1444 :         "adcxl\t124(%2), %%ecx\n\t"
-; 1445 :         "movl\t%%ecx, 124(%3)\n\t"
-; 1446 :         "setc\t%0"
-; 1447 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 1448 :         :
-; 1449 :         : "cc", "memory", "%ecx"
-; 1450 : );
-; 1451 : #elif defined(_M_IX64)
-; 1452 :     __asm__ volatile (
-; 1453 :         "addb\t$-1, %0\n\t"
-; 1454 :         "movq\t(%1), %%rcx\n\t"
-; 1455 :         "adcxq\t(%2), %%rcx\n\t"
-; 1456 :         "movq\t%%rcx, (%3)\n\t"
-; 1457 :         "movq\t8(%1), %%rcx\n\t"
-; 1458 :         "adcxq\t8(%2), %%rcx\n\t"
-; 1459 :         "movq\t%%rcx, 8(%3)\n\t"
-; 1460 :         "movq\t16(%1), %%rcx\n\t"
-; 1461 :         "adcxq\t16(%2), %%rcx\n\t"
-; 1462 :         "movq\t%%rcx, 16(%3)\n\t"
-; 1463 :         "movq\t24(%1), %%rcx\n\t"
-; 1464 :         "adcxq\t24(%2), %%rcx\n\t"
-; 1465 :         "movq\t%%rcx, 24(%3)\n\t"
-; 1466 :         "movq\t32(%1), %%rcx\n\t"
-; 1467 :         "adcxq\t32(%2), %%rcx\n\t"
-; 1468 :         "movq\t%%rcx, 32(%3)\n\t"
-; 1469 :         "movq\t40(%1), %%rcx\n\t"
-; 1470 :         "adcxq\t40(%2), %%rcx\n\t"
-; 1471 :         "movq\t%%rcx, 40(%3)\n\t"
-; 1472 :         "movq\t48(%1), %%rcx\n\t"
-; 1473 :         "adcxq\t48(%2), %%rcx\n\t"
-; 1474 :         "movq\t%%rcx, 48(%3)\n\t"
-; 1475 :         "movq\t56(%1), %%rcx\n\t"
-; 1476 :         "adcxq\t56(%2), %%rcx\n\t"
-; 1477 :         "movq\t%%rcx, 56(%3)\n\t"
-; 1478 :         "movq\t64(%1), %%rcx\n\t"
-; 1479 :         "adcxq\t64(%2), %%rcx\n\t"
-; 1480 :         "movq\t%%rcx, 64(%3)\n\t"
-; 1481 :         "movq\t72(%1), %%rcx\n\t"
-; 1482 :         "adcxq\t72(%2), %%rcx\n\t"
-; 1483 :         "movq\t%%rcx, 72(%3)\n\t"
-; 1484 :         "movq\t80(%1), %%rcx\n\t"
-; 1485 :         "adcxq\t80(%2), %%rcx\n\t"
-; 1486 :         "movq\t%%rcx, 80(%3)\n\t"
-; 1487 :         "movq\t88(%1), %%rcx\n\t"
-; 1488 :         "adcxq\t88(%2), %%rcx\n\t"
-; 1489 :         "movq\t%%rcx, 88(%3)\n\t"
-; 1490 :         "movq\t96(%1), %%rcx\n\t"
-; 1491 :         "adcxq\t96(%2), %%rcx\n\t"
-; 1492 :         "movq\t%%rcx, 96(%3)\n\t"
-; 1493 :         "movq\t104(%1), %%rcx\n\t"
-; 1494 :         "adcxq\t104(%2), %%rcx\n\t"
-; 1495 :         "movq\t%%rcx, 104(%3)\n\t"
-; 1496 :         "movq\t112(%1), %%rcx\n\t"
-; 1497 :         "adcxq\t112(%2), %%rcx\n\t"
-; 1498 :         "movq\t%%rcx, 112(%3)\n\t"
-; 1499 :         "movq\t120(%1), %%rcx\n\t"
-; 1500 :         "adcxq\t120(%2), %%rcx\n\t"
-; 1501 :         "movq\t%%rcx, 120(%3)\n\t"
-; 1502 :         "movq\t128(%1), %%rcx\n\t"
-; 1503 :         "adcxq\t128(%2), %%rcx\n\t"
-; 1504 :         "movq\t%%rcx, 128(%3)\n\t"
-; 1505 :         "movq\t136(%1), %%rcx\n\t"
-; 1506 :         "adcxq\t136(%2), %%rcx\n\t"
-; 1507 :         "movq\t%%rcx, 136(%3)\n\t"
-; 1508 :         "movq\t144(%1), %%rcx\n\t"
-; 1509 :         "adcxq\t144(%2), %%rcx\n\t"
-; 1510 :         "movq\t%%rcx, 144(%3)\n\t"
-; 1511 :         "movq\t152(%1), %%rcx\n\t"
-; 1512 :         "adcxq\t152(%2), %%rcx\n\t"
-; 1513 :         "movq\t%%rcx, 152(%3)\n\t"
-; 1514 :         "movq\t160(%1), %%rcx\n\t"
-; 1515 :         "adcxq\t160(%2), %%rcx\n\t"
-; 1516 :         "movq\t%%rcx, 160(%3)\n\t"
-; 1517 :         "movq\t168(%1), %%rcx\n\t"
-; 1518 :         "adcxq\t168(%2), %%rcx\n\t"
-; 1519 :         "movq\t%%rcx, 168(%3)\n\t"
-; 1520 :         "movq\t176(%1), %%rcx\n\t"
-; 1521 :         "adcxq\t176(%2), %%rcx\n\t"
-; 1522 :         "movq\t%%rcx, 176(%3)\n\t"
-; 1523 :         "movq\t184(%1), %%rcx\n\t"
-; 1524 :         "adcxq\t184(%2), %%rcx\n\t"
-; 1525 :         "movq\t%%rcx, 184(%3)\n\t"
-; 1526 :         "movq\t192(%1), %%rcx\n\t"
-; 1527 :         "adcxq\t192(%2), %%rcx\n\t"
-; 1528 :         "movq\t%%rcx, 192(%3)\n\t"
-; 1529 :         "movq\t200(%1), %%rcx\n\t"
-; 1530 :         "adcxq\t200(%2), %%rcx\n\t"
-; 1531 :         "movq\t%%rcx, 200(%3)\n\t"
-; 1532 :         "movq\t208(%1), %%rcx\n\t"
-; 1533 :         "adcxq\t208(%2), %%rcx\n\t"
-; 1534 :         "movq\t%%rcx, 208(%3)\n\t"
-; 1535 :         "movq\t216(%1), %%rcx\n\t"
-; 1536 :         "adcxq\t216(%2), %%rcx\n\t"
-; 1537 :         "movq\t%%rcx, 216(%3)\n\t"
-; 1538 :         "movq\t224(%1), %%rcx\n\t"
-; 1539 :         "adcxq\t224(%2), %%rcx\n\t"
-; 1540 :         "movq\t%%rcx, 224(%3)\n\t"
-; 1541 :         "movq\t232(%1), %%rcx\n\t"
-; 1542 :         "adcxq\t232(%2), %%rcx\n\t"
-; 1543 :         "movq\t%%rcx, 232(%3)\n\t"
-; 1544 :         "movq\t240(%1), %%rcx\n\t"
-; 1545 :         "adcxq\t240(%2), %%rcx\n\t"
-; 1546 :         "movq\t%%rcx, 240(%3)\n\t"
-; 1547 :         "movq\t248(%1), %%rcx\n\t"
-; 1548 :         "adcxq\t248(%2), %%rcx\n\t"
-; 1549 :         "movq\t%%rcx, 248(%3)\n\t"
-; 1550 :         "setc\t%0"
-; 1551 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 1552 :         :
-; 1553 :         : "cc", "memory", "%rcx"
-; 1554 : );
-; 1555 : #else
-; 1556 : #error unknown platform
-; 1557 : #endif
-; 1558 : #else
-; 1559 : #error unknown compiler
-; 1560 : #endif
-; 1561 :     return (c);
+; 1339 : #elif defined(__GNUC__)
+; 1340 : #ifdef _M_IX86
+; 1341 :     __asm__ volatile (
+; 1342 :         "addb\t$-1, %0\n\t"
+; 1343 :         "movl\t(%1), %%ecx\n\t"
+; 1344 :         "adcxl\t(%2), %%ecx\n\t"
+; 1345 :         "movl\t%%ecx, (%3)\n\t"
+; 1346 :         "movl\t4(%1), %%ecx\n\t"
+; 1347 :         "adcxl\t4(%2), %%ecx\n\t"
+; 1348 :         "movl\t%%ecx, 4(%3)\n\t"
+; 1349 :         "movl\t8(%1), %%ecx\n\t"
+; 1350 :         "adcxl\t8(%2), %%ecx\n\t"
+; 1351 :         "movl\t%%ecx, 8(%3)\n\t"
+; 1352 :         "movl\t12(%1), %%ecx\n\t"
+; 1353 :         "adcxl\t12(%2), %%ecx\n\t"
+; 1354 :         "movl\t%%ecx, 12(%3)\n\t"
+; 1355 :         "movl\t16(%1), %%ecx\n\t"
+; 1356 :         "adcxl\t16(%2), %%ecx\n\t"
+; 1357 :         "movl\t%%ecx, 16(%3)\n\t"
+; 1358 :         "movl\t20(%1), %%ecx\n\t"
+; 1359 :         "adcxl\t20(%2), %%ecx\n\t"
+; 1360 :         "movl\t%%ecx, 20(%3)\n\t"
+; 1361 :         "movl\t24(%1), %%ecx\n\t"
+; 1362 :         "adcxl\t24(%2), %%ecx\n\t"
+; 1363 :         "movl\t%%ecx, 24(%3)\n\t"
+; 1364 :         "movl\t28(%1), %%ecx\n\t"
+; 1365 :         "adcxl\t28(%2), %%ecx\n\t"
+; 1366 :         "movl\t%%ecx, 28(%3)\n\t"
+; 1367 :         "movl\t32(%1), %%ecx\n\t"
+; 1368 :         "adcxl\t32(%2), %%ecx\n\t"
+; 1369 :         "movl\t%%ecx, 32(%3)\n\t"
+; 1370 :         "movl\t36(%1), %%ecx\n\t"
+; 1371 :         "adcxl\t36(%2), %%ecx\n\t"
+; 1372 :         "movl\t%%ecx, 36(%3)\n\t"
+; 1373 :         "movl\t40(%1), %%ecx\n\t"
+; 1374 :         "adcxl\t40(%2), %%ecx\n\t"
+; 1375 :         "movl\t%%ecx, 40(%3)\n\t"
+; 1376 :         "movl\t44(%1), %%ecx\n\t"
+; 1377 :         "adcxl\t44(%2), %%ecx\n\t"
+; 1378 :         "movl\t%%ecx, 44(%3)\n\t"
+; 1379 :         "movl\t48(%1), %%ecx\n\t"
+; 1380 :         "adcxl\t48(%2), %%ecx\n\t"
+; 1381 :         "movl\t%%ecx, 48(%3)\n\t"
+; 1382 :         "movl\t52(%1), %%ecx\n\t"
+; 1383 :         "adcxl\t52(%2), %%ecx\n\t"
+; 1384 :         "movl\t%%ecx, 52(%3)\n\t"
+; 1385 :         "movl\t56(%1), %%ecx\n\t"
+; 1386 :         "adcxl\t56(%2), %%ecx\n\t"
+; 1387 :         "movl\t%%ecx, 56(%3)\n\t"
+; 1388 :         "movl\t60(%1), %%ecx\n\t"
+; 1389 :         "adcxl\t60(%2), %%ecx\n\t"
+; 1390 :         "movl\t%%ecx, 60(%3)\n\t"
+; 1391 :         "movl\t64(%1), %%ecx\n\t"
+; 1392 :         "adcxl\t64(%2), %%ecx\n\t"
+; 1393 :         "movl\t%%ecx, 64(%3)\n\t"
+; 1394 :         "movl\t68(%1), %%ecx\n\t"
+; 1395 :         "adcxl\t68(%2), %%ecx\n\t"
+; 1396 :         "movl\t%%ecx, 68(%3)\n\t"
+; 1397 :         "movl\t72(%1), %%ecx\n\t"
+; 1398 :         "adcxl\t72(%2), %%ecx\n\t"
+; 1399 :         "movl\t%%ecx, 72(%3)\n\t"
+; 1400 :         "movl\t76(%1), %%ecx\n\t"
+; 1401 :         "adcxl\t76(%2), %%ecx\n\t"
+; 1402 :         "movl\t%%ecx, 76(%3)\n\t"
+; 1403 :         "movl\t80(%1), %%ecx\n\t"
+; 1404 :         "adcxl\t80(%2), %%ecx\n\t"
+; 1405 :         "movl\t%%ecx, 80(%3)\n\t"
+; 1406 :         "movl\t84(%1), %%ecx\n\t"
+; 1407 :         "adcxl\t84(%2), %%ecx\n\t"
+; 1408 :         "movl\t%%ecx, 84(%3)\n\t"
+; 1409 :         "movl\t88(%1), %%ecx\n\t"
+; 1410 :         "adcxl\t88(%2), %%ecx\n\t"
+; 1411 :         "movl\t%%ecx, 88(%3)\n\t"
+; 1412 :         "movl\t92(%1), %%ecx\n\t"
+; 1413 :         "adcxl\t92(%2), %%ecx\n\t"
+; 1414 :         "movl\t%%ecx, 92(%3)\n\t"
+; 1415 :         "movl\t96(%1), %%ecx\n\t"
+; 1416 :         "adcxl\t96(%2), %%ecx\n\t"
+; 1417 :         "movl\t%%ecx, 96(%3)\n\t"
+; 1418 :         "movl\t100(%1), %%ecx\n\t"
+; 1419 :         "adcxl\t100(%2), %%ecx\n\t"
+; 1420 :         "movl\t%%ecx, 100(%3)\n\t"
+; 1421 :         "movl\t104(%1), %%ecx\n\t"
+; 1422 :         "adcxl\t104(%2), %%ecx\n\t"
+; 1423 :         "movl\t%%ecx, 104(%3)\n\t"
+; 1424 :         "movl\t108(%1), %%ecx\n\t"
+; 1425 :         "adcxl\t108(%2), %%ecx\n\t"
+; 1426 :         "movl\t%%ecx, 108(%3)\n\t"
+; 1427 :         "movl\t112(%1), %%ecx\n\t"
+; 1428 :         "adcxl\t112(%2), %%ecx\n\t"
+; 1429 :         "movl\t%%ecx, 112(%3)\n\t"
+; 1430 :         "movl\t116(%1), %%ecx\n\t"
+; 1431 :         "adcxl\t116(%2), %%ecx\n\t"
+; 1432 :         "movl\t%%ecx, 116(%3)\n\t"
+; 1433 :         "movl\t120(%1), %%ecx\n\t"
+; 1434 :         "adcxl\t120(%2), %%ecx\n\t"
+; 1435 :         "movl\t%%ecx, 120(%3)\n\t"
+; 1436 :         "movl\t124(%1), %%ecx\n\t"
+; 1437 :         "adcxl\t124(%2), %%ecx\n\t"
+; 1438 :         "movl\t%%ecx, 124(%3)\n\t"
+; 1439 :         "setc\t%0"
+; 1440 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 1441 :         :
+; 1442 :         : "cc", "memory", "%ecx"
+; 1443 : );
+; 1444 : #elif defined(_M_IX64)
+; 1445 :     __asm__ volatile (
+; 1446 :         "addb\t$-1, %0\n\t"
+; 1447 :         "movq\t(%1), %%rcx\n\t"
+; 1448 :         "adcxq\t(%2), %%rcx\n\t"
+; 1449 :         "movq\t%%rcx, (%3)\n\t"
+; 1450 :         "movq\t8(%1), %%rcx\n\t"
+; 1451 :         "adcxq\t8(%2), %%rcx\n\t"
+; 1452 :         "movq\t%%rcx, 8(%3)\n\t"
+; 1453 :         "movq\t16(%1), %%rcx\n\t"
+; 1454 :         "adcxq\t16(%2), %%rcx\n\t"
+; 1455 :         "movq\t%%rcx, 16(%3)\n\t"
+; 1456 :         "movq\t24(%1), %%rcx\n\t"
+; 1457 :         "adcxq\t24(%2), %%rcx\n\t"
+; 1458 :         "movq\t%%rcx, 24(%3)\n\t"
+; 1459 :         "movq\t32(%1), %%rcx\n\t"
+; 1460 :         "adcxq\t32(%2), %%rcx\n\t"
+; 1461 :         "movq\t%%rcx, 32(%3)\n\t"
+; 1462 :         "movq\t40(%1), %%rcx\n\t"
+; 1463 :         "adcxq\t40(%2), %%rcx\n\t"
+; 1464 :         "movq\t%%rcx, 40(%3)\n\t"
+; 1465 :         "movq\t48(%1), %%rcx\n\t"
+; 1466 :         "adcxq\t48(%2), %%rcx\n\t"
+; 1467 :         "movq\t%%rcx, 48(%3)\n\t"
+; 1468 :         "movq\t56(%1), %%rcx\n\t"
+; 1469 :         "adcxq\t56(%2), %%rcx\n\t"
+; 1470 :         "movq\t%%rcx, 56(%3)\n\t"
+; 1471 :         "movq\t64(%1), %%rcx\n\t"
+; 1472 :         "adcxq\t64(%2), %%rcx\n\t"
+; 1473 :         "movq\t%%rcx, 64(%3)\n\t"
+; 1474 :         "movq\t72(%1), %%rcx\n\t"
+; 1475 :         "adcxq\t72(%2), %%rcx\n\t"
+; 1476 :         "movq\t%%rcx, 72(%3)\n\t"
+; 1477 :         "movq\t80(%1), %%rcx\n\t"
+; 1478 :         "adcxq\t80(%2), %%rcx\n\t"
+; 1479 :         "movq\t%%rcx, 80(%3)\n\t"
+; 1480 :         "movq\t88(%1), %%rcx\n\t"
+; 1481 :         "adcxq\t88(%2), %%rcx\n\t"
+; 1482 :         "movq\t%%rcx, 88(%3)\n\t"
+; 1483 :         "movq\t96(%1), %%rcx\n\t"
+; 1484 :         "adcxq\t96(%2), %%rcx\n\t"
+; 1485 :         "movq\t%%rcx, 96(%3)\n\t"
+; 1486 :         "movq\t104(%1), %%rcx\n\t"
+; 1487 :         "adcxq\t104(%2), %%rcx\n\t"
+; 1488 :         "movq\t%%rcx, 104(%3)\n\t"
+; 1489 :         "movq\t112(%1), %%rcx\n\t"
+; 1490 :         "adcxq\t112(%2), %%rcx\n\t"
+; 1491 :         "movq\t%%rcx, 112(%3)\n\t"
+; 1492 :         "movq\t120(%1), %%rcx\n\t"
+; 1493 :         "adcxq\t120(%2), %%rcx\n\t"
+; 1494 :         "movq\t%%rcx, 120(%3)\n\t"
+; 1495 :         "movq\t128(%1), %%rcx\n\t"
+; 1496 :         "adcxq\t128(%2), %%rcx\n\t"
+; 1497 :         "movq\t%%rcx, 128(%3)\n\t"
+; 1498 :         "movq\t136(%1), %%rcx\n\t"
+; 1499 :         "adcxq\t136(%2), %%rcx\n\t"
+; 1500 :         "movq\t%%rcx, 136(%3)\n\t"
+; 1501 :         "movq\t144(%1), %%rcx\n\t"
+; 1502 :         "adcxq\t144(%2), %%rcx\n\t"
+; 1503 :         "movq\t%%rcx, 144(%3)\n\t"
+; 1504 :         "movq\t152(%1), %%rcx\n\t"
+; 1505 :         "adcxq\t152(%2), %%rcx\n\t"
+; 1506 :         "movq\t%%rcx, 152(%3)\n\t"
+; 1507 :         "movq\t160(%1), %%rcx\n\t"
+; 1508 :         "adcxq\t160(%2), %%rcx\n\t"
+; 1509 :         "movq\t%%rcx, 160(%3)\n\t"
+; 1510 :         "movq\t168(%1), %%rcx\n\t"
+; 1511 :         "adcxq\t168(%2), %%rcx\n\t"
+; 1512 :         "movq\t%%rcx, 168(%3)\n\t"
+; 1513 :         "movq\t176(%1), %%rcx\n\t"
+; 1514 :         "adcxq\t176(%2), %%rcx\n\t"
+; 1515 :         "movq\t%%rcx, 176(%3)\n\t"
+; 1516 :         "movq\t184(%1), %%rcx\n\t"
+; 1517 :         "adcxq\t184(%2), %%rcx\n\t"
+; 1518 :         "movq\t%%rcx, 184(%3)\n\t"
+; 1519 :         "movq\t192(%1), %%rcx\n\t"
+; 1520 :         "adcxq\t192(%2), %%rcx\n\t"
+; 1521 :         "movq\t%%rcx, 192(%3)\n\t"
+; 1522 :         "movq\t200(%1), %%rcx\n\t"
+; 1523 :         "adcxq\t200(%2), %%rcx\n\t"
+; 1524 :         "movq\t%%rcx, 200(%3)\n\t"
+; 1525 :         "movq\t208(%1), %%rcx\n\t"
+; 1526 :         "adcxq\t208(%2), %%rcx\n\t"
+; 1527 :         "movq\t%%rcx, 208(%3)\n\t"
+; 1528 :         "movq\t216(%1), %%rcx\n\t"
+; 1529 :         "adcxq\t216(%2), %%rcx\n\t"
+; 1530 :         "movq\t%%rcx, 216(%3)\n\t"
+; 1531 :         "movq\t224(%1), %%rcx\n\t"
+; 1532 :         "adcxq\t224(%2), %%rcx\n\t"
+; 1533 :         "movq\t%%rcx, 224(%3)\n\t"
+; 1534 :         "movq\t232(%1), %%rcx\n\t"
+; 1535 :         "adcxq\t232(%2), %%rcx\n\t"
+; 1536 :         "movq\t%%rcx, 232(%3)\n\t"
+; 1537 :         "movq\t240(%1), %%rcx\n\t"
+; 1538 :         "adcxq\t240(%2), %%rcx\n\t"
+; 1539 :         "movq\t%%rcx, 240(%3)\n\t"
+; 1540 :         "movq\t248(%1), %%rcx\n\t"
+; 1541 :         "adcxq\t248(%2), %%rcx\n\t"
+; 1542 :         "movq\t%%rcx, 248(%3)\n\t"
+; 1543 :         "setc\t%0"
+; 1544 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 1545 :         :
+; 1546 :         : "cc", "memory", "%rcx"
+; 1547 : );
+; 1548 : #else
+; 1549 : #error unknown platform
+; 1550 : #endif
+; 1551 : #else
+; 1552 : #error unknown compiler
+; 1553 : #endif
+; 1554 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 1562 : }
+; 1555 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -10184,7 +10184,7 @@ yp$ = 240
 zp$ = 248
 _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 
-; 1059 : {
+; 1052 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -10202,8 +10202,8 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 1060 : #ifdef _MSC_VER
-; 1061 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
+; 1053 : #ifdef _MSC_VER
+; 1054 :     c = _ADD_UNIT_DIV(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -10223,7 +10223,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1062 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
+; 1055 :     c = _ADD_UNIT_DIV(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 4
 	imul	rax, rax, 1
@@ -10243,7 +10243,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1063 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
+; 1056 :     c = _ADD_UNIT_DIV(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 4
 	imul	rax, rax, 2
@@ -10263,7 +10263,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1064 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
+; 1057 :     c = _ADD_UNIT_DIV(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	rax, rax, 3
@@ -10283,7 +10283,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1065 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
+; 1058 :     c = _ADD_UNIT_DIV(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 4
 	imul	rax, rax, 4
@@ -10303,7 +10303,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1066 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
+; 1059 :     c = _ADD_UNIT_DIV(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 4
 	imul	rax, rax, 5
@@ -10323,7 +10323,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1067 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
+; 1060 :     c = _ADD_UNIT_DIV(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	rax, rax, 6
@@ -10343,7 +10343,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1068 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
+; 1061 :     c = _ADD_UNIT_DIV(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 4
 	imul	rax, rax, 7
@@ -10363,7 +10363,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1069 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
+; 1062 :     c = _ADD_UNIT_DIV(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 4
 	imul	rax, rax, 8
@@ -10383,7 +10383,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1070 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
+; 1063 :     c = _ADD_UNIT_DIV(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	rax, rax, 9
@@ -10403,7 +10403,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1071 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
+; 1064 :     c = _ADD_UNIT_DIV(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 4
 	imul	rax, rax, 10
@@ -10423,7 +10423,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1072 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
+; 1065 :     c = _ADD_UNIT_DIV(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 4
 	imul	rax, rax, 11
@@ -10443,7 +10443,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1073 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
+; 1066 :     c = _ADD_UNIT_DIV(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	rax, rax, 12
@@ -10463,7 +10463,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1074 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
+; 1067 :     c = _ADD_UNIT_DIV(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 4
 	imul	rax, rax, 13
@@ -10483,7 +10483,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1075 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
+; 1068 :     c = _ADD_UNIT_DIV(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 4
 	imul	rax, rax, 14
@@ -10503,7 +10503,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1076 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
+; 1069 :     c = _ADD_UNIT_DIV(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	rax, rax, 15
@@ -10523,7 +10523,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1077 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
+; 1070 :     c = _ADD_UNIT_DIV(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, 4
 	imul	rax, rax, 16
@@ -10543,7 +10543,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1078 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
+; 1071 :     c = _ADD_UNIT_DIV(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, 4
 	imul	rax, rax, 17
@@ -10563,7 +10563,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1079 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
+; 1072 :     c = _ADD_UNIT_DIV(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, 4
 	imul	rax, rax, 18
@@ -10583,7 +10583,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1080 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
+; 1073 :     c = _ADD_UNIT_DIV(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, 4
 	imul	rax, rax, 19
@@ -10603,7 +10603,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1081 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
+; 1074 :     c = _ADD_UNIT_DIV(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, 4
 	imul	rax, rax, 20
@@ -10623,7 +10623,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1082 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
+; 1075 :     c = _ADD_UNIT_DIV(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, 4
 	imul	rax, rax, 21
@@ -10643,7 +10643,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1083 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
+; 1076 :     c = _ADD_UNIT_DIV(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, 4
 	imul	rax, rax, 22
@@ -10663,7 +10663,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1084 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
+; 1077 :     c = _ADD_UNIT_DIV(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, 4
 	imul	rax, rax, 23
@@ -10683,7 +10683,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1085 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
+; 1078 :     c = _ADD_UNIT_DIV(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, 4
 	imul	rax, rax, 24
@@ -10703,7 +10703,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1086 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
+; 1079 :     c = _ADD_UNIT_DIV(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, 4
 	imul	rax, rax, 25
@@ -10723,7 +10723,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1087 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
+; 1080 :     c = _ADD_UNIT_DIV(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, 4
 	imul	rax, rax, 26
@@ -10743,7 +10743,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1088 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
+; 1081 :     c = _ADD_UNIT_DIV(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, 4
 	imul	rax, rax, 27
@@ -10763,7 +10763,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1089 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
+; 1082 :     c = _ADD_UNIT_DIV(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, 4
 	imul	rax, rax, 28
@@ -10783,7 +10783,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1090 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
+; 1083 :     c = _ADD_UNIT_DIV(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, 4
 	imul	rax, rax, 29
@@ -10803,7 +10803,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1091 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
+; 1084 :     c = _ADD_UNIT_DIV(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, 4
 	imul	rax, rax, 30
@@ -10823,7 +10823,7 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1092 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
+; 1085 :     c = _ADD_UNIT_DIV(c, xp[31], yp[31], &zp[31]);
 
 	mov	eax, 4
 	imul	rax, rax, 31
@@ -10843,226 +10843,226 @@ _ADD_32WORDS_ADC_DIV PROC				; COMDAT
 	call	_ADD_UNIT_DIV
 	mov	BYTE PTR c$[rbp], al
 
-; 1093 : #elif defined(__GNUC__)
-; 1094 : #ifdef _M_IX86
-; 1095 :     __asm__ volatile (
-; 1096 :         "addb\t$-1, %0\n\t"
-; 1097 :         "movl\t(%1), %%ecx\n\t"
-; 1098 :         "adcl\t(%2), %%ecx\n\t"
-; 1099 :         "movl\t%%ecx, (%3)\n\t"
-; 1100 :         "movl\t4(%1), %%ecx\n\t"
-; 1101 :         "adcl\t4(%2), %%ecx\n\t"
-; 1102 :         "movl\t%%ecx, 4(%3)\n\t"
-; 1103 :         "movl\t8(%1), %%ecx\n\t"
-; 1104 :         "adcl\t8(%2), %%ecx\n\t"
-; 1105 :         "movl\t%%ecx, 8(%3)\n\t"
-; 1106 :         "movl\t12(%1), %%ecx\n\t"
-; 1107 :         "adcl\t12(%2), %%ecx\n\t"
-; 1108 :         "movl\t%%ecx, 12(%3)\n\t"
-; 1109 :         "movl\t16(%1), %%ecx\n\t"
-; 1110 :         "adcl\t16(%2), %%ecx\n\t"
-; 1111 :         "movl\t%%ecx, 16(%3)\n\t"
-; 1112 :         "movl\t20(%1), %%ecx\n\t"
-; 1113 :         "adcl\t20(%2), %%ecx\n\t"
-; 1114 :         "movl\t%%ecx, 20(%3)\n\t"
-; 1115 :         "movl\t24(%1), %%ecx\n\t"
-; 1116 :         "adcl\t24(%2), %%ecx\n\t"
-; 1117 :         "movl\t%%ecx, 24(%3)\n\t"
-; 1118 :         "movl\t28(%1), %%ecx\n\t"
-; 1119 :         "adcl\t28(%2), %%ecx\n\t"
-; 1120 :         "movl\t%%ecx, 28(%3)\n\t"
-; 1121 :         "movl\t32(%1), %%ecx\n\t"
-; 1122 :         "adcl\t32(%2), %%ecx\n\t"
-; 1123 :         "movl\t%%ecx, 32(%3)\n\t"
-; 1124 :         "movl\t36(%1), %%ecx\n\t"
-; 1125 :         "adcl\t36(%2), %%ecx\n\t"
-; 1126 :         "movl\t%%ecx, 36(%3)\n\t"
-; 1127 :         "movl\t40(%1), %%ecx\n\t"
-; 1128 :         "adcl\t40(%2), %%ecx\n\t"
-; 1129 :         "movl\t%%ecx, 40(%3)\n\t"
-; 1130 :         "movl\t44(%1), %%ecx\n\t"
-; 1131 :         "adcl\t44(%2), %%ecx\n\t"
-; 1132 :         "movl\t%%ecx, 44(%3)\n\t"
-; 1133 :         "movl\t48(%1), %%ecx\n\t"
-; 1134 :         "adcl\t48(%2), %%ecx\n\t"
-; 1135 :         "movl\t%%ecx, 48(%3)\n\t"
-; 1136 :         "movl\t52(%1), %%ecx\n\t"
-; 1137 :         "adcl\t52(%2), %%ecx\n\t"
-; 1138 :         "movl\t%%ecx, 52(%3)\n\t"
-; 1139 :         "movl\t56(%1), %%ecx\n\t"
-; 1140 :         "adcl\t56(%2), %%ecx\n\t"
-; 1141 :         "movl\t%%ecx, 56(%3)\n\t"
-; 1142 :         "movl\t60(%1), %%ecx\n\t"
-; 1143 :         "adcl\t60(%2), %%ecx\n\t"
-; 1144 :         "movl\t%%ecx, 60(%3)\n\t"
-; 1145 :         "movl\t64(%1), %%ecx\n\t"
-; 1146 :         "adcl\t64(%2), %%ecx\n\t"
-; 1147 :         "movl\t%%ecx, 64(%3)\n\t"
-; 1148 :         "movl\t68(%1), %%ecx\n\t"
-; 1149 :         "adcl\t68(%2), %%ecx\n\t"
-; 1150 :         "movl\t%%ecx, 68(%3)\n\t"
-; 1151 :         "movl\t72(%1), %%ecx\n\t"
-; 1152 :         "adcl\t72(%2), %%ecx\n\t"
-; 1153 :         "movl\t%%ecx, 72(%3)\n\t"
-; 1154 :         "movl\t76(%1), %%ecx\n\t"
-; 1155 :         "adcl\t76(%2), %%ecx\n\t"
-; 1156 :         "movl\t%%ecx, 76(%3)\n\t"
-; 1157 :         "movl\t80(%1), %%ecx\n\t"
-; 1158 :         "adcl\t80(%2), %%ecx\n\t"
-; 1159 :         "movl\t%%ecx, 80(%3)\n\t"
-; 1160 :         "movl\t84(%1), %%ecx\n\t"
-; 1161 :         "adcl\t84(%2), %%ecx\n\t"
-; 1162 :         "movl\t%%ecx, 84(%3)\n\t"
-; 1163 :         "movl\t88(%1), %%ecx\n\t"
-; 1164 :         "adcl\t88(%2), %%ecx\n\t"
-; 1165 :         "movl\t%%ecx, 88(%3)\n\t"
-; 1166 :         "movl\t92(%1), %%ecx\n\t"
-; 1167 :         "adcl\t92(%2), %%ecx\n\t"
-; 1168 :         "movl\t%%ecx, 92(%3)\n\t"
-; 1169 :         "movl\t96(%1), %%ecx\n\t"
-; 1170 :         "adcl\t96(%2), %%ecx\n\t"
-; 1171 :         "movl\t%%ecx, 96(%3)\n\t"
-; 1172 :         "movl\t100(%1), %%ecx\n\t"
-; 1173 :         "adcl\t100(%2), %%ecx\n\t"
-; 1174 :         "movl\t%%ecx, 100(%3)\n\t"
-; 1175 :         "movl\t104(%1), %%ecx\n\t"
-; 1176 :         "adcl\t104(%2), %%ecx\n\t"
-; 1177 :         "movl\t%%ecx, 104(%3)\n\t"
-; 1178 :         "movl\t108(%1), %%ecx\n\t"
-; 1179 :         "adcl\t108(%2), %%ecx\n\t"
-; 1180 :         "movl\t%%ecx, 108(%3)\n\t"
-; 1181 :         "movl\t112(%1), %%ecx\n\t"
-; 1182 :         "adcl\t112(%2), %%ecx\n\t"
-; 1183 :         "movl\t%%ecx, 112(%3)\n\t"
-; 1184 :         "movl\t116(%1), %%ecx\n\t"
-; 1185 :         "adcl\t116(%2), %%ecx\n\t"
-; 1186 :         "movl\t%%ecx, 116(%3)\n\t"
-; 1187 :         "movl\t120(%1), %%ecx\n\t"
-; 1188 :         "adcl\t120(%2), %%ecx\n\t"
-; 1189 :         "movl\t%%ecx, 120(%3)\n\t"
-; 1190 :         "movl\t124(%1), %%ecx\n\t"
-; 1191 :         "adcl\t124(%2), %%ecx\n\t"
-; 1192 :         "movl\t%%ecx, 124(%3)\n\t"
-; 1193 :         "setc\t%0"
-; 1194 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 1195 :         :
-; 1196 :         : "cc", "memory", "%ecx"
-; 1197 : );
-; 1198 : #elif defined(_M_IX64)
-; 1199 :     __asm__ volatile (
-; 1200 :         "addb\t$-1, %0\n\t"
-; 1201 :         "movq\t(%1), %%rcx\n\t"
-; 1202 :         "adcq\t(%2), %%rcx\n\t"
-; 1203 :         "movq\t%%rcx, (%3)\n\t"
-; 1204 :         "movq\t8(%1), %%rcx\n\t"
-; 1205 :         "adcq\t8(%2), %%rcx\n\t"
-; 1206 :         "movq\t%%rcx, 8(%3)\n\t"
-; 1207 :         "movq\t16(%1), %%rcx\n\t"
-; 1208 :         "adcq\t16(%2), %%rcx\n\t"
-; 1209 :         "movq\t%%rcx, 16(%3)\n\t"
-; 1210 :         "movq\t24(%1), %%rcx\n\t"
-; 1211 :         "adcq\t24(%2), %%rcx\n\t"
-; 1212 :         "movq\t%%rcx, 24(%3)\n\t"
-; 1213 :         "movq\t32(%1), %%rcx\n\t"
-; 1214 :         "adcq\t32(%2), %%rcx\n\t"
-; 1215 :         "movq\t%%rcx, 32(%3)\n\t"
-; 1216 :         "movq\t40(%1), %%rcx\n\t"
-; 1217 :         "adcq\t40(%2), %%rcx\n\t"
-; 1218 :         "movq\t%%rcx, 40(%3)\n\t"
-; 1219 :         "movq\t48(%1), %%rcx\n\t"
-; 1220 :         "adcq\t48(%2), %%rcx\n\t"
-; 1221 :         "movq\t%%rcx, 48(%3)\n\t"
-; 1222 :         "movq\t56(%1), %%rcx\n\t"
-; 1223 :         "adcq\t56(%2), %%rcx\n\t"
-; 1224 :         "movq\t%%rcx, 56(%3)\n\t"
-; 1225 :         "movq\t64(%1), %%rcx\n\t"
-; 1226 :         "adcq\t64(%2), %%rcx\n\t"
-; 1227 :         "movq\t%%rcx, 64(%3)\n\t"
-; 1228 :         "movq\t72(%1), %%rcx\n\t"
-; 1229 :         "adcq\t72(%2), %%rcx\n\t"
-; 1230 :         "movq\t%%rcx, 72(%3)\n\t"
-; 1231 :         "movq\t80(%1), %%rcx\n\t"
-; 1232 :         "adcq\t80(%2), %%rcx\n\t"
-; 1233 :         "movq\t%%rcx, 80(%3)\n\t"
-; 1234 :         "movq\t88(%1), %%rcx\n\t"
-; 1235 :         "adcq\t88(%2), %%rcx\n\t"
-; 1236 :         "movq\t%%rcx, 88(%3)\n\t"
-; 1237 :         "movq\t96(%1), %%rcx\n\t"
-; 1238 :         "adcq\t96(%2), %%rcx\n\t"
-; 1239 :         "movq\t%%rcx, 96(%3)\n\t"
-; 1240 :         "movq\t104(%1), %%rcx\n\t"
-; 1241 :         "adcq\t104(%2), %%rcx\n\t"
-; 1242 :         "movq\t%%rcx, 104(%3)\n\t"
-; 1243 :         "movq\t112(%1), %%rcx\n\t"
-; 1244 :         "adcq\t112(%2), %%rcx\n\t"
-; 1245 :         "movq\t%%rcx, 112(%3)\n\t"
-; 1246 :         "movq\t120(%1), %%rcx\n\t"
-; 1247 :         "adcq\t120(%2), %%rcx\n\t"
-; 1248 :         "movq\t%%rcx, 120(%3)\n\t"
-; 1249 :         "movq\t128(%1), %%rcx\n\t"
-; 1250 :         "adcq\t128(%2), %%rcx\n\t"
-; 1251 :         "movq\t%%rcx, 128(%3)\n\t"
-; 1252 :         "movq\t136(%1), %%rcx\n\t"
-; 1253 :         "adcq\t136(%2), %%rcx\n\t"
-; 1254 :         "movq\t%%rcx, 136(%3)\n\t"
-; 1255 :         "movq\t144(%1), %%rcx\n\t"
-; 1256 :         "adcq\t144(%2), %%rcx\n\t"
-; 1257 :         "movq\t%%rcx, 144(%3)\n\t"
-; 1258 :         "movq\t152(%1), %%rcx\n\t"
-; 1259 :         "adcq\t152(%2), %%rcx\n\t"
-; 1260 :         "movq\t%%rcx, 152(%3)\n\t"
-; 1261 :         "movq\t160(%1), %%rcx\n\t"
-; 1262 :         "adcq\t160(%2), %%rcx\n\t"
-; 1263 :         "movq\t%%rcx, 160(%3)\n\t"
-; 1264 :         "movq\t168(%1), %%rcx\n\t"
-; 1265 :         "adcq\t168(%2), %%rcx\n\t"
-; 1266 :         "movq\t%%rcx, 168(%3)\n\t"
-; 1267 :         "movq\t176(%1), %%rcx\n\t"
-; 1268 :         "adcq\t176(%2), %%rcx\n\t"
-; 1269 :         "movq\t%%rcx, 176(%3)\n\t"
-; 1270 :         "movq\t184(%1), %%rcx\n\t"
-; 1271 :         "adcq\t184(%2), %%rcx\n\t"
-; 1272 :         "movq\t%%rcx, 184(%3)\n\t"
-; 1273 :         "movq\t192(%1), %%rcx\n\t"
-; 1274 :         "adcq\t192(%2), %%rcx\n\t"
-; 1275 :         "movq\t%%rcx, 192(%3)\n\t"
-; 1276 :         "movq\t200(%1), %%rcx\n\t"
-; 1277 :         "adcq\t200(%2), %%rcx\n\t"
-; 1278 :         "movq\t%%rcx, 200(%3)\n\t"
-; 1279 :         "movq\t208(%1), %%rcx\n\t"
-; 1280 :         "adcq\t208(%2), %%rcx\n\t"
-; 1281 :         "movq\t%%rcx, 208(%3)\n\t"
-; 1282 :         "movq\t216(%1), %%rcx\n\t"
-; 1283 :         "adcq\t216(%2), %%rcx\n\t"
-; 1284 :         "movq\t%%rcx, 216(%3)\n\t"
-; 1285 :         "movq\t224(%1), %%rcx\n\t"
-; 1286 :         "adcq\t224(%2), %%rcx\n\t"
-; 1287 :         "movq\t%%rcx, 224(%3)\n\t"
-; 1288 :         "movq\t232(%1), %%rcx\n\t"
-; 1289 :         "adcq\t232(%2), %%rcx\n\t"
-; 1290 :         "movq\t%%rcx, 232(%3)\n\t"
-; 1291 :         "movq\t240(%1), %%rcx\n\t"
-; 1292 :         "adcq\t240(%2), %%rcx\n\t"
-; 1293 :         "movq\t%%rcx, 240(%3)\n\t"
-; 1294 :         "movq\t248(%1), %%rcx\n\t"
-; 1295 :         "adcq\t248(%2), %%rcx\n\t"
-; 1296 :         "movq\t%%rcx, 248(%3)\n\t"
-; 1297 :         "setc\t%0"
-; 1298 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 1299 :         :
-; 1300 :         : "cc", "memory", "%rcx"
-; 1301 : );
-; 1302 : #else
-; 1303 : #error unknown platform
-; 1304 : #endif
-; 1305 : #else
-; 1306 : #error unknown compiler
-; 1307 : #endif
-; 1308 :     return (c);
+; 1086 : #elif defined(__GNUC__)
+; 1087 : #ifdef _M_IX86
+; 1088 :     __asm__ volatile (
+; 1089 :         "addb\t$-1, %0\n\t"
+; 1090 :         "movl\t(%1), %%ecx\n\t"
+; 1091 :         "adcl\t(%2), %%ecx\n\t"
+; 1092 :         "movl\t%%ecx, (%3)\n\t"
+; 1093 :         "movl\t4(%1), %%ecx\n\t"
+; 1094 :         "adcl\t4(%2), %%ecx\n\t"
+; 1095 :         "movl\t%%ecx, 4(%3)\n\t"
+; 1096 :         "movl\t8(%1), %%ecx\n\t"
+; 1097 :         "adcl\t8(%2), %%ecx\n\t"
+; 1098 :         "movl\t%%ecx, 8(%3)\n\t"
+; 1099 :         "movl\t12(%1), %%ecx\n\t"
+; 1100 :         "adcl\t12(%2), %%ecx\n\t"
+; 1101 :         "movl\t%%ecx, 12(%3)\n\t"
+; 1102 :         "movl\t16(%1), %%ecx\n\t"
+; 1103 :         "adcl\t16(%2), %%ecx\n\t"
+; 1104 :         "movl\t%%ecx, 16(%3)\n\t"
+; 1105 :         "movl\t20(%1), %%ecx\n\t"
+; 1106 :         "adcl\t20(%2), %%ecx\n\t"
+; 1107 :         "movl\t%%ecx, 20(%3)\n\t"
+; 1108 :         "movl\t24(%1), %%ecx\n\t"
+; 1109 :         "adcl\t24(%2), %%ecx\n\t"
+; 1110 :         "movl\t%%ecx, 24(%3)\n\t"
+; 1111 :         "movl\t28(%1), %%ecx\n\t"
+; 1112 :         "adcl\t28(%2), %%ecx\n\t"
+; 1113 :         "movl\t%%ecx, 28(%3)\n\t"
+; 1114 :         "movl\t32(%1), %%ecx\n\t"
+; 1115 :         "adcl\t32(%2), %%ecx\n\t"
+; 1116 :         "movl\t%%ecx, 32(%3)\n\t"
+; 1117 :         "movl\t36(%1), %%ecx\n\t"
+; 1118 :         "adcl\t36(%2), %%ecx\n\t"
+; 1119 :         "movl\t%%ecx, 36(%3)\n\t"
+; 1120 :         "movl\t40(%1), %%ecx\n\t"
+; 1121 :         "adcl\t40(%2), %%ecx\n\t"
+; 1122 :         "movl\t%%ecx, 40(%3)\n\t"
+; 1123 :         "movl\t44(%1), %%ecx\n\t"
+; 1124 :         "adcl\t44(%2), %%ecx\n\t"
+; 1125 :         "movl\t%%ecx, 44(%3)\n\t"
+; 1126 :         "movl\t48(%1), %%ecx\n\t"
+; 1127 :         "adcl\t48(%2), %%ecx\n\t"
+; 1128 :         "movl\t%%ecx, 48(%3)\n\t"
+; 1129 :         "movl\t52(%1), %%ecx\n\t"
+; 1130 :         "adcl\t52(%2), %%ecx\n\t"
+; 1131 :         "movl\t%%ecx, 52(%3)\n\t"
+; 1132 :         "movl\t56(%1), %%ecx\n\t"
+; 1133 :         "adcl\t56(%2), %%ecx\n\t"
+; 1134 :         "movl\t%%ecx, 56(%3)\n\t"
+; 1135 :         "movl\t60(%1), %%ecx\n\t"
+; 1136 :         "adcl\t60(%2), %%ecx\n\t"
+; 1137 :         "movl\t%%ecx, 60(%3)\n\t"
+; 1138 :         "movl\t64(%1), %%ecx\n\t"
+; 1139 :         "adcl\t64(%2), %%ecx\n\t"
+; 1140 :         "movl\t%%ecx, 64(%3)\n\t"
+; 1141 :         "movl\t68(%1), %%ecx\n\t"
+; 1142 :         "adcl\t68(%2), %%ecx\n\t"
+; 1143 :         "movl\t%%ecx, 68(%3)\n\t"
+; 1144 :         "movl\t72(%1), %%ecx\n\t"
+; 1145 :         "adcl\t72(%2), %%ecx\n\t"
+; 1146 :         "movl\t%%ecx, 72(%3)\n\t"
+; 1147 :         "movl\t76(%1), %%ecx\n\t"
+; 1148 :         "adcl\t76(%2), %%ecx\n\t"
+; 1149 :         "movl\t%%ecx, 76(%3)\n\t"
+; 1150 :         "movl\t80(%1), %%ecx\n\t"
+; 1151 :         "adcl\t80(%2), %%ecx\n\t"
+; 1152 :         "movl\t%%ecx, 80(%3)\n\t"
+; 1153 :         "movl\t84(%1), %%ecx\n\t"
+; 1154 :         "adcl\t84(%2), %%ecx\n\t"
+; 1155 :         "movl\t%%ecx, 84(%3)\n\t"
+; 1156 :         "movl\t88(%1), %%ecx\n\t"
+; 1157 :         "adcl\t88(%2), %%ecx\n\t"
+; 1158 :         "movl\t%%ecx, 88(%3)\n\t"
+; 1159 :         "movl\t92(%1), %%ecx\n\t"
+; 1160 :         "adcl\t92(%2), %%ecx\n\t"
+; 1161 :         "movl\t%%ecx, 92(%3)\n\t"
+; 1162 :         "movl\t96(%1), %%ecx\n\t"
+; 1163 :         "adcl\t96(%2), %%ecx\n\t"
+; 1164 :         "movl\t%%ecx, 96(%3)\n\t"
+; 1165 :         "movl\t100(%1), %%ecx\n\t"
+; 1166 :         "adcl\t100(%2), %%ecx\n\t"
+; 1167 :         "movl\t%%ecx, 100(%3)\n\t"
+; 1168 :         "movl\t104(%1), %%ecx\n\t"
+; 1169 :         "adcl\t104(%2), %%ecx\n\t"
+; 1170 :         "movl\t%%ecx, 104(%3)\n\t"
+; 1171 :         "movl\t108(%1), %%ecx\n\t"
+; 1172 :         "adcl\t108(%2), %%ecx\n\t"
+; 1173 :         "movl\t%%ecx, 108(%3)\n\t"
+; 1174 :         "movl\t112(%1), %%ecx\n\t"
+; 1175 :         "adcl\t112(%2), %%ecx\n\t"
+; 1176 :         "movl\t%%ecx, 112(%3)\n\t"
+; 1177 :         "movl\t116(%1), %%ecx\n\t"
+; 1178 :         "adcl\t116(%2), %%ecx\n\t"
+; 1179 :         "movl\t%%ecx, 116(%3)\n\t"
+; 1180 :         "movl\t120(%1), %%ecx\n\t"
+; 1181 :         "adcl\t120(%2), %%ecx\n\t"
+; 1182 :         "movl\t%%ecx, 120(%3)\n\t"
+; 1183 :         "movl\t124(%1), %%ecx\n\t"
+; 1184 :         "adcl\t124(%2), %%ecx\n\t"
+; 1185 :         "movl\t%%ecx, 124(%3)\n\t"
+; 1186 :         "setc\t%0"
+; 1187 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 1188 :         :
+; 1189 :         : "cc", "memory", "%ecx"
+; 1190 : );
+; 1191 : #elif defined(_M_IX64)
+; 1192 :     __asm__ volatile (
+; 1193 :         "addb\t$-1, %0\n\t"
+; 1194 :         "movq\t(%1), %%rcx\n\t"
+; 1195 :         "adcq\t(%2), %%rcx\n\t"
+; 1196 :         "movq\t%%rcx, (%3)\n\t"
+; 1197 :         "movq\t8(%1), %%rcx\n\t"
+; 1198 :         "adcq\t8(%2), %%rcx\n\t"
+; 1199 :         "movq\t%%rcx, 8(%3)\n\t"
+; 1200 :         "movq\t16(%1), %%rcx\n\t"
+; 1201 :         "adcq\t16(%2), %%rcx\n\t"
+; 1202 :         "movq\t%%rcx, 16(%3)\n\t"
+; 1203 :         "movq\t24(%1), %%rcx\n\t"
+; 1204 :         "adcq\t24(%2), %%rcx\n\t"
+; 1205 :         "movq\t%%rcx, 24(%3)\n\t"
+; 1206 :         "movq\t32(%1), %%rcx\n\t"
+; 1207 :         "adcq\t32(%2), %%rcx\n\t"
+; 1208 :         "movq\t%%rcx, 32(%3)\n\t"
+; 1209 :         "movq\t40(%1), %%rcx\n\t"
+; 1210 :         "adcq\t40(%2), %%rcx\n\t"
+; 1211 :         "movq\t%%rcx, 40(%3)\n\t"
+; 1212 :         "movq\t48(%1), %%rcx\n\t"
+; 1213 :         "adcq\t48(%2), %%rcx\n\t"
+; 1214 :         "movq\t%%rcx, 48(%3)\n\t"
+; 1215 :         "movq\t56(%1), %%rcx\n\t"
+; 1216 :         "adcq\t56(%2), %%rcx\n\t"
+; 1217 :         "movq\t%%rcx, 56(%3)\n\t"
+; 1218 :         "movq\t64(%1), %%rcx\n\t"
+; 1219 :         "adcq\t64(%2), %%rcx\n\t"
+; 1220 :         "movq\t%%rcx, 64(%3)\n\t"
+; 1221 :         "movq\t72(%1), %%rcx\n\t"
+; 1222 :         "adcq\t72(%2), %%rcx\n\t"
+; 1223 :         "movq\t%%rcx, 72(%3)\n\t"
+; 1224 :         "movq\t80(%1), %%rcx\n\t"
+; 1225 :         "adcq\t80(%2), %%rcx\n\t"
+; 1226 :         "movq\t%%rcx, 80(%3)\n\t"
+; 1227 :         "movq\t88(%1), %%rcx\n\t"
+; 1228 :         "adcq\t88(%2), %%rcx\n\t"
+; 1229 :         "movq\t%%rcx, 88(%3)\n\t"
+; 1230 :         "movq\t96(%1), %%rcx\n\t"
+; 1231 :         "adcq\t96(%2), %%rcx\n\t"
+; 1232 :         "movq\t%%rcx, 96(%3)\n\t"
+; 1233 :         "movq\t104(%1), %%rcx\n\t"
+; 1234 :         "adcq\t104(%2), %%rcx\n\t"
+; 1235 :         "movq\t%%rcx, 104(%3)\n\t"
+; 1236 :         "movq\t112(%1), %%rcx\n\t"
+; 1237 :         "adcq\t112(%2), %%rcx\n\t"
+; 1238 :         "movq\t%%rcx, 112(%3)\n\t"
+; 1239 :         "movq\t120(%1), %%rcx\n\t"
+; 1240 :         "adcq\t120(%2), %%rcx\n\t"
+; 1241 :         "movq\t%%rcx, 120(%3)\n\t"
+; 1242 :         "movq\t128(%1), %%rcx\n\t"
+; 1243 :         "adcq\t128(%2), %%rcx\n\t"
+; 1244 :         "movq\t%%rcx, 128(%3)\n\t"
+; 1245 :         "movq\t136(%1), %%rcx\n\t"
+; 1246 :         "adcq\t136(%2), %%rcx\n\t"
+; 1247 :         "movq\t%%rcx, 136(%3)\n\t"
+; 1248 :         "movq\t144(%1), %%rcx\n\t"
+; 1249 :         "adcq\t144(%2), %%rcx\n\t"
+; 1250 :         "movq\t%%rcx, 144(%3)\n\t"
+; 1251 :         "movq\t152(%1), %%rcx\n\t"
+; 1252 :         "adcq\t152(%2), %%rcx\n\t"
+; 1253 :         "movq\t%%rcx, 152(%3)\n\t"
+; 1254 :         "movq\t160(%1), %%rcx\n\t"
+; 1255 :         "adcq\t160(%2), %%rcx\n\t"
+; 1256 :         "movq\t%%rcx, 160(%3)\n\t"
+; 1257 :         "movq\t168(%1), %%rcx\n\t"
+; 1258 :         "adcq\t168(%2), %%rcx\n\t"
+; 1259 :         "movq\t%%rcx, 168(%3)\n\t"
+; 1260 :         "movq\t176(%1), %%rcx\n\t"
+; 1261 :         "adcq\t176(%2), %%rcx\n\t"
+; 1262 :         "movq\t%%rcx, 176(%3)\n\t"
+; 1263 :         "movq\t184(%1), %%rcx\n\t"
+; 1264 :         "adcq\t184(%2), %%rcx\n\t"
+; 1265 :         "movq\t%%rcx, 184(%3)\n\t"
+; 1266 :         "movq\t192(%1), %%rcx\n\t"
+; 1267 :         "adcq\t192(%2), %%rcx\n\t"
+; 1268 :         "movq\t%%rcx, 192(%3)\n\t"
+; 1269 :         "movq\t200(%1), %%rcx\n\t"
+; 1270 :         "adcq\t200(%2), %%rcx\n\t"
+; 1271 :         "movq\t%%rcx, 200(%3)\n\t"
+; 1272 :         "movq\t208(%1), %%rcx\n\t"
+; 1273 :         "adcq\t208(%2), %%rcx\n\t"
+; 1274 :         "movq\t%%rcx, 208(%3)\n\t"
+; 1275 :         "movq\t216(%1), %%rcx\n\t"
+; 1276 :         "adcq\t216(%2), %%rcx\n\t"
+; 1277 :         "movq\t%%rcx, 216(%3)\n\t"
+; 1278 :         "movq\t224(%1), %%rcx\n\t"
+; 1279 :         "adcq\t224(%2), %%rcx\n\t"
+; 1280 :         "movq\t%%rcx, 224(%3)\n\t"
+; 1281 :         "movq\t232(%1), %%rcx\n\t"
+; 1282 :         "adcq\t232(%2), %%rcx\n\t"
+; 1283 :         "movq\t%%rcx, 232(%3)\n\t"
+; 1284 :         "movq\t240(%1), %%rcx\n\t"
+; 1285 :         "adcq\t240(%2), %%rcx\n\t"
+; 1286 :         "movq\t%%rcx, 240(%3)\n\t"
+; 1287 :         "movq\t248(%1), %%rcx\n\t"
+; 1288 :         "adcq\t248(%2), %%rcx\n\t"
+; 1289 :         "movq\t%%rcx, 248(%3)\n\t"
+; 1290 :         "setc\t%0"
+; 1291 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 1292 :         :
+; 1293 :         : "cc", "memory", "%rcx"
+; 1294 : );
+; 1295 : #else
+; 1296 : #error unknown platform
+; 1297 : #endif
+; 1298 : #else
+; 1299 : #error unknown compiler
+; 1300 : #endif
+; 1301 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 1309 : }
+; 1302 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11078,7 +11078,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_UNIT_DIV PROC				; COMDAT
 
-; 658  :     {
+; 651  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -11093,45 +11093,45 @@ _LZCNT_ALT_UNIT_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 659  :         if (x == 0)
+; 652  :         if (x == 0)
 
 	cmp	DWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 660  :             return (sizeof(x) * 8);
+; 653  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 661  : #ifdef _M_IX86
-; 662  :         _UINT32_T pos;
-; 663  : #ifdef _MSC_VER
-; 664  :         _BitScanReverse(&pos, x);
-; 665  : #elif defined(__GNUC__)
-; 666  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 667  : #else
-; 668  : #error unknown compiler
-; 669  : #endif
-; 670  : #elif defined(_M_X64)
-; 671  : #ifdef _MSC_VER
-; 672  :         _UINT32_T pos;
-; 673  :         _BitScanReverse(&pos, x);
+; 654  : #ifdef _M_IX86
+; 655  :         _UINT32_T pos;
+; 656  : #ifdef _MSC_VER
+; 657  :         _BitScanReverse(&pos, x);
+; 658  : #elif defined(__GNUC__)
+; 659  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 660  : #else
+; 661  : #error unknown compiler
+; 662  : #endif
+; 663  : #elif defined(_M_X64)
+; 664  : #ifdef _MSC_VER
+; 665  :         _UINT32_T pos;
+; 666  :         _BitScanReverse(&pos, x);
 
 	mov	eax, DWORD PTR x$[rbp]
 	bsr	eax, eax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 674  : #elif defined(__GNUC__)
-; 675  :         _UINT64_T pos;
-; 676  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 677  : #else
-; 678  : #error unknown compiler
-; 679  : #endif
-; 680  : #else
-; 681  : #error unknown platform
-; 682  : #endif
-; 683  :         return (sizeof(x) * 8 - 1 - pos);
+; 667  : #elif defined(__GNUC__)
+; 668  :         _UINT64_T pos;
+; 669  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 670  : #else
+; 671  : #error unknown compiler
+; 672  : #endif
+; 673  : #else
+; 674  : #error unknown platform
+; 675  : #endif
+; 676  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 31
@@ -11139,7 +11139,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 684  :     }
+; 677  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -11160,7 +11160,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 629  :     {
+; 622  :     {
 
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -11175,45 +11175,45 @@ _LZCNT_ALT_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
 
 	mov	rax, QWORD PTR x$[rbp]
 	bsr	rax, rax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 63					; 0000003fH
@@ -11221,7 +11221,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -11242,7 +11242,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_32 PROC					; COMDAT
 
-; 596  :     {
+; 589  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -11257,31 +11257,31 @@ _LZCNT_ALT_32 PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	cmp	DWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	mov	eax, DWORD PTR x$[rbp]
 	bsr	eax, eax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 31
@@ -11289,7 +11289,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 608  :     }
+; 601  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -11315,7 +11315,7 @@ v$ = 272
 q$ = 280
 _DIVREM_SINGLE_UNIT PROC				; COMDAT
 
-; 428  :     {
+; 421  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	DWORD PTR [rsp+24], r8d
@@ -11333,23 +11333,23 @@ _DIVREM_SINGLE_UNIT PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 429  : #ifdef _MSC_VER
-; 430  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 422  : #ifdef _MSC_VER
+; 423  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN2@DIVREM_SIN
 
-; 431  :         {
-; 432  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
-; 433  :             _UINT64_T t = _FROMWORDTODWORD(r, u);
+; 424  :         {
+; 425  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
+; 426  :             _UINT64_T t = _FROMWORDTODWORD(r, u);
 
 	mov	edx, DWORD PTR u$[rbp]
 	mov	ecx, DWORD PTR r$[rbp]
 	call	_FROMWORDTODWORD
 	mov	QWORD PTR t$1[rbp], rax
 
-; 434  :             *q = (_UINT32_T)(t / v);
+; 427  :             *q = (_UINT32_T)(t / v);
 
 	mov	eax, DWORD PTR v$[rbp]
 	mov	QWORD PTR tv68[rbp], rax
@@ -11360,7 +11360,7 @@ _DIVREM_SINGLE_UNIT PROC				; COMDAT
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 435  :             return ((_UINT32_T)(t % v));
+; 428  :             return ((_UINT32_T)(t % v));
 
 	mov	eax, DWORD PTR v$[rbp]
 	mov	QWORD PTR tv71[rbp], rax
@@ -11371,69 +11371,69 @@ _DIVREM_SINGLE_UNIT PROC				; COMDAT
 	mov	rax, rdx
 	jmp	SHORT $LN1@DIVREM_SIN
 
-; 436  :         }
+; 429  :         }
 
 	jmp	SHORT $LN3@DIVREM_SIN
 $LN2@DIVREM_SIN:
 
-; 437  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 430  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@DIVREM_SIN
 
-; 438  :         {
-; 439  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
-; 440  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
-; 441  :             // ・128bit 整数のデータ型が用意されていない。
-; 442  :             // ・x64 ではインラインアセンブラがサポートされていない。
-; 443  :             *q = 0;
+; 431  :         {
+; 432  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
+; 433  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
+; 434  :             // ・128bit 整数のデータ型が用意されていない。
+; 435  :             // ・x64 ではインラインアセンブラがサポートされていない。
+; 436  :             *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 444  :             return (0);
+; 437  :             return (0);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DIVREM_SIN
 
-; 445  :         }
+; 438  :         }
 
 	jmp	SHORT $LN5@DIVREM_SIN
 $LN4@DIVREM_SIN:
 
-; 446  :         else
-; 447  :         {
-; 448  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 449  :             *q = 0;
+; 439  :         else
+; 440  :         {
+; 441  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 442  :             *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 450  :             return (0);
+; 443  :             return (0);
 
 	xor	eax, eax
 $LN5@DIVREM_SIN:
 $LN3@DIVREM_SIN:
 $LN1@DIVREM_SIN:
 
-; 451  :         }
-; 452  : #elif defined(__GNUC__)
-; 453  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 454  :             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
-; 455  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 456  :             __asm__("divq %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
-; 457  :         else
-; 458  :         {
-; 459  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 460  :             *q = 0;
-; 461  :             r = 0;
-; 462  :         }
-; 463  :         return (r);
-; 464  : #else
-; 465  : #error unknown compiler
-; 466  : #endif
-; 467  :     }
+; 444  :         }
+; 445  : #elif defined(__GNUC__)
+; 446  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 447  :             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+; 448  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 449  :             __asm__("divq %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+; 450  :         else
+; 451  :         {
+; 452  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 453  :             *q = 0;
+; 454  :             r = 0;
+; 455  :         }
+; 456  :         return (r);
+; 457  : #else
+; 458  : #error unknown compiler
+; 459  : #endif
+; 460  :     }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -11454,7 +11454,7 @@ v$ = 272
 r$ = 280
 _DIVREM_UNIT PROC					; COMDAT
 
-; 384  :     {
+; 377  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	DWORD PTR [rsp+24], r8d
@@ -11472,23 +11472,23 @@ _DIVREM_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 385  : #ifdef _MSC_VER
-; 386  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 378  : #ifdef _MSC_VER
+; 379  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN2@DIVREM_UNI
 
-; 387  :         {
-; 388  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
-; 389  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
+; 380  :         {
+; 381  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
+; 382  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
 
 	mov	edx, DWORD PTR u_low$[rbp]
 	mov	ecx, DWORD PTR u_high$[rbp]
 	call	_FROMWORDTODWORD
 	mov	QWORD PTR t$1[rbp], rax
 
-; 390  :             *r = (_UINT32_T)(t % v);
+; 383  :             *r = (_UINT32_T)(t % v);
 
 	mov	eax, DWORD PTR v$[rbp]
 	mov	QWORD PTR tv68[rbp], rax
@@ -11500,7 +11500,7 @@ _DIVREM_UNIT PROC					; COMDAT
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 391  :             return ((_UINT32_T)(t / v));
+; 384  :             return ((_UINT32_T)(t / v));
 
 	mov	eax, DWORD PTR v$[rbp]
 	mov	QWORD PTR tv71[rbp], rax
@@ -11510,70 +11510,70 @@ _DIVREM_UNIT PROC					; COMDAT
 	div	rcx
 	jmp	SHORT $LN1@DIVREM_UNI
 
-; 392  :         }
+; 385  :         }
 
 	jmp	SHORT $LN3@DIVREM_UNI
 $LN2@DIVREM_UNI:
 
-; 393  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 386  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@DIVREM_UNI
 
-; 394  :         {
-; 395  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
-; 396  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
-; 397  :             // ・128bit 整数のデータ型が用意されていない。
-; 398  :             // ・x64 ではインラインアセンブラがサポートされていない。
-; 399  :             *r = 0;
+; 387  :         {
+; 388  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
+; 389  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
+; 390  :             // ・128bit 整数のデータ型が用意されていない。
+; 391  :             // ・x64 ではインラインアセンブラがサポートされていない。
+; 392  :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 400  :             return (0);
+; 393  :             return (0);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DIVREM_UNI
 
-; 401  :         }
+; 394  :         }
 
 	jmp	SHORT $LN5@DIVREM_UNI
 $LN4@DIVREM_UNI:
 
-; 402  :         else
-; 403  :         {
-; 404  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 405  :             *r = 0;
+; 395  :         else
+; 396  :         {
+; 397  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 398  :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 406  :             return (0);
+; 399  :             return (0);
 
 	xor	eax, eax
 $LN5@DIVREM_UNI:
 $LN3@DIVREM_UNI:
 $LN1@DIVREM_UNI:
 
-; 407  :         }
-; 408  : #elif defined(__GNUC__)
-; 409  :         __UNIT_TYPE q;
-; 410  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 411  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 412  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 413  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 414  :         else
-; 415  :         {
-; 416  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 417  :             *r = 0;
-; 418  :             q = 0;
-; 419  :         }
-; 420  :         return (q);
-; 421  : #else
-; 422  : #error unknown compiler
-; 423  : #endif
-; 424  :     }
+; 400  :         }
+; 401  : #elif defined(__GNUC__)
+; 402  :         __UNIT_TYPE q;
+; 403  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 404  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 405  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 406  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 407  :         else
+; 408  :         {
+; 409  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 410  :             *r = 0;
+; 411  :             q = 0;
+; 412  :         }
+; 413  :         return (q);
+; 414  : #else
+; 415  : #error unknown compiler
+; 416  : #endif
+; 417  :     }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -11590,7 +11590,7 @@ v$ = 232
 w_hi$ = 240
 _MULTIPLYX_UNIT_DIV PROC				; COMDAT
 
-; 362  :     {
+; 355  :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	DWORD PTR [rsp+16], edx
@@ -11607,8 +11607,8 @@ _MULTIPLYX_UNIT_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 363  : #ifdef _MSC_VER
-; 364  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 356  : #ifdef _MSC_VER
+; 357  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR u$[rbp]
 	mov	ecx, DWORD PTR v$[rbp]
@@ -11617,22 +11617,22 @@ _MULTIPLYX_UNIT_DIV PROC				; COMDAT
 	mov	rcx, rax
 	call	_FROMDWORDTOWORD
 
-; 365  : #elif defined(__GNUC__)
-; 366  : #ifdef _M_IX86
-; 367  :         _UINT32_T w_lo;
-; 368  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 369  :         return (w_lo);
-; 370  : #elif defined(_M_X64)
-; 371  :         _UINT64_T w_lo;
-; 372  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 373  :         return (w_lo);
-; 374  : #else
-; 375  : #error unknown platform
-; 376  : #endif
-; 377  : #else
-; 378  : #error unknown compiler
-; 379  : #endif
-; 380  :     }
+; 358  : #elif defined(__GNUC__)
+; 359  : #ifdef _M_IX86
+; 360  :         _UINT32_T w_lo;
+; 361  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 362  :         return (w_lo);
+; 363  : #elif defined(_M_X64)
+; 364  :         _UINT64_T w_lo;
+; 365  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 366  :         return (w_lo);
+; 367  : #else
+; 368  : #error unknown platform
+; 369  : #endif
+; 370  : #else
+; 371  : #error unknown compiler
+; 372  : #endif
+; 373  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11649,7 +11649,7 @@ v$ = 232
 w_hi$ = 240
 _MULTIPLY_UNIT_DIV PROC					; COMDAT
 
-; 316  :     {
+; 309  :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	DWORD PTR [rsp+16], edx
@@ -11666,8 +11666,8 @@ _MULTIPLY_UNIT_DIV PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 317  : #ifdef _MSC_VER
-; 318  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 310  : #ifdef _MSC_VER
+; 311  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR u$[rbp]
 	mov	ecx, DWORD PTR v$[rbp]
@@ -11676,20 +11676,20 @@ _MULTIPLY_UNIT_DIV PROC					; COMDAT
 	mov	rcx, rax
 	call	_FROMDWORDTOWORD
 
-; 319  : #elif defined(__GNUC__)
-; 320  : #ifdef _M_IX86
-; 321  :         _UINT32_T w_lo;
-; 322  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
-; 323  :         return (w_lo);
-; 324  : #elif defined(_M_X64)
-; 325  :         return (_umul128(u, v, w_hi));
-; 326  : #else
-; 327  : #error unknown platform
-; 328  : #endif
-; 329  : #else
-; 330  : #error unknown compiler
-; 331  : #endif
-; 332  :     }
+; 312  : #elif defined(__GNUC__)
+; 313  : #ifdef _M_IX86
+; 314  :         _UINT32_T w_lo;
+; 315  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
+; 316  :         return (w_lo);
+; 317  : #elif defined(_M_X64)
+; 318  :         return (_umul128(u, v, w_hi));
+; 319  : #else
+; 320  : #error unknown platform
+; 321  : #endif
+; 322  : #else
+; 323  : #error unknown compiler
+; 324  : #endif
+; 325  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11707,7 +11707,7 @@ v$ = 240
 w$ = 248
 _SUBTRUCT_UNIT_DIV PROC					; COMDAT
 
-; 280  :     {
+; 273  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	DWORD PTR [rsp+24], r8d
@@ -11725,8 +11725,8 @@ _SUBTRUCT_UNIT_DIV PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 281  : #ifdef _MSC_VER
-; 282  :         return (_subborrow_u32(borrow, u, v, w));
+; 274  : #ifdef _MSC_VER
+; 275  :         return (_subborrow_u32(borrow, u, v, w));
 
 	mov	eax, DWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR borrow$[rbp]
@@ -11737,18 +11737,18 @@ _SUBTRUCT_UNIT_DIV PROC					; COMDAT
 	mov	DWORD PTR [rdx], eax
 	movzx	eax, cl
 
-; 283  : #elif defined(__GNUC__)
-; 284  : #ifdef _M_IX86
-; 285  :         return (_subborrow_u32(borrow, u, v, w));
-; 286  : #elif defined(_M_X64)
-; 287  :         return (_subborrow_u64(borrow, u, v, w));
-; 288  : #else
-; 289  : #error unknown platform
-; 290  : #endif
-; 291  : #else
-; 292  : #error unknown compiler
-; 293  : #endif
-; 294  :     }
+; 276  : #elif defined(__GNUC__)
+; 277  : #ifdef _M_IX86
+; 278  :         return (_subborrow_u32(borrow, u, v, w));
+; 279  : #elif defined(_M_X64)
+; 280  :         return (_subborrow_u64(borrow, u, v, w));
+; 281  : #else
+; 282  : #error unknown platform
+; 283  : #endif
+; 284  : #else
+; 285  : #error unknown compiler
+; 286  : #endif
+; 287  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11766,7 +11766,7 @@ v$ = 240
 w$ = 248
 _ADDX_UNIT_DIV PROC					; COMDAT
 
-; 252  :     {
+; 245  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	DWORD PTR [rsp+24], r8d
@@ -11784,8 +11784,8 @@ _ADDX_UNIT_DIV PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 253  : #ifdef _MSC_VER
-; 254  :         return (_addcarryx_u32(carry, u, v, w));
+; 246  : #ifdef _MSC_VER
+; 247  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, DWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR carry$[rbp]
@@ -11796,18 +11796,18 @@ _ADDX_UNIT_DIV PROC					; COMDAT
 	mov	DWORD PTR [rdx], eax
 	movzx	eax, cl
 
-; 255  : #elif defined(__GNUC__)
-; 256  : #ifdef _M_IX86
-; 257  :         return (_addcarryx_u32(carry, u, v, w));
-; 258  : #elif defined(_M_X64)
-; 259  :         return (_addcarryx_u64(carry, u, v, w));
-; 260  : #else
-; 261  : #error unknown platform
-; 262  : #endif
-; 263  : #else
-; 264  : #error unknown compiler
-; 265  : #endif
-; 266  :     }
+; 248  : #elif defined(__GNUC__)
+; 249  : #ifdef _M_IX86
+; 250  :         return (_addcarryx_u32(carry, u, v, w));
+; 251  : #elif defined(_M_X64)
+; 252  :         return (_addcarryx_u64(carry, u, v, w));
+; 253  : #else
+; 254  : #error unknown platform
+; 255  : #endif
+; 256  : #else
+; 257  : #error unknown compiler
+; 258  : #endif
+; 259  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11825,7 +11825,7 @@ v$ = 240
 w$ = 248
 _ADD_UNIT_DIV PROC					; COMDAT
 
-; 224  :     {
+; 217  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	DWORD PTR [rsp+24], r8d
@@ -11843,8 +11843,8 @@ _ADD_UNIT_DIV PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 225  : #ifdef _MSC_VER
-; 226  :         return (_addcarry_u32(carry, u, v, w));
+; 218  : #ifdef _MSC_VER
+; 219  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	eax, DWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR carry$[rbp]
@@ -11855,18 +11855,18 @@ _ADD_UNIT_DIV PROC					; COMDAT
 	mov	DWORD PTR [rdx], eax
 	movzx	eax, cl
 
-; 227  : #elif defined(__GNUC__)
-; 228  : #ifdef _M_IX86
-; 229  :         return (_addcarry_u32(carry, u, v, w));
-; 230  : #elif defined(_M_X64)
-; 231  :         return (_addcarry_u64(carry, u, v, w));
-; 232  : #else
-; 233  : #error unknown platform
-; 234  : #endif
-; 235  : #else
-; 236  : #error unknown compiler
-; 237  : #endif
-; 238  :     }
+; 220  : #elif defined(__GNUC__)
+; 221  : #ifdef _M_IX86
+; 222  :         return (_addcarry_u32(carry, u, v, w));
+; 223  : #elif defined(_M_X64)
+; 224  :         return (_addcarry_u64(carry, u, v, w));
+; 225  : #else
+; 226  : #error unknown platform
+; 227  : #endif
+; 228  : #else
+; 229  : #error unknown compiler
+; 230  : #endif
+; 231  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11882,7 +11882,7 @@ value$ = 224
 result_high$ = 232
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 182  :     {
+; 175  :     {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -11898,18 +11898,18 @@ _FROMDWORDTOWORD PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, QWORD PTR value$[rbp]
 	shr	rax, 32					; 00000020H
 	mov	rcx, QWORD PTR result_high$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR value$[rbp]
 
-; 185  :     }
+; 178  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11925,7 +11925,7 @@ value_high$ = 224
 value_low$ = 232
 _FROMWORDTODWORD PROC					; COMDAT
 
-; 177  :     {
+; 170  :     {
 
 	mov	DWORD PTR [rsp+16], edx
 	mov	DWORD PTR [rsp+8], ecx
@@ -11941,14 +11941,14 @@ _FROMWORDTODWORD PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR value_high$[rbp]
 	shl	rax, 32					; 00000020H
 	mov	ecx, DWORD PTR value_low$[rbp]
 	or	rax, rcx
 
-; 179  :     }
+; 172  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -11965,7 +11965,7 @@ s$ = 232
 count$ = 240
 _COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 77   :     {
+; 70   :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -11983,11 +11983,11 @@ _COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 78   : #ifdef _M_IX86
-; 79   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 80   : #elif defined(_M_X64)
-; 81   : #ifdef _MSC_VER
-; 82   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 71   : #ifdef _M_IX86
+; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   : #elif defined(_M_X64)
+; 74   : #ifdef _MSC_VER
+; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	eax, DWORD PTR count$[rbp]
 	mov	rdi, QWORD PTR d$[rbp]
@@ -11995,15 +11995,15 @@ _COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 	mov	ecx, eax
 	rep movsd
 
-; 83   : #elif defined(__GNUC__)
-; 84   :         __movsq(d, s, count);
-; 85   : #else
-; 86   : #error unknown compiler
-; 87   : #endif
-; 88   : #else
-; 89   : #error unknown platform
-; 90   : #endif
-; 91   :     }
+; 76   : #elif defined(__GNUC__)
+; 77   :         __movsq(d, s, count);
+; 78   : #else
+; 79   : #error unknown compiler
+; 80   : #endif
+; 81   : #else
+; 82   : #error unknown platform
+; 83   : #endif
+; 84   :     }
 
 	lea	rsp, QWORD PTR [rbp+192]
 	pop	rdi
@@ -12021,7 +12021,7 @@ s$ = 232
 count$ = 240
 _COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 66   :     {
+; 59   :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -12039,20 +12039,20 @@ _COPY_MEMORY_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 67   : #ifdef _M_IX86
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 69   : #elif defined(_M_X64)
-; 70   :         __movsq(d, s, count);
+; 60   : #ifdef _M_IX86
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   : #elif defined(_M_X64)
+; 63   :         __movsq(d, s, count);
 
 	mov	rdi, QWORD PTR d$[rbp]
 	mov	rsi, QWORD PTR s$[rbp]
 	mov	rcx, QWORD PTR count$[rbp]
 	rep movsq
 
-; 71   : #else
-; 72   : #error unknown platform
-; 73   : #endif
-; 74   :     }
+; 64   : #else
+; 65   : #error unknown platform
+; 66   : #endif
+; 67   :     }
 
 	lea	rsp, QWORD PTR [rbp+192]
 	pop	rdi
@@ -12068,7 +12068,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 357  :     {
+; 350  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -12083,13 +12083,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 358  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 359  :     }
+; 352  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12104,7 +12104,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 351  :     {
+; 344  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -12119,13 +12119,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 352  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 353  :     }
+; 346  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12140,7 +12140,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV64Counter PROC					; COMDAT
 
-; 345  :     {
+; 338  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -12155,13 +12155,13 @@ AddToDIV64Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 346  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 347  :     }
+; 340  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12176,7 +12176,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV32Counter PROC					; COMDAT
 
-; 339  :     {
+; 332  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -12191,13 +12191,13 @@ AddToDIV32Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 340  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 333  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 341  :     }
+; 334  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12211,7 +12211,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 334  :     {
+; 327  :     {
 
 	push	rbp
 	push	rdi
@@ -12224,12 +12224,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 335  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 336  :     }
+; 329  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12243,7 +12243,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 328  :     {
+; 321  :     {
 
 	push	rbp
 	push	rdi
@@ -12256,12 +12256,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 329  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 330  :     }
+; 323  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12275,7 +12275,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 322  :     {
+; 315  :     {
 
 	push	rbp
 	push	rdi
@@ -12288,12 +12288,12 @@ IncrementDIV64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 323  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	lock inc DWORD PTR [rax]
 
-; 324  :     }
+; 317  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12307,7 +12307,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 316  :     {
+; 309  :     {
 
 	push	rbp
 	push	rdi
@@ -12320,12 +12320,12 @@ IncrementDIV32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 317  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 310  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	lock inc DWORD PTR [rax]
 
-; 318  :     }
+; 311  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -12364,7 +12364,7 @@ q$ = 1024
 r$ = 1032
 PMC_DivRem_X_X PROC					; COMDAT
 
-; 1592 : {
+; 1585 : {
 
 $LN36:
 	mov	QWORD PTR [rsp+32], r9
@@ -12383,62 +12383,62 @@ $LN36:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1593 :     if (u == NULL)
+; 1586 :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN2@PMC_DivRem
 
-; 1594 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1587 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN2@PMC_DivRem:
 
-; 1595 :     if (v == NULL)
+; 1588 :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_DivRem
 
-; 1596 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1589 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN3@PMC_DivRem:
 
-; 1597 :     if (q == NULL)
+; 1590 :     if (q == NULL)
 
 	cmp	QWORD PTR q$[rbp], 0
 	jne	SHORT $LN4@PMC_DivRem
 
-; 1598 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1591 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN4@PMC_DivRem:
 
-; 1599 :     if (r == NULL)
+; 1592 :     if (r == NULL)
 
 	cmp	QWORD PTR r$[rbp], 0
 	jne	SHORT $LN5@PMC_DivRem
 
-; 1600 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1593 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN5@PMC_DivRem:
 
-; 1601 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1594 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR nu$[rbp], rax
 
-; 1602 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1595 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 1603 :     PMC_STATUS_CODE result;
-; 1604 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1596 :     PMC_STATUS_CODE result;
+; 1597 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nu$[rbp]
 	call	CheckNumber
@@ -12446,13 +12446,13 @@ $LN5@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_DivRem
 
-; 1605 :         return (result);
+; 1598 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN6@PMC_DivRem:
 
-; 1606 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1599 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -12460,13 +12460,13 @@ $LN6@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN7@PMC_DivRem
 
-; 1607 :         return (result);
+; 1600 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN7@PMC_DivRem:
 
-; 1608 :     if (nv->IS_ZERO)
+; 1601 :     if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12475,20 +12475,20 @@ $LN7@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN8@PMC_DivRem
 
-; 1609 :     {
-; 1610 :         // v が 0 である場合
-; 1611 : 
-; 1612 :         // 0 による除算はエラーで返す
-; 1613 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1602 :     {
+; 1603 :         // v が 0 である場合
+; 1604 : 
+; 1605 :         // 0 による除算はエラーで返す
+; 1606 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3
 	jmp	$LN1@PMC_DivRem
 $LN8@PMC_DivRem:
 
-; 1614 :     }
-; 1615 :     NUMBER_HEADER* nq;
-; 1616 :     NUMBER_HEADER* nr;
-; 1617 :     if (nu->IS_ZERO)
+; 1607 :     }
+; 1608 :     NUMBER_HEADER* nq;
+; 1609 :     NUMBER_HEADER* nr;
+; 1610 :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12497,30 +12497,30 @@ $LN8@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN9@PMC_DivRem
 
-; 1618 :     {
-; 1619 :         // u が 0 である場合
-; 1620 : 
-; 1621 :         // q = 0, r = 0 を返す
-; 1622 :         nq = &number_zero;
+; 1611 :     {
+; 1612 :         // u が 0 である場合
+; 1613 : 
+; 1614 :         // q = 0, r = 0 を返す
+; 1615 :         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1623 :         nr = &number_zero;
+; 1616 :         nr = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nr$[rbp], rax
 
-; 1624 :     }
+; 1617 :     }
 
 	jmp	$LN10@PMC_DivRem
 $LN9@PMC_DivRem:
 
-; 1625 :     else
-; 1626 :     {
-; 1627 :         // u が 0 ではない場合
-; 1628 : 
-; 1629 :         if (nv->IS_ONE)
+; 1618 :     else
+; 1619 :     {
+; 1620 :         // u が 0 ではない場合
+; 1621 : 
+; 1622 :         if (nv->IS_ONE)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12529,11 +12529,11 @@ $LN9@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN11@PMC_DivRem
 
-; 1630 :         {
-; 1631 :             // v が 1 である場合
-; 1632 : 
-; 1633 :             // q = u, r = 0 を返す
-; 1634 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1623 :         {
+; 1624 :             // v が 1 である場合
+; 1625 : 
+; 1626 :             // q = u, r = 0 を返す
+; 1627 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nq$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -12542,55 +12542,55 @@ $LN9@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN13@PMC_DivRem
 
-; 1635 :                 return (result);
+; 1628 :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN13@PMC_DivRem:
 
-; 1636 :             nr = &number_zero;
+; 1629 :             nr = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nr$[rbp], rax
 
-; 1637 :         }
+; 1630 :         }
 
 	jmp	$LN12@PMC_DivRem
 $LN11@PMC_DivRem:
 
-; 1638 :         else
-; 1639 :         {
-; 1640 :             // u > 0 かつ v > 1 である場合
-; 1641 : 
-; 1642 :             // x と y の商・剰余を計算する
-; 1643 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1631 :         else
+; 1632 :         {
+; 1633 :             // u > 0 かつ v > 1 である場合
+; 1634 : 
+; 1635 :             // x と y の商・剰余を計算する
+; 1636 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$11[rbp], rax
 
-; 1644 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1637 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$12[rbp], rax
 
-; 1645 :             if (u_bit_count < v_bit_count)
+; 1638 :             if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$12[rbp]
 	cmp	QWORD PTR u_bit_count$11[rbp], rax
 	jae	SHORT $LN14@PMC_DivRem
 
-; 1646 :             {
-; 1647 :                 // 明らかに u < v である場合
-; 1648 : 
-; 1649 :                 // q = 0, r = u を返す。
-; 1650 :                 nq = &number_zero;
+; 1639 :             {
+; 1640 :                 // 明らかに u < v である場合
+; 1641 : 
+; 1642 :                 // q = 0, r = u を返す。
+; 1643 :                 nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1651 :                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
+; 1644 :                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nr$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -12599,26 +12599,26 @@ $LN11@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN16@PMC_DivRem
 
-; 1652 :                     return (result);
+; 1645 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN16@PMC_DivRem:
 
-; 1653 :             }
+; 1646 :             }
 
 	jmp	$LN15@PMC_DivRem
 $LN14@PMC_DivRem:
 
-; 1654 :             else if (v_bit_count <= sizeof(__UNIT_TYPE_DIV) * 8)
+; 1647 :             else if (v_bit_count <= sizeof(__UNIT_TYPE_DIV) * 8)
 
 	cmp	QWORD PTR v_bit_count$12[rbp], 32	; 00000020H
 	ja	$LN17@PMC_DivRem
 
-; 1655 :             {
-; 1656 :                 // 除数が 1 ワードで表現できる場合
-; 1657 : 
-; 1658 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1648 :             {
+; 1649 :                 // 除数が 1 ワードで表現できる場合
+; 1650 : 
+; 1651 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$12[rbp]
 	mov	rcx, QWORD PTR u_bit_count$11[rbp]
@@ -12627,8 +12627,8 @@ $LN14@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$13[rbp], rax
 
-; 1659 :                 __UNIT_TYPE nq_light_check_code;
-; 1660 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1652 :                 __UNIT_TYPE nq_light_check_code;
+; 1653 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$14[rbp]
 	mov	rdx, QWORD PTR q_bit_count$13[rbp]
@@ -12638,18 +12638,18 @@ $LN14@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN19@PMC_DivRem
 
-; 1661 :                     return (result);
+; 1654 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN19@PMC_DivRem:
 
-; 1662 :                 __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+; 1655 :                 __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
 
 	mov	QWORD PTR r_bit_count$15[rbp], 32	; 00000020H
 
-; 1663 :                 __UNIT_TYPE nr_light_check_code;
-; 1664 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+; 1656 :                 __UNIT_TYPE nr_light_check_code;
+; 1657 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nr_light_check_code$16[rbp]
 	mov	rdx, QWORD PTR r_bit_count$15[rbp]
@@ -12659,20 +12659,20 @@ $LN19@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN20@PMC_DivRem
 
-; 1665 :                 {
-; 1666 :                     DeallocateNumber(nq);
+; 1658 :                 {
+; 1659 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1667 :                     return (result);
+; 1660 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN20@PMC_DivRem:
 
-; 1668 :                 }
-; 1669 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+; 1661 :                 }
+; 1662 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -12700,7 +12700,7 @@ $LN20@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	DivRem_X_1W
 
-; 1670 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1663 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$14[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -12710,13 +12710,13 @@ $LN20@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN21@PMC_DivRem
 
-; 1671 :                     return (result);
+; 1664 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN21@PMC_DivRem:
 
-; 1672 :                 if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
+; 1665 :                 if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nr_light_check_code$16[rbp]
 	mov	rax, QWORD PTR nr$[rbp]
@@ -12726,23 +12726,23 @@ $LN21@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN22@PMC_DivRem
 
-; 1673 :                     return (result);
+; 1666 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN22@PMC_DivRem:
 
-; 1674 :                 CommitNumber(nq);
+; 1667 :                 CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1675 :                 CommitNumber(nr);
+; 1668 :                 CommitNumber(nr);
 
 	mov	rcx, QWORD PTR nr$[rbp]
 	call	CommitNumber
 
-; 1676 :                 if (nq->IS_ZERO)
+; 1669 :                 if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12751,20 +12751,20 @@ $LN22@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN23@PMC_DivRem
 
-; 1677 :                 {
-; 1678 :                     DeallocateNumber(nq);
+; 1670 :                 {
+; 1671 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1679 :                     nq = &number_zero;
+; 1672 :                     nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 $LN23@PMC_DivRem:
 
-; 1680 :                 }
-; 1681 :                 if (nr->IS_ZERO)
+; 1673 :                 }
+; 1674 :                 if (nr->IS_ZERO)
 
 	mov	rax, QWORD PTR nr$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12773,28 +12773,28 @@ $LN23@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN24@PMC_DivRem
 
-; 1682 :                 {
-; 1683 :                     DeallocateNumber(nr);
+; 1675 :                 {
+; 1676 :                     DeallocateNumber(nr);
 
 	mov	rcx, QWORD PTR nr$[rbp]
 	call	DeallocateNumber
 
-; 1684 :                     nr = &number_zero;
+; 1677 :                     nr = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nr$[rbp], rax
 $LN24@PMC_DivRem:
 
-; 1685 :                 }
-; 1686 :             }
+; 1678 :                 }
+; 1679 :             }
 
 	jmp	$LN18@PMC_DivRem
 $LN17@PMC_DivRem:
 
-; 1687 :             else
-; 1688 :             {
-; 1689 :                 // 除数を表現するのに 2 ワード以上必要な場合
-; 1690 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1680 :             else
+; 1681 :             {
+; 1682 :                 // 除数を表現するのに 2 ワード以上必要な場合
+; 1683 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$12[rbp]
 	mov	rcx, QWORD PTR u_bit_count$11[rbp]
@@ -12803,14 +12803,14 @@ $LN17@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$17[rbp], rax
 
-; 1691 :                 __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1684 :                 __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR u_bit_count$11[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR r_bit_count$18[rbp], rax
 
-; 1692 :                 __UNIT_TYPE nq_light_check_code;
-; 1693 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1685 :                 __UNIT_TYPE nq_light_check_code;
+; 1686 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$19[rbp]
 	mov	rdx, QWORD PTR q_bit_count$17[rbp]
@@ -12820,14 +12820,14 @@ $LN17@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN25@PMC_DivRem
 
-; 1694 :                     return (result);
+; 1687 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN25@PMC_DivRem:
 
-; 1695 :                 __UNIT_TYPE nr_light_check_code;
-; 1696 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+; 1688 :                 __UNIT_TYPE nr_light_check_code;
+; 1689 :                 if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nr_light_check_code$20[rbp]
 	mov	rdx, QWORD PTR r_bit_count$18[rbp]
@@ -12837,22 +12837,22 @@ $LN25@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN26@PMC_DivRem
 
-; 1697 :                 {
-; 1698 :                     DeallocateNumber(nq);
+; 1690 :                 {
+; 1691 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1699 :                     return (result);
+; 1692 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN26@PMC_DivRem:
 
-; 1700 :                 }
-; 1701 :                 __UNIT_TYPE work_v_buf_code;
-; 1702 :                 __UNIT_TYPE work_v_buf_words;
-; 1703 :                 __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
+; 1693 :                 }
+; 1694 :                 __UNIT_TYPE work_v_buf_code;
+; 1695 :                 __UNIT_TYPE work_v_buf_words;
+; 1696 :                 __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
 
 	mov	rax, QWORD PTR nv$[rbp]
 	imul	rax, QWORD PTR [rax+8], 64		; 00000040H
@@ -12862,26 +12862,26 @@ $LN26@PMC_DivRem:
 	call	AllocateBlock
 	mov	QWORD PTR work_v_buf$23[rbp], rax
 
-; 1704 :                 if (work_v_buf == NULL)
+; 1697 :                 if (work_v_buf == NULL)
 
 	cmp	QWORD PTR work_v_buf$23[rbp], 0
 	jne	SHORT $LN27@PMC_DivRem
 
-; 1705 :                 {
-; 1706 :                     DeallocateNumber(nq);
+; 1698 :                 {
+; 1699 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1707 :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 1700 :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@PMC_DivRem
 $LN27@PMC_DivRem:
 
-; 1708 :                 }
-; 1709 : 
-; 1710 :                 (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+; 1701 :                 }
+; 1702 : 
+; 1703 :                 (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -12914,7 +12914,7 @@ $LN27@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_DivRem_X_X
 
-; 1711 :                 if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 1704 :                 if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR work_v_buf_code$21[rbp]
 	mov	rcx, QWORD PTR work_v_buf$23[rbp]
@@ -12923,13 +12923,13 @@ $LN27@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN28@PMC_DivRem
 
-; 1712 :                     return (result);
+; 1705 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN28@PMC_DivRem:
 
-; 1713 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1706 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$19[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -12939,13 +12939,13 @@ $LN28@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN29@PMC_DivRem
 
-; 1714 :                     return (result);
+; 1707 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN29@PMC_DivRem:
 
-; 1715 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1708 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$19[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -12955,29 +12955,29 @@ $LN29@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN30@PMC_DivRem
 
-; 1716 :                     return (result);
+; 1709 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN30@PMC_DivRem:
 
-; 1717 :                 DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+; 1710 :                 DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
 
 	mov	rdx, QWORD PTR work_v_buf_words$22[rbp]
 	mov	rcx, QWORD PTR work_v_buf$23[rbp]
 	call	DeallocateBlock
 
-; 1718 :                 CommitNumber(nq);
+; 1711 :                 CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1719 :                 CommitNumber(nr);
+; 1712 :                 CommitNumber(nr);
 
 	mov	rcx, QWORD PTR nr$[rbp]
 	call	CommitNumber
 
-; 1720 :                 if (nq->IS_ZERO)
+; 1713 :                 if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -12986,20 +12986,20 @@ $LN30@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN31@PMC_DivRem
 
-; 1721 :                 {
-; 1722 :                     DeallocateNumber(nq);
+; 1714 :                 {
+; 1715 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1723 :                     nq = &number_zero;
+; 1716 :                     nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 $LN31@PMC_DivRem:
 
-; 1724 :                 }
-; 1725 :                 if (nr->IS_ZERO)
+; 1717 :                 }
+; 1718 :                 if (nr->IS_ZERO)
 
 	mov	rax, QWORD PTR nr$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -13008,13 +13008,13 @@ $LN31@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN32@PMC_DivRem
 
-; 1726 :                 {
-; 1727 :                     DeallocateNumber(nr);
+; 1719 :                 {
+; 1720 :                     DeallocateNumber(nr);
 
 	mov	rcx, QWORD PTR nr$[rbp]
 	call	DeallocateNumber
 
-; 1728 :                     nr = &number_zero;
+; 1721 :                     nr = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nr$[rbp], rax
@@ -13024,24 +13024,24 @@ $LN15@PMC_DivRem:
 $LN12@PMC_DivRem:
 $LN10@PMC_DivRem:
 
-; 1729 :                 }
-; 1730 :             }
-; 1731 :         }
-; 1732 :     }
-; 1733 :     *q = nq;
+; 1722 :                 }
+; 1723 :             }
+; 1724 :         }
+; 1725 :     }
+; 1726 :     *q = nq;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	rcx, QWORD PTR nq$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1734 :     *r = nr;
+; 1727 :     *r = nr;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR nr$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1735 : #ifdef _DEBUG
-; 1736 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+; 1728 : #ifdef _DEBUG
+; 1729 :     if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -13050,13 +13050,13 @@ $LN10@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN33@PMC_DivRem
 
-; 1737 :         return (result);
+; 1730 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN33@PMC_DivRem:
 
-; 1738 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 1731 :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -13065,19 +13065,19 @@ $LN33@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN34@PMC_DivRem
 
-; 1739 :         return (result);
+; 1732 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN34@PMC_DivRem:
 
-; 1740 : #endif
-; 1741 :     return (PMC_STATUS_OK);
+; 1733 : #endif
+; 1734 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_DivRem:
 
-; 1742 : }
+; 1735 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-64]
@@ -13127,7 +13127,7 @@ q$ = 1264
 r$ = 1272
 PMC_DivRem_X_L PROC					; COMDAT
 
-; 1407 : {
+; 1400 : {
 
 $LN40:
 	mov	QWORD PTR [rsp+32], r9
@@ -13146,61 +13146,61 @@ $LN40:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1408 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(v))
+; 1401 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(v))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_DivRem
 
-; 1409 :     {
-; 1410 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 1411 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1402 :     {
+; 1403 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 1404 :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_DivRem
 $LN2@PMC_DivRem:
 
-; 1412 :     }
-; 1413 :     if (u == NULL)
+; 1405 :     }
+; 1406 :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN3@PMC_DivRem
 
-; 1414 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1407 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN3@PMC_DivRem:
 
-; 1415 :     if (q == NULL)
+; 1408 :     if (q == NULL)
 
 	cmp	QWORD PTR q$[rbp], 0
 	jne	SHORT $LN4@PMC_DivRem
 
-; 1416 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1409 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN4@PMC_DivRem:
 
-; 1417 :     if (r == NULL)
+; 1410 :     if (r == NULL)
 
 	cmp	QWORD PTR r$[rbp], 0
 	jne	SHORT $LN5@PMC_DivRem
 
-; 1418 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1411 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN5@PMC_DivRem:
 
-; 1419 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1412 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR nu$[rbp], rax
 
-; 1420 :     PMC_STATUS_CODE result;
-; 1421 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1413 :     PMC_STATUS_CODE result;
+; 1414 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nu$[rbp]
 	call	CheckNumber
@@ -13208,30 +13208,30 @@ $LN5@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_DivRem
 
-; 1422 :         return (result);
+; 1415 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN6@PMC_DivRem:
 
-; 1423 :     if (v == 0)
+; 1416 :     if (v == 0)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN7@PMC_DivRem
 
-; 1424 :     {
-; 1425 :         // v が 0 である場合
-; 1426 : 
-; 1427 :         // 0 による除算はエラーで返す
-; 1428 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1417 :     {
+; 1418 :         // v が 0 である場合
+; 1419 : 
+; 1420 :         // 0 による除算はエラーで返す
+; 1421 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3
 	jmp	$LN1@PMC_DivRem
 $LN7@PMC_DivRem:
 
-; 1429 :     }
-; 1430 :     NUMBER_HEADER* nq;
-; 1431 :     if (nu->IS_ZERO)
+; 1422 :     }
+; 1423 :     NUMBER_HEADER* nq;
+; 1424 :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -13240,39 +13240,39 @@ $LN7@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN8@PMC_DivRem
 
-; 1432 :     {
-; 1433 :         // x が 0 である場合
-; 1434 : 
-; 1435 :         // q = 0, r = 0 を返す
-; 1436 :         nq = &number_zero;
+; 1425 :     {
+; 1426 :         // x が 0 である場合
+; 1427 : 
+; 1428 :         // q = 0, r = 0 を返す
+; 1429 :         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1437 :         *r = 0;
+; 1430 :         *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1438 :     }
+; 1431 :     }
 
 	jmp	$LN9@PMC_DivRem
 $LN8@PMC_DivRem:
 
-; 1439 :     else
-; 1440 :     {
-; 1441 :         // u が 0 ではない場合
-; 1442 : 
-; 1443 :         if (v == 1)
+; 1432 :     else
+; 1433 :     {
+; 1434 :         // u が 0 ではない場合
+; 1435 : 
+; 1436 :         if (v == 1)
 
 	cmp	QWORD PTR v$[rbp], 1
 	jne	SHORT $LN10@PMC_DivRem
 
-; 1444 :         {
-; 1445 :             // v が 1 である場合
-; 1446 : 
-; 1447 :             // q = u, r = 0 を返す
-; 1448 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1437 :         {
+; 1438 :             // v が 1 である場合
+; 1439 : 
+; 1440 :             // q = u, r = 0 を返す
+; 1441 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nq$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -13281,57 +13281,57 @@ $LN8@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN12@PMC_DivRem
 
-; 1449 :                 return (result);
+; 1442 :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN12@PMC_DivRem:
 
-; 1450 :             *r = 0;
+; 1443 :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1451 :         }
+; 1444 :         }
 
 	jmp	$LN11@PMC_DivRem
 $LN10@PMC_DivRem:
 
-; 1452 :         else
-; 1453 :         {
-; 1454 :             // u > 0 かつ v > 1 である場合
-; 1455 : 
-; 1456 :             // u と v の商・剰余を計算する
-; 1457 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1445 :         else
+; 1446 :         {
+; 1447 :             // u > 0 かつ v > 1 である場合
+; 1448 : 
+; 1449 :             // u と v の商・剰余を計算する
+; 1450 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$14[rbp], rax
 
-; 1458 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
+; 1451 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN13@PMC_DivRem
 
-; 1459 :             {
-; 1460 :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 1461 :                 _UINT32_T v_hi;
-; 1462 :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
+; 1452 :             {
+; 1453 :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 1454 :                 _UINT32_T v_hi;
+; 1455 :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
 
 	lea	rdx, QWORD PTR v_hi$15[rbp]
 	mov	rcx, QWORD PTR v$[rbp]
 	call	_FROMDWORDTOWORD
 	mov	DWORD PTR v_lo$16[rbp], eax
 
-; 1463 :                 if (v_hi == 0)
+; 1456 :                 if (v_hi == 0)
 
 	cmp	DWORD PTR v_hi$15[rbp], 0
 	jne	$LN15@PMC_DivRem
 
-; 1464 :                 {
-; 1465 :                     // v の値が 32bit で表現可能な場合
-; 1466 :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
+; 1457 :                 {
+; 1458 :                     // v の値が 32bit で表現可能な場合
+; 1459 :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
 
 	mov	ecx, DWORD PTR v_lo$16[rbp]
 	call	_LZCNT_ALT_32
@@ -13341,22 +13341,22 @@ $LN10@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$17[rbp], rax
 
-; 1467 :                     if (u_bit_count < v_bit_count)
+; 1460 :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$17[rbp]
 	cmp	QWORD PTR u_bit_count$14[rbp], rax
 	jae	SHORT $LN17@PMC_DivRem
 
-; 1468 :                     {
-; 1469 :                         // 明らかに u < v である場合
-; 1470 : 
-; 1471 :                         // q = 0, r = u を返す。
-; 1472 :                         nq = &number_zero;
+; 1461 :                     {
+; 1462 :                         // 明らかに u < v である場合
+; 1463 : 
+; 1464 :                         // q = 0, r = u を返す。
+; 1465 :                         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1473 :                         *r = nu->BLOCK[0];
+; 1466 :                         *r = nu->BLOCK[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -13366,14 +13366,14 @@ $LN10@PMC_DivRem:
 	mov	rax, QWORD PTR [rax+rcx]
 	mov	QWORD PTR [rdx], rax
 
-; 1474 :                     }
+; 1467 :                     }
 
 	jmp	$LN18@PMC_DivRem
 $LN17@PMC_DivRem:
 
-; 1475 :                     else
-; 1476 :                     {
-; 1477 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1468 :                     else
+; 1469 :                     {
+; 1470 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$17[rbp]
 	mov	rcx, QWORD PTR u_bit_count$14[rbp]
@@ -13382,8 +13382,8 @@ $LN17@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$18[rbp], rax
 
-; 1478 :                         __UNIT_TYPE nq_light_check_code;
-; 1479 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1471 :                         __UNIT_TYPE nq_light_check_code;
+; 1472 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$19[rbp]
 	mov	rdx, QWORD PTR q_bit_count$18[rbp]
@@ -13393,17 +13393,17 @@ $LN17@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN19@PMC_DivRem
 
-; 1480 :                             return (result);
+; 1473 :                             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN19@PMC_DivRem:
 
-; 1481 :                         __UNIT_TYPE_DIV r_buf = 0;
+; 1474 :                         __UNIT_TYPE_DIV r_buf = 0;
 
 	mov	DWORD PTR r_buf$20[rbp], 0
 
-; 1482 :                         DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1475 :                         DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -13421,7 +13421,7 @@ $LN19@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	DivRem_X_1W
 
-; 1483 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1476 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$19[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -13431,24 +13431,24 @@ $LN19@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN20@PMC_DivRem
 
-; 1484 :                             return (result);
+; 1477 :                             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN20@PMC_DivRem:
 
-; 1485 :                         CommitNumber(nq);
+; 1478 :                         CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1486 :                         *r = r_buf;
+; 1479 :                         *r = r_buf;
 
 	mov	eax, DWORD PTR r_buf$20[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1487 :                         if (nq->IS_ZERO)
+; 1480 :                         if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -13457,30 +13457,30 @@ $LN20@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN21@PMC_DivRem
 
-; 1488 :                         {
-; 1489 :                             DeallocateNumber(nq);
+; 1481 :                         {
+; 1482 :                             DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1490 :                             nq = &number_zero;
+; 1483 :                             nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 $LN21@PMC_DivRem:
 $LN18@PMC_DivRem:
 
-; 1491 :                         }
-; 1492 :                     }
-; 1493 :                 }
+; 1484 :                         }
+; 1485 :                     }
+; 1486 :                 }
 
 	jmp	$LN16@PMC_DivRem
 $LN15@PMC_DivRem:
 
-; 1494 :                 else
-; 1495 :                 {
-; 1496 :                     // v の値が 32bit では表現できない場合
-; 1497 :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
+; 1487 :                 else
+; 1488 :                 {
+; 1489 :                     // v の値が 32bit では表現できない場合
+; 1490 :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
 
 	mov	ecx, DWORD PTR v_hi$15[rbp]
 	call	_LZCNT_ALT_32
@@ -13490,28 +13490,28 @@ $LN15@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$21[rbp], rax
 
-; 1498 :                     if (u_bit_count < v_bit_count)
+; 1491 :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$21[rbp]
 	cmp	QWORD PTR u_bit_count$14[rbp], rax
 	jae	$LN22@PMC_DivRem
 
-; 1499 :                     {
-; 1500 :                         // 明らかに u < v である場合
-; 1501 : 
-; 1502 :                         // q = 0, r = u を返す。
-; 1503 :                         nq = &number_zero;
+; 1492 :                     {
+; 1493 :                         // 明らかに u < v である場合
+; 1494 : 
+; 1495 :                         // q = 0, r = u を返す。
+; 1496 :                         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1504 :                         if (sizeof(v) == sizeof(__UNIT_TYPE))
+; 1497 :                         if (sizeof(v) == sizeof(__UNIT_TYPE))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN24@PMC_DivRem
 
-; 1505 :                             *r = nu->BLOCK[0];
+; 1498 :                             *r = nu->BLOCK[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -13523,9 +13523,9 @@ $LN15@PMC_DivRem:
 	jmp	SHORT $LN25@PMC_DivRem
 $LN24@PMC_DivRem:
 
-; 1506 :                         else
-; 1507 :                         {
-; 1508 :                             __UNIT_TYPE r_lo = nu->BLOCK[0];
+; 1499 :                         else
+; 1500 :                         {
+; 1501 :                             __UNIT_TYPE r_lo = nu->BLOCK[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -13534,7 +13534,7 @@ $LN24@PMC_DivRem:
 	mov	rax, QWORD PTR [rax+rcx]
 	mov	QWORD PTR r_lo$22[rbp], rax
 
-; 1509 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
+; 1502 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	cmp	QWORD PTR [rax+8], 1
@@ -13552,7 +13552,7 @@ $LN39@PMC_DivRem:
 	mov	rax, QWORD PTR tv174[rbp]
 	mov	QWORD PTR r_hi$23[rbp], rax
 
-; 1510 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
+; 1503 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
 
 	mov	edx, DWORD PTR r_lo$22[rbp]
 	mov	ecx, DWORD PTR r_hi$23[rbp]
@@ -13561,15 +13561,15 @@ $LN39@PMC_DivRem:
 	mov	QWORD PTR [rcx], rax
 $LN25@PMC_DivRem:
 
-; 1511 :                         }
-; 1512 :                     }
+; 1504 :                         }
+; 1505 :                     }
 
 	jmp	$LN23@PMC_DivRem
 $LN22@PMC_DivRem:
 
-; 1513 :                     else
-; 1514 :                     {
-; 1515 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1506 :                     else
+; 1507 :                     {
+; 1508 :                         __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$21[rbp]
 	mov	rcx, QWORD PTR u_bit_count$14[rbp]
@@ -13578,14 +13578,14 @@ $LN22@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$24[rbp], rax
 
-; 1516 :                         __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1509 :                         __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR u_bit_count$14[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR r_bit_count$25[rbp], rax
 
-; 1517 :                         __UNIT_TYPE nq_light_check_code;
-; 1518 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1510 :                         __UNIT_TYPE nq_light_check_code;
+; 1511 :                         if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$26[rbp]
 	mov	rdx, QWORD PTR q_bit_count$24[rbp]
@@ -13595,27 +13595,27 @@ $LN22@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN26@PMC_DivRem
 
-; 1519 :                             return (result);
+; 1512 :                             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN26@PMC_DivRem:
 
-; 1520 :                         __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+; 1513 :                         __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
 
 	mov	eax, DWORD PTR v_lo$16[rbp]
 	mov	DWORD PTR v_buf$27[rbp], eax
 	mov	eax, DWORD PTR v_hi$15[rbp]
 	mov	DWORD PTR v_buf$27[rbp+4], eax
 
-; 1521 :                         __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+; 1514 :                         __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
 
 	mov	DWORD PTR work_v_buf$28[rbp], 0
 	mov	DWORD PTR work_v_buf$28[rbp+4], 0
 
-; 1522 :                         __UNIT_TYPE r_buf_code;
-; 1523 :                         __UNIT_TYPE r_buf_words;
-; 1524 :                         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+; 1515 :                         __UNIT_TYPE r_buf_code;
+; 1516 :                         __UNIT_TYPE r_buf_words;
+; 1517 :                         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
 
 	lea	r8, QWORD PTR r_buf_code$29[rbp]
 	lea	rdx, QWORD PTR r_buf_words$30[rbp]
@@ -13623,25 +13623,25 @@ $LN26@PMC_DivRem:
 	call	AllocateBlock
 	mov	QWORD PTR r_buf$31[rbp], rax
 
-; 1525 :                         if (r_buf == NULL)
+; 1518 :                         if (r_buf == NULL)
 
 	cmp	QWORD PTR r_buf$31[rbp], 0
 	jne	SHORT $LN27@PMC_DivRem
 
-; 1526 :                         {
-; 1527 :                             DeallocateNumber(nq);
+; 1519 :                         {
+; 1520 :                             DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1528 :                             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 1521 :                             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@PMC_DivRem
 $LN27@PMC_DivRem:
 
-; 1529 :                         }
-; 1530 :                         (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
+; 1522 :                         }
+; 1523 :                         (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -13663,7 +13663,7 @@ $LN27@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	QWORD PTR fp_DivRem_X_X
 
-; 1531 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1524 :                         if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$26[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -13673,13 +13673,13 @@ $LN27@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN28@PMC_DivRem
 
-; 1532 :                             return (result);
+; 1525 :                             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN28@PMC_DivRem:
 
-; 1533 :                         if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
+; 1526 :                         if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR r_buf_code$29[rbp]
 	mov	rcx, QWORD PTR r_buf$31[rbp]
@@ -13688,18 +13688,18 @@ $LN28@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN29@PMC_DivRem
 
-; 1534 :                             return (result);
+; 1527 :                             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN29@PMC_DivRem:
 
-; 1535 :                         CommitNumber(nq);
+; 1528 :                         CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1536 :                         *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+; 1529 :                         *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -13713,13 +13713,13 @@ $LN29@PMC_DivRem:
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1537 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
+; 1530 :                         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
 
 	mov	rdx, QWORD PTR r_buf_words$30[rbp]
 	mov	rcx, QWORD PTR r_buf$31[rbp]
 	call	DeallocateBlock
 
-; 1538 :                         if (nq->IS_ZERO)
+; 1531 :                         if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -13728,13 +13728,13 @@ $LN29@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN30@PMC_DivRem
 
-; 1539 :                         {
-; 1540 :                             DeallocateNumber(nq);
+; 1532 :                         {
+; 1533 :                             DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1541 :                             nq = &number_zero;
+; 1534 :                             nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
@@ -13742,26 +13742,26 @@ $LN30@PMC_DivRem:
 $LN23@PMC_DivRem:
 $LN16@PMC_DivRem:
 
-; 1542 :                         }
-; 1543 :                     }
-; 1544 :                 }
-; 1545 :             }
+; 1535 :                         }
+; 1536 :                     }
+; 1537 :                 }
+; 1538 :             }
 
 	jmp	$LN14@PMC_DivRem
 $LN13@PMC_DivRem:
 
-; 1546 :             else
-; 1547 :             {
-; 1548 :                 // _UINT64_T が 1 ワードで表現できる場合
-; 1549 : 
-; 1550 :                 // x と y の商・剰余を計算する
-; 1551 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1539 :             else
+; 1540 :             {
+; 1541 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1542 : 
+; 1543 :                 // x と y の商・剰余を計算する
+; 1544 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$32[rbp], rax
 
-; 1552 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 1545 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	call	_LZCNT_ALT_UNIT
@@ -13771,22 +13771,22 @@ $LN13@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$33[rbp], rax
 
-; 1553 :                 if (u_bit_count < v_bit_count)
+; 1546 :                 if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$33[rbp]
 	cmp	QWORD PTR u_bit_count$32[rbp], rax
 	jae	SHORT $LN31@PMC_DivRem
 
-; 1554 :                 {
-; 1555 :                     // 明らかに u < v である場合
-; 1556 : 
-; 1557 :                     // q = 0, r = u を返す。
-; 1558 :                     nq = &number_zero;
+; 1547 :                 {
+; 1548 :                     // 明らかに u < v である場合
+; 1549 : 
+; 1550 :                     // q = 0, r = u を返す。
+; 1551 :                     nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1559 :                     *r = nu->BLOCK[0];
+; 1552 :                     *r = nu->BLOCK[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -13796,14 +13796,14 @@ $LN13@PMC_DivRem:
 	mov	rax, QWORD PTR [rax+rcx]
 	mov	QWORD PTR [rdx], rax
 
-; 1560 :                 }
+; 1553 :                 }
 
 	jmp	$LN32@PMC_DivRem
 $LN31@PMC_DivRem:
 
-; 1561 :                 else
-; 1562 :                 {
-; 1563 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1554 :                 else
+; 1555 :                 {
+; 1556 :                     __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$33[rbp]
 	mov	rcx, QWORD PTR u_bit_count$32[rbp]
@@ -13812,8 +13812,8 @@ $LN31@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$34[rbp], rax
 
-; 1564 :                     __UNIT_TYPE nq_light_check_code;
-; 1565 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1557 :                     __UNIT_TYPE nq_light_check_code;
+; 1558 :                     if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$35[rbp]
 	mov	rdx, QWORD PTR q_bit_count$34[rbp]
@@ -13823,17 +13823,17 @@ $LN31@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN33@PMC_DivRem
 
-; 1566 :                         return (result);
+; 1559 :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN33@PMC_DivRem:
 
-; 1567 :                     __UNIT_TYPE_DIV r_buf = 0;
+; 1560 :                     __UNIT_TYPE_DIV r_buf = 0;
 
 	mov	DWORD PTR r_buf$36[rbp], 0
 
-; 1568 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1561 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -13851,7 +13851,7 @@ $LN33@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	DivRem_X_1W
 
-; 1569 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1562 :                     if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$35[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -13861,24 +13861,24 @@ $LN33@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN34@PMC_DivRem
 
-; 1570 :                         return (result);
+; 1563 :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN34@PMC_DivRem:
 
-; 1571 :                     CommitNumber(nq);
+; 1564 :                     CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1572 :                     *r = r_buf;
+; 1565 :                     *r = r_buf;
 
 	mov	eax, DWORD PTR r_buf$36[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1573 :                     if (nq->IS_ZERO)
+; 1566 :                     if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -13887,13 +13887,13 @@ $LN34@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN35@PMC_DivRem
 
-; 1574 :                     {
-; 1575 :                         DeallocateNumber(nq);
+; 1567 :                     {
+; 1568 :                         DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1576 :                         nq = &number_zero;
+; 1569 :                         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
@@ -13903,20 +13903,20 @@ $LN14@PMC_DivRem:
 $LN11@PMC_DivRem:
 $LN9@PMC_DivRem:
 
-; 1577 :                     }
-; 1578 :                 }
-; 1579 :             }
-; 1580 : 
-; 1581 :         }
-; 1582 :     }
-; 1583 :     *q = nq;
+; 1570 :                     }
+; 1571 :                 }
+; 1572 :             }
+; 1573 : 
+; 1574 :         }
+; 1575 :     }
+; 1576 :     *q = nq;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	rcx, QWORD PTR nq$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1584 : #ifdef _DEBUG
-; 1585 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+; 1577 : #ifdef _DEBUG
+; 1578 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CheckNumber
@@ -13924,19 +13924,19 @@ $LN9@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN36@PMC_DivRem
 
-; 1586 :         return (result);
+; 1579 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN36@PMC_DivRem:
 
-; 1587 : #endif
-; 1588 :     return (PMC_STATUS_OK);
+; 1580 : #endif
+; 1581 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_DivRem:
 
-; 1589 : }
+; 1582 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-64]
@@ -13967,7 +13967,7 @@ q$ = 496
 r$ = 504
 PMC_DivRem_X_I PROC					; COMDAT
 
-; 1152 : {
+; 1145 : {
 
 $LN20:
 	mov	QWORD PTR [rsp+32], r9
@@ -13986,61 +13986,61 @@ $LN20:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1153 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
+; 1146 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_DivRem
 
-; 1154 :     {
-; 1155 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 1156 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1147 :     {
+; 1148 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 1149 :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_DivRem
 $LN2@PMC_DivRem:
 
-; 1157 :     }
-; 1158 :     if (u == NULL)
+; 1150 :     }
+; 1151 :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN3@PMC_DivRem
 
-; 1159 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1152 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN3@PMC_DivRem:
 
-; 1160 :     if (q == NULL)
+; 1153 :     if (q == NULL)
 
 	cmp	QWORD PTR q$[rbp], 0
 	jne	SHORT $LN4@PMC_DivRem
 
-; 1161 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1154 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN4@PMC_DivRem:
 
-; 1162 :     if (r == NULL)
+; 1155 :     if (r == NULL)
 
 	cmp	QWORD PTR r$[rbp], 0
 	jne	SHORT $LN5@PMC_DivRem
 
-; 1163 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1156 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN5@PMC_DivRem:
 
-; 1164 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 1157 :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR nu$[rbp], rax
 
-; 1165 :     PMC_STATUS_CODE result;
-; 1166 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 1158 :     PMC_STATUS_CODE result;
+; 1159 :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nu$[rbp]
 	call	CheckNumber
@@ -14048,30 +14048,30 @@ $LN5@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_DivRem
 
-; 1167 :         return (result);
+; 1160 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN6@PMC_DivRem:
 
-; 1168 :     if (v == 0)
+; 1161 :     if (v == 0)
 
 	cmp	DWORD PTR v$[rbp], 0
 	jne	SHORT $LN7@PMC_DivRem
 
-; 1169 :     {
-; 1170 :         // v が 0 である場合
-; 1171 : 
-; 1172 :         // 0 による除算はエラーで返す
-; 1173 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1162 :     {
+; 1163 :         // v が 0 である場合
+; 1164 : 
+; 1165 :         // 0 による除算はエラーで返す
+; 1166 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3
 	jmp	$LN1@PMC_DivRem
 $LN7@PMC_DivRem:
 
-; 1174 :     }
-; 1175 :     NUMBER_HEADER* nq;
-; 1176 :     if (nu->IS_ZERO)
+; 1167 :     }
+; 1168 :     NUMBER_HEADER* nq;
+; 1169 :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -14080,39 +14080,39 @@ $LN7@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN8@PMC_DivRem
 
-; 1177 :     {
-; 1178 :         // u が 0 である場合
-; 1179 : 
-; 1180 :         // q = 0, r = 0 を返す
-; 1181 :         nq = &number_zero;
+; 1170 :     {
+; 1171 :         // u が 0 である場合
+; 1172 : 
+; 1173 :         // q = 0, r = 0 を返す
+; 1174 :         nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1182 :         *r = 0;
+; 1175 :         *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1183 :     }
+; 1176 :     }
 
 	jmp	$LN9@PMC_DivRem
 $LN8@PMC_DivRem:
 
-; 1184 :     else
-; 1185 :     {
-; 1186 :         // u が 0 ではない場合
-; 1187 : 
-; 1188 :         if (v == 1)
+; 1177 :     else
+; 1178 :     {
+; 1179 :         // u が 0 ではない場合
+; 1180 : 
+; 1181 :         if (v == 1)
 
 	cmp	DWORD PTR v$[rbp], 1
 	jne	SHORT $LN10@PMC_DivRem
 
-; 1189 :         {
-; 1190 :             // v が 1 である場合
-; 1191 : 
-; 1192 :             // q = u, r = 0 を返す
-; 1193 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+; 1182 :         {
+; 1183 :             // v が 1 である場合
+; 1184 : 
+; 1185 :             // q = u, r = 0 を返す
+; 1186 :             if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nq$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -14121,34 +14121,34 @@ $LN8@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN12@PMC_DivRem
 
-; 1194 :                 return (result);
+; 1187 :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN12@PMC_DivRem:
 
-; 1195 :             *r = 0;
+; 1188 :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1196 :         }
+; 1189 :         }
 
 	jmp	$LN11@PMC_DivRem
 $LN10@PMC_DivRem:
 
-; 1197 :         else
-; 1198 :         {
-; 1199 :             // u と v がともに 0 ではない場合
-; 1200 : 
-; 1201 :             // x と y の商・剰余を計算する
-; 1202 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 1190 :         else
+; 1191 :         {
+; 1192 :             // u と v がともに 0 ではない場合
+; 1193 : 
+; 1194 :             // x と y の商・剰余を計算する
+; 1195 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$6[rbp], rax
 
-; 1203 :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 1196 :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	mov	ecx, DWORD PTR v$[rbp]
 	call	_LZCNT_ALT_32
@@ -14158,22 +14158,22 @@ $LN10@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$7[rbp], rax
 
-; 1204 :             if (u_bit_count < v_bit_count)
+; 1197 :             if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$7[rbp]
 	cmp	QWORD PTR u_bit_count$6[rbp], rax
 	jae	SHORT $LN13@PMC_DivRem
 
-; 1205 :             {
-; 1206 :                 // 明らかに u < v である場合
-; 1207 : 
-; 1208 :                 // q = 0, r = u を返す。
-; 1209 :                 nq = &number_zero;
+; 1198 :             {
+; 1199 :                 // 明らかに u < v である場合
+; 1200 : 
+; 1201 :                 // q = 0, r = u を返す。
+; 1202 :                 nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
 
-; 1210 :                 *r = (_UINT32_T)nu->BLOCK[0];
+; 1203 :                 *r = (_UINT32_T)nu->BLOCK[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -14183,14 +14183,14 @@ $LN10@PMC_DivRem:
 	mov	eax, DWORD PTR [rax+rcx]
 	mov	DWORD PTR [rdx], eax
 
-; 1211 :             }
+; 1204 :             }
 
 	jmp	$LN14@PMC_DivRem
 $LN13@PMC_DivRem:
 
-; 1212 :             else
-; 1213 :             {
-; 1214 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1205 :             else
+; 1206 :             {
+; 1207 :                 __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	rax, QWORD PTR v_bit_count$7[rbp]
 	mov	rcx, QWORD PTR u_bit_count$6[rbp]
@@ -14199,8 +14199,8 @@ $LN13@PMC_DivRem:
 	add	rax, 65					; 00000041H
 	mov	QWORD PTR q_bit_count$8[rbp], rax
 
-; 1215 :                 __UNIT_TYPE nq_light_check_code;
-; 1216 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+; 1208 :                 __UNIT_TYPE nq_light_check_code;
+; 1209 :                 if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nq_light_check_code$9[rbp]
 	mov	rdx, QWORD PTR q_bit_count$8[rbp]
@@ -14210,17 +14210,17 @@ $LN13@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN15@PMC_DivRem
 
-; 1217 :                     return (result);
+; 1210 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN15@PMC_DivRem:
 
-; 1218 :                 __UNIT_TYPE_DIV r_buf = 0;
+; 1211 :                 __UNIT_TYPE_DIV r_buf = 0;
 
 	mov	DWORD PTR r_buf$10[rbp], 0
 
-; 1219 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+; 1212 :                 DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -14238,7 +14238,7 @@ $LN15@PMC_DivRem:
 	mov	rcx, QWORD PTR [rax+56]
 	call	DivRem_X_1W
 
-; 1220 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+; 1213 :                 if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nq_light_check_code$9[rbp]
 	mov	rax, QWORD PTR nq$[rbp]
@@ -14248,24 +14248,24 @@ $LN15@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN16@PMC_DivRem
 
-; 1221 :                     return (result);
+; 1214 :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN16@PMC_DivRem:
 
-; 1222 :                 CommitNumber(nq);
+; 1215 :                 CommitNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CommitNumber
 
-; 1223 :                 *r = (_UINT32_T)r_buf;
+; 1216 :                 *r = (_UINT32_T)r_buf;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	ecx, DWORD PTR r_buf$10[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 1224 :                 if (nq->IS_ZERO)
+; 1217 :                 if (nq->IS_ZERO)
 
 	mov	rax, QWORD PTR nq$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -14274,13 +14274,13 @@ $LN16@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN17@PMC_DivRem
 
-; 1225 :                 {
-; 1226 :                     DeallocateNumber(nq);
+; 1218 :                 {
+; 1219 :                     DeallocateNumber(nq);
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	DeallocateNumber
 
-; 1227 :                     nq = &number_zero;
+; 1220 :                     nq = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nq$[rbp], rax
@@ -14289,18 +14289,18 @@ $LN14@PMC_DivRem:
 $LN11@PMC_DivRem:
 $LN9@PMC_DivRem:
 
-; 1228 :                 }
-; 1229 :             }
-; 1230 :         }
-; 1231 :     }
-; 1232 :     *q = nq;
+; 1221 :                 }
+; 1222 :             }
+; 1223 :         }
+; 1224 :     }
+; 1225 :     *q = nq;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	rcx, QWORD PTR nq$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1233 : #ifdef _DEBUG
-; 1234 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+; 1226 : #ifdef _DEBUG
+; 1227 :     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nq$[rbp]
 	call	CheckNumber
@@ -14308,19 +14308,19 @@ $LN9@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_DivRem
 
-; 1235 :         return (result);
+; 1228 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_DivRem
 $LN18@PMC_DivRem:
 
-; 1236 : #endif
-; 1237 :     return (PMC_STATUS_OK);
+; 1229 : #endif
+; 1230 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_DivRem:
 
-; 1238 : }
+; 1231 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -14363,7 +14363,7 @@ q$ = 1088
 r$ = 1096
 PMC_DivRem_L_X PROC					; COMDAT
 
-; 1241 : {
+; 1234 : {
 
 $LN29:
 	mov	QWORD PTR [rsp+32], r9
@@ -14385,61 +14385,61 @@ $LN29:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1242 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(u))
+; 1235 :     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(u))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_DivRem
 
-; 1243 :     {
-; 1244 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 1245 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1236 :     {
+; 1237 :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 1238 :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_DivRem
 $LN2@PMC_DivRem:
 
-; 1246 :     }
-; 1247 :     if (v == NULL)
+; 1239 :     }
+; 1240 :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_DivRem
 
-; 1248 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1241 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN3@PMC_DivRem:
 
-; 1249 :     if (q == NULL)
+; 1242 :     if (q == NULL)
 
 	cmp	QWORD PTR q$[rbp], 0
 	jne	SHORT $LN4@PMC_DivRem
 
-; 1250 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1243 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN4@PMC_DivRem:
 
-; 1251 :     if (r == NULL)
+; 1244 :     if (r == NULL)
 
 	cmp	QWORD PTR r$[rbp], 0
 	jne	SHORT $LN5@PMC_DivRem
 
-; 1252 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1245 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN5@PMC_DivRem:
 
-; 1253 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1246 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 1254 :     PMC_STATUS_CODE result;
-; 1255 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1247 :     PMC_STATUS_CODE result;
+; 1248 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -14447,13 +14447,13 @@ $LN5@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_DivRem
 
-; 1256 :         return (result);
+; 1249 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN6@PMC_DivRem:
 
-; 1257 :     if (nv->IS_ZERO)
+; 1250 :     if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -14462,46 +14462,46 @@ $LN6@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN7@PMC_DivRem
 
-; 1258 :     {
-; 1259 :         // v が 0 である場合
-; 1260 : 
-; 1261 :         // 0 による除算はエラーで返す
-; 1262 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1251 :     {
+; 1252 :         // v が 0 である場合
+; 1253 : 
+; 1254 :         // 0 による除算はエラーで返す
+; 1255 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3
 	jmp	$LN1@PMC_DivRem
 $LN7@PMC_DivRem:
 
-; 1263 :     }
-; 1264 :     if (u == 0)
+; 1256 :     }
+; 1257 :     if (u == 0)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN8@PMC_DivRem
 
-; 1265 :     {
-; 1266 :         // x が 0 である場合
-; 1267 : 
-; 1268 :         // q = 0, r = 0 を返す
-; 1269 :         *q = 0;
+; 1258 :     {
+; 1259 :         // x が 0 である場合
+; 1260 : 
+; 1261 :         // q = 0, r = 0 を返す
+; 1262 :         *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1270 :         *r = 0;
+; 1263 :         *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1271 :     }
+; 1264 :     }
 
 	jmp	$LN9@PMC_DivRem
 $LN8@PMC_DivRem:
 
-; 1272 :     else
-; 1273 :     {
-; 1274 :         // u が 0 ではない場合
-; 1275 : 
-; 1276 :         if (nv->IS_ONE)
+; 1265 :     else
+; 1266 :     {
+; 1267 :         // u が 0 ではない場合
+; 1268 : 
+; 1269 :         if (nv->IS_ONE)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -14510,55 +14510,55 @@ $LN8@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN10@PMC_DivRem
 
-; 1277 :         {
-; 1278 :             // v が 1 である場合
-; 1279 : 
-; 1280 :             // q = u, r = 0 を返す
-; 1281 :             *q = u;
+; 1270 :         {
+; 1271 :             // v が 1 である場合
+; 1272 : 
+; 1273 :             // q = u, r = 0 を返す
+; 1274 :             *q = u;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1282 :             *r = 0;
+; 1275 :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1283 :         }
+; 1276 :         }
 
 	jmp	$LN11@PMC_DivRem
 $LN10@PMC_DivRem:
 
-; 1284 :         else
-; 1285 :         {
-; 1286 :             // u > 0 かつ v > 1 である場合
-; 1287 : 
-; 1288 :             // u と v の商・剰余を計算する
-; 1289 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
+; 1277 :         else
+; 1278 :         {
+; 1279 :             // u > 0 かつ v > 1 である場合
+; 1280 : 
+; 1281 :             // u と v の商・剰余を計算する
+; 1282 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN12@PMC_DivRem
 
-; 1290 :             {
-; 1291 :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 1292 :                 _UINT32_T u_hi;
-; 1293 :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
+; 1283 :             {
+; 1284 :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 1285 :                 _UINT32_T u_hi;
+; 1286 :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
 
 	lea	rdx, QWORD PTR u_hi$13[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	call	_FROMDWORDTOWORD
 	mov	DWORD PTR u_lo$14[rbp], eax
 
-; 1294 :                 if (u_hi == 0)
+; 1287 :                 if (u_hi == 0)
 
 	cmp	DWORD PTR u_hi$13[rbp], 0
 	jne	$LN14@PMC_DivRem
 
-; 1295 :                 {
-; 1296 :                     // u の値が 32bit で表現可能な場合
-; 1297 :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
+; 1288 :                 {
+; 1289 :                     // u の値が 32bit で表現可能な場合
+; 1290 :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
 
 	mov	ecx, DWORD PTR u_lo$14[rbp]
 	call	_LZCNT_ALT_32
@@ -14568,45 +14568,45 @@ $LN10@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$15[rbp], rax
 
-; 1298 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1291 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$16[rbp], rax
 
-; 1299 :                     if (u_bit_count < v_bit_count)
+; 1292 :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$16[rbp]
 	cmp	QWORD PTR u_bit_count$15[rbp], rax
 	jae	SHORT $LN16@PMC_DivRem
 
-; 1300 :                     {
-; 1301 :                         // 明らかに u < v である場合
-; 1302 : 
-; 1303 :                         // q = 0, r = u を返す。
-; 1304 :                         *q = 0;
+; 1293 :                     {
+; 1294 :                         // 明らかに u < v である場合
+; 1295 : 
+; 1296 :                         // q = 0, r = u を返す。
+; 1297 :                         *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1305 :                         *r = u_lo;
+; 1298 :                         *r = u_lo;
 
 	mov	eax, DWORD PTR u_lo$14[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1306 :                     }
+; 1299 :                     }
 
 	jmp	SHORT $LN17@PMC_DivRem
 $LN16@PMC_DivRem:
 
-; 1307 :                     else
-; 1308 :                     {
-; 1309 :                         // u のビット数が v のビット数以上である場合
-; 1310 : 
-; 1311 :                         // u は 32bit で表現できるので、v も 32bit で表現できる。
-; 1312 :                         __UNIT_TYPE_DIV temp_r;
-; 1313 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1300 :                     else
+; 1301 :                     {
+; 1302 :                         // u のビット数が v のビット数以上である場合
+; 1303 : 
+; 1304 :                         // u は 32bit で表現できるので、v も 32bit で表現できる。
+; 1305 :                         __UNIT_TYPE_DIV temp_r;
+; 1306 :                         *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -14621,43 +14621,43 @@ $LN16@PMC_DivRem:
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1314 :                         *r = temp_r;
+; 1307 :                         *r = temp_r;
 
 	mov	eax, DWORD PTR temp_r$17[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1315 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1316 :                         if (sizeof(r) == sizeof(_UINT64_T))
+; 1308 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1309 :                         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN18@PMC_DivRem
 
-; 1317 :                             IncrementDIV64Counter();
+; 1310 :                             IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN19@PMC_DivRem
 $LN18@PMC_DivRem:
 
-; 1318 :                         else
-; 1319 :                             IncrementDIV32Counter();
+; 1311 :                         else
+; 1312 :                             IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN19@PMC_DivRem:
 $LN17@PMC_DivRem:
 
-; 1320 : #endif
-; 1321 :                     }
-; 1322 :                 }
+; 1313 : #endif
+; 1314 :                     }
+; 1315 :                 }
 
 	jmp	$LN15@PMC_DivRem
 $LN14@PMC_DivRem:
 
-; 1323 :                 else
-; 1324 :                 {
-; 1325 :                     // v の値が 32bit では表現できない場合
-; 1326 :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
+; 1316 :                 else
+; 1317 :                 {
+; 1318 :                     // v の値が 32bit では表現できない場合
+; 1319 :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
 
 	mov	ecx, DWORD PTR u_hi$13[rbp]
 	call	_LZCNT_ALT_32
@@ -14667,67 +14667,67 @@ $LN14@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$18[rbp], rax
 
-; 1327 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1320 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$19[rbp], rax
 
-; 1328 :                     if (u_bit_count < v_bit_count)
+; 1321 :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$19[rbp]
 	cmp	QWORD PTR u_bit_count$18[rbp], rax
 	jae	SHORT $LN20@PMC_DivRem
 
-; 1329 :                     {
-; 1330 :                         // 明らかに u < v である場合
-; 1331 : 
-; 1332 :                         // q = 0, r = u を返す。
-; 1333 :                         *q = 0;
+; 1322 :                     {
+; 1323 :                         // 明らかに u < v である場合
+; 1324 : 
+; 1325 :                         // q = 0, r = u を返す。
+; 1326 :                         *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1334 :                         *r = u;
+; 1327 :                         *r = u;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1335 :                     }
+; 1328 :                     }
 
 	jmp	$LN21@PMC_DivRem
 $LN20@PMC_DivRem:
 
-; 1336 :                     else
-; 1337 :                     {
-; 1338 :                         // u のビット長が 33 以上 64 以下であり、かつ、u のビット長が v のビット長以上(v のビット長は多くとも64以下)である場合
-; 1339 : 
-; 1340 :                         if (nv->UNIT_BIT_COUNT <= sizeof(__UNIT_TYPE_DIV) * 8)
+; 1329 :                     else
+; 1330 :                     {
+; 1331 :                         // u のビット長が 33 以上 64 以下であり、かつ、u のビット長が v のビット長以上(v のビット長は多くとも64以下)である場合
+; 1332 : 
+; 1333 :                         if (nv->UNIT_BIT_COUNT <= sizeof(__UNIT_TYPE_DIV) * 8)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	cmp	QWORD PTR [rax+16], 32			; 00000020H
 	ja	$LN22@PMC_DivRem
 
-; 1341 :                         {
-; 1342 :                             // v が 32bit で表現できる場合
-; 1343 : 
-; 1344 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+; 1334 :                         {
+; 1335 :                             // v が 32bit で表現できる場合
+; 1336 : 
+; 1337 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
 
 	mov	eax, DWORD PTR u_lo$14[rbp]
 	mov	DWORD PTR u_buf$20[rbp], eax
 	mov	eax, DWORD PTR u_hi$13[rbp]
 	mov	DWORD PTR u_buf$20[rbp+4], eax
 
-; 1345 :                             __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
+; 1338 :                             __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
 
 	mov	DWORD PTR q_buf$21[rbp], 0
 	mov	DWORD PTR q_buf$21[rbp+4], 0
 	mov	DWORD PTR q_buf$21[rbp+8], 0
 
-; 1346 :                             __UNIT_TYPE_DIV r_buf;
-; 1347 : 
-; 1348 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
+; 1339 :                             __UNIT_TYPE_DIV r_buf;
+; 1340 : 
+; 1341 :                             DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -14741,8 +14741,8 @@ $LN20@PMC_DivRem:
 	lea	rcx, QWORD PTR u_buf$20[rbp]
 	call	DivRem_X_1W
 
-; 1349 : 
-; 1350 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
+; 1342 : 
+; 1343 :                             *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -14754,47 +14754,47 @@ $LN20@PMC_DivRem:
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1351 :                             *r = r_buf;
+; 1344 :                             *r = r_buf;
 
 	mov	eax, DWORD PTR r_buf$22[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1352 :                         }
+; 1345 :                         }
 
 	jmp	$LN23@PMC_DivRem
 $LN22@PMC_DivRem:
 
-; 1353 :                         else
-; 1354 :                         {
-; 1355 :                             // v が 32bit では表現できない場合
-; 1356 : 
-; 1357 :                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
-; 1358 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+; 1346 :                         else
+; 1347 :                         {
+; 1348 :                             // v が 32bit では表現できない場合
+; 1349 : 
+; 1350 :                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
+; 1351 :                             __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
 
 	mov	eax, DWORD PTR u_lo$14[rbp]
 	mov	DWORD PTR u_buf$23[rbp], eax
 	mov	eax, DWORD PTR u_hi$13[rbp]
 	mov	DWORD PTR u_buf$23[rbp+4], eax
 
-; 1359 :                             __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };// 演算結果を格納するためには u のビット数 - v のビット数 + 1 ビットだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1352 :                             __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };// 演算結果を格納するためには u のビット数 - v のビット数 + 1 ビットだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	DWORD PTR q_buf$24[rbp], 0
 	mov	DWORD PTR q_buf$24[rbp+4], 0
 	mov	DWORD PTR q_buf$24[rbp+8], 0
 
-; 1360 :                             __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 }; // 演算結果を格納するためには v と同じ大きさだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+; 1353 :                             __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 }; // 演算結果を格納するためには v と同じ大きさだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
 
 	mov	DWORD PTR r_buf$25[rbp], 0
 	mov	DWORD PTR r_buf$25[rbp+4], 0
 	mov	DWORD PTR r_buf$25[rbp+8], 0
 
-; 1361 :                             __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+; 1354 :                             __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
 
 	mov	DWORD PTR work_v_buf$26[rbp], 0
 	mov	DWORD PTR work_v_buf$26[rbp+4], 0
 
-; 1362 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
+; 1355 :                             (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+8]
@@ -14815,7 +14815,7 @@ $LN22@PMC_DivRem:
 	lea	rcx, QWORD PTR u_buf$23[rbp]
 	call	QWORD PTR fp_DivRem_X_X
 
-; 1363 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
+; 1356 :                             *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -14827,7 +14827,7 @@ $LN22@PMC_DivRem:
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1364 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+; 1357 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -14842,20 +14842,20 @@ $LN23@PMC_DivRem:
 $LN21@PMC_DivRem:
 $LN15@PMC_DivRem:
 
-; 1365 :                         }
-; 1366 :                     }
-; 1367 :                 }
-; 1368 :             }
+; 1358 :                         }
+; 1359 :                     }
+; 1360 :                 }
+; 1361 :             }
 
 	jmp	$LN13@PMC_DivRem
 $LN12@PMC_DivRem:
 
-; 1369 :             else
-; 1370 :             {
-; 1371 :                 // _UINT64_T が 1 ワードで表現できる場合
-; 1372 : 
-; 1373 :                 // x と y の商・剰余を計算する
-; 1374 :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
+; 1362 :             else
+; 1363 :             {
+; 1364 :                 // _UINT64_T が 1 ワードで表現できる場合
+; 1365 : 
+; 1366 :                 // x と y の商・剰余を計算する
+; 1367 :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
 
 	mov	rcx, QWORD PTR u$[rbp]
 	call	_LZCNT_ALT_UNIT
@@ -14865,45 +14865,45 @@ $LN12@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$27[rbp], rax
 
-; 1375 :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1368 :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$28[rbp], rax
 
-; 1376 :                 if (u_bit_count < v_bit_count)
+; 1369 :                 if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$28[rbp]
 	cmp	QWORD PTR u_bit_count$27[rbp], rax
 	jae	SHORT $LN24@PMC_DivRem
 
-; 1377 :                 {
-; 1378 :                     // 明らかに u < v である場合
-; 1379 : 
-; 1380 :                     // q = 0, r = u を返す。
-; 1381 :                     *q = 0;
+; 1370 :                 {
+; 1371 :                     // 明らかに u < v である場合
+; 1372 : 
+; 1373 :                     // q = 0, r = u を返す。
+; 1374 :                     *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 1382 :                     *r = u;
+; 1375 :                     *r = u;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1383 :                 }
+; 1376 :                 }
 
 	jmp	SHORT $LN25@PMC_DivRem
 $LN24@PMC_DivRem:
 
-; 1384 :                 else
-; 1385 :                 {
-; 1386 :                     // u のビット数が v のビット数以上である場合
-; 1387 : 
-; 1388 :                     // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
-; 1389 :                     __UNIT_TYPE_DIV temp_r;
-; 1390 :                     *q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1377 :                 else
+; 1378 :                 {
+; 1379 :                     // u のビット数が v のビット数以上である場合
+; 1380 : 
+; 1381 :                     // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
+; 1382 :                     __UNIT_TYPE_DIV temp_r;
+; 1383 :                     *q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -14918,27 +14918,27 @@ $LN24@PMC_DivRem:
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1391 :                     *r = temp_r;
+; 1384 :                     *r = temp_r;
 
 	mov	eax, DWORD PTR temp_r$29[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 1392 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1393 :                     if (sizeof(r) == sizeof(_UINT64_T))
+; 1385 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1386 :                     if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN26@PMC_DivRem
 
-; 1394 :                         IncrementDIV64Counter();
+; 1387 :                         IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN27@PMC_DivRem
 $LN26@PMC_DivRem:
 
-; 1395 :                     else
-; 1396 :                         IncrementDIV32Counter();
+; 1388 :                     else
+; 1389 :                         IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN27@PMC_DivRem:
@@ -14947,18 +14947,18 @@ $LN13@PMC_DivRem:
 $LN11@PMC_DivRem:
 $LN9@PMC_DivRem:
 
-; 1397 : #endif
-; 1398 :                 }
-; 1399 :             }
-; 1400 : 
-; 1401 :         }
-; 1402 :     }
-; 1403 :     return (PMC_STATUS_OK);
+; 1390 : #endif
+; 1391 :                 }
+; 1392 :             }
+; 1393 : 
+; 1394 :         }
+; 1395 :     }
+; 1396 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_DivRem:
 
-; 1404 : }
+; 1397 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-64]
@@ -14989,7 +14989,7 @@ q$ = 400
 r$ = 408
 PMC_DivRem_I_X PROC					; COMDAT
 
-; 1073 : {
+; 1066 : {
 
 $LN17:
 	mov	QWORD PTR [rsp+32], r9
@@ -15008,61 +15008,61 @@ $LN17:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1074 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
+; 1067 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_DivRem
 
-; 1075 :     {
-; 1076 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 1077 :         return (PMC_STATUS_INTERNAL_ERROR);
+; 1068 :     {
+; 1069 :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 1070 :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_DivRem
 $LN2@PMC_DivRem:
 
-; 1078 :     }
-; 1079 :     if (v == NULL)
+; 1071 :     }
+; 1072 :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_DivRem
 
-; 1080 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1073 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN3@PMC_DivRem:
 
-; 1081 :     if (q == NULL)
+; 1074 :     if (q == NULL)
 
 	cmp	QWORD PTR q$[rbp], 0
 	jne	SHORT $LN4@PMC_DivRem
 
-; 1082 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1075 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN4@PMC_DivRem:
 
-; 1083 :     if (r == NULL)
+; 1076 :     if (r == NULL)
 
 	cmp	QWORD PTR r$[rbp], 0
 	jne	SHORT $LN5@PMC_DivRem
 
-; 1084 :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1077 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_DivRem
 $LN5@PMC_DivRem:
 
-; 1085 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 1078 :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 1086 :     PMC_STATUS_CODE result;
-; 1087 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 1079 :     PMC_STATUS_CODE result;
+; 1080 :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -15070,13 +15070,13 @@ $LN5@PMC_DivRem:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_DivRem
 
-; 1088 :         return (result);
+; 1081 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_DivRem
 $LN6@PMC_DivRem:
 
-; 1089 :     if (nv->IS_ZERO)
+; 1082 :     if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -15085,46 +15085,46 @@ $LN6@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN7@PMC_DivRem
 
-; 1090 :     {
-; 1091 :         // v が 0 である場合
-; 1092 : 
-; 1093 :         // 0 による除算はエラーで返す
-; 1094 :         return (PMC_STATUS_DIVISION_BY_ZERO);
+; 1083 :     {
+; 1084 :         // v が 0 である場合
+; 1085 : 
+; 1086 :         // 0 による除算はエラーで返す
+; 1087 :         return (PMC_STATUS_DIVISION_BY_ZERO);
 
 	mov	eax, -3
 	jmp	$LN1@PMC_DivRem
 $LN7@PMC_DivRem:
 
-; 1095 :     }
-; 1096 :     if (u == 0)
+; 1088 :     }
+; 1089 :     if (u == 0)
 
 	cmp	DWORD PTR u$[rbp], 0
 	jne	SHORT $LN8@PMC_DivRem
 
-; 1097 :     {
-; 1098 :         // u が 0 である場合
-; 1099 : 
-; 1100 :         // q = 0, r = 0 を返す
-; 1101 :         *q = 0;
+; 1090 :     {
+; 1091 :         // u が 0 である場合
+; 1092 : 
+; 1093 :         // q = 0, r = 0 を返す
+; 1094 :         *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1102 :         *r = 0;
+; 1095 :         *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1103 :     }
+; 1096 :     }
 
 	jmp	$LN9@PMC_DivRem
 $LN8@PMC_DivRem:
 
-; 1104 :     else
-; 1105 :     {
-; 1106 :         // u が 0 ではない場合
-; 1107 : 
-; 1108 :         if (nv->IS_ONE)
+; 1097 :     else
+; 1098 :     {
+; 1099 :         // u が 0 ではない場合
+; 1100 : 
+; 1101 :         if (nv->IS_ONE)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -15133,32 +15133,32 @@ $LN8@PMC_DivRem:
 	test	eax, eax
 	je	SHORT $LN10@PMC_DivRem
 
-; 1109 :         {
-; 1110 :             // v が 1 である場合
-; 1111 : 
-; 1112 :             // q = u, r = 0 を返す
-; 1113 :             *q = u;
+; 1102 :         {
+; 1103 :             // v が 1 である場合
+; 1104 : 
+; 1105 :             // q = u, r = 0 を返す
+; 1106 :             *q = u;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 1114 :             *r = 0;
+; 1107 :             *r = 0;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1115 :         }
+; 1108 :         }
 
 	jmp	$LN11@PMC_DivRem
 $LN10@PMC_DivRem:
 
-; 1116 :         else
-; 1117 :         {
-; 1118 :             // u と v がともに 0 ではない場合
-; 1119 : 
-; 1120 :             // x と y の商・剰余を計算する
-; 1121 :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
+; 1109 :         else
+; 1110 :         {
+; 1111 :             // u と v がともに 0 ではない場合
+; 1112 : 
+; 1113 :             // x と y の商・剰余を計算する
+; 1114 :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
 
 	mov	ecx, DWORD PTR u$[rbp]
 	call	_LZCNT_ALT_32
@@ -15168,45 +15168,45 @@ $LN10@PMC_DivRem:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
-; 1122 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 1115 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$5[rbp], rax
 
-; 1123 :             if (u_bit_count < v_bit_count)
+; 1116 :             if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$5[rbp]
 	cmp	QWORD PTR u_bit_count$4[rbp], rax
 	jae	SHORT $LN12@PMC_DivRem
 
-; 1124 :             {
-; 1125 :                 // 明らかに u < v である場合
-; 1126 : 
-; 1127 :                 // q = 0, r = u を返す。
-; 1128 :                 *q = 0;
+; 1117 :             {
+; 1118 :                 // 明らかに u < v である場合
+; 1119 : 
+; 1120 :                 // q = 0, r = u を返す。
+; 1121 :                 *q = 0;
 
 	mov	rax, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 1129 :                 *r = u;
+; 1122 :                 *r = u;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 1130 :             }
+; 1123 :             }
 
 	jmp	SHORT $LN13@PMC_DivRem
 $LN12@PMC_DivRem:
 
-; 1131 :             else
-; 1132 :             {
-; 1133 :                 // u のビット数が v のビット数以上である場合
-; 1134 :                 
-; 1135 :                 // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
-; 1136 :                 __UNIT_TYPE_DIV temp_r;
-; 1137 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+; 1124 :             else
+; 1125 :             {
+; 1126 :                 // u のビット数が v のビット数以上である場合
+; 1127 :                 
+; 1128 :                 // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
+; 1129 :                 __UNIT_TYPE_DIV temp_r;
+; 1130 :                 *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -15220,27 +15220,27 @@ $LN12@PMC_DivRem:
 	mov	rcx, QWORD PTR q$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 1138 :                 *r = temp_r;
+; 1131 :                 *r = temp_r;
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	ecx, DWORD PTR temp_r$6[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 1139 : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 1140 :                 if (sizeof(r) == sizeof(_UINT64_T))
+; 1132 : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 1133 :                 if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN14@PMC_DivRem
 
-; 1141 :                     IncrementDIV64Counter();
+; 1134 :                     IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN15@PMC_DivRem
 $LN14@PMC_DivRem:
 
-; 1142 :                 else
-; 1143 :                     IncrementDIV32Counter();
+; 1135 :                 else
+; 1136 :                     IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN15@PMC_DivRem:
@@ -15248,16 +15248,16 @@ $LN13@PMC_DivRem:
 $LN11@PMC_DivRem:
 $LN9@PMC_DivRem:
 
-; 1144 : #endif
-; 1145 :             }
-; 1146 :         }
-; 1147 :     }
-; 1148 :     return (PMC_STATUS_OK);
+; 1137 : #endif
+; 1138 :             }
+; 1139 :         }
+; 1140 :     }
+; 1141 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_DivRem:
 
-; 1149 : }
+; 1142 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -15278,7 +15278,7 @@ tv72 = 192
 feature$ = 240
 Initialize_DivRem PROC					; COMDAT
 
-; 1745 : {
+; 1738 : {
 
 $LN5:
 	mov	QWORD PTR [rsp+8], rcx
@@ -15294,7 +15294,7 @@ $LN5:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1746 :     fp_DivRem_X_X = feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2 ? DivRem_X_X_using_ADX_MULX : DivRem_X_X_using_ADC_MUL;
+; 1739 :     fp_DivRem_X_X = feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2 ? DivRem_X_X_using_ADX_MULX : DivRem_X_X_using_ADC_MUL;
 
 	mov	rax, QWORD PTR feature$[rbp]
 	mov	eax, DWORD PTR [rax]
@@ -15318,11 +15318,11 @@ $LN4@Initialize:
 	mov	rax, QWORD PTR tv72[rbp]
 	mov	QWORD PTR fp_DivRem_X_X, rax
 
-; 1747 :     return (PMC_STATUS_OK);
+; 1740 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 1748 : }
+; 1741 : }
 
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
@@ -15350,7 +15350,7 @@ q_buf$ = 488
 r_buf$ = 496
 DivRem_X_X PROC						; COMDAT
 
-; 46   : {
+; 39   : {
 
 $LN14:
 	mov	QWORD PTR [rsp+32], r9
@@ -15369,57 +15369,57 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 47   :     __UNIT_TYPE_DIV* u_buf_2 = (__UNIT_TYPE_DIV*)u_buf;
+; 40   :     __UNIT_TYPE_DIV* u_buf_2 = (__UNIT_TYPE_DIV*)u_buf;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	QWORD PTR u_buf_2$[rbp], rax
 
-; 48   :     __UNIT_TYPE u_count_2 = u_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
+; 41   :     __UNIT_TYPE u_count_2 = u_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shl	rax, 1
 	mov	QWORD PTR u_count_2$[rbp], rax
 
-; 49   :     __UNIT_TYPE_DIV* v_buf_2 = (__UNIT_TYPE_DIV*)v_buf;
+; 42   :     __UNIT_TYPE_DIV* v_buf_2 = (__UNIT_TYPE_DIV*)v_buf;
 
 	mov	rax, QWORD PTR v_buf$[rbp]
 	mov	QWORD PTR v_buf_2$[rbp], rax
 
-; 50   :     __UNIT_TYPE v_count_2 = v_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
+; 43   :     __UNIT_TYPE v_count_2 = v_count * (sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV));
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shl	rax, 1
 	mov	QWORD PTR v_count_2$[rbp], rax
 
-; 51   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 44   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN2@DivRem_X_X
 
-; 52   :     {
-; 53   :         if (u_buf_2[u_count_2 - 1] == 0)
+; 45   :     {
+; 46   :         if (u_buf_2[u_count_2 - 1] == 0)
 
 	mov	rax, QWORD PTR u_buf_2$[rbp]
 	mov	rcx, QWORD PTR u_count_2$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN3@DivRem_X_X
 
-; 54   :             --u_count_2;
+; 47   :             --u_count_2;
 
 	mov	rax, QWORD PTR u_count_2$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count_2$[rbp], rax
 $LN3@DivRem_X_X:
 
-; 55   :         if (v_buf_2[v_count_2 - 1] == 0)
+; 48   :         if (v_buf_2[v_count_2 - 1] == 0)
 
 	mov	rax, QWORD PTR v_buf_2$[rbp]
 	mov	rcx, QWORD PTR v_count_2$[rbp]
 	cmp	DWORD PTR [rax+rcx*4-4], 0
 	jne	SHORT $LN4@DivRem_X_X
 
-; 56   :             --v_count_2;
+; 49   :             --v_count_2;
 
 	mov	rax, QWORD PTR v_count_2$[rbp]
 	dec	rax
@@ -15427,21 +15427,21 @@ $LN3@DivRem_X_X:
 $LN4@DivRem_X_X:
 $LN2@DivRem_X_X:
 
-; 57   :     }
-; 58   :     if (v_count_2 == 1)
+; 50   :     }
+; 51   :     if (v_count_2 == 1)
 
 	cmp	QWORD PTR v_count_2$[rbp], 1
 	jne	$LN5@DivRem_X_X
 
-; 59   :     {
-; 60   :         if (u_count_2 == 1)
+; 52   :     {
+; 53   :         if (u_count_2 == 1)
 
 	cmp	QWORD PTR u_count_2$[rbp], 1
 	jne	SHORT $LN7@DivRem_X_X
 
-; 61   :         {
-; 62   :             __UNIT_TYPE_DIV r;
-; 63   :             __UNIT_TYPE_DIV q = _DIVREM_UNIT(0, u_buf_2[0], v_buf_2[0], &r);
+; 54   :         {
+; 55   :             __UNIT_TYPE_DIV r;
+; 56   :             __UNIT_TYPE_DIV q = _DIVREM_UNIT(0, u_buf_2[0], v_buf_2[0], &r);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -15456,7 +15456,7 @@ $LN2@DivRem_X_X:
 	call	_DIVREM_UNIT
 	mov	DWORD PTR q$6[rbp], eax
 
-; 64   :             q_buf[0] = q;
+; 57   :             q_buf[0] = q;
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -15464,7 +15464,7 @@ $LN2@DivRem_X_X:
 	mov	rdx, QWORD PTR q_buf$[rbp]
 	mov	QWORD PTR [rdx+rax], rcx
 
-; 65   :             r_buf[0] = r;
+; 58   :             r_buf[0] = r;
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -15472,35 +15472,35 @@ $LN2@DivRem_X_X:
 	mov	rdx, QWORD PTR r_buf$[rbp]
 	mov	QWORD PTR [rdx+rax], rcx
 
-; 66   : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 67   :             if (sizeof(r) == sizeof(_UINT64_T))
+; 59   : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 60   :             if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN9@DivRem_X_X
 
-; 68   :                 IncrementDIV64Counter();
+; 61   :                 IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN10@DivRem_X_X
 $LN9@DivRem_X_X:
 
-; 69   :             else
-; 70   :                 IncrementDIV32Counter();
+; 62   :             else
+; 63   :                 IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN10@DivRem_X_X:
 
-; 71   : #endif
-; 72   :         }
+; 64   : #endif
+; 65   :         }
 
 	jmp	SHORT $LN8@DivRem_X_X
 $LN7@DivRem_X_X:
 
-; 73   :         else
-; 74   :         {
-; 75   :             __UNIT_TYPE_DIV r;
-; 76   :             DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
+; 66   :         else
+; 67   :         {
+; 68   :             __UNIT_TYPE_DIV r;
+; 69   :             DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -15513,7 +15513,7 @@ $LN7@DivRem_X_X:
 	mov	rcx, QWORD PTR u_buf_2$[rbp]
 	call	DivRem_X_1W
 
-; 77   :             r_buf[0] = r;
+; 70   :             r_buf[0] = r;
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -15522,42 +15522,42 @@ $LN7@DivRem_X_X:
 	mov	QWORD PTR [rdx+rax], rcx
 $LN8@DivRem_X_X:
 
-; 78   :         }
-; 79   :     }
+; 71   :         }
+; 72   :     }
 
 	jmp	SHORT $LN6@DivRem_X_X
 $LN5@DivRem_X_X:
 
-; 80   :     else
-; 81   :     {
-; 82   :         if (u_count_2 < v_count_2)
+; 73   :     else
+; 74   :     {
+; 75   :         if (u_count_2 < v_count_2)
 
 	mov	rax, QWORD PTR v_count_2$[rbp]
 	cmp	QWORD PTR u_count_2$[rbp], rax
 	jae	SHORT $LN11@DivRem_X_X
 
-; 83   :         {
-; 84   :             q_buf[0] = 0;
+; 76   :         {
+; 77   :             q_buf[0] = 0;
 
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR q_buf$[rbp]
 	mov	QWORD PTR [rcx+rax], 0
 
-; 85   :             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
+; 78   :             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
 
 	mov	r8, QWORD PTR u_count$[rbp]
 	mov	rdx, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR r_buf$[rbp]
 	call	_COPY_MEMORY_UNIT
 
-; 86   :         }
+; 79   :         }
 
 	jmp	SHORT $LN12@DivRem_X_X
 $LN11@DivRem_X_X:
 
-; 87   :         else
-; 88   :             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
+; 80   :         else
+; 81   :             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	QWORD PTR [rsp+48], rax
@@ -15573,8 +15573,8 @@ $LN11@DivRem_X_X:
 $LN12@DivRem_X_X:
 $LN6@DivRem_X_X:
 
-; 89   :     }
-; 90   : }
+; 82   :     }
+; 83   : }
 
 	lea	rcx, QWORD PTR [rbp-64]
 	lea	rdx, OFFSET FLAT:DivRem_X_X$rtcFrameData
@@ -15601,7 +15601,7 @@ q_buf$ = 408
 r_buf$ = 416
 DivRem_X_1W PROC					; COMDAT
 
-; 93   : {
+; 86   : {
 
 $LN25:
 	mov	QWORD PTR [rsp+32], r9
@@ -15620,84 +15620,84 @@ $LN25:
 	lea	rcx, OFFSET FLAT:__531E8CBE_pmc_divrem@c
 	call	__CheckForDebuggerJustMyCode
 
-; 94   :     // u の最上位ワードは 0 でありうることに注意すること。
-; 95   :     __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
+; 87   :     // u の最上位ワードは 0 でありうることに注意すること。
+; 88   :     __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4-4]
 	mov	QWORD PTR up$[rbp], rax
 
-; 96   :     __UNIT_TYPE_DIV* qp = q_buf + u_buf_len - 1;
+; 89   :     __UNIT_TYPE_DIV* qp = q_buf + u_buf_len - 1;
 
 	mov	rax, QWORD PTR q_buf$[rbp]
 	mov	rcx, QWORD PTR u_buf_len$[rbp]
 	lea	rax, QWORD PTR [rax+rcx*4-4]
 	mov	QWORD PTR qp$[rbp], rax
 
-; 97   :     __UNIT_TYPE u_count = u_buf_len;
+; 90   :     __UNIT_TYPE u_count = u_buf_len;
 
 	mov	rax, QWORD PTR u_buf_len$[rbp]
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 98   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+; 91   :     if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN6@DivRem_X_1
 $LN2@DivRem_X_1:
 
-; 99   :     {
-; 100  :         while (*up == 0)
+; 92   :     {
+; 93   :         while (*up == 0)
 
 	mov	rax, QWORD PTR up$[rbp]
 	cmp	DWORD PTR [rax], 0
 	jne	SHORT $LN3@DivRem_X_1
 
-; 101  :         {
-; 102  :             --up;
+; 94   :         {
+; 95   :             --up;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 4
 	mov	QWORD PTR up$[rbp], rax
 
-; 103  :             --qp;
+; 96   :             --qp;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 4
 	mov	QWORD PTR qp$[rbp], rax
 
-; 104  :             --u_count;
+; 97   :             --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 105  :         }
+; 98   :         }
 
 	jmp	SHORT $LN2@DivRem_X_1
 $LN3@DivRem_X_1:
 $LN6@DivRem_X_1:
 
-; 106  :     }
-; 107  :     __UNIT_TYPE_DIV r = 0;
+; 99   :     }
+; 100  :     __UNIT_TYPE_DIV r = 0;
 
 	mov	DWORD PTR r$[rbp], 0
 
-; 108  :     __UNIT_TYPE count = u_count >> 5;
+; 101  :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN4@DivRem_X_1:
 
-; 109  :     while (count != 0)
+; 102  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	$LN5@DivRem_X_1
 
-; 110  :     {
-; 111  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 103  :     {
+; 104  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -15714,7 +15714,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 112  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
+; 105  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
 
 	mov	eax, 4
 	imul	rax, rax, -1
@@ -15731,7 +15731,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 113  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
+; 106  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
 
 	mov	eax, 4
 	imul	rax, rax, -2
@@ -15748,7 +15748,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 114  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
+; 107  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
 
 	mov	eax, 4
 	imul	rax, rax, -3
@@ -15765,7 +15765,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 115  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
+; 108  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
 
 	mov	eax, 4
 	imul	rax, rax, -4
@@ -15782,7 +15782,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 116  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
+; 109  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
 
 	mov	eax, 4
 	imul	rax, rax, -5
@@ -15799,7 +15799,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 117  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
+; 110  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
 
 	mov	eax, 4
 	imul	rax, rax, -6
@@ -15816,7 +15816,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 118  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
+; 111  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
 
 	mov	eax, 4
 	imul	rax, rax, -7
@@ -15833,7 +15833,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 119  :         r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &qp[-8]);
+; 112  :         r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &qp[-8]);
 
 	mov	eax, 4
 	imul	rax, rax, -8
@@ -15850,7 +15850,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 120  :         r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &qp[-9]);
+; 113  :         r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &qp[-9]);
 
 	mov	eax, 4
 	imul	rax, rax, -9
@@ -15867,7 +15867,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 121  :         r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &qp[-10]);
+; 114  :         r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &qp[-10]);
 
 	mov	eax, 4
 	imul	rax, rax, -10
@@ -15884,7 +15884,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 122  :         r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &qp[-11]);
+; 115  :         r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &qp[-11]);
 
 	mov	eax, 4
 	imul	rax, rax, -11
@@ -15901,7 +15901,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 123  :         r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &qp[-12]);
+; 116  :         r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &qp[-12]);
 
 	mov	eax, 4
 	imul	rax, rax, -12
@@ -15918,7 +15918,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 124  :         r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &qp[-13]);
+; 117  :         r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &qp[-13]);
 
 	mov	eax, 4
 	imul	rax, rax, -13
@@ -15935,7 +15935,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 125  :         r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &qp[-14]);
+; 118  :         r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &qp[-14]);
 
 	mov	eax, 4
 	imul	rax, rax, -14
@@ -15952,7 +15952,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 126  :         r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &qp[-15]);
+; 119  :         r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &qp[-15]);
 
 	mov	eax, 4
 	imul	rax, rax, -15
@@ -15969,7 +15969,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 127  :         r = _DIVREM_SINGLE_UNIT(r, up[-16], v, &qp[-16]);
+; 120  :         r = _DIVREM_SINGLE_UNIT(r, up[-16], v, &qp[-16]);
 
 	mov	eax, 4
 	imul	rax, rax, -16
@@ -15986,7 +15986,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 128  :         r = _DIVREM_SINGLE_UNIT(r, up[-17], v, &qp[-17]);
+; 121  :         r = _DIVREM_SINGLE_UNIT(r, up[-17], v, &qp[-17]);
 
 	mov	eax, 4
 	imul	rax, rax, -17
@@ -16003,7 +16003,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 129  :         r = _DIVREM_SINGLE_UNIT(r, up[-18], v, &qp[-18]);
+; 122  :         r = _DIVREM_SINGLE_UNIT(r, up[-18], v, &qp[-18]);
 
 	mov	eax, 4
 	imul	rax, rax, -18
@@ -16020,7 +16020,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 130  :         r = _DIVREM_SINGLE_UNIT(r, up[-19], v, &qp[-19]);
+; 123  :         r = _DIVREM_SINGLE_UNIT(r, up[-19], v, &qp[-19]);
 
 	mov	eax, 4
 	imul	rax, rax, -19
@@ -16037,7 +16037,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 131  :         r = _DIVREM_SINGLE_UNIT(r, up[-20], v, &qp[-20]);
+; 124  :         r = _DIVREM_SINGLE_UNIT(r, up[-20], v, &qp[-20]);
 
 	mov	eax, 4
 	imul	rax, rax, -20
@@ -16054,7 +16054,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 132  :         r = _DIVREM_SINGLE_UNIT(r, up[-21], v, &qp[-21]);
+; 125  :         r = _DIVREM_SINGLE_UNIT(r, up[-21], v, &qp[-21]);
 
 	mov	eax, 4
 	imul	rax, rax, -21
@@ -16071,7 +16071,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 133  :         r = _DIVREM_SINGLE_UNIT(r, up[-22], v, &qp[-22]);
+; 126  :         r = _DIVREM_SINGLE_UNIT(r, up[-22], v, &qp[-22]);
 
 	mov	eax, 4
 	imul	rax, rax, -22
@@ -16088,7 +16088,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 134  :         r = _DIVREM_SINGLE_UNIT(r, up[-23], v, &qp[-23]);
+; 127  :         r = _DIVREM_SINGLE_UNIT(r, up[-23], v, &qp[-23]);
 
 	mov	eax, 4
 	imul	rax, rax, -23
@@ -16105,7 +16105,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 135  :         r = _DIVREM_SINGLE_UNIT(r, up[-24], v, &qp[-24]);
+; 128  :         r = _DIVREM_SINGLE_UNIT(r, up[-24], v, &qp[-24]);
 
 	mov	eax, 4
 	imul	rax, rax, -24
@@ -16122,7 +16122,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 136  :         r = _DIVREM_SINGLE_UNIT(r, up[-25], v, &qp[-25]);
+; 129  :         r = _DIVREM_SINGLE_UNIT(r, up[-25], v, &qp[-25]);
 
 	mov	eax, 4
 	imul	rax, rax, -25
@@ -16139,7 +16139,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 137  :         r = _DIVREM_SINGLE_UNIT(r, up[-26], v, &qp[-26]);
+; 130  :         r = _DIVREM_SINGLE_UNIT(r, up[-26], v, &qp[-26]);
 
 	mov	eax, 4
 	imul	rax, rax, -26
@@ -16156,7 +16156,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 138  :         r = _DIVREM_SINGLE_UNIT(r, up[-27], v, &qp[-27]);
+; 131  :         r = _DIVREM_SINGLE_UNIT(r, up[-27], v, &qp[-27]);
 
 	mov	eax, 4
 	imul	rax, rax, -27
@@ -16173,7 +16173,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 139  :         r = _DIVREM_SINGLE_UNIT(r, up[-28], v, &qp[-28]);
+; 132  :         r = _DIVREM_SINGLE_UNIT(r, up[-28], v, &qp[-28]);
 
 	mov	eax, 4
 	imul	rax, rax, -28
@@ -16190,7 +16190,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 140  :         r = _DIVREM_SINGLE_UNIT(r, up[-29], v, &qp[-29]);
+; 133  :         r = _DIVREM_SINGLE_UNIT(r, up[-29], v, &qp[-29]);
 
 	mov	eax, 4
 	imul	rax, rax, -29
@@ -16207,7 +16207,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 141  :         r = _DIVREM_SINGLE_UNIT(r, up[-30], v, &qp[-30]);
+; 134  :         r = _DIVREM_SINGLE_UNIT(r, up[-30], v, &qp[-30]);
 
 	mov	eax, 4
 	imul	rax, rax, -30
@@ -16224,7 +16224,7 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 142  :         r = _DIVREM_SINGLE_UNIT(r, up[-31], v, &qp[-31]);
+; 135  :         r = _DIVREM_SINGLE_UNIT(r, up[-31], v, &qp[-31]);
 
 	mov	eax, 4
 	imul	rax, rax, -31
@@ -16241,61 +16241,61 @@ $LN4@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 143  :         up -= 32;
+; 136  :         up -= 32;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 128				; 00000080H
 	mov	QWORD PTR up$[rbp], rax
 
-; 144  :         qp -= 32;
+; 137  :         qp -= 32;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 128				; 00000080H
 	mov	QWORD PTR qp$[rbp], rax
 
-; 145  :         --count;
+; 138  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 146  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 147  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 139  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 140  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@DivRem_X_1
 
-; 148  :             AddToDIV64Counter(32);
+; 141  :             AddToDIV64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToDIV64Counter
 	jmp	SHORT $LN8@DivRem_X_1
 $LN7@DivRem_X_1:
 
-; 149  :         else
-; 150  :             AddToDIV32Counter(32);
+; 142  :         else
+; 143  :             AddToDIV32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToDIV32Counter
 $LN8@DivRem_X_1:
 
-; 151  : #endif
-; 152  :     }
+; 144  : #endif
+; 145  :     }
 
 	jmp	$LN4@DivRem_X_1
 $LN5@DivRem_X_1:
 
-; 153  : 
-; 154  :     if (u_count & 0x10)
+; 146  : 
+; 147  :     if (u_count & 0x10)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN9@DivRem_X_1
 
-; 155  :     {
-; 156  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 148  :     {
+; 149  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -16312,7 +16312,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 157  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
+; 150  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
 
 	mov	eax, 4
 	imul	rax, rax, -1
@@ -16329,7 +16329,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 158  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
+; 151  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
 
 	mov	eax, 4
 	imul	rax, rax, -2
@@ -16346,7 +16346,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 159  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
+; 152  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
 
 	mov	eax, 4
 	imul	rax, rax, -3
@@ -16363,7 +16363,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 160  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
+; 153  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
 
 	mov	eax, 4
 	imul	rax, rax, -4
@@ -16380,7 +16380,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 161  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
+; 154  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
 
 	mov	eax, 4
 	imul	rax, rax, -5
@@ -16397,7 +16397,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 162  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
+; 155  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
 
 	mov	eax, 4
 	imul	rax, rax, -6
@@ -16414,7 +16414,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 163  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
+; 156  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
 
 	mov	eax, 4
 	imul	rax, rax, -7
@@ -16431,7 +16431,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 164  :         r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &qp[-8]);
+; 157  :         r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &qp[-8]);
 
 	mov	eax, 4
 	imul	rax, rax, -8
@@ -16448,7 +16448,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 165  :         r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &qp[-9]);
+; 158  :         r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &qp[-9]);
 
 	mov	eax, 4
 	imul	rax, rax, -9
@@ -16465,7 +16465,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 166  :         r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &qp[-10]);
+; 159  :         r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &qp[-10]);
 
 	mov	eax, 4
 	imul	rax, rax, -10
@@ -16482,7 +16482,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 167  :         r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &qp[-11]);
+; 160  :         r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &qp[-11]);
 
 	mov	eax, 4
 	imul	rax, rax, -11
@@ -16499,7 +16499,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 168  :         r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &qp[-12]);
+; 161  :         r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &qp[-12]);
 
 	mov	eax, 4
 	imul	rax, rax, -12
@@ -16516,7 +16516,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 169  :         r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &qp[-13]);
+; 162  :         r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &qp[-13]);
 
 	mov	eax, 4
 	imul	rax, rax, -13
@@ -16533,7 +16533,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 170  :         r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &qp[-14]);
+; 163  :         r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &qp[-14]);
 
 	mov	eax, 4
 	imul	rax, rax, -14
@@ -16550,7 +16550,7 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 171  :         r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &qp[-15]);
+; 164  :         r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &qp[-15]);
 
 	mov	eax, 4
 	imul	rax, rax, -15
@@ -16567,52 +16567,52 @@ $LN5@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 172  :         up -= 16;
+; 165  :         up -= 16;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 64					; 00000040H
 	mov	QWORD PTR up$[rbp], rax
 
-; 173  :         qp -= 16;
+; 166  :         qp -= 16;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 64					; 00000040H
 	mov	QWORD PTR qp$[rbp], rax
 
-; 174  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 175  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 167  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 168  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@DivRem_X_1
 
-; 176  :             AddToDIV64Counter(16);
+; 169  :             AddToDIV64Counter(16);
 
 	mov	ecx, 16
 	call	AddToDIV64Counter
 	jmp	SHORT $LN11@DivRem_X_1
 $LN10@DivRem_X_1:
 
-; 177  :         else
-; 178  :             AddToDIV32Counter(16);
+; 170  :         else
+; 171  :             AddToDIV32Counter(16);
 
 	mov	ecx, 16
 	call	AddToDIV32Counter
 $LN11@DivRem_X_1:
 $LN9@DivRem_X_1:
 
-; 179  : #endif
-; 180  :     }
-; 181  : 
-; 182  :     if (u_count & 0x8)
+; 172  : #endif
+; 173  :     }
+; 174  : 
+; 175  :     if (u_count & 0x8)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN12@DivRem_X_1
 
-; 183  :     {
-; 184  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 176  :     {
+; 177  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -16629,7 +16629,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 185  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
+; 178  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
 
 	mov	eax, 4
 	imul	rax, rax, -1
@@ -16646,7 +16646,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 186  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
+; 179  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
 
 	mov	eax, 4
 	imul	rax, rax, -2
@@ -16663,7 +16663,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 187  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
+; 180  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
 
 	mov	eax, 4
 	imul	rax, rax, -3
@@ -16680,7 +16680,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 188  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
+; 181  :         r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &qp[-4]);
 
 	mov	eax, 4
 	imul	rax, rax, -4
@@ -16697,7 +16697,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 189  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
+; 182  :         r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &qp[-5]);
 
 	mov	eax, 4
 	imul	rax, rax, -5
@@ -16714,7 +16714,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 190  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
+; 183  :         r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &qp[-6]);
 
 	mov	eax, 4
 	imul	rax, rax, -6
@@ -16731,7 +16731,7 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 191  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
+; 184  :         r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &qp[-7]);
 
 	mov	eax, 4
 	imul	rax, rax, -7
@@ -16748,52 +16748,52 @@ $LN9@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 192  :         up -= 8;
+; 185  :         up -= 8;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 32					; 00000020H
 	mov	QWORD PTR up$[rbp], rax
 
-; 193  :         qp -= 8;
+; 186  :         qp -= 8;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 32					; 00000020H
 	mov	QWORD PTR qp$[rbp], rax
 
-; 194  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 195  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 187  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 188  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@DivRem_X_1
 
-; 196  :             AddToDIV64Counter(8);
+; 189  :             AddToDIV64Counter(8);
 
 	mov	ecx, 8
 	call	AddToDIV64Counter
 	jmp	SHORT $LN14@DivRem_X_1
 $LN13@DivRem_X_1:
 
-; 197  :         else
-; 198  :             AddToDIV32Counter(8);
+; 190  :         else
+; 191  :             AddToDIV32Counter(8);
 
 	mov	ecx, 8
 	call	AddToDIV32Counter
 $LN14@DivRem_X_1:
 $LN12@DivRem_X_1:
 
-; 199  : #endif
-; 200  :     }
-; 201  : 
-; 202  :     if (u_count & 0x4)
+; 192  : #endif
+; 193  :     }
+; 194  : 
+; 195  :     if (u_count & 0x4)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN15@DivRem_X_1
 
-; 203  :     {
-; 204  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 196  :     {
+; 197  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -16810,7 +16810,7 @@ $LN12@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 205  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
+; 198  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
 
 	mov	eax, 4
 	imul	rax, rax, -1
@@ -16827,7 +16827,7 @@ $LN12@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 206  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
+; 199  :         r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &qp[-2]);
 
 	mov	eax, 4
 	imul	rax, rax, -2
@@ -16844,7 +16844,7 @@ $LN12@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 207  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
+; 200  :         r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &qp[-3]);
 
 	mov	eax, 4
 	imul	rax, rax, -3
@@ -16861,52 +16861,52 @@ $LN12@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 208  :         up -= 4;
+; 201  :         up -= 4;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 16
 	mov	QWORD PTR up$[rbp], rax
 
-; 209  :         qp -= 4;
+; 202  :         qp -= 4;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 16
 	mov	QWORD PTR qp$[rbp], rax
 
-; 210  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 211  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 203  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 204  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@DivRem_X_1
 
-; 212  :             AddToDIV64Counter(4);
+; 205  :             AddToDIV64Counter(4);
 
 	mov	ecx, 4
 	call	AddToDIV64Counter
 	jmp	SHORT $LN17@DivRem_X_1
 $LN16@DivRem_X_1:
 
-; 213  :         else
-; 214  :             AddToDIV32Counter(4);
+; 206  :         else
+; 207  :             AddToDIV32Counter(4);
 
 	mov	ecx, 4
 	call	AddToDIV32Counter
 $LN17@DivRem_X_1:
 $LN15@DivRem_X_1:
 
-; 215  : #endif
-; 216  :     }
-; 217  : 
-; 218  :     if (u_count & 0x2)
+; 208  : #endif
+; 209  :     }
+; 210  : 
+; 211  :     if (u_count & 0x2)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN18@DivRem_X_1
 
-; 219  :     {
-; 220  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 212  :     {
+; 213  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -16923,7 +16923,7 @@ $LN15@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 221  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
+; 214  :         r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &qp[-1]);
 
 	mov	eax, 4
 	imul	rax, rax, -1
@@ -16940,52 +16940,52 @@ $LN15@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 222  :         up -= 2;
+; 215  :         up -= 2;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 8
 	mov	QWORD PTR up$[rbp], rax
 
-; 223  :         qp -= 2;
+; 216  :         qp -= 2;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 8
 	mov	QWORD PTR qp$[rbp], rax
 
-; 224  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 225  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 217  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 218  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@DivRem_X_1
 
-; 226  :             AddToDIV64Counter(2);
+; 219  :             AddToDIV64Counter(2);
 
 	mov	ecx, 2
 	call	AddToDIV64Counter
 	jmp	SHORT $LN20@DivRem_X_1
 $LN19@DivRem_X_1:
 
-; 227  :         else
-; 228  :             AddToDIV32Counter(2);
+; 220  :         else
+; 221  :             AddToDIV32Counter(2);
 
 	mov	ecx, 2
 	call	AddToDIV32Counter
 $LN20@DivRem_X_1:
 $LN18@DivRem_X_1:
 
-; 229  : #endif
-; 230  :     }
-; 231  : 
-; 232  :     if (u_count & 0x1)
+; 222  : #endif
+; 223  :     }
+; 224  : 
+; 225  :     if (u_count & 0x1)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN21@DivRem_X_1
 
-; 233  :     {
-; 234  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
+; 226  :     {
+; 227  :         r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &qp[-0]);
 
 	mov	eax, 4
 	imul	rax, rax, 0
@@ -17002,48 +17002,48 @@ $LN18@DivRem_X_1:
 	call	_DIVREM_SINGLE_UNIT
 	mov	DWORD PTR r$[rbp], eax
 
-; 235  :         up -= 1;
+; 228  :         up -= 1;
 
 	mov	rax, QWORD PTR up$[rbp]
 	sub	rax, 4
 	mov	QWORD PTR up$[rbp], rax
 
-; 236  :         qp -= 1;
+; 229  :         qp -= 1;
 
 	mov	rax, QWORD PTR qp$[rbp]
 	sub	rax, 4
 	mov	QWORD PTR qp$[rbp], rax
 
-; 237  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 238  :         if (sizeof(r) == sizeof(_UINT64_T))
+; 230  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 231  :         if (sizeof(r) == sizeof(_UINT64_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN22@DivRem_X_1
 
-; 239  :             IncrementDIV64Counter();
+; 232  :             IncrementDIV64Counter();
 
 	call	IncrementDIV64Counter
 	jmp	SHORT $LN23@DivRem_X_1
 $LN22@DivRem_X_1:
 
-; 240  :         else
-; 241  :             IncrementDIV32Counter();
+; 233  :         else
+; 234  :             IncrementDIV32Counter();
 
 	call	IncrementDIV32Counter
 $LN23@DivRem_X_1:
 $LN21@DivRem_X_1:
 
-; 242  : #endif
-; 243  :     }
-; 244  : 
-; 245  :     *r_buf = r;
+; 235  : #endif
+; 236  :     }
+; 237  : 
+; 238  :     *r_buf = r;
 
 	mov	rax, QWORD PTR r_buf$[rbp]
 	mov	ecx, DWORD PTR r$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 246  : }
+; 239  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi

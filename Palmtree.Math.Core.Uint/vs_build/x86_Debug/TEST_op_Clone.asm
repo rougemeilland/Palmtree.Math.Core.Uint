@@ -22,7 +22,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __7F9156B8_test_op_clone@c DB 01H
 msvcjmc	ENDS
 PUBLIC	_TEST_PMC_Clone_X
@@ -96,7 +96,7 @@ __JustMyCode_Default PROC				; COMDAT
 __JustMyCode_Default ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_debug.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_debug.h
 _TEXT	SEGMENT
 _buffer1$ = 8						; size = 4
 _count1$ = 12						; size = 4
@@ -104,32 +104,32 @@ _buffer2$ = 16						; size = 4
 _count2$ = 20						; size = 4
 __EQUALS_MEMORY PROC
 
-; 155  : {
+; 149  : {
 
 	push	ebp
 	mov	ebp, esp
-	mov	ecx, OFFSET __95056B1C_pmc_debug@h
+	mov	ecx, OFFSET __630249ED_pmc_uint_debug@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 156  :     if (count1 != count2)
+; 150  :     if (count1 != count2)
 
 	mov	eax, DWORD PTR _count1$[ebp]
 	cmp	eax, DWORD PTR _count2$[ebp]
 	je	SHORT $LN2@EQUALS_MEM
 
-; 157  :         return (-1);
+; 151  :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN2@EQUALS_MEM:
 
-; 158  :     while (count1 > 0)
+; 152  :     while (count1 > 0)
 
 	cmp	DWORD PTR _count1$[ebp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 159  :     {
-; 160  :         if (*buffer1 != *buffer2)
+; 153  :     {
+; 154  :         if (*buffer1 != *buffer2)
 
 	mov	ecx, DWORD PTR _buffer1$[ebp]
 	movzx	edx, BYTE PTR [ecx]
@@ -138,41 +138,41 @@ $LN2@EQUALS_MEM:
 	cmp	edx, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 161  :             return (-1);
+; 155  :             return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 162  :         ++buffer1;
+; 156  :         ++buffer1;
 
 	mov	edx, DWORD PTR _buffer1$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _buffer1$[ebp], edx
 
-; 163  :         ++buffer2;
+; 157  :         ++buffer2;
 
 	mov	eax, DWORD PTR _buffer2$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _buffer2$[ebp], eax
 
-; 164  :         --count1;
+; 158  :         --count1;
 
 	mov	ecx, DWORD PTR _count1$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _count1$[ebp], ecx
 
-; 165  :     }
+; 159  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 166  :     return (0);
+; 160  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 167  : }
+; 161  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -204,7 +204,7 @@ _desired_o_buf$ = 28					; size = 4
 _desired_o_buf_size$ = 32				; size = 4
 _TEST_PMC_Clone_X PROC
 
-; 40   : {
+; 33   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -221,14 +221,14 @@ _TEST_PMC_Clone_X PROC
 	mov	ecx, OFFSET __7F9156B8_test_op_clone@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 41   :     HANDLE x;
-; 42   :     HANDLE o;
-; 43   :     unsigned char actual_o_buf[256];
-; 44   :     size_t actual_o_buf_size;
-; 45   :     PMC_STATUS_CODE result;
-; 46   :     PMC_STATUS_CODE x_result;
-; 47   :     PMC_STATUS_CODE o_result;
-; 48   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 34   :     HANDLE x;
+; 35   :     HANDLE o;
+; 36   :     unsigned char actual_o_buf[256];
+; 37   :     size_t actual_o_buf_size;
+; 38   :     PMC_STATUS_CODE result;
+; 39   :     PMC_STATUS_CODE x_result;
+; 40   :     PMC_STATUS_CODE o_result;
+; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -270,7 +270,7 @@ $LN6@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 49   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 2), (o_result = ep->PMC_Clone_X(x, &o)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Clone_Xの復帰コードが期待通りではない(%d)", o_result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 2), (o_result = ep->PMC_Clone_X(x, &o)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Clone_Xの復帰コードが期待通りではない(%d)", o_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _o$[ebp]
@@ -310,7 +310,7 @@ $LN8@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 50   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(o, actual_o_buf, sizeof(actual_o_buf), &actual_o_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 43   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(o, actual_o_buf, sizeof(actual_o_buf), &actual_o_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	edx, DWORD PTR _actual_o_buf_size$[ebp]
@@ -353,7 +353,7 @@ $LN10@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_o_buf, actual_o_buf_size, desired_o_buf, desired_o_buf_size) == 0, L"データの内容が一致しない");
+; 44   :     TEST_Assert(env, FormatTestLabel(L"PMC_Clone_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_o_buf, actual_o_buf_size, desired_o_buf, desired_o_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	edx, DWORD PTR _desired_o_buf_size$[ebp]
 	push	edx
@@ -387,12 +387,12 @@ $LN12@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 52   :     if (o_result == PMC_STATUS_OK)
+; 45   :     if (o_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _o_result$[ebp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 53   :         ep->PMC_Dispose(o);
+; 46   :         ep->PMC_Dispose(o);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _o$[ebp]
@@ -404,12 +404,12 @@ $LN12@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN2@TEST_PMC_C:
 
-; 54   :     if (x_result == PMC_STATUS_OK)
+; 47   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 55   :         ep->PMC_Dispose(x);
+; 48   :         ep->PMC_Dispose(x);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _x$[ebp]
@@ -421,7 +421,7 @@ $LN2@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 56   : }
+; 49   : }
 
 	push	edx
 	mov	ecx, ebp

@@ -22,18 +22,11 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   INTERNALTEST_op_Multiply.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/30, 0:05
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"
 #include "pmc_inline_func.h"
-#include "pmc_debug.h"
+#include "pmc_uint_debug.h"
 
 
 #ifdef _DEBUG

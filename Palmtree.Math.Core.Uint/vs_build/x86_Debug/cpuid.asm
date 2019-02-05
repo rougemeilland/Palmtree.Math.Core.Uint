@@ -68,7 +68,7 @@ _reg_ecx$ = 24						; size = 4
 _reg_edx$ = 28						; size = 4
 _cpuidex PROC
 
-; 50   : {
+; 43   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -89,8 +89,8 @@ _cpuidex PROC
 	mov	ecx, OFFSET __2C63F5AA_cpuid@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 51   :     _UINT32_T regbuf[4];
-; 52   :     __cpuidex(regbuf, op, subop);
+; 44   :     _UINT32_T regbuf[4];
+; 45   :     __cpuidex(regbuf, op, subop);
 
 	lea	esi, DWORD PTR _regbuf$[ebp]
 	mov	eax, DWORD PTR _op$[ebp]
@@ -101,7 +101,7 @@ _cpuidex PROC
 	mov	DWORD PTR [esi+8], ecx
 	mov	DWORD PTR [esi+12], edx
 
-; 53   :     *reg_eax = regbuf[0];
+; 46   :     *reg_eax = regbuf[0];
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -109,7 +109,7 @@ _cpuidex PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 54   :     *reg_ebx = regbuf[1];
+; 47   :     *reg_ebx = regbuf[1];
 
 	mov	ecx, 4
 	shl	ecx, 0
@@ -117,7 +117,7 @@ _cpuidex PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 55   :     *reg_ecx = regbuf[2];
+; 48   :     *reg_ecx = regbuf[2];
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -125,7 +125,7 @@ _cpuidex PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 56   :     *reg_edx = regbuf[3];
+; 49   :     *reg_edx = regbuf[3];
 
 	mov	ecx, 4
 	imul	edx, ecx, 3
@@ -133,7 +133,7 @@ _cpuidex PROC
 	mov	ecx, DWORD PTR _regbuf$[ebp+edx]
 	mov	DWORD PTR [eax], ecx
 
-; 57   : }
+; 50   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -183,7 +183,7 @@ _reg_ecx$ = 20						; size = 4
 _reg_edx$ = 24						; size = 4
 _cpuid	PROC
 
-; 40   : {
+; 33   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -204,8 +204,8 @@ _cpuid	PROC
 	mov	ecx, OFFSET __2C63F5AA_cpuid@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 41   :     _UINT32_T regbuf[4];
-; 42   :     __cpuid(regbuf, op);
+; 34   :     _UINT32_T regbuf[4];
+; 35   :     __cpuid(regbuf, op);
 
 	lea	esi, DWORD PTR _regbuf$[ebp]
 	mov	eax, DWORD PTR _op$[ebp]
@@ -216,7 +216,7 @@ _cpuid	PROC
 	mov	DWORD PTR [esi+8], ecx
 	mov	DWORD PTR [esi+12], edx
 
-; 43   :     *reg_eax = regbuf[0];
+; 36   :     *reg_eax = regbuf[0];
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -224,7 +224,7 @@ _cpuid	PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 44   :     *reg_ebx = regbuf[1];
+; 37   :     *reg_ebx = regbuf[1];
 
 	mov	ecx, 4
 	shl	ecx, 0
@@ -232,7 +232,7 @@ _cpuid	PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 45   :     *reg_ecx = regbuf[2];
+; 38   :     *reg_ecx = regbuf[2];
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -240,7 +240,7 @@ _cpuid	PROC
 	mov	eax, DWORD PTR _regbuf$[ebp+ecx]
 	mov	DWORD PTR [edx], eax
 
-; 46   :     *reg_edx = regbuf[3];
+; 39   :     *reg_edx = regbuf[3];
 
 	mov	ecx, 4
 	imul	edx, ecx, 3
@@ -248,7 +248,7 @@ _cpuid	PROC
 	mov	ecx, DWORD PTR _regbuf$[ebp+edx]
 	mov	DWORD PTR [eax], ecx
 
-; 47   : }
+; 40   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -293,7 +293,7 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_BYTE PROC
 
-; 94   :     {
+; 87   :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -301,14 +301,14 @@ __ZERO_MEMORY_BYTE PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 95   :         __stosb(d, 0, count);
+; 88   :         __stosb(d, 0, count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	xor	al, al
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep stosb
 
-; 96   :     }
+; 89   :     }
 
 	pop	edi
 	cmp	ebp, esp
@@ -330,7 +330,7 @@ _reg_eax$ = -8						; size = 4
 _feature$ = 8						; size = 4
 _GetCPUInfo PROC
 
-; 60   : {
+; 53   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -343,23 +343,23 @@ _GetCPUInfo PROC
 	mov	ecx, OFFSET __2C63F5AA_cpuid@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 61   :     _UINT32_T reg_eax;
-; 62   :     _UINT32_T reg_ebx;
-; 63   :     _UINT32_T reg_ecx;
-; 64   :     _UINT32_T reg_edx;
-; 65   :     _UINT32_T max_function_no = 0;
+; 54   :     _UINT32_T reg_eax;
+; 55   :     _UINT32_T reg_ebx;
+; 56   :     _UINT32_T reg_ecx;
+; 57   :     _UINT32_T reg_edx;
+; 58   :     _UINT32_T max_function_no = 0;
 
 	mov	DWORD PTR _max_function_no$[ebp], 0
 
-; 66   :     _UINT32_T max_subleaf_no = 0;
+; 59   :     _UINT32_T max_subleaf_no = 0;
 
 	mov	DWORD PTR _max_subleaf_no$[ebp], 0
 
-; 67   :     _UINT32_T max_ex_function_no = 0;
+; 60   :     _UINT32_T max_ex_function_no = 0;
 
 	mov	DWORD PTR _max_ex_function_no$[ebp], 0
 
-; 68   :     cpuid(0, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
+; 61   :     cpuid(0, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
 
 	lea	eax, DWORD PTR _reg_edx$[ebp]
 	push	eax
@@ -373,12 +373,12 @@ _GetCPUInfo PROC
 	call	_cpuid
 	add	esp, 20					; 00000014H
 
-; 69   :     max_function_no = reg_eax;
+; 62   :     max_function_no = reg_eax;
 
 	mov	ecx, DWORD PTR _reg_eax$[ebp]
 	mov	DWORD PTR _max_function_no$[ebp], ecx
 
-; 70   :     _ZERO_MEMORY_BYTE(feature, sizeof(*feature));
+; 63   :     _ZERO_MEMORY_BYTE(feature, sizeof(*feature));
 
 	push	4
 	mov	edx, DWORD PTR _feature$[ebp]
@@ -386,13 +386,13 @@ _GetCPUInfo PROC
 	call	__ZERO_MEMORY_BYTE
 	add	esp, 8
 
-; 71   :     if (max_function_no >= 1)
+; 64   :     if (max_function_no >= 1)
 
 	cmp	DWORD PTR _max_function_no$[ebp], 1
 	jb	SHORT $LN2@GetCPUInfo
 
-; 72   :     {
-; 73   :         cpuid(1, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
+; 65   :     {
+; 66   :         cpuid(1, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
 
 	lea	eax, DWORD PTR _reg_edx$[ebp]
 	push	eax
@@ -406,7 +406,7 @@ _GetCPUInfo PROC
 	call	_cpuid
 	add	esp, 20					; 00000014H
 
-; 74   :         feature->PROCESSOR_FEATURE_POPCNT = (reg_ecx >> 23) & 1;
+; 67   :         feature->PROCESSOR_FEATURE_POPCNT = (reg_ecx >> 23) & 1;
 
 	mov	ecx, DWORD PTR _reg_ecx$[ebp]
 	shr	ecx, 23					; 00000017H
@@ -420,14 +420,14 @@ _GetCPUInfo PROC
 	mov	DWORD PTR [ecx], eax
 $LN2@GetCPUInfo:
 
-; 75   :     }
-; 76   :     if (max_function_no >= 7)
+; 68   :     }
+; 69   :     if (max_function_no >= 7)
 
 	cmp	DWORD PTR _max_function_no$[ebp], 7
 	jb	SHORT $LN3@GetCPUInfo
 
-; 77   :     {
-; 78   :         cpuidex(7, 0, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
+; 70   :     {
+; 71   :         cpuidex(7, 0, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
 
 	lea	edx, DWORD PTR _reg_edx$[ebp]
 	push	edx
@@ -442,12 +442,12 @@ $LN2@GetCPUInfo:
 	call	_cpuidex
 	add	esp, 24					; 00000018H
 
-; 79   :         max_subleaf_no = reg_eax;
+; 72   :         max_subleaf_no = reg_eax;
 
 	mov	eax, DWORD PTR _reg_eax$[ebp]
 	mov	DWORD PTR _max_subleaf_no$[ebp], eax
 
-; 80   :         feature->PROCESSOR_FEATURE_BMI1 = (reg_ebx >> 3) & 1;
+; 73   :         feature->PROCESSOR_FEATURE_BMI1 = (reg_ebx >> 3) & 1;
 
 	mov	ecx, DWORD PTR _reg_ebx$[ebp]
 	shr	ecx, 3
@@ -461,7 +461,7 @@ $LN2@GetCPUInfo:
 	mov	ecx, DWORD PTR _feature$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 81   :         feature->PROCESSOR_FEATURE_ADX = (reg_ebx >> 8) & 1;
+; 74   :         feature->PROCESSOR_FEATURE_ADX = (reg_ebx >> 8) & 1;
 
 	mov	edx, DWORD PTR _reg_ebx$[ebp]
 	shr	edx, 8
@@ -475,7 +475,7 @@ $LN2@GetCPUInfo:
 	mov	edx, DWORD PTR _feature$[ebp]
 	mov	DWORD PTR [edx], ecx
 
-; 82   :         feature->PROCESSOR_FEATURE_BMI2 = (reg_ebx >> 19) & 1;
+; 75   :         feature->PROCESSOR_FEATURE_BMI2 = (reg_ebx >> 19) & 1;
 
 	mov	eax, DWORD PTR _reg_ebx$[ebp]
 	shr	eax, 19					; 00000013H
@@ -490,8 +490,8 @@ $LN2@GetCPUInfo:
 	mov	DWORD PTR [eax], edx
 $LN3@GetCPUInfo:
 
-; 83   :     }
-; 84   :     cpuid(0x80000000, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
+; 76   :     }
+; 77   :     cpuid(0x80000000, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
 
 	lea	ecx, DWORD PTR _reg_edx$[ebp]
 	push	ecx
@@ -505,18 +505,18 @@ $LN3@GetCPUInfo:
 	call	_cpuid
 	add	esp, 20					; 00000014H
 
-; 85   :     max_ex_function_no = reg_eax;
+; 78   :     max_ex_function_no = reg_eax;
 
 	mov	edx, DWORD PTR _reg_eax$[ebp]
 	mov	DWORD PTR _max_ex_function_no$[ebp], edx
 
-; 86   :     if (max_ex_function_no >= 0x80000001)
+; 79   :     if (max_ex_function_no >= 0x80000001)
 
 	cmp	DWORD PTR _max_ex_function_no$[ebp], -2147483647 ; 80000001H
 	jb	SHORT $LN1@GetCPUInfo
 
-; 87   :     {
-; 88   :         cpuid(0x80000001, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
+; 80   :     {
+; 81   :         cpuid(0x80000001, &reg_eax, &reg_ebx, &reg_ecx, &reg_edx);
 
 	lea	eax, DWORD PTR _reg_edx$[ebp]
 	push	eax
@@ -530,7 +530,7 @@ $LN3@GetCPUInfo:
 	call	_cpuid
 	add	esp, 20					; 00000014H
 
-; 89   :         feature->PROCESSOR_FEATURE_ABM = (reg_ecx >> 5) & 1;
+; 82   :         feature->PROCESSOR_FEATURE_ABM = (reg_ecx >> 5) & 1;
 
 	mov	ecx, DWORD PTR _reg_ecx$[ebp]
 	shr	ecx, 5
@@ -545,8 +545,8 @@ $LN3@GetCPUInfo:
 	mov	DWORD PTR [ecx], eax
 $LN1@GetCPUInfo:
 
-; 90   :     }
-; 91   : }
+; 83   :     }
+; 84   : }
 
 	push	edx
 	mov	ecx, ebp

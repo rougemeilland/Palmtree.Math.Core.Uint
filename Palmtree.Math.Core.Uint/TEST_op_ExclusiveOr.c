@@ -22,17 +22,10 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   TEST_op_ExclusiveOr.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/14, 12:14
- */
-
 
 #include <windows.h>
 #include "pmc.h"
-#include "pmc_debug.h"
+#include "pmc_uint_debug.h"
 
 
 #ifdef _DEBUG

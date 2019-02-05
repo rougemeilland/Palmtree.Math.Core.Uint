@@ -22,17 +22,10 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   debug.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/29, 10:35
- */
-
 
 #include <windows.h>
 #include "pmc_internal.h"
-#include "pmc_debug.h"
+#include "pmc_uint_debug.h"
 
 
 #ifdef _DEBUG
@@ -74,10 +67,10 @@ __declspec(dllexport) void __stdcall DoDebug(PMC_DEBUG_ENVIRONMENT *env)
 #ifdef _DEBUG
     PMC_CONFIGURATION_INFO conf;
     conf.MEMORY_VERIFICATION_ENABLED = FALSE;
-    PMC_UINT_ENTRY_POINTS* ep = PMC_Initialize(&conf);
+    PMC_UINT_ENTRY_POINTS* ep = PMC_UINT_Initialize(&conf);
     if (ep == NULL)
     {
-         env->log(L"PMC_Initialize failed");
+         env->log(L"PMC_UINT_Initialize failed");
          return;
     }
 #ifdef _M_IX86

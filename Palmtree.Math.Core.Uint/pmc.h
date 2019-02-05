@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc.h
- * Author: Lunor Kisasage
- *
- * Created on 2018/12/26, 17:03
- */
 
 #ifndef PMC_H
 #define PMC_H
@@ -258,7 +252,7 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
-PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_Initialize(PMC_CONFIGURATION_INFO*);
+PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
 
 

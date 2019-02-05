@@ -19,7 +19,7 @@ From_I_Imp:
 	je	.L2
 	movl	$31, %eax
 /APP
- # 603 "../pmc_inline_func.h" 1
+ # 596 "../pmc_inline_func.h" 1
 	bsrl %ecx, %edx
  # 0 "" 2
 /NO_APP
@@ -65,7 +65,7 @@ From_L_Imp:
 	je	.L8
 	movl	$63, %eax
 /APP
- # 647 "../pmc_inline_func.h" 1
+ # 640 "../pmc_inline_func.h" 1
 	bsrq %rcx, %rdx
  # 0 "" 2
 /NO_APP

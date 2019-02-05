@@ -3,7 +3,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../INTERNALTEST_op_DivRem.c"
-# 33 "../INTERNALTEST_op_DivRem.c"
+# 26 "../INTERNALTEST_op_DivRem.c"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -87469,13 +87469,13 @@ typedef struct _MODEMSETTINGS {
   DWORD ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 34 "../INTERNALTEST_op_DivRem.c" 2
+# 27 "../INTERNALTEST_op_DivRem.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h" 1 3 4
@@ -87532,7 +87532,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -87540,14 +87540,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -87719,11 +87719,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -87743,7 +87743,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -87762,15 +87762,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
 
 typedef _UINT64_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -88092,9 +88092,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 364 "../pmc_uint_internal.h" 3 4
+# 357 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 364 "../pmc_uint_internal.h"
+# 357 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -88106,9 +88106,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 374 "../pmc_uint_internal.h" 3 4
+# 367 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 374 "../pmc_uint_internal.h"
+# 367 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -88122,16 +88122,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 386 "../pmc_uint_internal.h" 3 4
+# 379 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 386 "../pmc_uint_internal.h"
+# 379 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 389 "../pmc_uint_internal.h" 3
+# 382 "../pmc_uint_internal.h" 3
                                                       long long
-# 389 "../pmc_uint_internal.h"
+# 382 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -88140,9 +88140,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     }
 #pragma endregion
-# 35 "../INTERNALTEST_op_DivRem.c" 2
+# 28 "../INTERNALTEST_op_DivRem.c" 2
 # 1 "../pmc_inline_func.h" 1
-# 35 "../pmc_inline_func.h"
+# 28 "../pmc_inline_func.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/setjmp.h" 1 3
@@ -89101,13 +89101,13 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     char _InterlockedXor8_np(char *,char);
     short _InterlockedXor16_np(short *,short);
     __extension__ long long _InterlockedXor64_np(long long *,long long);
-# 36 "../pmc_inline_func.h" 2
+# 29 "../pmc_inline_func.h" 2
 
 # 1 "../pmc_internal.h" 1
-# 38 "../pmc_inline_func.h" 2
-# 48 "../pmc_inline_func.h"
+# 31 "../pmc_inline_func.h" 2
+# 41 "../pmc_inline_func.h"
     
-# 48 "../pmc_inline_func.h"
+# 41 "../pmc_inline_func.h"
    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
     {
         __movsb(d, s, count);
@@ -89358,7 +89358,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 309 "../pmc_inline_func.h"
+# 302 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -89367,7 +89367,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 325 "../pmc_inline_func.h"
+# 318 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -89379,7 +89379,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 350 "../pmc_inline_func.h"
+# 343 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -89393,7 +89393,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 371 "../pmc_inline_func.h"
+# 364 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -89408,7 +89408,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
     {
-# 409 "../pmc_inline_func.h"
+# 402 "../pmc_inline_func.h"
         __UNIT_TYPE q;
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
@@ -89429,7 +89429,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
     {
-# 453 "../pmc_inline_func.h"
+# 446 "../pmc_inline_func.h"
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
@@ -89463,9 +89463,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 485 "../pmc_inline_func.h" 3
+# 478 "../pmc_inline_func.h" 3
                __rolq
-# 485 "../pmc_inline_func.h"
+# 478 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -89478,9 +89478,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 496 "../pmc_inline_func.h" 3
+# 489 "../pmc_inline_func.h" 3
                __rorq
-# 496 "../pmc_inline_func.h"
+# 489 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -89544,7 +89544,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
     {
-# 571 "../pmc_inline_func.h"
+# 564 "../pmc_inline_func.h"
         return (_lzcnt_u64(value));
 
 
@@ -89606,7 +89606,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 646 "../pmc_inline_func.h"
+# 639 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -89622,7 +89622,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 675 "../pmc_inline_func.h"
+# 668 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -89660,7 +89660,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 726 "../pmc_inline_func.h"
+# 719 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -89718,9 +89718,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
         return (x);
     }
-# 36 "../INTERNALTEST_op_DivRem.c" 2
-# 1 "../pmc_debug.h" 1
-# 40 "../pmc_debug.h"
+# 29 "../INTERNALTEST_op_DivRem.c" 2
+# 1 "../pmc_uint_debug.h" 1
+# 34 "../pmc_uint_debug.h"
 #pragma region 型の定義
 typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 {
@@ -89742,308 +89742,308 @@ extern void INTERNALTEST_DivRem_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_P
 extern void INTERNALTEST_Multiply_X_X_Imp(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u, size_t u_count, unsigned char* v, size_t v_count, unsigned char *desired_w, size_t desired_w_count);
 
 extern void TEST_PMC_Add_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 60 "../pmc_debug.h" 3
+# 54 "../pmc_uint_debug.h" 3
                                                                                                     int 
-# 60 "../pmc_debug.h"
+# 54 "../pmc_uint_debug.h"
                                                                                                             u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Add_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 61 "../pmc_debug.h" 3
+# 55 "../pmc_uint_debug.h" 3
                                                                                                     long long 
-# 61 "../pmc_debug.h"
+# 55 "../pmc_uint_debug.h"
                                                                                                             u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Add_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 62 "../pmc_debug.h" 3
+# 56 "../pmc_uint_debug.h" 3
                                                                                                                                              int 
-# 62 "../pmc_debug.h"
+# 56 "../pmc_uint_debug.h"
                                                                                                                                                      v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Add_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 63 "../pmc_debug.h" 3
+# 57 "../pmc_uint_debug.h" 3
                                                                                                                                              long long 
-# 63 "../pmc_debug.h"
+# 57 "../pmc_uint_debug.h"
                                                                                                                                                      v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Add_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_BitwiseAnd_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 66 "../pmc_debug.h" 3
+# 60 "../pmc_uint_debug.h" 3
                                                                                                            int 
-# 66 "../pmc_debug.h"
+# 60 "../pmc_uint_debug.h"
                                                                                                                    u, unsigned char* v_buf, size_t v_buf_size, unsigned 
-# 66 "../pmc_debug.h" 3
+# 60 "../pmc_uint_debug.h" 3
                                                                                                                                                                         int 
-# 66 "../pmc_debug.h"
+# 60 "../pmc_uint_debug.h"
                                                                                                                                                                                 desired_w);
 extern void TEST_PMC_BitwiseAnd_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 67 "../pmc_debug.h" 3
+# 61 "../pmc_uint_debug.h" 3
                                                                                                            long long 
-# 67 "../pmc_debug.h"
+# 61 "../pmc_uint_debug.h"
                                                                                                                    u, unsigned char* v_buf, size_t v_buf_size, unsigned 
-# 67 "../pmc_debug.h" 3
+# 61 "../pmc_uint_debug.h" 3
                                                                                                                                                                         long long 
-# 67 "../pmc_debug.h"
+# 61 "../pmc_uint_debug.h"
                                                                                                                                                                                 desired_w);
 extern void TEST_PMC_BitwiseAnd_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 68 "../pmc_debug.h" 3
+# 62 "../pmc_uint_debug.h" 3
                                                                                                                                                     int 
-# 68 "../pmc_debug.h"
+# 62 "../pmc_uint_debug.h"
                                                                                                                                                             v, unsigned 
-# 68 "../pmc_debug.h" 3
+# 62 "../pmc_uint_debug.h" 3
                                                                                                                                                                         int 
-# 68 "../pmc_debug.h"
+# 62 "../pmc_uint_debug.h"
                                                                                                                                                                                 desired_w);
 extern void TEST_PMC_BitwiseAnd_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 69 "../pmc_debug.h" 3
+# 63 "../pmc_uint_debug.h" 3
                                                                                                                                                     long long 
-# 69 "../pmc_debug.h"
+# 63 "../pmc_uint_debug.h"
                                                                                                                                                             v, unsigned 
-# 69 "../pmc_debug.h" 3
+# 63 "../pmc_uint_debug.h" 3
                                                                                                                                                                         long long 
-# 69 "../pmc_debug.h"
+# 63 "../pmc_uint_debug.h"
                                                                                                                                                                                 desired_w);
 extern void TEST_PMC_BitwiseAnd_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_BitwiseOr_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 72 "../pmc_debug.h" 3
+# 66 "../pmc_uint_debug.h" 3
                                                                                                           int 
-# 72 "../pmc_debug.h"
+# 66 "../pmc_uint_debug.h"
                                                                                                                   u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_BitwiseOr_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 73 "../pmc_debug.h" 3
+# 67 "../pmc_uint_debug.h" 3
                                                                                                           long long 
-# 73 "../pmc_debug.h"
+# 67 "../pmc_uint_debug.h"
                                                                                                                   u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_BitwiseOr_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 74 "../pmc_debug.h" 3
+# 68 "../pmc_uint_debug.h" 3
                                                                                                                                                    int 
-# 74 "../pmc_debug.h"
+# 68 "../pmc_uint_debug.h"
                                                                                                                                                            v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_BitwiseOr_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 75 "../pmc_debug.h" 3
+# 69 "../pmc_uint_debug.h" 3
                                                                                                                                                    long long 
-# 75 "../pmc_debug.h"
+# 69 "../pmc_uint_debug.h"
                                                                                                                                                            v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_BitwiseOr_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_Clone_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned char*desired_o_buf, size_t desired_o_buf_size);
 
 extern void TEST_PMC_Compare_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 80 "../pmc_debug.h" 3
+# 74 "../pmc_uint_debug.h" 3
                                                                                                         int 
-# 80 "../pmc_debug.h"
+# 74 "../pmc_uint_debug.h"
                                                                                                                 u, unsigned char* v_buf, size_t v_buf_size, 
-# 80 "../pmc_debug.h" 3
+# 74 "../pmc_uint_debug.h" 3
                                                                                                                                                             int 
-# 80 "../pmc_debug.h"
+# 74 "../pmc_uint_debug.h"
                                                                                                                                                                     desired_w);
 extern void TEST_PMC_Compare_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 81 "../pmc_debug.h" 3
+# 75 "../pmc_uint_debug.h" 3
                                                                                                         long long 
-# 81 "../pmc_debug.h"
+# 75 "../pmc_uint_debug.h"
                                                                                                                 u, unsigned char* v_buf, size_t v_buf_size, 
-# 81 "../pmc_debug.h" 3
+# 75 "../pmc_uint_debug.h" 3
                                                                                                                                                             int 
-# 81 "../pmc_debug.h"
+# 75 "../pmc_uint_debug.h"
                                                                                                                                                                     desired_w);
 extern void TEST_PMC_Compare_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 82 "../pmc_debug.h" 3
+# 76 "../pmc_uint_debug.h" 3
                                                                                                                                                  int 
-# 82 "../pmc_debug.h"
+# 76 "../pmc_uint_debug.h"
                                                                                                                                                          v, 
-# 82 "../pmc_debug.h" 3
+# 76 "../pmc_uint_debug.h" 3
                                                                                                                                                             int 
-# 82 "../pmc_debug.h"
+# 76 "../pmc_uint_debug.h"
                                                                                                                                                                     desired_w);
 extern void TEST_PMC_Compare_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 83 "../pmc_debug.h" 3
+# 77 "../pmc_uint_debug.h" 3
                                                                                                                                                  long long 
-# 83 "../pmc_debug.h"
+# 77 "../pmc_uint_debug.h"
                                                                                                                                                          v, 
-# 83 "../pmc_debug.h" 3
+# 77 "../pmc_uint_debug.h" 3
                                                                                                                                                             int 
-# 83 "../pmc_debug.h"
+# 77 "../pmc_uint_debug.h"
                                                                                                                                                                     desired_w);
 extern void TEST_PMC_Compare_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, 
-# 84 "../pmc_debug.h" 3
+# 78 "../pmc_uint_debug.h" 3
                                                                                                                                                                                  int 
-# 84 "../pmc_debug.h"
+# 78 "../pmc_uint_debug.h"
                                                                                                                                                                                          desired_w);
 
 extern void TEST_PMC_DivRem_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 86 "../pmc_debug.h" 3
+# 80 "../pmc_uint_debug.h" 3
                                                                                                        int 
-# 86 "../pmc_debug.h"
+# 80 "../pmc_uint_debug.h"
                                                                                                                v, unsigned char* u_buf, size_t u_buf_size, PMC_STATUS_CODE desired_return_code, unsigned 
-# 86 "../pmc_debug.h" 3
+# 80 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                          int 
-# 86 "../pmc_debug.h"
+# 80 "../pmc_uint_debug.h"
                                                                                                                                                                                                                  desired_q, unsigned 
-# 86 "../pmc_debug.h" 3
+# 80 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                                                      int 
-# 86 "../pmc_debug.h"
+# 80 "../pmc_uint_debug.h"
                                                                                                                                                                                                                                              desired_r);
 extern void TEST_PMC_DivRem_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 87 "../pmc_debug.h" 3
+# 81 "../pmc_uint_debug.h" 3
                                                                                                        long long 
-# 87 "../pmc_debug.h"
+# 81 "../pmc_uint_debug.h"
                                                                                                                v, unsigned char* u_buf, size_t u_buf_size, PMC_STATUS_CODE desired_return_code, unsigned 
-# 87 "../pmc_debug.h" 3
+# 81 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                          long long 
-# 87 "../pmc_debug.h"
+# 81 "../pmc_uint_debug.h"
                                                                                                                                                                                                                  desired_q, unsigned 
-# 87 "../pmc_debug.h" 3
+# 81 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                                                      long long 
-# 87 "../pmc_debug.h"
+# 81 "../pmc_uint_debug.h"
                                                                                                                                                                                                                                              desired_r);
 extern void TEST_PMC_DivRem_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 88 "../pmc_debug.h" 3
+# 82 "../pmc_uint_debug.h" 3
                                                                                                                                                 int 
-# 88 "../pmc_debug.h"
+# 82 "../pmc_uint_debug.h"
                                                                                                                                                         v, PMC_STATUS_CODE desired_return_code, unsigned char* desired_q_buf, size_t desired_q_buf_size, unsigned 
-# 88 "../pmc_debug.h" 3
+# 82 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                                                                                   int 
-# 88 "../pmc_debug.h"
+# 82 "../pmc_uint_debug.h"
                                                                                                                                                                                                                                                                           desired_r);
 extern void TEST_PMC_DivRem_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 89 "../pmc_debug.h" 3
+# 83 "../pmc_uint_debug.h" 3
                                                                                                                                                 long long 
-# 89 "../pmc_debug.h"
+# 83 "../pmc_uint_debug.h"
                                                                                                                                                         v, PMC_STATUS_CODE desired_return_code, unsigned char* desired_q_buf, size_t desired_q_buf_size, unsigned 
-# 89 "../pmc_debug.h" 3
+# 83 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                                                                                   long long 
-# 89 "../pmc_debug.h"
+# 83 "../pmc_uint_debug.h"
                                                                                                                                                                                                                                                                           desired_r);
 extern void TEST_PMC_DivRem_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_return_code, unsigned char* desired_q_buf, size_t desired_q_buf_size, unsigned char* desired_r_buf, size_t desired_r_buf_size);
 
 extern void TEST_PMC_Equals_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 92 "../pmc_debug.h" 3
+# 86 "../pmc_uint_debug.h" 3
                                                                                                        int 
-# 92 "../pmc_debug.h"
+# 86 "../pmc_uint_debug.h"
                                                                                                                u, unsigned char* v_buf, size_t v_buf_size, 
-# 92 "../pmc_debug.h" 3
+# 86 "../pmc_uint_debug.h" 3
                                                                                                                                                            int 
-# 92 "../pmc_debug.h"
+# 86 "../pmc_uint_debug.h"
                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Equals_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 93 "../pmc_debug.h" 3
+# 87 "../pmc_uint_debug.h" 3
                                                                                                        long long 
-# 93 "../pmc_debug.h"
+# 87 "../pmc_uint_debug.h"
                                                                                                                u, unsigned char* v_buf, size_t v_buf_size, 
-# 93 "../pmc_debug.h" 3
+# 87 "../pmc_uint_debug.h" 3
                                                                                                                                                            int 
-# 93 "../pmc_debug.h"
+# 87 "../pmc_uint_debug.h"
                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Equals_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 94 "../pmc_debug.h" 3
+# 88 "../pmc_uint_debug.h" 3
                                                                                                                                                 int 
-# 94 "../pmc_debug.h"
+# 88 "../pmc_uint_debug.h"
                                                                                                                                                         v, 
-# 94 "../pmc_debug.h" 3
+# 88 "../pmc_uint_debug.h" 3
                                                                                                                                                            int 
-# 94 "../pmc_debug.h"
+# 88 "../pmc_uint_debug.h"
                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Equals_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 95 "../pmc_debug.h" 3
+# 89 "../pmc_uint_debug.h" 3
                                                                                                                                                 long long 
-# 95 "../pmc_debug.h"
+# 89 "../pmc_uint_debug.h"
                                                                                                                                                         v, 
-# 95 "../pmc_debug.h" 3
+# 89 "../pmc_uint_debug.h" 3
                                                                                                                                                            int 
-# 95 "../pmc_debug.h"
+# 89 "../pmc_uint_debug.h"
                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Equals_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, 
-# 96 "../pmc_debug.h" 3
+# 90 "../pmc_uint_debug.h" 3
                                                                                                                                                                                 int 
-# 96 "../pmc_debug.h"
+# 90 "../pmc_uint_debug.h"
                                                                                                                                                                                         desired_w);
 
 extern void TEST_PMC_ExclusiveOr_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 98 "../pmc_debug.h" 3
+# 92 "../pmc_uint_debug.h" 3
                                                                                                             int 
-# 98 "../pmc_debug.h"
+# 92 "../pmc_uint_debug.h"
                                                                                                                     u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_ExclusiveOr_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 99 "../pmc_debug.h" 3
+# 93 "../pmc_uint_debug.h" 3
                                                                                                             long long 
-# 99 "../pmc_debug.h"
+# 93 "../pmc_uint_debug.h"
                                                                                                                     u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_ExclusiveOr_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 100 "../pmc_debug.h" 3
+# 94 "../pmc_uint_debug.h" 3
                                                                                                                                                      int 
-# 100 "../pmc_debug.h"
+# 94 "../pmc_uint_debug.h"
                                                                                                                                                              v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_ExclusiveOr_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 101 "../pmc_debug.h" 3
+# 95 "../pmc_uint_debug.h" 3
                                                                                                                                                      long long 
-# 101 "../pmc_debug.h"
+# 95 "../pmc_uint_debug.h"
                                                                                                                                                              v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_ExclusiveOr_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_From_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 104 "../pmc_debug.h" 3
+# 98 "../pmc_uint_debug.h" 3
                                                                                                    int 
-# 104 "../pmc_debug.h"
+# 98 "../pmc_uint_debug.h"
                                                                                                            v, unsigned char* buf, size_t buf_size);
 extern void TEST_PMC_From_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 105 "../pmc_debug.h" 3
+# 99 "../pmc_uint_debug.h" 3
                                                                                                    long long 
-# 105 "../pmc_debug.h"
+# 99 "../pmc_uint_debug.h"
                                                                                                            v, unsigned char* buf, size_t buf_size);
 
 extern void TEST_PMC_GetPropertyValue_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, PMC_PROPERTY_CODE function_code, _INT32_T desired_value);
 
 extern void TEST_PMC_GreatestCommonDivisor_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 109 "../pmc_debug.h" 3
+# 103 "../pmc_uint_debug.h" 3
                                                                                                                       int 
-# 109 "../pmc_debug.h"
+# 103 "../pmc_uint_debug.h"
                                                                                                                               u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_GreatestCommonDivisor_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 110 "../pmc_debug.h" 3
+# 104 "../pmc_uint_debug.h" 3
                                                                                                                       long long 
-# 110 "../pmc_debug.h"
+# 104 "../pmc_uint_debug.h"
                                                                                                                               u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_GreatestCommonDivisor_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 111 "../pmc_debug.h" 3
+# 105 "../pmc_uint_debug.h" 3
                                                                                                                                                                int 
-# 111 "../pmc_debug.h"
+# 105 "../pmc_uint_debug.h"
                                                                                                                                                                        v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_GreatestCommonDivisor_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 112 "../pmc_debug.h" 3
+# 106 "../pmc_uint_debug.h" 3
                                                                                                                                                                long long 
-# 112 "../pmc_debug.h"
+# 106 "../pmc_uint_debug.h"
                                                                                                                                                                        v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_GreatestCommonDivisor_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_To_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, PMC_STATUS_CODE desired_result_code, unsigned 
-# 115 "../pmc_debug.h" 3
+# 109 "../pmc_uint_debug.h" 3
                                                                                                                                                                              int 
-# 115 "../pmc_debug.h"
+# 109 "../pmc_uint_debug.h"
                                                                                                                                                                                      desired_rvalue);
 extern void TEST_PMC_To_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, PMC_STATUS_CODE desired_result_code, unsigned 
-# 116 "../pmc_debug.h" 3
+# 110 "../pmc_uint_debug.h" 3
                                                                                                                                                                              long long 
-# 116 "../pmc_debug.h"
+# 110 "../pmc_uint_debug.h"
                                                                                                                                                                                      desired_rvalue);
 
 extern void TEST_PMC_ModPow_X_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*v_buf, size_t v_buf_size, unsigned char*e_buf, size_t e_buf_size, unsigned char*m_buf, size_t m_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char*desired_r_buf, size_t desired_r_buf_size);
 
 extern void TEST_PMC_Multiply_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 120 "../pmc_debug.h" 3
+# 114 "../pmc_uint_debug.h" 3
                                                                                                          int 
-# 120 "../pmc_debug.h"
+# 114 "../pmc_uint_debug.h"
                                                                                                                  u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Multiply_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 121 "../pmc_debug.h" 3
+# 115 "../pmc_uint_debug.h" 3
                                                                                                          long long 
-# 121 "../pmc_debug.h"
+# 115 "../pmc_uint_debug.h"
                                                                                                                  u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Multiply_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 122 "../pmc_debug.h" 3
+# 116 "../pmc_uint_debug.h" 3
                                                                                                                                                   int 
-# 122 "../pmc_debug.h"
+# 116 "../pmc_uint_debug.h"
                                                                                                                                                           v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Multiply_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 123 "../pmc_debug.h" 3
+# 117 "../pmc_uint_debug.h" 3
                                                                                                                                                   long long 
-# 123 "../pmc_debug.h"
+# 117 "../pmc_uint_debug.h"
                                                                                                                                                           v, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Multiply_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
@@ -90053,60 +90053,60 @@ extern void TEST_PMC_ParseDN2(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS*
 extern void TEST_PMC_ParseX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, wchar_t* str, unsigned int styles, PMC_STATUS_CODE desired_result_code, unsigned char* desired_buf, size_t desired_buf_size);
 
 extern void TEST_PMC_Pow_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned 
-# 131 "../pmc_debug.h" 3
+# 125 "../pmc_uint_debug.h" 3
                                                                                                                                             int 
-# 131 "../pmc_debug.h"
+# 125 "../pmc_uint_debug.h"
                                                                                                                                                     y, PMC_STATUS_CODE desired_result_code, unsigned char*desired_z_buf, size_t desired_z_buf_size);
 
 extern void TEST_PMC_RightShift_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 133 "../pmc_debug.h" 3
+# 127 "../pmc_uint_debug.h" 3
                                                                                                                                                     int 
-# 133 "../pmc_debug.h"
+# 127 "../pmc_uint_debug.h"
                                                                                                                                                             n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_RightShift_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 134 "../pmc_debug.h" 3
+# 128 "../pmc_uint_debug.h" 3
                                                                                                                                                     long long 
-# 134 "../pmc_debug.h"
+# 128 "../pmc_uint_debug.h"
                                                                                                                                                             n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_LeftShift_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 136 "../pmc_debug.h" 3
+# 130 "../pmc_uint_debug.h" 3
                                                                                                                                                    int 
-# 136 "../pmc_debug.h"
+# 130 "../pmc_uint_debug.h"
                                                                                                                                                            n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_LeftShift_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 137 "../pmc_debug.h" 3
+# 131 "../pmc_uint_debug.h" 3
                                                                                                                                                    long long 
-# 137 "../pmc_debug.h"
+# 131 "../pmc_uint_debug.h"
                                                                                                                                                            n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_Subtruct_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 139 "../pmc_debug.h" 3
+# 133 "../pmc_uint_debug.h" 3
                                                                                                          int 
-# 139 "../pmc_debug.h"
+# 133 "../pmc_uint_debug.h"
                                                                                                                  u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned 
-# 139 "../pmc_debug.h" 3
+# 133 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                            int 
-# 139 "../pmc_debug.h"
+# 133 "../pmc_uint_debug.h"
                                                                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Subtruct_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
-# 140 "../pmc_debug.h" 3
+# 134 "../pmc_uint_debug.h" 3
                                                                                                          long long 
-# 140 "../pmc_debug.h"
+# 134 "../pmc_uint_debug.h"
                                                                                                                  u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned 
-# 140 "../pmc_debug.h" 3
+# 134 "../pmc_uint_debug.h" 3
                                                                                                                                                                                                            long long 
-# 140 "../pmc_debug.h"
+# 134 "../pmc_uint_debug.h"
                                                                                                                                                                                                                    desired_w);
 extern void TEST_PMC_Subtruct_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 141 "../pmc_debug.h" 3
+# 135 "../pmc_uint_debug.h" 3
                                                                                                                                                   int 
-# 141 "../pmc_debug.h"
+# 135 "../pmc_uint_debug.h"
                                                                                                                                                           v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Subtruct_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned 
-# 142 "../pmc_debug.h" 3
+# 136 "../pmc_uint_debug.h" 3
                                                                                                                                                   long long 
-# 142 "../pmc_debug.h"
+# 136 "../pmc_uint_debug.h"
                                                                                                                                                           v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Subtruct_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
@@ -90135,7 +90135,7 @@ __inline static int _EQUALS_MEMORY(unsigned char* buffer1, size_t count1, unsign
 }
 
 #pragma endregion
-# 37 "../INTERNALTEST_op_DivRem.c" 2
+# 30 "../INTERNALTEST_op_DivRem.c" 2
 
 
 

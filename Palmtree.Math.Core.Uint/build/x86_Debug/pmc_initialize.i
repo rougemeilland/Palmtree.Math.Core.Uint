@@ -3,7 +3,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../pmc_initialize.c"
-# 32 "../pmc_initialize.c"
+# 26 "../pmc_initialize.c"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw.h" 1 3
@@ -48680,7 +48680,7 @@ typedef struct _MODEMSETTINGS {
   DWORD __attribute__((__stdcall__)) ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL __attribute__((__stdcall__)) ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 2 3
-# 33 "../pmc_initialize.c" 2
+# 27 "../pmc_initialize.c" 2
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/setjmp.h" 1 3
@@ -87233,14 +87233,14 @@ _wrpkru (unsigned int __key)
    
    
    
-# 34 "../pmc_initialize.c" 2
+# 28 "../pmc_initialize.c" 2
 
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdint.h" 1 3 4
@@ -87287,7 +87287,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -87295,14 +87295,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -87474,11 +87474,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -87498,7 +87498,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -87515,15 +87515,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 #pragma region 型の定義
 
 typedef _UINT32_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -87845,9 +87845,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 364 "../pmc_uint_internal.h" 3 4
+# 357 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 364 "../pmc_uint_internal.h"
+# 357 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -87859,9 +87859,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 374 "../pmc_uint_internal.h" 3 4
+# 367 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 374 "../pmc_uint_internal.h"
+# 367 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -87875,16 +87875,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 386 "../pmc_uint_internal.h" 3 4
+# 379 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 386 "../pmc_uint_internal.h"
+# 379 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 389 "../pmc_uint_internal.h" 3
+# 382 "../pmc_uint_internal.h" 3
                                                       long long
-# 389 "../pmc_uint_internal.h"
+# 382 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -87893,7 +87893,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     }
 #pragma endregion
-# 36 "../pmc_initialize.c" 2
+# 30 "../pmc_initialize.c" 2
 
 
 
@@ -87903,7 +87903,7 @@ PMC_CONFIGURATION_INFO configuration_info;
 #pragma endregion
 
 
- PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_Initialize(PMC_CONFIGURATION_INFO* config)
+ PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
     configuration_info = *config;
     PROCESSOR_FEATURES feature;
@@ -87911,123 +87911,123 @@ PMC_CONFIGURATION_INFO configuration_info;
 
     if (Initialize_Memory(&feature) != (0))
         return (
+# 46 "../pmc_initialize.c" 3 4
+               ((void *)0)
+# 46 "../pmc_initialize.c"
+                   );
+    if (Initialize_From(&feature) != (0))
+        return (
+# 48 "../pmc_initialize.c" 3 4
+               ((void *)0)
+# 48 "../pmc_initialize.c"
+                   );
+    if (Initialize_To(&feature) != (0))
+        return (
+# 50 "../pmc_initialize.c" 3 4
+               ((void *)0)
+# 50 "../pmc_initialize.c"
+                   );
+    if (Initialize_Add(&feature) != (0))
+        return (
 # 52 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 52 "../pmc_initialize.c"
                    );
-    if (Initialize_From(&feature) != (0))
+    if (Initialize_Subtruct(&feature) != (0))
         return (
 # 54 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 54 "../pmc_initialize.c"
                    );
-    if (Initialize_To(&feature) != (0))
+    if (Initialize_Multiply(&feature) != (0))
         return (
 # 56 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 56 "../pmc_initialize.c"
                    );
-    if (Initialize_Add(&feature) != (0))
+    if (Initialize_DivRem(&feature) != (0))
         return (
 # 58 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 58 "../pmc_initialize.c"
                    );
-    if (Initialize_Subtruct(&feature) != (0))
+    if (Initialize_Shift(&feature) != (0))
         return (
 # 60 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 60 "../pmc_initialize.c"
                    );
-    if (Initialize_Multiply(&feature) != (0))
+    if (Initialize_BitwiseAnd(&feature) != (0))
         return (
 # 62 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 62 "../pmc_initialize.c"
                    );
-    if (Initialize_DivRem(&feature) != (0))
+    if (Initialize_BitwiseOr(&feature) != (0))
         return (
 # 64 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 64 "../pmc_initialize.c"
                    );
-    if (Initialize_Shift(&feature) != (0))
+    if (Initialize_ExclusiveOr(&feature) != (0))
         return (
 # 66 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 66 "../pmc_initialize.c"
                    );
-    if (Initialize_BitwiseAnd(&feature) != (0))
+    if (Initialize_Compare(&feature) != (0))
         return (
 # 68 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 68 "../pmc_initialize.c"
                    );
-    if (Initialize_BitwiseOr(&feature) != (0))
+    if (Initialize_Equals(&feature) != (0))
         return (
 # 70 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 70 "../pmc_initialize.c"
                    );
-    if (Initialize_ExclusiveOr(&feature) != (0))
+    if (Initialize_ToString(&feature) != (0))
         return (
 # 72 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 72 "../pmc_initialize.c"
                    );
-    if (Initialize_Compare(&feature) != (0))
+    if (Initialize_Parse(&feature) != (0))
         return (
 # 74 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 74 "../pmc_initialize.c"
                    );
-    if (Initialize_Equals(&feature) != (0))
+    if (Initialize_GreatestCommonDivisor(&feature) != (0))
         return (
 # 76 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 76 "../pmc_initialize.c"
                    );
-    if (Initialize_ToString(&feature) != (0))
+    if (Initialize_Pow(&feature) != (0))
         return (
 # 78 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 78 "../pmc_initialize.c"
                    );
-    if (Initialize_Parse(&feature) != (0))
+    if (Initialize_ModPow(&feature) != (0))
         return (
 # 80 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 80 "../pmc_initialize.c"
                    );
-    if (Initialize_GreatestCommonDivisor(&feature) != (0))
+    if (Initialize_GetPropertyValue(&feature) != (0))
         return (
 # 82 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 82 "../pmc_initialize.c"
                    );
-    if (Initialize_Pow(&feature) != (0))
+    if (Initialize_Clone(&feature) != (0))
         return (
 # 84 "../pmc_initialize.c" 3 4
                ((void *)0)
 # 84 "../pmc_initialize.c"
-                   );
-    if (Initialize_ModPow(&feature) != (0))
-        return (
-# 86 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 86 "../pmc_initialize.c"
-                   );
-    if (Initialize_GetPropertyValue(&feature) != (0))
-        return (
-# 88 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 88 "../pmc_initialize.c"
-                   );
-    if (Initialize_Clone(&feature) != (0))
-        return (
-# 90 "../pmc_initialize.c" 3 4
-               ((void *)0)
-# 90 "../pmc_initialize.c"
                    );
 
     entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;

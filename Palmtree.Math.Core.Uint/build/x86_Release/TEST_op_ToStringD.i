@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../TEST_op_ToStringD.c"
-# 33 "../TEST_op_ToStringD.c"
+# 26 "../TEST_op_ToStringD.c"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw.h" 1 3
@@ -48705,9 +48705,9 @@ typedef struct _MODEMSETTINGS {
   DWORD __attribute__((__stdcall__)) ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL __attribute__((__stdcall__)) ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 2 3
-# 34 "../TEST_op_ToStringD.c" 2
+# 27 "../TEST_op_ToStringD.c" 2
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdint.h" 1 3 4
@@ -48771,7 +48771,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -48779,14 +48779,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48958,11 +48958,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 35 "../TEST_op_ToStringD.c" 2
-# 1 "../pmc_debug.h" 1
-# 40 "../pmc_debug.h"
+# 28 "../TEST_op_ToStringD.c" 2
+# 1 "../pmc_uint_debug.h" 1
+# 34 "../pmc_uint_debug.h"
 #pragma region 型の定義
 typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 {
@@ -48973,11 +48973,11 @@ typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 
 
 #pragma region 宣言
-# 149 "../pmc_debug.h"
+# 143 "../pmc_uint_debug.h"
 #pragma endregion
 
 
 #pragma region インライン関数の定義
-# 169 "../pmc_debug.h"
+# 163 "../pmc_uint_debug.h"
 #pragma endregion
-# 36 "../TEST_op_ToStringD.c" 2
+# 29 "../TEST_op_ToStringD.c" 2

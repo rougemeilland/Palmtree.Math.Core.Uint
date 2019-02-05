@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../pmc_clone.c"
-# 33 "../pmc_clone.c"
+# 26 "../pmc_clone.c"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -100622,13 +100622,13 @@ typedef struct _MODEMSETTINGS {
   DWORD ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 34 "../pmc_clone.c" 2
+# 27 "../pmc_clone.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h" 1 3 4
@@ -100685,7 +100685,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -100693,14 +100693,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100872,11 +100872,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -100896,7 +100896,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -100915,15 +100915,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
 
 typedef _UINT64_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -101253,29 +101253,29 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 381 "../pmc_uint_internal.h"
+# 374 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 395 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
     }
 #pragma endregion
-# 35 "../pmc_clone.c" 2
+# 28 "../pmc_clone.c" 2
 
 
 PMC_STATUS_CODE PMC_Clone_X(HANDLE x, HANDLE* o)
 {
     if (x == 
-# 39 "../pmc_clone.c" 3 4
+# 32 "../pmc_clone.c" 3 4
             ((void *)0)
-# 39 "../pmc_clone.c"
+# 32 "../pmc_clone.c"
                 )
         return ((-1));
     if (o == 
-# 41 "../pmc_clone.c" 3 4
+# 34 "../pmc_clone.c" 3 4
             ((void *)0)
-# 41 "../pmc_clone.c"
+# 34 "../pmc_clone.c"
                 )
         return ((-1));
     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;

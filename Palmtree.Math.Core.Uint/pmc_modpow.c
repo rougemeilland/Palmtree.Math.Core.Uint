@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_modpow.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/28, 0:27
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

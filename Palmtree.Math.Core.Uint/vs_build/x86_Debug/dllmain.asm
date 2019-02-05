@@ -61,7 +61,7 @@ _dwReason$ = 12						; size = 4
 _lpvReserved$ = 16					; size = 4
 _DllMain@12 PROC
 
-; 42   : {
+; 35   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -71,11 +71,11 @@ _DllMain@12 PROC
 	mov	ecx, OFFSET __A6DAE95C_dllmain@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 43   : 	BOOL result = TRUE;
+; 36   : 	BOOL result = TRUE;
 
 	mov	DWORD PTR _result$[ebp], 1
 
-; 44   : 	switch (dwReason)
+; 37   : 	switch (dwReason)
 
 	mov	eax, DWORD PTR _dwReason$[ebp]
 	mov	DWORD PTR tv64[ebp], eax
@@ -85,62 +85,62 @@ _DllMain@12 PROC
 	jmp	DWORD PTR $LN11@DllMain[ecx*4]
 $LN4@DllMain:
 
-; 45   : 	{
-; 46   :         case DLL_PROCESS_ATTACH: // DLLがプロセスのアドレス空間にマッピングされた。
-; 47   :             if (!AllocateHeapArea())
+; 38   : 	{
+; 39   :         case DLL_PROCESS_ATTACH: // DLLがプロセスのアドレス空間にマッピングされた。
+; 40   :             if (!AllocateHeapArea())
 
 	call	_AllocateHeapArea
 	test	eax, eax
 	jne	SHORT $LN5@DllMain
 
-; 48   :                 result = FALSE;
+; 41   :                 result = FALSE;
 
 	mov	DWORD PTR _result$[ebp], 0
 $LN5@DllMain:
 
-; 49   :             break;
+; 42   :             break;
 
 	jmp	SHORT $LN2@DllMain
 $LN6@DllMain:
 
-; 50   : 
-; 51   :         case DLL_THREAD_ATTACH: // スレッドが作成されようとしている。
-; 52   :             break;
+; 43   : 
+; 44   :         case DLL_THREAD_ATTACH: // スレッドが作成されようとしている。
+; 45   :             break;
 
 	jmp	SHORT $LN2@DllMain
 $LN7@DllMain:
 
-; 53   : 
-; 54   :         case DLL_THREAD_DETACH: // スレッドが破棄されようとしている。
-; 55   :             break;
+; 46   : 
+; 47   :         case DLL_THREAD_DETACH: // スレッドが破棄されようとしている。
+; 48   :             break;
 
 	jmp	SHORT $LN2@DllMain
 $LN8@DllMain:
 
-; 56   : 
-; 57   :         case DLL_PROCESS_DETACH: // DLLのマッピングが解除されようとしている。
-; 58   :             DeallocateHeapArea();
+; 49   : 
+; 50   :         case DLL_PROCESS_DETACH: // DLLのマッピングが解除されようとしている。
+; 51   :             DeallocateHeapArea();
 
 	call	_DeallocateHeapArea
 
-; 59   :             break;
+; 52   :             break;
 
 	jmp	SHORT $LN2@DllMain
 $LN9@DllMain:
 
-; 60   :         default:
-; 61   :             result = FALSE;
+; 53   :         default:
+; 54   :             result = FALSE;
 
 	mov	DWORD PTR _result$[ebp], 0
 $LN2@DllMain:
 
-; 62   :             break;
-; 63   : 	}
-; 64   : 	return (result);
+; 55   :             break;
+; 56   : 	}
+; 57   : 	return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 
-; 65   : }
+; 58   : }
 
 	add	esp, 8
 	cmp	ebp, esp

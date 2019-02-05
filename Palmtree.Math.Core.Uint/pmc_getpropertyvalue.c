@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   GetPropertyValue_X_I.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/31, 16:33
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

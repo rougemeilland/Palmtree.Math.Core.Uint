@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_statistics.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/28, 20:57
- */
 
 #include <windows.h>
 #include "pmc_internal.h"

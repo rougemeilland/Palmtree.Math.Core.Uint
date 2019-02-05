@@ -7,7 +7,7 @@
 _COPY_MEMORY_UNIT:
 .LFB4321:
 	.file 1 "../pmc_inline_func.h"
-	.loc 1 66 5
+	.loc 1 59 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -60,7 +60,7 @@ _COPY_MEMORY_UNIT:
 	movq	%rax, -24(%rbp)
 .LBE5:
 .LBE4:
-	.loc 1 74 5
+	.loc 1 67 5
 	nop
 	addq	$32, %rsp
 	popq	%rsi
@@ -78,7 +78,7 @@ _COPY_MEMORY_UNIT:
 	.seh_proc	_MAXIMUM_UNIT
 _MAXIMUM_UNIT:
 .LFB4339:
-	.loc 1 203 5
+	.loc 1 196 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -90,11 +90,11 @@ _MAXIMUM_UNIT:
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
-	.loc 1 204 28
+	.loc 1 197 28
 	movq	24(%rbp), %rax
 	cmpq	%rax, 16(%rbp)
 	cmovnb	16(%rbp), %rax
-	.loc 1 205 5
+	.loc 1 198 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -106,7 +106,7 @@ _MAXIMUM_UNIT:
 	.seh_proc	_LZCNT_ALT_32
 _LZCNT_ALT_32:
 .LFB4363:
-	.loc 1 596 5
+	.loc 1 589 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -119,25 +119,25 @@ _LZCNT_ALT_32:
 	.seh_stackalloc	16
 	.seh_endprologue
 	movl	%ecx, 16(%rbp)
-	.loc 1 597 12
+	.loc 1 590 12
 	cmpl	$0, 16(%rbp)
 	jne	.L5
-	.loc 1 598 20
+	.loc 1 591 20
 	movl	$32, %eax
 	jmp	.L6
 .L5:
-	.loc 1 603 9
+	.loc 1 596 9
 /APP
- # 603 "../pmc_inline_func.h" 1
+ # 596 "../pmc_inline_func.h" 1
 	bsrl 16(%rbp), %eax
  # 0 "" 2
 /NO_APP
 	movl	%eax, -4(%rbp)
-	.loc 1 607 35
+	.loc 1 600 35
 	movl	$31, %eax
 	subl	-4(%rbp), %eax
 .L6:
-	.loc 1 608 5
+	.loc 1 601 5
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -150,7 +150,7 @@ _LZCNT_ALT_32:
 	.seh_proc	_LZCNT_ALT_UNIT
 _LZCNT_ALT_UNIT:
 .LFB4365:
-	.loc 1 629 5
+	.loc 1 622 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -163,27 +163,27 @@ _LZCNT_ALT_UNIT:
 	.seh_stackalloc	16
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
-	.loc 1 630 12
+	.loc 1 623 12
 	cmpq	$0, 16(%rbp)
 	jne	.L8
-	.loc 1 631 20
+	.loc 1 624 20
 	movl	$64, %eax
 	jmp	.L9
 .L8:
-	.loc 1 647 9
+	.loc 1 640 9
 /APP
- # 647 "../pmc_inline_func.h" 1
+ # 640 "../pmc_inline_func.h" 1
 	bsrq 16(%rbp), %rax
  # 0 "" 2
 /NO_APP
 	movq	%rax, -8(%rbp)
-	.loc 1 654 35
+	.loc 1 647 35
 	movq	-8(%rbp), %rax
 	movl	$63, %edx
 	subl	%eax, %edx
 	movl	%edx, %eax
 .L9:
-	.loc 1 655 5
+	.loc 1 648 5
 	addq	$16, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -197,7 +197,7 @@ _LZCNT_ALT_UNIT:
 BitwiseOr_X_1W:
 .LFB4373:
 	.file 3 "../pmc_bitwiseor.c"
-	.loc 3 40 1
+	.loc 3 33 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -213,42 +213,42 @@ BitwiseOr_X_1W:
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
 	movq	%r9, 40(%rbp)
-	.loc 3 41 8
+	.loc 3 34 8
 	cmpq	$1, 24(%rbp)
 	jne	.L11
-	.loc 3 42 17
+	.loc 3 35 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 42 21
+	.loc 3 35 21
 	orq	32(%rbp), %rax
-	.loc 3 42 14
+	.loc 3 35 14
 	movq	40(%rbp), %rdx
 	movq	%rax, (%rdx)
-	.loc 3 48 1
+	.loc 3 41 1
 	jmp	.L13
 .L11:
-	.loc 3 45 17
+	.loc 3 38 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 45 21
+	.loc 3 38 21
 	orq	32(%rbp), %rax
-	.loc 3 45 14
+	.loc 3 38 14
 	movq	40(%rbp), %rdx
 	movq	%rax, (%rdx)
-	.loc 3 46 9
+	.loc 3 39 9
 	movq	24(%rbp), %rax
 	leaq	-1(%rax), %rcx
-	.loc 3 46 36
+	.loc 3 39 36
 	movq	16(%rbp), %rax
 	leaq	8(%rax), %rdx
-	.loc 3 46 9
+	.loc 3 39 9
 	movq	40(%rbp), %rax
 	addq	$8, %rax
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	_COPY_MEMORY_UNIT
 .L13:
-	.loc 3 48 1
+	.loc 3 41 1
 	nop
 	addq	$32, %rsp
 	popq	%rbp
@@ -262,7 +262,7 @@ BitwiseOr_X_1W:
 	.seh_proc	BitwiseOr_X_2W
 BitwiseOr_X_2W:
 .LFB4374:
-	.loc 3 52 1
+	.loc 3 45 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -278,84 +278,84 @@ BitwiseOr_X_2W:
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
 	movq	%r9, 40(%rbp)
-	.loc 3 53 8
+	.loc 3 46 8
 	cmpq	$1, 24(%rbp)
 	jne	.L15
-	.loc 3 55 17
+	.loc 3 48 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 55 21
+	.loc 3 48 21
 	orq	40(%rbp), %rax
-	.loc 3 55 14
+	.loc 3 48 14
 	movq	48(%rbp), %rdx
 	movq	%rax, (%rdx)
-	.loc 3 56 10
+	.loc 3 49 10
 	movq	48(%rbp), %rax
 	addq	$8, %rax
-	.loc 3 56 14
+	.loc 3 49 14
 	movq	32(%rbp), %rdx
 	movq	%rdx, (%rax)
-	.loc 3 69 1
+	.loc 3 62 1
 	jmp	.L18
 .L15:
-	.loc 3 58 13
+	.loc 3 51 13
 	cmpq	$2, 24(%rbp)
 	jne	.L17
-	.loc 3 60 17
+	.loc 3 53 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 60 21
+	.loc 3 53 21
 	orq	40(%rbp), %rax
-	.loc 3 60 14
+	.loc 3 53 14
 	movq	48(%rbp), %rdx
 	movq	%rax, (%rdx)
-	.loc 3 61 17
+	.loc 3 54 17
 	movq	16(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rax
-	.loc 3 61 10
+	.loc 3 54 10
 	movq	48(%rbp), %rdx
 	addq	$8, %rdx
-	.loc 3 61 21
+	.loc 3 54 21
 	orq	32(%rbp), %rax
-	.loc 3 61 14
+	.loc 3 54 14
 	movq	%rax, (%rdx)
-	.loc 3 69 1
+	.loc 3 62 1
 	jmp	.L18
 .L17:
-	.loc 3 65 17
+	.loc 3 58 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 65 21
+	.loc 3 58 21
 	orq	40(%rbp), %rax
-	.loc 3 65 14
+	.loc 3 58 14
 	movq	48(%rbp), %rdx
 	movq	%rax, (%rdx)
-	.loc 3 66 17
+	.loc 3 59 17
 	movq	16(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rax
-	.loc 3 66 10
+	.loc 3 59 10
 	movq	48(%rbp), %rdx
 	addq	$8, %rdx
-	.loc 3 66 21
+	.loc 3 59 21
 	orq	32(%rbp), %rax
-	.loc 3 66 14
+	.loc 3 59 14
 	movq	%rax, (%rdx)
-	.loc 3 67 9
+	.loc 3 60 9
 	movq	24(%rbp), %rax
 	leaq	-2(%rax), %rcx
-	.loc 3 67 36
+	.loc 3 60 36
 	movq	16(%rbp), %rax
 	leaq	16(%rax), %rdx
-	.loc 3 67 9
+	.loc 3 60 9
 	movq	48(%rbp), %rax
 	addq	$16, %rax
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	_COPY_MEMORY_UNIT
 .L18:
-	.loc 3 69 1
+	.loc 3 62 1
 	nop
 	addq	$32, %rsp
 	popq	%rbp
@@ -369,7 +369,7 @@ BitwiseOr_X_2W:
 	.seh_proc	BitwiseOr_X_X
 BitwiseOr_X_X:
 .LFB4375:
-	.loc 3 73 1
+	.loc 3 66 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -385,1026 +385,1026 @@ BitwiseOr_X_X:
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
 	movq	%r9, 40(%rbp)
-	.loc 3 74 17
+	.loc 3 67 17
 	movq	40(%rbp), %rax
 	movq	%rax, -16(%rbp)
-	.loc 3 75 17
+	.loc 3 68 17
 	movq	24(%rbp), %rax
 	subq	40(%rbp), %rax
 	movq	%rax, -24(%rbp)
-	.loc 3 77 17
+	.loc 3 70 17
 	movq	-16(%rbp), %rax
 	shrq	$5, %rax
 	movq	%rax, -8(%rbp)
-	.loc 3 78 11
+	.loc 3 71 11
 	jmp	.L20
 .L21:
-	.loc 3 80 17
+	.loc 3 73 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rdx
-	.loc 3 80 24
+	.loc 3 73 24
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 80 21
+	.loc 3 73 21
 	orq	%rax, %rdx
-	.loc 3 80 14
+	.loc 3 73 14
 	movq	48(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 81 17
+	.loc 3 74 17
 	movq	16(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rcx
-	.loc 3 81 24
+	.loc 3 74 24
 	movq	32(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rdx
-	.loc 3 81 10
+	.loc 3 74 10
 	movq	48(%rbp), %rax
 	addq	$8, %rax
+	.loc 3 74 21
+	orq	%rcx, %rdx
+	.loc 3 74 14
+	movq	%rdx, (%rax)
+	.loc 3 75 17
+	movq	16(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rcx
+	.loc 3 75 24
+	movq	32(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rdx
+	.loc 3 75 10
+	movq	48(%rbp), %rax
+	addq	$16, %rax
+	.loc 3 75 21
+	orq	%rcx, %rdx
+	.loc 3 75 14
+	movq	%rdx, (%rax)
+	.loc 3 76 17
+	movq	16(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rcx
+	.loc 3 76 24
+	movq	32(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rdx
+	.loc 3 76 10
+	movq	48(%rbp), %rax
+	addq	$24, %rax
+	.loc 3 76 21
+	orq	%rcx, %rdx
+	.loc 3 76 14
+	movq	%rdx, (%rax)
+	.loc 3 77 17
+	movq	16(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rcx
+	.loc 3 77 24
+	movq	32(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rdx
+	.loc 3 77 10
+	movq	48(%rbp), %rax
+	addq	$32, %rax
+	.loc 3 77 21
+	orq	%rcx, %rdx
+	.loc 3 77 14
+	movq	%rdx, (%rax)
+	.loc 3 78 17
+	movq	16(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rcx
+	.loc 3 78 24
+	movq	32(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rdx
+	.loc 3 78 10
+	movq	48(%rbp), %rax
+	addq	$40, %rax
+	.loc 3 78 21
+	orq	%rcx, %rdx
+	.loc 3 78 14
+	movq	%rdx, (%rax)
+	.loc 3 79 17
+	movq	16(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rcx
+	.loc 3 79 24
+	movq	32(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rdx
+	.loc 3 79 10
+	movq	48(%rbp), %rax
+	addq	$48, %rax
+	.loc 3 79 21
+	orq	%rcx, %rdx
+	.loc 3 79 14
+	movq	%rdx, (%rax)
+	.loc 3 80 17
+	movq	16(%rbp), %rax
+	addq	$56, %rax
+	movq	(%rax), %rcx
+	.loc 3 80 24
+	movq	32(%rbp), %rax
+	addq	$56, %rax
+	movq	(%rax), %rdx
+	.loc 3 80 10
+	movq	48(%rbp), %rax
+	addq	$56, %rax
+	.loc 3 80 21
+	orq	%rcx, %rdx
+	.loc 3 80 14
+	movq	%rdx, (%rax)
+	.loc 3 81 17
+	movq	16(%rbp), %rax
+	addq	$64, %rax
+	movq	(%rax), %rcx
+	.loc 3 81 24
+	movq	32(%rbp), %rax
+	addq	$64, %rax
+	movq	(%rax), %rdx
+	.loc 3 81 10
+	movq	48(%rbp), %rax
+	addq	$64, %rax
 	.loc 3 81 21
 	orq	%rcx, %rdx
 	.loc 3 81 14
 	movq	%rdx, (%rax)
 	.loc 3 82 17
 	movq	16(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	movq	(%rax), %rcx
 	.loc 3 82 24
 	movq	32(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	movq	(%rax), %rdx
 	.loc 3 82 10
 	movq	48(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	.loc 3 82 21
 	orq	%rcx, %rdx
 	.loc 3 82 14
 	movq	%rdx, (%rax)
-	.loc 3 83 17
+	.loc 3 83 18
 	movq	16(%rbp), %rax
-	addq	$24, %rax
+	addq	$80, %rax
 	movq	(%rax), %rcx
-	.loc 3 83 24
+	.loc 3 83 26
 	movq	32(%rbp), %rax
-	addq	$24, %rax
+	addq	$80, %rax
 	movq	(%rax), %rdx
 	.loc 3 83 10
 	movq	48(%rbp), %rax
-	addq	$24, %rax
-	.loc 3 83 21
+	addq	$80, %rax
+	.loc 3 83 23
 	orq	%rcx, %rdx
-	.loc 3 83 14
+	.loc 3 83 15
 	movq	%rdx, (%rax)
-	.loc 3 84 17
+	.loc 3 84 18
 	movq	16(%rbp), %rax
-	addq	$32, %rax
+	addq	$88, %rax
 	movq	(%rax), %rcx
-	.loc 3 84 24
+	.loc 3 84 26
 	movq	32(%rbp), %rax
-	addq	$32, %rax
+	addq	$88, %rax
 	movq	(%rax), %rdx
 	.loc 3 84 10
 	movq	48(%rbp), %rax
-	addq	$32, %rax
-	.loc 3 84 21
+	addq	$88, %rax
+	.loc 3 84 23
 	orq	%rcx, %rdx
-	.loc 3 84 14
+	.loc 3 84 15
 	movq	%rdx, (%rax)
-	.loc 3 85 17
+	.loc 3 85 18
 	movq	16(%rbp), %rax
-	addq	$40, %rax
+	addq	$96, %rax
 	movq	(%rax), %rcx
-	.loc 3 85 24
+	.loc 3 85 26
 	movq	32(%rbp), %rax
-	addq	$40, %rax
+	addq	$96, %rax
 	movq	(%rax), %rdx
 	.loc 3 85 10
 	movq	48(%rbp), %rax
-	addq	$40, %rax
-	.loc 3 85 21
+	addq	$96, %rax
+	.loc 3 85 23
 	orq	%rcx, %rdx
-	.loc 3 85 14
+	.loc 3 85 15
 	movq	%rdx, (%rax)
-	.loc 3 86 17
+	.loc 3 86 18
 	movq	16(%rbp), %rax
-	addq	$48, %rax
+	addq	$104, %rax
 	movq	(%rax), %rcx
-	.loc 3 86 24
+	.loc 3 86 26
 	movq	32(%rbp), %rax
-	addq	$48, %rax
+	addq	$104, %rax
 	movq	(%rax), %rdx
 	.loc 3 86 10
 	movq	48(%rbp), %rax
-	addq	$48, %rax
-	.loc 3 86 21
+	addq	$104, %rax
+	.loc 3 86 23
 	orq	%rcx, %rdx
-	.loc 3 86 14
+	.loc 3 86 15
 	movq	%rdx, (%rax)
-	.loc 3 87 17
+	.loc 3 87 18
 	movq	16(%rbp), %rax
-	addq	$56, %rax
+	addq	$112, %rax
 	movq	(%rax), %rcx
-	.loc 3 87 24
+	.loc 3 87 26
 	movq	32(%rbp), %rax
-	addq	$56, %rax
+	addq	$112, %rax
 	movq	(%rax), %rdx
 	.loc 3 87 10
 	movq	48(%rbp), %rax
-	addq	$56, %rax
-	.loc 3 87 21
+	addq	$112, %rax
+	.loc 3 87 23
 	orq	%rcx, %rdx
-	.loc 3 87 14
+	.loc 3 87 15
 	movq	%rdx, (%rax)
-	.loc 3 88 17
+	.loc 3 88 18
 	movq	16(%rbp), %rax
-	addq	$64, %rax
+	addq	$120, %rax
 	movq	(%rax), %rcx
-	.loc 3 88 24
+	.loc 3 88 26
 	movq	32(%rbp), %rax
-	addq	$64, %rax
+	addq	$120, %rax
 	movq	(%rax), %rdx
 	.loc 3 88 10
 	movq	48(%rbp), %rax
-	addq	$64, %rax
-	.loc 3 88 21
+	addq	$120, %rax
+	.loc 3 88 23
 	orq	%rcx, %rdx
-	.loc 3 88 14
+	.loc 3 88 15
 	movq	%rdx, (%rax)
-	.loc 3 89 17
+	.loc 3 89 18
 	movq	16(%rbp), %rax
-	addq	$72, %rax
+	subq	$-128, %rax
 	movq	(%rax), %rcx
-	.loc 3 89 24
+	.loc 3 89 26
 	movq	32(%rbp), %rax
-	addq	$72, %rax
+	subq	$-128, %rax
 	movq	(%rax), %rdx
 	.loc 3 89 10
 	movq	48(%rbp), %rax
-	addq	$72, %rax
-	.loc 3 89 21
+	subq	$-128, %rax
+	.loc 3 89 23
 	orq	%rcx, %rdx
-	.loc 3 89 14
+	.loc 3 89 15
 	movq	%rdx, (%rax)
 	.loc 3 90 18
 	movq	16(%rbp), %rax
-	addq	$80, %rax
+	addq	$136, %rax
 	movq	(%rax), %rcx
 	.loc 3 90 26
 	movq	32(%rbp), %rax
-	addq	$80, %rax
+	addq	$136, %rax
 	movq	(%rax), %rdx
 	.loc 3 90 10
 	movq	48(%rbp), %rax
-	addq	$80, %rax
+	addq	$136, %rax
 	.loc 3 90 23
 	orq	%rcx, %rdx
 	.loc 3 90 15
 	movq	%rdx, (%rax)
 	.loc 3 91 18
 	movq	16(%rbp), %rax
-	addq	$88, %rax
+	addq	$144, %rax
 	movq	(%rax), %rcx
 	.loc 3 91 26
 	movq	32(%rbp), %rax
-	addq	$88, %rax
+	addq	$144, %rax
 	movq	(%rax), %rdx
 	.loc 3 91 10
 	movq	48(%rbp), %rax
-	addq	$88, %rax
+	addq	$144, %rax
 	.loc 3 91 23
 	orq	%rcx, %rdx
 	.loc 3 91 15
 	movq	%rdx, (%rax)
 	.loc 3 92 18
 	movq	16(%rbp), %rax
-	addq	$96, %rax
+	addq	$152, %rax
 	movq	(%rax), %rcx
 	.loc 3 92 26
 	movq	32(%rbp), %rax
-	addq	$96, %rax
+	addq	$152, %rax
 	movq	(%rax), %rdx
 	.loc 3 92 10
 	movq	48(%rbp), %rax
-	addq	$96, %rax
+	addq	$152, %rax
 	.loc 3 92 23
 	orq	%rcx, %rdx
 	.loc 3 92 15
 	movq	%rdx, (%rax)
 	.loc 3 93 18
 	movq	16(%rbp), %rax
-	addq	$104, %rax
+	addq	$160, %rax
 	movq	(%rax), %rcx
 	.loc 3 93 26
 	movq	32(%rbp), %rax
-	addq	$104, %rax
+	addq	$160, %rax
 	movq	(%rax), %rdx
 	.loc 3 93 10
 	movq	48(%rbp), %rax
-	addq	$104, %rax
+	addq	$160, %rax
 	.loc 3 93 23
 	orq	%rcx, %rdx
 	.loc 3 93 15
 	movq	%rdx, (%rax)
 	.loc 3 94 18
 	movq	16(%rbp), %rax
-	addq	$112, %rax
+	addq	$168, %rax
 	movq	(%rax), %rcx
 	.loc 3 94 26
 	movq	32(%rbp), %rax
-	addq	$112, %rax
+	addq	$168, %rax
 	movq	(%rax), %rdx
 	.loc 3 94 10
 	movq	48(%rbp), %rax
-	addq	$112, %rax
+	addq	$168, %rax
 	.loc 3 94 23
 	orq	%rcx, %rdx
 	.loc 3 94 15
 	movq	%rdx, (%rax)
 	.loc 3 95 18
 	movq	16(%rbp), %rax
-	addq	$120, %rax
+	addq	$176, %rax
 	movq	(%rax), %rcx
 	.loc 3 95 26
 	movq	32(%rbp), %rax
-	addq	$120, %rax
+	addq	$176, %rax
 	movq	(%rax), %rdx
 	.loc 3 95 10
 	movq	48(%rbp), %rax
-	addq	$120, %rax
+	addq	$176, %rax
 	.loc 3 95 23
 	orq	%rcx, %rdx
 	.loc 3 95 15
 	movq	%rdx, (%rax)
 	.loc 3 96 18
 	movq	16(%rbp), %rax
-	subq	$-128, %rax
+	addq	$184, %rax
 	movq	(%rax), %rcx
 	.loc 3 96 26
 	movq	32(%rbp), %rax
-	subq	$-128, %rax
+	addq	$184, %rax
 	movq	(%rax), %rdx
 	.loc 3 96 10
 	movq	48(%rbp), %rax
-	subq	$-128, %rax
+	addq	$184, %rax
 	.loc 3 96 23
 	orq	%rcx, %rdx
 	.loc 3 96 15
 	movq	%rdx, (%rax)
 	.loc 3 97 18
 	movq	16(%rbp), %rax
-	addq	$136, %rax
+	addq	$192, %rax
 	movq	(%rax), %rcx
 	.loc 3 97 26
 	movq	32(%rbp), %rax
-	addq	$136, %rax
+	addq	$192, %rax
 	movq	(%rax), %rdx
 	.loc 3 97 10
 	movq	48(%rbp), %rax
-	addq	$136, %rax
+	addq	$192, %rax
 	.loc 3 97 23
 	orq	%rcx, %rdx
 	.loc 3 97 15
 	movq	%rdx, (%rax)
 	.loc 3 98 18
 	movq	16(%rbp), %rax
-	addq	$144, %rax
+	addq	$200, %rax
 	movq	(%rax), %rcx
 	.loc 3 98 26
 	movq	32(%rbp), %rax
-	addq	$144, %rax
+	addq	$200, %rax
 	movq	(%rax), %rdx
 	.loc 3 98 10
 	movq	48(%rbp), %rax
-	addq	$144, %rax
+	addq	$200, %rax
 	.loc 3 98 23
 	orq	%rcx, %rdx
 	.loc 3 98 15
 	movq	%rdx, (%rax)
 	.loc 3 99 18
 	movq	16(%rbp), %rax
-	addq	$152, %rax
+	addq	$208, %rax
 	movq	(%rax), %rcx
 	.loc 3 99 26
 	movq	32(%rbp), %rax
-	addq	$152, %rax
+	addq	$208, %rax
 	movq	(%rax), %rdx
 	.loc 3 99 10
 	movq	48(%rbp), %rax
-	addq	$152, %rax
+	addq	$208, %rax
 	.loc 3 99 23
 	orq	%rcx, %rdx
 	.loc 3 99 15
 	movq	%rdx, (%rax)
 	.loc 3 100 18
 	movq	16(%rbp), %rax
-	addq	$160, %rax
+	addq	$216, %rax
 	movq	(%rax), %rcx
 	.loc 3 100 26
 	movq	32(%rbp), %rax
-	addq	$160, %rax
+	addq	$216, %rax
 	movq	(%rax), %rdx
 	.loc 3 100 10
 	movq	48(%rbp), %rax
-	addq	$160, %rax
+	addq	$216, %rax
 	.loc 3 100 23
 	orq	%rcx, %rdx
 	.loc 3 100 15
 	movq	%rdx, (%rax)
 	.loc 3 101 18
 	movq	16(%rbp), %rax
-	addq	$168, %rax
+	addq	$224, %rax
 	movq	(%rax), %rcx
 	.loc 3 101 26
 	movq	32(%rbp), %rax
-	addq	$168, %rax
+	addq	$224, %rax
 	movq	(%rax), %rdx
 	.loc 3 101 10
 	movq	48(%rbp), %rax
-	addq	$168, %rax
+	addq	$224, %rax
 	.loc 3 101 23
 	orq	%rcx, %rdx
 	.loc 3 101 15
 	movq	%rdx, (%rax)
 	.loc 3 102 18
 	movq	16(%rbp), %rax
-	addq	$176, %rax
+	addq	$232, %rax
 	movq	(%rax), %rcx
 	.loc 3 102 26
 	movq	32(%rbp), %rax
-	addq	$176, %rax
+	addq	$232, %rax
 	movq	(%rax), %rdx
 	.loc 3 102 10
 	movq	48(%rbp), %rax
-	addq	$176, %rax
+	addq	$232, %rax
 	.loc 3 102 23
 	orq	%rcx, %rdx
 	.loc 3 102 15
 	movq	%rdx, (%rax)
 	.loc 3 103 18
 	movq	16(%rbp), %rax
-	addq	$184, %rax
+	addq	$240, %rax
 	movq	(%rax), %rcx
 	.loc 3 103 26
 	movq	32(%rbp), %rax
-	addq	$184, %rax
+	addq	$240, %rax
 	movq	(%rax), %rdx
 	.loc 3 103 10
 	movq	48(%rbp), %rax
-	addq	$184, %rax
+	addq	$240, %rax
 	.loc 3 103 23
 	orq	%rcx, %rdx
 	.loc 3 103 15
 	movq	%rdx, (%rax)
 	.loc 3 104 18
 	movq	16(%rbp), %rax
-	addq	$192, %rax
+	addq	$248, %rax
 	movq	(%rax), %rcx
 	.loc 3 104 26
 	movq	32(%rbp), %rax
-	addq	$192, %rax
+	addq	$248, %rax
 	movq	(%rax), %rdx
 	.loc 3 104 10
 	movq	48(%rbp), %rax
-	addq	$192, %rax
+	addq	$248, %rax
 	.loc 3 104 23
 	orq	%rcx, %rdx
 	.loc 3 104 15
 	movq	%rdx, (%rax)
-	.loc 3 105 18
-	movq	16(%rbp), %rax
-	addq	$200, %rax
-	movq	(%rax), %rcx
-	.loc 3 105 26
-	movq	32(%rbp), %rax
-	addq	$200, %rax
-	movq	(%rax), %rdx
-	.loc 3 105 10
-	movq	48(%rbp), %rax
-	addq	$200, %rax
-	.loc 3 105 23
-	orq	%rcx, %rdx
-	.loc 3 105 15
-	movq	%rdx, (%rax)
-	.loc 3 106 18
-	movq	16(%rbp), %rax
-	addq	$208, %rax
-	movq	(%rax), %rcx
-	.loc 3 106 26
-	movq	32(%rbp), %rax
-	addq	$208, %rax
-	movq	(%rax), %rdx
-	.loc 3 106 10
-	movq	48(%rbp), %rax
-	addq	$208, %rax
-	.loc 3 106 23
-	orq	%rcx, %rdx
-	.loc 3 106 15
-	movq	%rdx, (%rax)
-	.loc 3 107 18
-	movq	16(%rbp), %rax
-	addq	$216, %rax
-	movq	(%rax), %rcx
-	.loc 3 107 26
-	movq	32(%rbp), %rax
-	addq	$216, %rax
-	movq	(%rax), %rdx
-	.loc 3 107 10
-	movq	48(%rbp), %rax
-	addq	$216, %rax
-	.loc 3 107 23
-	orq	%rcx, %rdx
-	.loc 3 107 15
-	movq	%rdx, (%rax)
-	.loc 3 108 18
-	movq	16(%rbp), %rax
-	addq	$224, %rax
-	movq	(%rax), %rcx
-	.loc 3 108 26
-	movq	32(%rbp), %rax
-	addq	$224, %rax
-	movq	(%rax), %rdx
-	.loc 3 108 10
-	movq	48(%rbp), %rax
-	addq	$224, %rax
-	.loc 3 108 23
-	orq	%rcx, %rdx
-	.loc 3 108 15
-	movq	%rdx, (%rax)
-	.loc 3 109 18
-	movq	16(%rbp), %rax
-	addq	$232, %rax
-	movq	(%rax), %rcx
-	.loc 3 109 26
-	movq	32(%rbp), %rax
-	addq	$232, %rax
-	movq	(%rax), %rdx
-	.loc 3 109 10
-	movq	48(%rbp), %rax
-	addq	$232, %rax
-	.loc 3 109 23
-	orq	%rcx, %rdx
-	.loc 3 109 15
-	movq	%rdx, (%rax)
-	.loc 3 110 18
-	movq	16(%rbp), %rax
-	addq	$240, %rax
-	movq	(%rax), %rcx
-	.loc 3 110 26
-	movq	32(%rbp), %rax
-	addq	$240, %rax
-	movq	(%rax), %rdx
-	.loc 3 110 10
-	movq	48(%rbp), %rax
-	addq	$240, %rax
-	.loc 3 110 23
-	orq	%rcx, %rdx
-	.loc 3 110 15
-	movq	%rdx, (%rax)
-	.loc 3 111 18
-	movq	16(%rbp), %rax
-	addq	$248, %rax
-	movq	(%rax), %rcx
-	.loc 3 111 26
-	movq	32(%rbp), %rax
-	addq	$248, %rax
-	movq	(%rax), %rdx
-	.loc 3 111 10
-	movq	48(%rbp), %rax
-	addq	$248, %rax
-	.loc 3 111 23
-	orq	%rcx, %rdx
-	.loc 3 111 15
-	movq	%rdx, (%rax)
-	.loc 3 112 11
+	.loc 3 105 11
 	addq	$256, 16(%rbp)
-	.loc 3 113 11
+	.loc 3 106 11
 	addq	$256, 32(%rbp)
-	.loc 3 114 11
+	.loc 3 107 11
 	addq	$256, 48(%rbp)
-	.loc 3 115 9
+	.loc 3 108 9
 	subq	$1, -8(%rbp)
 .L20:
-	.loc 3 78 11
+	.loc 3 71 11
 	cmpq	$0, -8(%rbp)
 	jne	.L21
-	.loc 3 118 18
+	.loc 3 111 18
 	movq	-16(%rbp), %rax
 	andl	$16, %eax
-	.loc 3 118 8
+	.loc 3 111 8
 	testq	%rax, %rax
 	je	.L22
-	.loc 3 120 17
+	.loc 3 113 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rdx
-	.loc 3 120 24
+	.loc 3 113 24
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 120 21
+	.loc 3 113 21
 	orq	%rax, %rdx
-	.loc 3 120 14
+	.loc 3 113 14
 	movq	48(%rbp), %rax
+	movq	%rdx, (%rax)
+	.loc 3 114 17
+	movq	16(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rcx
+	.loc 3 114 24
+	movq	32(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rdx
+	.loc 3 114 10
+	movq	48(%rbp), %rax
+	addq	$8, %rax
+	.loc 3 114 21
+	orq	%rcx, %rdx
+	.loc 3 114 14
+	movq	%rdx, (%rax)
+	.loc 3 115 17
+	movq	16(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rcx
+	.loc 3 115 24
+	movq	32(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rdx
+	.loc 3 115 10
+	movq	48(%rbp), %rax
+	addq	$16, %rax
+	.loc 3 115 21
+	orq	%rcx, %rdx
+	.loc 3 115 14
+	movq	%rdx, (%rax)
+	.loc 3 116 17
+	movq	16(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rcx
+	.loc 3 116 24
+	movq	32(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rdx
+	.loc 3 116 10
+	movq	48(%rbp), %rax
+	addq	$24, %rax
+	.loc 3 116 21
+	orq	%rcx, %rdx
+	.loc 3 116 14
+	movq	%rdx, (%rax)
+	.loc 3 117 17
+	movq	16(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rcx
+	.loc 3 117 24
+	movq	32(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rdx
+	.loc 3 117 10
+	movq	48(%rbp), %rax
+	addq	$32, %rax
+	.loc 3 117 21
+	orq	%rcx, %rdx
+	.loc 3 117 14
+	movq	%rdx, (%rax)
+	.loc 3 118 17
+	movq	16(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rcx
+	.loc 3 118 24
+	movq	32(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rdx
+	.loc 3 118 10
+	movq	48(%rbp), %rax
+	addq	$40, %rax
+	.loc 3 118 21
+	orq	%rcx, %rdx
+	.loc 3 118 14
+	movq	%rdx, (%rax)
+	.loc 3 119 17
+	movq	16(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rcx
+	.loc 3 119 24
+	movq	32(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rdx
+	.loc 3 119 10
+	movq	48(%rbp), %rax
+	addq	$48, %rax
+	.loc 3 119 21
+	orq	%rcx, %rdx
+	.loc 3 119 14
+	movq	%rdx, (%rax)
+	.loc 3 120 17
+	movq	16(%rbp), %rax
+	addq	$56, %rax
+	movq	(%rax), %rcx
+	.loc 3 120 24
+	movq	32(%rbp), %rax
+	addq	$56, %rax
+	movq	(%rax), %rdx
+	.loc 3 120 10
+	movq	48(%rbp), %rax
+	addq	$56, %rax
+	.loc 3 120 21
+	orq	%rcx, %rdx
+	.loc 3 120 14
 	movq	%rdx, (%rax)
 	.loc 3 121 17
 	movq	16(%rbp), %rax
-	addq	$8, %rax
+	addq	$64, %rax
 	movq	(%rax), %rcx
 	.loc 3 121 24
 	movq	32(%rbp), %rax
-	addq	$8, %rax
+	addq	$64, %rax
 	movq	(%rax), %rdx
 	.loc 3 121 10
 	movq	48(%rbp), %rax
-	addq	$8, %rax
+	addq	$64, %rax
 	.loc 3 121 21
 	orq	%rcx, %rdx
 	.loc 3 121 14
 	movq	%rdx, (%rax)
 	.loc 3 122 17
 	movq	16(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	movq	(%rax), %rcx
 	.loc 3 122 24
 	movq	32(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	movq	(%rax), %rdx
 	.loc 3 122 10
 	movq	48(%rbp), %rax
-	addq	$16, %rax
+	addq	$72, %rax
 	.loc 3 122 21
 	orq	%rcx, %rdx
 	.loc 3 122 14
 	movq	%rdx, (%rax)
-	.loc 3 123 17
+	.loc 3 123 18
 	movq	16(%rbp), %rax
-	addq	$24, %rax
+	addq	$80, %rax
 	movq	(%rax), %rcx
-	.loc 3 123 24
+	.loc 3 123 26
 	movq	32(%rbp), %rax
-	addq	$24, %rax
+	addq	$80, %rax
 	movq	(%rax), %rdx
 	.loc 3 123 10
 	movq	48(%rbp), %rax
-	addq	$24, %rax
-	.loc 3 123 21
+	addq	$80, %rax
+	.loc 3 123 23
 	orq	%rcx, %rdx
-	.loc 3 123 14
+	.loc 3 123 15
 	movq	%rdx, (%rax)
-	.loc 3 124 17
+	.loc 3 124 18
 	movq	16(%rbp), %rax
-	addq	$32, %rax
+	addq	$88, %rax
 	movq	(%rax), %rcx
-	.loc 3 124 24
+	.loc 3 124 26
 	movq	32(%rbp), %rax
-	addq	$32, %rax
+	addq	$88, %rax
 	movq	(%rax), %rdx
 	.loc 3 124 10
 	movq	48(%rbp), %rax
-	addq	$32, %rax
-	.loc 3 124 21
+	addq	$88, %rax
+	.loc 3 124 23
 	orq	%rcx, %rdx
-	.loc 3 124 14
+	.loc 3 124 15
 	movq	%rdx, (%rax)
-	.loc 3 125 17
+	.loc 3 125 18
 	movq	16(%rbp), %rax
-	addq	$40, %rax
+	addq	$96, %rax
 	movq	(%rax), %rcx
-	.loc 3 125 24
+	.loc 3 125 26
 	movq	32(%rbp), %rax
-	addq	$40, %rax
+	addq	$96, %rax
 	movq	(%rax), %rdx
 	.loc 3 125 10
 	movq	48(%rbp), %rax
-	addq	$40, %rax
-	.loc 3 125 21
+	addq	$96, %rax
+	.loc 3 125 23
 	orq	%rcx, %rdx
-	.loc 3 125 14
+	.loc 3 125 15
 	movq	%rdx, (%rax)
-	.loc 3 126 17
+	.loc 3 126 18
 	movq	16(%rbp), %rax
-	addq	$48, %rax
+	addq	$104, %rax
 	movq	(%rax), %rcx
-	.loc 3 126 24
+	.loc 3 126 26
 	movq	32(%rbp), %rax
-	addq	$48, %rax
+	addq	$104, %rax
 	movq	(%rax), %rdx
 	.loc 3 126 10
 	movq	48(%rbp), %rax
-	addq	$48, %rax
-	.loc 3 126 21
+	addq	$104, %rax
+	.loc 3 126 23
 	orq	%rcx, %rdx
-	.loc 3 126 14
+	.loc 3 126 15
 	movq	%rdx, (%rax)
-	.loc 3 127 17
+	.loc 3 127 18
 	movq	16(%rbp), %rax
-	addq	$56, %rax
+	addq	$112, %rax
 	movq	(%rax), %rcx
-	.loc 3 127 24
+	.loc 3 127 26
 	movq	32(%rbp), %rax
-	addq	$56, %rax
+	addq	$112, %rax
 	movq	(%rax), %rdx
 	.loc 3 127 10
 	movq	48(%rbp), %rax
-	addq	$56, %rax
-	.loc 3 127 21
+	addq	$112, %rax
+	.loc 3 127 23
 	orq	%rcx, %rdx
-	.loc 3 127 14
+	.loc 3 127 15
 	movq	%rdx, (%rax)
-	.loc 3 128 17
+	.loc 3 128 18
 	movq	16(%rbp), %rax
-	addq	$64, %rax
+	addq	$120, %rax
 	movq	(%rax), %rcx
-	.loc 3 128 24
+	.loc 3 128 26
 	movq	32(%rbp), %rax
-	addq	$64, %rax
+	addq	$120, %rax
 	movq	(%rax), %rdx
 	.loc 3 128 10
 	movq	48(%rbp), %rax
-	addq	$64, %rax
-	.loc 3 128 21
-	orq	%rcx, %rdx
-	.loc 3 128 14
-	movq	%rdx, (%rax)
-	.loc 3 129 17
-	movq	16(%rbp), %rax
-	addq	$72, %rax
-	movq	(%rax), %rcx
-	.loc 3 129 24
-	movq	32(%rbp), %rax
-	addq	$72, %rax
-	movq	(%rax), %rdx
-	.loc 3 129 10
-	movq	48(%rbp), %rax
-	addq	$72, %rax
-	.loc 3 129 21
-	orq	%rcx, %rdx
-	.loc 3 129 14
-	movq	%rdx, (%rax)
-	.loc 3 130 18
-	movq	16(%rbp), %rax
-	addq	$80, %rax
-	movq	(%rax), %rcx
-	.loc 3 130 26
-	movq	32(%rbp), %rax
-	addq	$80, %rax
-	movq	(%rax), %rdx
-	.loc 3 130 10
-	movq	48(%rbp), %rax
-	addq	$80, %rax
-	.loc 3 130 23
-	orq	%rcx, %rdx
-	.loc 3 130 15
-	movq	%rdx, (%rax)
-	.loc 3 131 18
-	movq	16(%rbp), %rax
-	addq	$88, %rax
-	movq	(%rax), %rcx
-	.loc 3 131 26
-	movq	32(%rbp), %rax
-	addq	$88, %rax
-	movq	(%rax), %rdx
-	.loc 3 131 10
-	movq	48(%rbp), %rax
-	addq	$88, %rax
-	.loc 3 131 23
-	orq	%rcx, %rdx
-	.loc 3 131 15
-	movq	%rdx, (%rax)
-	.loc 3 132 18
-	movq	16(%rbp), %rax
-	addq	$96, %rax
-	movq	(%rax), %rcx
-	.loc 3 132 26
-	movq	32(%rbp), %rax
-	addq	$96, %rax
-	movq	(%rax), %rdx
-	.loc 3 132 10
-	movq	48(%rbp), %rax
-	addq	$96, %rax
-	.loc 3 132 23
-	orq	%rcx, %rdx
-	.loc 3 132 15
-	movq	%rdx, (%rax)
-	.loc 3 133 18
-	movq	16(%rbp), %rax
-	addq	$104, %rax
-	movq	(%rax), %rcx
-	.loc 3 133 26
-	movq	32(%rbp), %rax
-	addq	$104, %rax
-	movq	(%rax), %rdx
-	.loc 3 133 10
-	movq	48(%rbp), %rax
-	addq	$104, %rax
-	.loc 3 133 23
-	orq	%rcx, %rdx
-	.loc 3 133 15
-	movq	%rdx, (%rax)
-	.loc 3 134 18
-	movq	16(%rbp), %rax
-	addq	$112, %rax
-	movq	(%rax), %rcx
-	.loc 3 134 26
-	movq	32(%rbp), %rax
-	addq	$112, %rax
-	movq	(%rax), %rdx
-	.loc 3 134 10
-	movq	48(%rbp), %rax
-	addq	$112, %rax
-	.loc 3 134 23
-	orq	%rcx, %rdx
-	.loc 3 134 15
-	movq	%rdx, (%rax)
-	.loc 3 135 18
-	movq	16(%rbp), %rax
 	addq	$120, %rax
-	movq	(%rax), %rcx
-	.loc 3 135 26
-	movq	32(%rbp), %rax
-	addq	$120, %rax
-	movq	(%rax), %rdx
-	.loc 3 135 10
-	movq	48(%rbp), %rax
-	addq	$120, %rax
-	.loc 3 135 23
+	.loc 3 128 23
 	orq	%rcx, %rdx
-	.loc 3 135 15
+	.loc 3 128 15
 	movq	%rdx, (%rax)
-	.loc 3 136 11
+	.loc 3 129 11
 	subq	$-128, 16(%rbp)
-	.loc 3 137 11
+	.loc 3 130 11
 	subq	$-128, 32(%rbp)
-	.loc 3 138 11
+	.loc 3 131 11
 	subq	$-128, 48(%rbp)
 .L22:
-	.loc 3 141 18
+	.loc 3 134 18
 	movq	-16(%rbp), %rax
 	andl	$8, %eax
-	.loc 3 141 8
+	.loc 3 134 8
 	testq	%rax, %rax
 	je	.L23
+	.loc 3 136 17
+	movq	16(%rbp), %rax
+	movq	(%rax), %rdx
+	.loc 3 136 24
+	movq	32(%rbp), %rax
+	movq	(%rax), %rax
+	.loc 3 136 21
+	orq	%rax, %rdx
+	.loc 3 136 14
+	movq	48(%rbp), %rax
+	movq	%rdx, (%rax)
+	.loc 3 137 17
+	movq	16(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rcx
+	.loc 3 137 24
+	movq	32(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rdx
+	.loc 3 137 10
+	movq	48(%rbp), %rax
+	addq	$8, %rax
+	.loc 3 137 21
+	orq	%rcx, %rdx
+	.loc 3 137 14
+	movq	%rdx, (%rax)
+	.loc 3 138 17
+	movq	16(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rcx
+	.loc 3 138 24
+	movq	32(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rdx
+	.loc 3 138 10
+	movq	48(%rbp), %rax
+	addq	$16, %rax
+	.loc 3 138 21
+	orq	%rcx, %rdx
+	.loc 3 138 14
+	movq	%rdx, (%rax)
+	.loc 3 139 17
+	movq	16(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rcx
+	.loc 3 139 24
+	movq	32(%rbp), %rax
+	addq	$24, %rax
+	movq	(%rax), %rdx
+	.loc 3 139 10
+	movq	48(%rbp), %rax
+	addq	$24, %rax
+	.loc 3 139 21
+	orq	%rcx, %rdx
+	.loc 3 139 14
+	movq	%rdx, (%rax)
+	.loc 3 140 17
+	movq	16(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rcx
+	.loc 3 140 24
+	movq	32(%rbp), %rax
+	addq	$32, %rax
+	movq	(%rax), %rdx
+	.loc 3 140 10
+	movq	48(%rbp), %rax
+	addq	$32, %rax
+	.loc 3 140 21
+	orq	%rcx, %rdx
+	.loc 3 140 14
+	movq	%rdx, (%rax)
+	.loc 3 141 17
+	movq	16(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rcx
+	.loc 3 141 24
+	movq	32(%rbp), %rax
+	addq	$40, %rax
+	movq	(%rax), %rdx
+	.loc 3 141 10
+	movq	48(%rbp), %rax
+	addq	$40, %rax
+	.loc 3 141 21
+	orq	%rcx, %rdx
+	.loc 3 141 14
+	movq	%rdx, (%rax)
+	.loc 3 142 17
+	movq	16(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rcx
+	.loc 3 142 24
+	movq	32(%rbp), %rax
+	addq	$48, %rax
+	movq	(%rax), %rdx
+	.loc 3 142 10
+	movq	48(%rbp), %rax
+	addq	$48, %rax
+	.loc 3 142 21
+	orq	%rcx, %rdx
+	.loc 3 142 14
+	movq	%rdx, (%rax)
 	.loc 3 143 17
 	movq	16(%rbp), %rax
-	movq	(%rax), %rdx
+	addq	$56, %rax
+	movq	(%rax), %rcx
 	.loc 3 143 24
 	movq	32(%rbp), %rax
-	movq	(%rax), %rax
+	addq	$56, %rax
+	movq	(%rax), %rdx
+	.loc 3 143 10
+	movq	48(%rbp), %rax
+	addq	$56, %rax
 	.loc 3 143 21
-	orq	%rax, %rdx
+	orq	%rcx, %rdx
 	.loc 3 143 14
-	movq	48(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 144 17
-	movq	16(%rbp), %rax
-	addq	$8, %rax
-	movq	(%rax), %rcx
-	.loc 3 144 24
-	movq	32(%rbp), %rax
-	addq	$8, %rax
-	movq	(%rax), %rdx
-	.loc 3 144 10
-	movq	48(%rbp), %rax
-	addq	$8, %rax
-	.loc 3 144 21
-	orq	%rcx, %rdx
-	.loc 3 144 14
-	movq	%rdx, (%rax)
-	.loc 3 145 17
-	movq	16(%rbp), %rax
-	addq	$16, %rax
-	movq	(%rax), %rcx
-	.loc 3 145 24
-	movq	32(%rbp), %rax
-	addq	$16, %rax
-	movq	(%rax), %rdx
-	.loc 3 145 10
-	movq	48(%rbp), %rax
-	addq	$16, %rax
-	.loc 3 145 21
-	orq	%rcx, %rdx
-	.loc 3 145 14
-	movq	%rdx, (%rax)
-	.loc 3 146 17
-	movq	16(%rbp), %rax
-	addq	$24, %rax
-	movq	(%rax), %rcx
-	.loc 3 146 24
-	movq	32(%rbp), %rax
-	addq	$24, %rax
-	movq	(%rax), %rdx
-	.loc 3 146 10
-	movq	48(%rbp), %rax
-	addq	$24, %rax
-	.loc 3 146 21
-	orq	%rcx, %rdx
-	.loc 3 146 14
-	movq	%rdx, (%rax)
-	.loc 3 147 17
-	movq	16(%rbp), %rax
-	addq	$32, %rax
-	movq	(%rax), %rcx
-	.loc 3 147 24
-	movq	32(%rbp), %rax
-	addq	$32, %rax
-	movq	(%rax), %rdx
-	.loc 3 147 10
-	movq	48(%rbp), %rax
-	addq	$32, %rax
-	.loc 3 147 21
-	orq	%rcx, %rdx
-	.loc 3 147 14
-	movq	%rdx, (%rax)
-	.loc 3 148 17
-	movq	16(%rbp), %rax
-	addq	$40, %rax
-	movq	(%rax), %rcx
-	.loc 3 148 24
-	movq	32(%rbp), %rax
-	addq	$40, %rax
-	movq	(%rax), %rdx
-	.loc 3 148 10
-	movq	48(%rbp), %rax
-	addq	$40, %rax
-	.loc 3 148 21
-	orq	%rcx, %rdx
-	.loc 3 148 14
-	movq	%rdx, (%rax)
-	.loc 3 149 17
-	movq	16(%rbp), %rax
-	addq	$48, %rax
-	movq	(%rax), %rcx
-	.loc 3 149 24
-	movq	32(%rbp), %rax
-	addq	$48, %rax
-	movq	(%rax), %rdx
-	.loc 3 149 10
-	movq	48(%rbp), %rax
-	addq	$48, %rax
-	.loc 3 149 21
-	orq	%rcx, %rdx
-	.loc 3 149 14
-	movq	%rdx, (%rax)
-	.loc 3 150 17
-	movq	16(%rbp), %rax
-	addq	$56, %rax
-	movq	(%rax), %rcx
-	.loc 3 150 24
-	movq	32(%rbp), %rax
-	addq	$56, %rax
-	movq	(%rax), %rdx
-	.loc 3 150 10
-	movq	48(%rbp), %rax
-	addq	$56, %rax
-	.loc 3 150 21
-	orq	%rcx, %rdx
-	.loc 3 150 14
-	movq	%rdx, (%rax)
-	.loc 3 151 11
+	.loc 3 144 11
 	addq	$64, 16(%rbp)
-	.loc 3 152 11
+	.loc 3 145 11
 	addq	$64, 32(%rbp)
-	.loc 3 153 11
+	.loc 3 146 11
 	addq	$64, 48(%rbp)
 .L23:
-	.loc 3 156 18
+	.loc 3 149 18
 	movq	-16(%rbp), %rax
 	andl	$4, %eax
-	.loc 3 156 8
+	.loc 3 149 8
 	testq	%rax, %rax
 	je	.L24
-	.loc 3 158 17
+	.loc 3 151 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rdx
-	.loc 3 158 24
+	.loc 3 151 24
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 158 21
+	.loc 3 151 21
 	orq	%rax, %rdx
-	.loc 3 158 14
+	.loc 3 151 14
 	movq	48(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 159 17
+	.loc 3 152 17
 	movq	16(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rcx
-	.loc 3 159 24
+	.loc 3 152 24
 	movq	32(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rdx
-	.loc 3 159 10
+	.loc 3 152 10
 	movq	48(%rbp), %rax
 	addq	$8, %rax
-	.loc 3 159 21
+	.loc 3 152 21
 	orq	%rcx, %rdx
-	.loc 3 159 14
+	.loc 3 152 14
 	movq	%rdx, (%rax)
-	.loc 3 160 17
+	.loc 3 153 17
 	movq	16(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rcx
-	.loc 3 160 24
+	.loc 3 153 24
 	movq	32(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rdx
-	.loc 3 160 10
+	.loc 3 153 10
 	movq	48(%rbp), %rax
 	addq	$16, %rax
-	.loc 3 160 21
+	.loc 3 153 21
 	orq	%rcx, %rdx
-	.loc 3 160 14
+	.loc 3 153 14
 	movq	%rdx, (%rax)
-	.loc 3 161 17
+	.loc 3 154 17
 	movq	16(%rbp), %rax
 	addq	$24, %rax
 	movq	(%rax), %rcx
-	.loc 3 161 24
+	.loc 3 154 24
 	movq	32(%rbp), %rax
 	addq	$24, %rax
 	movq	(%rax), %rdx
-	.loc 3 161 10
+	.loc 3 154 10
 	movq	48(%rbp), %rax
 	addq	$24, %rax
-	.loc 3 161 21
+	.loc 3 154 21
 	orq	%rcx, %rdx
-	.loc 3 161 14
+	.loc 3 154 14
 	movq	%rdx, (%rax)
-	.loc 3 162 11
+	.loc 3 155 11
 	addq	$32, 16(%rbp)
-	.loc 3 163 11
+	.loc 3 156 11
 	addq	$32, 32(%rbp)
-	.loc 3 164 11
+	.loc 3 157 11
 	addq	$32, 48(%rbp)
 .L24:
-	.loc 3 167 18
+	.loc 3 160 18
 	movq	-16(%rbp), %rax
 	andl	$2, %eax
-	.loc 3 167 8
+	.loc 3 160 8
 	testq	%rax, %rax
 	je	.L25
-	.loc 3 169 17
+	.loc 3 162 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rdx
-	.loc 3 169 24
+	.loc 3 162 24
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 169 21
+	.loc 3 162 21
 	orq	%rax, %rdx
-	.loc 3 169 14
+	.loc 3 162 14
 	movq	48(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 170 17
+	.loc 3 163 17
 	movq	16(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rcx
-	.loc 3 170 24
+	.loc 3 163 24
 	movq	32(%rbp), %rax
 	addq	$8, %rax
 	movq	(%rax), %rdx
-	.loc 3 170 10
+	.loc 3 163 10
 	movq	48(%rbp), %rax
 	addq	$8, %rax
-	.loc 3 170 21
+	.loc 3 163 21
 	orq	%rcx, %rdx
-	.loc 3 170 14
+	.loc 3 163 14
 	movq	%rdx, (%rax)
-	.loc 3 171 11
+	.loc 3 164 11
 	addq	$16, 16(%rbp)
-	.loc 3 172 11
+	.loc 3 165 11
 	addq	$16, 32(%rbp)
-	.loc 3 173 11
+	.loc 3 166 11
 	addq	$16, 48(%rbp)
 .L25:
-	.loc 3 176 18
+	.loc 3 169 18
 	movq	-16(%rbp), %rax
 	andl	$1, %eax
-	.loc 3 176 8
+	.loc 3 169 8
 	testq	%rax, %rax
 	je	.L26
-	.loc 3 178 17
+	.loc 3 171 17
 	movq	16(%rbp), %rax
 	movq	(%rax), %rdx
-	.loc 3 178 24
+	.loc 3 171 24
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 178 21
+	.loc 3 171 21
 	orq	%rax, %rdx
-	.loc 3 178 14
+	.loc 3 171 14
 	movq	48(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 179 11
+	.loc 3 172 11
 	addq	$8, 16(%rbp)
-	.loc 3 180 11
+	.loc 3 173 11
 	addq	$8, 32(%rbp)
-	.loc 3 181 11
+	.loc 3 174 11
 	addq	$8, 48(%rbp)
 .L26:
-	.loc 3 184 5
+	.loc 3 177 5
 	movq	-24(%rbp), %rdx
 	movq	48(%rbp), %rax
 	movq	%rdx, %r8
 	movq	16(%rbp), %rdx
 	movq	%rax, %rcx
 	call	_COPY_MEMORY_UNIT
-	.loc 3 185 1
+	.loc 3 178 1
 	nop
 	addq	$64, %rsp
 	popq	%rbp
@@ -1418,7 +1418,7 @@ BitwiseOr_X_X:
 	.seh_proc	PMC_BitwiseOr_X_I_Imp
 PMC_BitwiseOr_X_I_Imp:
 .LFB4376:
-	.loc 3 188 1
+	.loc 3 181 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1433,75 +1433,75 @@ PMC_BitwiseOr_X_I_Imp:
 	movq	%rcx, 16(%rbp)
 	movl	%edx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 190 9
+	.loc 3 183 9
 	movq	16(%rbp), %rax
 	movzbl	40(%rax), %eax
 	andl	$2, %eax
-	.loc 3 190 8
+	.loc 3 183 8
 	testb	%al, %al
 	je	.L28
-	.loc 3 193 12
+	.loc 3 186 12
 	cmpl	$0, 24(%rbp)
 	jne	.L29
-	.loc 3 196 16
+	.loc 3 189 16
 	movq	32(%rbp), %rax
 	movq	.refptr.number_zero(%rip), %rdx
 	movq	%rdx, (%rax)
 	jmp	.L30
 .L29:
-	.loc 3 201 27
+	.loc 3 194 27
 	movq	32(%rbp), %rdx
 	movl	24(%rbp), %eax
 	movl	%eax, %ecx
 	call	From_I_Imp
 	movl	%eax, -4(%rbp)
-	.loc 3 201 16
+	.loc 3 194 16
 	cmpl	$0, -4(%rbp)
 	je	.L30
-	.loc 3 202 24
+	.loc 3 195 24
 	movl	-4(%rbp), %eax
 	jmp	.L31
 .L28:
-	.loc 3 205 13
+	.loc 3 198 13
 	cmpl	$0, 24(%rbp)
 	jne	.L32
-	.loc 3 208 23
+	.loc 3 201 23
 	movq	32(%rbp), %rax
 	movq	%rax, %rdx
 	movq	16(%rbp), %rcx
 	call	DuplicateNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 208 12
+	.loc 3 201 12
 	cmpl	$0, -4(%rbp)
 	je	.L30
-	.loc 3 209 20
+	.loc 3 202 20
 	movl	-4(%rbp), %eax
 	jmp	.L31
 .L32:
 .LBB6:
-	.loc 3 214 21
+	.loc 3 207 21
 	movq	16(%rbp), %rax
 	movq	16(%rax), %rax
 	movq	%rax, -16(%rbp)
-	.loc 3 215 51
+	.loc 3 208 51
 	movl	24(%rbp), %eax
 	movl	%eax, %ecx
 	call	_LZCNT_ALT_32
 	cltq
-	.loc 3 215 21
+	.loc 3 208 21
 	movl	$32, %edx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -24(%rbp)
-	.loc 3 216 35
+	.loc 3 209 35
 	movq	-24(%rbp), %rdx
 	movq	-16(%rbp), %rax
 	movq	%rax, %rcx
 	call	_MAXIMUM_UNIT
-	.loc 3 216 21
+	.loc 3 209 21
 	addq	$1, %rax
 	movq	%rax, -32(%rbp)
-	.loc 3 218 23
+	.loc 3 211 23
 	leaq	-40(%rbp), %rcx
 	movq	-32(%rbp), %rdx
 	movq	32(%rbp), %rax
@@ -1509,17 +1509,17 @@ PMC_BitwiseOr_X_I_Imp:
 	movq	%rax, %rcx
 	call	AllocateNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 218 12
+	.loc 3 211 12
 	cmpl	$0, -4(%rbp)
 	je	.L33
-	.loc 3 219 20
+	.loc 3 212 20
 	movl	-4(%rbp), %eax
 	jmp	.L31
 .L33:
-	.loc 3 220 58
+	.loc 3 213 58
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 220 9
+	.loc 3 213 9
 	movq	56(%rax), %r8
 	movl	24(%rbp), %ecx
 	movq	16(%rbp), %rax
@@ -1530,34 +1530,34 @@ PMC_BitwiseOr_X_I_Imp:
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	BitwiseOr_X_1W
-	.loc 3 221 23
+	.loc 3 214 23
 	movq	-40(%rbp), %rdx
-	.loc 3 221 40
+	.loc 3 214 40
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 221 23
+	.loc 3 214 23
 	movq	56(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, -4(%rbp)
-	.loc 3 221 12
+	.loc 3 214 12
 	cmpl	$0, -4(%rbp)
 	je	.L35
-	.loc 3 222 20
+	.loc 3 215 20
 	movl	-4(%rbp), %eax
 	jmp	.L31
 .L35:
-	.loc 3 223 9
+	.loc 3 216 9
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CommitNumber
 .L30:
 .LBE6:
-	.loc 3 225 12
+	.loc 3 218 12
 	movl	$0, %eax
 .L31:
-	.loc 3 226 1
+	.loc 3 219 1
 	addq	$80, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -1571,7 +1571,7 @@ PMC_BitwiseOr_X_I_Imp:
 	.seh_proc	PMC_BitwiseOr_I_X
 PMC_BitwiseOr_I_X:
 .LFB4377:
-	.loc 3 229 1
+	.loc 3 222 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1586,33 +1586,33 @@ PMC_BitwiseOr_I_X:
 	movl	%ecx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 235 8
+	.loc 3 228 8
 	cmpq	$0, 24(%rbp)
 	jne	.L37
-	.loc 3 236 16
+	.loc 3 229 16
 	movl	$-1, %eax
 	jmp	.L38
 .L37:
-	.loc 3 237 8
+	.loc 3 230 8
 	cmpq	$0, 32(%rbp)
 	jne	.L39
-	.loc 3 238 16
+	.loc 3 231 16
 	movl	$-1, %eax
 	jmp	.L38
 .L39:
-	.loc 3 240 19
+	.loc 3 233 19
 	movq	24(%rbp), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 240 8
+	.loc 3 233 8
 	cmpl	$0, -4(%rbp)
 	je	.L40
-	.loc 3 241 16
+	.loc 3 234 16
 	movl	-4(%rbp), %eax
 	jmp	.L38
 .L40:
-	.loc 3 242 19
+	.loc 3 235 19
 	movq	32(%rbp), %rdx
 	movq	24(%rbp), %rax
 	movq	%rdx, %r8
@@ -1620,30 +1620,30 @@ PMC_BitwiseOr_I_X:
 	movq	%rax, %rcx
 	call	PMC_BitwiseOr_X_I_Imp
 	movl	%eax, -4(%rbp)
-	.loc 3 242 8
+	.loc 3 235 8
 	cmpl	$0, -4(%rbp)
 	je	.L41
-	.loc 3 243 16
+	.loc 3 236 16
 	movl	-4(%rbp), %eax
 	jmp	.L38
 .L41:
-	.loc 3 245 19
+	.loc 3 238 19
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 245 8
+	.loc 3 238 8
 	cmpl	$0, -4(%rbp)
 	je	.L42
-	.loc 3 246 16
+	.loc 3 239 16
 	movl	-4(%rbp), %eax
 	jmp	.L38
 .L42:
-	.loc 3 248 12
+	.loc 3 241 12
 	movl	$0, %eax
 .L38:
-	.loc 3 249 1
+	.loc 3 242 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -1657,7 +1657,7 @@ PMC_BitwiseOr_I_X:
 	.seh_proc	PMC_BitwiseOr_X_I
 PMC_BitwiseOr_X_I:
 .LFB4378:
-	.loc 3 252 1
+	.loc 3 245 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1672,32 +1672,32 @@ PMC_BitwiseOr_X_I:
 	movq	%rcx, 16(%rbp)
 	movl	%edx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 258 8
+	.loc 3 251 8
 	cmpq	$0, 16(%rbp)
 	jne	.L44
-	.loc 3 259 16
+	.loc 3 252 16
 	movl	$-1, %eax
 	jmp	.L45
 .L44:
-	.loc 3 260 8
+	.loc 3 253 8
 	cmpq	$0, 32(%rbp)
 	jne	.L46
-	.loc 3 261 16
+	.loc 3 254 16
 	movl	$-1, %eax
 	jmp	.L45
 .L46:
-	.loc 3 263 19
+	.loc 3 256 19
 	movq	16(%rbp), %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 263 8
+	.loc 3 256 8
 	cmpl	$0, -4(%rbp)
 	je	.L47
-	.loc 3 264 16
+	.loc 3 257 16
 	movl	-4(%rbp), %eax
 	jmp	.L45
 .L47:
-	.loc 3 265 19
+	.loc 3 258 19
 	movq	32(%rbp), %rdx
 	movl	24(%rbp), %eax
 	movq	%rdx, %r8
@@ -1705,30 +1705,30 @@ PMC_BitwiseOr_X_I:
 	movq	16(%rbp), %rcx
 	call	PMC_BitwiseOr_X_I_Imp
 	movl	%eax, -4(%rbp)
-	.loc 3 265 8
+	.loc 3 258 8
 	cmpl	$0, -4(%rbp)
 	je	.L48
-	.loc 3 266 16
+	.loc 3 259 16
 	movl	-4(%rbp), %eax
 	jmp	.L45
 .L48:
-	.loc 3 268 19
+	.loc 3 261 19
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 268 8
+	.loc 3 261 8
 	cmpl	$0, -4(%rbp)
 	je	.L49
-	.loc 3 269 16
+	.loc 3 262 16
 	movl	-4(%rbp), %eax
 	jmp	.L45
 .L49:
-	.loc 3 271 12
+	.loc 3 264 12
 	movl	$0, %eax
 .L45:
-	.loc 3 272 1
+	.loc 3 265 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -1741,7 +1741,7 @@ PMC_BitwiseOr_X_I:
 	.seh_proc	PMC_BitwiseOr_X_L_Imp
 PMC_BitwiseOr_X_L_Imp:
 .LFB4379:
-	.loc 3 275 1
+	.loc 3 268 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1756,75 +1756,75 @@ PMC_BitwiseOr_X_L_Imp:
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 277 9
+	.loc 3 270 9
 	movq	16(%rbp), %rax
 	movzbl	40(%rax), %eax
 	andl	$2, %eax
-	.loc 3 277 8
+	.loc 3 270 8
 	testb	%al, %al
 	je	.L51
-	.loc 3 280 12
+	.loc 3 273 12
 	cmpq	$0, 24(%rbp)
 	jne	.L52
-	.loc 3 283 16
+	.loc 3 276 16
 	movq	32(%rbp), %rax
 	movq	.refptr.number_zero(%rip), %rdx
 	movq	%rdx, (%rax)
 	jmp	.L53
 .L52:
-	.loc 3 288 27
+	.loc 3 281 27
 	movq	32(%rbp), %rdx
 	movq	24(%rbp), %rax
 	movq	%rax, %rcx
 	call	From_L_Imp
 	movl	%eax, -20(%rbp)
-	.loc 3 288 16
+	.loc 3 281 16
 	cmpl	$0, -20(%rbp)
 	je	.L53
-	.loc 3 289 24
+	.loc 3 282 24
 	movl	-20(%rbp), %eax
 	jmp	.L54
 .L51:
-	.loc 3 292 13
+	.loc 3 285 13
 	cmpq	$0, 24(%rbp)
 	jne	.L55
-	.loc 3 295 23
+	.loc 3 288 23
 	movq	32(%rbp), %rax
 	movq	%rax, %rdx
 	movq	16(%rbp), %rcx
 	call	DuplicateNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 295 12
+	.loc 3 288 12
 	cmpl	$0, -20(%rbp)
 	je	.L53
-	.loc 3 296 20
+	.loc 3 289 20
 	movl	-20(%rbp), %eax
 	jmp	.L54
 .L55:
 .LBB7:
-	.loc 3 337 25
+	.loc 3 330 25
 	movq	16(%rbp), %rax
 	movq	16(%rax), %rax
 	movq	%rax, -32(%rbp)
-	.loc 3 338 55
+	.loc 3 331 55
 	movq	24(%rbp), %rax
 	movq	%rax, %rcx
 	call	_LZCNT_ALT_UNIT
 	cltq
-	.loc 3 338 25
+	.loc 3 331 25
 	movl	$64, %edx
 	subq	%rax, %rdx
 	movq	%rdx, %rax
 	movq	%rax, -8(%rbp)
-	.loc 3 339 39
+	.loc 3 332 39
 	movq	-8(%rbp), %rdx
 	movq	-32(%rbp), %rax
 	movq	%rax, %rcx
 	call	_MAXIMUM_UNIT
-	.loc 3 339 25
+	.loc 3 332 25
 	addq	$1, %rax
 	movq	%rax, -16(%rbp)
-	.loc 3 341 27
+	.loc 3 334 27
 	leaq	-64(%rbp), %rcx
 	movq	-16(%rbp), %rdx
 	movq	32(%rbp), %rax
@@ -1832,17 +1832,17 @@ PMC_BitwiseOr_X_L_Imp:
 	movq	%rax, %rcx
 	call	AllocateNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 341 16
+	.loc 3 334 16
 	cmpl	$0, -20(%rbp)
 	je	.L56
-	.loc 3 342 24
+	.loc 3 335 24
 	movl	-20(%rbp), %eax
 	jmp	.L54
 .L56:
-	.loc 3 343 75
+	.loc 3 336 75
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 343 13
+	.loc 3 336 13
 	movq	56(%rax), %r8
 	movq	16(%rbp), %rax
 	movq	8(%rax), %rdx
@@ -1853,34 +1853,34 @@ PMC_BitwiseOr_X_L_Imp:
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	BitwiseOr_X_1W
-	.loc 3 344 27
+	.loc 3 337 27
 	movq	-64(%rbp), %rdx
-	.loc 3 344 44
+	.loc 3 337 44
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
-	.loc 3 344 27
+	.loc 3 337 27
 	movq	56(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, -20(%rbp)
-	.loc 3 344 16
+	.loc 3 337 16
 	cmpl	$0, -20(%rbp)
 	je	.L58
-	.loc 3 345 24
+	.loc 3 338 24
 	movl	-20(%rbp), %eax
 	jmp	.L54
 .L58:
-	.loc 3 346 13
+	.loc 3 339 13
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CommitNumber
 .L53:
 .LBE7:
-	.loc 3 349 12
+	.loc 3 342 12
 	movl	$0, %eax
 .L54:
-	.loc 3 350 1 discriminator 4
+	.loc 3 343 1 discriminator 4
 	addq	$96, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -1894,7 +1894,7 @@ PMC_BitwiseOr_X_L_Imp:
 	.seh_proc	PMC_BitwiseOr_L_X
 PMC_BitwiseOr_L_X:
 .LFB4380:
-	.loc 3 353 1
+	.loc 3 346 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1909,33 +1909,33 @@ PMC_BitwiseOr_L_X:
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 359 8
+	.loc 3 352 8
 	cmpq	$0, 24(%rbp)
 	jne	.L60
-	.loc 3 360 16
+	.loc 3 353 16
 	movl	$-1, %eax
 	jmp	.L61
 .L60:
-	.loc 3 361 8
+	.loc 3 354 8
 	cmpq	$0, 32(%rbp)
 	jne	.L62
-	.loc 3 362 16
+	.loc 3 355 16
 	movl	$-1, %eax
 	jmp	.L61
 .L62:
-	.loc 3 364 19
+	.loc 3 357 19
 	movq	24(%rbp), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 364 8
+	.loc 3 357 8
 	cmpl	$0, -4(%rbp)
 	je	.L63
-	.loc 3 365 16
+	.loc 3 358 16
 	movl	-4(%rbp), %eax
 	jmp	.L61
 .L63:
-	.loc 3 366 19
+	.loc 3 359 19
 	movq	32(%rbp), %rdx
 	movq	24(%rbp), %rax
 	movq	%rdx, %r8
@@ -1943,30 +1943,30 @@ PMC_BitwiseOr_L_X:
 	movq	%rax, %rcx
 	call	PMC_BitwiseOr_X_L_Imp
 	movl	%eax, -4(%rbp)
-	.loc 3 366 8
+	.loc 3 359 8
 	cmpl	$0, -4(%rbp)
 	je	.L64
-	.loc 3 367 16
+	.loc 3 360 16
 	movl	-4(%rbp), %eax
 	jmp	.L61
 .L64:
-	.loc 3 369 19
+	.loc 3 362 19
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 369 8
+	.loc 3 362 8
 	cmpl	$0, -4(%rbp)
 	je	.L65
-	.loc 3 370 16
+	.loc 3 363 16
 	movl	-4(%rbp), %eax
 	jmp	.L61
 .L65:
-	.loc 3 372 12
+	.loc 3 365 12
 	movl	$0, %eax
 .L61:
-	.loc 3 373 1
+	.loc 3 366 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -1980,7 +1980,7 @@ PMC_BitwiseOr_L_X:
 	.seh_proc	PMC_BitwiseOr_X_L
 PMC_BitwiseOr_X_L:
 .LFB4381:
-	.loc 3 376 1
+	.loc 3 369 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1995,32 +1995,32 @@ PMC_BitwiseOr_X_L:
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 382 8
+	.loc 3 375 8
 	cmpq	$0, 16(%rbp)
 	jne	.L67
-	.loc 3 383 16
+	.loc 3 376 16
 	movl	$-1, %eax
 	jmp	.L68
 .L67:
-	.loc 3 384 8
+	.loc 3 377 8
 	cmpq	$0, 32(%rbp)
 	jne	.L69
-	.loc 3 385 16
+	.loc 3 378 16
 	movl	$-1, %eax
 	jmp	.L68
 .L69:
-	.loc 3 387 19
+	.loc 3 380 19
 	movq	16(%rbp), %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 387 8
+	.loc 3 380 8
 	cmpl	$0, -4(%rbp)
 	je	.L70
-	.loc 3 388 16
+	.loc 3 381 16
 	movl	-4(%rbp), %eax
 	jmp	.L68
 .L70:
-	.loc 3 389 19
+	.loc 3 382 19
 	movq	32(%rbp), %rdx
 	movq	24(%rbp), %rax
 	movq	%rdx, %r8
@@ -2028,30 +2028,30 @@ PMC_BitwiseOr_X_L:
 	movq	16(%rbp), %rcx
 	call	PMC_BitwiseOr_X_L_Imp
 	movl	%eax, -4(%rbp)
-	.loc 3 389 8
+	.loc 3 382 8
 	cmpl	$0, -4(%rbp)
 	je	.L71
-	.loc 3 390 16
+	.loc 3 383 16
 	movl	-4(%rbp), %eax
 	jmp	.L68
 .L71:
-	.loc 3 392 19
+	.loc 3 385 19
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -4(%rbp)
-	.loc 3 392 8
+	.loc 3 385 8
 	cmpl	$0, -4(%rbp)
 	je	.L72
-	.loc 3 393 16
+	.loc 3 386 16
 	movl	-4(%rbp), %eax
 	jmp	.L68
 .L72:
-	.loc 3 395 12
+	.loc 3 388 12
 	movl	$0, %eax
 .L68:
-	.loc 3 396 1
+	.loc 3 389 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -2065,7 +2065,7 @@ PMC_BitwiseOr_X_L:
 	.seh_proc	PMC_BitwiseOr_X_X
 PMC_BitwiseOr_X_X:
 .LFB4382:
-	.loc 3 399 1
+	.loc 3 392 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -2080,134 +2080,134 @@ PMC_BitwiseOr_X_X:
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 3 400 8
+	.loc 3 393 8
 	cmpq	$0, 16(%rbp)
 	jne	.L74
-	.loc 3 401 16
+	.loc 3 394 16
 	movl	$-1, %eax
 	jmp	.L88
 .L74:
-	.loc 3 402 8
+	.loc 3 395 8
 	cmpq	$0, 24(%rbp)
 	jne	.L76
-	.loc 3 403 16
+	.loc 3 396 16
 	movl	$-1, %eax
 	jmp	.L88
 .L76:
-	.loc 3 404 8
+	.loc 3 397 8
 	cmpq	$0, 32(%rbp)
 	jne	.L77
-	.loc 3 405 16
+	.loc 3 398 16
 	movl	$-1, %eax
 	jmp	.L88
 .L77:
-	.loc 3 406 20
+	.loc 3 399 20
 	movq	16(%rbp), %rax
 	movq	%rax, -8(%rbp)
-	.loc 3 407 20
+	.loc 3 400 20
 	movq	24(%rbp), %rax
 	movq	%rax, -16(%rbp)
-	.loc 3 409 19
+	.loc 3 402 19
 	movq	-8(%rbp), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 409 8
+	.loc 3 402 8
 	cmpl	$0, -20(%rbp)
 	je	.L78
-	.loc 3 410 16
+	.loc 3 403 16
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L78:
-	.loc 3 411 19
+	.loc 3 404 19
 	movq	-16(%rbp), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 411 8
+	.loc 3 404 8
 	cmpl	$0, -20(%rbp)
 	je	.L79
-	.loc 3 412 16
+	.loc 3 405 16
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L79:
-	.loc 3 414 9
+	.loc 3 407 9
 	movq	-8(%rbp), %rax
 	movzbl	40(%rax), %eax
 	andl	$2, %eax
-	.loc 3 414 8
+	.loc 3 407 8
 	testb	%al, %al
 	je	.L80
-	.loc 3 416 23
+	.loc 3 409 23
 	leaq	-64(%rbp), %rax
 	movq	-16(%rbp), %rcx
 	movq	%rax, %rdx
 	call	DuplicateNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 416 12
+	.loc 3 409 12
 	cmpl	$0, -20(%rbp)
 	je	.L81
-	.loc 3 417 20
+	.loc 3 410 20
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L80:
-	.loc 3 419 14
+	.loc 3 412 14
 	movq	-16(%rbp), %rax
 	movzbl	40(%rax), %eax
 	andl	$2, %eax
-	.loc 3 419 13
+	.loc 3 412 13
 	testb	%al, %al
 	je	.L82
-	.loc 3 421 23
+	.loc 3 414 23
 	leaq	-64(%rbp), %rax
 	movq	-8(%rbp), %rcx
 	movq	%rax, %rdx
 	call	DuplicateNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 421 12
+	.loc 3 414 12
 	cmpl	$0, -20(%rbp)
 	je	.L81
-	.loc 3 422 20
+	.loc 3 415 20
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L82:
 .LBB8:
-	.loc 3 426 15
+	.loc 3 419 15
 	movq	-8(%rbp), %rax
 	movq	8(%rax), %rdx
-	.loc 3 426 37
+	.loc 3 419 37
 	movq	-16(%rbp), %rax
 	movq	8(%rax), %rax
-	.loc 3 426 12
+	.loc 3 419 12
 	cmpq	%rax, %rdx
 	jnb	.L83
 .LBB9:
-	.loc 3 428 28
+	.loc 3 421 28
 	movq	-8(%rbp), %rax
 	movq	%rax, -32(%rbp)
-	.loc 3 429 16
+	.loc 3 422 16
 	movq	-16(%rbp), %rax
 	movq	%rax, -8(%rbp)
-	.loc 3 430 16
+	.loc 3 423 16
 	movq	-32(%rbp), %rax
 	movq	%rax, -16(%rbp)
 .L83:
 .LBE9:
-	.loc 3 432 21
+	.loc 3 425 21
 	movq	-8(%rbp), %rax
 	movq	16(%rax), %rax
 	movq	%rax, -40(%rbp)
-	.loc 3 433 21
+	.loc 3 426 21
 	movq	-16(%rbp), %rax
 	movq	16(%rax), %rax
 	movq	%rax, -48(%rbp)
-	.loc 3 434 35
+	.loc 3 427 35
 	movq	-48(%rbp), %rdx
 	movq	-40(%rbp), %rax
 	movq	%rax, %rcx
 	call	_MAXIMUM_UNIT
 	movq	%rax, -56(%rbp)
-	.loc 3 436 23
+	.loc 3 429 23
 	leaq	-72(%rbp), %rcx
 	movq	-56(%rbp), %rdx
 	leaq	-64(%rbp), %rax
@@ -2215,16 +2215,16 @@ PMC_BitwiseOr_X_X:
 	movq	%rax, %rcx
 	call	AllocateNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 436 12
+	.loc 3 429 12
 	cmpl	$0, -20(%rbp)
 	je	.L84
-	.loc 3 437 20
+	.loc 3 430 20
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L84:
-	.loc 3 438 89
+	.loc 3 431 89
 	movq	-64(%rbp), %rax
-	.loc 3 438 9
+	.loc 3 431 9
 	movq	56(%rax), %rcx
 	movq	-16(%rbp), %rax
 	movq	8(%rax), %r9
@@ -2237,49 +2237,49 @@ PMC_BitwiseOr_X_X:
 	movq	%rcx, 32(%rsp)
 	movq	%rax, %rcx
 	call	BitwiseOr_X_X
-	.loc 3 439 23
+	.loc 3 432 23
 	movq	-72(%rbp), %rdx
-	.loc 3 439 41
+	.loc 3 432 41
 	movq	-64(%rbp), %rax
-	.loc 3 439 23
+	.loc 3 432 23
 	movq	56(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, -20(%rbp)
-	.loc 3 439 12
+	.loc 3 432 12
 	cmpl	$0, -20(%rbp)
 	je	.L86
-	.loc 3 440 20
+	.loc 3 433 20
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L86:
-	.loc 3 441 9
+	.loc 3 434 9
 	movq	-64(%rbp), %rax
 	movq	%rax, %rcx
 	call	CommitNumber
 .L81:
 .LBE8:
-	.loc 3 443 8
+	.loc 3 436 8
 	movq	-64(%rbp), %rdx
 	movq	32(%rbp), %rax
 	movq	%rdx, (%rax)
-	.loc 3 445 19
+	.loc 3 438 19
 	movq	32(%rbp), %rax
 	movq	(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckNumber
 	movl	%eax, -20(%rbp)
-	.loc 3 445 8
+	.loc 3 438 8
 	cmpl	$0, -20(%rbp)
 	je	.L87
-	.loc 3 446 16
+	.loc 3 439 16
 	movl	-20(%rbp), %eax
 	jmp	.L88
 .L87:
-	.loc 3 448 12
+	.loc 3 441 12
 	movl	$0, %eax
 .L88:
-	.loc 3 449 1 discriminator 1
+	.loc 3 442 1 discriminator 1
 	subq	$-128, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -2293,7 +2293,7 @@ PMC_BitwiseOr_X_X:
 	.seh_proc	Initialize_BitwiseOr
 Initialize_BitwiseOr:
 .LFB4383:
-	.loc 3 452 1
+	.loc 3 445 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -2304,9 +2304,9 @@ Initialize_BitwiseOr:
 	.cfi_def_cfa_register 6
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
-	.loc 3 453 12
+	.loc 3 446 12
 	movl	$0, %eax
-	.loc 3 454 1
+	.loc 3 447 1
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -2348,7 +2348,7 @@ Initialize_BitwiseOr:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x5627
+	.long	0x5626
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -6140,26 +6140,26 @@ Initialize_BitwiseOr:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1f
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x498d
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1f
-	.byte	0x60
+	.byte	0x5a
 	.byte	0x12
 	.long	0x499e
 	.uleb128 0x12
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1f
-	.byte	0x65
+	.byte	0x5f
 	.byte	0x10
 	.long	0x4a22
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1f
-	.byte	0x67
+	.byte	0x61
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6170,47 +6170,47 @@ Initialize_BitwiseOr:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1f
-	.byte	0x68
+	.byte	0x62
 	.byte	0x3
 	.long	0x49d3
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x1f
-	.byte	0x6b
+	.byte	0x65
 	.byte	0xd
 	.long	0x13d
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x71
+	.byte	0x6b
 	.byte	0x10
 	.long	0x4ad5
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x73
+	.byte	0x6d
 	.byte	0xa
 	.long	0x144
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x74
+	.byte	0x6e
 	.byte	0xa
 	.long	0x144
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x75
+	.byte	0x6f
 	.byte	0xa
 	.long	0x144
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x76
+	.byte	0x70
 	.byte	0xa
 	.long	0x144
 	.byte	0xc
@@ -6218,20 +6218,20 @@ Initialize_BitwiseOr:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x77
+	.byte	0x71
 	.byte	0x3
 	.long	0x4a59
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x20
-	.byte	0x29
+	.byte	0x23
 	.byte	0x10
 	.long	0x4bc2
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x20
-	.byte	0x2c
+	.byte	0x26
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6241,7 +6241,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ADX\0"
 	.byte	0x20
-	.byte	0x2f
+	.byte	0x29
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6251,7 +6251,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI1\0"
 	.byte	0x20
-	.byte	0x32
+	.byte	0x2c
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6261,7 +6261,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI2\0"
 	.byte	0x20
-	.byte	0x35
+	.byte	0x2f
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6271,7 +6271,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ABM\0"
 	.byte	0x20
-	.byte	0x38
+	.byte	0x32
 	.byte	0xe
 	.long	0x465
 	.byte	0x4
@@ -6282,13 +6282,13 @@ Initialize_BitwiseOr:
 	.uleb128 0x3
 	.ascii "PROCESSOR_FEATURES\0"
 	.byte	0x20
-	.byte	0x39
+	.byte	0x33
 	.byte	0x3
 	.long	0x4af1
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
-	.byte	0x34
+	.byte	0x2e
 	.byte	0x13
 	.long	0x49c1
 	.uleb128 0x4
@@ -6297,55 +6297,55 @@ Initialize_BitwiseOr:
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x22
-	.byte	0x2d
+	.byte	0x26
 	.byte	0x14
 	.long	0x4d33
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x22
-	.byte	0x2f
+	.byte	0x28
 	.byte	0x13
 	.long	0x49af
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x22
-	.byte	0x30
+	.byte	0x29
 	.byte	0x13
 	.long	0x49af
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x22
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x15
 	.long	0x4bdd
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x22
-	.byte	0x32
+	.byte	0x2b
 	.byte	0x15
 	.long	0x4bdd
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x22
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x15
 	.long	0x4bdd
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x15
 	.long	0x4bdd
 	.byte	0x20
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
 	.byte	0x22
-	.byte	0x35
+	.byte	0x2e
 	.byte	0x12
 	.long	0x465
 	.byte	0x4
@@ -6355,7 +6355,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x22
-	.byte	0x36
+	.byte	0x2f
 	.byte	0x12
 	.long	0x465
 	.byte	0x4
@@ -6365,7 +6365,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
 	.byte	0x22
-	.byte	0x37
+	.byte	0x30
 	.byte	0x12
 	.long	0x465
 	.byte	0x4
@@ -6375,7 +6375,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
 	.byte	0x22
-	.byte	0x38
+	.byte	0x31
 	.byte	0x12
 	.long	0x465
 	.byte	0x4
@@ -6385,7 +6385,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x18
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x22
-	.byte	0x39
+	.byte	0x32
 	.byte	0x12
 	.long	0x465
 	.byte	0x4
@@ -6395,14 +6395,14 @@ Initialize_BitwiseOr:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x22
-	.byte	0x3b
+	.byte	0x34
 	.byte	0x10
 	.long	0xce
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x22
-	.byte	0x3f
+	.byte	0x38
 	.byte	0x16
 	.long	0x4d33
 	.byte	0x38
@@ -6413,31 +6413,31 @@ Initialize_BitwiseOr:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
-	.byte	0x40
+	.byte	0x39
 	.byte	0x7
 	.long	0x4bf6
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x22
-	.byte	0x46
+	.byte	0x3f
 	.byte	0x23
 	.long	0x4a22
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x22
-	.byte	0x49
+	.byte	0x42
 	.byte	0x1a
 	.long	0x4d39
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x22
-	.byte	0x4c
+	.byte	0x45
 	.byte	0x1a
 	.long	0x4d39
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x22
-	.byte	0x4f
+	.byte	0x48
 	.byte	0x20
 	.long	0x4ad5
 	.uleb128 0x19
@@ -6450,7 +6450,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x134
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4dce
 	.uleb128 0x6
@@ -6459,7 +6459,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1b
 	.ascii "Initialize_BitwiseOr\0"
 	.byte	0x3
-	.word	0x1c3
+	.word	0x1bc
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4383
@@ -6470,7 +6470,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "feature\0"
 	.byte	0x3
-	.word	0x1c3
+	.word	0x1bc
 	.byte	0x3a
 	.long	0x4e1d
 	.uleb128 0x2
@@ -6483,7 +6483,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1d
 	.ascii "PMC_BitwiseOr_X_X\0"
 	.byte	0x3
-	.word	0x18e
+	.word	0x187
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4382
@@ -6494,7 +6494,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "u\0"
 	.byte	0x3
-	.word	0x18e
+	.word	0x187
 	.byte	0x2a
 	.long	0x75f
 	.uleb128 0x2
@@ -6503,7 +6503,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x18e
+	.word	0x187
 	.byte	0x34
 	.long	0x75f
 	.uleb128 0x2
@@ -6512,7 +6512,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "w\0"
 	.byte	0x3
-	.word	0x18e
+	.word	0x187
 	.byte	0x3f
 	.long	0x76f
 	.uleb128 0x2
@@ -6521,7 +6521,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "nu\0"
 	.byte	0x3
-	.word	0x196
+	.word	0x18f
 	.byte	0x14
 	.long	0x4f31
 	.uleb128 0x2
@@ -6530,7 +6530,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "nv\0"
 	.byte	0x3
-	.word	0x197
+	.word	0x190
 	.byte	0x14
 	.long	0x4f31
 	.uleb128 0x2
@@ -6539,7 +6539,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF1
 	.byte	0x3
-	.word	0x198
+	.word	0x191
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6548,7 +6548,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "nw\0"
 	.byte	0x3
-	.word	0x19d
+	.word	0x196
 	.byte	0x14
 	.long	0x4f31
 	.uleb128 0x3
@@ -6560,7 +6560,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF2
 	.byte	0x3
-	.word	0x1b0
+	.word	0x1a9
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -6569,7 +6569,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF3
 	.byte	0x3
-	.word	0x1b1
+	.word	0x1aa
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -6578,7 +6578,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF4
 	.byte	0x3
-	.word	0x1b2
+	.word	0x1ab
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x3
@@ -6587,7 +6587,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF5
 	.byte	0x3
-	.word	0x1b3
+	.word	0x1ac
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x3
@@ -6599,7 +6599,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "t\0"
 	.byte	0x3
-	.word	0x1ac
+	.word	0x1a5
 	.byte	0x1c
 	.long	0x4f31
 	.uleb128 0x2
@@ -6614,7 +6614,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1d
 	.ascii "PMC_BitwiseOr_X_L\0"
 	.byte	0x3
-	.word	0x177
+	.word	0x170
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4381
@@ -6625,7 +6625,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "u\0"
 	.byte	0x3
-	.word	0x177
+	.word	0x170
 	.byte	0x2a
 	.long	0x75f
 	.uleb128 0x2
@@ -6634,7 +6634,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x177
+	.word	0x170
 	.byte	0x37
 	.long	0x49c1
 	.uleb128 0x2
@@ -6643,7 +6643,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "w\0"
 	.byte	0x3
-	.word	0x177
+	.word	0x170
 	.byte	0x42
 	.long	0x76f
 	.uleb128 0x2
@@ -6652,7 +6652,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF1
 	.byte	0x3
-	.word	0x182
+	.word	0x17b
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6662,7 +6662,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1d
 	.ascii "PMC_BitwiseOr_L_X\0"
 	.byte	0x3
-	.word	0x160
+	.word	0x159
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4380
@@ -6673,7 +6673,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "u\0"
 	.byte	0x3
-	.word	0x160
+	.word	0x159
 	.byte	0x2d
 	.long	0x49c1
 	.uleb128 0x2
@@ -6682,7 +6682,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x160
+	.word	0x159
 	.byte	0x37
 	.long	0x75f
 	.uleb128 0x2
@@ -6691,7 +6691,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "w\0"
 	.byte	0x3
-	.word	0x160
+	.word	0x159
 	.byte	0x42
 	.long	0x76f
 	.uleb128 0x2
@@ -6700,7 +6700,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF1
 	.byte	0x3
-	.word	0x16b
+	.word	0x164
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6710,7 +6710,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x21
 	.ascii "PMC_BitwiseOr_X_L_Imp\0"
 	.byte	0x3
-	.word	0x112
+	.word	0x10b
 	.byte	0x18
 	.long	0x4a41
 	.quad	.LFB4379
@@ -6721,7 +6721,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "u\0"
 	.byte	0x3
-	.word	0x112
+	.word	0x10b
 	.byte	0x3d
 	.long	0x4f31
 	.uleb128 0x2
@@ -6730,7 +6730,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x112
+	.word	0x10b
 	.byte	0x4a
 	.long	0x49c1
 	.uleb128 0x2
@@ -6739,7 +6739,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1c
 	.ascii "w\0"
 	.byte	0x3
-	.word	0x112
+	.word	0x10b
 	.byte	0x5d
 	.long	0x5157
 	.uleb128 0x2
@@ -6748,7 +6748,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF1
 	.byte	0x3
-	.word	0x114
+	.word	0x10d
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6759,19 +6759,19 @@ Initialize_BitwiseOr:
 	.uleb128 0x23
 	.secrel32	.LASF2
 	.byte	0x3
-	.word	0x130
+	.word	0x129
 	.byte	0x19
 	.long	0x4bdd
 	.uleb128 0x24
 	.ascii "v_hi\0"
 	.byte	0x3
-	.word	0x131
+	.word	0x12a
 	.byte	0x17
 	.long	0x49af
 	.uleb128 0x24
 	.ascii "v_lo\0"
 	.byte	0x3
-	.word	0x132
+	.word	0x12b
 	.byte	0x17
 	.long	0x49af
 	.uleb128 0x22
@@ -6779,19 +6779,19 @@ Initialize_BitwiseOr:
 	.uleb128 0x23
 	.secrel32	.LASF3
 	.byte	0x3
-	.word	0x136
+	.word	0x12f
 	.byte	0x1d
 	.long	0x4bdd
 	.uleb128 0x23
 	.secrel32	.LASF4
 	.byte	0x3
-	.word	0x137
+	.word	0x130
 	.byte	0x1d
 	.long	0x4bdd
 	.uleb128 0x23
 	.secrel32	.LASF6
 	.byte	0x3
-	.word	0x138
+	.word	0x131
 	.byte	0x1d
 	.long	0x4bdd
 	.byte	0
@@ -6799,19 +6799,19 @@ Initialize_BitwiseOr:
 	.uleb128 0x23
 	.secrel32	.LASF3
 	.byte	0x3
-	.word	0x142
+	.word	0x13b
 	.byte	0x1d
 	.long	0x4bdd
 	.uleb128 0x23
 	.secrel32	.LASF4
 	.byte	0x3
-	.word	0x143
+	.word	0x13c
 	.byte	0x1d
 	.long	0x4bdd
 	.uleb128 0x23
 	.secrel32	.LASF6
 	.byte	0x3
-	.word	0x144
+	.word	0x13d
 	.byte	0x1d
 	.long	0x4bdd
 	.byte	0
@@ -6822,7 +6822,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF2
 	.byte	0x3
-	.word	0x151
+	.word	0x14a
 	.byte	0x19
 	.long	0x4bdd
 	.uleb128 0x2
@@ -6831,7 +6831,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF3
 	.byte	0x3
-	.word	0x152
+	.word	0x14b
 	.byte	0x19
 	.long	0x4bdd
 	.uleb128 0x2
@@ -6840,7 +6840,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF4
 	.byte	0x3
-	.word	0x153
+	.word	0x14c
 	.byte	0x19
 	.long	0x4bdd
 	.uleb128 0x2
@@ -6849,7 +6849,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1f
 	.secrel32	.LASF5
 	.byte	0x3
-	.word	0x154
+	.word	0x14d
 	.byte	0x19
 	.long	0x4bdd
 	.uleb128 0x3
@@ -6863,18 +6863,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x26
 	.ascii "PMC_BitwiseOr_X_I\0"
 	.byte	0x3
-	.byte	0xfb
+	.byte	0xf4
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4378
 	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x51c5
+	.long	0x51c4
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0xfb
+	.byte	0xf4
 	.byte	0x2a
 	.long	0x75f
 	.uleb128 0x2
@@ -6883,7 +6883,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0xfb
+	.byte	0xf4
 	.byte	0x37
 	.long	0x49af
 	.uleb128 0x2
@@ -6892,16 +6892,16 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0xfb
+	.byte	0xf4
 	.byte	0x42
 	.long	0x76f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x1f
+	.uleb128 0x28
 	.secrel32	.LASF1
 	.byte	0x3
-	.word	0x106
+	.byte	0xff
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6911,18 +6911,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x26
 	.ascii "PMC_BitwiseOr_I_X\0"
 	.byte	0x3
-	.byte	0xe4
+	.byte	0xdd
 	.byte	0x11
 	.long	0x4a41
 	.quad	.LFB4377
 	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x522c
+	.long	0x522b
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0xe4
+	.byte	0xdd
 	.byte	0x2d
 	.long	0x49af
 	.uleb128 0x2
@@ -6931,7 +6931,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0xe4
+	.byte	0xdd
 	.byte	0x37
 	.long	0x75f
 	.uleb128 0x2
@@ -6940,7 +6940,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0xe4
+	.byte	0xdd
 	.byte	0x42
 	.long	0x76f
 	.uleb128 0x2
@@ -6949,7 +6949,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x28
 	.secrel32	.LASF1
 	.byte	0x3
-	.byte	0xef
+	.byte	0xe8
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -6959,18 +6959,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x29
 	.ascii "PMC_BitwiseOr_X_I_Imp\0"
 	.byte	0x3
-	.byte	0xbb
+	.byte	0xb4
 	.byte	0x18
 	.long	0x4a41
 	.quad	.LFB4376
 	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x52ef
+	.long	0x52ee
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0xbb
+	.byte	0xb4
 	.byte	0x3d
 	.long	0x4f31
 	.uleb128 0x2
@@ -6979,7 +6979,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0xbb
+	.byte	0xb4
 	.byte	0x4a
 	.long	0x49af
 	.uleb128 0x2
@@ -6988,7 +6988,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0xbb
+	.byte	0xb4
 	.byte	0x5d
 	.long	0x5157
 	.uleb128 0x2
@@ -6997,7 +6997,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x28
 	.secrel32	.LASF1
 	.byte	0x3
-	.byte	0xbd
+	.byte	0xb6
 	.byte	0x15
 	.long	0x4a41
 	.uleb128 0x2
@@ -7009,7 +7009,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x28
 	.secrel32	.LASF2
 	.byte	0x3
-	.byte	0xd6
+	.byte	0xcf
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7018,7 +7018,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x28
 	.secrel32	.LASF3
 	.byte	0x3
-	.byte	0xd7
+	.byte	0xd0
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7027,7 +7027,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x28
 	.secrel32	.LASF4
 	.byte	0x3
-	.byte	0xd8
+	.byte	0xd1
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7036,7 +7036,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2a
 	.ascii "nz_check_code\0"
 	.byte	0x3
-	.byte	0xd9
+	.byte	0xd2
 	.byte	0x15
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7047,17 +7047,17 @@ Initialize_BitwiseOr:
 	.uleb128 0x2b
 	.ascii "BitwiseOr_X_X\0"
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0xd
 	.quad	.LFB4375
 	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x539a
+	.long	0x5399
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0x28
 	.long	0x4d33
 	.uleb128 0x2
@@ -7066,7 +7066,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2c
 	.secrel32	.LASF7
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0x37
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7075,7 +7075,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0x4d
 	.long	0x4d33
 	.uleb128 0x2
@@ -7084,7 +7084,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v_count\0"
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0x5c
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7093,7 +7093,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0x48
+	.byte	0x41
 	.byte	0x72
 	.long	0x4d33
 	.uleb128 0x2
@@ -7102,7 +7102,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2a
 	.ascii "or_count\0"
 	.byte	0x3
-	.byte	0x4a
+	.byte	0x43
 	.byte	0x11
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7111,7 +7111,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2a
 	.ascii "cp_count\0"
 	.byte	0x3
-	.byte	0x4b
+	.byte	0x44
 	.byte	0x11
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7120,7 +7120,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2a
 	.ascii "count\0"
 	.byte	0x3
-	.byte	0x4d
+	.byte	0x46
 	.byte	0x11
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7130,17 +7130,17 @@ Initialize_BitwiseOr:
 	.uleb128 0x2b
 	.ascii "BitwiseOr_X_2W\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0xd
 	.quad	.LFB4374
 	.quad	.LFE4374-.LFB4374
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x540d
+	.long	0x540c
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x29
 	.long	0x4d33
 	.uleb128 0x2
@@ -7149,7 +7149,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2c
 	.secrel32	.LASF7
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x38
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7158,7 +7158,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v_hi\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x4d
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7167,7 +7167,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v_lo\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x5f
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7176,7 +7176,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x72
 	.long	0x4d33
 	.uleb128 0x2
@@ -7186,17 +7186,17 @@ Initialize_BitwiseOr:
 	.uleb128 0x2b
 	.ascii "BitwiseOr_X_1W\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0xd
 	.quad	.LFB4373
 	.quad	.LFE4373-.LFB4373
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x546d
+	.long	0x546c
 	.uleb128 0x27
 	.ascii "u\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x29
 	.long	0x4d33
 	.uleb128 0x2
@@ -7205,7 +7205,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x2c
 	.secrel32	.LASF7
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x38
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7214,7 +7214,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x4d
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7223,7 +7223,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "w\0"
 	.byte	0x3
-	.byte	0x27
+	.byte	0x20
 	.byte	0x5d
 	.long	0x4d33
 	.uleb128 0x2
@@ -7233,18 +7233,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x2d
 	.ascii "_LZCNT_ALT_UNIT\0"
 	.byte	0x1
-	.word	0x274
+	.word	0x26d
 	.byte	0x19
 	.long	0x13d
 	.quad	.LFB4365
 	.quad	.LFE4365-.LFB4365
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x54bb
+	.long	0x54ba
 	.uleb128 0x1c
 	.ascii "x\0"
 	.byte	0x1
-	.word	0x274
+	.word	0x26d
 	.byte	0x35
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7253,7 +7253,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "pos\0"
 	.byte	0x1
-	.word	0x286
+	.word	0x27f
 	.byte	0x13
 	.long	0x49c1
 	.uleb128 0x2
@@ -7263,18 +7263,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x2d
 	.ascii "_LZCNT_ALT_32\0"
 	.byte	0x1
-	.word	0x253
+	.word	0x24c
 	.byte	0x19
 	.long	0x13d
 	.quad	.LFB4363
 	.quad	.LFE4363-.LFB4363
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5507
+	.long	0x5506
 	.uleb128 0x1c
 	.ascii "x\0"
 	.byte	0x1
-	.word	0x253
+	.word	0x24c
 	.byte	0x31
 	.long	0x49af
 	.uleb128 0x2
@@ -7283,7 +7283,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x1e
 	.ascii "pos\0"
 	.byte	0x1
-	.word	0x257
+	.word	0x250
 	.byte	0x13
 	.long	0x49af
 	.uleb128 0x2
@@ -7293,18 +7293,18 @@ Initialize_BitwiseOr:
 	.uleb128 0x2e
 	.ascii "_MAXIMUM_UNIT\0"
 	.byte	0x1
-	.byte	0xca
+	.byte	0xc3
 	.byte	0x21
 	.long	0x4bdd
 	.quad	.LFB4339
 	.quad	.LFE4339-.LFB4339
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x554e
+	.long	0x554d
 	.uleb128 0x27
 	.ascii "x\0"
 	.byte	0x1
-	.byte	0xca
+	.byte	0xc3
 	.byte	0x3b
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7313,7 +7313,7 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "y\0"
 	.byte	0x1
-	.byte	0xca
+	.byte	0xc3
 	.byte	0x4a
 	.long	0x4bdd
 	.uleb128 0x2
@@ -7323,17 +7323,17 @@ Initialize_BitwiseOr:
 	.uleb128 0x2f
 	.ascii "_COPY_MEMORY_UNIT\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x1a
 	.quad	.LFB4321
 	.quad	.LFE4321-.LFB4321
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x55d7
+	.long	0x55d6
 	.uleb128 0x27
 	.ascii "d\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x39
 	.long	0x4d33
 	.uleb128 0x2
@@ -7342,40 +7342,40 @@ Initialize_BitwiseOr:
 	.uleb128 0x27
 	.ascii "s\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x4f
-	.long	0x55d7
+	.long	0x55d6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x27
 	.ascii "count\0"
 	.byte	0x1
-	.byte	0x41
+	.byte	0x3a
 	.byte	0x5e
 	.long	0x4bdd
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x30
-	.long	0x55dd
+	.long	0x55dc
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
-	.byte	0x46
+	.byte	0x3f
 	.byte	0x9
 	.uleb128 0x31
-	.long	0x5614
+	.long	0x5613
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x31
-	.long	0x5604
+	.long	0x5603
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x31
-	.long	0x55ef
+	.long	0x55ee
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -7390,7 +7390,7 @@ Initialize_BitwiseOr:
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x5624
+	.long	0x5623
 	.uleb128 0x33
 	.ascii "Destination\0"
 	.byte	0x2
@@ -7402,7 +7402,7 @@ Initialize_BitwiseOr:
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x49
-	.long	0x5624
+	.long	0x5623
 	.uleb128 0x33
 	.ascii "Count\0"
 	.byte	0x2

@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_internal.h
- * Author: Lunor Kisasage
- *
- * Created on 2018/12/26, 16:59
- */
 
 #include <windows.h>
 #include "pmc.h"

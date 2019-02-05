@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_to.c
- * Author: Lunor Kisasage
- * 
- * Created on 2018/12/29, 10:38
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

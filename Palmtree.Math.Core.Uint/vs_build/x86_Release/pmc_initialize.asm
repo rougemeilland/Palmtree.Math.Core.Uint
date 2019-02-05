@@ -12,7 +12,7 @@ INCLUDELIB OLDNAMES
 _DATA	SEGMENT
 COMM	_configuration_info:DWORD
 _DATA	ENDS
-PUBLIC	_PMC_Initialize@4
+PUBLIC	_PMC_UINT_Initialize@4
 EXTRN	_GetCPUInfo:PROC
 EXTRN	_Initialize_Memory:PROC
 EXTRN	_Initialize_From:PROC
@@ -107,320 +107,320 @@ _entry_points DB 0114H DUP (?)
 _BSS	ENDS
 ; Function compile flags: /Ogtp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_initialize.c
-;	COMDAT _PMC_Initialize@4
+;	COMDAT _PMC_UINT_Initialize@4
 _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _config$ = 8						; size = 4
-_PMC_Initialize@4 PROC					; COMDAT
+_PMC_UINT_Initialize@4 PROC				; COMDAT
 
-; 46   : {
+; 40   : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 47   :     configuration_info = *config;
+; 41   :     configuration_info = *config;
 
 	mov	eax, DWORD PTR _config$[ebp]
 	mov	eax, DWORD PTR [eax]
 	mov	DWORD PTR _configuration_info, eax
 
-; 48   :     PROCESSOR_FEATURES feature;
-; 49   :     GetCPUInfo(&feature);
+; 42   :     PROCESSOR_FEATURES feature;
+; 43   :     GetCPUInfo(&feature);
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_GetCPUInfo
 
-; 50   : 
-; 51   :     if (Initialize_Memory(&feature) != PMC_STATUS_OK)
+; 44   : 
+; 45   :     if (Initialize_Memory(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Memory
 	add	esp, 8
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 52   :         return (NULL);
-; 53   :     if (Initialize_From(&feature) != PMC_STATUS_OK)
+; 46   :         return (NULL);
+; 47   :     if (Initialize_From(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_From
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 54   :         return (NULL);
-; 55   :     if (Initialize_To(&feature) != PMC_STATUS_OK)
+; 48   :         return (NULL);
+; 49   :     if (Initialize_To(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_To
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 56   :         return (NULL);
-; 57   :     if (Initialize_Add(&feature) != PMC_STATUS_OK)
+; 50   :         return (NULL);
+; 51   :     if (Initialize_Add(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Add
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 58   :         return (NULL);
-; 59   :     if (Initialize_Subtruct(&feature) != PMC_STATUS_OK)
+; 52   :         return (NULL);
+; 53   :     if (Initialize_Subtruct(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Subtruct
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 60   :         return (NULL);
-; 61   :     if (Initialize_Multiply(&feature) != PMC_STATUS_OK)
+; 54   :         return (NULL);
+; 55   :     if (Initialize_Multiply(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Multiply
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 62   :         return (NULL);
-; 63   :     if (Initialize_DivRem(&feature) != PMC_STATUS_OK)
+; 56   :         return (NULL);
+; 57   :     if (Initialize_DivRem(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_DivRem
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 64   :         return (NULL);
-; 65   :     if (Initialize_Shift(&feature) != PMC_STATUS_OK)
+; 58   :         return (NULL);
+; 59   :     if (Initialize_Shift(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Shift
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 66   :         return (NULL);
-; 67   :     if (Initialize_BitwiseAnd(&feature) != PMC_STATUS_OK)
+; 60   :         return (NULL);
+; 61   :     if (Initialize_BitwiseAnd(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_BitwiseAnd
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 68   :         return (NULL);
-; 69   :     if (Initialize_BitwiseOr(&feature) != PMC_STATUS_OK)
+; 62   :         return (NULL);
+; 63   :     if (Initialize_BitwiseOr(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_BitwiseOr
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 70   :         return (NULL);
-; 71   :     if (Initialize_ExclusiveOr(&feature) != PMC_STATUS_OK)
+; 64   :         return (NULL);
+; 65   :     if (Initialize_ExclusiveOr(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_ExclusiveOr
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 72   :         return (NULL);
-; 73   :     if (Initialize_Compare(&feature) != PMC_STATUS_OK)
+; 66   :         return (NULL);
+; 67   :     if (Initialize_Compare(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Compare
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 74   :         return (NULL);
-; 75   :     if (Initialize_Equals(&feature) != PMC_STATUS_OK)
+; 68   :         return (NULL);
+; 69   :     if (Initialize_Equals(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Equals
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 76   :         return (NULL);
-; 77   :     if (Initialize_ToString(&feature) != PMC_STATUS_OK)
+; 70   :         return (NULL);
+; 71   :     if (Initialize_ToString(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_ToString
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 78   :         return (NULL);
-; 79   :     if (Initialize_Parse(&feature) != PMC_STATUS_OK)
+; 72   :         return (NULL);
+; 73   :     if (Initialize_Parse(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Parse
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 80   :         return (NULL);
-; 81   :     if (Initialize_GreatestCommonDivisor(&feature) != PMC_STATUS_OK)
+; 74   :         return (NULL);
+; 75   :     if (Initialize_GreatestCommonDivisor(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_GreatestCommonDivisor
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 82   :         return (NULL);
-; 83   :     if (Initialize_Pow(&feature) != PMC_STATUS_OK)
+; 76   :         return (NULL);
+; 77   :     if (Initialize_Pow(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Pow
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 84   :         return (NULL);
-; 85   :     if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
+; 78   :         return (NULL);
+; 79   :     if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_ModPow
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 86   :         return (NULL);
-; 87   :     if (Initialize_GetPropertyValue(&feature) != PMC_STATUS_OK)
+; 80   :         return (NULL);
+; 81   :     if (Initialize_GetPropertyValue(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_GetPropertyValue
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 88   :         return (NULL);
-; 89   :     if (Initialize_Clone(&feature) != PMC_STATUS_OK)
+; 82   :         return (NULL);
+; 83   :     if (Initialize_Clone(&feature) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _feature$[ebp]
 	push	eax
 	call	_Initialize_Clone
 	add	esp, 4
 	test	eax, eax
-	jne	$LN23@PMC_Initia
+	jne	$LN23@PMC_UINT_I
 
-; 91   : 
-; 92   :     entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
-; 93   :     entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
-; 94   : 	entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
-; 95   :     entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
-; 96   :     entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
+; 85   : 
+; 86   :     entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
+; 87   :     entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
+; 88   : 	entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
+; 89   :     entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
+; 90   :     entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
 
 	mov	ecx, DWORD PTR _entry_points
 	mov	eax, ecx
 	xor	eax, DWORD PTR _feature$[ebp]
 	and	eax, 31					; 0000001fH
 
-; 97   : 	entry_points.PMC_GetStatisticsInfo = PMC_GetStatisticsInfo;
+; 91   : 	entry_points.PMC_GetStatisticsInfo = PMC_GetStatisticsInfo;
 
 	mov	DWORD PTR _entry_points+4, OFFSET _PMC_GetStatisticsInfo@4
 	xor	ecx, eax
 
-; 98   : 	entry_points.PMC_From_I = PMC_From_I;
+; 92   : 	entry_points.PMC_From_I = PMC_From_I;
 
 	mov	DWORD PTR _entry_points+8, OFFSET _PMC_From_I@8
 	mov	DWORD PTR _entry_points, ecx
 
-; 99   : 	entry_points.PMC_From_L = PMC_From_L;
-; 100  :     entry_points.PMC_FromByteArray = PMC_FromByteArray;
-; 101  :     entry_points.PMC_Dispose = PMC_Dispose;
-; 102  :     entry_points.PMC_To_X_I = PMC_To_X_I;
-; 103  : 	entry_points.PMC_To_X_L = PMC_To_X_L;
-; 104  :     entry_points.PMC_ToByteArray = PMC_ToByteArray;
-; 105  :     entry_points.PMC_ToString = PMC_ToString;
-; 106  :     entry_points.PMC_TryParse = PMC_TryParse;
-; 107  :     entry_points.PMC_Add_I_X = PMC_Add_I_X;
-; 108  : 	entry_points.PMC_Add_L_X = PMC_Add_L_X;
-; 109  :     entry_points.PMC_Add_X_I = PMC_Add_X_I;
-; 110  :     entry_points.PMC_Add_X_L = PMC_Add_X_L;
-; 111  :     entry_points.PMC_Add_X_X = PMC_Add_X_X;
-; 112  :     entry_points.PMC_Subtruct_I_X = PMC_Subtruct_I_X;
-; 113  :     entry_points.PMC_Subtruct_L_X = PMC_Subtruct_L_X;
-; 114  :     entry_points.PMC_Subtruct_X_I = PMC_Subtruct_X_I;
-; 115  :     entry_points.PMC_Subtruct_X_L = PMC_Subtruct_X_L;
-; 116  :     entry_points.PMC_Subtruct_X_X = PMC_Subtruct_X_X;
-; 117  :     entry_points.PMC_Multiply_I_X = PMC_Multiply_I_X;
-; 118  :     entry_points.PMC_Multiply_L_X = PMC_Multiply_L_X;
-; 119  :     entry_points.PMC_Multiply_X_I = PMC_Multiply_X_I;
-; 120  :     entry_points.PMC_Multiply_X_L = PMC_Multiply_X_L;
-; 121  :     entry_points.PMC_Multiply_X_X = PMC_Multiply_X_X;
-; 122  :     entry_points.PMC_DivRem_I_X = PMC_DivRem_I_X;
-; 123  :     entry_points.PMC_DivRem_L_X = PMC_DivRem_L_X;
-; 124  :     entry_points.PMC_DivRem_X_I = PMC_DivRem_X_I;
-; 125  :     entry_points.PMC_DivRem_X_L = PMC_DivRem_X_L;
-; 126  :     entry_points.PMC_DivRem_X_X = PMC_DivRem_X_X;
-; 127  :     entry_points.PMC_RightShift_X_I = PMC_RightShift_X_I;
-; 128  :     entry_points.PMC_RightShift_X_L = PMC_RightShift_X_L;
-; 129  :     entry_points.PMC_LeftShift_X_I = PMC_LeftShift_X_I;
-; 130  :     entry_points.PMC_LeftShift_X_L = PMC_LeftShift_X_L;
-; 131  :     entry_points.PMC_BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
-; 132  :     entry_points.PMC_BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
-; 133  :     entry_points.PMC_BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
-; 134  :     entry_points.PMC_BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
-; 135  :     entry_points.PMC_BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
-; 136  :     entry_points.PMC_BitwiseOr_I_X = PMC_BitwiseOr_I_X;
-; 137  :     entry_points.PMC_BitwiseOr_L_X = PMC_BitwiseOr_L_X;
-; 138  :     entry_points.PMC_BitwiseOr_X_I = PMC_BitwiseOr_X_I;
-; 139  :     entry_points.PMC_BitwiseOr_X_L = PMC_BitwiseOr_X_L;
-; 140  :     entry_points.PMC_BitwiseOr_X_X = PMC_BitwiseOr_X_X;
-; 141  :     entry_points.PMC_ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
-; 142  :     entry_points.PMC_ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
-; 143  :     entry_points.PMC_ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
-; 144  :     entry_points.PMC_ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
-; 145  :     entry_points.PMC_ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
-; 146  :     entry_points.PMC_Compare_I_X = PMC_Compare_I_X;
-; 147  :     entry_points.PMC_Compare_L_X = PMC_Compare_L_X;
-; 148  :     entry_points.PMC_Compare_X_I = PMC_Compare_X_I;
-; 149  :     entry_points.PMC_Compare_X_L = PMC_Compare_X_L;
-; 150  :     entry_points.PMC_Compare_X_X = PMC_Compare_X_X;
-; 151  :     entry_points.PMC_Equals_I_X = PMC_Equals_I_X;
-; 152  :     entry_points.PMC_Equals_L_X = PMC_Equals_L_X;
-; 153  :     entry_points.PMC_Equals_X_I = PMC_Equals_X_I;
-; 154  :     entry_points.PMC_Equals_X_L = PMC_Equals_X_L;
-; 155  :     entry_points.PMC_Equals_X_X = PMC_Equals_X_X;
-; 156  :     entry_points.PMC_GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
-; 157  :     entry_points.PMC_GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
-; 158  :     entry_points.PMC_GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
-; 159  :     entry_points.PMC_GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
-; 160  :     entry_points.PMC_GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
-; 161  :     entry_points.PMC_Pow_X_I = PMC_Pow_X_I;
-; 162  :     entry_points.PMC_ModPow_X_X_X = PMC_ModPow_X_X_X;
-; 163  :     entry_points.PMC_GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
-; 164  :     entry_points.PMC_Clone_X = PMC_Clone_X;
-; 165  : 
-; 166  :     return (&entry_points);
+; 93   : 	entry_points.PMC_From_L = PMC_From_L;
+; 94   :     entry_points.PMC_FromByteArray = PMC_FromByteArray;
+; 95   :     entry_points.PMC_Dispose = PMC_Dispose;
+; 96   :     entry_points.PMC_To_X_I = PMC_To_X_I;
+; 97   : 	entry_points.PMC_To_X_L = PMC_To_X_L;
+; 98   :     entry_points.PMC_ToByteArray = PMC_ToByteArray;
+; 99   :     entry_points.PMC_ToString = PMC_ToString;
+; 100  :     entry_points.PMC_TryParse = PMC_TryParse;
+; 101  :     entry_points.PMC_Add_I_X = PMC_Add_I_X;
+; 102  : 	entry_points.PMC_Add_L_X = PMC_Add_L_X;
+; 103  :     entry_points.PMC_Add_X_I = PMC_Add_X_I;
+; 104  :     entry_points.PMC_Add_X_L = PMC_Add_X_L;
+; 105  :     entry_points.PMC_Add_X_X = PMC_Add_X_X;
+; 106  :     entry_points.PMC_Subtruct_I_X = PMC_Subtruct_I_X;
+; 107  :     entry_points.PMC_Subtruct_L_X = PMC_Subtruct_L_X;
+; 108  :     entry_points.PMC_Subtruct_X_I = PMC_Subtruct_X_I;
+; 109  :     entry_points.PMC_Subtruct_X_L = PMC_Subtruct_X_L;
+; 110  :     entry_points.PMC_Subtruct_X_X = PMC_Subtruct_X_X;
+; 111  :     entry_points.PMC_Multiply_I_X = PMC_Multiply_I_X;
+; 112  :     entry_points.PMC_Multiply_L_X = PMC_Multiply_L_X;
+; 113  :     entry_points.PMC_Multiply_X_I = PMC_Multiply_X_I;
+; 114  :     entry_points.PMC_Multiply_X_L = PMC_Multiply_X_L;
+; 115  :     entry_points.PMC_Multiply_X_X = PMC_Multiply_X_X;
+; 116  :     entry_points.PMC_DivRem_I_X = PMC_DivRem_I_X;
+; 117  :     entry_points.PMC_DivRem_L_X = PMC_DivRem_L_X;
+; 118  :     entry_points.PMC_DivRem_X_I = PMC_DivRem_X_I;
+; 119  :     entry_points.PMC_DivRem_X_L = PMC_DivRem_X_L;
+; 120  :     entry_points.PMC_DivRem_X_X = PMC_DivRem_X_X;
+; 121  :     entry_points.PMC_RightShift_X_I = PMC_RightShift_X_I;
+; 122  :     entry_points.PMC_RightShift_X_L = PMC_RightShift_X_L;
+; 123  :     entry_points.PMC_LeftShift_X_I = PMC_LeftShift_X_I;
+; 124  :     entry_points.PMC_LeftShift_X_L = PMC_LeftShift_X_L;
+; 125  :     entry_points.PMC_BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
+; 126  :     entry_points.PMC_BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
+; 127  :     entry_points.PMC_BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
+; 128  :     entry_points.PMC_BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
+; 129  :     entry_points.PMC_BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
+; 130  :     entry_points.PMC_BitwiseOr_I_X = PMC_BitwiseOr_I_X;
+; 131  :     entry_points.PMC_BitwiseOr_L_X = PMC_BitwiseOr_L_X;
+; 132  :     entry_points.PMC_BitwiseOr_X_I = PMC_BitwiseOr_X_I;
+; 133  :     entry_points.PMC_BitwiseOr_X_L = PMC_BitwiseOr_X_L;
+; 134  :     entry_points.PMC_BitwiseOr_X_X = PMC_BitwiseOr_X_X;
+; 135  :     entry_points.PMC_ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
+; 136  :     entry_points.PMC_ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
+; 137  :     entry_points.PMC_ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
+; 138  :     entry_points.PMC_ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
+; 139  :     entry_points.PMC_ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
+; 140  :     entry_points.PMC_Compare_I_X = PMC_Compare_I_X;
+; 141  :     entry_points.PMC_Compare_L_X = PMC_Compare_L_X;
+; 142  :     entry_points.PMC_Compare_X_I = PMC_Compare_X_I;
+; 143  :     entry_points.PMC_Compare_X_L = PMC_Compare_X_L;
+; 144  :     entry_points.PMC_Compare_X_X = PMC_Compare_X_X;
+; 145  :     entry_points.PMC_Equals_I_X = PMC_Equals_I_X;
+; 146  :     entry_points.PMC_Equals_L_X = PMC_Equals_L_X;
+; 147  :     entry_points.PMC_Equals_X_I = PMC_Equals_X_I;
+; 148  :     entry_points.PMC_Equals_X_L = PMC_Equals_X_L;
+; 149  :     entry_points.PMC_Equals_X_X = PMC_Equals_X_X;
+; 150  :     entry_points.PMC_GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
+; 151  :     entry_points.PMC_GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
+; 152  :     entry_points.PMC_GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
+; 153  :     entry_points.PMC_GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
+; 154  :     entry_points.PMC_GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
+; 155  :     entry_points.PMC_Pow_X_I = PMC_Pow_X_I;
+; 156  :     entry_points.PMC_ModPow_X_X_X = PMC_ModPow_X_X_X;
+; 157  :     entry_points.PMC_GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
+; 158  :     entry_points.PMC_Clone_X = PMC_Clone_X;
+; 159  : 
+; 160  :     return (&entry_points);
 
 	mov	eax, OFFSET _entry_points
 	mov	DWORD PTR _entry_points+12, OFFSET _PMC_From_L@12
@@ -490,20 +490,20 @@ _PMC_Initialize@4 PROC					; COMDAT
 	mov	DWORD PTR _entry_points+20, OFFSET _PMC_GetPropertyValue_X_I@12
 	mov	DWORD PTR _entry_points+32, OFFSET _PMC_Clone_X@8
 
-; 167  : }
+; 161  : }
 
 	pop	ebp
 	ret	4
-$LN23@PMC_Initia:
+$LN23@PMC_UINT_I:
 
-; 90   :         return (NULL);
+; 84   :         return (NULL);
 
 	xor	eax, eax
 
-; 167  : }
+; 161  : }
 
 	pop	ebp
 	ret	4
-_PMC_Initialize@4 ENDP
+_PMC_UINT_Initialize@4 ENDP
 _TEXT	ENDS
 END

@@ -21,30 +21,30 @@ _function_code$ = 12					; size = 4
 _o$ = 16						; size = 4
 _PMC_GetPropertyValue_X_I@12 PROC			; COMDAT
 
-; 38   : {
+; 31   : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	mov	esi, DWORD PTR _x$[ebp]
 	push	edi
 	test	esi, esi
 	je	SHORT $LN11@PMC_GetPro
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 41   :     if (o == NULL)
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 34   :     if (o == NULL)
 
 	mov	edi, DWORD PTR _o$[ebp]
 	test	edi, edi
 	je	SHORT $LN11@PMC_GetPro
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	push	esi
 	call	_CheckNumber
@@ -52,8 +52,8 @@ _PMC_GetPropertyValue_X_I@12 PROC			; COMDAT
 	test	eax, eax
 	jne	SHORT $LN1@PMC_GetPro
 
-; 46   :         return (result);
-; 47   :     switch (function_code)
+; 39   :         return (result);
+; 40   :     switch (function_code)
 
 	mov	eax, DWORD PTR _function_code$[ebp]
 	dec	eax
@@ -62,100 +62,100 @@ _PMC_GetPropertyValue_X_I@12 PROC			; COMDAT
 	jmp	DWORD PTR $LN14@PMC_GetPro[eax*4]
 $LN7@PMC_GetPro:
 
-; 48   :     {
-; 49   :     case PMC_PROPERTY_IS_EVEN:
-; 50   :         *o = nx->IS_EVEN;
+; 41   :     {
+; 42   :     case PMC_PROPERTY_IS_EVEN:
+; 43   :         *o = nx->IS_EVEN;
 
 	mov	eax, DWORD PTR [esi+24]
 	shr	eax, 3
 	and	eax, 1
 	mov	DWORD PTR [edi], eax
 
-; 51   :         return (PMC_STATUS_OK);
+; 44   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	pop	esi
 	pop	ebp
 	ret	12					; 0000000cH
 $LN8@PMC_GetPro:
 
-; 52   :     case PMC_PROPERTY_IS_ONE:
-; 53   :         *o = nx->IS_ONE;
+; 45   :     case PMC_PROPERTY_IS_ONE:
+; 46   :         *o = nx->IS_ONE;
 
 	mov	eax, DWORD PTR [esi+24]
 	shr	eax, 2
 	and	eax, 1
 	mov	DWORD PTR [edi], eax
 
-; 54   :         return (PMC_STATUS_OK);
+; 47   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	pop	esi
 	pop	ebp
 	ret	12					; 0000000cH
 $LN9@PMC_GetPro:
 
-; 55   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 56   :         *o = nx->IS_POWER_OF_TWO;
+; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
+; 49   :         *o = nx->IS_POWER_OF_TWO;
 
 	mov	eax, DWORD PTR [esi+24]
 	shr	eax, 4
 	and	eax, 1
 	mov	DWORD PTR [edi], eax
 
-; 57   :         return (PMC_STATUS_OK);
+; 50   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	pop	esi
 	pop	ebp
 	ret	12					; 0000000cH
 $LN10@PMC_GetPro:
 
-; 58   :     case PMC_PROPERTY_IS_ZERO:
-; 59   :         *o = nx->IS_ZERO;
+; 51   :     case PMC_PROPERTY_IS_ZERO:
+; 52   :         *o = nx->IS_ZERO;
 
 	mov	eax, DWORD PTR [esi+24]
 	shr	eax, 1
 	and	eax, 1
 	mov	DWORD PTR [edi], eax
 
-; 60   :         return (PMC_STATUS_OK);
+; 53   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	edi
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	pop	esi
 	pop	ebp
 	ret	12					; 0000000cH
 $LN11@PMC_GetPro:
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 $LN1@PMC_GetPro:
 	pop	edi
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	pop	esi
 	pop	ebp
@@ -174,11 +174,11 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_GetPropertyValue PROC			; COMDAT
 
-; 68   :     return (PMC_STATUS_OK);
+; 61   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 69   : }
+; 62   : }
 
 	ret	0
 _Initialize_GetPropertyValue ENDP

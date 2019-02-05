@@ -18,7 +18,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __962F10A9_test_op_greatestcommondivisor@c DB 01H
 msvcjmc	ENDS
 PUBLIC	TEST_PMC_GreatestCommonDivisor_I_X
@@ -579,7 +579,7 @@ __JustMyCode_Default PROC				; COMDAT
 __JustMyCode_Default ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_debug.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_debug.h
 ;	COMDAT _EQUALS_MEMORY
 _TEXT	SEGMENT
 buffer1$ = 224
@@ -588,7 +588,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 155  : {
+; 149  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -603,29 +603,29 @@ _EQUALS_MEMORY PROC					; COMDAT
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	rcx, QWORD PTR [rsp+264]
-	lea	rcx, OFFSET FLAT:__95056B1C_pmc_debug@h
+	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 156  :     if (count1 != count2)
+; 150  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 157  :         return (-1);
+; 151  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 158  :     while (count1 > 0)
+; 152  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 159  :     {
-; 160  :         if (*buffer1 != *buffer2)
+; 153  :     {
+; 154  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -634,41 +634,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 161  :             return (-1);
+; 155  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 162  :         ++buffer1;
+; 156  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 163  :         ++buffer2;
+; 157  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 164  :         --count1;
+; 158  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 165  :     }
+; 159  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 166  :     return (0);
+; 160  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 167  : }
+; 161  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -711,7 +711,7 @@ desired_z_buf$ = 1040
 desired_z_buf_size$ = 1048
 TEST_PMC_GreatestCommonDivisor_X_X PROC			; COMDAT
 
-; 128  : {
+; 121  : {
 
 $LN17:
 	mov	QWORD PTR [rsp+32], r9
@@ -733,16 +733,16 @@ $LN17:
 	lea	rcx, OFFSET FLAT:__962F10A9_test_op_greatestcommondivisor@c
 	call	__CheckForDebuggerJustMyCode
 
-; 129  :     HANDLE x;
-; 130  :     HANDLE y;
-; 131  :     HANDLE z;
-; 132  :     unsigned char actual_z_buf[256];
-; 133  :     size_t actual_z_buf_size;
-; 134  :     PMC_STATUS_CODE result;
-; 135  :     PMC_STATUS_CODE x_result;
-; 136  :     PMC_STATUS_CODE y_result;
-; 137  :     PMC_STATUS_CODE z_result;
-; 138  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 122  :     HANDLE x;
+; 123  :     HANDLE y;
+; 124  :     HANDLE z;
+; 125  :     unsigned char actual_z_buf[256];
+; 126  :     size_t actual_z_buf_size;
+; 127  :     PMC_STATUS_CODE result;
+; 128  :     PMC_STATUS_CODE x_result;
+; 129  :     PMC_STATUS_CODE y_result;
+; 130  :     PMC_STATUS_CODE z_result;
+; 131  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -772,7 +772,7 @@ $LN8@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 139  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
+; 132  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
 
 	lea	r8, QWORD PTR y$[rbp]
 	mov	rdx, QWORD PTR y_buf_size$[rbp]
@@ -802,7 +802,7 @@ $LN10@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 140  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 3), (z_result = ep->PMC_GreatestCommonDivisor_X_X(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Xの復帰コードが期待通りではない(%d)", z_result));
+; 133  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 3), (z_result = ep->PMC_GreatestCommonDivisor_X_X(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Xの復帰コードが期待通りではない(%d)", z_result));
 
 	lea	r8, QWORD PTR z$[rbp]
 	mov	rdx, QWORD PTR y$[rbp]
@@ -833,13 +833,13 @@ $LN12@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 141  :     if (desired_result_code == PMC_STATUS_OK)
+; 134  :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_G
 
-; 142  :     {
-; 143  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 4), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 135  :     {
+; 136  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 4), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -870,7 +870,7 @@ $LN14@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 144  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
+; 137  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_z_buf$[rbp]
@@ -895,44 +895,44 @@ $LN16@TEST_PMC_G:
 	call	TEST_Assert
 $LN2@TEST_PMC_G:
 
-; 145  :     }
-; 146  :     if (z_result == PMC_STATUS_OK)
+; 138  :     }
+; 139  :     if (z_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_G
 
-; 147  :         ep->PMC_Dispose(z);
+; 140  :         ep->PMC_Dispose(z);
 
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_G:
 
-; 148  :     if (y_result == PMC_STATUS_OK)
+; 141  :     if (y_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR y_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_G
 
-; 149  :         ep->PMC_Dispose(y);
+; 142  :         ep->PMC_Dispose(y);
 
 	mov	rcx, QWORD PTR y$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_G:
 
-; 150  :     if (x_result == PMC_STATUS_OK)
+; 143  :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_G
 
-; 151  :         ep->PMC_Dispose(x);
+; 144  :         ep->PMC_Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN5@TEST_PMC_G:
 
-; 152  : }
+; 145  : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_GreatestCommonDivisor_X_X$rtcFrameData
@@ -976,7 +976,7 @@ desired_z_buf$ = 776
 desired_z_buf_size$ = 784
 TEST_PMC_GreatestCommonDivisor_X_L PROC			; COMDAT
 
-; 106  : {
+; 99   : {
 
 $LN14:
 	mov	QWORD PTR [rsp+32], r9
@@ -998,14 +998,14 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__962F10A9_test_op_greatestcommondivisor@c
 	call	__CheckForDebuggerJustMyCode
 
-; 107  :     HANDLE x;
-; 108  :     HANDLE z;
-; 109  :     unsigned char actual_z_buf[256];
-; 110  :     size_t actual_z_buf_size;
-; 111  :     PMC_STATUS_CODE result;
-; 112  :     PMC_STATUS_CODE x_result;
-; 113  :     PMC_STATUS_CODE z_result;
-; 114  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 100  :     HANDLE x;
+; 101  :     HANDLE z;
+; 102  :     unsigned char actual_z_buf[256];
+; 103  :     size_t actual_z_buf_size;
+; 104  :     PMC_STATUS_CODE result;
+; 105  :     PMC_STATUS_CODE x_result;
+; 106  :     PMC_STATUS_CODE z_result;
+; 107  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -1035,7 +1035,7 @@ $LN7@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 115  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 2), (z_result = ep->PMC_GreatestCommonDivisor_X_L(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Lの復帰コードが期待通りではない(%d)", z_result));
+; 108  :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 2), (z_result = ep->PMC_GreatestCommonDivisor_X_L(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Lの復帰コードが期待通りではない(%d)", z_result));
 
 	lea	r8, QWORD PTR z$[rbp]
 	mov	rdx, QWORD PTR y$[rbp]
@@ -1066,13 +1066,13 @@ $LN9@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 116  :     if (desired_result_code == PMC_STATUS_OK)
+; 109  :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_G
 
-; 117  :     {
-; 118  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 110  :     {
+; 111  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -1103,7 +1103,7 @@ $LN11@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 119  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
+; 112  :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_L (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_z_buf$[rbp]
@@ -1128,32 +1128,32 @@ $LN13@TEST_PMC_G:
 	call	TEST_Assert
 $LN2@TEST_PMC_G:
 
-; 120  :     }
-; 121  :     if (z_result == PMC_STATUS_OK)
+; 113  :     }
+; 114  :     if (z_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_G
 
-; 122  :         ep->PMC_Dispose(z);
+; 115  :         ep->PMC_Dispose(z);
 
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_G:
 
-; 123  :     if (x_result == PMC_STATUS_OK)
+; 116  :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_G
 
-; 124  :         ep->PMC_Dispose(x);
+; 117  :         ep->PMC_Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_G:
 
-; 125  : }
+; 118  : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_GreatestCommonDivisor_X_L$rtcFrameData
@@ -1197,7 +1197,7 @@ desired_z_buf$ = 776
 desired_z_buf_size$ = 784
 TEST_PMC_GreatestCommonDivisor_X_I PROC			; COMDAT
 
-; 84   : {
+; 77   : {
 
 $LN14:
 	mov	QWORD PTR [rsp+32], r9
@@ -1219,14 +1219,14 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__962F10A9_test_op_greatestcommondivisor@c
 	call	__CheckForDebuggerJustMyCode
 
-; 85   :     HANDLE x;
-; 86   :     HANDLE z;
-; 87   :     unsigned char actual_z_buf[256];
-; 88   :     size_t actual_z_buf_size;
-; 89   :     PMC_STATUS_CODE result;
-; 90   :     PMC_STATUS_CODE x_result;
-; 91   :     PMC_STATUS_CODE z_result;
-; 92   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 78   :     HANDLE x;
+; 79   :     HANDLE z;
+; 80   :     unsigned char actual_z_buf[256];
+; 81   :     size_t actual_z_buf_size;
+; 82   :     PMC_STATUS_CODE result;
+; 83   :     PMC_STATUS_CODE x_result;
+; 84   :     PMC_STATUS_CODE z_result;
+; 85   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -1256,7 +1256,7 @@ $LN7@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 93   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 2), (z_result = ep->PMC_GreatestCommonDivisor_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 2), (z_result = ep->PMC_GreatestCommonDivisor_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	lea	r8, QWORD PTR z$[rbp]
 	mov	edx, DWORD PTR y$[rbp]
@@ -1287,13 +1287,13 @@ $LN9@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 94   :     if (desired_result_code == PMC_STATUS_OK)
+; 87   :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_G
 
-; 95   :     {
-; 96   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 88   :     {
+; 89   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -1324,7 +1324,7 @@ $LN11@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 97   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
+; 90   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_X_I (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_z_buf$[rbp]
@@ -1349,32 +1349,32 @@ $LN13@TEST_PMC_G:
 	call	TEST_Assert
 $LN2@TEST_PMC_G:
 
-; 98   :     }
-; 99   :     if (z_result == PMC_STATUS_OK)
+; 91   :     }
+; 92   :     if (z_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_G
 
-; 100  :         ep->PMC_Dispose(z);
+; 93   :         ep->PMC_Dispose(z);
 
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_G:
 
-; 101  :     if (x_result == PMC_STATUS_OK)
+; 94   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_G
 
-; 102  :         ep->PMC_Dispose(x);
+; 95   :         ep->PMC_Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_G:
 
-; 103  : }
+; 96   : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_GreatestCommonDivisor_X_I$rtcFrameData
@@ -1418,7 +1418,7 @@ desired_w_buf$ = 776
 desired_w_buf_size$ = 784
 TEST_PMC_GreatestCommonDivisor_L_X PROC			; COMDAT
 
-; 62   : {
+; 55   : {
 
 $LN14:
 	mov	QWORD PTR [rsp+32], r9
@@ -1440,14 +1440,14 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__962F10A9_test_op_greatestcommondivisor@c
 	call	__CheckForDebuggerJustMyCode
 
-; 63   :     HANDLE v;
-; 64   :     HANDLE w;
-; 65   :     unsigned char actual_w_buf[256];
-; 66   :     size_t actual_w_buf_size;
-; 67   :     PMC_STATUS_CODE result;
-; 68   :     PMC_STATUS_CODE v_result;
-; 69   :     PMC_STATUS_CODE w_result;
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 56   :     HANDLE v;
+; 57   :     HANDLE w;
+; 58   :     unsigned char actual_w_buf[256];
+; 59   :     size_t actual_w_buf_size;
+; 60   :     PMC_STATUS_CODE result;
+; 61   :     PMC_STATUS_CODE v_result;
+; 62   :     PMC_STATUS_CODE w_result;
+; 63   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -1477,7 +1477,7 @@ $LN7@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 2), (w_result = ep->PMC_GreatestCommonDivisor_L_X(u, v, &w)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_L_Xの復帰コードが期待通りではない(%d)", w_result));
+; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 2), (w_result = ep->PMC_GreatestCommonDivisor_L_X(u, v, &w)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_L_Xの復帰コードが期待通りではない(%d)", w_result));
 
 	lea	r8, QWORD PTR w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -1508,13 +1508,13 @@ $LN9@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 72   :     if (desired_result_code == PMC_STATUS_OK)
+; 65   :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_G
 
-; 73   :     {
-; 74   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 66   :     {
+; 67   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_w_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -1545,7 +1545,7 @@ $LN11@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 75   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
+; 68   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_L_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_w_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_w_buf$[rbp]
@@ -1570,32 +1570,32 @@ $LN13@TEST_PMC_G:
 	call	TEST_Assert
 $LN2@TEST_PMC_G:
 
-; 76   :     }
-; 77   :     if (w_result == PMC_STATUS_OK)
+; 69   :     }
+; 70   :     if (w_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_G
 
-; 78   :         ep->PMC_Dispose(w);
+; 71   :         ep->PMC_Dispose(w);
 
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_G:
 
-; 79   :     if (v_result == PMC_STATUS_OK)
+; 72   :     if (v_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_G
 
-; 80   :         ep->PMC_Dispose(v);
+; 73   :         ep->PMC_Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_G:
 
-; 81   : }
+; 74   : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_GreatestCommonDivisor_L_X$rtcFrameData
@@ -1639,7 +1639,7 @@ desired_w_buf$ = 776
 desired_w_buf_size$ = 784
 TEST_PMC_GreatestCommonDivisor_I_X PROC			; COMDAT
 
-; 40   : {
+; 33   : {
 
 $LN14:
 	mov	DWORD PTR [rsp+32], r9d
@@ -1661,14 +1661,14 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__962F10A9_test_op_greatestcommondivisor@c
 	call	__CheckForDebuggerJustMyCode
 
-; 41   :     HANDLE v;
-; 42   :     HANDLE w;
-; 43   :     unsigned char actual_w_buf[256];
-; 44   :     size_t actual_w_buf_size;
-; 45   :     PMC_STATUS_CODE result;
-; 46   :     PMC_STATUS_CODE v_result;
-; 47   :     PMC_STATUS_CODE w_result;
-; 48   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 34   :     HANDLE v;
+; 35   :     HANDLE w;
+; 36   :     unsigned char actual_w_buf[256];
+; 37   :     size_t actual_w_buf_size;
+; 38   :     PMC_STATUS_CODE result;
+; 39   :     PMC_STATUS_CODE v_result;
+; 40   :     PMC_STATUS_CODE w_result;
+; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -1698,7 +1698,7 @@ $LN7@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 49   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 2), (w_result = ep->PMC_GreatestCommonDivisor_I_X(u, v, &w)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_I_Xの復帰コードが期待通りではない(%d)", w_result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 2), (w_result = ep->PMC_GreatestCommonDivisor_I_X(u, v, &w)) == desired_result_code, FormatTestMesssage(L"PMC_GreatestCommonDivisor_I_Xの復帰コードが期待通りではない(%d)", w_result));
 
 	lea	r8, QWORD PTR w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -1729,13 +1729,13 @@ $LN9@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 50   :     if (desired_result_code == PMC_STATUS_OK)
+; 43   :     if (desired_result_code == PMC_STATUS_OK)
 
 	cmp	DWORD PTR desired_result_code$[rbp], 0
 	jne	$LN2@TEST_PMC_G
 
-; 51   :     {
-; 52   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 44   :     {
+; 45   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_w_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -1766,7 +1766,7 @@ $LN11@TEST_PMC_G:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 53   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
+; 46   :         TEST_Assert(env, FormatTestLabel(L"PMC_GreatestCommonDivisor_I_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_w_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_w_buf$[rbp]
@@ -1791,32 +1791,32 @@ $LN13@TEST_PMC_G:
 	call	TEST_Assert
 $LN2@TEST_PMC_G:
 
-; 54   :     }
-; 55   :     if (w_result == PMC_STATUS_OK)
+; 47   :     }
+; 48   :     if (w_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_G
 
-; 56   :         ep->PMC_Dispose(w);
+; 49   :         ep->PMC_Dispose(w);
 
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_G:
 
-; 57   :     if (v_result == PMC_STATUS_OK)
+; 50   :     if (v_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_G
 
-; 58   :         ep->PMC_Dispose(v);
+; 51   :         ep->PMC_Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN4@TEST_PMC_G:
 
-; 59   : }
+; 52   : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_GreatestCommonDivisor_I_X$rtcFrameData

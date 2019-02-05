@@ -252,7 +252,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
                 0x0000000063489620                PMC_GreatestCommonDivisor_X_X
                 0x00000000634898e0                Initialize_GreatestCommonDivisor
  .text          0x00000000634898f0      0x540 ../build/x64_Release/pmc_initialize.o
-                0x00000000634898f0                PMC_Initialize
+                0x00000000634898f0                PMC_UINT_Initialize
  .text          0x0000000063489e30      0xa80 ../build/x64_Release/pmc_modpow.o
                 0x0000000063489e30                PMC_ModPow_X_X_X
                 0x000000006348a8a0                Initialize_ModPow
@@ -946,9 +946,9 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
                 [!provide]                        PROVIDE (_end = .)
                 0x000000006349a000                __end__ = .
 
-.rsrc           0x000000006349a000      0x600
+.rsrc           0x000000006349a000      0x400
  *(.rsrc)
- .rsrc          0x000000006349a000      0x5a0 ../build/x64_Release/version.o
+ .rsrc          0x000000006349a000      0x378 ../build/x64_Release/version.o
  *(.rsrc$*)
 
 .reloc          0x000000006349b000      0x200

@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   cpuid.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/14, 16:38
- */
-
 
 #include <intrin.h>
 #include <immintrin.h>

@@ -1,9 +1,9 @@
 	.file	"pmc_initialize.c"
 	.text
 	.p2align 4,,15
-	.globl	_PMC_Initialize@4
-	.def	_PMC_Initialize@4;	.scl	2;	.type	32;	.endef
-_PMC_Initialize@4:
+	.globl	_PMC_UINT_Initialize@4
+	.def	_PMC_UINT_Initialize@4;	.scl	2;	.type	32;	.endef
+_PMC_UINT_Initialize@4:
 LFB5441:
 	.cfi_startproc
 	pushl	%ebx

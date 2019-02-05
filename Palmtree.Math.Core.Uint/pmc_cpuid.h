@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_cpuid.h
- * Author: Lunor Kisasage
- *
- * Created on 2019/01/14, 16:38
- */
 
 #ifndef PMC_CPUID_H
 #define PMC_CPUID_H

@@ -28,13 +28,13 @@ dwReason$ = 56
 lpvReserved$ = 64
 DllMain	PROC						; COMDAT
 
-; 42   : {
+; 35   : {
 
 $LN15:
 	sub	rsp, 40					; 00000028H
 
-; 43   : 	BOOL result = TRUE;
-; 44   : 	switch (dwReason)
+; 36   : 	BOOL result = TRUE;
+; 37   : 	switch (dwReason)
 
 	test	edx, edx
 	je	SHORT $LN8@DllMain
@@ -45,51 +45,51 @@ $LN15:
 	cmp	edx, 1
 	je	SHORT $LN13@DllMain
 
-; 59   :             break;
-; 60   :         default:
-; 61   :             result = FALSE;
-; 62   :             break;
-; 63   : 	}
-; 64   : 	return (result);
+; 52   :             break;
+; 53   :         default:
+; 54   :             result = FALSE;
+; 55   :             break;
+; 56   : 	}
+; 57   : 	return (result);
 
 	xor	eax, eax
 
-; 65   : }
+; 58   : }
 
 	add	rsp, 40					; 00000028H
 	ret	0
 $LN4@DllMain:
 
-; 45   : 	{
-; 46   :         case DLL_PROCESS_ATTACH: // DLLがプロセスのアドレス空間にマッピングされた。
-; 47   :             if (!AllocateHeapArea())
+; 38   : 	{
+; 39   :         case DLL_PROCESS_ATTACH: // DLLがプロセスのアドレス空間にマッピングされた。
+; 40   :             if (!AllocateHeapArea())
 
 	call	AllocateHeapArea
 	test	eax, eax
 	jne	SHORT $LN13@DllMain
 
-; 65   : }
+; 58   : }
 
 	add	rsp, 40					; 00000028H
 	ret	0
 $LN8@DllMain:
 
-; 48   :                 result = FALSE;
-; 49   :             break;
-; 50   : 
-; 51   :         case DLL_THREAD_ATTACH: // スレッドが作成されようとしている。
-; 52   :             break;
-; 53   : 
-; 54   :         case DLL_THREAD_DETACH: // スレッドが破棄されようとしている。
-; 55   :             break;
-; 56   : 
-; 57   :         case DLL_PROCESS_DETACH: // DLLのマッピングが解除されようとしている。
-; 58   :             DeallocateHeapArea();
+; 41   :                 result = FALSE;
+; 42   :             break;
+; 43   : 
+; 44   :         case DLL_THREAD_ATTACH: // スレッドが作成されようとしている。
+; 45   :             break;
+; 46   : 
+; 47   :         case DLL_THREAD_DETACH: // スレッドが破棄されようとしている。
+; 48   :             break;
+; 49   : 
+; 50   :         case DLL_PROCESS_DETACH: // DLLのマッピングが解除されようとしている。
+; 51   :             DeallocateHeapArea();
 
 	call	DeallocateHeapArea
 $LN13@DllMain:
 
-; 65   : }
+; 58   : }
 
 	mov	eax, 1
 	add	rsp, 40					; 00000028H

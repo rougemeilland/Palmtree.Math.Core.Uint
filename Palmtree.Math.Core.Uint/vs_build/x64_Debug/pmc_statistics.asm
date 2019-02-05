@@ -63,7 +63,7 @@ _TEXT	SEGMENT
 buffer$ = 224
 PMC_GetStatisticsInfo PROC				; COMDAT
 
-; 40   : {
+; 34   : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -79,31 +79,31 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__BF58FCBE_pmc_statistics@c
 	call	__CheckForDebuggerJustMyCode
 
-; 41   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
+; 35   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
 
 	mov	rax, QWORD PTR buffer$[rbp]
 	mov	ecx, DWORD PTR statistics_info+12
 	mov	DWORD PTR [rax+12], ecx
 
-; 42   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
+; 36   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
 
 	mov	rax, QWORD PTR buffer$[rbp]
 	mov	ecx, DWORD PTR statistics_info+8
 	mov	DWORD PTR [rax+8], ecx
 
-; 43   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
+; 37   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
 
 	mov	rax, QWORD PTR buffer$[rbp]
 	mov	ecx, DWORD PTR statistics_info+4
 	mov	DWORD PTR [rax+4], ecx
 
-; 44   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
+; 38   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
 
 	mov	rax, QWORD PTR buffer$[rbp]
 	mov	ecx, DWORD PTR statistics_info
 	mov	DWORD PTR [rax], ecx
 
-; 45   : }
+; 39   : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

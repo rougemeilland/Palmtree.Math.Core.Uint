@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../pmc_modpow.c"
-# 33 "../pmc_modpow.c"
+# 26 "../pmc_modpow.c"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw.h" 1 3
@@ -48705,13 +48705,13 @@ typedef struct _MODEMSETTINGS {
   DWORD __attribute__((__stdcall__)) ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL __attribute__((__stdcall__)) ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 2 3
-# 34 "../pmc_modpow.c" 2
+# 27 "../pmc_modpow.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdint.h" 1 3 4
@@ -48775,7 +48775,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -48783,14 +48783,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48962,11 +48962,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -48986,7 +48986,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -49003,15 +49003,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 #pragma region 型の定義
 
 typedef _UINT32_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -49341,17 +49341,17 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 381 "../pmc_uint_internal.h"
+# 374 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 395 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
     }
 #pragma endregion
-# 35 "../pmc_modpow.c" 2
+# 28 "../pmc_modpow.c" 2
 # 1 "../pmc_inline_func.h" 1
-# 35 "../pmc_inline_func.h"
+# 28 "../pmc_inline_func.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/setjmp.h" 1 3
@@ -100756,13 +100756,13 @@ _wrpkru (unsigned int __key)
    
    
    
-# 36 "../pmc_inline_func.h" 2
+# 29 "../pmc_inline_func.h" 2
 
 # 1 "../pmc_internal.h" 1
-# 38 "../pmc_inline_func.h" 2
-# 48 "../pmc_inline_func.h"
+# 31 "../pmc_inline_func.h" 2
+# 41 "../pmc_inline_func.h"
     
-# 48 "../pmc_inline_func.h"
+# 41 "../pmc_inline_func.h"
    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
     {
         __movsb(d, s, count);
@@ -100772,7 +100772,7 @@ _wrpkru (unsigned int __key)
     {
         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
     }
-# 65 "../pmc_inline_func.h"
+# 58 "../pmc_inline_func.h"
     __inline static void _COPY_MEMORY_UNIT(__UNIT_TYPE* d, const __UNIT_TYPE* s, __UNIT_TYPE count)
     {
 
@@ -100788,7 +100788,7 @@ _wrpkru (unsigned int __key)
     {
 
         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-# 91 "../pmc_inline_func.h"
+# 84 "../pmc_inline_func.h"
     }
 
     __inline static void _ZERO_MEMORY_BYTE(void* d, size_t count)
@@ -100805,7 +100805,7 @@ _wrpkru (unsigned int __key)
     {
         __stosd((unsigned long*)d, 0, count);
     }
-# 115 "../pmc_inline_func.h"
+# 108 "../pmc_inline_func.h"
     __inline static void _ZERO_MEMORY_UNIT(__UNIT_TYPE* d, __UNIT_TYPE count)
     {
 
@@ -100821,7 +100821,7 @@ _wrpkru (unsigned int __key)
     {
 
         __stosd((unsigned long*)d, 0, (unsigned long)count);
-# 141 "../pmc_inline_func.h"
+# 134 "../pmc_inline_func.h"
     }
 
     __inline static void _FILL_MEMORY_BYTE(void* d, unsigned char x, size_t count)
@@ -100838,7 +100838,7 @@ _wrpkru (unsigned int __key)
     {
         __stosd((unsigned long*)d, x, count);
     }
-# 165 "../pmc_inline_func.h"
+# 158 "../pmc_inline_func.h"
     __inline static void _FILL_MEMORY_UNIT(__UNIT_TYPE* d, __UNIT_TYPE x, __UNIT_TYPE count)
     {
 
@@ -100904,7 +100904,7 @@ _wrpkru (unsigned int __key)
 
 
         return (_addcarry_u32(carry, u, v, w));
-# 238 "../pmc_inline_func.h"
+# 231 "../pmc_inline_func.h"
     }
 
     __inline static char _ADDX_UNIT(char carry, __UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w)
@@ -100925,7 +100925,7 @@ _wrpkru (unsigned int __key)
 
 
         return (_addcarryx_u32(carry, u, v, w));
-# 266 "../pmc_inline_func.h"
+# 259 "../pmc_inline_func.h"
     }
 
     __inline static char _SUBTRUCT_UNIT(char borrow, __UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w)
@@ -100946,7 +100946,7 @@ _wrpkru (unsigned int __key)
 
 
         return (_subborrow_u32(borrow, u, v, w));
-# 294 "../pmc_inline_func.h"
+# 287 "../pmc_inline_func.h"
     }
 
     __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
@@ -100958,7 +100958,7 @@ _wrpkru (unsigned int __key)
         _UINT32_T w_lo;
         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
         return (w_lo);
-# 313 "../pmc_inline_func.h"
+# 306 "../pmc_inline_func.h"
     }
 
     __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
@@ -100970,16 +100970,16 @@ _wrpkru (unsigned int __key)
         _UINT32_T w_lo;
         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
         return (w_lo);
-# 332 "../pmc_inline_func.h"
+# 325 "../pmc_inline_func.h"
     }
 
     __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 346 "../pmc_inline_func.h"
+# 339 "../pmc_inline_func.h"
         _UINT32_T w_lo;
         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
-# 359 "../pmc_inline_func.h"
+# 352 "../pmc_inline_func.h"
     }
 
     __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
@@ -100991,13 +100991,13 @@ _wrpkru (unsigned int __key)
         _UINT32_T w_lo;
         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
-# 380 "../pmc_inline_func.h"
+# 373 "../pmc_inline_func.h"
     }
 
 
     __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
     {
-# 409 "../pmc_inline_func.h"
+# 402 "../pmc_inline_func.h"
         __UNIT_TYPE q;
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
@@ -101018,7 +101018,7 @@ _wrpkru (unsigned int __key)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
     {
-# 453 "../pmc_inline_func.h"
+# 446 "../pmc_inline_func.h"
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
@@ -101050,17 +101050,17 @@ _wrpkru (unsigned int __key)
     {
 
         return (
-# 483 "../pmc_inline_func.h" 3
+# 476 "../pmc_inline_func.h" 3
                __rold((
-# 483 "../pmc_inline_func.h"
+# 476 "../pmc_inline_func.h"
                x
-# 483 "../pmc_inline_func.h" 3
+# 476 "../pmc_inline_func.h" 3
                ), (
-# 483 "../pmc_inline_func.h"
+# 476 "../pmc_inline_func.h"
                count
-# 483 "../pmc_inline_func.h" 3
+# 476 "../pmc_inline_func.h" 3
                ))
-# 483 "../pmc_inline_func.h"
+# 476 "../pmc_inline_func.h"
                               );
 
 
@@ -101073,17 +101073,17 @@ _wrpkru (unsigned int __key)
     {
 
         return (
-# 494 "../pmc_inline_func.h" 3
+# 487 "../pmc_inline_func.h" 3
                __rord((
-# 494 "../pmc_inline_func.h"
+# 487 "../pmc_inline_func.h"
                x
-# 494 "../pmc_inline_func.h" 3
+# 487 "../pmc_inline_func.h" 3
                ), (
-# 494 "../pmc_inline_func.h"
+# 487 "../pmc_inline_func.h"
                count
-# 494 "../pmc_inline_func.h" 3
+# 487 "../pmc_inline_func.h" 3
                ))
-# 494 "../pmc_inline_func.h"
+# 487 "../pmc_inline_func.h"
                               );
 
 
@@ -101111,7 +101111,7 @@ _wrpkru (unsigned int __key)
         x = (x & 0x0f0f0f0f) + ((x >> 4) & 0x0f0f0f0f);
         x = (x & 0x00ff00ff) + ((x >> 8) & 0x00ff00ff);
         x = (x & 0x0000ffff) + ((x >> 16) & 0x0000ffff);
-# 531 "../pmc_inline_func.h"
+# 524 "../pmc_inline_func.h"
         return((int)x);
     }
 
@@ -101119,7 +101119,7 @@ _wrpkru (unsigned int __key)
     {
         return (_lzcnt_u32(value));
     }
-# 546 "../pmc_inline_func.h"
+# 539 "../pmc_inline_func.h"
     __inline static int _LZCNT_UNIT(__UNIT_TYPE value)
     {
 
@@ -101133,9 +101133,9 @@ _wrpkru (unsigned int __key)
 
     __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
     {
-# 569 "../pmc_inline_func.h"
+# 562 "../pmc_inline_func.h"
         return (_lzcnt_u32(value));
-# 578 "../pmc_inline_func.h"
+# 571 "../pmc_inline_func.h"
     }
 
     __inline static int _LZCNT_ALT_8(unsigned char x)
@@ -101167,7 +101167,7 @@ _wrpkru (unsigned int __key)
 
         return (sizeof(x) * 8 - 1 - pos);
     }
-# 628 "../pmc_inline_func.h"
+# 621 "../pmc_inline_func.h"
     __inline static int _LZCNT_ALT_UNIT(__UNIT_TYPE x)
     {
         if (x == 0)
@@ -101178,7 +101178,7 @@ _wrpkru (unsigned int __key)
 
 
         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-# 654 "../pmc_inline_func.h"
+# 647 "../pmc_inline_func.h"
         return (sizeof(x) * 8 - 1 - pos);
     }
 
@@ -101192,7 +101192,7 @@ _wrpkru (unsigned int __key)
 
 
         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-# 683 "../pmc_inline_func.h"
+# 676 "../pmc_inline_func.h"
         return (sizeof(x) * 8 - 1 - pos);
     }
 
@@ -101228,7 +101228,7 @@ _wrpkru (unsigned int __key)
 
 
         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-# 734 "../pmc_inline_func.h"
+# 727 "../pmc_inline_func.h"
         return (pos);
     }
 
@@ -101242,7 +101242,7 @@ _wrpkru (unsigned int __key)
         x = (x << 16) | (x >> 16);
         return (x);
     }
-# 763 "../pmc_inline_func.h"
+# 756 "../pmc_inline_func.h"
     __inline static __UNIT_TYPE _REVERSE_BIT_ORDER_UNIT(__UNIT_TYPE x)
     {
 
@@ -101251,10 +101251,10 @@ _wrpkru (unsigned int __key)
         x = ((x & 0x0f0f0f0fU) << 4) | ((x & 0xf0f0f0f0U) >> 4);
         x = ((x & 0x00ff00ffU) << 8) | ((x & 0xff00ff00U) >> 8);
         x = (x << 16) | (x >> 16);
-# 781 "../pmc_inline_func.h"
+# 774 "../pmc_inline_func.h"
         return (x);
     }
-# 36 "../pmc_modpow.c" 2
+# 29 "../pmc_modpow.c" 2
 
 
 
@@ -101262,12 +101262,12 @@ _wrpkru (unsigned int __key)
 
 __inline static void ReportIN(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HEADER* m)
 {
-# 68 "../pmc_modpow.c"
+# 61 "../pmc_modpow.c"
 }
 
 __inline static void ReportOUT(NUMBER_HEADER* r)
 {
-# 85 "../pmc_modpow.c"
+# 78 "../pmc_modpow.c"
 }
 
 static int Compare_Easy(__UNIT_TYPE* u, __UNIT_TYPE u_count, __UNIT_TYPE* v, __UNIT_TYPE v_count)
@@ -101302,9 +101302,9 @@ static PMC_STATUS_CODE Remainder(NUMBER_HEADER* u, NUMBER_HEADER* v, NUMBER_HEAD
         __UNIT_TYPE work_v_buf_words;
         __UNIT_TYPE* work_v_buf = AllocateBlock(v->UNIT_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
         if (work_v_buf == 
-# 118 "../pmc_modpow.c" 3 4
+# 111 "../pmc_modpow.c" 3 4
                          ((void *)0)
-# 118 "../pmc_modpow.c"
+# 111 "../pmc_modpow.c"
                              )
         {
             return ((-5));
@@ -101313,9 +101313,9 @@ static PMC_STATUS_CODE Remainder(NUMBER_HEADER* u, NUMBER_HEADER* v, NUMBER_HEAD
         __UNIT_TYPE q_buf_words;
         __UNIT_TYPE* q_buf = AllocateBlock(u->UNIT_BIT_COUNT - v->UNIT_BIT_COUNT + 1 + (sizeof(__UNIT_TYPE) * 8), &q_buf_words, &q_buf_code);
         if (q_buf == 
-# 125 "../pmc_modpow.c" 3 4
+# 118 "../pmc_modpow.c" 3 4
                     ((void *)0)
-# 125 "../pmc_modpow.c"
+# 118 "../pmc_modpow.c"
                         )
         {
             DeallocateBlock(work_v_buf, work_v_buf_words);
@@ -101368,9 +101368,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE v_2_buf_words;
     __UNIT_TYPE* v_2_buf = AllocateBlock(v_2_bit_count, &v_2_buf_words, &v_2_buf_code);
     if (v_2_buf == 
-# 176 "../pmc_modpow.c" 3 4
+# 169 "../pmc_modpow.c" 3 4
                   ((void *)0)
-# 176 "../pmc_modpow.c"
+# 169 "../pmc_modpow.c"
                       )
     {
         return ((-5));
@@ -101381,9 +101381,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_1_buf_words;
     __UNIT_TYPE* work_1_buf = AllocateBlock(work_1_bit_count, &work_1_buf_words, &work_1_buf_code);
     if (work_1_buf == 
-# 185 "../pmc_modpow.c" 3 4
+# 178 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 185 "../pmc_modpow.c"
+# 178 "../pmc_modpow.c"
                          )
     {
         DeallocateBlock(v_2_buf, v_2_buf_words);
@@ -101395,9 +101395,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_2_buf_words;
     __UNIT_TYPE* work_2_buf = AllocateBlock(work_2_bit_count, &work_2_buf_words, &work_2_buf_code);
     if (work_2_buf == 
-# 195 "../pmc_modpow.c" 3 4
+# 188 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 195 "../pmc_modpow.c"
+# 188 "../pmc_modpow.c"
                          )
     {
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101410,9 +101410,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_v_buf_words;
     __UNIT_TYPE* work_v_buf = AllocateBlock(work_v_bit_count, &work_v_buf_words, &work_v_buf_code);
     if (work_v_buf == 
-# 206 "../pmc_modpow.c" 3 4
+# 199 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 206 "../pmc_modpow.c"
+# 199 "../pmc_modpow.c"
                          )
     {
         DeallocateBlock(work_2_buf, work_2_buf_words);
@@ -101426,9 +101426,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE q_buf_words;
     __UNIT_TYPE* q_buf = AllocateBlock(q_buf_bit_count, &q_buf_words, &q_buf_code);
     if (q_buf == 
-# 218 "../pmc_modpow.c" 3 4
+# 211 "../pmc_modpow.c" 3 4
                 ((void *)0)
-# 218 "../pmc_modpow.c"
+# 211 "../pmc_modpow.c"
                     )
     {
         DeallocateBlock(work_v_buf, work_v_buf_words);
@@ -101550,7 +101550,7 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
 
         if (e_count <= 0)
             break;
-# 351 "../pmc_modpow.c"
+# 344 "../pmc_modpow.c"
         _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
         Multiply_X_X_Imp(u_ptr, u_count, u_ptr, u_count, w_ptr);
         if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
@@ -101561,7 +101561,7 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         u_count *= 2;
         if (u_ptr[u_count - 1] == 0)
             --u_count;
-# 371 "../pmc_modpow.c"
+# 364 "../pmc_modpow.c"
         if (u_count >= m_count)
         {
             _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
@@ -101597,10 +101597,10 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
                 return ((0));
             }
         }
-# 417 "../pmc_modpow.c"
+# 410 "../pmc_modpow.c"
         if (e_mask & e->BLOCK[e_count - 1])
         {
-# 428 "../pmc_modpow.c"
+# 421 "../pmc_modpow.c"
             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
             Multiply_X_X_Imp(u_ptr, u_count, v_ptr, v_count, w_ptr);
             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
@@ -101611,7 +101611,7 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
             u_count += v_count;
             if (u_ptr[u_count - 1] == 0)
                 --u_count;
-# 449 "../pmc_modpow.c"
+# 442 "../pmc_modpow.c"
             if (u_count >= m_count)
             {
                 _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
@@ -101767,27 +101767,27 @@ static PMC_STATUS_CODE PMC_ModPow_X_X_X_Imp(NUMBER_HEADER* v, NUMBER_HEADER* e, 
 PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ModPow_X_X_X(HANDLE v, HANDLE e, HANDLE m, HANDLE* r)
 {
     if (v == 
-# 603 "../pmc_modpow.c" 3 4
+# 596 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 603 "../pmc_modpow.c"
+# 596 "../pmc_modpow.c"
                 )
         return ((-1));
     if (e == 
-# 605 "../pmc_modpow.c" 3 4
+# 598 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 605 "../pmc_modpow.c"
+# 598 "../pmc_modpow.c"
                 )
         return ((-1));
     if (m == 
-# 607 "../pmc_modpow.c" 3 4
+# 600 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 607 "../pmc_modpow.c"
+# 600 "../pmc_modpow.c"
                 )
         return ((-1));
     if (r == 
-# 609 "../pmc_modpow.c" 3 4
+# 602 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 609 "../pmc_modpow.c"
+# 602 "../pmc_modpow.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;

@@ -1,10 +1,10 @@
 	.file	"pmc_initialize.c"
 	.text
 	.p2align 4,,15
-	.globl	PMC_Initialize
-	.def	PMC_Initialize;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Initialize
-PMC_Initialize:
+	.globl	PMC_UINT_Initialize
+	.def	PMC_UINT_Initialize;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_UINT_Initialize
+PMC_UINT_Initialize:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$48, %rsp

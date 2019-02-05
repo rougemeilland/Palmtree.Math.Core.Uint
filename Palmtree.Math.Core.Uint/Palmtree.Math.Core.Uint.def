@@ -1,0 +1,5 @@
+LIBRARY Palmtree.Math.Core.Uint.dll
+
+EXPORTS
+	PMC_UINT_Initialize
+	DoDebug

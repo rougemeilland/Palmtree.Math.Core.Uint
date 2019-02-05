@@ -3,6 +3,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../main.c"
+# 26 "../main.c"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/locale.h" 1 3
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/locale.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h" 1 3
@@ -214,7 +215,7 @@ typedef struct threadlocaleinfostruct {
 
 
 #pragma pack(pop)
-# 2 "../main.c" 2
+# 27 "../main.c" 2
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdio.h" 1 3
 # 11 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdio.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw_print_push.h" 1 3
@@ -928,7 +929,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw_print_pop.h" 1 3
 # 1400 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdio.h" 2 3
-# 3 "../main.c" 2
+# 28 "../main.c" 2
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/string.h" 1 3
 # 45 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/string.h" 3
   __attribute__ ((__dllimport__)) void *__attribute__((__cdecl__)) _memccpy(void *_Dst,const void *_Src,int _Val,size_t _MaxCount);
@@ -1135,7 +1136,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
     return _src ? wcsnlen(_src, _count) : 0;
   }
 # 191 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/string.h" 2 3
-# 4 "../main.c" 2
+# 29 "../main.c" 2
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/_mingw.h" 1 3
@@ -49442,10 +49443,10 @@ typedef struct _MODEMSETTINGS {
   DWORD __attribute__((__stdcall__)) ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL __attribute__((__stdcall__)) ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 2 3
-# 5 "../main.c" 2
-# 20 "../main.c"
+# 30 "../main.c" 2
+# 45 "../main.c"
 
-# 20 "../main.c"
+# 45 "../main.c"
 struct __tag_PMC_DEBUG_ENVIRONMENT
 {
     int( * log)(const wchar_t*, ...);
@@ -49465,64 +49466,64 @@ static void pause_console(void)
 int main(int argc, char** argv)
 {
     setlocale(
-# 38 "../main.c" 3
+# 63 "../main.c" 3
              0
-# 38 "../main.c"
+# 63 "../main.c"
                    , "Japanese");
 
     printf("***start\n");
 
     char module_path[
-# 42 "../main.c" 3
+# 67 "../main.c" 3
                     260 
-# 42 "../main.c"
+# 67 "../main.c"
                              + 1];
     GetModuleFileNameA(
-# 43 "../main.c" 3
+# 68 "../main.c" 3
                       ((void *)0)
-# 43 "../main.c"
+# 68 "../main.c"
                           , module_path, 
-# 43 "../main.c" 3
+# 68 "../main.c" 3
                                          260 
-# 43 "../main.c"
+# 68 "../main.c"
                                                   + 1);
     *strrchr(module_path, '\\') = '\0';
 
     char dll_file_path[
-# 46 "../main.c" 3
+# 71 "../main.c" 3
                       260 
-# 46 "../main.c"
+# 71 "../main.c"
                                + 1];
     strcpy_s(dll_file_path, 
-# 47 "../main.c" 3
+# 72 "../main.c" 3
                            260
-# 47 "../main.c"
+# 72 "../main.c"
                                    , module_path);
     strcat_s(dll_file_path, 
-# 48 "../main.c" 3
+# 73 "../main.c" 3
                            260
-# 48 "../main.c"
+# 73 "../main.c"
                                    , "\\");
     strcat_s(dll_file_path, 
-# 49 "../main.c" 3
+# 74 "../main.c" 3
                            260
-# 49 "../main.c"
+# 74 "../main.c"
                                    , "Palmtree.Math.Core.Uint.dll");
 
     printf("***dll file path: %s\n", dll_file_path);
 
     HANDLE hLib = LoadLibraryA(dll_file_path);
     if (hLib == 
-# 54 "../main.c" 3
+# 79 "../main.c" 3
                ((void *)0)
-# 54 "../main.c"
+# 79 "../main.c"
                    )
     {
         DWORD err = GetLastError();
         fprintf(
-# 57 "../main.c" 3
+# 82 "../main.c" 3
                (__acrt_iob_func(2))
-# 57 "../main.c"
+# 82 "../main.c"
                      , "***error: %d in LoadLibrary(\"%s\")\n", (int)err, dll_file_path);
         getchar();
         return (1);
@@ -49530,33 +49531,33 @@ int main(int argc, char** argv)
     void(__attribute__((__stdcall__)) *proc)(PMC_DEBUG_ENVIRONMENT *);
     proc = (void(__attribute__((__stdcall__)) *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, "DoDebug");
     if (proc == 
-# 63 "../main.c" 3
+# 88 "../main.c" 3
                ((void *)0)
-# 63 "../main.c"
+# 88 "../main.c"
                    )
         proc = (void(__attribute__((__stdcall__)) *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, "_DoDebug");
     if (proc == 
-# 65 "../main.c" 3
+# 90 "../main.c" 3
                ((void *)0)
-# 65 "../main.c"
+# 90 "../main.c"
                    )
         proc = (void(__attribute__((__stdcall__)) *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, "DoDebug@4");
     if (proc == 
-# 67 "../main.c" 3
+# 92 "../main.c" 3
                ((void *)0)
-# 67 "../main.c"
+# 92 "../main.c"
                    )
         proc = (void(__attribute__((__stdcall__)) *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, "_DoDebug@4");
     if (proc == 
-# 69 "../main.c" 3
+# 94 "../main.c" 3
                ((void *)0)
-# 69 "../main.c"
+# 94 "../main.c"
                    )
     {
         fprintf(
-# 71 "../main.c" 3
+# 96 "../main.c" 3
                (__acrt_iob_func(2))
-# 71 "../main.c"
+# 96 "../main.c"
                      , "***error: GetProcAddress(\"%s\"/\"%s\"/\"%s\"/\"%s\")\n", "DoDebug", "_DoDebug", "DoDebug@4", "_DoDebug@4");
         getchar();
         return (1);

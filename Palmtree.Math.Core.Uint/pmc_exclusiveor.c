@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_exclusiveor.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/01/14, 12:02
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

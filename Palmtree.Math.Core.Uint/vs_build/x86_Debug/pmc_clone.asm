@@ -64,7 +64,7 @@ _x$ = 8							; size = 4
 _o$ = 12						; size = 4
 _PMC_Clone_X@8 PROC
 
-; 38   : {
+; 31   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -78,35 +78,35 @@ _PMC_Clone_X@8 PROC
 	mov	ecx, OFFSET __9C731D93_pmc_clone@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@PMC_Clone_
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Clone_
 $LN2@PMC_Clone_:
 
-; 41   :     if (o == NULL)
+; 34   :     if (o == NULL)
 
 	cmp	DWORD PTR _o$[ebp], 0
 	jne	SHORT $LN3@PMC_Clone_
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Clone_
 $LN3@PMC_Clone_:
 
-; 43   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 36   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _nx$[ebp], eax
 
-; 44   :     PMC_STATUS_CODE result;
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 37   :     PMC_STATUS_CODE result;
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nx$[ebp]
 	push	ecx
@@ -116,14 +116,14 @@ $LN3@PMC_Clone_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN4@PMC_Clone_
 
-; 46   :         return (result);
+; 39   :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN4@PMC_Clone_:
 
-; 47   :     NUMBER_HEADER* no;
-; 48   :     if (nx->IS_ZERO)
+; 40   :     NUMBER_HEADER* no;
+; 41   :     if (nx->IS_ZERO)
 
 	mov	edx, DWORD PTR _nx$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -131,15 +131,15 @@ $LN4@PMC_Clone_:
 	and	eax, 1
 	je	SHORT $LN5@PMC_Clone_
 
-; 49   :         no = &number_zero;
+; 42   :         no = &number_zero;
 
 	mov	DWORD PTR _no$[ebp], OFFSET _number_zero
 	jmp	SHORT $LN6@PMC_Clone_
 $LN5@PMC_Clone_:
 
-; 50   :     else
-; 51   :     {
-; 52   :         if ((result = DuplicateNumber(nx, &no)) != PMC_STATUS_OK)
+; 43   :     else
+; 44   :     {
+; 45   :         if ((result = DuplicateNumber(nx, &no)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _no$[ebp]
 	push	ecx
@@ -151,21 +151,21 @@ $LN5@PMC_Clone_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Clone_
 
-; 53   :             return (result);
+; 46   :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN6@PMC_Clone_:
 
-; 54   :     }
-; 55   :     *o = no;
+; 47   :     }
+; 48   :     *o = no;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR _no$[ebp]
 	mov	DWORD PTR [eax], ecx
 
-; 56   : #ifdef _DEBUG
-; 57   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 49   : #ifdef _DEBUG
+; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -176,19 +176,19 @@ $LN6@PMC_Clone_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN8@PMC_Clone_
 
-; 58   :         return (result);
+; 51   :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Clone_
 $LN8@PMC_Clone_:
 
-; 59   : #endif
-; 60   :     return (PMC_STATUS_OK);
+; 52   : #endif
+; 53   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Clone_:
 
-; 61   : }
+; 54   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -222,18 +222,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_Clone PROC
 
-; 64   : {
+; 57   : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __9C731D93_pmc_clone@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 65   :     return (PMC_STATUS_OK);
+; 58   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 66   : }
+; 59   : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

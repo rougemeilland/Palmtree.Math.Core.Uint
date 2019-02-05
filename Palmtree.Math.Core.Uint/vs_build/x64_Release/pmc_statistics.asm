@@ -16,27 +16,27 @@ _TEXT	SEGMENT
 buffer$ = 8
 PMC_GetStatisticsInfo PROC				; COMDAT
 
-; 41   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
+; 35   : 	buffer->COUNT_DIV32 = statistics_info.COUNT_DIV32;
 
 	mov	eax, DWORD PTR statistics_info+12
 	mov	DWORD PTR [rcx+12], eax
 
-; 42   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
+; 36   : 	buffer->COUNT_DIV64 = statistics_info.COUNT_DIV64;
 
 	mov	eax, DWORD PTR statistics_info+8
 	mov	DWORD PTR [rcx+8], eax
 
-; 43   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
+; 37   : 	buffer->COUNT_MULTI32 = statistics_info.COUNT_MULTI32;
 
 	mov	eax, DWORD PTR statistics_info+4
 	mov	DWORD PTR [rcx+4], eax
 
-; 44   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
+; 38   : 	buffer->COUNT_MULTI64 = statistics_info.COUNT_MULTI64;
 
 	mov	eax, DWORD PTR statistics_info
 	mov	DWORD PTR [rcx], eax
 
-; 45   : }
+; 39   : }
 
 	ret	0
 PMC_GetStatisticsInfo ENDP

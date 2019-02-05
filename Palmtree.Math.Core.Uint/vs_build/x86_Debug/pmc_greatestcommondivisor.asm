@@ -124,7 +124,7 @@ _v$ = 12						; size = 8
 _w$ = 20						; size = 4
 _PMC_GreatestCommonDivisor_X_L_Imp PROC
 
-; 222  : {
+; 215  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -137,8 +137,8 @@ _PMC_GreatestCommonDivisor_X_L_Imp PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 223  :     PMC_STATUS_CODE result;
-; 224  :     if (u->IS_ZERO)
+; 216  :     PMC_STATUS_CODE result;
+; 217  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -146,35 +146,35 @@ _PMC_GreatestCommonDivisor_X_L_Imp PROC
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Greate
 
-; 225  :     {
-; 226  :         // u が 0 である場合
-; 227  : 
-; 228  :         if (v == 0)
+; 218  :     {
+; 219  :         // u が 0 である場合
+; 220  : 
+; 221  :         if (v == 0)
 
 	mov	edx, DWORD PTR _v$[ebp]
 	or	edx, DWORD PTR _v$[ebp+4]
 	jne	SHORT $LN4@PMC_Greate
 
-; 229  :         {
-; 230  :             // v が 0 である場合
-; 231  : 
-; 232  :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
-; 233  :             return (PMC_STATUS_ARGUMENT_ERROR);
+; 222  :         {
+; 223  :             // v が 0 である場合
+; 224  : 
+; 225  :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
+; 226  :             return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 
-; 234  :         }
+; 227  :         }
 
 	jmp	SHORT $LN5@PMC_Greate
 $LN4@PMC_Greate:
 
-; 235  :         else
-; 236  :         {
-; 237  :             // v が 0 ではない場合
-; 238  : 
-; 239  :             // GCD は v そのものであるため、v を計算結果として返す。
-; 240  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
+; 228  :         else
+; 229  :         {
+; 230  :             // v が 0 ではない場合
+; 231  : 
+; 232  :             // GCD は v そのものであるため、v を計算結果として返す。
+; 233  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	push	eax
@@ -188,33 +188,33 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 241  :                 return (result);
+; 234  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 242  :         }
-; 243  :     }
+; 235  :         }
+; 236  :     }
 
 	jmp	$LN3@PMC_Greate
 $LN2@PMC_Greate:
 
-; 244  :     else
-; 245  :     {
-; 246  :         // u が 0 ではない場合
-; 247  : 
-; 248  :         if (v == 0)
+; 237  :     else
+; 238  :     {
+; 239  :         // u が 0 ではない場合
+; 240  : 
+; 241  :         if (v == 0)
 
 	mov	eax, DWORD PTR _v$[ebp]
 	or	eax, DWORD PTR _v$[ebp+4]
 	jne	SHORT $LN7@PMC_Greate
 
-; 249  :         {
-; 250  :             // v が 0 である場合
-; 251  : 
-; 252  :             // GCD は u そのものであるため、u を計算結果として返す。
-; 253  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+; 242  :         {
+; 243  :             // v が 0 である場合
+; 244  : 
+; 245  :             // GCD は u そのものであるため、u を計算結果として返す。
+; 246  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	push	ecx
@@ -226,39 +226,39 @@ $LN2@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@PMC_Greate
 
-; 254  :                 return (result);
+; 247  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN9@PMC_Greate:
 
-; 255  :         }
+; 248  :         }
 
 	jmp	$LN3@PMC_Greate
 $LN7@PMC_Greate:
 
-; 256  :         else
-; 257  :         {
-; 258  :             // u と v がともに 0 ではない場合
-; 259  : 
-; 260  :             // u と v の GCD を計算する
-; 261  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 249  :         else
+; 250  :         {
+; 251  :             // u と v がともに 0 ではない場合
+; 252  : 
+; 253  :             // u と v の GCD を計算する
+; 254  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	mov	eax, 1
 	test	eax, eax
 	je	$LN10@PMC_Greate
 
-; 262  :             {
-; 263  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 264  : 
-; 265  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 255  :             {
+; 256  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 257  : 
+; 258  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _u_bit_count$43[ebp], edx
 
-; 266  :                 _UINT32_T v_hi;
-; 267  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
+; 259  :                 _UINT32_T v_hi;
+; 260  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
 
 	lea	eax, DWORD PTR _v_hi$42[ebp]
 	push	eax
@@ -270,14 +270,14 @@ $LN7@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _v_lo$41[ebp], eax
 
-; 268  :                 if (v_hi == 0)
+; 261  :                 if (v_hi == 0)
 
 	cmp	DWORD PTR _v_hi$42[ebp], 0
 	jne	$LN12@PMC_Greate
 
-; 269  :                 {
-; 270  :                     // v の値が 32bit で表現可能な場合
-; 271  :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
+; 262  :                 {
+; 263  :                     // v の値が 32bit で表現可能な場合
+; 264  :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
 
 	mov	eax, DWORD PTR _v_lo$41[ebp]
 	push	eax
@@ -287,7 +287,7 @@ $LN7@PMC_Greate:
 	sub	ecx, eax
 	mov	DWORD PTR _v_bit_count$40[ebp], ecx
 
-; 272  :                     __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
+; 265  :                     __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
 
 	mov	edx, DWORD PTR _v_bit_count$40[ebp]
 	push	edx
@@ -297,10 +297,10 @@ $LN7@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _work_bit_count$39[ebp], eax
 
-; 273  : 
-; 274  :                     __UNIT_TYPE work_u_buf_code;
-; 275  :                     __UNIT_TYPE work_u_buf_words;
-; 276  :                     __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
+; 266  : 
+; 267  :                     __UNIT_TYPE work_u_buf_code;
+; 268  :                     __UNIT_TYPE work_u_buf_words;
+; 269  :                     __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
 	lea	ecx, DWORD PTR _work_u_buf_code$38[ebp]
 	push	ecx
@@ -312,21 +312,21 @@ $LN7@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_u_buf$36[ebp], eax
 
-; 277  :                     if (work_u_buf == NULL)
+; 270  :                     if (work_u_buf == NULL)
 
 	cmp	DWORD PTR _work_u_buf$36[ebp], 0
 	jne	SHORT $LN14@PMC_Greate
 
-; 278  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 271  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN14@PMC_Greate:
 
-; 279  : 
-; 280  :                     __UNIT_TYPE work_v_buf_code;
-; 281  :                     __UNIT_TYPE work_v_buf_words;
-; 282  :                     __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 272  : 
+; 273  :                     __UNIT_TYPE work_v_buf_code;
+; 274  :                     __UNIT_TYPE work_v_buf_words;
+; 275  :                     __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	ecx, DWORD PTR _work_v_buf_code$35[ebp]
 	push	ecx
@@ -338,13 +338,13 @@ $LN14@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$33[ebp], eax
 
-; 283  :                     if (work_v_buf == NULL)
+; 276  :                     if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$33[ebp], 0
 	jne	SHORT $LN15@PMC_Greate
 
-; 284  :                     {
-; 285  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
+; 277  :                     {
+; 278  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	ecx, DWORD PTR _work_u_buf_words$37[ebp]
 	push	ecx
@@ -353,16 +353,16 @@ $LN14@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 286  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 279  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN15@PMC_Greate:
 
-; 287  :                     }
-; 288  : 
-; 289  :                     __UNIT_TYPE nw_check_code;
-; 290  :                     if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
+; 280  :                     }
+; 281  : 
+; 282  :                     __UNIT_TYPE nw_check_code;
+; 283  :                     if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nw_check_code$32[ebp]
 	push	eax
@@ -376,8 +376,8 @@ $LN15@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN16@PMC_Greate
 
-; 291  :                     {
-; 292  :                         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 284  :                     {
+; 285  :                         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$34[ebp]
 	push	eax
@@ -386,7 +386,7 @@ $LN15@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 293  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
+; 286  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$37[ebp]
 	push	edx
@@ -395,21 +395,21 @@ $LN15@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 294  :                         return (result);
+; 287  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN16@PMC_Greate:
 
-; 295  :                     }
-; 296  : 
-; 297  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
+; 288  :                     }
+; 289  : 
+; 290  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx+20]
 	mov	DWORD PTR _u_tzcnt$31[ebp], edx
 
-; 298  :                     __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v_lo);
+; 291  :                     __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v_lo);
 
 	mov	eax, DWORD PTR _v_lo$41[ebp]
 	push	eax
@@ -417,7 +417,7 @@ $LN16@PMC_Greate:
 	add	esp, 4
 	mov	DWORD PTR _v_tzcnt$30[ebp], eax
 
-; 299  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
+; 292  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
 	mov	ecx, DWORD PTR _v_tzcnt$30[ebp]
 	push	ecx
@@ -427,12 +427,12 @@ $LN16@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _k$29[ebp], eax
 
-; 300  :                     if (u_tzcnt > 0)
+; 293  :                     if (u_tzcnt > 0)
 
 	cmp	DWORD PTR _u_tzcnt$31[ebp], 0
 	jbe	SHORT $LN17@PMC_Greate
 
-; 301  :                         RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
+; 294  :                         RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
 
 	push	0
 	mov	eax, DWORD PTR _work_u_buf$36[ebp]
@@ -450,8 +450,8 @@ $LN16@PMC_Greate:
 	jmp	SHORT $LN18@PMC_Greate
 $LN17@PMC_Greate:
 
-; 302  :                     else
-; 303  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
+; 295  :                     else
+; 296  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -465,7 +465,7 @@ $LN17@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN18@PMC_Greate:
 
-; 304  :                     work_v_buf[0] = v_lo >> v_tzcnt;
+; 297  :                     work_v_buf[0] = v_lo >> v_tzcnt;
 
 	mov	edx, DWORD PTR _v_lo$41[ebp]
 	mov	ecx, DWORD PTR _v_tzcnt$30[ebp]
@@ -475,9 +475,9 @@ $LN18@PMC_Greate:
 	mov	eax, DWORD PTR _work_v_buf$33[ebp]
 	mov	DWORD PTR [eax+ecx], edx
 
-; 305  : 
-; 306  :                     __UNIT_TYPE w_buf_count;
-; 307  :                     GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
+; 298  : 
+; 299  :                     __UNIT_TYPE w_buf_count;
+; 300  :                     GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	lea	ecx, DWORD PTR _w_buf_count$28[ebp]
 	push	ecx
@@ -498,7 +498,7 @@ $LN18@PMC_Greate:
 	call	_GreatestCommonDivisor_Imp
 	add	esp, 20					; 00000014H
 
-; 308  :                     if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
+; 301  :                     if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_u_buf_code$38[ebp]
 	push	edx
@@ -510,13 +510,13 @@ $LN18@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN19@PMC_Greate
 
-; 309  :                         return (result);
+; 302  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN19@PMC_Greate:
 
-; 310  :                     if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 303  :                     if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_v_buf_code$35[ebp]
 	push	ecx
@@ -528,13 +528,13 @@ $LN19@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN20@PMC_Greate
 
-; 311  :                         return (result);
+; 304  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN20@PMC_Greate:
 
-; 312  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 305  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw_check_code$32[ebp]
 	push	eax
@@ -548,13 +548,13 @@ $LN20@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN21@PMC_Greate
 
-; 313  :                         return (result);
+; 306  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN21@PMC_Greate:
 
-; 314  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 307  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$34[ebp]
 	push	ecx
@@ -563,7 +563,7 @@ $LN21@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 315  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
+; 308  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	eax, DWORD PTR _work_u_buf_words$37[ebp]
 	push	eax
@@ -572,8 +572,8 @@ $LN21@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 316  : 
-; 317  :                     LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
+; 309  : 
+; 310  :                     LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
 
 	push	1
 	mov	edx, DWORD PTR _w$[ebp]
@@ -591,7 +591,7 @@ $LN21@PMC_Greate:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 318  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 311  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nw_check_code$32[ebp]
 	push	ecx
@@ -605,13 +605,13 @@ $LN21@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN22@PMC_Greate
 
-; 319  :                         return (result);
+; 312  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN22@PMC_Greate:
 
-; 320  :                     CommitNumber(*w);
+; 313  :                     CommitNumber(*w);
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -619,15 +619,15 @@ $LN22@PMC_Greate:
 	call	_CommitNumber
 	add	esp, 4
 
-; 321  :                 }
+; 314  :                 }
 
 	jmp	$LN13@PMC_Greate
 $LN12@PMC_Greate:
 
-; 322  :                 else
-; 323  :                 {
-; 324  :                     // y の値が 32bit では表現できない場合
-; 325  :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
+; 315  :                 else
+; 316  :                 {
+; 317  :                     // y の値が 32bit では表現できない場合
+; 318  :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
 
 	mov	ecx, DWORD PTR _v_hi$42[ebp]
 	push	ecx
@@ -637,7 +637,7 @@ $LN12@PMC_Greate:
 	sub	edx, eax
 	mov	DWORD PTR _v_bit_count$27[ebp], edx
 
-; 326  :                     __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
+; 319  :                     __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
 
 	mov	eax, DWORD PTR _v_bit_count$27[ebp]
 	push	eax
@@ -647,10 +647,10 @@ $LN12@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _work_bit_count$26[ebp], eax
 
-; 327  : 
-; 328  :                     __UNIT_TYPE work_u_buf_code;
-; 329  :                     __UNIT_TYPE work_u_buf_words;
-; 330  :                     __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
+; 320  : 
+; 321  :                     __UNIT_TYPE work_u_buf_code;
+; 322  :                     __UNIT_TYPE work_u_buf_words;
+; 323  :                     __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
 	lea	edx, DWORD PTR _work_u_buf_code$25[ebp]
 	push	edx
@@ -662,21 +662,21 @@ $LN12@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_u_buf$23[ebp], eax
 
-; 331  :                     if (work_u_buf == NULL)
+; 324  :                     if (work_u_buf == NULL)
 
 	cmp	DWORD PTR _work_u_buf$23[ebp], 0
 	jne	SHORT $LN23@PMC_Greate
 
-; 332  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 325  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN23@PMC_Greate:
 
-; 333  : 
-; 334  :                     __UNIT_TYPE work_v_buf_code;
-; 335  :                     __UNIT_TYPE work_v_buf_words;
-; 336  :                     __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 326  : 
+; 327  :                     __UNIT_TYPE work_v_buf_code;
+; 328  :                     __UNIT_TYPE work_v_buf_words;
+; 329  :                     __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	edx, DWORD PTR _work_v_buf_code$22[ebp]
 	push	edx
@@ -688,13 +688,13 @@ $LN23@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$20[ebp], eax
 
-; 337  :                     if (work_v_buf == NULL)
+; 330  :                     if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$20[ebp], 0
 	jne	SHORT $LN24@PMC_Greate
 
-; 338  :                     {
-; 339  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
+; 331  :                     {
+; 332  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$24[ebp]
 	push	edx
@@ -703,16 +703,16 @@ $LN23@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 340  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 333  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN24@PMC_Greate:
 
-; 341  :                     }
-; 342  : 
-; 343  :                     __UNIT_TYPE nw_check_code;
-; 344  :                     if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
+; 334  :                     }
+; 335  : 
+; 336  :                     __UNIT_TYPE nw_check_code;
+; 337  :                     if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _nw_check_code$19[ebp]
 	push	ecx
@@ -726,8 +726,8 @@ $LN24@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN25@PMC_Greate
 
-; 345  :                     {
-; 346  :                         DeallocateBlock(work_v_buf, work_v_buf_words);
+; 338  :                     {
+; 339  :                         DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$21[ebp]
 	push	ecx
@@ -736,7 +736,7 @@ $LN24@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 347  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
+; 340  :                         DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	eax, DWORD PTR _work_u_buf_words$24[ebp]
 	push	eax
@@ -745,21 +745,21 @@ $LN24@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 348  :                         return (result);
+; 341  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN25@PMC_Greate:
 
-; 349  :                     }
-; 350  : 
-; 351  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
+; 342  :                     }
+; 343  : 
+; 344  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
 	mov	eax, DWORD PTR [edx+20]
 	mov	DWORD PTR _u_tzcnt$18[ebp], eax
 
-; 352  :                     __UNIT_TYPE v_tzcnt = v_lo == 0 ? 32 + _TZCNT_ALT_UNIT(v_hi) : _TZCNT_ALT_UNIT(v_lo);
+; 345  :                     __UNIT_TYPE v_tzcnt = v_lo == 0 ? 32 + _TZCNT_ALT_UNIT(v_hi) : _TZCNT_ALT_UNIT(v_lo);
 
 	cmp	DWORD PTR _v_lo$41[ebp], 0
 	jne	SHORT $LN43@PMC_Greate
@@ -780,7 +780,7 @@ $LN44@PMC_Greate:
 	mov	eax, DWORD PTR tv238[ebp]
 	mov	DWORD PTR _v_tzcnt$17[ebp], eax
 
-; 353  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
+; 346  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
 	mov	ecx, DWORD PTR _v_tzcnt$17[ebp]
 	push	ecx
@@ -790,12 +790,12 @@ $LN44@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _k$16[ebp], eax
 
-; 354  :                     if (u_tzcnt > 0)
+; 347  :                     if (u_tzcnt > 0)
 
 	cmp	DWORD PTR _u_tzcnt$18[ebp], 0
 	jbe	SHORT $LN26@PMC_Greate
 
-; 355  :                         RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
+; 348  :                         RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
 
 	push	0
 	mov	eax, DWORD PTR _work_u_buf$23[ebp]
@@ -813,8 +813,8 @@ $LN44@PMC_Greate:
 	jmp	SHORT $LN27@PMC_Greate
 $LN26@PMC_Greate:
 
-; 356  :                     else
-; 357  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
+; 349  :                     else
+; 350  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -828,7 +828,7 @@ $LN26@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN27@PMC_Greate:
 
-; 358  :                     work_v_buf[0] = v_lo;
+; 351  :                     work_v_buf[0] = v_lo;
 
 	mov	edx, 4
 	imul	eax, edx, 0
@@ -836,7 +836,7 @@ $LN27@PMC_Greate:
 	mov	edx, DWORD PTR _v_lo$41[ebp]
 	mov	DWORD PTR [ecx+eax], edx
 
-; 359  :                     work_v_buf[1] = v_hi;
+; 352  :                     work_v_buf[1] = v_hi;
 
 	mov	eax, 4
 	shl	eax, 0
@@ -844,12 +844,12 @@ $LN27@PMC_Greate:
 	mov	edx, DWORD PTR _v_hi$42[ebp]
 	mov	DWORD PTR [ecx+eax], edx
 
-; 360  :                     if (v_tzcnt > 0)
+; 353  :                     if (v_tzcnt > 0)
 
 	cmp	DWORD PTR _v_tzcnt$17[ebp], 0
 	jbe	SHORT $LN28@PMC_Greate
 
-; 361  :                         RightShift_Imp(work_v_buf, 2, v_tzcnt, work_v_buf, TRUE);
+; 354  :                         RightShift_Imp(work_v_buf, 2, v_tzcnt, work_v_buf, TRUE);
 
 	push	1
 	mov	eax, DWORD PTR _work_v_buf$20[ebp]
@@ -863,9 +863,9 @@ $LN27@PMC_Greate:
 	add	esp, 20					; 00000014H
 $LN28@PMC_Greate:
 
-; 362  : 
-; 363  :                     __UNIT_TYPE w_buf_count;
-; 364  :                     GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
+; 355  : 
+; 356  :                     __UNIT_TYPE w_buf_count;
+; 357  :                     GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	lea	eax, DWORD PTR _w_buf_count$15[ebp]
 	push	eax
@@ -886,7 +886,7 @@ $LN28@PMC_Greate:
 	call	_GreatestCommonDivisor_Imp
 	add	esp, 20					; 00000014H
 
-; 365  :                     if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
+; 358  :                     if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_u_buf_code$25[ebp]
 	push	ecx
@@ -898,13 +898,13 @@ $LN28@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN29@PMC_Greate
 
-; 366  :                         return (result);
+; 359  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN29@PMC_Greate:
 
-; 367  :                     if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 360  :                     if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _work_v_buf_code$22[ebp]
 	push	eax
@@ -916,13 +916,13 @@ $LN29@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN30@PMC_Greate
 
-; 368  :                         return (result);
+; 361  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN30@PMC_Greate:
 
-; 369  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 362  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nw_check_code$19[ebp]
 	push	edx
@@ -936,13 +936,13 @@ $LN30@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN31@PMC_Greate
 
-; 370  :                         return (result);
+; 363  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN31@PMC_Greate:
 
-; 371  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 364  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$21[ebp]
 	push	eax
@@ -951,7 +951,7 @@ $LN31@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 372  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
+; 365  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$24[ebp]
 	push	edx
@@ -960,8 +960,8 @@ $LN31@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 373  : 
-; 374  :                     LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
+; 366  : 
+; 367  :                     LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
 
 	push	1
 	mov	ecx, DWORD PTR _w$[ebp]
@@ -979,7 +979,7 @@ $LN31@PMC_Greate:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 375  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 368  :                     if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw_check_code$19[ebp]
 	push	eax
@@ -993,13 +993,13 @@ $LN31@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN32@PMC_Greate
 
-; 376  :                         return (result);
+; 369  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN32@PMC_Greate:
 
-; 377  :                     CommitNumber(*w);
+; 370  :                     CommitNumber(*w);
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -1008,23 +1008,23 @@ $LN32@PMC_Greate:
 	add	esp, 4
 $LN13@PMC_Greate:
 
-; 378  :                 }
-; 379  :             }
+; 371  :                 }
+; 372  :             }
 
 	jmp	$LN3@PMC_Greate
 $LN10@PMC_Greate:
 
-; 380  :             else
-; 381  :             {
-; 382  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 383  : 
-; 384  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 373  :             else
+; 374  :             {
+; 375  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 376  : 
+; 377  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
-; 385  :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 378  :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
 
 	mov	edx, DWORD PTR _v$[ebp]
 	push	edx
@@ -1034,7 +1034,7 @@ $LN10@PMC_Greate:
 	sub	ecx, eax
 	mov	DWORD PTR _v_bit_count$13[ebp], ecx
 
-; 386  :                 __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
+; 379  :                 __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
 
 	mov	edx, DWORD PTR _v_bit_count$13[ebp]
 	push	edx
@@ -1044,10 +1044,10 @@ $LN10@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _work_bit_count$12[ebp], eax
 
-; 387  : 
-; 388  :                 __UNIT_TYPE work_u_buf_code;
-; 389  :                 __UNIT_TYPE work_u_buf_words;
-; 390  :                 __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
+; 380  : 
+; 381  :                 __UNIT_TYPE work_u_buf_code;
+; 382  :                 __UNIT_TYPE work_u_buf_words;
+; 383  :                 __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
 	lea	ecx, DWORD PTR _work_u_buf_code$11[ebp]
 	push	ecx
@@ -1059,21 +1059,21 @@ $LN10@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_u_buf$9[ebp], eax
 
-; 391  :                 if (work_u_buf == NULL)
+; 384  :                 if (work_u_buf == NULL)
 
 	cmp	DWORD PTR _work_u_buf$9[ebp], 0
 	jne	SHORT $LN33@PMC_Greate
 
-; 392  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 385  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN33@PMC_Greate:
 
-; 393  : 
-; 394  :                 __UNIT_TYPE work_v_buf_code;
-; 395  :                 __UNIT_TYPE work_v_buf_words;
-; 396  :                 __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 386  : 
+; 387  :                 __UNIT_TYPE work_v_buf_code;
+; 388  :                 __UNIT_TYPE work_v_buf_words;
+; 389  :                 __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	ecx, DWORD PTR _work_v_buf_code$8[ebp]
 	push	ecx
@@ -1085,13 +1085,13 @@ $LN33@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$6[ebp], eax
 
-; 397  :                 if (work_v_buf == NULL)
+; 390  :                 if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$6[ebp], 0
 	jne	SHORT $LN34@PMC_Greate
 
-; 398  :                 {
-; 399  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
+; 391  :                 {
+; 392  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	ecx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	ecx
@@ -1100,16 +1100,16 @@ $LN33@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 400  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 393  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN34@PMC_Greate:
 
-; 401  :                 }
-; 402  : 
-; 403  :                 __UNIT_TYPE nw_check_code;
-; 404  :                 if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
+; 394  :                 }
+; 395  : 
+; 396  :                 __UNIT_TYPE nw_check_code;
+; 397  :                 if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
@@ -1123,8 +1123,8 @@ $LN34@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN35@PMC_Greate
 
-; 405  :                 {
-; 406  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 398  :                 {
+; 399  :                     DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$7[ebp]
 	push	eax
@@ -1133,7 +1133,7 @@ $LN34@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 407  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
+; 400  :                     DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	edx
@@ -1142,21 +1142,21 @@ $LN34@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 408  :                     return (result);
+; 401  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN35@PMC_Greate:
 
-; 409  :                 }
-; 410  : 
-; 411  :                 __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
+; 402  :                 }
+; 403  : 
+; 404  :                 __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx+20]
 	mov	DWORD PTR _u_tzcnt$4[ebp], edx
 
-; 412  :                 __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 405  :                 __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT((__UNIT_TYPE)v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
@@ -1164,7 +1164,7 @@ $LN35@PMC_Greate:
 	add	esp, 4
 	mov	DWORD PTR _v_tzcnt$3[ebp], eax
 
-; 413  :                 __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
+; 406  :                 __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
 	mov	ecx, DWORD PTR _v_tzcnt$3[ebp]
 	push	ecx
@@ -1174,12 +1174,12 @@ $LN35@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _k$2[ebp], eax
 
-; 414  :                 if (u_tzcnt > 0)
+; 407  :                 if (u_tzcnt > 0)
 
 	cmp	DWORD PTR _u_tzcnt$4[ebp], 0
 	jbe	SHORT $LN36@PMC_Greate
 
-; 415  :                     RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
+; 408  :                     RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
 
 	push	0
 	mov	eax, DWORD PTR _work_u_buf$9[ebp]
@@ -1197,8 +1197,8 @@ $LN35@PMC_Greate:
 	jmp	SHORT $LN37@PMC_Greate
 $LN36@PMC_Greate:
 
-; 416  :                 else
-; 417  :                     _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
+; 409  :                 else
+; 410  :                     _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -1212,7 +1212,7 @@ $LN36@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN37@PMC_Greate:
 
-; 418  :                 work_v_buf[0] = (__UNIT_TYPE)(v >> v_tzcnt);
+; 411  :                 work_v_buf[0] = (__UNIT_TYPE)(v >> v_tzcnt);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	edx, DWORD PTR _v$[ebp+4]
@@ -1223,9 +1223,9 @@ $LN37@PMC_Greate:
 	mov	edx, DWORD PTR _work_v_buf$6[ebp]
 	mov	DWORD PTR [edx+ecx], eax
 
-; 419  : 
-; 420  :                 __UNIT_TYPE w_buf_count;
-; 421  :                 GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
+; 412  : 
+; 413  :                 __UNIT_TYPE w_buf_count;
+; 414  :                 GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	lea	eax, DWORD PTR _w_buf_count$1[ebp]
 	push	eax
@@ -1246,7 +1246,7 @@ $LN37@PMC_Greate:
 	call	_GreatestCommonDivisor_Imp
 	add	esp, 20					; 00000014H
 
-; 422  :                 if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
+; 415  :                 if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_u_buf_code$11[ebp]
 	push	ecx
@@ -1258,13 +1258,13 @@ $LN37@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN38@PMC_Greate
 
-; 423  :                     return (result);
+; 416  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN38@PMC_Greate:
 
-; 424  :                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 417  :                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _work_v_buf_code$8[ebp]
 	push	eax
@@ -1276,13 +1276,13 @@ $LN38@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN39@PMC_Greate
 
-; 425  :                     return (result);
+; 418  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN39@PMC_Greate:
 
-; 426  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 419  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nw_check_code$5[ebp]
 	push	edx
@@ -1296,13 +1296,13 @@ $LN39@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN40@PMC_Greate
 
-; 427  :                     return (result);
+; 420  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN40@PMC_Greate:
 
-; 428  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
+; 421  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$7[ebp]
 	push	eax
@@ -1311,7 +1311,7 @@ $LN40@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 429  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
+; 422  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	edx
@@ -1320,8 +1320,8 @@ $LN40@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 430  : 
-; 431  :                 LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
+; 423  : 
+; 424  :                 LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
 
 	push	1
 	mov	ecx, DWORD PTR _w$[ebp]
@@ -1339,7 +1339,7 @@ $LN40@PMC_Greate:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 432  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 425  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
@@ -1353,13 +1353,13 @@ $LN40@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN41@PMC_Greate
 
-; 433  :                     return (result);
+; 426  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN41@PMC_Greate:
 
-; 434  :                 CommitNumber(*w);
+; 427  :                 CommitNumber(*w);
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -1368,15 +1368,15 @@ $LN41@PMC_Greate:
 	add	esp, 4
 $LN3@PMC_Greate:
 
-; 435  :             }
-; 436  :         }
-; 437  :     }
-; 438  :     return (PMC_STATUS_OK);
+; 428  :             }
+; 429  :         }
+; 430  :     }
+; 431  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 439  : }
+; 432  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -1779,7 +1779,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_GreatestCommonDivisor_X_I_Imp PROC
 
-; 80   : {
+; 73   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1792,8 +1792,8 @@ _PMC_GreatestCommonDivisor_X_I_Imp PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 81   :     PMC_STATUS_CODE result;
-; 82   :     if (u->IS_ZERO)
+; 74   :     PMC_STATUS_CODE result;
+; 75   :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -1801,34 +1801,34 @@ _PMC_GreatestCommonDivisor_X_I_Imp PROC
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Greate
 
-; 83   :     {
-; 84   :         // u が 0 である場合
-; 85   : 
-; 86   :         if (v == 0)
+; 76   :     {
+; 77   :         // u が 0 である場合
+; 78   : 
+; 79   :         if (v == 0)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 87   :         {
-; 88   :             // v が 0 である場合
-; 89   : 
-; 90   :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
-; 91   :             return (PMC_STATUS_ARGUMENT_ERROR);
+; 80   :         {
+; 81   :             // v が 0 である場合
+; 82   : 
+; 83   :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
+; 84   :             return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 
-; 92   :         }
+; 85   :         }
 
 	jmp	SHORT $LN5@PMC_Greate
 $LN4@PMC_Greate:
 
-; 93   :         else
-; 94   :         {
-; 95   :             // v が 0 ではない場合
-; 96   : 
-; 97   :             // GCD は v そのものであるため、v を計算結果として返す。
-; 98   :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
+; 86   :         else
+; 87   :         {
+; 88   :             // v が 0 ではない場合
+; 89   : 
+; 90   :             // GCD は v そのものであるため、v を計算結果として返す。
+; 91   :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -1840,32 +1840,32 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 99   :                 return (result);
+; 92   :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 100  :         }
-; 101  :     }
+; 93   :         }
+; 94   :     }
 
 	jmp	$LN3@PMC_Greate
 $LN2@PMC_Greate:
 
-; 102  :     else
-; 103  :     {
-; 104  :         // u が 0 ではない場合
-; 105  : 
-; 106  :         if (v == 0)
+; 95   :     else
+; 96   :     {
+; 97   :         // u が 0 ではない場合
+; 98   : 
+; 99   :         if (v == 0)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN7@PMC_Greate
 
-; 107  :         {
-; 108  :             // v が 0 である場合
-; 109  : 
-; 110  :             // GCD は u そのものであるため、u を計算結果として返す。
-; 111  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+; 100  :         {
+; 101  :             // v が 0 である場合
+; 102  : 
+; 103  :             // GCD は u そのものであるため、u を計算結果として返す。
+; 104  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	push	ecx
@@ -1877,29 +1877,29 @@ $LN2@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@PMC_Greate
 
-; 112  :                 return (result);
+; 105  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN9@PMC_Greate:
 
-; 113  :         }
+; 106  :         }
 
 	jmp	$LN3@PMC_Greate
 $LN7@PMC_Greate:
 
-; 114  :         else
-; 115  :         {
-; 116  :             // u と v がともに 0 ではない場合
-; 117  : 
-; 118  :             // u と v の GCD を計算する
-; 119  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 107  :         else
+; 108  :         {
+; 109  :             // u と v がともに 0 ではない場合
+; 110  : 
+; 111  :             // u と v の GCD を計算する
+; 112  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
-; 120  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 113  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	mov	edx, DWORD PTR _v$[ebp]
 	push	edx
@@ -1909,7 +1909,7 @@ $LN7@PMC_Greate:
 	sub	ecx, eax
 	mov	DWORD PTR _v_bit_count$13[ebp], ecx
 
-; 121  :             __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
+; 114  :             __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
 
 	mov	edx, DWORD PTR _v_bit_count$13[ebp]
 	push	edx
@@ -1919,10 +1919,10 @@ $LN7@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _work_bit_count$12[ebp], eax
 
-; 122  : 
-; 123  :             __UNIT_TYPE work_u_buf_code;
-; 124  :             __UNIT_TYPE work_u_buf_words;
-; 125  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
+; 115  : 
+; 116  :             __UNIT_TYPE work_u_buf_code;
+; 117  :             __UNIT_TYPE work_u_buf_words;
+; 118  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
 	lea	ecx, DWORD PTR _work_u_buf_code$11[ebp]
 	push	ecx
@@ -1934,21 +1934,21 @@ $LN7@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_u_buf$9[ebp], eax
 
-; 126  :             if (work_u_buf == NULL)
+; 119  :             if (work_u_buf == NULL)
 
 	cmp	DWORD PTR _work_u_buf$9[ebp], 0
 	jne	SHORT $LN10@PMC_Greate
 
-; 127  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 120  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN10@PMC_Greate:
 
-; 128  : 
-; 129  :             __UNIT_TYPE work_v_buf_code;
-; 130  :             __UNIT_TYPE work_v_buf_words;
-; 131  :             __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 121  : 
+; 122  :             __UNIT_TYPE work_v_buf_code;
+; 123  :             __UNIT_TYPE work_v_buf_words;
+; 124  :             __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	ecx, DWORD PTR _work_v_buf_code$8[ebp]
 	push	ecx
@@ -1960,13 +1960,13 @@ $LN10@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$6[ebp], eax
 
-; 132  :             if (work_v_buf == NULL)
+; 125  :             if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$6[ebp], 0
 	jne	SHORT $LN11@PMC_Greate
 
-; 133  :             {
-; 134  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
+; 126  :             {
+; 127  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	ecx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	ecx
@@ -1975,16 +1975,16 @@ $LN10@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 135  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 128  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN11@PMC_Greate:
 
-; 136  :             }
-; 137  : 
-; 138  :             __UNIT_TYPE nw_check_code;
-; 139  :             if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
+; 129  :             }
+; 130  : 
+; 131  :             __UNIT_TYPE nw_check_code;
+; 132  :             if ((result = AllocateNumber(w, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
@@ -1998,8 +1998,8 @@ $LN11@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN12@PMC_Greate
 
-; 140  :             {
-; 141  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
+; 133  :             {
+; 134  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	eax, DWORD PTR _work_v_buf_words$7[ebp]
 	push	eax
@@ -2008,7 +2008,7 @@ $LN11@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 142  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
+; 135  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	edx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	edx
@@ -2017,21 +2017,21 @@ $LN11@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 143  :                 return (result);
+; 136  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN12@PMC_Greate:
 
-; 144  :             }
-; 145  : 
-; 146  :             __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
+; 137  :             }
+; 138  : 
+; 139  :             __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx+20]
 	mov	DWORD PTR _u_tzcnt$4[ebp], edx
 
-; 147  :             __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v);
+; 140  :             __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
@@ -2039,7 +2039,7 @@ $LN12@PMC_Greate:
 	add	esp, 4
 	mov	DWORD PTR _v_tzcnt$3[ebp], eax
 
-; 148  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
+; 141  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
 	mov	ecx, DWORD PTR _v_tzcnt$3[ebp]
 	push	ecx
@@ -2049,12 +2049,12 @@ $LN12@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _k$2[ebp], eax
 
-; 149  :             if (u_tzcnt > 0)
+; 142  :             if (u_tzcnt > 0)
 
 	cmp	DWORD PTR _u_tzcnt$4[ebp], 0
 	jbe	SHORT $LN13@PMC_Greate
 
-; 150  :                 RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
+; 143  :                 RightShift_Imp(u->BLOCK, u->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
 
 	push	0
 	mov	eax, DWORD PTR _work_u_buf$9[ebp]
@@ -2072,8 +2072,8 @@ $LN12@PMC_Greate:
 	jmp	SHORT $LN14@PMC_Greate
 $LN13@PMC_Greate:
 
-; 151  :             else
-; 152  :                 _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
+; 144  :             else
+; 145  :                 _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -2087,7 +2087,7 @@ $LN13@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN14@PMC_Greate:
 
-; 153  :             work_v_buf[0] = v >> v_tzcnt;
+; 146  :             work_v_buf[0] = v >> v_tzcnt;
 
 	mov	edx, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR _v_tzcnt$3[ebp]
@@ -2097,9 +2097,9 @@ $LN14@PMC_Greate:
 	mov	eax, DWORD PTR _work_v_buf$6[ebp]
 	mov	DWORD PTR [eax+ecx], edx
 
-; 154  : 
-; 155  :             __UNIT_TYPE w_buf_count;
-; 156  :             GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
+; 147  : 
+; 148  :             __UNIT_TYPE w_buf_count;
+; 149  :             GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	lea	ecx, DWORD PTR _w_buf_count$1[ebp]
 	push	ecx
@@ -2120,7 +2120,7 @@ $LN14@PMC_Greate:
 	call	_GreatestCommonDivisor_Imp
 	add	esp, 20					; 00000014H
 
-; 157  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
+; 150  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _work_u_buf_code$11[ebp]
 	push	edx
@@ -2132,13 +2132,13 @@ $LN14@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN15@PMC_Greate
 
-; 158  :                 return (result);
+; 151  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN15@PMC_Greate:
 
-; 159  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 152  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_v_buf_code$8[ebp]
 	push	ecx
@@ -2150,13 +2150,13 @@ $LN15@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN16@PMC_Greate
 
-; 160  :                 return (result);
+; 153  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN16@PMC_Greate:
 
-; 161  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 154  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
@@ -2170,13 +2170,13 @@ $LN16@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN17@PMC_Greate
 
-; 162  :                 return (result);
+; 155  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN17@PMC_Greate:
 
-; 163  :             DeallocateBlock(work_v_buf, work_v_buf_words);
+; 156  :             DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	ecx, DWORD PTR _work_v_buf_words$7[ebp]
 	push	ecx
@@ -2185,7 +2185,7 @@ $LN17@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 164  :             DeallocateBlock(work_u_buf, work_u_buf_words);
+; 157  :             DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	eax, DWORD PTR _work_u_buf_words$10[ebp]
 	push	eax
@@ -2194,8 +2194,8 @@ $LN17@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 165  : 
-; 166  :             LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
+; 158  : 
+; 159  :             LeftShift_Imp((*w)->BLOCK, w_buf_count, k, (*w)->BLOCK, TRUE);
 
 	push	1
 	mov	edx, DWORD PTR _w$[ebp]
@@ -2213,7 +2213,7 @@ $LN17@PMC_Greate:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 167  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 160  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nw_check_code$5[ebp]
 	push	ecx
@@ -2227,13 +2227,13 @@ $LN17@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN18@PMC_Greate
 
-; 168  :                 return (result);
+; 161  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN18@PMC_Greate:
 
-; 169  :             CommitNumber(*w);
+; 162  :             CommitNumber(*w);
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -2242,14 +2242,14 @@ $LN18@PMC_Greate:
 	add	esp, 4
 $LN3@PMC_Greate:
 
-; 170  :         }
-; 171  :     }
-; 172  :     return (PMC_STATUS_OK);
+; 163  :         }
+; 164  :     }
+; 165  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 173  : }
+; 166  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -2402,7 +2402,7 @@ _w_buf$ = 20						; size = 4
 _w_buf_count$ = 24					; size = 4
 _GreatestCommonDivisor_Imp PROC
 
-; 39   : {
+; 32   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2415,20 +2415,20 @@ _GreatestCommonDivisor_Imp PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 40   :     __UNIT_TYPE* u = p1_buf;
+; 33   :     __UNIT_TYPE* u = p1_buf;
 
 	mov	eax, DWORD PTR _p1_buf$[ebp]
 	mov	DWORD PTR _u$[ebp], eax
 
-; 41   :     __UNIT_TYPE* v = p2_buf;
+; 34   :     __UNIT_TYPE* v = p2_buf;
 
 	mov	ecx, DWORD PTR _p2_buf$[ebp]
 	mov	DWORD PTR _v$[ebp], ecx
 $LN5@GreatestCo:
 
-; 42   :     for (;;)
-; 43   :     {
-; 44   :         while (word_count > 0 && u[word_count - 1] == 0 && v[word_count - 1] == 0)
+; 35   :     for (;;)
+; 36   :     {
+; 37   :         while (word_count > 0 && u[word_count - 1] == 0 && v[word_count - 1] == 0)
 
 	cmp	DWORD PTR _word_count$[ebp], 0
 	jbe	SHORT $LN6@GreatestCo
@@ -2441,7 +2441,7 @@ $LN5@GreatestCo:
 	cmp	DWORD PTR [edx+ecx*4-4], 0
 	jne	SHORT $LN6@GreatestCo
 
-; 45   :             --word_count;
+; 38   :             --word_count;
 
 	mov	eax, DWORD PTR _word_count$[ebp]
 	sub	eax, 1
@@ -2449,28 +2449,28 @@ $LN5@GreatestCo:
 	jmp	SHORT $LN5@GreatestCo
 $LN6@GreatestCo:
 
-; 46   :         if (word_count <= 0)
+; 39   :         if (word_count <= 0)
 
 	cmp	DWORD PTR _word_count$[ebp], 0
 	ja	SHORT $LN9@GreatestCo
 
-; 47   :         {
-; 48   :             // このルートへの到達はあり得ないはず。
-; 49   :             w_buf[0] = 0;
+; 40   :         {
+; 41   :             // このルートへの到達はあり得ないはず。
+; 42   :             w_buf[0] = 0;
 
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _w_buf$[ebp]
 	mov	DWORD PTR [eax+edx], 0
 
-; 50   :             *w_buf_count = 1;
+; 43   :             *w_buf_count = 1;
 
 	mov	ecx, DWORD PTR _w_buf_count$[ebp]
 	mov	DWORD PTR [ecx], 1
 $LN9@GreatestCo:
 
-; 51   :         }
-; 52   :         int c = Compare_Imp(u, v, word_count);
+; 44   :         }
+; 45   :         int c = Compare_Imp(u, v, word_count);
 
 	mov	edx, DWORD PTR _word_count$[ebp]
 	push	edx
@@ -2482,16 +2482,16 @@ $LN9@GreatestCo:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _c$2[ebp], eax
 
-; 53   :         if (c == 0)
+; 46   :         if (c == 0)
 
 	cmp	DWORD PTR _c$2[ebp], 0
 	jne	SHORT $LN10@GreatestCo
 
-; 54   :         {
-; 55   :             // u == v の場合
-; 56   : 
-; 57   :             // GCD を u として復帰
-; 58   :             _COPY_MEMORY_UNIT(w_buf, u, word_count);
+; 47   :         {
+; 48   :             // u == v の場合
+; 49   : 
+; 50   :             // GCD を u として復帰
+; 51   :             _COPY_MEMORY_UNIT(w_buf, u, word_count);
 
 	mov	edx, DWORD PTR _word_count$[ebp]
 	push	edx
@@ -2502,44 +2502,44 @@ $LN9@GreatestCo:
 	call	__COPY_MEMORY_UNIT
 	add	esp, 12					; 0000000cH
 
-; 59   :             *w_buf_count = word_count;
+; 52   :             *w_buf_count = word_count;
 
 	mov	edx, DWORD PTR _w_buf_count$[ebp]
 	mov	eax, DWORD PTR _word_count$[ebp]
 	mov	DWORD PTR [edx], eax
 
-; 60   :             return;
+; 53   :             return;
 
 	jmp	SHORT $LN1@GreatestCo
 $LN10@GreatestCo:
 
-; 61   :         }
-; 62   :         if (c < 0)
+; 54   :         }
+; 55   :         if (c < 0)
 
 	cmp	DWORD PTR _c$2[ebp], 0
 	jge	SHORT $LN11@GreatestCo
 
-; 63   :         {
-; 64   :             __UNIT_TYPE* tt = u;
+; 56   :         {
+; 57   :             __UNIT_TYPE* tt = u;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	DWORD PTR _tt$1[ebp], ecx
 
-; 65   :             u = v;
+; 58   :             u = v;
 
 	mov	edx, DWORD PTR _v$[ebp]
 	mov	DWORD PTR _u$[ebp], edx
 
-; 66   :             v = tt;
+; 59   :             v = tt;
 
 	mov	eax, DWORD PTR _tt$1[ebp]
 	mov	DWORD PTR _v$[ebp], eax
 $LN11@GreatestCo:
 
-; 67   :         }
-; 68   :         // この時点で u > v かつ u と v はともに奇数である
-; 69   : 
-; 70   :         Subtruct_Imp(u, word_count, v, word_count, u, word_count);
+; 60   :         }
+; 61   :         // この時点で u > v かつ u と v はともに奇数である
+; 62   : 
+; 63   :         Subtruct_Imp(u, word_count, v, word_count, u, word_count);
 
 	mov	ecx, DWORD PTR _word_count$[ebp]
 	push	ecx
@@ -2557,17 +2557,17 @@ $LN11@GreatestCo:
 	add	esp, 24					; 00000018H
 $LN7@GreatestCo:
 
-; 71   : 
-; 72   :         // この時点で u は偶数
-; 73   : 
-; 74   :         while ((*u & 1) == 0)
+; 64   : 
+; 65   :         // この時点で u は偶数
+; 66   : 
+; 67   :         while ((*u & 1) == 0)
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	jne	SHORT $LN8@GreatestCo
 
-; 75   :             RightShift_Imp(u, word_count, 1, u, TRUE);
+; 68   :             RightShift_Imp(u, word_count, 1, u, TRUE);
 
 	push	1
 	mov	eax, DWORD PTR _u$[ebp]
@@ -2582,12 +2582,12 @@ $LN7@GreatestCo:
 	jmp	SHORT $LN7@GreatestCo
 $LN8@GreatestCo:
 
-; 76   :     }
+; 69   :     }
 
 	jmp	$LN5@GreatestCo
 $LN1@GreatestCo:
 
-; 77   : }
+; 70   : }
 
 	add	esp, 16					; 00000010H
 	cmp	ebp, esp
@@ -2604,7 +2604,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __TZCNT_ALT_UNIT PROC
 
-; 709  :     {
+; 702  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2615,49 +2615,49 @@ __TZCNT_ALT_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 710  :         if (x == 0)
+; 703  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@TZCNT_ALT_
 
-; 711  :             return (sizeof(x) * 8);
+; 704  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@TZCNT_ALT_
 $LN2@TZCNT_ALT_:
 
-; 712  : #ifdef _M_IX86
-; 713  :         _UINT32_T pos;
-; 714  : #ifdef _MSC_VER
-; 715  :         _BitScanForward(&pos, x);
+; 705  : #ifdef _M_IX86
+; 706  :         _UINT32_T pos;
+; 707  : #ifdef _MSC_VER
+; 708  :         _BitScanForward(&pos, x);
 
 	bsf	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 716  : #elif defined(__GNUC__)
-; 717  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 718  : #else
-; 719  : #error unknown compiler
-; 720  : #endif
-; 721  : #elif defined(_M_X64)
-; 722  : #ifdef _MSC_VER
-; 723  :         _UINT32_T pos;
-; 724  :         _BitScanForward64(&pos, x);
-; 725  : #elif defined(__GNUC__)
-; 726  :         _UINT64_T pos;
-; 727  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 728  : #else
-; 729  : #error unknown compiler
-; 730  : #endif
-; 731  : #else
-; 732  : #error unknown platform
-; 733  : #endif
-; 734  :         return (pos);
+; 709  : #elif defined(__GNUC__)
+; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 711  : #else
+; 712  : #error unknown compiler
+; 713  : #endif
+; 714  : #elif defined(_M_X64)
+; 715  : #ifdef _MSC_VER
+; 716  :         _UINT32_T pos;
+; 717  :         _BitScanForward64(&pos, x);
+; 718  : #elif defined(__GNUC__)
+; 719  :         _UINT64_T pos;
+; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 721  : #else
+; 722  : #error unknown compiler
+; 723  : #endif
+; 724  : #else
+; 725  : #error unknown platform
+; 726  : #endif
+; 727  :         return (pos);
 
 	mov	eax, DWORD PTR _pos$[ebp]
 $LN1@TZCNT_ALT_:
 
-; 735  :     }
+; 728  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -2694,7 +2694,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT PROC
 
-; 629  :     {
+; 622  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2705,50 +2705,50 @@ __LZCNT_ALT_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, DWORD PTR _pos$[ebp]
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -2784,7 +2784,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __LZCNT_ALT_32 PROC
 
-; 596  :     {
+; 589  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2795,36 +2795,36 @@ __LZCNT_ALT_32 PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, DWORD PTR _pos$[ebp]
 $LN1@LZCNT_ALT_:
 
-; 608  :     }
+; 601  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -2861,7 +2861,7 @@ _x$ = 8							; size = 4
 _y$ = 12						; size = 4
 __MINIMUM_UNIT PROC
 
-; 208  :     {
+; 201  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2870,7 +2870,7 @@ __MINIMUM_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 209  :         return (x <= y ? x : y);
+; 202  :         return (x <= y ? x : y);
 
 	mov	eax, DWORD PTR _x$[ebp]
 	cmp	eax, DWORD PTR _y$[ebp]
@@ -2884,7 +2884,7 @@ $LN3@MINIMUM_UN:
 $LN4@MINIMUM_UN:
 	mov	eax, DWORD PTR tv65[ebp]
 
-; 210  :     }
+; 203  :     }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2902,7 +2902,7 @@ _x$ = 8							; size = 4
 _y$ = 12						; size = 4
 __MAXIMUM_UNIT PROC
 
-; 203  :     {
+; 196  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -2911,7 +2911,7 @@ __MAXIMUM_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 204  :         return (x >= y ? x : y);
+; 197  :         return (x >= y ? x : y);
 
 	mov	eax, DWORD PTR _x$[ebp]
 	cmp	eax, DWORD PTR _y$[ebp]
@@ -2925,7 +2925,7 @@ $LN3@MAXIMUM_UN:
 $LN4@MAXIMUM_UN:
 	mov	eax, DWORD PTR tv65[ebp]
 
-; 205  :     }
+; 198  :     }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -2942,14 +2942,14 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_UNIT PROC
 
-; 193  :     {
+; 186  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 194  :         return ((u + v - 1) / v);
+; 187  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR _u$[ebp]
@@ -2957,7 +2957,7 @@ __DIVIDE_CEILING_UNIT PROC
 	xor	edx, edx
 	div	DWORD PTR _v$[ebp]
 
-; 195  :     }
+; 188  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2972,14 +2972,14 @@ _value$ = 8						; size = 8
 _result_high$ = 16					; size = 4
 __FROMDWORDTOWORD PROC
 
-; 182  :     {
+; 175  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	edx, DWORD PTR _value$[ebp+4]
@@ -2988,11 +2988,11 @@ __FROMDWORDTOWORD PROC
 	mov	ecx, DWORD PTR _result_high$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 
-; 185  :     }
+; 178  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3008,7 +3008,7 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC
 
-; 66   :     {
+; 59   :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -3017,20 +3017,20 @@ __COPY_MEMORY_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 67   : #ifdef _M_IX86
-; 68   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 60   : #ifdef _M_IX86
+; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	mov	esi, DWORD PTR _s$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep movsd
 
-; 69   : #elif defined(_M_X64)
-; 70   :         __movsq(d, s, count);
-; 71   : #else
-; 72   : #error unknown platform
-; 73   : #endif
-; 74   :     }
+; 62   : #elif defined(_M_X64)
+; 63   :         __movsq(d, s, count);
+; 64   : #else
+; 65   : #error unknown platform
+; 66   : #endif
+; 67   :     }
 
 	pop	edi
 	pop	esi
@@ -3066,7 +3066,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_GreatestCommonDivisor_X_X@12 PROC
 
-; 488  : {
+; 481  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3079,51 +3079,51 @@ _PMC_GreatestCommonDivisor_X_X@12 PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 489  :     if (u == NULL)
+; 482  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN2@PMC_Greate
 
-; 490  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 483  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 $LN2@PMC_Greate:
 
-; 491  :     if (v == NULL)
+; 484  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Greate
 
-; 492  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 485  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 $LN3@PMC_Greate:
 
-; 493  :     if (w == NULL)
+; 486  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 494  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 487  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 $LN4@PMC_Greate:
 
-; 495  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 488  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	DWORD PTR _nu$[ebp], eax
 
-; 496  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 489  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	DWORD PTR _nv$[ebp], ecx
 
-; 497  :     PMC_STATUS_CODE result;
-; 498  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 490  :     PMC_STATUS_CODE result;
+; 491  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nu$[ebp]
 	push	edx
@@ -3133,13 +3133,13 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 499  :         return (result);
+; 492  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 500  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 493  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nv$[ebp]
 	push	eax
@@ -3149,14 +3149,14 @@ $LN5@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Greate
 
-; 501  :         return (result);
+; 494  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN6@PMC_Greate:
 
-; 502  :     NUMBER_HEADER* nw;
-; 503  :     if (nu->IS_ZERO)
+; 495  :     NUMBER_HEADER* nw;
+; 496  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -3164,10 +3164,10 @@ $LN6@PMC_Greate:
 	and	edx, 1
 	je	SHORT $LN7@PMC_Greate
 
-; 504  :     {
-; 505  :         // u が 0 である場合
-; 506  : 
-; 507  :         if (nv->IS_ZERO)
+; 497  :     {
+; 498  :         // u が 0 である場合
+; 499  : 
+; 500  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -3175,26 +3175,26 @@ $LN6@PMC_Greate:
 	and	ecx, 1
 	je	SHORT $LN9@PMC_Greate
 
-; 508  :         {
-; 509  :             // v が 0 である場合
-; 510  : 
-; 511  :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
-; 512  :             return (PMC_STATUS_ARGUMENT_ERROR);
+; 501  :         {
+; 502  :             // v が 0 である場合
+; 503  : 
+; 504  :             // u と v がともに 0 であり、GCD は一意に存在しないため、エラーを返す。
+; 505  :             return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Greate
 
-; 513  :         }
+; 506  :         }
 
 	jmp	SHORT $LN10@PMC_Greate
 $LN9@PMC_Greate:
 
-; 514  :         else
-; 515  :         {
-; 516  :             // v が 0 ではない場合
-; 517  : 
-; 518  :             // GCD は v そのものであるため、v を計算結果として返す。
-; 519  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
+; 507  :         else
+; 508  :         {
+; 509  :             // v が 0 ではない場合
+; 510  : 
+; 511  :             // GCD は v そのものであるため、v を計算結果として返す。
+; 512  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _nw$[ebp]
 	push	edx
@@ -3206,30 +3206,30 @@ $LN9@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN11@PMC_Greate
 
-; 520  :                 return (result);
+; 513  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN11@PMC_Greate:
 
-; 521  :             *w = nw;
+; 514  :             *w = nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [ecx], edx
 $LN10@PMC_Greate:
 
-; 522  :         }
-; 523  :     }
+; 515  :         }
+; 516  :     }
 
 	jmp	$LN8@PMC_Greate
 $LN7@PMC_Greate:
 
-; 524  :     else
-; 525  :     {
-; 526  :         // u が 0 ではない場合
-; 527  : 
-; 528  :         if (nv->IS_ZERO)
+; 517  :     else
+; 518  :     {
+; 519  :         // u が 0 ではない場合
+; 520  : 
+; 521  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -3237,11 +3237,11 @@ $LN7@PMC_Greate:
 	and	ecx, 1
 	je	SHORT $LN12@PMC_Greate
 
-; 529  :         {
-; 530  :             // v が 0 である場合
-; 531  : 
-; 532  :             // GCD は u そのものであるため、u を計算結果として返す。
-; 533  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
+; 522  :         {
+; 523  :             // v が 0 である場合
+; 524  : 
+; 525  :             // GCD は u そのものであるため、u を計算結果として返す。
+; 526  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _nw$[ebp]
 	push	edx
@@ -3253,41 +3253,41 @@ $LN7@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN14@PMC_Greate
 
-; 534  :                 return (result);
+; 527  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN14@PMC_Greate:
 
-; 535  :             *w = nw;
+; 528  :             *w = nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 536  :         }
+; 529  :         }
 
 	jmp	$LN8@PMC_Greate
 $LN12@PMC_Greate:
 
-; 537  :         else
-; 538  :         {
-; 539  :             // u と v がともに 0 ではない場合
-; 540  : 
-; 541  :             // u と v の GCD を計算する
-; 542  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 530  :         else
+; 531  :         {
+; 532  :             // u と v がともに 0 ではない場合
+; 533  : 
+; 534  :             // u と v の GCD を計算する
+; 535  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nu$[ebp]
 	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
-; 543  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 536  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	DWORD PTR _v_bit_count$13[ebp], eax
 
-; 544  :             __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
+; 537  :             __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
 
 	mov	ecx, DWORD PTR _v_bit_count$13[ebp]
 	push	ecx
@@ -3297,10 +3297,10 @@ $LN12@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _work_bit_count$12[ebp], eax
 
-; 545  : 
-; 546  :             __UNIT_TYPE work_u_buf_code;
-; 547  :             __UNIT_TYPE work_u_buf_words;
-; 548  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
+; 538  : 
+; 539  :             __UNIT_TYPE work_u_buf_code;
+; 540  :             __UNIT_TYPE work_u_buf_words;
+; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
 	lea	eax, DWORD PTR _work_u_buf_code$11[ebp]
 	push	eax
@@ -3312,21 +3312,21 @@ $LN12@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_u_buf$9[ebp], eax
 
-; 549  :             if (work_u_buf == NULL)
+; 542  :             if (work_u_buf == NULL)
 
 	cmp	DWORD PTR _work_u_buf$9[ebp], 0
 	jne	SHORT $LN15@PMC_Greate
 
-; 550  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 543  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN15@PMC_Greate:
 
-; 551  : 
-; 552  :             __UNIT_TYPE work_v_buf_code;
-; 553  :             __UNIT_TYPE work_v_buf_words;
-; 554  :             __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
+; 544  : 
+; 545  :             __UNIT_TYPE work_v_buf_code;
+; 546  :             __UNIT_TYPE work_v_buf_words;
+; 547  :             __UNIT_TYPE* work_v_buf = AllocateBlock(work_bit_count, &work_v_buf_words, &work_v_buf_code);
 
 	lea	eax, DWORD PTR _work_v_buf_code$8[ebp]
 	push	eax
@@ -3338,13 +3338,13 @@ $LN15@PMC_Greate:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$6[ebp], eax
 
-; 555  :             if (work_v_buf == NULL)
+; 548  :             if (work_v_buf == NULL)
 
 	cmp	DWORD PTR _work_v_buf$6[ebp], 0
 	jne	SHORT $LN16@PMC_Greate
 
-; 556  :             {
-; 557  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
+; 549  :             {
+; 550  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	eax, DWORD PTR _work_u_buf_words$10[ebp]
 	push	eax
@@ -3353,16 +3353,16 @@ $LN15@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 558  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 551  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5					; fffffffbH
 	jmp	$LN1@PMC_Greate
 $LN16@PMC_Greate:
 
-; 559  :             }
-; 560  : 
-; 561  :             __UNIT_TYPE nw_check_code;
-; 562  :             if ((result = AllocateNumber(&nw, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
+; 552  :             }
+; 553  : 
+; 554  :             __UNIT_TYPE nw_check_code;
+; 555  :             if ((result = AllocateNumber(&nw, work_bit_count, &nw_check_code)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _nw_check_code$5[ebp]
 	push	edx
@@ -3376,8 +3376,8 @@ $LN16@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN17@PMC_Greate
 
-; 563  :             {
-; 564  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
+; 556  :             {
+; 557  :                 DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$7[ebp]
 	push	edx
@@ -3386,7 +3386,7 @@ $LN16@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 565  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
+; 558  :                 DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	ecx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	ecx
@@ -3395,27 +3395,27 @@ $LN16@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 566  :                 return (result);
+; 559  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN17@PMC_Greate:
 
-; 567  :             }
-; 568  : 
-; 569  :             __UNIT_TYPE u_tzcnt = nu->TRAILING_ZERO_BITS_COUNT;
+; 560  :             }
+; 561  : 
+; 562  :             __UNIT_TYPE u_tzcnt = nu->TRAILING_ZERO_BITS_COUNT;
 
 	mov	eax, DWORD PTR _nu$[ebp]
 	mov	ecx, DWORD PTR [eax+20]
 	mov	DWORD PTR _u_tzcnt$4[ebp], ecx
 
-; 570  :             __UNIT_TYPE v_tzcnt = nv->TRAILING_ZERO_BITS_COUNT;
+; 563  :             __UNIT_TYPE v_tzcnt = nv->TRAILING_ZERO_BITS_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
 	mov	eax, DWORD PTR [edx+20]
 	mov	DWORD PTR _v_tzcnt$3[ebp], eax
 
-; 571  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
+; 564  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
 	mov	ecx, DWORD PTR _v_tzcnt$3[ebp]
 	push	ecx
@@ -3425,12 +3425,12 @@ $LN17@PMC_Greate:
 	add	esp, 8
 	mov	DWORD PTR _k$2[ebp], eax
 
-; 572  :             if (u_tzcnt > 0)
+; 565  :             if (u_tzcnt > 0)
 
 	cmp	DWORD PTR _u_tzcnt$4[ebp], 0
 	jbe	SHORT $LN18@PMC_Greate
 
-; 573  :                 RightShift_Imp(nu->BLOCK, nu->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
+; 566  :                 RightShift_Imp(nu->BLOCK, nu->UNIT_WORD_COUNT, u_tzcnt, work_u_buf, FALSE);
 
 	push	0
 	mov	eax, DWORD PTR _work_u_buf$9[ebp]
@@ -3448,8 +3448,8 @@ $LN17@PMC_Greate:
 	jmp	SHORT $LN19@PMC_Greate
 $LN18@PMC_Greate:
 
-; 574  :             else
-; 575  :                 _COPY_MEMORY_UNIT(work_u_buf, nu->BLOCK, nu->UNIT_WORD_COUNT);
+; 567  :             else
+; 568  :                 _COPY_MEMORY_UNIT(work_u_buf, nu->BLOCK, nu->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _nu$[ebp]
 	mov	ecx, DWORD PTR [eax+8]
@@ -3463,12 +3463,12 @@ $LN18@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN19@PMC_Greate:
 
-; 576  :             if (v_tzcnt > 0)
+; 569  :             if (v_tzcnt > 0)
 
 	cmp	DWORD PTR _v_tzcnt$3[ebp], 0
 	jbe	SHORT $LN20@PMC_Greate
 
-; 577  :                 RightShift_Imp(nv->BLOCK, nv->UNIT_WORD_COUNT, v_tzcnt, work_v_buf, FALSE);
+; 570  :                 RightShift_Imp(nv->BLOCK, nv->UNIT_WORD_COUNT, v_tzcnt, work_v_buf, FALSE);
 
 	push	0
 	mov	edx, DWORD PTR _work_v_buf$6[ebp]
@@ -3486,8 +3486,8 @@ $LN19@PMC_Greate:
 	jmp	SHORT $LN21@PMC_Greate
 $LN20@PMC_Greate:
 
-; 578  :             else
-; 579  :                 _COPY_MEMORY_UNIT(work_v_buf, nv->BLOCK, nv->UNIT_WORD_COUNT);
+; 571  :             else
+; 572  :                 _COPY_MEMORY_UNIT(work_v_buf, nv->BLOCK, nv->UNIT_WORD_COUNT);
 
 	mov	edx, DWORD PTR _nv$[ebp]
 	mov	eax, DWORD PTR [edx+8]
@@ -3501,9 +3501,9 @@ $LN20@PMC_Greate:
 	add	esp, 12					; 0000000cH
 $LN21@PMC_Greate:
 
-; 580  : 
-; 581  :             __UNIT_TYPE w_buf_count;
-; 582  :             GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), nw->BLOCK, &w_buf_count);
+; 573  : 
+; 574  :             __UNIT_TYPE w_buf_count;
+; 575  :             GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), nw->BLOCK, &w_buf_count);
 
 	lea	ecx, DWORD PTR _w_buf_count$1[ebp]
 	push	ecx
@@ -3523,7 +3523,7 @@ $LN21@PMC_Greate:
 	call	_GreatestCommonDivisor_Imp
 	add	esp, 20					; 00000014H
 
-; 583  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
+; 576  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _work_u_buf_code$11[ebp]
 	push	ecx
@@ -3535,13 +3535,13 @@ $LN21@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN22@PMC_Greate
 
-; 584  :                 return (result);
+; 577  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN22@PMC_Greate:
 
-; 585  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+; 578  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _work_v_buf_code$8[ebp]
 	push	eax
@@ -3553,13 +3553,13 @@ $LN22@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN23@PMC_Greate
 
-; 586  :                 return (result);
+; 579  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN23@PMC_Greate:
 
-; 587  :             if ((result = CheckBlockLight(nw->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 580  :             if ((result = CheckBlockLight(nw->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nw_check_code$5[ebp]
 	push	edx
@@ -3572,13 +3572,13 @@ $LN23@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN24@PMC_Greate
 
-; 588  :                 return (result);
+; 581  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Greate
 $LN24@PMC_Greate:
 
-; 589  :             DeallocateBlock(work_v_buf, work_v_buf_words);
+; 582  :             DeallocateBlock(work_v_buf, work_v_buf_words);
 
 	mov	edx, DWORD PTR _work_v_buf_words$7[ebp]
 	push	edx
@@ -3587,7 +3587,7 @@ $LN24@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 590  :             DeallocateBlock(work_u_buf, work_u_buf_words);
+; 583  :             DeallocateBlock(work_u_buf, work_u_buf_words);
 
 	mov	ecx, DWORD PTR _work_u_buf_words$10[ebp]
 	push	ecx
@@ -3596,8 +3596,8 @@ $LN24@PMC_Greate:
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 591  : 
-; 592  :             LeftShift_Imp(nw->BLOCK, w_buf_count, k, nw->BLOCK, TRUE);
+; 584  : 
+; 585  :             LeftShift_Imp(nw->BLOCK, w_buf_count, k, nw->BLOCK, TRUE);
 
 	push	1
 	mov	eax, DWORD PTR _nw$[ebp]
@@ -3613,7 +3613,7 @@ $LN24@PMC_Greate:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 593  :             if ((result = CheckBlockLight(nw->BLOCK, nw_check_code)) != PMC_STATUS_OK)
+; 586  :             if ((result = CheckBlockLight(nw->BLOCK, nw_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
@@ -3626,30 +3626,30 @@ $LN24@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN25@PMC_Greate
 
-; 594  :                 return (result);
+; 587  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN25@PMC_Greate:
 
-; 595  :             CommitNumber(nw);
+; 588  :             CommitNumber(nw);
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	eax
 	call	_CommitNumber
 	add	esp, 4
 
-; 596  :             *w = nw;
+; 589  :             *w = nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [ecx], edx
 $LN8@PMC_Greate:
 
-; 597  :         }
-; 598  :     }
-; 599  : #ifdef _DEBUG
-; 600  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 590  :         }
+; 591  :     }
+; 592  : #ifdef _DEBUG
+; 593  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -3660,19 +3660,19 @@ $LN8@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN26@PMC_Greate
 
-; 601  :         return (result);
+; 594  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN26@PMC_Greate:
 
-; 602  : #endif
-; 603  :     return (PMC_STATUS_OK);
+; 595  : #endif
+; 596  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 604  : }
+; 597  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -3827,7 +3827,7 @@ _v$ = 12						; size = 8
 _w$ = 20						; size = 4
 _PMC_GreatestCommonDivisor_X_L@16 PROC
 
-; 465  : {
+; 458  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3836,44 +3836,44 @@ _PMC_GreatestCommonDivisor_X_L@16 PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 466  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
+; 459  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Greate
 
-; 467  :     {
-; 468  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 469  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 460  :     {
+; 461  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 462  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Greate
 $LN2@PMC_Greate:
 
-; 470  :     }
-; 471  :     if (u == NULL)
+; 463  :     }
+; 464  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN3@PMC_Greate
 
-; 472  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 465  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN3@PMC_Greate:
 
-; 473  :     if (w == NULL)
+; 466  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 474  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 467  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN4@PMC_Greate:
 
-; 475  :     PMC_STATUS_CODE result;
-; 476  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 468  :     PMC_STATUS_CODE result;
+; 469  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	push	ecx
@@ -3883,13 +3883,13 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 477  :         return (result);
+; 470  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 478  :     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 471  :     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -3905,14 +3905,14 @@ $LN5@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Greate
 
-; 479  :         return (result);
+; 472  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN6@PMC_Greate:
 
-; 480  : #ifdef _DEBUG
-; 481  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 473  : #ifdef _DEBUG
+; 474  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -3923,19 +3923,19 @@ $LN6@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Greate
 
-; 482  :         return (result);
+; 475  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN7@PMC_Greate:
 
-; 483  : #endif
-; 484  :     return (PMC_STATUS_OK);
+; 476  : #endif
+; 477  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 485  : }
+; 478  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -3954,7 +3954,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_GreatestCommonDivisor_X_I@12 PROC
 
-; 199  : {
+; 192  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3963,44 +3963,44 @@ _PMC_GreatestCommonDivisor_X_I@12 PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 200  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 193  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Greate
 
-; 201  :     {
-; 202  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 203  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 194  :     {
+; 195  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 196  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Greate
 $LN2@PMC_Greate:
 
-; 204  :     }
-; 205  :     if (u == NULL)
+; 197  :     }
+; 198  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN3@PMC_Greate
 
-; 206  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 199  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN3@PMC_Greate:
 
-; 207  :     if (w == NULL)
+; 200  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 208  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 201  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN4@PMC_Greate:
 
-; 209  :     PMC_STATUS_CODE result;
-; 210  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 202  :     PMC_STATUS_CODE result;
+; 203  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	push	ecx
@@ -4010,13 +4010,13 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 211  :         return (result);
+; 204  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 212  :     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 205  :     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -4030,14 +4030,14 @@ $LN5@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Greate
 
-; 213  :         return (result);
+; 206  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN6@PMC_Greate:
 
-; 214  : #ifdef _DEBUG
-; 215  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 207  : #ifdef _DEBUG
+; 208  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -4048,19 +4048,19 @@ $LN6@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Greate
 
-; 216  :         return (result);
+; 209  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN7@PMC_Greate:
 
-; 217  : #endif
-; 218  :     return (PMC_STATUS_OK);
+; 210  : #endif
+; 211  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 219  : }
+; 212  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4079,7 +4079,7 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 _PMC_GreatestCommonDivisor_L_X@16 PROC
 
-; 442  : {
+; 435  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4088,44 +4088,44 @@ _PMC_GreatestCommonDivisor_L_X@16 PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 443  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
+; 436  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Greate
 
-; 444  :     {
-; 445  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 446  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 437  :     {
+; 438  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 439  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Greate
 $LN2@PMC_Greate:
 
-; 447  :     }
-; 448  :     if (v == NULL)
+; 440  :     }
+; 441  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Greate
 
-; 449  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 442  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN3@PMC_Greate:
 
-; 450  :     if (w == NULL)
+; 443  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 451  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 444  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN4@PMC_Greate:
 
-; 452  :     PMC_STATUS_CODE result;
-; 453  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 445  :     PMC_STATUS_CODE result;
+; 446  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
@@ -4135,13 +4135,13 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 454  :         return (result);
+; 447  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 455  :     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 448  :     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -4157,14 +4157,14 @@ $LN5@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Greate
 
-; 456  :         return (result);
+; 449  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN6@PMC_Greate:
 
-; 457  : #ifdef _DEBUG
-; 458  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 450  : #ifdef _DEBUG
+; 451  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -4175,19 +4175,19 @@ $LN6@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Greate
 
-; 459  :         return (result);
+; 452  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN7@PMC_Greate:
 
-; 460  : #endif
-; 461  :     return (PMC_STATUS_OK);
+; 453  : #endif
+; 454  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 462  : }
+; 455  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4206,7 +4206,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_GreatestCommonDivisor_I_X@12 PROC
 
-; 176  : {
+; 169  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -4215,44 +4215,44 @@ _PMC_GreatestCommonDivisor_I_X@12 PROC
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 177  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 170  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Greate
 
-; 178  :     {
-; 179  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 180  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 171  :     {
+; 172  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 173  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Greate
 $LN2@PMC_Greate:
 
-; 181  :     }
-; 182  :     if (v == NULL)
+; 174  :     }
+; 175  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Greate
 
-; 183  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 176  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN3@PMC_Greate:
 
-; 184  :     if (w == NULL)
+; 177  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Greate
 
-; 185  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 178  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Greate
 $LN4@PMC_Greate:
 
-; 186  :     PMC_STATUS_CODE result;
-; 187  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 179  :     PMC_STATUS_CODE result;
+; 180  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
@@ -4262,13 +4262,13 @@ $LN4@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Greate
 
-; 188  :         return (result);
+; 181  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN5@PMC_Greate:
 
-; 189  :     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 182  :     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -4282,14 +4282,14 @@ $LN5@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Greate
 
-; 190  :         return (result);
+; 183  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN6@PMC_Greate:
 
-; 191  : #ifdef _DEBUG
-; 192  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 184  : #ifdef _DEBUG
+; 185  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -4300,19 +4300,19 @@ $LN6@PMC_Greate:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Greate
 
-; 193  :         return (result);
+; 186  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Greate
 $LN7@PMC_Greate:
 
-; 194  : #endif
-; 195  :     return (PMC_STATUS_OK);
+; 187  : #endif
+; 188  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Greate:
 
-; 196  : }
+; 189  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -4328,18 +4328,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_GreatestCommonDivisor PROC
 
-; 607  : {
+; 600  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __3257AA0B_pmc_greatestcommondivisor@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 608  :     return (PMC_STATUS_OK);
+; 601  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 609  : }
+; 602  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

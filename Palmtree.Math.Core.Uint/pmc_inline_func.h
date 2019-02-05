@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_inline_func.h
- * Author: Lunor Kisasage
- *
- * Created on 2019/02/02, 18:52
- */
-
 
 #include <windows.h>
 #ifdef __GNUC__

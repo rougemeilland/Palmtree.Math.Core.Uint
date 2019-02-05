@@ -18,7 +18,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __A0D25937_test_op_tostringn@c DB 01H
 msvcjmc	ENDS
 PUBLIC	TEST_PMC_ToStringN
@@ -164,7 +164,7 @@ decimal_digits$ = 480
 desired_str$ = 488
 TEST_PMC_ToStringN PROC					; COMDAT
 
-; 40   : {
+; 33   : {
 
 $LN10:
 	mov	QWORD PTR [rsp+32], r9
@@ -186,47 +186,47 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__A0D25937_test_op_tostringn@c
 	call	__CheckForDebuggerJustMyCode
 
-; 41   :     HANDLE x;
-; 42   :     static wchar_t actual_str_buffer[4096];
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     PMC_STATUS_CODE x_result;
-; 45   :     PMC_NUMBER_FORMAT_OPTION opt;
-; 46   :     lstrcpyW(opt.GroupSeparator, group_separator);
+; 34   :     HANDLE x;
+; 35   :     static wchar_t actual_str_buffer[4096];
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     PMC_STATUS_CODE x_result;
+; 38   :     PMC_NUMBER_FORMAT_OPTION opt;
+; 39   :     lstrcpyW(opt.GroupSeparator, group_separator);
 
 	mov	rdx, QWORD PTR group_separator$[rbp]
 	lea	rcx, QWORD PTR opt$[rbp+4]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 47   :     lstrcpy(opt.GroupSizes, group_sizes);
+; 40   :     lstrcpy(opt.GroupSizes, group_sizes);
 
 	mov	rdx, QWORD PTR group_sizes$[rbp]
 	lea	rcx, QWORD PTR opt$[rbp+28]
 	call	QWORD PTR __imp_lstrcpyA
 
-; 48   :     lstrcpyW(opt.DecimalSeparator, decimal_separator);
+; 41   :     lstrcpyW(opt.DecimalSeparator, decimal_separator);
 
 	mov	rdx, QWORD PTR decimal_separator$[rbp]
 	lea	rcx, QWORD PTR opt$[rbp+10]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 49   :     opt.DecimalDigits = decimal_digits;
+; 42   :     opt.DecimalDigits = decimal_digits;
 
 	mov	eax, DWORD PTR decimal_digits$[rbp]
 	mov	DWORD PTR opt$[rbp], eax
 
-; 50   :     lstrcpyW(opt.PositiveSign, L"+");
+; 43   :     lstrcpyW(opt.PositiveSign, L"+");
 
 	lea	rdx, OFFSET FLAT:??_C@_13KJIIAINM@?$AA?$CL@
 	lea	rcx, QWORD PTR opt$[rbp+16]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 51   :     lstrcpyW(opt.NegativeSign, L"-");
+; 44   :     lstrcpyW(opt.NegativeSign, L"-");
 
 	lea	rdx, OFFSET FLAT:??_C@_13IMODFHAA@?$AA?9@
 	lea	rcx, QWORD PTR opt$[rbp+22]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR buf_size$[rbp]
@@ -256,7 +256,7 @@ $LN5@TEST_PMC_T:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 53   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->PMC_ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->PMC_ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
 
 	lea	rax, QWORD PTR opt$[rbp]
 	mov	QWORD PTR [rsp+40], rax
@@ -291,7 +291,7 @@ $LN7@TEST_PMC_T:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
+; 47   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
 
 	mov	rdx, QWORD PTR desired_str$[rbp]
 	lea	rcx, OFFSET FLAT:?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
@@ -313,19 +313,19 @@ $LN9@TEST_PMC_T:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 55   :     if (x_result == PMC_STATUS_OK)
+; 48   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_T
 
-; 56   :         ep->PMC_Dispose(x);
+; 49   :         ep->PMC_Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN2@TEST_PMC_T:
 
-; 57   : }
+; 50   : }
 
 	lea	rcx, QWORD PTR [rbp-48]
 	lea	rdx, OFFSET FLAT:TEST_PMC_ToStringN$rtcFrameData

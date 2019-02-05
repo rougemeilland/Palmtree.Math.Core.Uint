@@ -81,7 +81,7 @@ function_code$ = 296
 o$ = 304
 PMC_GetPropertyValue_X_I PROC				; COMDAT
 
-; 38   : {
+; 31   : {
 
 $LN13:
 	mov	QWORD PTR [rsp+24], r8
@@ -99,35 +99,35 @@ $LN13:
 	lea	rcx, OFFSET FLAT:__5449575B_pmc_getpropertyvalue@c
 	call	__CheckForDebuggerJustMyCode
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN4@PMC_GetPro
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_GetPro
 $LN4@PMC_GetPro:
 
-; 41   :     if (o == NULL)
+; 34   :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN5@PMC_GetPro
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_GetPro
 $LN5@PMC_GetPro:
 
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR nx$[rbp], rax
 
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nx$[rbp]
 	call	CheckNumber
@@ -135,13 +135,13 @@ $LN5@PMC_GetPro:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_GetPro
 
-; 46   :         return (result);
+; 39   :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_GetPro
 $LN6@PMC_GetPro:
 
-; 47   :     switch (function_code)
+; 40   :     switch (function_code)
 
 	mov	eax, DWORD PTR function_code$[rbp]
 	mov	DWORD PTR tv69[rbp], eax
@@ -156,9 +156,9 @@ $LN6@PMC_GetPro:
 	jmp	SHORT $LN11@PMC_GetPro
 $LN7@PMC_GetPro:
 
-; 48   :     {
-; 49   :     case PMC_PROPERTY_IS_EVEN:
-; 50   :         *o = nx->IS_EVEN;
+; 41   :     {
+; 42   :     case PMC_PROPERTY_IS_EVEN:
+; 43   :         *o = nx->IS_EVEN;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -167,14 +167,14 @@ $LN7@PMC_GetPro:
 	mov	rcx, QWORD PTR o$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 51   :         return (PMC_STATUS_OK);
+; 44   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN8@PMC_GetPro:
 
-; 52   :     case PMC_PROPERTY_IS_ONE:
-; 53   :         *o = nx->IS_ONE;
+; 45   :     case PMC_PROPERTY_IS_ONE:
+; 46   :         *o = nx->IS_ONE;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -183,14 +183,14 @@ $LN8@PMC_GetPro:
 	mov	rcx, QWORD PTR o$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 54   :         return (PMC_STATUS_OK);
+; 47   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN9@PMC_GetPro:
 
-; 55   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 56   :         *o = nx->IS_POWER_OF_TWO;
+; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
+; 49   :         *o = nx->IS_POWER_OF_TWO;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -199,14 +199,14 @@ $LN9@PMC_GetPro:
 	mov	rcx, QWORD PTR o$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 57   :         return (PMC_STATUS_OK);
+; 50   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN10@PMC_GetPro:
 
-; 58   :     case PMC_PROPERTY_IS_ZERO:
-; 59   :         *o = nx->IS_ZERO;
+; 51   :     case PMC_PROPERTY_IS_ZERO:
+; 52   :         *o = nx->IS_ZERO;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -215,20 +215,20 @@ $LN10@PMC_GetPro:
 	mov	rcx, QWORD PTR o$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 60   :         return (PMC_STATUS_OK);
+; 53   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN11@PMC_GetPro:
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 $LN1@PMC_GetPro:
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	lea	rsp, QWORD PTR [rbp+264]
 	pop	rdi
@@ -243,7 +243,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_GetPropertyValue PROC			; COMDAT
 
-; 67   : {
+; 60   : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -259,11 +259,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__5449575B_pmc_getpropertyvalue@c
 	call	__CheckForDebuggerJustMyCode
 
-; 68   :     return (PMC_STATUS_OK);
+; 61   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 69   : }
+; 62   : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

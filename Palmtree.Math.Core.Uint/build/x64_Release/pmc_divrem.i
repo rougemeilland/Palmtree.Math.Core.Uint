@@ -2,7 +2,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "../pmc_divrem.c"
-# 33 "../pmc_divrem.c"
+# 26 "../pmc_divrem.c"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 1 3
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
@@ -100622,13 +100622,13 @@ typedef struct _MODEMSETTINGS {
   DWORD ImmGetImeMenuItemsW(HIMC,DWORD,DWORD,LPIMEMENUITEMINFOW,LPIMEMENUITEMINFOW,DWORD);
   WINBOOL ImmDisableTextFrameService(DWORD idThread);
 # 131 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
-# 34 "../pmc_divrem.c" 2
+# 27 "../pmc_divrem.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 34 "../pmc_uint_internal.h"
+# 27 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 33 "../pmc_internal.h"
+# 27 "../pmc_internal.h"
 # 1 "../pmc.h" 1
-# 36 "../pmc.h"
+# 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
 # 9 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 3 4
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h" 1 3 4
@@ -100685,7 +100685,7 @@ __extension__ typedef unsigned long long uint_fast64_t;
 __extension__ typedef long long intmax_t;
 __extension__ typedef unsigned long long uintmax_t;
 # 10 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 2 3 4
-# 37 "../pmc.h" 2
+# 31 "../pmc.h" 2
 
 
 
@@ -100693,14 +100693,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 77 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 
-# 90 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100872,11 +100872,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* PMC_Initialize(PMC_CONFIGURATION_INFO*);
+ PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 34 "../pmc_internal.h" 2
+# 28 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
-# 41 "../pmc_cpuid.h"
+# 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
 {
 
@@ -100896,7 +100896,7 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 35 "../pmc_internal.h" 2
+# 29 "../pmc_internal.h" 2
 
 
 
@@ -100915,15 +100915,15 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
 
 typedef _UINT64_T __UNIT_TYPE;
-# 62 "../pmc_internal.h"
+# 56 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 35 "../pmc_uint_internal.h" 2
-# 44 "../pmc_uint_internal.h"
+# 28 "../pmc_uint_internal.h" 2
+# 37 "../pmc_uint_internal.h"
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -101253,17 +101253,17 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 381 "../pmc_uint_internal.h"
+# 374 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 395 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
     }
 #pragma endregion
-# 35 "../pmc_divrem.c" 2
+# 28 "../pmc_divrem.c" 2
 # 1 "../pmc_inline_func.h" 1
-# 35 "../pmc_inline_func.h"
+# 28 "../pmc_inline_func.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/setjmp.h" 1 3
@@ -102222,13 +102222,13 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     char _InterlockedXor8_np(char *,char);
     short _InterlockedXor16_np(short *,short);
     __extension__ long long _InterlockedXor64_np(long long *,long long);
-# 36 "../pmc_inline_func.h" 2
+# 29 "../pmc_inline_func.h" 2
 
 # 1 "../pmc_internal.h" 1
-# 38 "../pmc_inline_func.h" 2
-# 48 "../pmc_inline_func.h"
+# 31 "../pmc_inline_func.h" 2
+# 41 "../pmc_inline_func.h"
     
-# 48 "../pmc_inline_func.h"
+# 41 "../pmc_inline_func.h"
    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
     {
         __movsb(d, s, count);
@@ -102479,7 +102479,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 309 "../pmc_inline_func.h"
+# 302 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102488,7 +102488,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 325 "../pmc_inline_func.h"
+# 318 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102500,7 +102500,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 350 "../pmc_inline_func.h"
+# 343 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102514,7 +102514,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 371 "../pmc_inline_func.h"
+# 364 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102529,7 +102529,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
     {
-# 409 "../pmc_inline_func.h"
+# 402 "../pmc_inline_func.h"
         __UNIT_TYPE q;
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
@@ -102550,7 +102550,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
     {
-# 453 "../pmc_inline_func.h"
+# 446 "../pmc_inline_func.h"
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
@@ -102584,9 +102584,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 485 "../pmc_inline_func.h" 3
+# 478 "../pmc_inline_func.h" 3
                __rolq
-# 485 "../pmc_inline_func.h"
+# 478 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102599,9 +102599,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 496 "../pmc_inline_func.h" 3
+# 489 "../pmc_inline_func.h" 3
                __rorq
-# 496 "../pmc_inline_func.h"
+# 489 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102665,7 +102665,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
     {
-# 571 "../pmc_inline_func.h"
+# 564 "../pmc_inline_func.h"
         return (_lzcnt_u64(value));
 
 
@@ -102727,7 +102727,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 646 "../pmc_inline_func.h"
+# 639 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102743,7 +102743,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 675 "../pmc_inline_func.h"
+# 668 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102781,7 +102781,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 726 "../pmc_inline_func.h"
+# 719 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102839,20 +102839,20 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
         return (x);
     }
-# 36 "../pmc_divrem.c" 2
+# 29 "../pmc_divrem.c" 2
 # 1 "../autogenerated_inline_func.h" 1
-# 33 "../autogenerated_inline_func.h"
+# 26 "../autogenerated_inline_func.h"
 # 1 "../pmc_internal.h" 1
-# 34 "../autogenerated_inline_func.h" 2
+# 27 "../autogenerated_inline_func.h" 2
 # 1 "../pmc_inline_func.h" 1
-# 37 "../pmc_inline_func.h"
+# 30 "../pmc_inline_func.h"
 # 1 "../pmc_internal.h" 1
-# 38 "../pmc_inline_func.h" 2
-# 35 "../autogenerated_inline_func.h" 2
-# 46 "../autogenerated_inline_func.h"
+# 31 "../pmc_inline_func.h" 2
+# 28 "../autogenerated_inline_func.h" 2
+# 39 "../autogenerated_inline_func.h"
 __inline static char _ADD_32WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 187 "../autogenerated_inline_func.h"
+# 180 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -102967,7 +102967,7 @@ __inline static char _ADD_32WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _ADD_32WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 440 "../autogenerated_inline_func.h"
+# 433 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103082,7 +103082,7 @@ __inline static char _ADD_32WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp,
 
 __inline static char _ADD_32WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 693 "../autogenerated_inline_func.h"
+# 686 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103197,7 +103197,7 @@ __inline static char _ADD_32WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp,
 
 __inline static char _SUBTRUCT_32WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 946 "../autogenerated_inline_func.h"
+# 939 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103312,7 +103312,7 @@ __inline static char _SUBTRUCT_32WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE*
 
 __inline static char _ADD_32WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 1199 "../autogenerated_inline_func.h"
+# 1192 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103427,7 +103427,7 @@ __inline static char _ADD_32WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _ADD_32WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 1452 "../autogenerated_inline_func.h"
+# 1445 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103542,7 +103542,7 @@ __inline static char _ADD_32WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_T
 
 __inline static char _ADD_32WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 1705 "../autogenerated_inline_func.h"
+# 1698 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103657,7 +103657,7 @@ __inline static char _ADD_32WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_T
 
 __inline static char _SUBTRUCT_32WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 1958 "../autogenerated_inline_func.h"
+# 1951 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103772,7 +103772,7 @@ __inline static char _SUBTRUCT_32WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UN
 
 __inline static char _ADD_16WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 2147 "../autogenerated_inline_func.h"
+# 2140 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103839,7 +103839,7 @@ __inline static char _ADD_16WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _ADD_16WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 2288 "../autogenerated_inline_func.h"
+# 2281 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103906,7 +103906,7 @@ __inline static char _ADD_16WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp,
 
 __inline static char _ADD_16WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 2429 "../autogenerated_inline_func.h"
+# 2422 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -103973,7 +103973,7 @@ __inline static char _ADD_16WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp,
 
 __inline static char _SUBTRUCT_16WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 2570 "../autogenerated_inline_func.h"
+# 2563 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104040,7 +104040,7 @@ __inline static char _SUBTRUCT_16WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE*
 
 __inline static char _ADD_16WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 2711 "../autogenerated_inline_func.h"
+# 2704 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104107,7 +104107,7 @@ __inline static char _ADD_16WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _ADD_16WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 2852 "../autogenerated_inline_func.h"
+# 2845 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104174,7 +104174,7 @@ __inline static char _ADD_16WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_T
 
 __inline static char _ADD_16WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 2993 "../autogenerated_inline_func.h"
+# 2986 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104241,7 +104241,7 @@ __inline static char _ADD_16WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_T
 
 __inline static char _SUBTRUCT_16WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 3134 "../autogenerated_inline_func.h"
+# 3127 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104308,7 +104308,7 @@ __inline static char _SUBTRUCT_16WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UN
 
 __inline static char _ADD_8WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3243 "../autogenerated_inline_func.h"
+# 3236 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104351,7 +104351,7 @@ __inline static char _ADD_8WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, _
 
 __inline static char _ADD_8WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3328 "../autogenerated_inline_func.h"
+# 3321 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104394,7 +104394,7 @@ __inline static char _ADD_8WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _ADD_8WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3413 "../autogenerated_inline_func.h"
+# 3406 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104437,7 +104437,7 @@ __inline static char _ADD_8WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _SUBTRUCT_8WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3498 "../autogenerated_inline_func.h"
+# 3491 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104480,7 +104480,7 @@ __inline static char _SUBTRUCT_8WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* 
 
 __inline static char _ADD_8WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 3583 "../autogenerated_inline_func.h"
+# 3576 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104523,7 +104523,7 @@ __inline static char _ADD_8WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYP
 
 __inline static char _ADD_8WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 3668 "../autogenerated_inline_func.h"
+# 3661 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104566,7 +104566,7 @@ __inline static char _ADD_8WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _ADD_8WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 3753 "../autogenerated_inline_func.h"
+# 3746 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104609,7 +104609,7 @@ __inline static char _ADD_8WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _SUBTRUCT_8WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 3838 "../autogenerated_inline_func.h"
+# 3831 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104652,7 +104652,7 @@ __inline static char _SUBTRUCT_8WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNI
 
 __inline static char _ADD_4WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3907 "../autogenerated_inline_func.h"
+# 3900 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104683,7 +104683,7 @@ __inline static char _ADD_4WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, _
 
 __inline static char _ADD_4WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 3964 "../autogenerated_inline_func.h"
+# 3957 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104714,7 +104714,7 @@ __inline static char _ADD_4WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _ADD_4WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4021 "../autogenerated_inline_func.h"
+# 4014 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104745,7 +104745,7 @@ __inline static char _ADD_4WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _SUBTRUCT_4WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4078 "../autogenerated_inline_func.h"
+# 4071 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104776,7 +104776,7 @@ __inline static char _SUBTRUCT_4WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* 
 
 __inline static char _ADD_4WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4135 "../autogenerated_inline_func.h"
+# 4128 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104807,7 +104807,7 @@ __inline static char _ADD_4WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYP
 
 __inline static char _ADD_4WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4192 "../autogenerated_inline_func.h"
+# 4185 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104838,7 +104838,7 @@ __inline static char _ADD_4WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _ADD_4WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4249 "../autogenerated_inline_func.h"
+# 4242 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104869,7 +104869,7 @@ __inline static char _ADD_4WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _SUBTRUCT_4WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4306 "../autogenerated_inline_func.h"
+# 4299 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104900,7 +104900,7 @@ __inline static char _SUBTRUCT_4WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNI
 
 __inline static char _ADD_2WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4355 "../autogenerated_inline_func.h"
+# 4348 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104925,7 +104925,7 @@ __inline static char _ADD_2WORDS_ADC(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, _
 
 __inline static char _ADD_2WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4398 "../autogenerated_inline_func.h"
+# 4391 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104950,7 +104950,7 @@ __inline static char _ADD_2WORDS_ADCX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _ADD_2WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4441 "../autogenerated_inline_func.h"
+# 4434 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -104975,7 +104975,7 @@ __inline static char _ADD_2WORDS_ADOX(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, 
 
 __inline static char _SUBTRUCT_2WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* yp, __UNIT_TYPE* zp)
 {
-# 4484 "../autogenerated_inline_func.h"
+# 4477 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -105000,7 +105000,7 @@ __inline static char _SUBTRUCT_2WORDS_SBB(char c, __UNIT_TYPE* xp, __UNIT_TYPE* 
 
 __inline static char _ADD_2WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4527 "../autogenerated_inline_func.h"
+# 4520 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -105025,7 +105025,7 @@ __inline static char _ADD_2WORDS_ADC_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYP
 
 __inline static char _ADD_2WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4570 "../autogenerated_inline_func.h"
+# 4563 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -105050,7 +105050,7 @@ __inline static char _ADD_2WORDS_ADCX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _ADD_2WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4613 "../autogenerated_inline_func.h"
+# 4606 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -105075,7 +105075,7 @@ __inline static char _ADD_2WORDS_ADOX_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TY
 
 __inline static char _SUBTRUCT_2WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNIT_TYPE_DIV* yp, __UNIT_TYPE_DIV* zp)
 {
-# 4656 "../autogenerated_inline_func.h"
+# 4649 "../autogenerated_inline_func.h"
     __asm__ volatile (
         "addb\t$-1, %0\n\t"
         "movq\t(%1), %%rcx\n\t"
@@ -105097,7 +105097,7 @@ __inline static char _SUBTRUCT_2WORDS_SBB_DIV(char c, __UNIT_TYPE_DIV* xp, __UNI
 
     return (c);
 }
-# 37 "../pmc_divrem.c" 2
+# 30 "../pmc_divrem.c" 2
 
 
 
@@ -105343,21 +105343,21 @@ __inline static BOOL CheckQ_(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE
 
     if (rh_hi > 0)
         return (
-# 281 "../pmc_divrem.c" 3
+# 274 "../pmc_divrem.c" 3
                0
-# 281 "../pmc_divrem.c"
+# 274 "../pmc_divrem.c"
                     );
     else if (lh_mi > rh_mi)
         return (
-# 283 "../pmc_divrem.c" 3
+# 276 "../pmc_divrem.c" 3
                1
-# 283 "../pmc_divrem.c"
+# 276 "../pmc_divrem.c"
                    );
     else if (lh_mi < rh_mi)
         return (
-# 285 "../pmc_divrem.c" 3
+# 278 "../pmc_divrem.c" 3
                0
-# 285 "../pmc_divrem.c"
+# 278 "../pmc_divrem.c"
                     );
     else
         return (lh_lo > rh_lo);
@@ -105365,7 +105365,7 @@ __inline static BOOL CheckQ_(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE
 
 __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE_DIV uj_1, __UNIT_TYPE_DIV uj_2, __UNIT_TYPE_DIV v1, __UNIT_TYPE_DIV v2)
 {
-# 301 "../pmc_divrem.c"
+# 294 "../pmc_divrem.c"
     __UNIT_TYPE_DIV lh_mi;
     __UNIT_TYPE_DIV lh_lo = _MULTIPLYX_UNIT_DIV(v2, q_, &lh_mi);
     __UNIT_TYPE_DIV rh_hi;
@@ -105388,9 +105388,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 322 "../pmc_divrem.c" 3
+# 315 "../pmc_divrem.c" 3
                0
-# 322 "../pmc_divrem.c"
+# 315 "../pmc_divrem.c"
                     );
     }
     else if (lh_mi > rh_mi)
@@ -105399,9 +105399,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 329 "../pmc_divrem.c" 3
+# 322 "../pmc_divrem.c" 3
                1
-# 329 "../pmc_divrem.c"
+# 322 "../pmc_divrem.c"
                    );
     }
     else if (lh_mi < rh_mi)
@@ -105410,9 +105410,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 336 "../pmc_divrem.c" 3
+# 329 "../pmc_divrem.c" 3
                0
-# 336 "../pmc_divrem.c"
+# 329 "../pmc_divrem.c"
                     );
     }
     else
@@ -105482,18 +105482,18 @@ static BOOL DoBorrow(char c, __UNIT_TYPE_DIV* up, __UNIT_TYPE u_count)
 
 
                 return (
-# 404 "../pmc_divrem.c" 3
+# 397 "../pmc_divrem.c" 3
                        1
-# 404 "../pmc_divrem.c"
+# 397 "../pmc_divrem.c"
                            );
             }
 
 
 
             return (
-# 409 "../pmc_divrem.c" 3
+# 402 "../pmc_divrem.c" 3
                    0
-# 409 "../pmc_divrem.c"
+# 402 "../pmc_divrem.c"
                         );
         }
         else if (c)
@@ -105511,9 +105511,9 @@ static BOOL DoBorrow(char c, __UNIT_TYPE_DIV* up, __UNIT_TYPE u_count)
 
 
             return (
-# 425 "../pmc_divrem.c" 3
+# 418 "../pmc_divrem.c" 3
                    0
-# 425 "../pmc_divrem.c"
+# 418 "../pmc_divrem.c"
                         );
         }
     }
@@ -106014,7 +106014,7 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
         while (v_buf[v_buf_len - 1] == 0)
             --v_buf_len;
     }
-# 933 "../pmc_divrem.c"
+# 926 "../pmc_divrem.c"
     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
     if (d_factor == 0)
     {
@@ -106025,14 +106025,14 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
     else
     {
         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, 
-# 942 "../pmc_divrem.c" 3
+# 935 "../pmc_divrem.c" 3
                                                             0
-# 942 "../pmc_divrem.c"
+# 935 "../pmc_divrem.c"
                                                                  );
         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, 
-# 943 "../pmc_divrem.c" 3
+# 936 "../pmc_divrem.c" 3
                                                                  0
-# 943 "../pmc_divrem.c"
+# 936 "../pmc_divrem.c"
                                                                       );
     }
 
@@ -106059,9 +106059,9 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
 
     if (d_factor > 0)
         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, 
-# 968 "../pmc_divrem.c" 3
+# 961 "../pmc_divrem.c" 3
                                                                            0
-# 968 "../pmc_divrem.c"
+# 961 "../pmc_divrem.c"
                                                                                 );
 }
 
@@ -106075,7 +106075,7 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
         while (v_buf[v_buf_len - 1] == 0)
             --v_buf_len;
     }
-# 995 "../pmc_divrem.c"
+# 988 "../pmc_divrem.c"
     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
     if (d_factor == 0)
     {
@@ -106086,14 +106086,14 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
     else
     {
         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, 
-# 1004 "../pmc_divrem.c" 3
+# 997 "../pmc_divrem.c" 3
                                                             0
-# 1004 "../pmc_divrem.c"
+# 997 "../pmc_divrem.c"
                                                                  );
         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, 
-# 1005 "../pmc_divrem.c" 3
+# 998 "../pmc_divrem.c" 3
                                                                  0
-# 1005 "../pmc_divrem.c"
+# 998 "../pmc_divrem.c"
                                                                       );
     }
 
@@ -106116,7 +106116,7 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 
         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
         {
-# 1036 "../pmc_divrem.c"
+# 1029 "../pmc_divrem.c"
             --q_;
             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
@@ -106145,9 +106145,9 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 
     if (d_factor > 0)
         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, 
-# 1063 "../pmc_divrem.c" 3
+# 1056 "../pmc_divrem.c" 3
                                                                            0
-# 1063 "../pmc_divrem.c"
+# 1056 "../pmc_divrem.c"
                                                                                 );
 
 
@@ -106165,21 +106165,21 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, HANDLE v, _UINT32_T* q, _UINT32_T* r
         return ((-256));
     }
     if (v == 
-# 1079 "../pmc_divrem.c" 3 4
+# 1072 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1079 "../pmc_divrem.c"
+# 1072 "../pmc_divrem.c"
                 )
         return ((-1));
     if (q == 
-# 1081 "../pmc_divrem.c" 3 4
+# 1074 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1081 "../pmc_divrem.c"
+# 1074 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1083 "../pmc_divrem.c" 3 4
+# 1076 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1083 "../pmc_divrem.c"
+# 1076 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
@@ -106256,21 +106256,21 @@ PMC_STATUS_CODE PMC_DivRem_X_I(HANDLE u, _UINT32_T v, HANDLE* q, _UINT32_T* r)
         return ((-256));
     }
     if (u == 
-# 1158 "../pmc_divrem.c" 3 4
+# 1151 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1158 "../pmc_divrem.c"
+# 1151 "../pmc_divrem.c"
                 )
         return ((-1));
     if (q == 
-# 1160 "../pmc_divrem.c" 3 4
+# 1153 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1160 "../pmc_divrem.c"
+# 1153 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1162 "../pmc_divrem.c" 3 4
+# 1155 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1162 "../pmc_divrem.c"
+# 1155 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106357,21 +106357,21 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, HANDLE v, _UINT64_T* q, _UINT64_T* r
         return ((-256));
     }
     if (v == 
-# 1247 "../pmc_divrem.c" 3 4
+# 1240 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1247 "../pmc_divrem.c"
+# 1240 "../pmc_divrem.c"
                 )
         return ((-1));
     if (q == 
-# 1249 "../pmc_divrem.c" 3 4
+# 1242 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1249 "../pmc_divrem.c"
+# 1242 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1251 "../pmc_divrem.c" 3 4
+# 1244 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1251 "../pmc_divrem.c"
+# 1244 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
@@ -106535,21 +106535,21 @@ PMC_STATUS_CODE PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UINT64_T* r)
         return ((-256));
     }
     if (u == 
-# 1413 "../pmc_divrem.c" 3 4
+# 1406 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1413 "../pmc_divrem.c"
+# 1406 "../pmc_divrem.c"
                 )
         return ((-1));
     if (q == 
-# 1415 "../pmc_divrem.c" 3 4
+# 1408 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1415 "../pmc_divrem.c"
+# 1408 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1417 "../pmc_divrem.c" 3 4
+# 1410 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1417 "../pmc_divrem.c"
+# 1410 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106659,9 +106659,9 @@ PMC_STATUS_CODE PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UINT64_T* r)
                         __UNIT_TYPE r_buf_words;
                         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
                         if (r_buf == 
-# 1525 "../pmc_divrem.c" 3 4
+# 1518 "../pmc_divrem.c" 3 4
                                     ((void *)0)
-# 1525 "../pmc_divrem.c"
+# 1518 "../pmc_divrem.c"
                                         )
                         {
                             DeallocateNumber(nq);
@@ -106731,27 +106731,27 @@ PMC_STATUS_CODE PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UINT64_T* r)
 PMC_STATUS_CODE PMC_DivRem_X_X(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r)
 {
     if (u == 
-# 1593 "../pmc_divrem.c" 3 4
+# 1586 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1593 "../pmc_divrem.c"
+# 1586 "../pmc_divrem.c"
                 )
         return ((-1));
     if (v == 
-# 1595 "../pmc_divrem.c" 3 4
+# 1588 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1595 "../pmc_divrem.c"
+# 1588 "../pmc_divrem.c"
                 )
         return ((-1));
     if (q == 
-# 1597 "../pmc_divrem.c" 3 4
+# 1590 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1597 "../pmc_divrem.c"
+# 1590 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1599 "../pmc_divrem.c" 3 4
+# 1592 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1599 "../pmc_divrem.c"
+# 1592 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106858,9 +106858,9 @@ PMC_STATUS_CODE PMC_DivRem_X_X(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r)
                 __UNIT_TYPE work_v_buf_words;
                 __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * (sizeof(__UNIT_TYPE) * 8), &work_v_buf_words, &work_v_buf_code);
                 if (work_v_buf == 
-# 1704 "../pmc_divrem.c" 3 4
+# 1697 "../pmc_divrem.c" 3 4
                                  ((void *)0)
-# 1704 "../pmc_divrem.c"
+# 1697 "../pmc_divrem.c"
                                      )
                 {
                     DeallocateNumber(nq);

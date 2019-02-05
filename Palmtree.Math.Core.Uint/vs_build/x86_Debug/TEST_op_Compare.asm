@@ -22,7 +22,7 @@ __F37DAFF1_winerror@h DB 01H
 __7A450CCC_winbase@h DB 01H
 __B4B40122_winioctl@h DB 01H
 __86261D59_stralign@h DB 01H
-__95056B1C_pmc_debug@h DB 01H
+__630249ED_pmc_uint_debug@h DB 01H
 __21B28967_test_op_compare@c DB 01H
 msvcjmc	ENDS
 PUBLIC	_TEST_PMC_Compare_I_X
@@ -237,7 +237,7 @@ _y_buf_size$ = 32					; size = 4
 _desired_z$ = 36					; size = 4
 _TEST_PMC_Compare_X_X PROC
 
-; 91   : {
+; 85   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -251,13 +251,13 @@ _TEST_PMC_Compare_X_X PROC
 	mov	ecx, OFFSET __21B28967_test_op_compare@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 92   :     HANDLE x;
-; 93   :     HANDLE y;
-; 94   :     int actual_z;
-; 95   :     PMC_STATUS_CODE result;
-; 96   :     PMC_STATUS_CODE x_result;
-; 97   :     PMC_STATUS_CODE y_result;
-; 98   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 86   :     HANDLE x;
+; 87   :     HANDLE y;
+; 88   :     int actual_z;
+; 89   :     PMC_STATUS_CODE result;
+; 90   :     PMC_STATUS_CODE x_result;
+; 91   :     PMC_STATUS_CODE y_result;
+; 92   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -299,7 +299,7 @@ $LN6@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 99   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
+; 93   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _y$[ebp]
@@ -341,7 +341,7 @@ $LN8@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 100  :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 3), (result = ep->PMC_Compare_X_X(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Xの復帰コードが期待通りではない(%d)", result));
+; 94   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 3), (result = ep->PMC_Compare_X_X(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Xの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_z$[ebp]
@@ -383,7 +383,7 @@ $LN10@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 101  :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 4), actual_z == desired_z, L"データの内容が一致しない");
+; 95   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 4), actual_z == desired_z, L"データの内容が一致しない");
 
 	mov	eax, DWORD PTR _actual_z$[ebp]
 	cmp	eax, DWORD PTR _desired_z$[ebp]
@@ -408,12 +408,12 @@ $LN12@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 102  :     if (y_result == PMC_STATUS_OK)
+; 96   :     if (y_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _y_result$[ebp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 103  :         ep->PMC_Dispose(y);
+; 97   :         ep->PMC_Dispose(y);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _y$[ebp]
@@ -425,12 +425,12 @@ $LN12@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN2@TEST_PMC_C:
 
-; 104  :     if (x_result == PMC_STATUS_OK)
+; 98   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 105  :         ep->PMC_Dispose(x);
+; 99   :         ep->PMC_Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]
@@ -442,7 +442,7 @@ $LN2@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 106  : }
+; 100  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -509,7 +509,7 @@ _y$ = 28						; size = 8
 _desired_z$ = 36					; size = 4
 _TEST_PMC_Compare_X_L PROC
 
-; 78   : {
+; 72   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -523,11 +523,11 @@ _TEST_PMC_Compare_X_L PROC
 	mov	ecx, OFFSET __21B28967_test_op_compare@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 79   :     HANDLE x;
-; 80   :     int actual_z;
-; 81   :     PMC_STATUS_CODE result;
-; 82   :     PMC_STATUS_CODE x_result;
-; 83   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 73   :     HANDLE x;
+; 74   :     int actual_z;
+; 75   :     PMC_STATUS_CODE result;
+; 76   :     PMC_STATUS_CODE x_result;
+; 77   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -569,7 +569,7 @@ $LN5@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 84   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 2), (result = ep->PMC_Compare_X_L(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Lの復帰コードが期待通りではない(%d)", result));
+; 78   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 2), (result = ep->PMC_Compare_X_L(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Lの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_z$[ebp]
@@ -613,7 +613,7 @@ $LN7@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 85   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 3), actual_z == desired_z, L"データの内容が一致しない");
+; 79   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 3), actual_z == desired_z, L"データの内容が一致しない");
 
 	mov	ecx, DWORD PTR _actual_z$[ebp]
 	cmp	ecx, DWORD PTR _desired_z$[ebp]
@@ -638,12 +638,12 @@ $LN9@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 86   :     if (x_result == PMC_STATUS_OK)
+; 80   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 87   :         ep->PMC_Dispose(x);
+; 81   :         ep->PMC_Dispose(x);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _x$[ebp]
@@ -655,7 +655,7 @@ $LN9@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 88   : }
+; 82   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -717,7 +717,7 @@ _y$ = 28						; size = 4
 _desired_z$ = 32					; size = 4
 _TEST_PMC_Compare_X_I PROC
 
-; 65   : {
+; 59   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -731,11 +731,11 @@ _TEST_PMC_Compare_X_I PROC
 	mov	ecx, OFFSET __21B28967_test_op_compare@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 66   :     HANDLE x;
-; 67   :     int actual_z;
-; 68   :     PMC_STATUS_CODE result;
-; 69   :     PMC_STATUS_CODE x_result;
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 60   :     HANDLE x;
+; 61   :     int actual_z;
+; 62   :     PMC_STATUS_CODE result;
+; 63   :     PMC_STATUS_CODE x_result;
+; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -777,7 +777,7 @@ $LN5@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 2), (result = ep->PMC_Compare_X_I(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Iの復帰コードが期待通りではない(%d)", result));
+; 65   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 2), (result = ep->PMC_Compare_X_I(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Iの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_z$[ebp]
@@ -819,7 +819,7 @@ $LN7@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 72   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 3), actual_z == desired_z, L"データの内容が一致しない");
+; 66   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 3), actual_z == desired_z, L"データの内容が一致しない");
 
 	mov	eax, DWORD PTR _actual_z$[ebp]
 	cmp	eax, DWORD PTR _desired_z$[ebp]
@@ -844,12 +844,12 @@ $LN9@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 73   :     if (x_result == PMC_STATUS_OK)
+; 67   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 74   :         ep->PMC_Dispose(x);
+; 68   :         ep->PMC_Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]
@@ -861,7 +861,7 @@ $LN9@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 75   : }
+; 69   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -923,7 +923,7 @@ _v_buf_size$ = 32					; size = 4
 _desired_w$ = 36					; size = 4
 _TEST_PMC_Compare_L_X PROC
 
-; 52   : {
+; 46   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -937,11 +937,11 @@ _TEST_PMC_Compare_L_X PROC
 	mov	ecx, OFFSET __21B28967_test_op_compare@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 53   :     HANDLE v;
-; 54   :     int actual_w;
-; 55   :     PMC_STATUS_CODE result;
-; 56   :     PMC_STATUS_CODE v_result;
-; 57   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 47   :     HANDLE v;
+; 48   :     int actual_w;
+; 49   :     PMC_STATUS_CODE result;
+; 50   :     PMC_STATUS_CODE v_result;
+; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -983,7 +983,7 @@ $LN5@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 58   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 2), (result = ep->PMC_Compare_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_L_Xの復帰コードが期待通りではない(%d)", result));
+; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 2), (result = ep->PMC_Compare_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_L_Xの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_w$[ebp]
@@ -1027,7 +1027,7 @@ $LN7@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 59   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 3), actual_w == desired_w, L"データの内容が一致しない");
+; 53   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 3), actual_w == desired_w, L"データの内容が一致しない");
 
 	mov	ecx, DWORD PTR _actual_w$[ebp]
 	cmp	ecx, DWORD PTR _desired_w$[ebp]
@@ -1052,12 +1052,12 @@ $LN9@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 60   :     if (v_result == PMC_STATUS_OK)
+; 54   :     if (v_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _v_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 61   :         ep->PMC_Dispose(v);
+; 55   :         ep->PMC_Dispose(v);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _v$[ebp]
@@ -1069,7 +1069,7 @@ $LN9@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 62   : }
+; 56   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -1131,7 +1131,7 @@ _v_buf_size$ = 28					; size = 4
 _desired_w$ = 32					; size = 4
 _TEST_PMC_Compare_I_X PROC
 
-; 39   : {
+; 33   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1145,11 +1145,11 @@ _TEST_PMC_Compare_I_X PROC
 	mov	ecx, OFFSET __21B28967_test_op_compare@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 40   :     HANDLE v;
-; 41   :     int actual_w;
-; 42   :     PMC_STATUS_CODE result;
-; 43   :     PMC_STATUS_CODE v_result;
-; 44   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 34   :     HANDLE v;
+; 35   :     int actual_w;
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     PMC_STATUS_CODE v_result;
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -1191,7 +1191,7 @@ $LN5@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 2), (result = ep->PMC_Compare_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_I_Xの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 2), (result = ep->PMC_Compare_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_I_Xの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_w$[ebp]
@@ -1233,7 +1233,7 @@ $LN7@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 3), actual_w == desired_w, L"データの内容が一致しない");
+; 40   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 3), actual_w == desired_w, L"データの内容が一致しない");
 
 	mov	eax, DWORD PTR _actual_w$[ebp]
 	cmp	eax, DWORD PTR _desired_w$[ebp]
@@ -1258,12 +1258,12 @@ $LN9@TEST_PMC_C:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 47   :     if (v_result == PMC_STATUS_OK)
+; 41   :     if (v_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _v_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_C
 
-; 48   :         ep->PMC_Dispose(v);
+; 42   :         ep->PMC_Dispose(v);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -1275,7 +1275,7 @@ $LN9@TEST_PMC_C:
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_C:
 
-; 49   : }
+; 43   : }
 
 	push	edx
 	mov	ecx, ebp

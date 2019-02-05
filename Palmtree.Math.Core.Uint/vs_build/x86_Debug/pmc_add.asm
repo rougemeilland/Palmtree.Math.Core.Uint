@@ -92,7 +92,7 @@ _v$ = 12						; size = 8
 _w$ = 20						; size = 4
 _PMC_Add_X_L_Imp PROC
 
-; 406  : {
+; 399  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -105,8 +105,8 @@ _PMC_Add_X_L_Imp PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 407  :     PMC_STATUS_CODE result;
-; 408  :     if (u->IS_ZERO)
+; 400  :     PMC_STATUS_CODE result;
+; 401  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -114,35 +114,35 @@ _PMC_Add_X_L_Imp PROC
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Add_X_
 
-; 409  :     {
-; 410  :         // u が 0 である場合
-; 411  : 
-; 412  :         if (v == 0)
+; 402  :     {
+; 403  :         // u が 0 である場合
+; 404  : 
+; 405  :         if (v == 0)
 
 	mov	edx, DWORD PTR _v$[ebp]
 	or	edx, DWORD PTR _v$[ebp+4]
 	jne	SHORT $LN4@PMC_Add_X_
 
-; 413  :         {
-; 414  :             // v が 0 である場合
-; 415  : 
-; 416  :             // u と v がともに 0 であるので、加算結果の 0 を呼び出し元に返す。
-; 417  :             *w = &number_zero;
+; 406  :         {
+; 407  :             // v が 0 である場合
+; 408  : 
+; 409  :             // u と v がともに 0 であるので、加算結果の 0 を呼び出し元に返す。
+; 410  :             *w = &number_zero;
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 418  :         }
+; 411  :         }
 
 	jmp	SHORT $LN5@PMC_Add_X_
 $LN4@PMC_Add_X_:
 
-; 419  :         else
-; 420  :         {
-; 421  :             // v が 0 ではない場合
-; 422  : 
-; 423  :             // 加算結果となる v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 424  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
+; 412  :         else
+; 413  :         {
+; 414  :             // v が 0 ではない場合
+; 415  : 
+; 416  :             // 加算結果となる v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 417  :             if ((result = From_L_Imp(v, w)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	push	ecx
@@ -156,33 +156,33 @@ $LN4@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_X_
 
-; 425  :                 return (result);
+; 418  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN5@PMC_Add_X_:
 
-; 426  :         }
-; 427  :     }
+; 419  :         }
+; 420  :     }
 
 	jmp	$LN3@PMC_Add_X_
 $LN2@PMC_Add_X_:
 
-; 428  :     else
-; 429  :     {
-; 430  :         // u が 0 ではない場合
-; 431  : 
-; 432  :         if (v == 0)
+; 421  :     else
+; 422  :     {
+; 423  :         // u が 0 ではない場合
+; 424  : 
+; 425  :         if (v == 0)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	or	ecx, DWORD PTR _v$[ebp+4]
 	jne	SHORT $LN7@PMC_Add_X_
 
-; 433  :         {
-; 434  :             // v が 0 である場合
-; 435  : 
-; 436  :             // 加算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 437  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+; 426  :         {
+; 427  :             // v が 0 である場合
+; 428  : 
+; 429  :             // 加算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 430  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -194,39 +194,39 @@ $LN2@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@PMC_Add_X_
 
-; 438  :                 return (result);
+; 431  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN9@PMC_Add_X_:
 
-; 439  :         }
+; 432  :         }
 
 	jmp	$LN3@PMC_Add_X_
 $LN7@PMC_Add_X_:
 
-; 440  :         else
-; 441  :         {
-; 442  :             // u と v がともに 0 ではない場合
-; 443  : 
-; 444  :             // u と v の和を計算する
-; 445  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 433  :         else
+; 434  :         {
+; 435  :             // u と v がともに 0 ではない場合
+; 436  : 
+; 437  :             // u と v の和を計算する
+; 438  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	mov	ecx, 1
 	test	ecx, ecx
 	je	$LN10@PMC_Add_X_
 
-; 446  :             {
-; 447  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 448  : 
-; 449  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 439  :             {
+; 440  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 441  : 
+; 442  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	DWORD PTR _u_bit_count$13[ebp], eax
 
-; 450  :                 _UINT32_T v_hi;
-; 451  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
+; 443  :                 _UINT32_T v_hi;
+; 444  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
 
 	lea	ecx, DWORD PTR _v_hi$12[ebp]
 	push	ecx
@@ -238,14 +238,14 @@ $LN7@PMC_Add_X_:
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _v_lo$11[ebp], eax
 
-; 452  :                 if (v_hi == 0)
+; 445  :                 if (v_hi == 0)
 
 	cmp	DWORD PTR _v_hi$12[ebp], 0
 	jne	$LN12@PMC_Add_X_
 
-; 453  :                 {
-; 454  :                     // y の値が 32bit で表現可能な場合
-; 455  :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
+; 446  :                 {
+; 447  :                     // y の値が 32bit で表現可能な場合
+; 448  :                     __UNIT_TYPE v_bit_count = sizeof(v_lo) * 8 - _LZCNT_ALT_32(v_lo);
 
 	mov	ecx, DWORD PTR _v_lo$11[ebp]
 	push	ecx
@@ -255,7 +255,7 @@ $LN7@PMC_Add_X_:
 	sub	edx, eax
 	mov	DWORD PTR _v_bit_count$10[ebp], edx
 
-; 456  :                     __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
+; 449  :                     __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
 
 	mov	eax, DWORD PTR _v_bit_count$10[ebp]
 	push	eax
@@ -266,8 +266,8 @@ $LN7@PMC_Add_X_:
 	add	eax, 1
 	mov	DWORD PTR _w_bit_count$9[ebp], eax
 
-; 457  :                     __UNIT_TYPE w_light_check_code;
-; 458  :                     if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 450  :                     __UNIT_TYPE w_light_check_code;
+; 451  :                     if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _w_light_check_code$8[ebp]
 	push	edx
@@ -281,13 +281,13 @@ $LN7@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN14@PMC_Add_X_
 
-; 459  :                         return (result);
+; 452  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN14@PMC_Add_X_:
 
-; 460  :                     if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 453  :                     if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -311,8 +311,8 @@ $LN14@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN15@PMC_Add_X_
 
-; 461  :                     {
-; 462  :                         DeallocateNumber(*w);
+; 454  :                     {
+; 455  :                         DeallocateNumber(*w);
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -320,14 +320,14 @@ $LN14@PMC_Add_X_:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 463  :                         return (result);
+; 456  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN15@PMC_Add_X_:
 
-; 464  :                     }
-; 465  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 457  :                     }
+; 458  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w_light_check_code$8[ebp]
 	push	eax
@@ -341,21 +341,21 @@ $LN15@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN16@PMC_Add_X_
 
-; 466  :                         return (result);
+; 459  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN16@PMC_Add_X_:
 
-; 467  :                 }
+; 460  :                 }
 
 	jmp	$LN13@PMC_Add_X_
 $LN12@PMC_Add_X_:
 
-; 468  :                 else
-; 469  :                 {
-; 470  :                     // y の値が 32bit では表現できない場合
-; 471  :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
+; 461  :                 else
+; 462  :                 {
+; 463  :                     // y の値が 32bit では表現できない場合
+; 464  :                     __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v_hi);
 
 	mov	ecx, DWORD PTR _v_hi$12[ebp]
 	push	ecx
@@ -365,7 +365,7 @@ $LN12@PMC_Add_X_:
 	sub	edx, eax
 	mov	DWORD PTR _v_bit_count$7[ebp], edx
 
-; 472  :                     __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
+; 465  :                     __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
 
 	mov	eax, DWORD PTR _v_bit_count$7[ebp]
 	push	eax
@@ -376,8 +376,8 @@ $LN12@PMC_Add_X_:
 	add	eax, 1
 	mov	DWORD PTR _w_bit_count$6[ebp], eax
 
-; 473  :                     __UNIT_TYPE w_light_check_code;
-; 474  :                     if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 466  :                     __UNIT_TYPE w_light_check_code;
+; 467  :                     if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _w_light_check_code$5[ebp]
 	push	edx
@@ -391,13 +391,13 @@ $LN12@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN17@PMC_Add_X_
 
-; 475  :                         return (result);
+; 468  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN17@PMC_Add_X_:
 
-; 476  :                     if ((result = Add_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 469  :                     if ((result = Add_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -423,8 +423,8 @@ $LN17@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN18@PMC_Add_X_
 
-; 477  :                     {
-; 478  :                         DeallocateNumber(*w);
+; 470  :                     {
+; 471  :                         DeallocateNumber(*w);
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -432,14 +432,14 @@ $LN17@PMC_Add_X_:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 479  :                         return (result);
+; 472  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN18@PMC_Add_X_:
 
-; 480  :                     }
-; 481  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 473  :                     }
+; 474  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w_light_check_code$5[ebp]
 	push	ecx
@@ -453,14 +453,14 @@ $LN18@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN13@PMC_Add_X_
 
-; 482  :                         return (result);
+; 475  :                         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN13@PMC_Add_X_:
 
-; 483  :                 }
-; 484  :                 CommitNumber(*w);
+; 476  :                 }
+; 477  :                 CommitNumber(*w);
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -468,22 +468,22 @@ $LN13@PMC_Add_X_:
 	call	_CommitNumber
 	add	esp, 4
 
-; 485  :             }
+; 478  :             }
 
 	jmp	$LN3@PMC_Add_X_
 $LN10@PMC_Add_X_:
 
-; 486  :             else
-; 487  :             {
-; 488  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 489  : 
-; 490  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+; 479  :             else
+; 480  :             {
+; 481  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 482  : 
+; 483  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _u_bit_count$4[ebp], edx
 
-; 491  :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
+; 484  :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
@@ -493,7 +493,7 @@ $LN10@PMC_Add_X_:
 	sub	ecx, eax
 	mov	DWORD PTR _v_bit_count$3[ebp], ecx
 
-; 492  :                 __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
+; 485  :                 __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
 
 	mov	edx, DWORD PTR _v_bit_count$3[ebp]
 	push	edx
@@ -504,8 +504,8 @@ $LN10@PMC_Add_X_:
 	add	eax, 1
 	mov	DWORD PTR _w_bit_count$2[ebp], eax
 
-; 493  :                 __UNIT_TYPE w_light_check_code;
-; 494  :                 if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 486  :                 __UNIT_TYPE w_light_check_code;
+; 487  :                 if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _w_light_check_code$1[ebp]
 	push	ecx
@@ -519,13 +519,13 @@ $LN10@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN20@PMC_Add_X_
 
-; 495  :                     return (result);
+; 488  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN20@PMC_Add_X_:
 
-; 496  :                 if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 489  :                 if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -549,8 +549,8 @@ $LN20@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN21@PMC_Add_X_
 
-; 497  :                 {
-; 498  :                     DeallocateNumber(*w);
+; 490  :                 {
+; 491  :                     DeallocateNumber(*w);
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -558,14 +558,14 @@ $LN20@PMC_Add_X_:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 499  :                     return (result);
+; 492  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN21@PMC_Add_X_:
 
-; 500  :                 }
-; 501  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 493  :                 }
+; 494  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w_light_check_code$1[ebp]
 	push	edx
@@ -579,13 +579,13 @@ $LN21@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN22@PMC_Add_X_
 
-; 502  :                     return (result);
+; 495  :                     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN22@PMC_Add_X_:
 
-; 503  :                 CommitNumber(*w);
+; 496  :                 CommitNumber(*w);
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -594,16 +594,16 @@ $LN22@PMC_Add_X_:
 	add	esp, 4
 $LN3@PMC_Add_X_:
 
-; 504  :             }
-; 505  : 
-; 506  :         }
-; 507  :     }
-; 508  :     return (PMC_STATUS_OK);
+; 497  :             }
+; 498  : 
+; 499  :         }
+; 500  :     }
+; 501  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_X_:
 
-; 509  : }
+; 502  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -717,7 +717,7 @@ _v$ = 12						; size = 4
 _nw$ = 16						; size = 4
 _PMC_Add_X_I_Imp PROC
 
-; 301  : {
+; 294  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -733,8 +733,8 @@ _PMC_Add_X_I_Imp PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 302  :     PMC_STATUS_CODE result;
-; 303  :     if (nu->IS_ZERO)
+; 295  :     PMC_STATUS_CODE result;
+; 296  :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -742,34 +742,34 @@ _PMC_Add_X_I_Imp PROC
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Add_X_
 
-; 304  :     {
-; 305  :         // x が 0 である場合
-; 306  : 
-; 307  :         if (v == 0)
+; 297  :     {
+; 298  :         // x が 0 である場合
+; 299  : 
+; 300  :         if (v == 0)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_X_
 
-; 308  :         {
-; 309  :             // y が 0 である場合
-; 310  : 
-; 311  :             // x と y がともに 0 であるので、加算結果の 0 を呼び出し元に返す。
-; 312  :             *nw = &number_zero;
+; 301  :         {
+; 302  :             // y が 0 である場合
+; 303  : 
+; 304  :             // x と y がともに 0 であるので、加算結果の 0 を呼び出し元に返す。
+; 305  :             *nw = &number_zero;
 
 	mov	edx, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
 
-; 313  :         }
+; 306  :         }
 
 	jmp	SHORT $LN5@PMC_Add_X_
 $LN4@PMC_Add_X_:
 
-; 314  :         else
-; 315  :         {
-; 316  :             // y が 0 ではない場合
-; 317  : 
-; 318  :             // 加算結果となる y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 319  :             if ((result = From_I_Imp(v, nw)) != PMC_STATUS_OK)
+; 307  :         else
+; 308  :         {
+; 309  :             // y が 0 ではない場合
+; 310  : 
+; 311  :             // 加算結果となる y の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 312  :             if ((result = From_I_Imp(v, nw)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	eax
@@ -781,32 +781,32 @@ $LN4@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_X_
 
-; 320  :                 return (result);
+; 313  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN5@PMC_Add_X_:
 
-; 321  :         }
-; 322  :     }
+; 314  :         }
+; 315  :     }
 
 	jmp	$LN3@PMC_Add_X_
 $LN2@PMC_Add_X_:
 
-; 323  :     else
-; 324  :     {
-; 325  :         // x が 0 ではない場合
-; 326  : 
-; 327  :         if (v == 0)
+; 316  :     else
+; 317  :     {
+; 318  :         // x が 0 ではない場合
+; 319  : 
+; 320  :         if (v == 0)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN7@PMC_Add_X_
 
-; 328  :         {
-; 329  :             // y が 0 である場合
-; 330  : 
-; 331  :             // 加算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 332  :             if ((result = DuplicateNumber(nu, nw)) != PMC_STATUS_OK)
+; 321  :         {
+; 322  :             // y が 0 である場合
+; 323  : 
+; 324  :             // 加算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 325  :             if ((result = DuplicateNumber(nu, nw)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nw$[ebp]
 	push	edx
@@ -818,29 +818,29 @@ $LN2@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN9@PMC_Add_X_
 
-; 333  :                 return (result);
+; 326  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN9@PMC_Add_X_:
 
-; 334  :         }
+; 327  :         }
 
 	jmp	$LN3@PMC_Add_X_
 $LN7@PMC_Add_X_:
 
-; 335  :         else
-; 336  :         {
-; 337  :             // x と y がともに 0 ではない場合
-; 338  : 
-; 339  :             // x と y の和を計算する
-; 340  :             __UNIT_TYPE x_bit_count = nu->UNIT_BIT_COUNT;
+; 328  :         else
+; 329  :         {
+; 330  :             // x と y がともに 0 ではない場合
+; 331  : 
+; 332  :             // x と y の和を計算する
+; 333  :             __UNIT_TYPE x_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _x_bit_count$4[ebp], edx
 
-; 341  :             __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 334  :             __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
@@ -850,7 +850,7 @@ $LN7@PMC_Add_X_:
 	sub	ecx, eax
 	mov	DWORD PTR _y_bit_count$3[ebp], ecx
 
-; 342  :             __UNIT_TYPE z_bit_count = _MAXIMUM_UNIT(x_bit_count, y_bit_count) + 1;
+; 335  :             __UNIT_TYPE z_bit_count = _MAXIMUM_UNIT(x_bit_count, y_bit_count) + 1;
 
 	mov	edx, DWORD PTR _y_bit_count$3[ebp]
 	push	edx
@@ -861,8 +861,8 @@ $LN7@PMC_Add_X_:
 	add	eax, 1
 	mov	DWORD PTR _z_bit_count$2[ebp], eax
 
-; 343  :             __UNIT_TYPE nz_check_code;
-; 344  :             if ((result = AllocateNumber(nw, z_bit_count, &nz_check_code)) != PMC_STATUS_OK)
+; 336  :             __UNIT_TYPE nz_check_code;
+; 337  :             if ((result = AllocateNumber(nw, z_bit_count, &nz_check_code)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _nz_check_code$1[ebp]
 	push	ecx
@@ -876,13 +876,13 @@ $LN7@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN10@PMC_Add_X_
 
-; 345  :                 return (result);
+; 338  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN10@PMC_Add_X_:
 
-; 346  :             if ((result = Add_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, (*nw)->BLOCK, (*nw)->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 339  :             if ((result = Add_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, (*nw)->BLOCK, (*nw)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nw$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -906,8 +906,8 @@ $LN10@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN11@PMC_Add_X_
 
-; 347  :             {
-; 348  :                 DeallocateNumber(*nw);
+; 340  :             {
+; 341  :                 DeallocateNumber(*nw);
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -915,14 +915,14 @@ $LN10@PMC_Add_X_:
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 349  :                 return (result);
+; 342  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN11@PMC_Add_X_:
 
-; 350  :             }
-; 351  :             if ((result = CheckBlockLight((*nw)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
+; 343  :             }
+; 344  :             if ((result = CheckBlockLight((*nw)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nz_check_code$1[ebp]
 	push	edx
@@ -936,13 +936,13 @@ $LN11@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN12@PMC_Add_X_
 
-; 352  :                 return (result);
+; 345  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN12@PMC_Add_X_:
 
-; 353  :             CommitNumber(*nw);
+; 346  :             CommitNumber(*nw);
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -951,14 +951,14 @@ $LN12@PMC_Add_X_:
 	add	esp, 4
 $LN3@PMC_Add_X_:
 
-; 354  :         }
-; 355  :     }
-; 356  :     return (PMC_STATUS_OK);
+; 347  :         }
+; 348  :     }
+; 349  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_X_:
 
-; 357  : }
+; 350  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -1019,7 +1019,7 @@ _w_buf$ = 24						; size = 4
 _w_count$ = 28						; size = 4
 _Add_Imp_using_ADCX PROC
 
-; 224  : {
+; 217  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1032,81 +1032,81 @@ _Add_Imp_using_ADCX PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 225  :     // x のワード長が y のワード長以上であるようにする
-; 226  :     if (u_count < v_count)
+; 218  :     // x のワード長が y のワード長以上であるようにする
+; 219  :     if (u_count < v_count)
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	cmp	eax, DWORD PTR _v_count$[ebp]
 	jae	SHORT $LN4@Add_Imp_us
 
-; 227  :     {
-; 228  :         __UNIT_TYPE* t_buf = u_buf;
+; 220  :     {
+; 221  :         __UNIT_TYPE* t_buf = u_buf;
 
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	mov	DWORD PTR _t_buf$2[ebp], ecx
 
-; 229  :         u_buf = v_buf;
+; 222  :         u_buf = v_buf;
 
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR _u_buf$[ebp], edx
 
-; 230  :         v_buf = t_buf;
+; 223  :         v_buf = t_buf;
 
 	mov	eax, DWORD PTR _t_buf$2[ebp]
 	mov	DWORD PTR _v_buf$[ebp], eax
 
-; 231  :         __UNIT_TYPE t_count = u_count;
+; 224  :         __UNIT_TYPE t_count = u_count;
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	mov	DWORD PTR _t_count$1[ebp], ecx
 
-; 232  :         u_count = v_count;
+; 225  :         u_count = v_count;
 
 	mov	edx, DWORD PTR _v_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 233  :         v_count = t_count;
+; 226  :         v_count = t_count;
 
 	mov	eax, DWORD PTR _t_count$1[ebp]
 	mov	DWORD PTR _v_count$[ebp], eax
 $LN4@Add_Imp_us:
 
-; 234  :     }
-; 235  :     __UNIT_TYPE* up = u_buf;
+; 227  :     }
+; 228  :     __UNIT_TYPE* up = u_buf;
 
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	mov	DWORD PTR _up$[ebp], ecx
 
-; 236  :     __UNIT_TYPE* vp = v_buf;
+; 229  :     __UNIT_TYPE* vp = v_buf;
 
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR _vp$[ebp], edx
 
-; 237  :     __UNIT_TYPE* wp = w_buf;
+; 230  :     __UNIT_TYPE* wp = w_buf;
 
 	mov	eax, DWORD PTR _w_buf$[ebp]
 	mov	DWORD PTR _wp$[ebp], eax
 
-; 238  :     char c = 0;
+; 231  :     char c = 0;
 
 	mov	BYTE PTR _c$[ebp], 0
 
-; 239  : 
-; 240  :     // まず 32 ワードずつ加算をする。
-; 241  :     __UNIT_TYPE count = v_count >> 5;
+; 232  : 
+; 233  :     // まず 32 ワードずつ加算をする。
+; 234  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	shr	ecx, 5
 	mov	DWORD PTR _count$[ebp], ecx
 $LN2@Add_Imp_us:
 
-; 242  :     while (count != 0)
+; 235  :     while (count != 0)
 
 	cmp	DWORD PTR _count$[ebp], 0
 	je	SHORT $LN3@Add_Imp_us
 
-; 243  :     {
-; 244  :         c = _ADD_32WORDS_ADCX(c, up, vp, wp);
+; 236  :     {
+; 237  :         c = _ADD_32WORDS_ADCX(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1120,46 +1120,46 @@ $LN2@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 245  :         up += 32;
+; 238  :         up += 32;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 128				; 00000080H
 	mov	DWORD PTR _up$[ebp], eax
 
-; 246  :         vp += 32;
+; 239  :         vp += 32;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 128				; 00000080H
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 247  :         wp += 32;
+; 240  :         wp += 32;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 128				; 00000080H
 	mov	DWORD PTR _wp$[ebp], edx
 
-; 248  :         --count;
+; 241  :         --count;
 
 	mov	eax, DWORD PTR _count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _count$[ebp], eax
 
-; 249  :     }
+; 242  :     }
 
 	jmp	SHORT $LN2@Add_Imp_us
 $LN3@Add_Imp_us:
 
-; 250  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 251  : 
-; 252  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 253  :     if (v_count & 0x10)
+; 243  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 244  : 
+; 245  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 246  :     if (v_count & 0x10)
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	and	ecx, 16					; 00000010H
 	je	SHORT $LN5@Add_Imp_us
 
-; 254  :     {
-; 255  :         c = _ADD_16WORDS_ADCX(c, up, vp, wp);
+; 247  :     {
+; 248  :         c = _ADD_16WORDS_ADCX(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1173,37 +1173,37 @@ $LN3@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 256  :         up += 16;
+; 249  :         up += 16;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 64					; 00000040H
 	mov	DWORD PTR _up$[ebp], eax
 
-; 257  :         vp += 16;
+; 250  :         vp += 16;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 64					; 00000040H
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 258  :         wp += 16;
+; 251  :         wp += 16;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 64					; 00000040H
 	mov	DWORD PTR _wp$[ebp], edx
 $LN5@Add_Imp_us:
 
-; 259  :     }
-; 260  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 261  : 
-; 262  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 263  :     if (v_count & 0x8)
+; 252  :     }
+; 253  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 254  : 
+; 255  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 256  :     if (v_count & 0x8)
 
 	mov	eax, DWORD PTR _v_count$[ebp]
 	and	eax, 8
 	je	SHORT $LN6@Add_Imp_us
 
-; 264  :     {
-; 265  :         c = _ADD_8WORDS_ADCX(c, up, vp, wp);
+; 257  :     {
+; 258  :         c = _ADD_8WORDS_ADCX(c, up, vp, wp);
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	push	ecx
@@ -1217,37 +1217,37 @@ $LN5@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 266  :         up += 8;
+; 259  :         up += 8;
 
 	mov	edx, DWORD PTR _up$[ebp]
 	add	edx, 32					; 00000020H
 	mov	DWORD PTR _up$[ebp], edx
 
-; 267  :         vp += 8;
+; 260  :         vp += 8;
 
 	mov	eax, DWORD PTR _vp$[ebp]
 	add	eax, 32					; 00000020H
 	mov	DWORD PTR _vp$[ebp], eax
 
-; 268  :         wp += 8;
+; 261  :         wp += 8;
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	add	ecx, 32					; 00000020H
 	mov	DWORD PTR _wp$[ebp], ecx
 $LN6@Add_Imp_us:
 
-; 269  :     }
-; 270  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 271  : 
-; 272  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 273  :     if (v_count & 0x4)
+; 262  :     }
+; 263  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 264  : 
+; 265  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 266  :     if (v_count & 0x4)
 
 	mov	edx, DWORD PTR _v_count$[ebp]
 	and	edx, 4
 	je	SHORT $LN7@Add_Imp_us
 
-; 274  :     {
-; 275  :         c = _ADD_4WORDS_ADCX(c, up, vp, wp);
+; 267  :     {
+; 268  :         c = _ADD_4WORDS_ADCX(c, up, vp, wp);
 
 	mov	eax, DWORD PTR _wp$[ebp]
 	push	eax
@@ -1261,37 +1261,37 @@ $LN6@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 276  :         up += 4;
+; 269  :         up += 4;
 
 	mov	ecx, DWORD PTR _up$[ebp]
 	add	ecx, 16					; 00000010H
 	mov	DWORD PTR _up$[ebp], ecx
 
-; 277  :         vp += 4;
+; 270  :         vp += 4;
 
 	mov	edx, DWORD PTR _vp$[ebp]
 	add	edx, 16					; 00000010H
 	mov	DWORD PTR _vp$[ebp], edx
 
-; 278  :         wp += 4;
+; 271  :         wp += 4;
 
 	mov	eax, DWORD PTR _wp$[ebp]
 	add	eax, 16					; 00000010H
 	mov	DWORD PTR _wp$[ebp], eax
 $LN7@Add_Imp_us:
 
-; 279  :     }
-; 280  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 281  : 
-; 282  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 283  :     if (v_count & 0x2)
+; 272  :     }
+; 273  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 274  : 
+; 275  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 276  :     if (v_count & 0x2)
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	and	ecx, 2
 	je	SHORT $LN8@Add_Imp_us
 
-; 284  :     {
-; 285  :         c = _ADD_2WORDS_ADCX(c, up, vp, wp);
+; 277  :     {
+; 278  :         c = _ADD_2WORDS_ADCX(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1305,36 +1305,36 @@ $LN7@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 286  :         up += 2;
+; 279  :         up += 2;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 8
 	mov	DWORD PTR _up$[ebp], eax
 
-; 287  :         vp += 2;
+; 280  :         vp += 2;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 8
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 288  :         wp += 2;
+; 281  :         wp += 2;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 8
 	mov	DWORD PTR _wp$[ebp], edx
 $LN8@Add_Imp_us:
 
-; 289  :     }
-; 290  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 291  : 
-; 292  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 293  :     if (v_count & 0x1)
+; 282  :     }
+; 283  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 284  : 
+; 285  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 286  :     if (v_count & 0x1)
 
 	mov	eax, DWORD PTR _v_count$[ebp]
 	and	eax, 1
 	je	SHORT $LN9@Add_Imp_us
 
-; 294  :         c = _ADDX_UNIT(c, *up++, *vp++, wp++);
+; 287  :         c = _ADDX_UNIT(c, *up++, *vp++, wp++);
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	mov	DWORD PTR tv152[ebp], ecx
@@ -1366,9 +1366,9 @@ $LN8@Add_Imp_us:
 	mov	BYTE PTR _c$[ebp], al
 $LN9@Add_Imp_us:
 
-; 295  : 
-; 296  :     // 残りの桁の繰り上がりを計算し、復帰する。
-; 297  :     return (DoCarry(c, up, u_count - v_count, wp, w_count - v_count));
+; 288  : 
+; 289  :     // 残りの桁の繰り上がりを計算し、復帰する。
+; 290  :     return (DoCarry(c, up, u_count - v_count, wp, w_count - v_count));
 
 	mov	ecx, DWORD PTR _w_count$[ebp]
 	sub	ecx, DWORD PTR _v_count$[ebp]
@@ -1385,7 +1385,7 @@ $LN9@Add_Imp_us:
 	call	_DoCarry
 	add	esp, 20					; 00000014H
 
-; 298  : }
+; 291  : }
 
 	pop	edi
 	add	esp, 40					; 00000028H
@@ -1417,7 +1417,7 @@ _w_buf$ = 24						; size = 4
 _w_count$ = 28						; size = 4
 _Add_Imp_using_ADC PROC
 
-; 147  : {
+; 140  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1430,81 +1430,81 @@ _Add_Imp_using_ADC PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 148  :     // x のワード長が y のワード長以上であるようにする
-; 149  :     if (u_count < v_count)
+; 141  :     // x のワード長が y のワード長以上であるようにする
+; 142  :     if (u_count < v_count)
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	cmp	eax, DWORD PTR _v_count$[ebp]
 	jae	SHORT $LN4@Add_Imp_us
 
-; 150  :     {
-; 151  :         __UNIT_TYPE* t_buf = u_buf;
+; 143  :     {
+; 144  :         __UNIT_TYPE* t_buf = u_buf;
 
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	mov	DWORD PTR _t_buf$2[ebp], ecx
 
-; 152  :         u_buf = v_buf;
+; 145  :         u_buf = v_buf;
 
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR _u_buf$[ebp], edx
 
-; 153  :         v_buf = t_buf;
+; 146  :         v_buf = t_buf;
 
 	mov	eax, DWORD PTR _t_buf$2[ebp]
 	mov	DWORD PTR _v_buf$[ebp], eax
 
-; 154  :         __UNIT_TYPE t_count = u_count;
+; 147  :         __UNIT_TYPE t_count = u_count;
 
 	mov	ecx, DWORD PTR _u_count$[ebp]
 	mov	DWORD PTR _t_count$1[ebp], ecx
 
-; 155  :         u_count = v_count;
+; 148  :         u_count = v_count;
 
 	mov	edx, DWORD PTR _v_count$[ebp]
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 156  :         v_count = t_count;
+; 149  :         v_count = t_count;
 
 	mov	eax, DWORD PTR _t_count$1[ebp]
 	mov	DWORD PTR _v_count$[ebp], eax
 $LN4@Add_Imp_us:
 
-; 157  :     }
-; 158  :     __UNIT_TYPE* up = u_buf;
+; 150  :     }
+; 151  :     __UNIT_TYPE* up = u_buf;
 
 	mov	ecx, DWORD PTR _u_buf$[ebp]
 	mov	DWORD PTR _up$[ebp], ecx
 
-; 159  :     __UNIT_TYPE* vp = v_buf;
+; 152  :     __UNIT_TYPE* vp = v_buf;
 
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	mov	DWORD PTR _vp$[ebp], edx
 
-; 160  :     __UNIT_TYPE* wp = w_buf;
+; 153  :     __UNIT_TYPE* wp = w_buf;
 
 	mov	eax, DWORD PTR _w_buf$[ebp]
 	mov	DWORD PTR _wp$[ebp], eax
 
-; 161  :     char c = 0;
+; 154  :     char c = 0;
 
 	mov	BYTE PTR _c$[ebp], 0
 
-; 162  : 
-; 163  :     // まず 32 ワードずつ加算をする。
-; 164  :     __UNIT_TYPE count = v_count >> 5;
+; 155  : 
+; 156  :     // まず 32 ワードずつ加算をする。
+; 157  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	shr	ecx, 5
 	mov	DWORD PTR _count$[ebp], ecx
 $LN2@Add_Imp_us:
 
-; 165  :     while (count != 0)
+; 158  :     while (count != 0)
 
 	cmp	DWORD PTR _count$[ebp], 0
 	je	SHORT $LN3@Add_Imp_us
 
-; 166  :     {
-; 167  :         c = _ADD_32WORDS_ADC(c, up, vp, wp);
+; 159  :     {
+; 160  :         c = _ADD_32WORDS_ADC(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1518,46 +1518,46 @@ $LN2@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 168  :         up += 32;
+; 161  :         up += 32;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 128				; 00000080H
 	mov	DWORD PTR _up$[ebp], eax
 
-; 169  :         vp += 32;
+; 162  :         vp += 32;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 128				; 00000080H
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 170  :         wp += 32;
+; 163  :         wp += 32;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 128				; 00000080H
 	mov	DWORD PTR _wp$[ebp], edx
 
-; 171  :         --count;
+; 164  :         --count;
 
 	mov	eax, DWORD PTR _count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _count$[ebp], eax
 
-; 172  :     }
+; 165  :     }
 
 	jmp	SHORT $LN2@Add_Imp_us
 $LN3@Add_Imp_us:
 
-; 173  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 174  : 
-; 175  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
-; 176  :     if (v_count & 0x10)
+; 166  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 167  : 
+; 168  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード加算を行う。
+; 169  :     if (v_count & 0x10)
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	and	ecx, 16					; 00000010H
 	je	SHORT $LN5@Add_Imp_us
 
-; 177  :     {
-; 178  :         c = _ADD_16WORDS_ADC(c, up, vp, wp);
+; 170  :     {
+; 171  :         c = _ADD_16WORDS_ADC(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1571,37 +1571,37 @@ $LN3@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 179  :         up += 16;
+; 172  :         up += 16;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 64					; 00000040H
 	mov	DWORD PTR _up$[ebp], eax
 
-; 180  :         vp += 16;
+; 173  :         vp += 16;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 64					; 00000040H
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 181  :         wp += 16;
+; 174  :         wp += 16;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 64					; 00000040H
 	mov	DWORD PTR _wp$[ebp], edx
 $LN5@Add_Imp_us:
 
-; 182  :     }
-; 183  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 184  : 
-; 185  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
-; 186  :     if (v_count & 0x8)
+; 175  :     }
+; 176  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 177  : 
+; 178  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード加算を行う。
+; 179  :     if (v_count & 0x8)
 
 	mov	eax, DWORD PTR _v_count$[ebp]
 	and	eax, 8
 	je	SHORT $LN6@Add_Imp_us
 
-; 187  :     {
-; 188  :         c = _ADD_8WORDS_ADC(c, up, vp, wp);
+; 180  :     {
+; 181  :         c = _ADD_8WORDS_ADC(c, up, vp, wp);
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	push	ecx
@@ -1615,37 +1615,37 @@ $LN5@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 189  :         up += 8;
+; 182  :         up += 8;
 
 	mov	edx, DWORD PTR _up$[ebp]
 	add	edx, 32					; 00000020H
 	mov	DWORD PTR _up$[ebp], edx
 
-; 190  :         vp += 8;
+; 183  :         vp += 8;
 
 	mov	eax, DWORD PTR _vp$[ebp]
 	add	eax, 32					; 00000020H
 	mov	DWORD PTR _vp$[ebp], eax
 
-; 191  :         wp += 8;
+; 184  :         wp += 8;
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	add	ecx, 32					; 00000020H
 	mov	DWORD PTR _wp$[ebp], ecx
 $LN6@Add_Imp_us:
 
-; 192  :     }
-; 193  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 194  : 
-; 195  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
-; 196  :     if (v_count & 0x4)
+; 185  :     }
+; 186  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 187  : 
+; 188  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード加算を行う。
+; 189  :     if (v_count & 0x4)
 
 	mov	edx, DWORD PTR _v_count$[ebp]
 	and	edx, 4
 	je	SHORT $LN7@Add_Imp_us
 
-; 197  :     {
-; 198  :         c = _ADD_4WORDS_ADC(c, up, vp, wp);
+; 190  :     {
+; 191  :         c = _ADD_4WORDS_ADC(c, up, vp, wp);
 
 	mov	eax, DWORD PTR _wp$[ebp]
 	push	eax
@@ -1659,37 +1659,37 @@ $LN6@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 199  :         up += 4;
+; 192  :         up += 4;
 
 	mov	ecx, DWORD PTR _up$[ebp]
 	add	ecx, 16					; 00000010H
 	mov	DWORD PTR _up$[ebp], ecx
 
-; 200  :         vp += 4;
+; 193  :         vp += 4;
 
 	mov	edx, DWORD PTR _vp$[ebp]
 	add	edx, 16					; 00000010H
 	mov	DWORD PTR _vp$[ebp], edx
 
-; 201  :         wp += 4;
+; 194  :         wp += 4;
 
 	mov	eax, DWORD PTR _wp$[ebp]
 	add	eax, 16					; 00000010H
 	mov	DWORD PTR _wp$[ebp], eax
 $LN7@Add_Imp_us:
 
-; 202  :     }
-; 203  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 204  : 
-; 205  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
-; 206  :     if (v_count & 0x2)
+; 195  :     }
+; 196  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 197  : 
+; 198  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード加算を行う。
+; 199  :     if (v_count & 0x2)
 
 	mov	ecx, DWORD PTR _v_count$[ebp]
 	and	ecx, 2
 	je	SHORT $LN8@Add_Imp_us
 
-; 207  :     {
-; 208  :         c = _ADD_2WORDS_ADC(c, up, vp, wp);
+; 200  :     {
+; 201  :         c = _ADD_2WORDS_ADC(c, up, vp, wp);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	push	edx
@@ -1703,36 +1703,36 @@ $LN7@Add_Imp_us:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 209  :         up += 2;
+; 202  :         up += 2;
 
 	mov	eax, DWORD PTR _up$[ebp]
 	add	eax, 8
 	mov	DWORD PTR _up$[ebp], eax
 
-; 210  :         vp += 2;
+; 203  :         vp += 2;
 
 	mov	ecx, DWORD PTR _vp$[ebp]
 	add	ecx, 8
 	mov	DWORD PTR _vp$[ebp], ecx
 
-; 211  :         wp += 2;
+; 204  :         wp += 2;
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	add	edx, 8
 	mov	DWORD PTR _wp$[ebp], edx
 $LN8@Add_Imp_us:
 
-; 212  :     }
-; 213  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 214  : 
-; 215  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
-; 216  :     if (v_count & 0x1)
+; 205  :     }
+; 206  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 207  : 
+; 208  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード加算を行う。
+; 209  :     if (v_count & 0x1)
 
 	mov	eax, DWORD PTR _v_count$[ebp]
 	and	eax, 1
 	je	SHORT $LN9@Add_Imp_us
 
-; 217  :         c = _ADD_UNIT(c, *up++, *vp++, wp++);
+; 210  :         c = _ADD_UNIT(c, *up++, *vp++, wp++);
 
 	mov	ecx, DWORD PTR _wp$[ebp]
 	mov	DWORD PTR tv152[ebp], ecx
@@ -1764,9 +1764,9 @@ $LN8@Add_Imp_us:
 	mov	BYTE PTR _c$[ebp], al
 $LN9@Add_Imp_us:
 
-; 218  : 
-; 219  :     // 残りの桁の繰り上がりを計算し、復帰する。
-; 220  :     return (DoCarry(c, up, u_count - v_count, wp, w_count - v_count));
+; 211  : 
+; 212  :     // 残りの桁の繰り上がりを計算し、復帰する。
+; 213  :     return (DoCarry(c, up, u_count - v_count, wp, w_count - v_count));
 
 	mov	ecx, DWORD PTR _w_count$[ebp]
 	sub	ecx, DWORD PTR _v_count$[ebp]
@@ -1783,7 +1783,7 @@ $LN9@Add_Imp_us:
 	call	_DoCarry
 	add	esp, 20					; 00000014H
 
-; 221  : }
+; 214  : }
 
 	pop	edi
 	add	esp, 40					; 00000028H
@@ -1812,7 +1812,7 @@ _w_buf$ = 24						; size = 4
 _w_count$ = 28						; size = 4
 _Add_X_2W PROC
 
-; 106  : {
+; 99   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -1828,28 +1828,28 @@ _Add_X_2W PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 107  :     __UNIT_TYPE* up = u_buf;
+; 100  :     __UNIT_TYPE* up = u_buf;
 
 	mov	eax, DWORD PTR _u_buf$[ebp]
 	mov	DWORD PTR _up$[ebp], eax
 
-; 108  :     __UNIT_TYPE* wp = w_buf;
+; 101  :     __UNIT_TYPE* wp = w_buf;
 
 	mov	ecx, DWORD PTR _w_buf$[ebp]
 	mov	DWORD PTR _wp$[ebp], ecx
 
-; 109  :     char c;
-; 110  : 
-; 111  :     if (u_count < 2)
+; 102  :     char c;
+; 103  : 
+; 104  :     if (u_count < 2)
 
 	cmp	DWORD PTR _u_count$[ebp], 2
 	jae	SHORT $LN2@Add_X_2W
 
-; 112  :     {
-; 113  :         // x が 1 ワードしかなかった場合
-; 114  : 
-; 115  :         // 最下位ワードの加算を行う
-; 116  :         c = _ADD_UNIT(0, up[0], v_lo, &wp[0]);
+; 105  :     {
+; 106  :         // x が 1 ワードしかなかった場合
+; 107  : 
+; 108  :         // 最下位ワードの加算を行う
+; 109  :         c = _ADD_UNIT(0, up[0], v_lo, &wp[0]);
 
 	mov	edx, 4
 	imul	eax, edx, 0
@@ -1867,9 +1867,9 @@ _Add_X_2W PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 117  : 
-; 118  :         // 最下位から 2 番目のワードの加算を行う
-; 119  :         c = _ADD_UNIT(c, 0, v_hi, &wp[1]);
+; 110  : 
+; 111  :         // 最下位から 2 番目のワードの加算を行う
+; 112  :         c = _ADD_UNIT(c, 0, v_hi, &wp[1]);
 
 	mov	eax, 4
 	shl	eax, 0
@@ -1884,15 +1884,15 @@ _Add_X_2W PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 120  : 
-; 121  :         // 桁上りが発生したら 3 番目のワードに 1 を設定する。
-; 122  :         if (c)
+; 113  : 
+; 114  :         // 桁上りが発生したら 3 番目のワードに 1 を設定する。
+; 115  :         if (c)
 
 	movsx	eax, BYTE PTR _c$[ebp]
 	test	eax, eax
 	je	SHORT $LN4@Add_X_2W
 
-; 123  :             wp[2] = 1;
+; 116  :             wp[2] = 1;
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -1900,24 +1900,24 @@ _Add_X_2W PROC
 	mov	DWORD PTR [edx+ecx], 1
 $LN4@Add_X_2W:
 
-; 124  : 
-; 125  :         // 正常復帰する。
-; 126  :         return (PMC_STATUS_OK);
+; 117  : 
+; 118  :         // 正常復帰する。
+; 119  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@Add_X_2W
 
-; 127  :     }
+; 120  :     }
 
 	jmp	$LN1@Add_X_2W
 $LN2@Add_X_2W:
 
-; 128  :     else
-; 129  :     {
-; 130  :         // x が 2 ワード以上あった場合
-; 131  : 
-; 132  :         // 最下位のワードの加算をする
-; 133  :         c = _ADD_UNIT(0, *up++, v_lo, wp++);
+; 121  :     else
+; 122  :     {
+; 123  :         // x が 2 ワード以上あった場合
+; 124  : 
+; 125  :         // 最下位のワードの加算をする
+; 126  :         c = _ADD_UNIT(0, *up++, v_lo, wp++);
 
 	mov	eax, DWORD PTR _wp$[ebp]
 	mov	DWORD PTR tv87[ebp], eax
@@ -1941,9 +1941,9 @@ $LN2@Add_X_2W:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 134  : 
-; 135  :         // 最下位から 2 番目のワードの加算をする。
-; 136  :         c = _ADD_UNIT(c, *up++, v_hi, wp++);
+; 127  : 
+; 128  :         // 最下位から 2 番目のワードの加算をする。
+; 129  :         c = _ADD_UNIT(c, *up++, v_hi, wp++);
 
 	mov	edx, DWORD PTR _wp$[ebp]
 	mov	DWORD PTR tv128[ebp], edx
@@ -1968,21 +1968,21 @@ $LN2@Add_X_2W:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 137  :         u_count -= 2;
+; 130  :         u_count -= 2;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	sub	edx, 2
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 138  :         w_count -= 2;
+; 131  :         w_count -= 2;
 
 	mov	eax, DWORD PTR _w_count$[ebp]
 	sub	eax, 2
 	mov	DWORD PTR _w_count$[ebp], eax
 
-; 139  : 
-; 140  :         // 残りの桁の繰り上がりを計算し、復帰する。
-; 141  :         return (DoCarry(c, up, u_count, wp, w_count));
+; 132  : 
+; 133  :         // 残りの桁の繰り上がりを計算し、復帰する。
+; 134  :         return (DoCarry(c, up, u_count, wp, w_count));
 
 	mov	ecx, DWORD PTR _w_count$[ebp]
 	push	ecx
@@ -1998,8 +1998,8 @@ $LN2@Add_X_2W:
 	add	esp, 20					; 00000014H
 $LN1@Add_X_2W:
 
-; 142  :     }
-; 143  : }
+; 135  :     }
+; 136  : }
 
 	add	esp, 28					; 0000001cH
 	cmp	ebp, esp
@@ -2022,7 +2022,7 @@ _w_ptr$ = 20						; size = 4
 _w_count$ = 24						; size = 4
 _Add_X_1W PROC
 
-; 93   : {
+; 86   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2033,10 +2033,10 @@ _Add_X_1W PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 94   :     char c;
-; 95   : 
-; 96   :     // 最下桁の加算を行う
-; 97   :     c = _ADD_UNIT(0, *u_ptr++, v, w_ptr++);
+; 87   :     char c;
+; 88   : 
+; 89   :     // 最下桁の加算を行う
+; 90   :     c = _ADD_UNIT(0, *u_ptr++, v, w_ptr++);
 
 	mov	eax, DWORD PTR _w_ptr$[ebp]
 	mov	DWORD PTR tv66[ebp], eax
@@ -2060,21 +2060,21 @@ _Add_X_1W PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 98   :     --u_count;
+; 91   :     --u_count;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 99   :     --w_count;
+; 92   :     --w_count;
 
 	mov	eax, DWORD PTR _w_count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _w_count$[ebp], eax
 
-; 100  : 
-; 101  :     // 残りの桁の繰上りを行い復帰する。
-; 102  :     return (DoCarry(c, u_ptr, u_count, w_ptr, w_count));
+; 93   : 
+; 94   :     // 残りの桁の繰上りを行い復帰する。
+; 95   :     return (DoCarry(c, u_ptr, u_count, w_ptr, w_count));
 
 	mov	ecx, DWORD PTR _w_count$[ebp]
 	push	ecx
@@ -2089,7 +2089,7 @@ _Add_X_1W PROC
 	call	_DoCarry
 	add	esp, 20					; 00000014H
 
-; 103  : }
+; 96   : }
 
 	add	esp, 12					; 0000000cH
 	cmp	ebp, esp
@@ -2111,7 +2111,7 @@ _w_ptr$ = 20						; size = 4
 _w_count$ = 24						; size = 4
 _DoCarry PROC
 
-; 41   : {
+; 34   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2122,72 +2122,72 @@ _DoCarry PROC
 	call	@__CheckForDebuggerJustMyCode@4
 $LN4@DoCarry:
 
-; 42   :     // 繰り上がりを続く限り行う
-; 43   :     for (;;)
-; 44   :     {
-; 45   :         if (u_count <= 0)
+; 35   :     // 繰り上がりを続く限り行う
+; 36   :     for (;;)
+; 37   :     {
+; 38   :         if (u_count <= 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	ja	SHORT $LN7@DoCarry
 
-; 46   :         {
-; 47   :             // u の最上位まで達してしまった場合
-; 48   : 
-; 49   :             if (c)
+; 39   :         {
+; 40   :             // u の最上位まで達してしまった場合
+; 41   : 
+; 42   :             if (c)
 
 	movsx	eax, BYTE PTR _c$[ebp]
 	test	eax, eax
 	je	SHORT $LN9@DoCarry
 
-; 50   :             {
-; 51   :                 // かつそれでも繰り上がりを行う必要がある場合
-; 52   :                 if (w_count <= 0)
+; 43   :             {
+; 44   :                 // かつそれでも繰り上がりを行う必要がある場合
+; 45   :                 if (w_count <= 0)
 
 	cmp	DWORD PTR _w_count$[ebp], 0
 	ja	SHORT $LN10@DoCarry
 
-; 53   :                 {
-; 54   :                     // しかし w がもう終端に達してしまった場合
-; 55   : 
-; 56   :                     // w のバッファはこの余裕を見込んでいるのでこのルートには到達しないはず。
-; 57   :                     return (PMC_STATUS_INTERNAL_ERROR);
+; 46   :                 {
+; 47   :                     // しかし w がもう終端に達してしまった場合
+; 48   : 
+; 49   :                     // w のバッファはこの余裕を見込んでいるのでこのルートには到達しないはず。
+; 50   :                     return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	$LN1@DoCarry
 $LN10@DoCarry:
 
-; 58   :                 }
-; 59   :                 *w_ptr = 1;
+; 51   :                 }
+; 52   :                 *w_ptr = 1;
 
 	mov	ecx, DWORD PTR _w_ptr$[ebp]
 	mov	DWORD PTR [ecx], 1
 $LN9@DoCarry:
 
-; 60   :             }
-; 61   : 
-; 62   :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 63   : 
-; 64   :             return (PMC_STATUS_OK);
+; 53   :             }
+; 54   : 
+; 55   :             // u の最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 56   : 
+; 57   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@DoCarry
 
-; 65   :         }
+; 58   :         }
 
 	jmp	$LN8@DoCarry
 $LN7@DoCarry:
 
-; 66   :         else if (c)
+; 59   :         else if (c)
 
 	movsx	edx, BYTE PTR _c$[ebp]
 	test	edx, edx
 	je	SHORT $LN5@DoCarry
 
-; 67   :         {
-; 68   :             // u の最上位に達しておらず、かつキャリーが立っている場合
-; 69   : 
-; 70   :             // 繰り上がりを継続する
-; 71   :             c = _ADD_UNIT(c, *u_ptr++, 0, w_ptr++);
+; 60   :         {
+; 61   :             // u の最上位に達しておらず、かつキャリーが立っている場合
+; 62   : 
+; 63   :             // 繰り上がりを継続する
+; 64   :             c = _ADD_UNIT(c, *u_ptr++, 0, w_ptr++);
 
 	mov	eax, DWORD PTR _w_ptr$[ebp]
 	mov	DWORD PTR tv72[ebp], eax
@@ -2211,35 +2211,35 @@ $LN7@DoCarry:
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 72   :             --u_count;
+; 65   :             --u_count;
 
 	mov	edx, DWORD PTR _u_count$[ebp]
 	sub	edx, 1
 	mov	DWORD PTR _u_count$[ebp], edx
 
-; 73   :             --w_count;
+; 66   :             --w_count;
 
 	mov	eax, DWORD PTR _w_count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _w_count$[ebp], eax
 
-; 74   :         }
+; 67   :         }
 
 	jmp	SHORT $LN8@DoCarry
 $LN5@DoCarry:
 
-; 75   :         else
-; 76   :         {
-; 77   :             // u の最上位に達しておらず、かつキャリーが立っていない場合
-; 78   : 
-; 79   :             // 繰り上がりを中断し、u の残りのデータをzにそのまま複写し、正常復帰する。
-; 80   :             while (u_count > 0)
+; 68   :         else
+; 69   :         {
+; 70   :             // u の最上位に達しておらず、かつキャリーが立っていない場合
+; 71   : 
+; 72   :             // 繰り上がりを中断し、u の残りのデータをzにそのまま複写し、正常復帰する。
+; 73   :             while (u_count > 0)
 
 	cmp	DWORD PTR _u_count$[ebp], 0
 	jbe	SHORT $LN6@DoCarry
 
-; 81   :             {
-; 82   :                 *w_ptr++ = *u_ptr++;
+; 74   :             {
+; 75   :                 *w_ptr++ = *u_ptr++;
 
 	mov	ecx, DWORD PTR _w_ptr$[ebp]
 	mov	edx, DWORD PTR _u_ptr$[ebp]
@@ -2252,36 +2252,36 @@ $LN5@DoCarry:
 	add	edx, 4
 	mov	DWORD PTR _u_ptr$[ebp], edx
 
-; 83   :                 --u_count;
+; 76   :                 --u_count;
 
 	mov	eax, DWORD PTR _u_count$[ebp]
 	sub	eax, 1
 	mov	DWORD PTR _u_count$[ebp], eax
 
-; 84   :                 --w_count;
+; 77   :                 --w_count;
 
 	mov	ecx, DWORD PTR _w_count$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _w_count$[ebp], ecx
 
-; 85   :             }
+; 78   :             }
 
 	jmp	SHORT $LN5@DoCarry
 $LN6@DoCarry:
 
-; 86   :             return (PMC_STATUS_OK);
+; 79   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DoCarry
 $LN8@DoCarry:
 
-; 87   :         }
-; 88   :     }
+; 80   :         }
+; 81   :     }
 
 	jmp	$LN4@DoCarry
 $LN1@DoCarry:
 
-; 89   : }
+; 82   : }
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -2300,15 +2300,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_2WORDS_ADCX PROC
 
-; 4378 : {
+; 4371 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 4379 : #ifdef _MSC_VER
-; 4380 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4372 : #ifdef _MSC_VER
+; 4373 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -2330,7 +2330,7 @@ __ADD_2WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 4381 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4374 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -2352,46 +2352,46 @@ __ADD_2WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 4382 : #elif defined(__GNUC__)
-; 4383 : #ifdef _M_IX86
-; 4384 :     __asm__ volatile (
-; 4385 :         "addb\t$-1, %0\n\t"
-; 4386 :         "movl\t(%1), %%ecx\n\t"
-; 4387 :         "adcxl\t(%2), %%ecx\n\t"
-; 4388 :         "movl\t%%ecx, (%3)\n\t"
-; 4389 :         "movl\t4(%1), %%ecx\n\t"
-; 4390 :         "adcxl\t4(%2), %%ecx\n\t"
-; 4391 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4392 :         "setc\t%0"
-; 4393 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4394 :         :
-; 4395 :         : "cc", "memory", "%ecx"
-; 4396 : );
-; 4397 : #elif defined(_M_IX64)
-; 4398 :     __asm__ volatile (
-; 4399 :         "addb\t$-1, %0\n\t"
-; 4400 :         "movq\t(%1), %%rcx\n\t"
-; 4401 :         "adcxq\t(%2), %%rcx\n\t"
-; 4402 :         "movq\t%%rcx, (%3)\n\t"
-; 4403 :         "movq\t8(%1), %%rcx\n\t"
-; 4404 :         "adcxq\t8(%2), %%rcx\n\t"
-; 4405 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4406 :         "setc\t%0"
-; 4407 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4408 :         :
-; 4409 :         : "cc", "memory", "%rcx"
-; 4410 : );
-; 4411 : #else
-; 4412 : #error unknown platform
-; 4413 : #endif
-; 4414 : #else
-; 4415 : #error unknown compiler
-; 4416 : #endif
-; 4417 :     return (c);
+; 4375 : #elif defined(__GNUC__)
+; 4376 : #ifdef _M_IX86
+; 4377 :     __asm__ volatile (
+; 4378 :         "addb\t$-1, %0\n\t"
+; 4379 :         "movl\t(%1), %%ecx\n\t"
+; 4380 :         "adcxl\t(%2), %%ecx\n\t"
+; 4381 :         "movl\t%%ecx, (%3)\n\t"
+; 4382 :         "movl\t4(%1), %%ecx\n\t"
+; 4383 :         "adcxl\t4(%2), %%ecx\n\t"
+; 4384 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4385 :         "setc\t%0"
+; 4386 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4387 :         :
+; 4388 :         : "cc", "memory", "%ecx"
+; 4389 : );
+; 4390 : #elif defined(_M_IX64)
+; 4391 :     __asm__ volatile (
+; 4392 :         "addb\t$-1, %0\n\t"
+; 4393 :         "movq\t(%1), %%rcx\n\t"
+; 4394 :         "adcxq\t(%2), %%rcx\n\t"
+; 4395 :         "movq\t%%rcx, (%3)\n\t"
+; 4396 :         "movq\t8(%1), %%rcx\n\t"
+; 4397 :         "adcxq\t8(%2), %%rcx\n\t"
+; 4398 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4399 :         "setc\t%0"
+; 4400 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4401 :         :
+; 4402 :         : "cc", "memory", "%rcx"
+; 4403 : );
+; 4404 : #else
+; 4405 : #error unknown platform
+; 4406 : #endif
+; 4407 : #else
+; 4408 : #error unknown compiler
+; 4409 : #endif
+; 4410 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 4418 : }
+; 4411 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2408,15 +2408,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_2WORDS_ADC PROC
 
-; 4335 : {
+; 4328 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 4336 : #ifdef _MSC_VER
-; 4337 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4329 : #ifdef _MSC_VER
+; 4330 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -2438,7 +2438,7 @@ __ADD_2WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 4338 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4331 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -2460,46 +2460,46 @@ __ADD_2WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 4339 : #elif defined(__GNUC__)
-; 4340 : #ifdef _M_IX86
-; 4341 :     __asm__ volatile (
-; 4342 :         "addb\t$-1, %0\n\t"
-; 4343 :         "movl\t(%1), %%ecx\n\t"
-; 4344 :         "adcl\t(%2), %%ecx\n\t"
-; 4345 :         "movl\t%%ecx, (%3)\n\t"
-; 4346 :         "movl\t4(%1), %%ecx\n\t"
-; 4347 :         "adcl\t4(%2), %%ecx\n\t"
-; 4348 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4349 :         "setc\t%0"
-; 4350 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4351 :         :
-; 4352 :         : "cc", "memory", "%ecx"
-; 4353 : );
-; 4354 : #elif defined(_M_IX64)
-; 4355 :     __asm__ volatile (
-; 4356 :         "addb\t$-1, %0\n\t"
-; 4357 :         "movq\t(%1), %%rcx\n\t"
-; 4358 :         "adcq\t(%2), %%rcx\n\t"
-; 4359 :         "movq\t%%rcx, (%3)\n\t"
-; 4360 :         "movq\t8(%1), %%rcx\n\t"
-; 4361 :         "adcq\t8(%2), %%rcx\n\t"
-; 4362 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4363 :         "setc\t%0"
-; 4364 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4365 :         :
-; 4366 :         : "cc", "memory", "%rcx"
-; 4367 : );
-; 4368 : #else
-; 4369 : #error unknown platform
-; 4370 : #endif
-; 4371 : #else
-; 4372 : #error unknown compiler
-; 4373 : #endif
-; 4374 :     return (c);
+; 4332 : #elif defined(__GNUC__)
+; 4333 : #ifdef _M_IX86
+; 4334 :     __asm__ volatile (
+; 4335 :         "addb\t$-1, %0\n\t"
+; 4336 :         "movl\t(%1), %%ecx\n\t"
+; 4337 :         "adcl\t(%2), %%ecx\n\t"
+; 4338 :         "movl\t%%ecx, (%3)\n\t"
+; 4339 :         "movl\t4(%1), %%ecx\n\t"
+; 4340 :         "adcl\t4(%2), %%ecx\n\t"
+; 4341 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4342 :         "setc\t%0"
+; 4343 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4344 :         :
+; 4345 :         : "cc", "memory", "%ecx"
+; 4346 : );
+; 4347 : #elif defined(_M_IX64)
+; 4348 :     __asm__ volatile (
+; 4349 :         "addb\t$-1, %0\n\t"
+; 4350 :         "movq\t(%1), %%rcx\n\t"
+; 4351 :         "adcq\t(%2), %%rcx\n\t"
+; 4352 :         "movq\t%%rcx, (%3)\n\t"
+; 4353 :         "movq\t8(%1), %%rcx\n\t"
+; 4354 :         "adcq\t8(%2), %%rcx\n\t"
+; 4355 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4356 :         "setc\t%0"
+; 4357 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4358 :         :
+; 4359 :         : "cc", "memory", "%rcx"
+; 4360 : );
+; 4361 : #else
+; 4362 : #error unknown platform
+; 4363 : #endif
+; 4364 : #else
+; 4365 : #error unknown compiler
+; 4366 : #endif
+; 4367 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 4375 : }
+; 4368 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2516,15 +2516,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_4WORDS_ADCX PROC
 
-; 3936 : {
+; 3929 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 3937 : #ifdef _MSC_VER
-; 3938 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3930 : #ifdef _MSC_VER
+; 3931 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -2546,7 +2546,7 @@ __ADD_4WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3939 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3932 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -2568,7 +2568,7 @@ __ADD_4WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3940 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3933 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -2590,7 +2590,7 @@ __ADD_4WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3941 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3934 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -2612,58 +2612,58 @@ __ADD_4WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3942 : #elif defined(__GNUC__)
-; 3943 : #ifdef _M_IX86
-; 3944 :     __asm__ volatile (
-; 3945 :         "addb\t$-1, %0\n\t"
-; 3946 :         "movl\t(%1), %%ecx\n\t"
-; 3947 :         "adcxl\t(%2), %%ecx\n\t"
-; 3948 :         "movl\t%%ecx, (%3)\n\t"
-; 3949 :         "movl\t4(%1), %%ecx\n\t"
-; 3950 :         "adcxl\t4(%2), %%ecx\n\t"
-; 3951 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3952 :         "movl\t8(%1), %%ecx\n\t"
-; 3953 :         "adcxl\t8(%2), %%ecx\n\t"
-; 3954 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3955 :         "movl\t12(%1), %%ecx\n\t"
-; 3956 :         "adcxl\t12(%2), %%ecx\n\t"
-; 3957 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3958 :         "setc\t%0"
-; 3959 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3960 :         :
-; 3961 :         : "cc", "memory", "%ecx"
-; 3962 : );
-; 3963 : #elif defined(_M_IX64)
-; 3964 :     __asm__ volatile (
-; 3965 :         "addb\t$-1, %0\n\t"
-; 3966 :         "movq\t(%1), %%rcx\n\t"
-; 3967 :         "adcxq\t(%2), %%rcx\n\t"
-; 3968 :         "movq\t%%rcx, (%3)\n\t"
-; 3969 :         "movq\t8(%1), %%rcx\n\t"
-; 3970 :         "adcxq\t8(%2), %%rcx\n\t"
-; 3971 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3972 :         "movq\t16(%1), %%rcx\n\t"
-; 3973 :         "adcxq\t16(%2), %%rcx\n\t"
-; 3974 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3975 :         "movq\t24(%1), %%rcx\n\t"
-; 3976 :         "adcxq\t24(%2), %%rcx\n\t"
-; 3977 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3978 :         "setc\t%0"
-; 3979 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3980 :         :
-; 3981 :         : "cc", "memory", "%rcx"
-; 3982 : );
-; 3983 : #else
-; 3984 : #error unknown platform
-; 3985 : #endif
-; 3986 : #else
-; 3987 : #error unknown compiler
-; 3988 : #endif
-; 3989 :     return (c);
+; 3935 : #elif defined(__GNUC__)
+; 3936 : #ifdef _M_IX86
+; 3937 :     __asm__ volatile (
+; 3938 :         "addb\t$-1, %0\n\t"
+; 3939 :         "movl\t(%1), %%ecx\n\t"
+; 3940 :         "adcxl\t(%2), %%ecx\n\t"
+; 3941 :         "movl\t%%ecx, (%3)\n\t"
+; 3942 :         "movl\t4(%1), %%ecx\n\t"
+; 3943 :         "adcxl\t4(%2), %%ecx\n\t"
+; 3944 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3945 :         "movl\t8(%1), %%ecx\n\t"
+; 3946 :         "adcxl\t8(%2), %%ecx\n\t"
+; 3947 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3948 :         "movl\t12(%1), %%ecx\n\t"
+; 3949 :         "adcxl\t12(%2), %%ecx\n\t"
+; 3950 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3951 :         "setc\t%0"
+; 3952 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3953 :         :
+; 3954 :         : "cc", "memory", "%ecx"
+; 3955 : );
+; 3956 : #elif defined(_M_IX64)
+; 3957 :     __asm__ volatile (
+; 3958 :         "addb\t$-1, %0\n\t"
+; 3959 :         "movq\t(%1), %%rcx\n\t"
+; 3960 :         "adcxq\t(%2), %%rcx\n\t"
+; 3961 :         "movq\t%%rcx, (%3)\n\t"
+; 3962 :         "movq\t8(%1), %%rcx\n\t"
+; 3963 :         "adcxq\t8(%2), %%rcx\n\t"
+; 3964 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3965 :         "movq\t16(%1), %%rcx\n\t"
+; 3966 :         "adcxq\t16(%2), %%rcx\n\t"
+; 3967 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3968 :         "movq\t24(%1), %%rcx\n\t"
+; 3969 :         "adcxq\t24(%2), %%rcx\n\t"
+; 3970 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3971 :         "setc\t%0"
+; 3972 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3973 :         :
+; 3974 :         : "cc", "memory", "%rcx"
+; 3975 : );
+; 3976 : #else
+; 3977 : #error unknown platform
+; 3978 : #endif
+; 3979 : #else
+; 3980 : #error unknown compiler
+; 3981 : #endif
+; 3982 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 3990 : }
+; 3983 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2680,15 +2680,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_4WORDS_ADC PROC
 
-; 3879 : {
+; 3872 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 3880 : #ifdef _MSC_VER
-; 3881 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3873 : #ifdef _MSC_VER
+; 3874 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -2710,7 +2710,7 @@ __ADD_4WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3882 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3875 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -2732,7 +2732,7 @@ __ADD_4WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3883 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3876 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -2754,7 +2754,7 @@ __ADD_4WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3884 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3877 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -2776,58 +2776,58 @@ __ADD_4WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3885 : #elif defined(__GNUC__)
-; 3886 : #ifdef _M_IX86
-; 3887 :     __asm__ volatile (
-; 3888 :         "addb\t$-1, %0\n\t"
-; 3889 :         "movl\t(%1), %%ecx\n\t"
-; 3890 :         "adcl\t(%2), %%ecx\n\t"
-; 3891 :         "movl\t%%ecx, (%3)\n\t"
-; 3892 :         "movl\t4(%1), %%ecx\n\t"
-; 3893 :         "adcl\t4(%2), %%ecx\n\t"
-; 3894 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3895 :         "movl\t8(%1), %%ecx\n\t"
-; 3896 :         "adcl\t8(%2), %%ecx\n\t"
-; 3897 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3898 :         "movl\t12(%1), %%ecx\n\t"
-; 3899 :         "adcl\t12(%2), %%ecx\n\t"
-; 3900 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3901 :         "setc\t%0"
-; 3902 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3903 :         :
-; 3904 :         : "cc", "memory", "%ecx"
-; 3905 : );
-; 3906 : #elif defined(_M_IX64)
-; 3907 :     __asm__ volatile (
-; 3908 :         "addb\t$-1, %0\n\t"
-; 3909 :         "movq\t(%1), %%rcx\n\t"
-; 3910 :         "adcq\t(%2), %%rcx\n\t"
-; 3911 :         "movq\t%%rcx, (%3)\n\t"
-; 3912 :         "movq\t8(%1), %%rcx\n\t"
-; 3913 :         "adcq\t8(%2), %%rcx\n\t"
-; 3914 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3915 :         "movq\t16(%1), %%rcx\n\t"
-; 3916 :         "adcq\t16(%2), %%rcx\n\t"
-; 3917 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3918 :         "movq\t24(%1), %%rcx\n\t"
-; 3919 :         "adcq\t24(%2), %%rcx\n\t"
-; 3920 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3921 :         "setc\t%0"
-; 3922 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3923 :         :
-; 3924 :         : "cc", "memory", "%rcx"
-; 3925 : );
-; 3926 : #else
-; 3927 : #error unknown platform
-; 3928 : #endif
-; 3929 : #else
-; 3930 : #error unknown compiler
-; 3931 : #endif
-; 3932 :     return (c);
+; 3878 : #elif defined(__GNUC__)
+; 3879 : #ifdef _M_IX86
+; 3880 :     __asm__ volatile (
+; 3881 :         "addb\t$-1, %0\n\t"
+; 3882 :         "movl\t(%1), %%ecx\n\t"
+; 3883 :         "adcl\t(%2), %%ecx\n\t"
+; 3884 :         "movl\t%%ecx, (%3)\n\t"
+; 3885 :         "movl\t4(%1), %%ecx\n\t"
+; 3886 :         "adcl\t4(%2), %%ecx\n\t"
+; 3887 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3888 :         "movl\t8(%1), %%ecx\n\t"
+; 3889 :         "adcl\t8(%2), %%ecx\n\t"
+; 3890 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3891 :         "movl\t12(%1), %%ecx\n\t"
+; 3892 :         "adcl\t12(%2), %%ecx\n\t"
+; 3893 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3894 :         "setc\t%0"
+; 3895 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3896 :         :
+; 3897 :         : "cc", "memory", "%ecx"
+; 3898 : );
+; 3899 : #elif defined(_M_IX64)
+; 3900 :     __asm__ volatile (
+; 3901 :         "addb\t$-1, %0\n\t"
+; 3902 :         "movq\t(%1), %%rcx\n\t"
+; 3903 :         "adcq\t(%2), %%rcx\n\t"
+; 3904 :         "movq\t%%rcx, (%3)\n\t"
+; 3905 :         "movq\t8(%1), %%rcx\n\t"
+; 3906 :         "adcq\t8(%2), %%rcx\n\t"
+; 3907 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3908 :         "movq\t16(%1), %%rcx\n\t"
+; 3909 :         "adcq\t16(%2), %%rcx\n\t"
+; 3910 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3911 :         "movq\t24(%1), %%rcx\n\t"
+; 3912 :         "adcq\t24(%2), %%rcx\n\t"
+; 3913 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3914 :         "setc\t%0"
+; 3915 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3916 :         :
+; 3917 :         : "cc", "memory", "%rcx"
+; 3918 : );
+; 3919 : #else
+; 3920 : #error unknown platform
+; 3921 : #endif
+; 3922 : #else
+; 3923 : #error unknown compiler
+; 3924 : #endif
+; 3925 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 3933 : }
+; 3926 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -2844,15 +2844,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_8WORDS_ADCX PROC
 
-; 3284 : {
+; 3277 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 3285 : #ifdef _MSC_VER
-; 3286 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3278 : #ifdef _MSC_VER
+; 3279 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -2874,7 +2874,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3287 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3280 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -2896,7 +2896,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3288 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3281 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -2918,7 +2918,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3289 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3282 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -2940,7 +2940,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3290 :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
+; 3283 :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -2962,7 +2962,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3291 :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
+; 3284 :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -2984,7 +2984,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3292 :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
+; 3285 :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -3006,7 +3006,7 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3293 :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
+; 3286 :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -3028,82 +3028,82 @@ __ADD_8WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3294 : #elif defined(__GNUC__)
-; 3295 : #ifdef _M_IX86
-; 3296 :     __asm__ volatile (
-; 3297 :         "addb\t$-1, %0\n\t"
-; 3298 :         "movl\t(%1), %%ecx\n\t"
-; 3299 :         "adcxl\t(%2), %%ecx\n\t"
-; 3300 :         "movl\t%%ecx, (%3)\n\t"
-; 3301 :         "movl\t4(%1), %%ecx\n\t"
-; 3302 :         "adcxl\t4(%2), %%ecx\n\t"
-; 3303 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3304 :         "movl\t8(%1), %%ecx\n\t"
-; 3305 :         "adcxl\t8(%2), %%ecx\n\t"
-; 3306 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3307 :         "movl\t12(%1), %%ecx\n\t"
-; 3308 :         "adcxl\t12(%2), %%ecx\n\t"
-; 3309 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3310 :         "movl\t16(%1), %%ecx\n\t"
-; 3311 :         "adcxl\t16(%2), %%ecx\n\t"
-; 3312 :         "movl\t%%ecx, 16(%3)\n\t"
-; 3313 :         "movl\t20(%1), %%ecx\n\t"
-; 3314 :         "adcxl\t20(%2), %%ecx\n\t"
-; 3315 :         "movl\t%%ecx, 20(%3)\n\t"
-; 3316 :         "movl\t24(%1), %%ecx\n\t"
-; 3317 :         "adcxl\t24(%2), %%ecx\n\t"
-; 3318 :         "movl\t%%ecx, 24(%3)\n\t"
-; 3319 :         "movl\t28(%1), %%ecx\n\t"
-; 3320 :         "adcxl\t28(%2), %%ecx\n\t"
-; 3321 :         "movl\t%%ecx, 28(%3)\n\t"
-; 3322 :         "setc\t%0"
-; 3323 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3324 :         :
-; 3325 :         : "cc", "memory", "%ecx"
-; 3326 : );
-; 3327 : #elif defined(_M_IX64)
-; 3328 :     __asm__ volatile (
-; 3329 :         "addb\t$-1, %0\n\t"
-; 3330 :         "movq\t(%1), %%rcx\n\t"
-; 3331 :         "adcxq\t(%2), %%rcx\n\t"
-; 3332 :         "movq\t%%rcx, (%3)\n\t"
-; 3333 :         "movq\t8(%1), %%rcx\n\t"
-; 3334 :         "adcxq\t8(%2), %%rcx\n\t"
-; 3335 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3336 :         "movq\t16(%1), %%rcx\n\t"
-; 3337 :         "adcxq\t16(%2), %%rcx\n\t"
-; 3338 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3339 :         "movq\t24(%1), %%rcx\n\t"
-; 3340 :         "adcxq\t24(%2), %%rcx\n\t"
-; 3341 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3342 :         "movq\t32(%1), %%rcx\n\t"
-; 3343 :         "adcxq\t32(%2), %%rcx\n\t"
-; 3344 :         "movq\t%%rcx, 32(%3)\n\t"
-; 3345 :         "movq\t40(%1), %%rcx\n\t"
-; 3346 :         "adcxq\t40(%2), %%rcx\n\t"
-; 3347 :         "movq\t%%rcx, 40(%3)\n\t"
-; 3348 :         "movq\t48(%1), %%rcx\n\t"
-; 3349 :         "adcxq\t48(%2), %%rcx\n\t"
-; 3350 :         "movq\t%%rcx, 48(%3)\n\t"
-; 3351 :         "movq\t56(%1), %%rcx\n\t"
-; 3352 :         "adcxq\t56(%2), %%rcx\n\t"
-; 3353 :         "movq\t%%rcx, 56(%3)\n\t"
-; 3354 :         "setc\t%0"
-; 3355 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3356 :         :
-; 3357 :         : "cc", "memory", "%rcx"
-; 3358 : );
-; 3359 : #else
-; 3360 : #error unknown platform
-; 3361 : #endif
-; 3362 : #else
-; 3363 : #error unknown compiler
-; 3364 : #endif
-; 3365 :     return (c);
+; 3287 : #elif defined(__GNUC__)
+; 3288 : #ifdef _M_IX86
+; 3289 :     __asm__ volatile (
+; 3290 :         "addb\t$-1, %0\n\t"
+; 3291 :         "movl\t(%1), %%ecx\n\t"
+; 3292 :         "adcxl\t(%2), %%ecx\n\t"
+; 3293 :         "movl\t%%ecx, (%3)\n\t"
+; 3294 :         "movl\t4(%1), %%ecx\n\t"
+; 3295 :         "adcxl\t4(%2), %%ecx\n\t"
+; 3296 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3297 :         "movl\t8(%1), %%ecx\n\t"
+; 3298 :         "adcxl\t8(%2), %%ecx\n\t"
+; 3299 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3300 :         "movl\t12(%1), %%ecx\n\t"
+; 3301 :         "adcxl\t12(%2), %%ecx\n\t"
+; 3302 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3303 :         "movl\t16(%1), %%ecx\n\t"
+; 3304 :         "adcxl\t16(%2), %%ecx\n\t"
+; 3305 :         "movl\t%%ecx, 16(%3)\n\t"
+; 3306 :         "movl\t20(%1), %%ecx\n\t"
+; 3307 :         "adcxl\t20(%2), %%ecx\n\t"
+; 3308 :         "movl\t%%ecx, 20(%3)\n\t"
+; 3309 :         "movl\t24(%1), %%ecx\n\t"
+; 3310 :         "adcxl\t24(%2), %%ecx\n\t"
+; 3311 :         "movl\t%%ecx, 24(%3)\n\t"
+; 3312 :         "movl\t28(%1), %%ecx\n\t"
+; 3313 :         "adcxl\t28(%2), %%ecx\n\t"
+; 3314 :         "movl\t%%ecx, 28(%3)\n\t"
+; 3315 :         "setc\t%0"
+; 3316 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3317 :         :
+; 3318 :         : "cc", "memory", "%ecx"
+; 3319 : );
+; 3320 : #elif defined(_M_IX64)
+; 3321 :     __asm__ volatile (
+; 3322 :         "addb\t$-1, %0\n\t"
+; 3323 :         "movq\t(%1), %%rcx\n\t"
+; 3324 :         "adcxq\t(%2), %%rcx\n\t"
+; 3325 :         "movq\t%%rcx, (%3)\n\t"
+; 3326 :         "movq\t8(%1), %%rcx\n\t"
+; 3327 :         "adcxq\t8(%2), %%rcx\n\t"
+; 3328 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3329 :         "movq\t16(%1), %%rcx\n\t"
+; 3330 :         "adcxq\t16(%2), %%rcx\n\t"
+; 3331 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3332 :         "movq\t24(%1), %%rcx\n\t"
+; 3333 :         "adcxq\t24(%2), %%rcx\n\t"
+; 3334 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3335 :         "movq\t32(%1), %%rcx\n\t"
+; 3336 :         "adcxq\t32(%2), %%rcx\n\t"
+; 3337 :         "movq\t%%rcx, 32(%3)\n\t"
+; 3338 :         "movq\t40(%1), %%rcx\n\t"
+; 3339 :         "adcxq\t40(%2), %%rcx\n\t"
+; 3340 :         "movq\t%%rcx, 40(%3)\n\t"
+; 3341 :         "movq\t48(%1), %%rcx\n\t"
+; 3342 :         "adcxq\t48(%2), %%rcx\n\t"
+; 3343 :         "movq\t%%rcx, 48(%3)\n\t"
+; 3344 :         "movq\t56(%1), %%rcx\n\t"
+; 3345 :         "adcxq\t56(%2), %%rcx\n\t"
+; 3346 :         "movq\t%%rcx, 56(%3)\n\t"
+; 3347 :         "setc\t%0"
+; 3348 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3349 :         :
+; 3350 :         : "cc", "memory", "%rcx"
+; 3351 : );
+; 3352 : #else
+; 3353 : #error unknown platform
+; 3354 : #endif
+; 3355 : #else
+; 3356 : #error unknown compiler
+; 3357 : #endif
+; 3358 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 3366 : }
+; 3359 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3120,15 +3120,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_8WORDS_ADC PROC
 
-; 3199 : {
+; 3192 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 3200 : #ifdef _MSC_VER
-; 3201 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3193 : #ifdef _MSC_VER
+; 3194 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -3150,7 +3150,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3202 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3195 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -3172,7 +3172,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3203 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3196 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -3194,7 +3194,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3204 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3197 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -3216,7 +3216,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3205 :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
+; 3198 :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -3238,7 +3238,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3206 :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
+; 3199 :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -3260,7 +3260,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3207 :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
+; 3200 :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -3282,7 +3282,7 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3208 :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
+; 3201 :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -3304,82 +3304,82 @@ __ADD_8WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 3209 : #elif defined(__GNUC__)
-; 3210 : #ifdef _M_IX86
-; 3211 :     __asm__ volatile (
-; 3212 :         "addb\t$-1, %0\n\t"
-; 3213 :         "movl\t(%1), %%ecx\n\t"
-; 3214 :         "adcl\t(%2), %%ecx\n\t"
-; 3215 :         "movl\t%%ecx, (%3)\n\t"
-; 3216 :         "movl\t4(%1), %%ecx\n\t"
-; 3217 :         "adcl\t4(%2), %%ecx\n\t"
-; 3218 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3219 :         "movl\t8(%1), %%ecx\n\t"
-; 3220 :         "adcl\t8(%2), %%ecx\n\t"
-; 3221 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3222 :         "movl\t12(%1), %%ecx\n\t"
-; 3223 :         "adcl\t12(%2), %%ecx\n\t"
-; 3224 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3225 :         "movl\t16(%1), %%ecx\n\t"
-; 3226 :         "adcl\t16(%2), %%ecx\n\t"
-; 3227 :         "movl\t%%ecx, 16(%3)\n\t"
-; 3228 :         "movl\t20(%1), %%ecx\n\t"
-; 3229 :         "adcl\t20(%2), %%ecx\n\t"
-; 3230 :         "movl\t%%ecx, 20(%3)\n\t"
-; 3231 :         "movl\t24(%1), %%ecx\n\t"
-; 3232 :         "adcl\t24(%2), %%ecx\n\t"
-; 3233 :         "movl\t%%ecx, 24(%3)\n\t"
-; 3234 :         "movl\t28(%1), %%ecx\n\t"
-; 3235 :         "adcl\t28(%2), %%ecx\n\t"
-; 3236 :         "movl\t%%ecx, 28(%3)\n\t"
-; 3237 :         "setc\t%0"
-; 3238 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3239 :         :
-; 3240 :         : "cc", "memory", "%ecx"
-; 3241 : );
-; 3242 : #elif defined(_M_IX64)
-; 3243 :     __asm__ volatile (
-; 3244 :         "addb\t$-1, %0\n\t"
-; 3245 :         "movq\t(%1), %%rcx\n\t"
-; 3246 :         "adcq\t(%2), %%rcx\n\t"
-; 3247 :         "movq\t%%rcx, (%3)\n\t"
-; 3248 :         "movq\t8(%1), %%rcx\n\t"
-; 3249 :         "adcq\t8(%2), %%rcx\n\t"
-; 3250 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3251 :         "movq\t16(%1), %%rcx\n\t"
-; 3252 :         "adcq\t16(%2), %%rcx\n\t"
-; 3253 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3254 :         "movq\t24(%1), %%rcx\n\t"
-; 3255 :         "adcq\t24(%2), %%rcx\n\t"
-; 3256 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3257 :         "movq\t32(%1), %%rcx\n\t"
-; 3258 :         "adcq\t32(%2), %%rcx\n\t"
-; 3259 :         "movq\t%%rcx, 32(%3)\n\t"
-; 3260 :         "movq\t40(%1), %%rcx\n\t"
-; 3261 :         "adcq\t40(%2), %%rcx\n\t"
-; 3262 :         "movq\t%%rcx, 40(%3)\n\t"
-; 3263 :         "movq\t48(%1), %%rcx\n\t"
-; 3264 :         "adcq\t48(%2), %%rcx\n\t"
-; 3265 :         "movq\t%%rcx, 48(%3)\n\t"
-; 3266 :         "movq\t56(%1), %%rcx\n\t"
-; 3267 :         "adcq\t56(%2), %%rcx\n\t"
-; 3268 :         "movq\t%%rcx, 56(%3)\n\t"
-; 3269 :         "setc\t%0"
-; 3270 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3271 :         :
-; 3272 :         : "cc", "memory", "%rcx"
-; 3273 : );
-; 3274 : #else
-; 3275 : #error unknown platform
-; 3276 : #endif
-; 3277 : #else
-; 3278 : #error unknown compiler
-; 3279 : #endif
-; 3280 :     return (c);
+; 3202 : #elif defined(__GNUC__)
+; 3203 : #ifdef _M_IX86
+; 3204 :     __asm__ volatile (
+; 3205 :         "addb\t$-1, %0\n\t"
+; 3206 :         "movl\t(%1), %%ecx\n\t"
+; 3207 :         "adcl\t(%2), %%ecx\n\t"
+; 3208 :         "movl\t%%ecx, (%3)\n\t"
+; 3209 :         "movl\t4(%1), %%ecx\n\t"
+; 3210 :         "adcl\t4(%2), %%ecx\n\t"
+; 3211 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3212 :         "movl\t8(%1), %%ecx\n\t"
+; 3213 :         "adcl\t8(%2), %%ecx\n\t"
+; 3214 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3215 :         "movl\t12(%1), %%ecx\n\t"
+; 3216 :         "adcl\t12(%2), %%ecx\n\t"
+; 3217 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3218 :         "movl\t16(%1), %%ecx\n\t"
+; 3219 :         "adcl\t16(%2), %%ecx\n\t"
+; 3220 :         "movl\t%%ecx, 16(%3)\n\t"
+; 3221 :         "movl\t20(%1), %%ecx\n\t"
+; 3222 :         "adcl\t20(%2), %%ecx\n\t"
+; 3223 :         "movl\t%%ecx, 20(%3)\n\t"
+; 3224 :         "movl\t24(%1), %%ecx\n\t"
+; 3225 :         "adcl\t24(%2), %%ecx\n\t"
+; 3226 :         "movl\t%%ecx, 24(%3)\n\t"
+; 3227 :         "movl\t28(%1), %%ecx\n\t"
+; 3228 :         "adcl\t28(%2), %%ecx\n\t"
+; 3229 :         "movl\t%%ecx, 28(%3)\n\t"
+; 3230 :         "setc\t%0"
+; 3231 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3232 :         :
+; 3233 :         : "cc", "memory", "%ecx"
+; 3234 : );
+; 3235 : #elif defined(_M_IX64)
+; 3236 :     __asm__ volatile (
+; 3237 :         "addb\t$-1, %0\n\t"
+; 3238 :         "movq\t(%1), %%rcx\n\t"
+; 3239 :         "adcq\t(%2), %%rcx\n\t"
+; 3240 :         "movq\t%%rcx, (%3)\n\t"
+; 3241 :         "movq\t8(%1), %%rcx\n\t"
+; 3242 :         "adcq\t8(%2), %%rcx\n\t"
+; 3243 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3244 :         "movq\t16(%1), %%rcx\n\t"
+; 3245 :         "adcq\t16(%2), %%rcx\n\t"
+; 3246 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3247 :         "movq\t24(%1), %%rcx\n\t"
+; 3248 :         "adcq\t24(%2), %%rcx\n\t"
+; 3249 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3250 :         "movq\t32(%1), %%rcx\n\t"
+; 3251 :         "adcq\t32(%2), %%rcx\n\t"
+; 3252 :         "movq\t%%rcx, 32(%3)\n\t"
+; 3253 :         "movq\t40(%1), %%rcx\n\t"
+; 3254 :         "adcq\t40(%2), %%rcx\n\t"
+; 3255 :         "movq\t%%rcx, 40(%3)\n\t"
+; 3256 :         "movq\t48(%1), %%rcx\n\t"
+; 3257 :         "adcq\t48(%2), %%rcx\n\t"
+; 3258 :         "movq\t%%rcx, 48(%3)\n\t"
+; 3259 :         "movq\t56(%1), %%rcx\n\t"
+; 3260 :         "adcq\t56(%2), %%rcx\n\t"
+; 3261 :         "movq\t%%rcx, 56(%3)\n\t"
+; 3262 :         "setc\t%0"
+; 3263 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3264 :         :
+; 3265 :         : "cc", "memory", "%rcx"
+; 3266 : );
+; 3267 : #else
+; 3268 : #error unknown platform
+; 3269 : #endif
+; 3270 : #else
+; 3271 : #error unknown compiler
+; 3272 : #endif
+; 3273 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 3281 : }
+; 3274 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3396,15 +3396,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_16WORDS_ADCX PROC
 
-; 2212 : {
+; 2205 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 2213 : #ifdef _MSC_VER
-; 2214 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
+; 2206 : #ifdef _MSC_VER
+; 2207 :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -3426,7 +3426,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2215 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
+; 2208 :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -3448,7 +3448,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2216 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
+; 2209 :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -3470,7 +3470,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2217 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
+; 2210 :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -3492,7 +3492,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2218 :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
+; 2211 :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -3514,7 +3514,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2219 :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
+; 2212 :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -3536,7 +3536,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2220 :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
+; 2213 :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -3558,7 +3558,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2221 :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
+; 2214 :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -3580,7 +3580,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2222 :     c = _ADDX_UNIT(c, xp[8], yp[8], &zp[8]);
+; 2215 :     c = _ADDX_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	ecx, 4
 	shl	ecx, 3
@@ -3602,7 +3602,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2223 :     c = _ADDX_UNIT(c, xp[9], yp[9], &zp[9]);
+; 2216 :     c = _ADDX_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	ecx, eax, 9
@@ -3624,7 +3624,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2224 :     c = _ADDX_UNIT(c, xp[10], yp[10], &zp[10]);
+; 2217 :     c = _ADDX_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	edx, 4
 	imul	eax, edx, 10
@@ -3646,7 +3646,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2225 :     c = _ADDX_UNIT(c, xp[11], yp[11], &zp[11]);
+; 2218 :     c = _ADDX_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 11
@@ -3668,7 +3668,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2226 :     c = _ADDX_UNIT(c, xp[12], yp[12], &zp[12]);
+; 2219 :     c = _ADDX_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	ecx, eax, 12
@@ -3690,7 +3690,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2227 :     c = _ADDX_UNIT(c, xp[13], yp[13], &zp[13]);
+; 2220 :     c = _ADDX_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	edx, 4
 	imul	eax, edx, 13
@@ -3712,7 +3712,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2228 :     c = _ADDX_UNIT(c, xp[14], yp[14], &zp[14]);
+; 2221 :     c = _ADDX_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 14
@@ -3734,7 +3734,7 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2229 :     c = _ADDX_UNIT(c, xp[15], yp[15], &zp[15]);
+; 2222 :     c = _ADDX_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	ecx, eax, 15
@@ -3756,130 +3756,130 @@ __ADD_16WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2230 : #elif defined(__GNUC__)
-; 2231 : #ifdef _M_IX86
-; 2232 :     __asm__ volatile (
-; 2233 :         "addb\t$-1, %0\n\t"
-; 2234 :         "movl\t(%1), %%ecx\n\t"
-; 2235 :         "adcxl\t(%2), %%ecx\n\t"
-; 2236 :         "movl\t%%ecx, (%3)\n\t"
-; 2237 :         "movl\t4(%1), %%ecx\n\t"
-; 2238 :         "adcxl\t4(%2), %%ecx\n\t"
-; 2239 :         "movl\t%%ecx, 4(%3)\n\t"
-; 2240 :         "movl\t8(%1), %%ecx\n\t"
-; 2241 :         "adcxl\t8(%2), %%ecx\n\t"
-; 2242 :         "movl\t%%ecx, 8(%3)\n\t"
-; 2243 :         "movl\t12(%1), %%ecx\n\t"
-; 2244 :         "adcxl\t12(%2), %%ecx\n\t"
-; 2245 :         "movl\t%%ecx, 12(%3)\n\t"
-; 2246 :         "movl\t16(%1), %%ecx\n\t"
-; 2247 :         "adcxl\t16(%2), %%ecx\n\t"
-; 2248 :         "movl\t%%ecx, 16(%3)\n\t"
-; 2249 :         "movl\t20(%1), %%ecx\n\t"
-; 2250 :         "adcxl\t20(%2), %%ecx\n\t"
-; 2251 :         "movl\t%%ecx, 20(%3)\n\t"
-; 2252 :         "movl\t24(%1), %%ecx\n\t"
-; 2253 :         "adcxl\t24(%2), %%ecx\n\t"
-; 2254 :         "movl\t%%ecx, 24(%3)\n\t"
-; 2255 :         "movl\t28(%1), %%ecx\n\t"
-; 2256 :         "adcxl\t28(%2), %%ecx\n\t"
-; 2257 :         "movl\t%%ecx, 28(%3)\n\t"
-; 2258 :         "movl\t32(%1), %%ecx\n\t"
-; 2259 :         "adcxl\t32(%2), %%ecx\n\t"
-; 2260 :         "movl\t%%ecx, 32(%3)\n\t"
-; 2261 :         "movl\t36(%1), %%ecx\n\t"
-; 2262 :         "adcxl\t36(%2), %%ecx\n\t"
-; 2263 :         "movl\t%%ecx, 36(%3)\n\t"
-; 2264 :         "movl\t40(%1), %%ecx\n\t"
-; 2265 :         "adcxl\t40(%2), %%ecx\n\t"
-; 2266 :         "movl\t%%ecx, 40(%3)\n\t"
-; 2267 :         "movl\t44(%1), %%ecx\n\t"
-; 2268 :         "adcxl\t44(%2), %%ecx\n\t"
-; 2269 :         "movl\t%%ecx, 44(%3)\n\t"
-; 2270 :         "movl\t48(%1), %%ecx\n\t"
-; 2271 :         "adcxl\t48(%2), %%ecx\n\t"
-; 2272 :         "movl\t%%ecx, 48(%3)\n\t"
-; 2273 :         "movl\t52(%1), %%ecx\n\t"
-; 2274 :         "adcxl\t52(%2), %%ecx\n\t"
-; 2275 :         "movl\t%%ecx, 52(%3)\n\t"
-; 2276 :         "movl\t56(%1), %%ecx\n\t"
-; 2277 :         "adcxl\t56(%2), %%ecx\n\t"
-; 2278 :         "movl\t%%ecx, 56(%3)\n\t"
-; 2279 :         "movl\t60(%1), %%ecx\n\t"
-; 2280 :         "adcxl\t60(%2), %%ecx\n\t"
-; 2281 :         "movl\t%%ecx, 60(%3)\n\t"
-; 2282 :         "setc\t%0"
-; 2283 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2284 :         :
-; 2285 :         : "cc", "memory", "%ecx"
-; 2286 : );
-; 2287 : #elif defined(_M_IX64)
-; 2288 :     __asm__ volatile (
-; 2289 :         "addb\t$-1, %0\n\t"
-; 2290 :         "movq\t(%1), %%rcx\n\t"
-; 2291 :         "adcxq\t(%2), %%rcx\n\t"
-; 2292 :         "movq\t%%rcx, (%3)\n\t"
-; 2293 :         "movq\t8(%1), %%rcx\n\t"
-; 2294 :         "adcxq\t8(%2), %%rcx\n\t"
-; 2295 :         "movq\t%%rcx, 8(%3)\n\t"
-; 2296 :         "movq\t16(%1), %%rcx\n\t"
-; 2297 :         "adcxq\t16(%2), %%rcx\n\t"
-; 2298 :         "movq\t%%rcx, 16(%3)\n\t"
-; 2299 :         "movq\t24(%1), %%rcx\n\t"
-; 2300 :         "adcxq\t24(%2), %%rcx\n\t"
-; 2301 :         "movq\t%%rcx, 24(%3)\n\t"
-; 2302 :         "movq\t32(%1), %%rcx\n\t"
-; 2303 :         "adcxq\t32(%2), %%rcx\n\t"
-; 2304 :         "movq\t%%rcx, 32(%3)\n\t"
-; 2305 :         "movq\t40(%1), %%rcx\n\t"
-; 2306 :         "adcxq\t40(%2), %%rcx\n\t"
-; 2307 :         "movq\t%%rcx, 40(%3)\n\t"
-; 2308 :         "movq\t48(%1), %%rcx\n\t"
-; 2309 :         "adcxq\t48(%2), %%rcx\n\t"
-; 2310 :         "movq\t%%rcx, 48(%3)\n\t"
-; 2311 :         "movq\t56(%1), %%rcx\n\t"
-; 2312 :         "adcxq\t56(%2), %%rcx\n\t"
-; 2313 :         "movq\t%%rcx, 56(%3)\n\t"
-; 2314 :         "movq\t64(%1), %%rcx\n\t"
-; 2315 :         "adcxq\t64(%2), %%rcx\n\t"
-; 2316 :         "movq\t%%rcx, 64(%3)\n\t"
-; 2317 :         "movq\t72(%1), %%rcx\n\t"
-; 2318 :         "adcxq\t72(%2), %%rcx\n\t"
-; 2319 :         "movq\t%%rcx, 72(%3)\n\t"
-; 2320 :         "movq\t80(%1), %%rcx\n\t"
-; 2321 :         "adcxq\t80(%2), %%rcx\n\t"
-; 2322 :         "movq\t%%rcx, 80(%3)\n\t"
-; 2323 :         "movq\t88(%1), %%rcx\n\t"
-; 2324 :         "adcxq\t88(%2), %%rcx\n\t"
-; 2325 :         "movq\t%%rcx, 88(%3)\n\t"
-; 2326 :         "movq\t96(%1), %%rcx\n\t"
-; 2327 :         "adcxq\t96(%2), %%rcx\n\t"
-; 2328 :         "movq\t%%rcx, 96(%3)\n\t"
-; 2329 :         "movq\t104(%1), %%rcx\n\t"
-; 2330 :         "adcxq\t104(%2), %%rcx\n\t"
-; 2331 :         "movq\t%%rcx, 104(%3)\n\t"
-; 2332 :         "movq\t112(%1), %%rcx\n\t"
-; 2333 :         "adcxq\t112(%2), %%rcx\n\t"
-; 2334 :         "movq\t%%rcx, 112(%3)\n\t"
-; 2335 :         "movq\t120(%1), %%rcx\n\t"
-; 2336 :         "adcxq\t120(%2), %%rcx\n\t"
-; 2337 :         "movq\t%%rcx, 120(%3)\n\t"
-; 2338 :         "setc\t%0"
-; 2339 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2340 :         :
-; 2341 :         : "cc", "memory", "%rcx"
-; 2342 : );
-; 2343 : #else
-; 2344 : #error unknown platform
-; 2345 : #endif
-; 2346 : #else
-; 2347 : #error unknown compiler
-; 2348 : #endif
-; 2349 :     return (c);
+; 2223 : #elif defined(__GNUC__)
+; 2224 : #ifdef _M_IX86
+; 2225 :     __asm__ volatile (
+; 2226 :         "addb\t$-1, %0\n\t"
+; 2227 :         "movl\t(%1), %%ecx\n\t"
+; 2228 :         "adcxl\t(%2), %%ecx\n\t"
+; 2229 :         "movl\t%%ecx, (%3)\n\t"
+; 2230 :         "movl\t4(%1), %%ecx\n\t"
+; 2231 :         "adcxl\t4(%2), %%ecx\n\t"
+; 2232 :         "movl\t%%ecx, 4(%3)\n\t"
+; 2233 :         "movl\t8(%1), %%ecx\n\t"
+; 2234 :         "adcxl\t8(%2), %%ecx\n\t"
+; 2235 :         "movl\t%%ecx, 8(%3)\n\t"
+; 2236 :         "movl\t12(%1), %%ecx\n\t"
+; 2237 :         "adcxl\t12(%2), %%ecx\n\t"
+; 2238 :         "movl\t%%ecx, 12(%3)\n\t"
+; 2239 :         "movl\t16(%1), %%ecx\n\t"
+; 2240 :         "adcxl\t16(%2), %%ecx\n\t"
+; 2241 :         "movl\t%%ecx, 16(%3)\n\t"
+; 2242 :         "movl\t20(%1), %%ecx\n\t"
+; 2243 :         "adcxl\t20(%2), %%ecx\n\t"
+; 2244 :         "movl\t%%ecx, 20(%3)\n\t"
+; 2245 :         "movl\t24(%1), %%ecx\n\t"
+; 2246 :         "adcxl\t24(%2), %%ecx\n\t"
+; 2247 :         "movl\t%%ecx, 24(%3)\n\t"
+; 2248 :         "movl\t28(%1), %%ecx\n\t"
+; 2249 :         "adcxl\t28(%2), %%ecx\n\t"
+; 2250 :         "movl\t%%ecx, 28(%3)\n\t"
+; 2251 :         "movl\t32(%1), %%ecx\n\t"
+; 2252 :         "adcxl\t32(%2), %%ecx\n\t"
+; 2253 :         "movl\t%%ecx, 32(%3)\n\t"
+; 2254 :         "movl\t36(%1), %%ecx\n\t"
+; 2255 :         "adcxl\t36(%2), %%ecx\n\t"
+; 2256 :         "movl\t%%ecx, 36(%3)\n\t"
+; 2257 :         "movl\t40(%1), %%ecx\n\t"
+; 2258 :         "adcxl\t40(%2), %%ecx\n\t"
+; 2259 :         "movl\t%%ecx, 40(%3)\n\t"
+; 2260 :         "movl\t44(%1), %%ecx\n\t"
+; 2261 :         "adcxl\t44(%2), %%ecx\n\t"
+; 2262 :         "movl\t%%ecx, 44(%3)\n\t"
+; 2263 :         "movl\t48(%1), %%ecx\n\t"
+; 2264 :         "adcxl\t48(%2), %%ecx\n\t"
+; 2265 :         "movl\t%%ecx, 48(%3)\n\t"
+; 2266 :         "movl\t52(%1), %%ecx\n\t"
+; 2267 :         "adcxl\t52(%2), %%ecx\n\t"
+; 2268 :         "movl\t%%ecx, 52(%3)\n\t"
+; 2269 :         "movl\t56(%1), %%ecx\n\t"
+; 2270 :         "adcxl\t56(%2), %%ecx\n\t"
+; 2271 :         "movl\t%%ecx, 56(%3)\n\t"
+; 2272 :         "movl\t60(%1), %%ecx\n\t"
+; 2273 :         "adcxl\t60(%2), %%ecx\n\t"
+; 2274 :         "movl\t%%ecx, 60(%3)\n\t"
+; 2275 :         "setc\t%0"
+; 2276 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2277 :         :
+; 2278 :         : "cc", "memory", "%ecx"
+; 2279 : );
+; 2280 : #elif defined(_M_IX64)
+; 2281 :     __asm__ volatile (
+; 2282 :         "addb\t$-1, %0\n\t"
+; 2283 :         "movq\t(%1), %%rcx\n\t"
+; 2284 :         "adcxq\t(%2), %%rcx\n\t"
+; 2285 :         "movq\t%%rcx, (%3)\n\t"
+; 2286 :         "movq\t8(%1), %%rcx\n\t"
+; 2287 :         "adcxq\t8(%2), %%rcx\n\t"
+; 2288 :         "movq\t%%rcx, 8(%3)\n\t"
+; 2289 :         "movq\t16(%1), %%rcx\n\t"
+; 2290 :         "adcxq\t16(%2), %%rcx\n\t"
+; 2291 :         "movq\t%%rcx, 16(%3)\n\t"
+; 2292 :         "movq\t24(%1), %%rcx\n\t"
+; 2293 :         "adcxq\t24(%2), %%rcx\n\t"
+; 2294 :         "movq\t%%rcx, 24(%3)\n\t"
+; 2295 :         "movq\t32(%1), %%rcx\n\t"
+; 2296 :         "adcxq\t32(%2), %%rcx\n\t"
+; 2297 :         "movq\t%%rcx, 32(%3)\n\t"
+; 2298 :         "movq\t40(%1), %%rcx\n\t"
+; 2299 :         "adcxq\t40(%2), %%rcx\n\t"
+; 2300 :         "movq\t%%rcx, 40(%3)\n\t"
+; 2301 :         "movq\t48(%1), %%rcx\n\t"
+; 2302 :         "adcxq\t48(%2), %%rcx\n\t"
+; 2303 :         "movq\t%%rcx, 48(%3)\n\t"
+; 2304 :         "movq\t56(%1), %%rcx\n\t"
+; 2305 :         "adcxq\t56(%2), %%rcx\n\t"
+; 2306 :         "movq\t%%rcx, 56(%3)\n\t"
+; 2307 :         "movq\t64(%1), %%rcx\n\t"
+; 2308 :         "adcxq\t64(%2), %%rcx\n\t"
+; 2309 :         "movq\t%%rcx, 64(%3)\n\t"
+; 2310 :         "movq\t72(%1), %%rcx\n\t"
+; 2311 :         "adcxq\t72(%2), %%rcx\n\t"
+; 2312 :         "movq\t%%rcx, 72(%3)\n\t"
+; 2313 :         "movq\t80(%1), %%rcx\n\t"
+; 2314 :         "adcxq\t80(%2), %%rcx\n\t"
+; 2315 :         "movq\t%%rcx, 80(%3)\n\t"
+; 2316 :         "movq\t88(%1), %%rcx\n\t"
+; 2317 :         "adcxq\t88(%2), %%rcx\n\t"
+; 2318 :         "movq\t%%rcx, 88(%3)\n\t"
+; 2319 :         "movq\t96(%1), %%rcx\n\t"
+; 2320 :         "adcxq\t96(%2), %%rcx\n\t"
+; 2321 :         "movq\t%%rcx, 96(%3)\n\t"
+; 2322 :         "movq\t104(%1), %%rcx\n\t"
+; 2323 :         "adcxq\t104(%2), %%rcx\n\t"
+; 2324 :         "movq\t%%rcx, 104(%3)\n\t"
+; 2325 :         "movq\t112(%1), %%rcx\n\t"
+; 2326 :         "adcxq\t112(%2), %%rcx\n\t"
+; 2327 :         "movq\t%%rcx, 112(%3)\n\t"
+; 2328 :         "movq\t120(%1), %%rcx\n\t"
+; 2329 :         "adcxq\t120(%2), %%rcx\n\t"
+; 2330 :         "movq\t%%rcx, 120(%3)\n\t"
+; 2331 :         "setc\t%0"
+; 2332 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2333 :         :
+; 2334 :         : "cc", "memory", "%rcx"
+; 2335 : );
+; 2336 : #else
+; 2337 : #error unknown platform
+; 2338 : #endif
+; 2339 : #else
+; 2340 : #error unknown compiler
+; 2341 : #endif
+; 2342 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 2350 : }
+; 2343 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3896,15 +3896,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_16WORDS_ADC PROC
 
-; 2071 : {
+; 2064 : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 2072 : #ifdef _MSC_VER
-; 2073 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
+; 2065 : #ifdef _MSC_VER
+; 2066 :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -3926,7 +3926,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2074 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
+; 2067 :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -3948,7 +3948,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2075 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
+; 2068 :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -3970,7 +3970,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2076 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
+; 2069 :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -3992,7 +3992,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2077 :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
+; 2070 :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -4014,7 +4014,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2078 :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
+; 2071 :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -4036,7 +4036,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2079 :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
+; 2072 :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -4058,7 +4058,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2080 :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
+; 2073 :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -4080,7 +4080,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2081 :     c = _ADD_UNIT(c, xp[8], yp[8], &zp[8]);
+; 2074 :     c = _ADD_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	ecx, 4
 	shl	ecx, 3
@@ -4102,7 +4102,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2082 :     c = _ADD_UNIT(c, xp[9], yp[9], &zp[9]);
+; 2075 :     c = _ADD_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	ecx, eax, 9
@@ -4124,7 +4124,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2083 :     c = _ADD_UNIT(c, xp[10], yp[10], &zp[10]);
+; 2076 :     c = _ADD_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	edx, 4
 	imul	eax, edx, 10
@@ -4146,7 +4146,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2084 :     c = _ADD_UNIT(c, xp[11], yp[11], &zp[11]);
+; 2077 :     c = _ADD_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 11
@@ -4168,7 +4168,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2085 :     c = _ADD_UNIT(c, xp[12], yp[12], &zp[12]);
+; 2078 :     c = _ADD_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	ecx, eax, 12
@@ -4190,7 +4190,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2086 :     c = _ADD_UNIT(c, xp[13], yp[13], &zp[13]);
+; 2079 :     c = _ADD_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	edx, 4
 	imul	eax, edx, 13
@@ -4212,7 +4212,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2087 :     c = _ADD_UNIT(c, xp[14], yp[14], &zp[14]);
+; 2080 :     c = _ADD_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 14
@@ -4234,7 +4234,7 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2088 :     c = _ADD_UNIT(c, xp[15], yp[15], &zp[15]);
+; 2081 :     c = _ADD_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	ecx, eax, 15
@@ -4256,130 +4256,130 @@ __ADD_16WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 2089 : #elif defined(__GNUC__)
-; 2090 : #ifdef _M_IX86
-; 2091 :     __asm__ volatile (
-; 2092 :         "addb\t$-1, %0\n\t"
-; 2093 :         "movl\t(%1), %%ecx\n\t"
-; 2094 :         "adcl\t(%2), %%ecx\n\t"
-; 2095 :         "movl\t%%ecx, (%3)\n\t"
-; 2096 :         "movl\t4(%1), %%ecx\n\t"
-; 2097 :         "adcl\t4(%2), %%ecx\n\t"
-; 2098 :         "movl\t%%ecx, 4(%3)\n\t"
-; 2099 :         "movl\t8(%1), %%ecx\n\t"
-; 2100 :         "adcl\t8(%2), %%ecx\n\t"
-; 2101 :         "movl\t%%ecx, 8(%3)\n\t"
-; 2102 :         "movl\t12(%1), %%ecx\n\t"
-; 2103 :         "adcl\t12(%2), %%ecx\n\t"
-; 2104 :         "movl\t%%ecx, 12(%3)\n\t"
-; 2105 :         "movl\t16(%1), %%ecx\n\t"
-; 2106 :         "adcl\t16(%2), %%ecx\n\t"
-; 2107 :         "movl\t%%ecx, 16(%3)\n\t"
-; 2108 :         "movl\t20(%1), %%ecx\n\t"
-; 2109 :         "adcl\t20(%2), %%ecx\n\t"
-; 2110 :         "movl\t%%ecx, 20(%3)\n\t"
-; 2111 :         "movl\t24(%1), %%ecx\n\t"
-; 2112 :         "adcl\t24(%2), %%ecx\n\t"
-; 2113 :         "movl\t%%ecx, 24(%3)\n\t"
-; 2114 :         "movl\t28(%1), %%ecx\n\t"
-; 2115 :         "adcl\t28(%2), %%ecx\n\t"
-; 2116 :         "movl\t%%ecx, 28(%3)\n\t"
-; 2117 :         "movl\t32(%1), %%ecx\n\t"
-; 2118 :         "adcl\t32(%2), %%ecx\n\t"
-; 2119 :         "movl\t%%ecx, 32(%3)\n\t"
-; 2120 :         "movl\t36(%1), %%ecx\n\t"
-; 2121 :         "adcl\t36(%2), %%ecx\n\t"
-; 2122 :         "movl\t%%ecx, 36(%3)\n\t"
-; 2123 :         "movl\t40(%1), %%ecx\n\t"
-; 2124 :         "adcl\t40(%2), %%ecx\n\t"
-; 2125 :         "movl\t%%ecx, 40(%3)\n\t"
-; 2126 :         "movl\t44(%1), %%ecx\n\t"
-; 2127 :         "adcl\t44(%2), %%ecx\n\t"
-; 2128 :         "movl\t%%ecx, 44(%3)\n\t"
-; 2129 :         "movl\t48(%1), %%ecx\n\t"
-; 2130 :         "adcl\t48(%2), %%ecx\n\t"
-; 2131 :         "movl\t%%ecx, 48(%3)\n\t"
-; 2132 :         "movl\t52(%1), %%ecx\n\t"
-; 2133 :         "adcl\t52(%2), %%ecx\n\t"
-; 2134 :         "movl\t%%ecx, 52(%3)\n\t"
-; 2135 :         "movl\t56(%1), %%ecx\n\t"
-; 2136 :         "adcl\t56(%2), %%ecx\n\t"
-; 2137 :         "movl\t%%ecx, 56(%3)\n\t"
-; 2138 :         "movl\t60(%1), %%ecx\n\t"
-; 2139 :         "adcl\t60(%2), %%ecx\n\t"
-; 2140 :         "movl\t%%ecx, 60(%3)\n\t"
-; 2141 :         "setc\t%0"
-; 2142 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2143 :         :
-; 2144 :         : "cc", "memory", "%ecx"
-; 2145 : );
-; 2146 : #elif defined(_M_IX64)
-; 2147 :     __asm__ volatile (
-; 2148 :         "addb\t$-1, %0\n\t"
-; 2149 :         "movq\t(%1), %%rcx\n\t"
-; 2150 :         "adcq\t(%2), %%rcx\n\t"
-; 2151 :         "movq\t%%rcx, (%3)\n\t"
-; 2152 :         "movq\t8(%1), %%rcx\n\t"
-; 2153 :         "adcq\t8(%2), %%rcx\n\t"
-; 2154 :         "movq\t%%rcx, 8(%3)\n\t"
-; 2155 :         "movq\t16(%1), %%rcx\n\t"
-; 2156 :         "adcq\t16(%2), %%rcx\n\t"
-; 2157 :         "movq\t%%rcx, 16(%3)\n\t"
-; 2158 :         "movq\t24(%1), %%rcx\n\t"
-; 2159 :         "adcq\t24(%2), %%rcx\n\t"
-; 2160 :         "movq\t%%rcx, 24(%3)\n\t"
-; 2161 :         "movq\t32(%1), %%rcx\n\t"
-; 2162 :         "adcq\t32(%2), %%rcx\n\t"
-; 2163 :         "movq\t%%rcx, 32(%3)\n\t"
-; 2164 :         "movq\t40(%1), %%rcx\n\t"
-; 2165 :         "adcq\t40(%2), %%rcx\n\t"
-; 2166 :         "movq\t%%rcx, 40(%3)\n\t"
-; 2167 :         "movq\t48(%1), %%rcx\n\t"
-; 2168 :         "adcq\t48(%2), %%rcx\n\t"
-; 2169 :         "movq\t%%rcx, 48(%3)\n\t"
-; 2170 :         "movq\t56(%1), %%rcx\n\t"
-; 2171 :         "adcq\t56(%2), %%rcx\n\t"
-; 2172 :         "movq\t%%rcx, 56(%3)\n\t"
-; 2173 :         "movq\t64(%1), %%rcx\n\t"
-; 2174 :         "adcq\t64(%2), %%rcx\n\t"
-; 2175 :         "movq\t%%rcx, 64(%3)\n\t"
-; 2176 :         "movq\t72(%1), %%rcx\n\t"
-; 2177 :         "adcq\t72(%2), %%rcx\n\t"
-; 2178 :         "movq\t%%rcx, 72(%3)\n\t"
-; 2179 :         "movq\t80(%1), %%rcx\n\t"
-; 2180 :         "adcq\t80(%2), %%rcx\n\t"
-; 2181 :         "movq\t%%rcx, 80(%3)\n\t"
-; 2182 :         "movq\t88(%1), %%rcx\n\t"
-; 2183 :         "adcq\t88(%2), %%rcx\n\t"
-; 2184 :         "movq\t%%rcx, 88(%3)\n\t"
-; 2185 :         "movq\t96(%1), %%rcx\n\t"
-; 2186 :         "adcq\t96(%2), %%rcx\n\t"
-; 2187 :         "movq\t%%rcx, 96(%3)\n\t"
-; 2188 :         "movq\t104(%1), %%rcx\n\t"
-; 2189 :         "adcq\t104(%2), %%rcx\n\t"
-; 2190 :         "movq\t%%rcx, 104(%3)\n\t"
-; 2191 :         "movq\t112(%1), %%rcx\n\t"
-; 2192 :         "adcq\t112(%2), %%rcx\n\t"
-; 2193 :         "movq\t%%rcx, 112(%3)\n\t"
-; 2194 :         "movq\t120(%1), %%rcx\n\t"
-; 2195 :         "adcq\t120(%2), %%rcx\n\t"
-; 2196 :         "movq\t%%rcx, 120(%3)\n\t"
-; 2197 :         "setc\t%0"
-; 2198 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2199 :         :
-; 2200 :         : "cc", "memory", "%rcx"
-; 2201 : );
-; 2202 : #else
-; 2203 : #error unknown platform
-; 2204 : #endif
-; 2205 : #else
-; 2206 : #error unknown compiler
-; 2207 : #endif
-; 2208 :     return (c);
+; 2082 : #elif defined(__GNUC__)
+; 2083 : #ifdef _M_IX86
+; 2084 :     __asm__ volatile (
+; 2085 :         "addb\t$-1, %0\n\t"
+; 2086 :         "movl\t(%1), %%ecx\n\t"
+; 2087 :         "adcl\t(%2), %%ecx\n\t"
+; 2088 :         "movl\t%%ecx, (%3)\n\t"
+; 2089 :         "movl\t4(%1), %%ecx\n\t"
+; 2090 :         "adcl\t4(%2), %%ecx\n\t"
+; 2091 :         "movl\t%%ecx, 4(%3)\n\t"
+; 2092 :         "movl\t8(%1), %%ecx\n\t"
+; 2093 :         "adcl\t8(%2), %%ecx\n\t"
+; 2094 :         "movl\t%%ecx, 8(%3)\n\t"
+; 2095 :         "movl\t12(%1), %%ecx\n\t"
+; 2096 :         "adcl\t12(%2), %%ecx\n\t"
+; 2097 :         "movl\t%%ecx, 12(%3)\n\t"
+; 2098 :         "movl\t16(%1), %%ecx\n\t"
+; 2099 :         "adcl\t16(%2), %%ecx\n\t"
+; 2100 :         "movl\t%%ecx, 16(%3)\n\t"
+; 2101 :         "movl\t20(%1), %%ecx\n\t"
+; 2102 :         "adcl\t20(%2), %%ecx\n\t"
+; 2103 :         "movl\t%%ecx, 20(%3)\n\t"
+; 2104 :         "movl\t24(%1), %%ecx\n\t"
+; 2105 :         "adcl\t24(%2), %%ecx\n\t"
+; 2106 :         "movl\t%%ecx, 24(%3)\n\t"
+; 2107 :         "movl\t28(%1), %%ecx\n\t"
+; 2108 :         "adcl\t28(%2), %%ecx\n\t"
+; 2109 :         "movl\t%%ecx, 28(%3)\n\t"
+; 2110 :         "movl\t32(%1), %%ecx\n\t"
+; 2111 :         "adcl\t32(%2), %%ecx\n\t"
+; 2112 :         "movl\t%%ecx, 32(%3)\n\t"
+; 2113 :         "movl\t36(%1), %%ecx\n\t"
+; 2114 :         "adcl\t36(%2), %%ecx\n\t"
+; 2115 :         "movl\t%%ecx, 36(%3)\n\t"
+; 2116 :         "movl\t40(%1), %%ecx\n\t"
+; 2117 :         "adcl\t40(%2), %%ecx\n\t"
+; 2118 :         "movl\t%%ecx, 40(%3)\n\t"
+; 2119 :         "movl\t44(%1), %%ecx\n\t"
+; 2120 :         "adcl\t44(%2), %%ecx\n\t"
+; 2121 :         "movl\t%%ecx, 44(%3)\n\t"
+; 2122 :         "movl\t48(%1), %%ecx\n\t"
+; 2123 :         "adcl\t48(%2), %%ecx\n\t"
+; 2124 :         "movl\t%%ecx, 48(%3)\n\t"
+; 2125 :         "movl\t52(%1), %%ecx\n\t"
+; 2126 :         "adcl\t52(%2), %%ecx\n\t"
+; 2127 :         "movl\t%%ecx, 52(%3)\n\t"
+; 2128 :         "movl\t56(%1), %%ecx\n\t"
+; 2129 :         "adcl\t56(%2), %%ecx\n\t"
+; 2130 :         "movl\t%%ecx, 56(%3)\n\t"
+; 2131 :         "movl\t60(%1), %%ecx\n\t"
+; 2132 :         "adcl\t60(%2), %%ecx\n\t"
+; 2133 :         "movl\t%%ecx, 60(%3)\n\t"
+; 2134 :         "setc\t%0"
+; 2135 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2136 :         :
+; 2137 :         : "cc", "memory", "%ecx"
+; 2138 : );
+; 2139 : #elif defined(_M_IX64)
+; 2140 :     __asm__ volatile (
+; 2141 :         "addb\t$-1, %0\n\t"
+; 2142 :         "movq\t(%1), %%rcx\n\t"
+; 2143 :         "adcq\t(%2), %%rcx\n\t"
+; 2144 :         "movq\t%%rcx, (%3)\n\t"
+; 2145 :         "movq\t8(%1), %%rcx\n\t"
+; 2146 :         "adcq\t8(%2), %%rcx\n\t"
+; 2147 :         "movq\t%%rcx, 8(%3)\n\t"
+; 2148 :         "movq\t16(%1), %%rcx\n\t"
+; 2149 :         "adcq\t16(%2), %%rcx\n\t"
+; 2150 :         "movq\t%%rcx, 16(%3)\n\t"
+; 2151 :         "movq\t24(%1), %%rcx\n\t"
+; 2152 :         "adcq\t24(%2), %%rcx\n\t"
+; 2153 :         "movq\t%%rcx, 24(%3)\n\t"
+; 2154 :         "movq\t32(%1), %%rcx\n\t"
+; 2155 :         "adcq\t32(%2), %%rcx\n\t"
+; 2156 :         "movq\t%%rcx, 32(%3)\n\t"
+; 2157 :         "movq\t40(%1), %%rcx\n\t"
+; 2158 :         "adcq\t40(%2), %%rcx\n\t"
+; 2159 :         "movq\t%%rcx, 40(%3)\n\t"
+; 2160 :         "movq\t48(%1), %%rcx\n\t"
+; 2161 :         "adcq\t48(%2), %%rcx\n\t"
+; 2162 :         "movq\t%%rcx, 48(%3)\n\t"
+; 2163 :         "movq\t56(%1), %%rcx\n\t"
+; 2164 :         "adcq\t56(%2), %%rcx\n\t"
+; 2165 :         "movq\t%%rcx, 56(%3)\n\t"
+; 2166 :         "movq\t64(%1), %%rcx\n\t"
+; 2167 :         "adcq\t64(%2), %%rcx\n\t"
+; 2168 :         "movq\t%%rcx, 64(%3)\n\t"
+; 2169 :         "movq\t72(%1), %%rcx\n\t"
+; 2170 :         "adcq\t72(%2), %%rcx\n\t"
+; 2171 :         "movq\t%%rcx, 72(%3)\n\t"
+; 2172 :         "movq\t80(%1), %%rcx\n\t"
+; 2173 :         "adcq\t80(%2), %%rcx\n\t"
+; 2174 :         "movq\t%%rcx, 80(%3)\n\t"
+; 2175 :         "movq\t88(%1), %%rcx\n\t"
+; 2176 :         "adcq\t88(%2), %%rcx\n\t"
+; 2177 :         "movq\t%%rcx, 88(%3)\n\t"
+; 2178 :         "movq\t96(%1), %%rcx\n\t"
+; 2179 :         "adcq\t96(%2), %%rcx\n\t"
+; 2180 :         "movq\t%%rcx, 96(%3)\n\t"
+; 2181 :         "movq\t104(%1), %%rcx\n\t"
+; 2182 :         "adcq\t104(%2), %%rcx\n\t"
+; 2183 :         "movq\t%%rcx, 104(%3)\n\t"
+; 2184 :         "movq\t112(%1), %%rcx\n\t"
+; 2185 :         "adcq\t112(%2), %%rcx\n\t"
+; 2186 :         "movq\t%%rcx, 112(%3)\n\t"
+; 2187 :         "movq\t120(%1), %%rcx\n\t"
+; 2188 :         "adcq\t120(%2), %%rcx\n\t"
+; 2189 :         "movq\t%%rcx, 120(%3)\n\t"
+; 2190 :         "setc\t%0"
+; 2191 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2192 :         :
+; 2193 :         : "cc", "memory", "%rcx"
+; 2194 : );
+; 2195 : #else
+; 2196 : #error unknown platform
+; 2197 : #endif
+; 2198 : #else
+; 2199 : #error unknown compiler
+; 2200 : #endif
+; 2201 :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 2209 : }
+; 2202 : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -4396,15 +4396,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_32WORDS_ADCX PROC
 
-; 300  : {
+; 293  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 301  : #ifdef _MSC_VER
-; 302  :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
+; 294  : #ifdef _MSC_VER
+; 295  :     c = _ADDX_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -4426,7 +4426,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 303  :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
+; 296  :     c = _ADDX_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -4448,7 +4448,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 304  :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
+; 297  :     c = _ADDX_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -4470,7 +4470,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 305  :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
+; 298  :     c = _ADDX_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -4492,7 +4492,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 306  :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
+; 299  :     c = _ADDX_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -4514,7 +4514,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 307  :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
+; 300  :     c = _ADDX_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -4536,7 +4536,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 308  :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
+; 301  :     c = _ADDX_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -4558,7 +4558,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 309  :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
+; 302  :     c = _ADDX_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -4580,7 +4580,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 310  :     c = _ADDX_UNIT(c, xp[8], yp[8], &zp[8]);
+; 303  :     c = _ADDX_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	ecx, 4
 	shl	ecx, 3
@@ -4602,7 +4602,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 311  :     c = _ADDX_UNIT(c, xp[9], yp[9], &zp[9]);
+; 304  :     c = _ADDX_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	ecx, eax, 9
@@ -4624,7 +4624,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 312  :     c = _ADDX_UNIT(c, xp[10], yp[10], &zp[10]);
+; 305  :     c = _ADDX_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	edx, 4
 	imul	eax, edx, 10
@@ -4646,7 +4646,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 313  :     c = _ADDX_UNIT(c, xp[11], yp[11], &zp[11]);
+; 306  :     c = _ADDX_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 11
@@ -4668,7 +4668,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 314  :     c = _ADDX_UNIT(c, xp[12], yp[12], &zp[12]);
+; 307  :     c = _ADDX_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	ecx, eax, 12
@@ -4690,7 +4690,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 315  :     c = _ADDX_UNIT(c, xp[13], yp[13], &zp[13]);
+; 308  :     c = _ADDX_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	edx, 4
 	imul	eax, edx, 13
@@ -4712,7 +4712,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 316  :     c = _ADDX_UNIT(c, xp[14], yp[14], &zp[14]);
+; 309  :     c = _ADDX_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 14
@@ -4734,7 +4734,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 317  :     c = _ADDX_UNIT(c, xp[15], yp[15], &zp[15]);
+; 310  :     c = _ADDX_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	ecx, eax, 15
@@ -4756,7 +4756,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 318  :     c = _ADDX_UNIT(c, xp[16], yp[16], &zp[16]);
+; 311  :     c = _ADDX_UNIT(c, xp[16], yp[16], &zp[16]);
 
 	mov	edx, 4
 	shl	edx, 4
@@ -4778,7 +4778,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 319  :     c = _ADDX_UNIT(c, xp[17], yp[17], &zp[17]);
+; 312  :     c = _ADDX_UNIT(c, xp[17], yp[17], &zp[17]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 17
@@ -4800,7 +4800,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 320  :     c = _ADDX_UNIT(c, xp[18], yp[18], &zp[18]);
+; 313  :     c = _ADDX_UNIT(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, 4
 	imul	ecx, eax, 18
@@ -4822,7 +4822,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 321  :     c = _ADDX_UNIT(c, xp[19], yp[19], &zp[19]);
+; 314  :     c = _ADDX_UNIT(c, xp[19], yp[19], &zp[19]);
 
 	mov	edx, 4
 	imul	eax, edx, 19
@@ -4844,7 +4844,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 322  :     c = _ADDX_UNIT(c, xp[20], yp[20], &zp[20]);
+; 315  :     c = _ADDX_UNIT(c, xp[20], yp[20], &zp[20]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 20
@@ -4866,7 +4866,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 323  :     c = _ADDX_UNIT(c, xp[21], yp[21], &zp[21]);
+; 316  :     c = _ADDX_UNIT(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, 4
 	imul	ecx, eax, 21
@@ -4888,7 +4888,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 324  :     c = _ADDX_UNIT(c, xp[22], yp[22], &zp[22]);
+; 317  :     c = _ADDX_UNIT(c, xp[22], yp[22], &zp[22]);
 
 	mov	edx, 4
 	imul	eax, edx, 22
@@ -4910,7 +4910,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 325  :     c = _ADDX_UNIT(c, xp[23], yp[23], &zp[23]);
+; 318  :     c = _ADDX_UNIT(c, xp[23], yp[23], &zp[23]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 23
@@ -4932,7 +4932,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 326  :     c = _ADDX_UNIT(c, xp[24], yp[24], &zp[24]);
+; 319  :     c = _ADDX_UNIT(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, 4
 	imul	ecx, eax, 24
@@ -4954,7 +4954,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 327  :     c = _ADDX_UNIT(c, xp[25], yp[25], &zp[25]);
+; 320  :     c = _ADDX_UNIT(c, xp[25], yp[25], &zp[25]);
 
 	mov	edx, 4
 	imul	eax, edx, 25
@@ -4976,7 +4976,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 328  :     c = _ADDX_UNIT(c, xp[26], yp[26], &zp[26]);
+; 321  :     c = _ADDX_UNIT(c, xp[26], yp[26], &zp[26]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 26
@@ -4998,7 +4998,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 329  :     c = _ADDX_UNIT(c, xp[27], yp[27], &zp[27]);
+; 322  :     c = _ADDX_UNIT(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, 4
 	imul	ecx, eax, 27
@@ -5020,7 +5020,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 330  :     c = _ADDX_UNIT(c, xp[28], yp[28], &zp[28]);
+; 323  :     c = _ADDX_UNIT(c, xp[28], yp[28], &zp[28]);
 
 	mov	edx, 4
 	imul	eax, edx, 28
@@ -5042,7 +5042,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 331  :     c = _ADDX_UNIT(c, xp[29], yp[29], &zp[29]);
+; 324  :     c = _ADDX_UNIT(c, xp[29], yp[29], &zp[29]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 29
@@ -5064,7 +5064,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 332  :     c = _ADDX_UNIT(c, xp[30], yp[30], &zp[30]);
+; 325  :     c = _ADDX_UNIT(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, 4
 	imul	ecx, eax, 30
@@ -5086,7 +5086,7 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 333  :     c = _ADDX_UNIT(c, xp[31], yp[31], &zp[31]);
+; 326  :     c = _ADDX_UNIT(c, xp[31], yp[31], &zp[31]);
 
 	mov	edx, 4
 	imul	eax, edx, 31
@@ -5108,226 +5108,226 @@ __ADD_32WORDS_ADCX PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 334  : #elif defined(__GNUC__)
-; 335  : #ifdef _M_IX86
-; 336  :     __asm__ volatile (
-; 337  :         "addb\t$-1, %0\n\t"
-; 338  :         "movl\t(%1), %%ecx\n\t"
-; 339  :         "adcxl\t(%2), %%ecx\n\t"
-; 340  :         "movl\t%%ecx, (%3)\n\t"
-; 341  :         "movl\t4(%1), %%ecx\n\t"
-; 342  :         "adcxl\t4(%2), %%ecx\n\t"
-; 343  :         "movl\t%%ecx, 4(%3)\n\t"
-; 344  :         "movl\t8(%1), %%ecx\n\t"
-; 345  :         "adcxl\t8(%2), %%ecx\n\t"
-; 346  :         "movl\t%%ecx, 8(%3)\n\t"
-; 347  :         "movl\t12(%1), %%ecx\n\t"
-; 348  :         "adcxl\t12(%2), %%ecx\n\t"
-; 349  :         "movl\t%%ecx, 12(%3)\n\t"
-; 350  :         "movl\t16(%1), %%ecx\n\t"
-; 351  :         "adcxl\t16(%2), %%ecx\n\t"
-; 352  :         "movl\t%%ecx, 16(%3)\n\t"
-; 353  :         "movl\t20(%1), %%ecx\n\t"
-; 354  :         "adcxl\t20(%2), %%ecx\n\t"
-; 355  :         "movl\t%%ecx, 20(%3)\n\t"
-; 356  :         "movl\t24(%1), %%ecx\n\t"
-; 357  :         "adcxl\t24(%2), %%ecx\n\t"
-; 358  :         "movl\t%%ecx, 24(%3)\n\t"
-; 359  :         "movl\t28(%1), %%ecx\n\t"
-; 360  :         "adcxl\t28(%2), %%ecx\n\t"
-; 361  :         "movl\t%%ecx, 28(%3)\n\t"
-; 362  :         "movl\t32(%1), %%ecx\n\t"
-; 363  :         "adcxl\t32(%2), %%ecx\n\t"
-; 364  :         "movl\t%%ecx, 32(%3)\n\t"
-; 365  :         "movl\t36(%1), %%ecx\n\t"
-; 366  :         "adcxl\t36(%2), %%ecx\n\t"
-; 367  :         "movl\t%%ecx, 36(%3)\n\t"
-; 368  :         "movl\t40(%1), %%ecx\n\t"
-; 369  :         "adcxl\t40(%2), %%ecx\n\t"
-; 370  :         "movl\t%%ecx, 40(%3)\n\t"
-; 371  :         "movl\t44(%1), %%ecx\n\t"
-; 372  :         "adcxl\t44(%2), %%ecx\n\t"
-; 373  :         "movl\t%%ecx, 44(%3)\n\t"
-; 374  :         "movl\t48(%1), %%ecx\n\t"
-; 375  :         "adcxl\t48(%2), %%ecx\n\t"
-; 376  :         "movl\t%%ecx, 48(%3)\n\t"
-; 377  :         "movl\t52(%1), %%ecx\n\t"
-; 378  :         "adcxl\t52(%2), %%ecx\n\t"
-; 379  :         "movl\t%%ecx, 52(%3)\n\t"
-; 380  :         "movl\t56(%1), %%ecx\n\t"
-; 381  :         "adcxl\t56(%2), %%ecx\n\t"
-; 382  :         "movl\t%%ecx, 56(%3)\n\t"
-; 383  :         "movl\t60(%1), %%ecx\n\t"
-; 384  :         "adcxl\t60(%2), %%ecx\n\t"
-; 385  :         "movl\t%%ecx, 60(%3)\n\t"
-; 386  :         "movl\t64(%1), %%ecx\n\t"
-; 387  :         "adcxl\t64(%2), %%ecx\n\t"
-; 388  :         "movl\t%%ecx, 64(%3)\n\t"
-; 389  :         "movl\t68(%1), %%ecx\n\t"
-; 390  :         "adcxl\t68(%2), %%ecx\n\t"
-; 391  :         "movl\t%%ecx, 68(%3)\n\t"
-; 392  :         "movl\t72(%1), %%ecx\n\t"
-; 393  :         "adcxl\t72(%2), %%ecx\n\t"
-; 394  :         "movl\t%%ecx, 72(%3)\n\t"
-; 395  :         "movl\t76(%1), %%ecx\n\t"
-; 396  :         "adcxl\t76(%2), %%ecx\n\t"
-; 397  :         "movl\t%%ecx, 76(%3)\n\t"
-; 398  :         "movl\t80(%1), %%ecx\n\t"
-; 399  :         "adcxl\t80(%2), %%ecx\n\t"
-; 400  :         "movl\t%%ecx, 80(%3)\n\t"
-; 401  :         "movl\t84(%1), %%ecx\n\t"
-; 402  :         "adcxl\t84(%2), %%ecx\n\t"
-; 403  :         "movl\t%%ecx, 84(%3)\n\t"
-; 404  :         "movl\t88(%1), %%ecx\n\t"
-; 405  :         "adcxl\t88(%2), %%ecx\n\t"
-; 406  :         "movl\t%%ecx, 88(%3)\n\t"
-; 407  :         "movl\t92(%1), %%ecx\n\t"
-; 408  :         "adcxl\t92(%2), %%ecx\n\t"
-; 409  :         "movl\t%%ecx, 92(%3)\n\t"
-; 410  :         "movl\t96(%1), %%ecx\n\t"
-; 411  :         "adcxl\t96(%2), %%ecx\n\t"
-; 412  :         "movl\t%%ecx, 96(%3)\n\t"
-; 413  :         "movl\t100(%1), %%ecx\n\t"
-; 414  :         "adcxl\t100(%2), %%ecx\n\t"
-; 415  :         "movl\t%%ecx, 100(%3)\n\t"
-; 416  :         "movl\t104(%1), %%ecx\n\t"
-; 417  :         "adcxl\t104(%2), %%ecx\n\t"
-; 418  :         "movl\t%%ecx, 104(%3)\n\t"
-; 419  :         "movl\t108(%1), %%ecx\n\t"
-; 420  :         "adcxl\t108(%2), %%ecx\n\t"
-; 421  :         "movl\t%%ecx, 108(%3)\n\t"
-; 422  :         "movl\t112(%1), %%ecx\n\t"
-; 423  :         "adcxl\t112(%2), %%ecx\n\t"
-; 424  :         "movl\t%%ecx, 112(%3)\n\t"
-; 425  :         "movl\t116(%1), %%ecx\n\t"
-; 426  :         "adcxl\t116(%2), %%ecx\n\t"
-; 427  :         "movl\t%%ecx, 116(%3)\n\t"
-; 428  :         "movl\t120(%1), %%ecx\n\t"
-; 429  :         "adcxl\t120(%2), %%ecx\n\t"
-; 430  :         "movl\t%%ecx, 120(%3)\n\t"
-; 431  :         "movl\t124(%1), %%ecx\n\t"
-; 432  :         "adcxl\t124(%2), %%ecx\n\t"
-; 433  :         "movl\t%%ecx, 124(%3)\n\t"
-; 434  :         "setc\t%0"
-; 435  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 436  :         :
-; 437  :         : "cc", "memory", "%ecx"
-; 438  : );
-; 439  : #elif defined(_M_IX64)
-; 440  :     __asm__ volatile (
-; 441  :         "addb\t$-1, %0\n\t"
-; 442  :         "movq\t(%1), %%rcx\n\t"
-; 443  :         "adcxq\t(%2), %%rcx\n\t"
-; 444  :         "movq\t%%rcx, (%3)\n\t"
-; 445  :         "movq\t8(%1), %%rcx\n\t"
-; 446  :         "adcxq\t8(%2), %%rcx\n\t"
-; 447  :         "movq\t%%rcx, 8(%3)\n\t"
-; 448  :         "movq\t16(%1), %%rcx\n\t"
-; 449  :         "adcxq\t16(%2), %%rcx\n\t"
-; 450  :         "movq\t%%rcx, 16(%3)\n\t"
-; 451  :         "movq\t24(%1), %%rcx\n\t"
-; 452  :         "adcxq\t24(%2), %%rcx\n\t"
-; 453  :         "movq\t%%rcx, 24(%3)\n\t"
-; 454  :         "movq\t32(%1), %%rcx\n\t"
-; 455  :         "adcxq\t32(%2), %%rcx\n\t"
-; 456  :         "movq\t%%rcx, 32(%3)\n\t"
-; 457  :         "movq\t40(%1), %%rcx\n\t"
-; 458  :         "adcxq\t40(%2), %%rcx\n\t"
-; 459  :         "movq\t%%rcx, 40(%3)\n\t"
-; 460  :         "movq\t48(%1), %%rcx\n\t"
-; 461  :         "adcxq\t48(%2), %%rcx\n\t"
-; 462  :         "movq\t%%rcx, 48(%3)\n\t"
-; 463  :         "movq\t56(%1), %%rcx\n\t"
-; 464  :         "adcxq\t56(%2), %%rcx\n\t"
-; 465  :         "movq\t%%rcx, 56(%3)\n\t"
-; 466  :         "movq\t64(%1), %%rcx\n\t"
-; 467  :         "adcxq\t64(%2), %%rcx\n\t"
-; 468  :         "movq\t%%rcx, 64(%3)\n\t"
-; 469  :         "movq\t72(%1), %%rcx\n\t"
-; 470  :         "adcxq\t72(%2), %%rcx\n\t"
-; 471  :         "movq\t%%rcx, 72(%3)\n\t"
-; 472  :         "movq\t80(%1), %%rcx\n\t"
-; 473  :         "adcxq\t80(%2), %%rcx\n\t"
-; 474  :         "movq\t%%rcx, 80(%3)\n\t"
-; 475  :         "movq\t88(%1), %%rcx\n\t"
-; 476  :         "adcxq\t88(%2), %%rcx\n\t"
-; 477  :         "movq\t%%rcx, 88(%3)\n\t"
-; 478  :         "movq\t96(%1), %%rcx\n\t"
-; 479  :         "adcxq\t96(%2), %%rcx\n\t"
-; 480  :         "movq\t%%rcx, 96(%3)\n\t"
-; 481  :         "movq\t104(%1), %%rcx\n\t"
-; 482  :         "adcxq\t104(%2), %%rcx\n\t"
-; 483  :         "movq\t%%rcx, 104(%3)\n\t"
-; 484  :         "movq\t112(%1), %%rcx\n\t"
-; 485  :         "adcxq\t112(%2), %%rcx\n\t"
-; 486  :         "movq\t%%rcx, 112(%3)\n\t"
-; 487  :         "movq\t120(%1), %%rcx\n\t"
-; 488  :         "adcxq\t120(%2), %%rcx\n\t"
-; 489  :         "movq\t%%rcx, 120(%3)\n\t"
-; 490  :         "movq\t128(%1), %%rcx\n\t"
-; 491  :         "adcxq\t128(%2), %%rcx\n\t"
-; 492  :         "movq\t%%rcx, 128(%3)\n\t"
-; 493  :         "movq\t136(%1), %%rcx\n\t"
-; 494  :         "adcxq\t136(%2), %%rcx\n\t"
-; 495  :         "movq\t%%rcx, 136(%3)\n\t"
-; 496  :         "movq\t144(%1), %%rcx\n\t"
-; 497  :         "adcxq\t144(%2), %%rcx\n\t"
-; 498  :         "movq\t%%rcx, 144(%3)\n\t"
-; 499  :         "movq\t152(%1), %%rcx\n\t"
-; 500  :         "adcxq\t152(%2), %%rcx\n\t"
-; 501  :         "movq\t%%rcx, 152(%3)\n\t"
-; 502  :         "movq\t160(%1), %%rcx\n\t"
-; 503  :         "adcxq\t160(%2), %%rcx\n\t"
-; 504  :         "movq\t%%rcx, 160(%3)\n\t"
-; 505  :         "movq\t168(%1), %%rcx\n\t"
-; 506  :         "adcxq\t168(%2), %%rcx\n\t"
-; 507  :         "movq\t%%rcx, 168(%3)\n\t"
-; 508  :         "movq\t176(%1), %%rcx\n\t"
-; 509  :         "adcxq\t176(%2), %%rcx\n\t"
-; 510  :         "movq\t%%rcx, 176(%3)\n\t"
-; 511  :         "movq\t184(%1), %%rcx\n\t"
-; 512  :         "adcxq\t184(%2), %%rcx\n\t"
-; 513  :         "movq\t%%rcx, 184(%3)\n\t"
-; 514  :         "movq\t192(%1), %%rcx\n\t"
-; 515  :         "adcxq\t192(%2), %%rcx\n\t"
-; 516  :         "movq\t%%rcx, 192(%3)\n\t"
-; 517  :         "movq\t200(%1), %%rcx\n\t"
-; 518  :         "adcxq\t200(%2), %%rcx\n\t"
-; 519  :         "movq\t%%rcx, 200(%3)\n\t"
-; 520  :         "movq\t208(%1), %%rcx\n\t"
-; 521  :         "adcxq\t208(%2), %%rcx\n\t"
-; 522  :         "movq\t%%rcx, 208(%3)\n\t"
-; 523  :         "movq\t216(%1), %%rcx\n\t"
-; 524  :         "adcxq\t216(%2), %%rcx\n\t"
-; 525  :         "movq\t%%rcx, 216(%3)\n\t"
-; 526  :         "movq\t224(%1), %%rcx\n\t"
-; 527  :         "adcxq\t224(%2), %%rcx\n\t"
-; 528  :         "movq\t%%rcx, 224(%3)\n\t"
-; 529  :         "movq\t232(%1), %%rcx\n\t"
-; 530  :         "adcxq\t232(%2), %%rcx\n\t"
-; 531  :         "movq\t%%rcx, 232(%3)\n\t"
-; 532  :         "movq\t240(%1), %%rcx\n\t"
-; 533  :         "adcxq\t240(%2), %%rcx\n\t"
-; 534  :         "movq\t%%rcx, 240(%3)\n\t"
-; 535  :         "movq\t248(%1), %%rcx\n\t"
-; 536  :         "adcxq\t248(%2), %%rcx\n\t"
-; 537  :         "movq\t%%rcx, 248(%3)\n\t"
-; 538  :         "setc\t%0"
-; 539  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 540  :         :
-; 541  :         : "cc", "memory", "%rcx"
-; 542  : );
-; 543  : #else
-; 544  : #error unknown platform
-; 545  : #endif
-; 546  : #else
-; 547  : #error unknown compiler
-; 548  : #endif
-; 549  :     return (c);
+; 327  : #elif defined(__GNUC__)
+; 328  : #ifdef _M_IX86
+; 329  :     __asm__ volatile (
+; 330  :         "addb\t$-1, %0\n\t"
+; 331  :         "movl\t(%1), %%ecx\n\t"
+; 332  :         "adcxl\t(%2), %%ecx\n\t"
+; 333  :         "movl\t%%ecx, (%3)\n\t"
+; 334  :         "movl\t4(%1), %%ecx\n\t"
+; 335  :         "adcxl\t4(%2), %%ecx\n\t"
+; 336  :         "movl\t%%ecx, 4(%3)\n\t"
+; 337  :         "movl\t8(%1), %%ecx\n\t"
+; 338  :         "adcxl\t8(%2), %%ecx\n\t"
+; 339  :         "movl\t%%ecx, 8(%3)\n\t"
+; 340  :         "movl\t12(%1), %%ecx\n\t"
+; 341  :         "adcxl\t12(%2), %%ecx\n\t"
+; 342  :         "movl\t%%ecx, 12(%3)\n\t"
+; 343  :         "movl\t16(%1), %%ecx\n\t"
+; 344  :         "adcxl\t16(%2), %%ecx\n\t"
+; 345  :         "movl\t%%ecx, 16(%3)\n\t"
+; 346  :         "movl\t20(%1), %%ecx\n\t"
+; 347  :         "adcxl\t20(%2), %%ecx\n\t"
+; 348  :         "movl\t%%ecx, 20(%3)\n\t"
+; 349  :         "movl\t24(%1), %%ecx\n\t"
+; 350  :         "adcxl\t24(%2), %%ecx\n\t"
+; 351  :         "movl\t%%ecx, 24(%3)\n\t"
+; 352  :         "movl\t28(%1), %%ecx\n\t"
+; 353  :         "adcxl\t28(%2), %%ecx\n\t"
+; 354  :         "movl\t%%ecx, 28(%3)\n\t"
+; 355  :         "movl\t32(%1), %%ecx\n\t"
+; 356  :         "adcxl\t32(%2), %%ecx\n\t"
+; 357  :         "movl\t%%ecx, 32(%3)\n\t"
+; 358  :         "movl\t36(%1), %%ecx\n\t"
+; 359  :         "adcxl\t36(%2), %%ecx\n\t"
+; 360  :         "movl\t%%ecx, 36(%3)\n\t"
+; 361  :         "movl\t40(%1), %%ecx\n\t"
+; 362  :         "adcxl\t40(%2), %%ecx\n\t"
+; 363  :         "movl\t%%ecx, 40(%3)\n\t"
+; 364  :         "movl\t44(%1), %%ecx\n\t"
+; 365  :         "adcxl\t44(%2), %%ecx\n\t"
+; 366  :         "movl\t%%ecx, 44(%3)\n\t"
+; 367  :         "movl\t48(%1), %%ecx\n\t"
+; 368  :         "adcxl\t48(%2), %%ecx\n\t"
+; 369  :         "movl\t%%ecx, 48(%3)\n\t"
+; 370  :         "movl\t52(%1), %%ecx\n\t"
+; 371  :         "adcxl\t52(%2), %%ecx\n\t"
+; 372  :         "movl\t%%ecx, 52(%3)\n\t"
+; 373  :         "movl\t56(%1), %%ecx\n\t"
+; 374  :         "adcxl\t56(%2), %%ecx\n\t"
+; 375  :         "movl\t%%ecx, 56(%3)\n\t"
+; 376  :         "movl\t60(%1), %%ecx\n\t"
+; 377  :         "adcxl\t60(%2), %%ecx\n\t"
+; 378  :         "movl\t%%ecx, 60(%3)\n\t"
+; 379  :         "movl\t64(%1), %%ecx\n\t"
+; 380  :         "adcxl\t64(%2), %%ecx\n\t"
+; 381  :         "movl\t%%ecx, 64(%3)\n\t"
+; 382  :         "movl\t68(%1), %%ecx\n\t"
+; 383  :         "adcxl\t68(%2), %%ecx\n\t"
+; 384  :         "movl\t%%ecx, 68(%3)\n\t"
+; 385  :         "movl\t72(%1), %%ecx\n\t"
+; 386  :         "adcxl\t72(%2), %%ecx\n\t"
+; 387  :         "movl\t%%ecx, 72(%3)\n\t"
+; 388  :         "movl\t76(%1), %%ecx\n\t"
+; 389  :         "adcxl\t76(%2), %%ecx\n\t"
+; 390  :         "movl\t%%ecx, 76(%3)\n\t"
+; 391  :         "movl\t80(%1), %%ecx\n\t"
+; 392  :         "adcxl\t80(%2), %%ecx\n\t"
+; 393  :         "movl\t%%ecx, 80(%3)\n\t"
+; 394  :         "movl\t84(%1), %%ecx\n\t"
+; 395  :         "adcxl\t84(%2), %%ecx\n\t"
+; 396  :         "movl\t%%ecx, 84(%3)\n\t"
+; 397  :         "movl\t88(%1), %%ecx\n\t"
+; 398  :         "adcxl\t88(%2), %%ecx\n\t"
+; 399  :         "movl\t%%ecx, 88(%3)\n\t"
+; 400  :         "movl\t92(%1), %%ecx\n\t"
+; 401  :         "adcxl\t92(%2), %%ecx\n\t"
+; 402  :         "movl\t%%ecx, 92(%3)\n\t"
+; 403  :         "movl\t96(%1), %%ecx\n\t"
+; 404  :         "adcxl\t96(%2), %%ecx\n\t"
+; 405  :         "movl\t%%ecx, 96(%3)\n\t"
+; 406  :         "movl\t100(%1), %%ecx\n\t"
+; 407  :         "adcxl\t100(%2), %%ecx\n\t"
+; 408  :         "movl\t%%ecx, 100(%3)\n\t"
+; 409  :         "movl\t104(%1), %%ecx\n\t"
+; 410  :         "adcxl\t104(%2), %%ecx\n\t"
+; 411  :         "movl\t%%ecx, 104(%3)\n\t"
+; 412  :         "movl\t108(%1), %%ecx\n\t"
+; 413  :         "adcxl\t108(%2), %%ecx\n\t"
+; 414  :         "movl\t%%ecx, 108(%3)\n\t"
+; 415  :         "movl\t112(%1), %%ecx\n\t"
+; 416  :         "adcxl\t112(%2), %%ecx\n\t"
+; 417  :         "movl\t%%ecx, 112(%3)\n\t"
+; 418  :         "movl\t116(%1), %%ecx\n\t"
+; 419  :         "adcxl\t116(%2), %%ecx\n\t"
+; 420  :         "movl\t%%ecx, 116(%3)\n\t"
+; 421  :         "movl\t120(%1), %%ecx\n\t"
+; 422  :         "adcxl\t120(%2), %%ecx\n\t"
+; 423  :         "movl\t%%ecx, 120(%3)\n\t"
+; 424  :         "movl\t124(%1), %%ecx\n\t"
+; 425  :         "adcxl\t124(%2), %%ecx\n\t"
+; 426  :         "movl\t%%ecx, 124(%3)\n\t"
+; 427  :         "setc\t%0"
+; 428  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 429  :         :
+; 430  :         : "cc", "memory", "%ecx"
+; 431  : );
+; 432  : #elif defined(_M_IX64)
+; 433  :     __asm__ volatile (
+; 434  :         "addb\t$-1, %0\n\t"
+; 435  :         "movq\t(%1), %%rcx\n\t"
+; 436  :         "adcxq\t(%2), %%rcx\n\t"
+; 437  :         "movq\t%%rcx, (%3)\n\t"
+; 438  :         "movq\t8(%1), %%rcx\n\t"
+; 439  :         "adcxq\t8(%2), %%rcx\n\t"
+; 440  :         "movq\t%%rcx, 8(%3)\n\t"
+; 441  :         "movq\t16(%1), %%rcx\n\t"
+; 442  :         "adcxq\t16(%2), %%rcx\n\t"
+; 443  :         "movq\t%%rcx, 16(%3)\n\t"
+; 444  :         "movq\t24(%1), %%rcx\n\t"
+; 445  :         "adcxq\t24(%2), %%rcx\n\t"
+; 446  :         "movq\t%%rcx, 24(%3)\n\t"
+; 447  :         "movq\t32(%1), %%rcx\n\t"
+; 448  :         "adcxq\t32(%2), %%rcx\n\t"
+; 449  :         "movq\t%%rcx, 32(%3)\n\t"
+; 450  :         "movq\t40(%1), %%rcx\n\t"
+; 451  :         "adcxq\t40(%2), %%rcx\n\t"
+; 452  :         "movq\t%%rcx, 40(%3)\n\t"
+; 453  :         "movq\t48(%1), %%rcx\n\t"
+; 454  :         "adcxq\t48(%2), %%rcx\n\t"
+; 455  :         "movq\t%%rcx, 48(%3)\n\t"
+; 456  :         "movq\t56(%1), %%rcx\n\t"
+; 457  :         "adcxq\t56(%2), %%rcx\n\t"
+; 458  :         "movq\t%%rcx, 56(%3)\n\t"
+; 459  :         "movq\t64(%1), %%rcx\n\t"
+; 460  :         "adcxq\t64(%2), %%rcx\n\t"
+; 461  :         "movq\t%%rcx, 64(%3)\n\t"
+; 462  :         "movq\t72(%1), %%rcx\n\t"
+; 463  :         "adcxq\t72(%2), %%rcx\n\t"
+; 464  :         "movq\t%%rcx, 72(%3)\n\t"
+; 465  :         "movq\t80(%1), %%rcx\n\t"
+; 466  :         "adcxq\t80(%2), %%rcx\n\t"
+; 467  :         "movq\t%%rcx, 80(%3)\n\t"
+; 468  :         "movq\t88(%1), %%rcx\n\t"
+; 469  :         "adcxq\t88(%2), %%rcx\n\t"
+; 470  :         "movq\t%%rcx, 88(%3)\n\t"
+; 471  :         "movq\t96(%1), %%rcx\n\t"
+; 472  :         "adcxq\t96(%2), %%rcx\n\t"
+; 473  :         "movq\t%%rcx, 96(%3)\n\t"
+; 474  :         "movq\t104(%1), %%rcx\n\t"
+; 475  :         "adcxq\t104(%2), %%rcx\n\t"
+; 476  :         "movq\t%%rcx, 104(%3)\n\t"
+; 477  :         "movq\t112(%1), %%rcx\n\t"
+; 478  :         "adcxq\t112(%2), %%rcx\n\t"
+; 479  :         "movq\t%%rcx, 112(%3)\n\t"
+; 480  :         "movq\t120(%1), %%rcx\n\t"
+; 481  :         "adcxq\t120(%2), %%rcx\n\t"
+; 482  :         "movq\t%%rcx, 120(%3)\n\t"
+; 483  :         "movq\t128(%1), %%rcx\n\t"
+; 484  :         "adcxq\t128(%2), %%rcx\n\t"
+; 485  :         "movq\t%%rcx, 128(%3)\n\t"
+; 486  :         "movq\t136(%1), %%rcx\n\t"
+; 487  :         "adcxq\t136(%2), %%rcx\n\t"
+; 488  :         "movq\t%%rcx, 136(%3)\n\t"
+; 489  :         "movq\t144(%1), %%rcx\n\t"
+; 490  :         "adcxq\t144(%2), %%rcx\n\t"
+; 491  :         "movq\t%%rcx, 144(%3)\n\t"
+; 492  :         "movq\t152(%1), %%rcx\n\t"
+; 493  :         "adcxq\t152(%2), %%rcx\n\t"
+; 494  :         "movq\t%%rcx, 152(%3)\n\t"
+; 495  :         "movq\t160(%1), %%rcx\n\t"
+; 496  :         "adcxq\t160(%2), %%rcx\n\t"
+; 497  :         "movq\t%%rcx, 160(%3)\n\t"
+; 498  :         "movq\t168(%1), %%rcx\n\t"
+; 499  :         "adcxq\t168(%2), %%rcx\n\t"
+; 500  :         "movq\t%%rcx, 168(%3)\n\t"
+; 501  :         "movq\t176(%1), %%rcx\n\t"
+; 502  :         "adcxq\t176(%2), %%rcx\n\t"
+; 503  :         "movq\t%%rcx, 176(%3)\n\t"
+; 504  :         "movq\t184(%1), %%rcx\n\t"
+; 505  :         "adcxq\t184(%2), %%rcx\n\t"
+; 506  :         "movq\t%%rcx, 184(%3)\n\t"
+; 507  :         "movq\t192(%1), %%rcx\n\t"
+; 508  :         "adcxq\t192(%2), %%rcx\n\t"
+; 509  :         "movq\t%%rcx, 192(%3)\n\t"
+; 510  :         "movq\t200(%1), %%rcx\n\t"
+; 511  :         "adcxq\t200(%2), %%rcx\n\t"
+; 512  :         "movq\t%%rcx, 200(%3)\n\t"
+; 513  :         "movq\t208(%1), %%rcx\n\t"
+; 514  :         "adcxq\t208(%2), %%rcx\n\t"
+; 515  :         "movq\t%%rcx, 208(%3)\n\t"
+; 516  :         "movq\t216(%1), %%rcx\n\t"
+; 517  :         "adcxq\t216(%2), %%rcx\n\t"
+; 518  :         "movq\t%%rcx, 216(%3)\n\t"
+; 519  :         "movq\t224(%1), %%rcx\n\t"
+; 520  :         "adcxq\t224(%2), %%rcx\n\t"
+; 521  :         "movq\t%%rcx, 224(%3)\n\t"
+; 522  :         "movq\t232(%1), %%rcx\n\t"
+; 523  :         "adcxq\t232(%2), %%rcx\n\t"
+; 524  :         "movq\t%%rcx, 232(%3)\n\t"
+; 525  :         "movq\t240(%1), %%rcx\n\t"
+; 526  :         "adcxq\t240(%2), %%rcx\n\t"
+; 527  :         "movq\t%%rcx, 240(%3)\n\t"
+; 528  :         "movq\t248(%1), %%rcx\n\t"
+; 529  :         "adcxq\t248(%2), %%rcx\n\t"
+; 530  :         "movq\t%%rcx, 248(%3)\n\t"
+; 531  :         "setc\t%0"
+; 532  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 533  :         :
+; 534  :         : "cc", "memory", "%rcx"
+; 535  : );
+; 536  : #else
+; 537  : #error unknown platform
+; 538  : #endif
+; 539  : #else
+; 540  : #error unknown compiler
+; 541  : #endif
+; 542  :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 550  : }
+; 543  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5344,15 +5344,15 @@ _yp$ = 16						; size = 4
 _zp$ = 20						; size = 4
 __ADD_32WORDS_ADC PROC
 
-; 47   : {
+; 40   : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __E05E7037_autogenerated_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 48   : #ifdef _MSC_VER
-; 49   :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
+; 41   : #ifdef _MSC_VER
+; 42   :     c = _ADD_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 4
 	imul	ecx, eax, 0
@@ -5374,7 +5374,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 50   :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
+; 43   :     c = _ADD_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	edx, 4
 	shl	edx, 0
@@ -5396,7 +5396,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 51   :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
+; 44   :     c = _ADD_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	ecx, 4
 	shl	ecx, 1
@@ -5418,7 +5418,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 52   :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
+; 45   :     c = _ADD_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 4
 	imul	ecx, eax, 3
@@ -5440,7 +5440,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 53   :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
+; 46   :     c = _ADD_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	edx, 4
 	shl	edx, 2
@@ -5462,7 +5462,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 54   :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
+; 47   :     c = _ADD_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 5
@@ -5484,7 +5484,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 55   :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
+; 48   :     c = _ADD_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 4
 	imul	ecx, eax, 6
@@ -5506,7 +5506,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 56   :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
+; 49   :     c = _ADD_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	edx, 4
 	imul	eax, edx, 7
@@ -5528,7 +5528,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 57   :     c = _ADD_UNIT(c, xp[8], yp[8], &zp[8]);
+; 50   :     c = _ADD_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	ecx, 4
 	shl	ecx, 3
@@ -5550,7 +5550,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 58   :     c = _ADD_UNIT(c, xp[9], yp[9], &zp[9]);
+; 51   :     c = _ADD_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 4
 	imul	ecx, eax, 9
@@ -5572,7 +5572,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 59   :     c = _ADD_UNIT(c, xp[10], yp[10], &zp[10]);
+; 52   :     c = _ADD_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	edx, 4
 	imul	eax, edx, 10
@@ -5594,7 +5594,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 60   :     c = _ADD_UNIT(c, xp[11], yp[11], &zp[11]);
+; 53   :     c = _ADD_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 11
@@ -5616,7 +5616,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 61   :     c = _ADD_UNIT(c, xp[12], yp[12], &zp[12]);
+; 54   :     c = _ADD_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 4
 	imul	ecx, eax, 12
@@ -5638,7 +5638,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 62   :     c = _ADD_UNIT(c, xp[13], yp[13], &zp[13]);
+; 55   :     c = _ADD_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	edx, 4
 	imul	eax, edx, 13
@@ -5660,7 +5660,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 63   :     c = _ADD_UNIT(c, xp[14], yp[14], &zp[14]);
+; 56   :     c = _ADD_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 14
@@ -5682,7 +5682,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 64   :     c = _ADD_UNIT(c, xp[15], yp[15], &zp[15]);
+; 57   :     c = _ADD_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 4
 	imul	ecx, eax, 15
@@ -5704,7 +5704,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 65   :     c = _ADD_UNIT(c, xp[16], yp[16], &zp[16]);
+; 58   :     c = _ADD_UNIT(c, xp[16], yp[16], &zp[16]);
 
 	mov	edx, 4
 	shl	edx, 4
@@ -5726,7 +5726,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 66   :     c = _ADD_UNIT(c, xp[17], yp[17], &zp[17]);
+; 59   :     c = _ADD_UNIT(c, xp[17], yp[17], &zp[17]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 17
@@ -5748,7 +5748,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 67   :     c = _ADD_UNIT(c, xp[18], yp[18], &zp[18]);
+; 60   :     c = _ADD_UNIT(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, 4
 	imul	ecx, eax, 18
@@ -5770,7 +5770,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 68   :     c = _ADD_UNIT(c, xp[19], yp[19], &zp[19]);
+; 61   :     c = _ADD_UNIT(c, xp[19], yp[19], &zp[19]);
 
 	mov	edx, 4
 	imul	eax, edx, 19
@@ -5792,7 +5792,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 69   :     c = _ADD_UNIT(c, xp[20], yp[20], &zp[20]);
+; 62   :     c = _ADD_UNIT(c, xp[20], yp[20], &zp[20]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 20
@@ -5814,7 +5814,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 70   :     c = _ADD_UNIT(c, xp[21], yp[21], &zp[21]);
+; 63   :     c = _ADD_UNIT(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, 4
 	imul	ecx, eax, 21
@@ -5836,7 +5836,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 71   :     c = _ADD_UNIT(c, xp[22], yp[22], &zp[22]);
+; 64   :     c = _ADD_UNIT(c, xp[22], yp[22], &zp[22]);
 
 	mov	edx, 4
 	imul	eax, edx, 22
@@ -5858,7 +5858,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 72   :     c = _ADD_UNIT(c, xp[23], yp[23], &zp[23]);
+; 65   :     c = _ADD_UNIT(c, xp[23], yp[23], &zp[23]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 23
@@ -5880,7 +5880,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 73   :     c = _ADD_UNIT(c, xp[24], yp[24], &zp[24]);
+; 66   :     c = _ADD_UNIT(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, 4
 	imul	ecx, eax, 24
@@ -5902,7 +5902,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 74   :     c = _ADD_UNIT(c, xp[25], yp[25], &zp[25]);
+; 67   :     c = _ADD_UNIT(c, xp[25], yp[25], &zp[25]);
 
 	mov	edx, 4
 	imul	eax, edx, 25
@@ -5924,7 +5924,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 75   :     c = _ADD_UNIT(c, xp[26], yp[26], &zp[26]);
+; 68   :     c = _ADD_UNIT(c, xp[26], yp[26], &zp[26]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 26
@@ -5946,7 +5946,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 76   :     c = _ADD_UNIT(c, xp[27], yp[27], &zp[27]);
+; 69   :     c = _ADD_UNIT(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, 4
 	imul	ecx, eax, 27
@@ -5968,7 +5968,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 77   :     c = _ADD_UNIT(c, xp[28], yp[28], &zp[28]);
+; 70   :     c = _ADD_UNIT(c, xp[28], yp[28], &zp[28]);
 
 	mov	edx, 4
 	imul	eax, edx, 28
@@ -5990,7 +5990,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 78   :     c = _ADD_UNIT(c, xp[29], yp[29], &zp[29]);
+; 71   :     c = _ADD_UNIT(c, xp[29], yp[29], &zp[29]);
 
 	mov	ecx, 4
 	imul	edx, ecx, 29
@@ -6012,7 +6012,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 79   :     c = _ADD_UNIT(c, xp[30], yp[30], &zp[30]);
+; 72   :     c = _ADD_UNIT(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, 4
 	imul	ecx, eax, 30
@@ -6034,7 +6034,7 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 80   :     c = _ADD_UNIT(c, xp[31], yp[31], &zp[31]);
+; 73   :     c = _ADD_UNIT(c, xp[31], yp[31], &zp[31]);
 
 	mov	edx, 4
 	imul	eax, edx, 31
@@ -6056,226 +6056,226 @@ __ADD_32WORDS_ADC PROC
 	add	esp, 16					; 00000010H
 	mov	BYTE PTR _c$[ebp], al
 
-; 81   : #elif defined(__GNUC__)
-; 82   : #ifdef _M_IX86
-; 83   :     __asm__ volatile (
-; 84   :         "addb\t$-1, %0\n\t"
-; 85   :         "movl\t(%1), %%ecx\n\t"
-; 86   :         "adcl\t(%2), %%ecx\n\t"
-; 87   :         "movl\t%%ecx, (%3)\n\t"
-; 88   :         "movl\t4(%1), %%ecx\n\t"
-; 89   :         "adcl\t4(%2), %%ecx\n\t"
-; 90   :         "movl\t%%ecx, 4(%3)\n\t"
-; 91   :         "movl\t8(%1), %%ecx\n\t"
-; 92   :         "adcl\t8(%2), %%ecx\n\t"
-; 93   :         "movl\t%%ecx, 8(%3)\n\t"
-; 94   :         "movl\t12(%1), %%ecx\n\t"
-; 95   :         "adcl\t12(%2), %%ecx\n\t"
-; 96   :         "movl\t%%ecx, 12(%3)\n\t"
-; 97   :         "movl\t16(%1), %%ecx\n\t"
-; 98   :         "adcl\t16(%2), %%ecx\n\t"
-; 99   :         "movl\t%%ecx, 16(%3)\n\t"
-; 100  :         "movl\t20(%1), %%ecx\n\t"
-; 101  :         "adcl\t20(%2), %%ecx\n\t"
-; 102  :         "movl\t%%ecx, 20(%3)\n\t"
-; 103  :         "movl\t24(%1), %%ecx\n\t"
-; 104  :         "adcl\t24(%2), %%ecx\n\t"
-; 105  :         "movl\t%%ecx, 24(%3)\n\t"
-; 106  :         "movl\t28(%1), %%ecx\n\t"
-; 107  :         "adcl\t28(%2), %%ecx\n\t"
-; 108  :         "movl\t%%ecx, 28(%3)\n\t"
-; 109  :         "movl\t32(%1), %%ecx\n\t"
-; 110  :         "adcl\t32(%2), %%ecx\n\t"
-; 111  :         "movl\t%%ecx, 32(%3)\n\t"
-; 112  :         "movl\t36(%1), %%ecx\n\t"
-; 113  :         "adcl\t36(%2), %%ecx\n\t"
-; 114  :         "movl\t%%ecx, 36(%3)\n\t"
-; 115  :         "movl\t40(%1), %%ecx\n\t"
-; 116  :         "adcl\t40(%2), %%ecx\n\t"
-; 117  :         "movl\t%%ecx, 40(%3)\n\t"
-; 118  :         "movl\t44(%1), %%ecx\n\t"
-; 119  :         "adcl\t44(%2), %%ecx\n\t"
-; 120  :         "movl\t%%ecx, 44(%3)\n\t"
-; 121  :         "movl\t48(%1), %%ecx\n\t"
-; 122  :         "adcl\t48(%2), %%ecx\n\t"
-; 123  :         "movl\t%%ecx, 48(%3)\n\t"
-; 124  :         "movl\t52(%1), %%ecx\n\t"
-; 125  :         "adcl\t52(%2), %%ecx\n\t"
-; 126  :         "movl\t%%ecx, 52(%3)\n\t"
-; 127  :         "movl\t56(%1), %%ecx\n\t"
-; 128  :         "adcl\t56(%2), %%ecx\n\t"
-; 129  :         "movl\t%%ecx, 56(%3)\n\t"
-; 130  :         "movl\t60(%1), %%ecx\n\t"
-; 131  :         "adcl\t60(%2), %%ecx\n\t"
-; 132  :         "movl\t%%ecx, 60(%3)\n\t"
-; 133  :         "movl\t64(%1), %%ecx\n\t"
-; 134  :         "adcl\t64(%2), %%ecx\n\t"
-; 135  :         "movl\t%%ecx, 64(%3)\n\t"
-; 136  :         "movl\t68(%1), %%ecx\n\t"
-; 137  :         "adcl\t68(%2), %%ecx\n\t"
-; 138  :         "movl\t%%ecx, 68(%3)\n\t"
-; 139  :         "movl\t72(%1), %%ecx\n\t"
-; 140  :         "adcl\t72(%2), %%ecx\n\t"
-; 141  :         "movl\t%%ecx, 72(%3)\n\t"
-; 142  :         "movl\t76(%1), %%ecx\n\t"
-; 143  :         "adcl\t76(%2), %%ecx\n\t"
-; 144  :         "movl\t%%ecx, 76(%3)\n\t"
-; 145  :         "movl\t80(%1), %%ecx\n\t"
-; 146  :         "adcl\t80(%2), %%ecx\n\t"
-; 147  :         "movl\t%%ecx, 80(%3)\n\t"
-; 148  :         "movl\t84(%1), %%ecx\n\t"
-; 149  :         "adcl\t84(%2), %%ecx\n\t"
-; 150  :         "movl\t%%ecx, 84(%3)\n\t"
-; 151  :         "movl\t88(%1), %%ecx\n\t"
-; 152  :         "adcl\t88(%2), %%ecx\n\t"
-; 153  :         "movl\t%%ecx, 88(%3)\n\t"
-; 154  :         "movl\t92(%1), %%ecx\n\t"
-; 155  :         "adcl\t92(%2), %%ecx\n\t"
-; 156  :         "movl\t%%ecx, 92(%3)\n\t"
-; 157  :         "movl\t96(%1), %%ecx\n\t"
-; 158  :         "adcl\t96(%2), %%ecx\n\t"
-; 159  :         "movl\t%%ecx, 96(%3)\n\t"
-; 160  :         "movl\t100(%1), %%ecx\n\t"
-; 161  :         "adcl\t100(%2), %%ecx\n\t"
-; 162  :         "movl\t%%ecx, 100(%3)\n\t"
-; 163  :         "movl\t104(%1), %%ecx\n\t"
-; 164  :         "adcl\t104(%2), %%ecx\n\t"
-; 165  :         "movl\t%%ecx, 104(%3)\n\t"
-; 166  :         "movl\t108(%1), %%ecx\n\t"
-; 167  :         "adcl\t108(%2), %%ecx\n\t"
-; 168  :         "movl\t%%ecx, 108(%3)\n\t"
-; 169  :         "movl\t112(%1), %%ecx\n\t"
-; 170  :         "adcl\t112(%2), %%ecx\n\t"
-; 171  :         "movl\t%%ecx, 112(%3)\n\t"
-; 172  :         "movl\t116(%1), %%ecx\n\t"
-; 173  :         "adcl\t116(%2), %%ecx\n\t"
-; 174  :         "movl\t%%ecx, 116(%3)\n\t"
-; 175  :         "movl\t120(%1), %%ecx\n\t"
-; 176  :         "adcl\t120(%2), %%ecx\n\t"
-; 177  :         "movl\t%%ecx, 120(%3)\n\t"
-; 178  :         "movl\t124(%1), %%ecx\n\t"
-; 179  :         "adcl\t124(%2), %%ecx\n\t"
-; 180  :         "movl\t%%ecx, 124(%3)\n\t"
-; 181  :         "setc\t%0"
-; 182  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 183  :         :
-; 184  :         : "cc", "memory", "%ecx"
-; 185  : );
-; 186  : #elif defined(_M_IX64)
-; 187  :     __asm__ volatile (
-; 188  :         "addb\t$-1, %0\n\t"
-; 189  :         "movq\t(%1), %%rcx\n\t"
-; 190  :         "adcq\t(%2), %%rcx\n\t"
-; 191  :         "movq\t%%rcx, (%3)\n\t"
-; 192  :         "movq\t8(%1), %%rcx\n\t"
-; 193  :         "adcq\t8(%2), %%rcx\n\t"
-; 194  :         "movq\t%%rcx, 8(%3)\n\t"
-; 195  :         "movq\t16(%1), %%rcx\n\t"
-; 196  :         "adcq\t16(%2), %%rcx\n\t"
-; 197  :         "movq\t%%rcx, 16(%3)\n\t"
-; 198  :         "movq\t24(%1), %%rcx\n\t"
-; 199  :         "adcq\t24(%2), %%rcx\n\t"
-; 200  :         "movq\t%%rcx, 24(%3)\n\t"
-; 201  :         "movq\t32(%1), %%rcx\n\t"
-; 202  :         "adcq\t32(%2), %%rcx\n\t"
-; 203  :         "movq\t%%rcx, 32(%3)\n\t"
-; 204  :         "movq\t40(%1), %%rcx\n\t"
-; 205  :         "adcq\t40(%2), %%rcx\n\t"
-; 206  :         "movq\t%%rcx, 40(%3)\n\t"
-; 207  :         "movq\t48(%1), %%rcx\n\t"
-; 208  :         "adcq\t48(%2), %%rcx\n\t"
-; 209  :         "movq\t%%rcx, 48(%3)\n\t"
-; 210  :         "movq\t56(%1), %%rcx\n\t"
-; 211  :         "adcq\t56(%2), %%rcx\n\t"
-; 212  :         "movq\t%%rcx, 56(%3)\n\t"
-; 213  :         "movq\t64(%1), %%rcx\n\t"
-; 214  :         "adcq\t64(%2), %%rcx\n\t"
-; 215  :         "movq\t%%rcx, 64(%3)\n\t"
-; 216  :         "movq\t72(%1), %%rcx\n\t"
-; 217  :         "adcq\t72(%2), %%rcx\n\t"
-; 218  :         "movq\t%%rcx, 72(%3)\n\t"
-; 219  :         "movq\t80(%1), %%rcx\n\t"
-; 220  :         "adcq\t80(%2), %%rcx\n\t"
-; 221  :         "movq\t%%rcx, 80(%3)\n\t"
-; 222  :         "movq\t88(%1), %%rcx\n\t"
-; 223  :         "adcq\t88(%2), %%rcx\n\t"
-; 224  :         "movq\t%%rcx, 88(%3)\n\t"
-; 225  :         "movq\t96(%1), %%rcx\n\t"
-; 226  :         "adcq\t96(%2), %%rcx\n\t"
-; 227  :         "movq\t%%rcx, 96(%3)\n\t"
-; 228  :         "movq\t104(%1), %%rcx\n\t"
-; 229  :         "adcq\t104(%2), %%rcx\n\t"
-; 230  :         "movq\t%%rcx, 104(%3)\n\t"
-; 231  :         "movq\t112(%1), %%rcx\n\t"
-; 232  :         "adcq\t112(%2), %%rcx\n\t"
-; 233  :         "movq\t%%rcx, 112(%3)\n\t"
-; 234  :         "movq\t120(%1), %%rcx\n\t"
-; 235  :         "adcq\t120(%2), %%rcx\n\t"
-; 236  :         "movq\t%%rcx, 120(%3)\n\t"
-; 237  :         "movq\t128(%1), %%rcx\n\t"
-; 238  :         "adcq\t128(%2), %%rcx\n\t"
-; 239  :         "movq\t%%rcx, 128(%3)\n\t"
-; 240  :         "movq\t136(%1), %%rcx\n\t"
-; 241  :         "adcq\t136(%2), %%rcx\n\t"
-; 242  :         "movq\t%%rcx, 136(%3)\n\t"
-; 243  :         "movq\t144(%1), %%rcx\n\t"
-; 244  :         "adcq\t144(%2), %%rcx\n\t"
-; 245  :         "movq\t%%rcx, 144(%3)\n\t"
-; 246  :         "movq\t152(%1), %%rcx\n\t"
-; 247  :         "adcq\t152(%2), %%rcx\n\t"
-; 248  :         "movq\t%%rcx, 152(%3)\n\t"
-; 249  :         "movq\t160(%1), %%rcx\n\t"
-; 250  :         "adcq\t160(%2), %%rcx\n\t"
-; 251  :         "movq\t%%rcx, 160(%3)\n\t"
-; 252  :         "movq\t168(%1), %%rcx\n\t"
-; 253  :         "adcq\t168(%2), %%rcx\n\t"
-; 254  :         "movq\t%%rcx, 168(%3)\n\t"
-; 255  :         "movq\t176(%1), %%rcx\n\t"
-; 256  :         "adcq\t176(%2), %%rcx\n\t"
-; 257  :         "movq\t%%rcx, 176(%3)\n\t"
-; 258  :         "movq\t184(%1), %%rcx\n\t"
-; 259  :         "adcq\t184(%2), %%rcx\n\t"
-; 260  :         "movq\t%%rcx, 184(%3)\n\t"
-; 261  :         "movq\t192(%1), %%rcx\n\t"
-; 262  :         "adcq\t192(%2), %%rcx\n\t"
-; 263  :         "movq\t%%rcx, 192(%3)\n\t"
-; 264  :         "movq\t200(%1), %%rcx\n\t"
-; 265  :         "adcq\t200(%2), %%rcx\n\t"
-; 266  :         "movq\t%%rcx, 200(%3)\n\t"
-; 267  :         "movq\t208(%1), %%rcx\n\t"
-; 268  :         "adcq\t208(%2), %%rcx\n\t"
-; 269  :         "movq\t%%rcx, 208(%3)\n\t"
-; 270  :         "movq\t216(%1), %%rcx\n\t"
-; 271  :         "adcq\t216(%2), %%rcx\n\t"
-; 272  :         "movq\t%%rcx, 216(%3)\n\t"
-; 273  :         "movq\t224(%1), %%rcx\n\t"
-; 274  :         "adcq\t224(%2), %%rcx\n\t"
-; 275  :         "movq\t%%rcx, 224(%3)\n\t"
-; 276  :         "movq\t232(%1), %%rcx\n\t"
-; 277  :         "adcq\t232(%2), %%rcx\n\t"
-; 278  :         "movq\t%%rcx, 232(%3)\n\t"
-; 279  :         "movq\t240(%1), %%rcx\n\t"
-; 280  :         "adcq\t240(%2), %%rcx\n\t"
-; 281  :         "movq\t%%rcx, 240(%3)\n\t"
-; 282  :         "movq\t248(%1), %%rcx\n\t"
-; 283  :         "adcq\t248(%2), %%rcx\n\t"
-; 284  :         "movq\t%%rcx, 248(%3)\n\t"
-; 285  :         "setc\t%0"
-; 286  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 287  :         :
-; 288  :         : "cc", "memory", "%rcx"
-; 289  : );
-; 290  : #else
-; 291  : #error unknown platform
-; 292  : #endif
-; 293  : #else
-; 294  : #error unknown compiler
-; 295  : #endif
-; 296  :     return (c);
+; 74   : #elif defined(__GNUC__)
+; 75   : #ifdef _M_IX86
+; 76   :     __asm__ volatile (
+; 77   :         "addb\t$-1, %0\n\t"
+; 78   :         "movl\t(%1), %%ecx\n\t"
+; 79   :         "adcl\t(%2), %%ecx\n\t"
+; 80   :         "movl\t%%ecx, (%3)\n\t"
+; 81   :         "movl\t4(%1), %%ecx\n\t"
+; 82   :         "adcl\t4(%2), %%ecx\n\t"
+; 83   :         "movl\t%%ecx, 4(%3)\n\t"
+; 84   :         "movl\t8(%1), %%ecx\n\t"
+; 85   :         "adcl\t8(%2), %%ecx\n\t"
+; 86   :         "movl\t%%ecx, 8(%3)\n\t"
+; 87   :         "movl\t12(%1), %%ecx\n\t"
+; 88   :         "adcl\t12(%2), %%ecx\n\t"
+; 89   :         "movl\t%%ecx, 12(%3)\n\t"
+; 90   :         "movl\t16(%1), %%ecx\n\t"
+; 91   :         "adcl\t16(%2), %%ecx\n\t"
+; 92   :         "movl\t%%ecx, 16(%3)\n\t"
+; 93   :         "movl\t20(%1), %%ecx\n\t"
+; 94   :         "adcl\t20(%2), %%ecx\n\t"
+; 95   :         "movl\t%%ecx, 20(%3)\n\t"
+; 96   :         "movl\t24(%1), %%ecx\n\t"
+; 97   :         "adcl\t24(%2), %%ecx\n\t"
+; 98   :         "movl\t%%ecx, 24(%3)\n\t"
+; 99   :         "movl\t28(%1), %%ecx\n\t"
+; 100  :         "adcl\t28(%2), %%ecx\n\t"
+; 101  :         "movl\t%%ecx, 28(%3)\n\t"
+; 102  :         "movl\t32(%1), %%ecx\n\t"
+; 103  :         "adcl\t32(%2), %%ecx\n\t"
+; 104  :         "movl\t%%ecx, 32(%3)\n\t"
+; 105  :         "movl\t36(%1), %%ecx\n\t"
+; 106  :         "adcl\t36(%2), %%ecx\n\t"
+; 107  :         "movl\t%%ecx, 36(%3)\n\t"
+; 108  :         "movl\t40(%1), %%ecx\n\t"
+; 109  :         "adcl\t40(%2), %%ecx\n\t"
+; 110  :         "movl\t%%ecx, 40(%3)\n\t"
+; 111  :         "movl\t44(%1), %%ecx\n\t"
+; 112  :         "adcl\t44(%2), %%ecx\n\t"
+; 113  :         "movl\t%%ecx, 44(%3)\n\t"
+; 114  :         "movl\t48(%1), %%ecx\n\t"
+; 115  :         "adcl\t48(%2), %%ecx\n\t"
+; 116  :         "movl\t%%ecx, 48(%3)\n\t"
+; 117  :         "movl\t52(%1), %%ecx\n\t"
+; 118  :         "adcl\t52(%2), %%ecx\n\t"
+; 119  :         "movl\t%%ecx, 52(%3)\n\t"
+; 120  :         "movl\t56(%1), %%ecx\n\t"
+; 121  :         "adcl\t56(%2), %%ecx\n\t"
+; 122  :         "movl\t%%ecx, 56(%3)\n\t"
+; 123  :         "movl\t60(%1), %%ecx\n\t"
+; 124  :         "adcl\t60(%2), %%ecx\n\t"
+; 125  :         "movl\t%%ecx, 60(%3)\n\t"
+; 126  :         "movl\t64(%1), %%ecx\n\t"
+; 127  :         "adcl\t64(%2), %%ecx\n\t"
+; 128  :         "movl\t%%ecx, 64(%3)\n\t"
+; 129  :         "movl\t68(%1), %%ecx\n\t"
+; 130  :         "adcl\t68(%2), %%ecx\n\t"
+; 131  :         "movl\t%%ecx, 68(%3)\n\t"
+; 132  :         "movl\t72(%1), %%ecx\n\t"
+; 133  :         "adcl\t72(%2), %%ecx\n\t"
+; 134  :         "movl\t%%ecx, 72(%3)\n\t"
+; 135  :         "movl\t76(%1), %%ecx\n\t"
+; 136  :         "adcl\t76(%2), %%ecx\n\t"
+; 137  :         "movl\t%%ecx, 76(%3)\n\t"
+; 138  :         "movl\t80(%1), %%ecx\n\t"
+; 139  :         "adcl\t80(%2), %%ecx\n\t"
+; 140  :         "movl\t%%ecx, 80(%3)\n\t"
+; 141  :         "movl\t84(%1), %%ecx\n\t"
+; 142  :         "adcl\t84(%2), %%ecx\n\t"
+; 143  :         "movl\t%%ecx, 84(%3)\n\t"
+; 144  :         "movl\t88(%1), %%ecx\n\t"
+; 145  :         "adcl\t88(%2), %%ecx\n\t"
+; 146  :         "movl\t%%ecx, 88(%3)\n\t"
+; 147  :         "movl\t92(%1), %%ecx\n\t"
+; 148  :         "adcl\t92(%2), %%ecx\n\t"
+; 149  :         "movl\t%%ecx, 92(%3)\n\t"
+; 150  :         "movl\t96(%1), %%ecx\n\t"
+; 151  :         "adcl\t96(%2), %%ecx\n\t"
+; 152  :         "movl\t%%ecx, 96(%3)\n\t"
+; 153  :         "movl\t100(%1), %%ecx\n\t"
+; 154  :         "adcl\t100(%2), %%ecx\n\t"
+; 155  :         "movl\t%%ecx, 100(%3)\n\t"
+; 156  :         "movl\t104(%1), %%ecx\n\t"
+; 157  :         "adcl\t104(%2), %%ecx\n\t"
+; 158  :         "movl\t%%ecx, 104(%3)\n\t"
+; 159  :         "movl\t108(%1), %%ecx\n\t"
+; 160  :         "adcl\t108(%2), %%ecx\n\t"
+; 161  :         "movl\t%%ecx, 108(%3)\n\t"
+; 162  :         "movl\t112(%1), %%ecx\n\t"
+; 163  :         "adcl\t112(%2), %%ecx\n\t"
+; 164  :         "movl\t%%ecx, 112(%3)\n\t"
+; 165  :         "movl\t116(%1), %%ecx\n\t"
+; 166  :         "adcl\t116(%2), %%ecx\n\t"
+; 167  :         "movl\t%%ecx, 116(%3)\n\t"
+; 168  :         "movl\t120(%1), %%ecx\n\t"
+; 169  :         "adcl\t120(%2), %%ecx\n\t"
+; 170  :         "movl\t%%ecx, 120(%3)\n\t"
+; 171  :         "movl\t124(%1), %%ecx\n\t"
+; 172  :         "adcl\t124(%2), %%ecx\n\t"
+; 173  :         "movl\t%%ecx, 124(%3)\n\t"
+; 174  :         "setc\t%0"
+; 175  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 176  :         :
+; 177  :         : "cc", "memory", "%ecx"
+; 178  : );
+; 179  : #elif defined(_M_IX64)
+; 180  :     __asm__ volatile (
+; 181  :         "addb\t$-1, %0\n\t"
+; 182  :         "movq\t(%1), %%rcx\n\t"
+; 183  :         "adcq\t(%2), %%rcx\n\t"
+; 184  :         "movq\t%%rcx, (%3)\n\t"
+; 185  :         "movq\t8(%1), %%rcx\n\t"
+; 186  :         "adcq\t8(%2), %%rcx\n\t"
+; 187  :         "movq\t%%rcx, 8(%3)\n\t"
+; 188  :         "movq\t16(%1), %%rcx\n\t"
+; 189  :         "adcq\t16(%2), %%rcx\n\t"
+; 190  :         "movq\t%%rcx, 16(%3)\n\t"
+; 191  :         "movq\t24(%1), %%rcx\n\t"
+; 192  :         "adcq\t24(%2), %%rcx\n\t"
+; 193  :         "movq\t%%rcx, 24(%3)\n\t"
+; 194  :         "movq\t32(%1), %%rcx\n\t"
+; 195  :         "adcq\t32(%2), %%rcx\n\t"
+; 196  :         "movq\t%%rcx, 32(%3)\n\t"
+; 197  :         "movq\t40(%1), %%rcx\n\t"
+; 198  :         "adcq\t40(%2), %%rcx\n\t"
+; 199  :         "movq\t%%rcx, 40(%3)\n\t"
+; 200  :         "movq\t48(%1), %%rcx\n\t"
+; 201  :         "adcq\t48(%2), %%rcx\n\t"
+; 202  :         "movq\t%%rcx, 48(%3)\n\t"
+; 203  :         "movq\t56(%1), %%rcx\n\t"
+; 204  :         "adcq\t56(%2), %%rcx\n\t"
+; 205  :         "movq\t%%rcx, 56(%3)\n\t"
+; 206  :         "movq\t64(%1), %%rcx\n\t"
+; 207  :         "adcq\t64(%2), %%rcx\n\t"
+; 208  :         "movq\t%%rcx, 64(%3)\n\t"
+; 209  :         "movq\t72(%1), %%rcx\n\t"
+; 210  :         "adcq\t72(%2), %%rcx\n\t"
+; 211  :         "movq\t%%rcx, 72(%3)\n\t"
+; 212  :         "movq\t80(%1), %%rcx\n\t"
+; 213  :         "adcq\t80(%2), %%rcx\n\t"
+; 214  :         "movq\t%%rcx, 80(%3)\n\t"
+; 215  :         "movq\t88(%1), %%rcx\n\t"
+; 216  :         "adcq\t88(%2), %%rcx\n\t"
+; 217  :         "movq\t%%rcx, 88(%3)\n\t"
+; 218  :         "movq\t96(%1), %%rcx\n\t"
+; 219  :         "adcq\t96(%2), %%rcx\n\t"
+; 220  :         "movq\t%%rcx, 96(%3)\n\t"
+; 221  :         "movq\t104(%1), %%rcx\n\t"
+; 222  :         "adcq\t104(%2), %%rcx\n\t"
+; 223  :         "movq\t%%rcx, 104(%3)\n\t"
+; 224  :         "movq\t112(%1), %%rcx\n\t"
+; 225  :         "adcq\t112(%2), %%rcx\n\t"
+; 226  :         "movq\t%%rcx, 112(%3)\n\t"
+; 227  :         "movq\t120(%1), %%rcx\n\t"
+; 228  :         "adcq\t120(%2), %%rcx\n\t"
+; 229  :         "movq\t%%rcx, 120(%3)\n\t"
+; 230  :         "movq\t128(%1), %%rcx\n\t"
+; 231  :         "adcq\t128(%2), %%rcx\n\t"
+; 232  :         "movq\t%%rcx, 128(%3)\n\t"
+; 233  :         "movq\t136(%1), %%rcx\n\t"
+; 234  :         "adcq\t136(%2), %%rcx\n\t"
+; 235  :         "movq\t%%rcx, 136(%3)\n\t"
+; 236  :         "movq\t144(%1), %%rcx\n\t"
+; 237  :         "adcq\t144(%2), %%rcx\n\t"
+; 238  :         "movq\t%%rcx, 144(%3)\n\t"
+; 239  :         "movq\t152(%1), %%rcx\n\t"
+; 240  :         "adcq\t152(%2), %%rcx\n\t"
+; 241  :         "movq\t%%rcx, 152(%3)\n\t"
+; 242  :         "movq\t160(%1), %%rcx\n\t"
+; 243  :         "adcq\t160(%2), %%rcx\n\t"
+; 244  :         "movq\t%%rcx, 160(%3)\n\t"
+; 245  :         "movq\t168(%1), %%rcx\n\t"
+; 246  :         "adcq\t168(%2), %%rcx\n\t"
+; 247  :         "movq\t%%rcx, 168(%3)\n\t"
+; 248  :         "movq\t176(%1), %%rcx\n\t"
+; 249  :         "adcq\t176(%2), %%rcx\n\t"
+; 250  :         "movq\t%%rcx, 176(%3)\n\t"
+; 251  :         "movq\t184(%1), %%rcx\n\t"
+; 252  :         "adcq\t184(%2), %%rcx\n\t"
+; 253  :         "movq\t%%rcx, 184(%3)\n\t"
+; 254  :         "movq\t192(%1), %%rcx\n\t"
+; 255  :         "adcq\t192(%2), %%rcx\n\t"
+; 256  :         "movq\t%%rcx, 192(%3)\n\t"
+; 257  :         "movq\t200(%1), %%rcx\n\t"
+; 258  :         "adcq\t200(%2), %%rcx\n\t"
+; 259  :         "movq\t%%rcx, 200(%3)\n\t"
+; 260  :         "movq\t208(%1), %%rcx\n\t"
+; 261  :         "adcq\t208(%2), %%rcx\n\t"
+; 262  :         "movq\t%%rcx, 208(%3)\n\t"
+; 263  :         "movq\t216(%1), %%rcx\n\t"
+; 264  :         "adcq\t216(%2), %%rcx\n\t"
+; 265  :         "movq\t%%rcx, 216(%3)\n\t"
+; 266  :         "movq\t224(%1), %%rcx\n\t"
+; 267  :         "adcq\t224(%2), %%rcx\n\t"
+; 268  :         "movq\t%%rcx, 224(%3)\n\t"
+; 269  :         "movq\t232(%1), %%rcx\n\t"
+; 270  :         "adcq\t232(%2), %%rcx\n\t"
+; 271  :         "movq\t%%rcx, 232(%3)\n\t"
+; 272  :         "movq\t240(%1), %%rcx\n\t"
+; 273  :         "adcq\t240(%2), %%rcx\n\t"
+; 274  :         "movq\t%%rcx, 240(%3)\n\t"
+; 275  :         "movq\t248(%1), %%rcx\n\t"
+; 276  :         "adcq\t248(%2), %%rcx\n\t"
+; 277  :         "movq\t%%rcx, 248(%3)\n\t"
+; 278  :         "setc\t%0"
+; 279  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 280  :         :
+; 281  :         : "cc", "memory", "%rcx"
+; 282  : );
+; 283  : #else
+; 284  : #error unknown platform
+; 285  : #endif
+; 286  : #else
+; 287  : #error unknown compiler
+; 288  : #endif
+; 289  :     return (c);
 
 	mov	al, BYTE PTR _c$[ebp]
 
-; 297  : }
+; 290  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -6290,7 +6290,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __LZCNT_ALT_UNIT PROC
 
-; 629  :     {
+; 622  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -6301,50 +6301,50 @@ __LZCNT_ALT_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, DWORD PTR _pos$[ebp]
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -6380,7 +6380,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 4
 __LZCNT_ALT_32 PROC
 
-; 596  :     {
+; 589  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -6391,36 +6391,36 @@ __LZCNT_ALT_32 PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _pos$[ebp], eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31					; 0000001fH
 	sub	eax, DWORD PTR _pos$[ebp]
 $LN1@LZCNT_ALT_:
 
-; 608  :     }
+; 601  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -6458,7 +6458,7 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADDX_UNIT PROC
 
-; 241  :     {
+; 234  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -6466,8 +6466,8 @@ __ADDX_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 242  : #ifdef _M_IX86
-; 243  :         return (_addcarryx_u32(carry, u, v, w));
+; 235  : #ifdef _M_IX86
+; 236  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -6479,12 +6479,12 @@ __ADDX_UNIT PROC
 	mov	DWORD PTR [eax], edx
 	mov	al, cl
 
-; 244  : #elif defined(_M_X64)
-; 245  :         return (_addcarryx_u64(carry, u, v, w));
-; 246  : #else
-; 247  : #error unknown platform
-; 248  : #endif
-; 249  :     }
+; 237  : #elif defined(_M_X64)
+; 238  :         return (_addcarryx_u64(carry, u, v, w));
+; 239  : #else
+; 240  : #error unknown platform
+; 241  : #endif
+; 242  :     }
 
 	pop	ebx
 	cmp	ebp, esp
@@ -6502,7 +6502,7 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADD_UNIT PROC
 
-; 213  :     {
+; 206  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -6510,8 +6510,8 @@ __ADD_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 214  : #ifdef _M_IX86
-; 215  :         return (_addcarry_u32(carry, u, v, w));
+; 207  : #ifdef _M_IX86
+; 208  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -6523,12 +6523,12 @@ __ADD_UNIT PROC
 	mov	DWORD PTR [eax], edx
 	mov	al, cl
 
-; 216  : #elif defined(_M_X64)
-; 217  :         return (_addcarry_u64(carry, u, v, w));
-; 218  : #else
-; 219  : #error unknown platform
-; 220  : #endif
-; 221  :     }
+; 209  : #elif defined(_M_X64)
+; 210  :         return (_addcarry_u64(carry, u, v, w));
+; 211  : #else
+; 212  : #error unknown platform
+; 213  : #endif
+; 214  :     }
 
 	pop	ebx
 	cmp	ebp, esp
@@ -6545,7 +6545,7 @@ _x$ = 8							; size = 4
 _y$ = 12						; size = 4
 __MAXIMUM_UNIT PROC
 
-; 203  :     {
+; 196  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -6554,7 +6554,7 @@ __MAXIMUM_UNIT PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 204  :         return (x >= y ? x : y);
+; 197  :         return (x >= y ? x : y);
 
 	mov	eax, DWORD PTR _x$[ebp]
 	cmp	eax, DWORD PTR _y$[ebp]
@@ -6568,7 +6568,7 @@ $LN3@MAXIMUM_UN:
 $LN4@MAXIMUM_UN:
 	mov	eax, DWORD PTR tv65[ebp]
 
-; 205  :     }
+; 198  :     }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -6585,14 +6585,14 @@ _value$ = 8						; size = 8
 _result_high$ = 16					; size = 4
 __FROMDWORDTOWORD PROC
 
-; 182  :     {
+; 175  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	edx, DWORD PTR _value$[ebp+4]
@@ -6601,11 +6601,11 @@ __FROMDWORDTOWORD PROC
 	mov	ecx, DWORD PTR _result_high$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 
-; 185  :     }
+; 178  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -6629,7 +6629,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_Add_X_X@12 PROC
 
-; 558  : {
+; 551  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -6643,51 +6643,51 @@ _PMC_Add_X_X@12 PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 559  :     if (u == NULL)
+; 552  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN2@PMC_Add_X_
 
-; 560  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 553  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Add_X_
 $LN2@PMC_Add_X_:
 
-; 561  :     if (v == NULL)
+; 554  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Add_X_
 
-; 562  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 555  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Add_X_
 $LN3@PMC_Add_X_:
 
-; 563  :     if (w == NULL)
+; 556  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_X_
 
-; 564  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 557  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_Add_X_
 $LN4@PMC_Add_X_:
 
-; 565  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 558  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mov	DWORD PTR _nu$[ebp], eax
 
-; 566  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 559  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	mov	DWORD PTR _nv$[ebp], ecx
 
-; 567  :     PMC_STATUS_CODE result;
-; 568  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 560  :     PMC_STATUS_CODE result;
+; 561  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nu$[ebp]
 	push	edx
@@ -6697,13 +6697,13 @@ $LN4@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_X_
 
-; 569  :         return (result);
+; 562  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN5@PMC_Add_X_:
 
-; 570  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 563  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nv$[ebp]
 	push	eax
@@ -6713,14 +6713,14 @@ $LN5@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Add_X_
 
-; 571  :         return (result);
+; 564  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN6@PMC_Add_X_:
 
-; 572  :     NUMBER_HEADER* nw;
-; 573  :     if (nu->IS_ZERO)
+; 565  :     NUMBER_HEADER* nw;
+; 566  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -6728,8 +6728,8 @@ $LN6@PMC_Add_X_:
 	and	edx, 1
 	je	SHORT $LN7@PMC_Add_X_
 
-; 574  :     {
-; 575  :         if (nv->IS_ZERO)
+; 567  :     {
+; 568  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -6737,15 +6737,15 @@ $LN6@PMC_Add_X_:
 	and	ecx, 1
 	je	SHORT $LN9@PMC_Add_X_
 
-; 576  :             nw = &number_zero;
+; 569  :             nw = &number_zero;
 
 	mov	DWORD PTR _nw$[ebp], OFFSET _number_zero
 	jmp	SHORT $LN10@PMC_Add_X_
 $LN9@PMC_Add_X_:
 
-; 577  :         else
-; 578  :         {
-; 579  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
+; 570  :         else
+; 571  :         {
+; 572  :             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _nw$[ebp]
 	push	edx
@@ -6757,21 +6757,21 @@ $LN9@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN10@PMC_Add_X_
 
-; 580  :                 return (result);
+; 573  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN10@PMC_Add_X_:
 
-; 581  :         }
-; 582  :     }
+; 574  :         }
+; 575  :     }
 
 	jmp	$LN8@PMC_Add_X_
 $LN7@PMC_Add_X_:
 
-; 583  :     else
-; 584  :     {
-; 585  :         if (nv->IS_ZERO)
+; 576  :     else
+; 577  :     {
+; 578  :         if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
 	mov	edx, DWORD PTR [ecx+24]
@@ -6779,8 +6779,8 @@ $LN7@PMC_Add_X_:
 	and	edx, 1
 	je	SHORT $LN12@PMC_Add_X_
 
-; 586  :         {
-; 587  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
+; 579  :         {
+; 580  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _nw$[ebp]
 	push	eax
@@ -6792,32 +6792,32 @@ $LN7@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN14@PMC_Add_X_
 
-; 588  :                 return (result);
+; 581  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN14@PMC_Add_X_:
 
-; 589  :         }
+; 582  :         }
 
 	jmp	$LN8@PMC_Add_X_
 $LN12@PMC_Add_X_:
 
-; 590  :         else
-; 591  :         {
-; 592  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 583  :         else
+; 584  :         {
+; 585  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nu$[ebp]
 	mov	eax, DWORD PTR [edx+12]
 	mov	DWORD PTR _u_bit_count$4[ebp], eax
 
-; 593  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 586  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nv$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _v_bit_count$3[ebp], edx
 
-; 594  :             __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
+; 587  :             __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
 
 	mov	eax, DWORD PTR _v_bit_count$3[ebp]
 	push	eax
@@ -6828,8 +6828,8 @@ $LN12@PMC_Add_X_:
 	add	eax, 1
 	mov	DWORD PTR _w_bit_count$2[ebp], eax
 
-; 595  :             __UNIT_TYPE w_light_check_code;
-; 596  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 588  :             __UNIT_TYPE w_light_check_code;
+; 589  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	edx, DWORD PTR _w_light_check_code$1[ebp]
 	push	edx
@@ -6843,13 +6843,13 @@ $LN12@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN15@PMC_Add_X_
 
-; 597  :                 return (result);
+; 590  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_Add_X_
 $LN15@PMC_Add_X_:
 
-; 598  :             if ((result = (*fp_Add_Imp)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 591  :             if ((result = (*fp_Add_Imp)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _nw$[ebp]
@@ -6878,22 +6878,22 @@ $LN15@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN16@PMC_Add_X_
 
-; 599  :             {
-; 600  :                 DeallocateNumber(nw);
+; 592  :             {
+; 593  :                 DeallocateNumber(nw);
 
 	mov	edx, DWORD PTR _nw$[ebp]
 	push	edx
 	call	_DeallocateNumber
 	add	esp, 4
 
-; 601  :                 return (result);
+; 594  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN16@PMC_Add_X_:
 
-; 602  :             }
-; 603  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 595  :             }
+; 596  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w_light_check_code$1[ebp]
 	push	eax
@@ -6906,13 +6906,13 @@ $LN16@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN17@PMC_Add_X_
 
-; 604  :                 return (result);
+; 597  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN17@PMC_Add_X_:
 
-; 605  :             CommitNumber(nw);
+; 598  :             CommitNumber(nw);
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	eax
@@ -6920,16 +6920,16 @@ $LN17@PMC_Add_X_:
 	add	esp, 4
 $LN8@PMC_Add_X_:
 
-; 606  :         }
-; 607  :     }
-; 608  :     *w = nw;
+; 599  :         }
+; 600  :     }
+; 601  :     *w = nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 609  : #ifdef _DEBUG
-; 610  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 602  : #ifdef _DEBUG
+; 603  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -6940,19 +6940,19 @@ $LN8@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN18@PMC_Add_X_
 
-; 611  :         return (result);
+; 604  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN18@PMC_Add_X_:
 
-; 612  : #endif
-; 613  :     return (PMC_STATUS_OK);
+; 605  : #endif
+; 606  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_X_:
 
-; 614  : }
+; 607  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -7015,7 +7015,7 @@ _v$ = 12						; size = 8
 _w$ = 20						; size = 4
 _PMC_Add_X_L@16 PROC
 
-; 535  : {
+; 528  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7024,44 +7024,44 @@ _PMC_Add_X_L@16 PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 536  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
+; 529  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Add_X_
 
-; 537  :     {
-; 538  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 539  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 530  :     {
+; 531  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 532  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN2@PMC_Add_X_:
 
-; 540  :     }
-; 541  :     if (u == NULL)
+; 533  :     }
+; 534  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN3@PMC_Add_X_
 
-; 542  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 535  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN3@PMC_Add_X_:
 
-; 543  :     if (w == NULL)
+; 536  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_X_
 
-; 544  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 537  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN4@PMC_Add_X_:
 
-; 545  :     PMC_STATUS_CODE result;
-; 546  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 538  :     PMC_STATUS_CODE result;
+; 539  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	push	ecx
@@ -7071,13 +7071,13 @@ $LN4@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_X_
 
-; 547  :         return (result);
+; 540  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN5@PMC_Add_X_:
 
-; 548  :     if ((result = PMC_Add_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 541  :     if ((result = PMC_Add_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -7093,14 +7093,14 @@ $LN5@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Add_X_
 
-; 549  :         return (result);
+; 542  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN6@PMC_Add_X_:
 
-; 550  : #ifdef _DEBUG
-; 551  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 543  : #ifdef _DEBUG
+; 544  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -7111,19 +7111,19 @@ $LN6@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Add_X_
 
-; 552  :         return (result);
+; 545  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN7@PMC_Add_X_:
 
-; 553  : #endif
-; 554  :     return (PMC_STATUS_OK);
+; 546  : #endif
+; 547  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_X_:
 
-; 555  : }
+; 548  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -7142,7 +7142,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_Add_X_I@12 PROC
 
-; 383  : {
+; 376  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7151,44 +7151,44 @@ _PMC_Add_X_I@12 PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 384  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 377  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Add_X_
 
-; 385  :     {
-; 386  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 387  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 378  :     {
+; 379  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 380  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN2@PMC_Add_X_:
 
-; 388  :     }
-; 389  :     if (u == NULL)
+; 381  :     }
+; 382  :     if (u == NULL)
 
 	cmp	DWORD PTR _u$[ebp], 0
 	jne	SHORT $LN3@PMC_Add_X_
 
-; 390  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 383  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN3@PMC_Add_X_:
 
-; 391  :     if (w == NULL)
+; 384  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_X_
 
-; 392  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 385  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN4@PMC_Add_X_:
 
-; 393  :     PMC_STATUS_CODE result;
-; 394  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
+; 386  :     PMC_STATUS_CODE result;
+; 387  :     if ((result = CheckNumber((NUMBER_HEADER*)u)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _u$[ebp]
 	push	ecx
@@ -7198,13 +7198,13 @@ $LN4@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_X_
 
-; 395  :         return (result);
+; 388  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN5@PMC_Add_X_:
 
-; 396  :     if ((result = PMC_Add_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 389  :     if ((result = PMC_Add_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -7218,14 +7218,14 @@ $LN5@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Add_X_
 
-; 397  :         return (result);
+; 390  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN6@PMC_Add_X_:
 
-; 398  : #ifdef _DEBUG
-; 399  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 391  : #ifdef _DEBUG
+; 392  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -7236,19 +7236,19 @@ $LN6@PMC_Add_X_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Add_X_
 
-; 400  :         return (result);
+; 393  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_X_
 $LN7@PMC_Add_X_:
 
-; 401  : #endif
-; 402  :     return (PMC_STATUS_OK);
+; 394  : #endif
+; 395  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_X_:
 
-; 403  : }
+; 396  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -7267,7 +7267,7 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 _PMC_Add_L_X@16 PROC
 
-; 512  : {
+; 505  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7276,44 +7276,44 @@ _PMC_Add_L_X@16 PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 513  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
+; 506  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Add_L_
 
-; 514  :     {
-; 515  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 516  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 507  :     {
+; 508  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 509  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN2@PMC_Add_L_:
 
-; 517  :     }
-; 518  :     if (v == NULL)
+; 510  :     }
+; 511  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Add_L_
 
-; 519  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 512  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN3@PMC_Add_L_:
 
-; 520  :     if (w == NULL)
+; 513  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_L_
 
-; 521  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 514  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN4@PMC_Add_L_:
 
-; 522  :     PMC_STATUS_CODE result;
-; 523  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 515  :     PMC_STATUS_CODE result;
+; 516  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
@@ -7323,13 +7323,13 @@ $LN4@PMC_Add_L_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_L_
 
-; 524  :         return (result);
+; 517  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN5@PMC_Add_L_:
 
-; 525  :     if ((result = PMC_Add_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 518  :     if ((result = PMC_Add_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -7345,14 +7345,14 @@ $LN5@PMC_Add_L_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Add_L_
 
-; 526  :         return (result);
+; 519  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN6@PMC_Add_L_:
 
-; 527  : #ifdef _DEBUG
-; 528  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 520  : #ifdef _DEBUG
+; 521  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -7363,19 +7363,19 @@ $LN6@PMC_Add_L_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Add_L_
 
-; 529  :         return (result);
+; 522  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_L_
 $LN7@PMC_Add_L_:
 
-; 530  : #endif
-; 531  :     return (PMC_STATUS_OK);
+; 523  : #endif
+; 524  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_L_:
 
-; 532  : }
+; 525  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -7394,7 +7394,7 @@ _v$ = 12						; size = 4
 _w$ = 16						; size = 4
 _PMC_Add_I_X@12 PROC
 
-; 360  : {
+; 353  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7403,44 +7403,44 @@ _PMC_Add_I_X@12 PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 361  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 354  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_Add_I_
 
-; 362  :     {
-; 363  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 364  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 355  :     {
+; 356  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 357  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN2@PMC_Add_I_:
 
-; 365  :     }
-; 366  :     if (v == NULL)
+; 358  :     }
+; 359  :     if (v == NULL)
 
 	cmp	DWORD PTR _v$[ebp], 0
 	jne	SHORT $LN3@PMC_Add_I_
 
-; 367  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 360  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN3@PMC_Add_I_:
 
-; 368  :     if (w == NULL)
+; 361  :     if (w == NULL)
 
 	cmp	DWORD PTR _w$[ebp], 0
 	jne	SHORT $LN4@PMC_Add_I_
 
-; 369  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 362  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN4@PMC_Add_I_:
 
-; 370  :     PMC_STATUS_CODE result;
-; 371  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
+; 363  :     PMC_STATUS_CODE result;
+; 364  :     if ((result = CheckNumber((NUMBER_HEADER*)v)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
@@ -7450,13 +7450,13 @@ $LN4@PMC_Add_I_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_Add_I_
 
-; 372  :         return (result);
+; 365  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN5@PMC_Add_I_:
 
-; 373  :     if ((result = PMC_Add_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
+; 366  :     if ((result = PMC_Add_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	push	edx
@@ -7470,14 +7470,14 @@ $LN5@PMC_Add_I_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_Add_I_
 
-; 374  :         return (result);
+; 367  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN6@PMC_Add_I_:
 
-; 375  : #ifdef _DEBUG
-; 376  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 368  : #ifdef _DEBUG
+; 369  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -7488,19 +7488,19 @@ $LN6@PMC_Add_I_:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN7@PMC_Add_I_
 
-; 377  :         return (result);
+; 370  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_Add_I_
 $LN7@PMC_Add_I_:
 
-; 378  : #endif
-; 379  :     return (PMC_STATUS_OK);
+; 371  : #endif
+; 372  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Add_I_:
 
-; 380  : }
+; 373  : }
 
 	add	esp, 4
 	cmp	ebp, esp
@@ -7517,7 +7517,7 @@ tv68 = -4						; size = 4
 _feature$ = 8						; size = 4
 _Initialize_Add PROC
 
-; 617  : {
+; 610  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -7526,7 +7526,7 @@ _Initialize_Add PROC
 	mov	ecx, OFFSET __DB5B71FB_pmc_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 618  :     fp_Add_Imp = feature->PROCESSOR_FEATURE_ADX ? Add_Imp_using_ADCX : Add_Imp_using_ADC;
+; 611  :     fp_Add_Imp = feature->PROCESSOR_FEATURE_ADX ? Add_Imp_using_ADCX : Add_Imp_using_ADC;
 
 	mov	eax, DWORD PTR _feature$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -7541,11 +7541,11 @@ $LN4@Initialize:
 	mov	edx, DWORD PTR tv68[ebp]
 	mov	DWORD PTR _fp_Add_Imp, edx
 
-; 619  :     return (PMC_STATUS_OK);
+; 612  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 620  : }
+; 613  : }
 
 	add	esp, 4
 	cmp	ebp, esp

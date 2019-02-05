@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/* 
- * File:   pmc_clone.c
- * Author: Lunor Kisasage
- * 
- * Created on 2019/02/02, 23:44
- */
-
 
 #include <windows.h>
 #include "pmc_uint_internal.h"

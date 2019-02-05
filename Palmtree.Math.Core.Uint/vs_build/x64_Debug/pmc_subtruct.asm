@@ -618,7 +618,7 @@ wp$ = 304
 w_count$ = 312
 Subtruct_X_2W PROC					; COMDAT
 
-; 98   : {
+; 91   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -636,31 +636,31 @@ Subtruct_X_2W PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 99   :     if (u_count < 2)
+; 92   :     if (u_count < 2)
 
 	cmp	QWORD PTR u_count$[rbp], 2
 	jae	SHORT $LN2@Subtruct_X
 
-; 100  :     {
-; 101  :         // u が 1 ワードしかなかった場合
-; 102  : 
-; 103  :         // 明らかに演算結果が負になるのでエラーを通知する。
-; 104  :         return (PMC_STATUS_INTERNAL_BORROW);
+; 93   :     {
+; 94   :         // u が 1 ワードしかなかった場合
+; 95   : 
+; 96   :         // 明らかに演算結果が負になるのでエラーを通知する。
+; 97   :         return (PMC_STATUS_INTERNAL_BORROW);
 
 	mov	eax, -258				; fffffffffffffefeH
 	jmp	$LN1@Subtruct_X
 
-; 105  :     }
+; 98   :     }
 
 	jmp	$LN3@Subtruct_X
 $LN2@Subtruct_X:
 
-; 106  :     else
-; 107  :     {
-; 108  :         // x が 2 ワード以上あった場合
-; 109  : 
-; 110  :         // 最下位のワードの減算をする
-; 111  :         char c = _SUBTRUCT_UNIT(0, *up++, v_lo, wp++);
+; 99   :     else
+; 100  :     {
+; 101  :         // x が 2 ワード以上あった場合
+; 102  : 
+; 103  :         // 最下位のワードの減算をする
+; 104  :         char c = _SUBTRUCT_UNIT(0, *up++, v_lo, wp++);
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	QWORD PTR tv67[rbp], rax
@@ -680,9 +680,9 @@ $LN2@Subtruct_X:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$1[rbp], al
 
-; 112  : 
-; 113  :         // 最下位から 2 番目のワードの減算をする。
-; 114  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
+; 105  : 
+; 106  :         // 最下位から 2 番目のワードの減算をする。
+; 107  :         c = _SUBTRUCT_UNIT(c, *up++, v_hi, wp++);
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	QWORD PTR tv76[rbp], rax
@@ -702,21 +702,21 @@ $LN2@Subtruct_X:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$1[rbp], al
 
-; 115  :         u_count -= 2;
+; 108  :         u_count -= 2;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	sub	rax, 2
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 116  :         w_count -= 2;
+; 109  :         w_count -= 2;
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	sub	rax, 2
 	mov	QWORD PTR w_count$[rbp], rax
 
-; 117  : 
-; 118  :         // 残りの桁の繰り上がりを計算し、復帰する。
-; 119  :         return (DoBorrow(c, up, u_count, wp, w_count));
+; 110  : 
+; 111  :         // 残りの桁の繰り上がりを計算し、復帰する。
+; 112  :         return (DoBorrow(c, up, u_count, wp, w_count));
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	mov	QWORD PTR [rsp+32], rax
@@ -728,8 +728,8 @@ $LN2@Subtruct_X:
 $LN3@Subtruct_X:
 $LN1@Subtruct_X:
 
-; 120  :     }
-; 121  : }
+; 113  :     }
+; 114  : }
 
 	lea	rsp, QWORD PTR [rbp+248]
 	pop	rdi
@@ -751,7 +751,7 @@ wp$ = 296
 w_count$ = 304
 Subtruct_X_1W PROC					; COMDAT
 
-; 86   : {
+; 79   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -769,8 +769,8 @@ Subtruct_X_1W PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 87   :     // 最下桁の減算を行う
-; 88   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
+; 80   :     // 最下桁の減算を行う
+; 81   :     char c = _SUBTRUCT_UNIT(0, *up++, v, wp++);
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	QWORD PTR tv66[rbp], rax
@@ -790,21 +790,21 @@ Subtruct_X_1W PROC					; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 89   :     --u_count;
+; 82   :     --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 90   :     --w_count;
+; 83   :     --w_count;
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	dec	rax
 	mov	QWORD PTR w_count$[rbp], rax
 
-; 91   : 
-; 92   :     // 残りの桁の繰上りを行い復帰する。
-; 93   :     return (DoBorrow(c, up, u_count, wp, w_count));
+; 84   : 
+; 85   :     // 残りの桁の繰上りを行い復帰する。
+; 86   :     return (DoBorrow(c, up, u_count, wp, w_count));
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	mov	QWORD PTR [rsp+32], rax
@@ -814,7 +814,7 @@ Subtruct_X_1W PROC					; COMDAT
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoBorrow
 
-; 94   : }
+; 87   : }
 
 	lea	rsp, QWORD PTR [rbp+248]
 	pop	rdi
@@ -835,7 +835,7 @@ wp$ = 264
 w_count$ = 272
 DoBorrow PROC						; COMDAT
 
-; 40   : {
+; 33   : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -854,58 +854,58 @@ DoBorrow PROC						; COMDAT
 	call	__CheckForDebuggerJustMyCode
 $LN2@DoBorrow:
 
-; 41   :     // 桁借りを続く限り行う
-; 42   :     for (;;)
-; 43   :     {
-; 44   :         if (u_count <= 0)
+; 34   :     // 桁借りを続く限り行う
+; 35   :     for (;;)
+; 36   :     {
+; 37   :         if (u_count <= 0)
 
 	cmp	QWORD PTR u_count$[rbp], 0
 	ja	SHORT $LN7@DoBorrow
 
-; 45   :         {
-; 46   :             // x の最上位まで達してしまった場合
-; 47   : 
-; 48   :             if (c)
+; 38   :         {
+; 39   :             // x の最上位まで達してしまった場合
+; 40   : 
+; 41   :             if (c)
 
 	movsx	eax, BYTE PTR c$[rbp]
 	test	eax, eax
 	je	SHORT $LN9@DoBorrow
 
-; 49   :             {
-; 50   :                 // かつそれでも桁借りを行う必要がある場合
-; 51   : 
-; 52   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
-; 53   :                 return (PMC_STATUS_INTERNAL_BORROW);
+; 42   :             {
+; 43   :                 // かつそれでも桁借りを行う必要がある場合
+; 44   : 
+; 45   :                 // 減算結果が負になってしまったので呼び出し元に通知する。
+; 46   :                 return (PMC_STATUS_INTERNAL_BORROW);
 
 	mov	eax, -258				; fffffffffffffefeH
 	jmp	$LN1@DoBorrow
 $LN9@DoBorrow:
 
-; 54   :             }
-; 55   : 
-; 56   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
-; 57   : 
-; 58   :             return (PMC_STATUS_OK);
+; 47   :             }
+; 48   : 
+; 49   :             // xの最上位に達してしまった場合はいずれにしろループを中断して正常復帰する。
+; 50   : 
+; 51   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	$LN1@DoBorrow
 
-; 59   :         }
+; 52   :         }
 
 	jmp	$LN8@DoBorrow
 $LN7@DoBorrow:
 
-; 60   :         else if (c)
+; 53   :         else if (c)
 
 	movsx	eax, BYTE PTR c$[rbp]
 	test	eax, eax
 	je	$LN10@DoBorrow
 
-; 61   :         {
-; 62   :             // xの最上位に達しておらず、かつボローが立っている場合
-; 63   : 
-; 64   :             // 桁借りを継続する
-; 65   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
+; 54   :         {
+; 55   :             // xの最上位に達しておらず、かつボローが立っている場合
+; 56   : 
+; 57   :             // 桁借りを継続する
+; 58   :             c = _SUBTRUCT_UNIT(c, *up++, 0, wp++);
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	QWORD PTR tv71[rbp], rax
@@ -925,36 +925,36 @@ $LN7@DoBorrow:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 66   :             --u_count;
+; 59   :             --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 67   :             --w_count;
+; 60   :             --w_count;
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	dec	rax
 	mov	QWORD PTR w_count$[rbp], rax
 
-; 68   :         }
+; 61   :         }
 
 	jmp	SHORT $LN11@DoBorrow
 $LN10@DoBorrow:
 $LN5@DoBorrow:
 
-; 69   :         else
-; 70   :         {
-; 71   :             // xの最上位に達しておらず、かつボローが立っていない場合
-; 72   : 
-; 73   :             // 桁借りを中断し、xの残りのデータをzにそのまま複写し、正常復帰する。
-; 74   :             while (u_count > 0)
+; 62   :         else
+; 63   :         {
+; 64   :             // xの最上位に達しておらず、かつボローが立っていない場合
+; 65   : 
+; 66   :             // 桁借りを中断し、xの残りのデータをzにそのまま複写し、正常復帰する。
+; 67   :             while (u_count > 0)
 
 	cmp	QWORD PTR u_count$[rbp], 0
 	jbe	SHORT $LN6@DoBorrow
 
-; 75   :             {
-; 76   :                 *wp++ = *up++;
+; 68   :             {
+; 69   :                 *wp++ = *up++;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	rcx, QWORD PTR up$[rbp]
@@ -967,37 +967,37 @@ $LN5@DoBorrow:
 	add	rax, 8
 	mov	QWORD PTR up$[rbp], rax
 
-; 77   :                 --u_count;
+; 70   :                 --u_count;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	dec	rax
 	mov	QWORD PTR u_count$[rbp], rax
 
-; 78   :                 --w_count;
+; 71   :                 --w_count;
 
 	mov	rax, QWORD PTR w_count$[rbp]
 	dec	rax
 	mov	QWORD PTR w_count$[rbp], rax
 
-; 79   :             }
+; 72   :             }
 
 	jmp	SHORT $LN5@DoBorrow
 $LN6@DoBorrow:
 
-; 80   :             return (PMC_STATUS_OK);
+; 73   :             return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@DoBorrow
 $LN11@DoBorrow:
 $LN8@DoBorrow:
 
-; 81   :         }
-; 82   :     }
+; 74   :         }
+; 75   :     }
 
 	jmp	$LN2@DoBorrow
 $LN1@DoBorrow:
 
-; 83   : }
+; 76   : }
 
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
@@ -1015,7 +1015,7 @@ yp$ = 240
 zp$ = 248
 _SUBTRUCT_2WORDS_SBB PROC				; COMDAT
 
-; 4464 : {
+; 4457 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1033,8 +1033,8 @@ _SUBTRUCT_2WORDS_SBB PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4465 : #ifdef _MSC_VER
-; 4466 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4458 : #ifdef _MSC_VER
+; 4459 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1054,7 +1054,7 @@ _SUBTRUCT_2WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4467 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4460 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1074,46 +1074,46 @@ _SUBTRUCT_2WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4468 : #elif defined(__GNUC__)
-; 4469 : #ifdef _M_IX86
-; 4470 :     __asm__ volatile (
-; 4471 :         "addb\t$-1, %0\n\t"
-; 4472 :         "movl\t(%1), %%ecx\n\t"
-; 4473 :         "sbbl\t(%2), %%ecx\n\t"
-; 4474 :         "movl\t%%ecx, (%3)\n\t"
-; 4475 :         "movl\t4(%1), %%ecx\n\t"
-; 4476 :         "sbbl\t4(%2), %%ecx\n\t"
-; 4477 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4478 :         "setc\t%0"
-; 4479 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4480 :         :
-; 4481 :         : "cc", "memory", "%ecx"
-; 4482 : );
-; 4483 : #elif defined(_M_IX64)
-; 4484 :     __asm__ volatile (
-; 4485 :         "addb\t$-1, %0\n\t"
-; 4486 :         "movq\t(%1), %%rcx\n\t"
-; 4487 :         "sbbq\t(%2), %%rcx\n\t"
-; 4488 :         "movq\t%%rcx, (%3)\n\t"
-; 4489 :         "movq\t8(%1), %%rcx\n\t"
-; 4490 :         "sbbq\t8(%2), %%rcx\n\t"
-; 4491 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4492 :         "setc\t%0"
-; 4493 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4494 :         :
-; 4495 :         : "cc", "memory", "%rcx"
-; 4496 : );
-; 4497 : #else
-; 4498 : #error unknown platform
-; 4499 : #endif
-; 4500 : #else
-; 4501 : #error unknown compiler
-; 4502 : #endif
-; 4503 :     return (c);
+; 4461 : #elif defined(__GNUC__)
+; 4462 : #ifdef _M_IX86
+; 4463 :     __asm__ volatile (
+; 4464 :         "addb\t$-1, %0\n\t"
+; 4465 :         "movl\t(%1), %%ecx\n\t"
+; 4466 :         "sbbl\t(%2), %%ecx\n\t"
+; 4467 :         "movl\t%%ecx, (%3)\n\t"
+; 4468 :         "movl\t4(%1), %%ecx\n\t"
+; 4469 :         "sbbl\t4(%2), %%ecx\n\t"
+; 4470 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4471 :         "setc\t%0"
+; 4472 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4473 :         :
+; 4474 :         : "cc", "memory", "%ecx"
+; 4475 : );
+; 4476 : #elif defined(_M_IX64)
+; 4477 :     __asm__ volatile (
+; 4478 :         "addb\t$-1, %0\n\t"
+; 4479 :         "movq\t(%1), %%rcx\n\t"
+; 4480 :         "sbbq\t(%2), %%rcx\n\t"
+; 4481 :         "movq\t%%rcx, (%3)\n\t"
+; 4482 :         "movq\t8(%1), %%rcx\n\t"
+; 4483 :         "sbbq\t8(%2), %%rcx\n\t"
+; 4484 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4485 :         "setc\t%0"
+; 4486 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4487 :         :
+; 4488 :         : "cc", "memory", "%rcx"
+; 4489 : );
+; 4490 : #else
+; 4491 : #error unknown platform
+; 4492 : #endif
+; 4493 : #else
+; 4494 : #error unknown compiler
+; 4495 : #endif
+; 4496 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4504 : }
+; 4497 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1131,7 +1131,7 @@ yp$ = 240
 zp$ = 248
 _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 
-; 4050 : {
+; 4043 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1149,8 +1149,8 @@ _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 4051 : #ifdef _MSC_VER
-; 4052 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 4044 : #ifdef _MSC_VER
+; 4045 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1170,7 +1170,7 @@ _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4053 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 4046 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1190,7 +1190,7 @@ _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4054 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 4047 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -1210,7 +1210,7 @@ _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4055 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 4048 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -1230,58 +1230,58 @@ _SUBTRUCT_4WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 4056 : #elif defined(__GNUC__)
-; 4057 : #ifdef _M_IX86
-; 4058 :     __asm__ volatile (
-; 4059 :         "addb\t$-1, %0\n\t"
-; 4060 :         "movl\t(%1), %%ecx\n\t"
-; 4061 :         "sbbl\t(%2), %%ecx\n\t"
-; 4062 :         "movl\t%%ecx, (%3)\n\t"
-; 4063 :         "movl\t4(%1), %%ecx\n\t"
-; 4064 :         "sbbl\t4(%2), %%ecx\n\t"
-; 4065 :         "movl\t%%ecx, 4(%3)\n\t"
-; 4066 :         "movl\t8(%1), %%ecx\n\t"
-; 4067 :         "sbbl\t8(%2), %%ecx\n\t"
-; 4068 :         "movl\t%%ecx, 8(%3)\n\t"
-; 4069 :         "movl\t12(%1), %%ecx\n\t"
-; 4070 :         "sbbl\t12(%2), %%ecx\n\t"
-; 4071 :         "movl\t%%ecx, 12(%3)\n\t"
-; 4072 :         "setc\t%0"
-; 4073 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4074 :         :
-; 4075 :         : "cc", "memory", "%ecx"
-; 4076 : );
-; 4077 : #elif defined(_M_IX64)
-; 4078 :     __asm__ volatile (
-; 4079 :         "addb\t$-1, %0\n\t"
-; 4080 :         "movq\t(%1), %%rcx\n\t"
-; 4081 :         "sbbq\t(%2), %%rcx\n\t"
-; 4082 :         "movq\t%%rcx, (%3)\n\t"
-; 4083 :         "movq\t8(%1), %%rcx\n\t"
-; 4084 :         "sbbq\t8(%2), %%rcx\n\t"
-; 4085 :         "movq\t%%rcx, 8(%3)\n\t"
-; 4086 :         "movq\t16(%1), %%rcx\n\t"
-; 4087 :         "sbbq\t16(%2), %%rcx\n\t"
-; 4088 :         "movq\t%%rcx, 16(%3)\n\t"
-; 4089 :         "movq\t24(%1), %%rcx\n\t"
-; 4090 :         "sbbq\t24(%2), %%rcx\n\t"
-; 4091 :         "movq\t%%rcx, 24(%3)\n\t"
-; 4092 :         "setc\t%0"
-; 4093 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 4094 :         :
-; 4095 :         : "cc", "memory", "%rcx"
-; 4096 : );
-; 4097 : #else
-; 4098 : #error unknown platform
-; 4099 : #endif
-; 4100 : #else
-; 4101 : #error unknown compiler
-; 4102 : #endif
-; 4103 :     return (c);
+; 4049 : #elif defined(__GNUC__)
+; 4050 : #ifdef _M_IX86
+; 4051 :     __asm__ volatile (
+; 4052 :         "addb\t$-1, %0\n\t"
+; 4053 :         "movl\t(%1), %%ecx\n\t"
+; 4054 :         "sbbl\t(%2), %%ecx\n\t"
+; 4055 :         "movl\t%%ecx, (%3)\n\t"
+; 4056 :         "movl\t4(%1), %%ecx\n\t"
+; 4057 :         "sbbl\t4(%2), %%ecx\n\t"
+; 4058 :         "movl\t%%ecx, 4(%3)\n\t"
+; 4059 :         "movl\t8(%1), %%ecx\n\t"
+; 4060 :         "sbbl\t8(%2), %%ecx\n\t"
+; 4061 :         "movl\t%%ecx, 8(%3)\n\t"
+; 4062 :         "movl\t12(%1), %%ecx\n\t"
+; 4063 :         "sbbl\t12(%2), %%ecx\n\t"
+; 4064 :         "movl\t%%ecx, 12(%3)\n\t"
+; 4065 :         "setc\t%0"
+; 4066 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4067 :         :
+; 4068 :         : "cc", "memory", "%ecx"
+; 4069 : );
+; 4070 : #elif defined(_M_IX64)
+; 4071 :     __asm__ volatile (
+; 4072 :         "addb\t$-1, %0\n\t"
+; 4073 :         "movq\t(%1), %%rcx\n\t"
+; 4074 :         "sbbq\t(%2), %%rcx\n\t"
+; 4075 :         "movq\t%%rcx, (%3)\n\t"
+; 4076 :         "movq\t8(%1), %%rcx\n\t"
+; 4077 :         "sbbq\t8(%2), %%rcx\n\t"
+; 4078 :         "movq\t%%rcx, 8(%3)\n\t"
+; 4079 :         "movq\t16(%1), %%rcx\n\t"
+; 4080 :         "sbbq\t16(%2), %%rcx\n\t"
+; 4081 :         "movq\t%%rcx, 16(%3)\n\t"
+; 4082 :         "movq\t24(%1), %%rcx\n\t"
+; 4083 :         "sbbq\t24(%2), %%rcx\n\t"
+; 4084 :         "movq\t%%rcx, 24(%3)\n\t"
+; 4085 :         "setc\t%0"
+; 4086 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 4087 :         :
+; 4088 :         : "cc", "memory", "%rcx"
+; 4089 : );
+; 4090 : #else
+; 4091 : #error unknown platform
+; 4092 : #endif
+; 4093 : #else
+; 4094 : #error unknown compiler
+; 4095 : #endif
+; 4096 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 4104 : }
+; 4097 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1299,7 +1299,7 @@ yp$ = 240
 zp$ = 248
 _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 
-; 3454 : {
+; 3447 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1317,8 +1317,8 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 3455 : #ifdef _MSC_VER
-; 3456 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 3448 : #ifdef _MSC_VER
+; 3449 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1338,7 +1338,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3457 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 3450 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1358,7 +1358,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3458 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 3451 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -1378,7 +1378,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3459 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 3452 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -1398,7 +1398,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3460 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 3453 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -1418,7 +1418,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3461 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 3454 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -1438,7 +1438,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3462 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 3455 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -1458,7 +1458,7 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3463 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 3456 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -1478,82 +1478,82 @@ _SUBTRUCT_8WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 3464 : #elif defined(__GNUC__)
-; 3465 : #ifdef _M_IX86
-; 3466 :     __asm__ volatile (
-; 3467 :         "addb\t$-1, %0\n\t"
-; 3468 :         "movl\t(%1), %%ecx\n\t"
-; 3469 :         "sbbl\t(%2), %%ecx\n\t"
-; 3470 :         "movl\t%%ecx, (%3)\n\t"
-; 3471 :         "movl\t4(%1), %%ecx\n\t"
-; 3472 :         "sbbl\t4(%2), %%ecx\n\t"
-; 3473 :         "movl\t%%ecx, 4(%3)\n\t"
-; 3474 :         "movl\t8(%1), %%ecx\n\t"
-; 3475 :         "sbbl\t8(%2), %%ecx\n\t"
-; 3476 :         "movl\t%%ecx, 8(%3)\n\t"
-; 3477 :         "movl\t12(%1), %%ecx\n\t"
-; 3478 :         "sbbl\t12(%2), %%ecx\n\t"
-; 3479 :         "movl\t%%ecx, 12(%3)\n\t"
-; 3480 :         "movl\t16(%1), %%ecx\n\t"
-; 3481 :         "sbbl\t16(%2), %%ecx\n\t"
-; 3482 :         "movl\t%%ecx, 16(%3)\n\t"
-; 3483 :         "movl\t20(%1), %%ecx\n\t"
-; 3484 :         "sbbl\t20(%2), %%ecx\n\t"
-; 3485 :         "movl\t%%ecx, 20(%3)\n\t"
-; 3486 :         "movl\t24(%1), %%ecx\n\t"
-; 3487 :         "sbbl\t24(%2), %%ecx\n\t"
-; 3488 :         "movl\t%%ecx, 24(%3)\n\t"
-; 3489 :         "movl\t28(%1), %%ecx\n\t"
-; 3490 :         "sbbl\t28(%2), %%ecx\n\t"
-; 3491 :         "movl\t%%ecx, 28(%3)\n\t"
-; 3492 :         "setc\t%0"
-; 3493 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3494 :         :
-; 3495 :         : "cc", "memory", "%ecx"
-; 3496 : );
-; 3497 : #elif defined(_M_IX64)
-; 3498 :     __asm__ volatile (
-; 3499 :         "addb\t$-1, %0\n\t"
-; 3500 :         "movq\t(%1), %%rcx\n\t"
-; 3501 :         "sbbq\t(%2), %%rcx\n\t"
-; 3502 :         "movq\t%%rcx, (%3)\n\t"
-; 3503 :         "movq\t8(%1), %%rcx\n\t"
-; 3504 :         "sbbq\t8(%2), %%rcx\n\t"
-; 3505 :         "movq\t%%rcx, 8(%3)\n\t"
-; 3506 :         "movq\t16(%1), %%rcx\n\t"
-; 3507 :         "sbbq\t16(%2), %%rcx\n\t"
-; 3508 :         "movq\t%%rcx, 16(%3)\n\t"
-; 3509 :         "movq\t24(%1), %%rcx\n\t"
-; 3510 :         "sbbq\t24(%2), %%rcx\n\t"
-; 3511 :         "movq\t%%rcx, 24(%3)\n\t"
-; 3512 :         "movq\t32(%1), %%rcx\n\t"
-; 3513 :         "sbbq\t32(%2), %%rcx\n\t"
-; 3514 :         "movq\t%%rcx, 32(%3)\n\t"
-; 3515 :         "movq\t40(%1), %%rcx\n\t"
-; 3516 :         "sbbq\t40(%2), %%rcx\n\t"
-; 3517 :         "movq\t%%rcx, 40(%3)\n\t"
-; 3518 :         "movq\t48(%1), %%rcx\n\t"
-; 3519 :         "sbbq\t48(%2), %%rcx\n\t"
-; 3520 :         "movq\t%%rcx, 48(%3)\n\t"
-; 3521 :         "movq\t56(%1), %%rcx\n\t"
-; 3522 :         "sbbq\t56(%2), %%rcx\n\t"
-; 3523 :         "movq\t%%rcx, 56(%3)\n\t"
-; 3524 :         "setc\t%0"
-; 3525 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 3526 :         :
-; 3527 :         : "cc", "memory", "%rcx"
-; 3528 : );
-; 3529 : #else
-; 3530 : #error unknown platform
-; 3531 : #endif
-; 3532 : #else
-; 3533 : #error unknown compiler
-; 3534 : #endif
-; 3535 :     return (c);
+; 3457 : #elif defined(__GNUC__)
+; 3458 : #ifdef _M_IX86
+; 3459 :     __asm__ volatile (
+; 3460 :         "addb\t$-1, %0\n\t"
+; 3461 :         "movl\t(%1), %%ecx\n\t"
+; 3462 :         "sbbl\t(%2), %%ecx\n\t"
+; 3463 :         "movl\t%%ecx, (%3)\n\t"
+; 3464 :         "movl\t4(%1), %%ecx\n\t"
+; 3465 :         "sbbl\t4(%2), %%ecx\n\t"
+; 3466 :         "movl\t%%ecx, 4(%3)\n\t"
+; 3467 :         "movl\t8(%1), %%ecx\n\t"
+; 3468 :         "sbbl\t8(%2), %%ecx\n\t"
+; 3469 :         "movl\t%%ecx, 8(%3)\n\t"
+; 3470 :         "movl\t12(%1), %%ecx\n\t"
+; 3471 :         "sbbl\t12(%2), %%ecx\n\t"
+; 3472 :         "movl\t%%ecx, 12(%3)\n\t"
+; 3473 :         "movl\t16(%1), %%ecx\n\t"
+; 3474 :         "sbbl\t16(%2), %%ecx\n\t"
+; 3475 :         "movl\t%%ecx, 16(%3)\n\t"
+; 3476 :         "movl\t20(%1), %%ecx\n\t"
+; 3477 :         "sbbl\t20(%2), %%ecx\n\t"
+; 3478 :         "movl\t%%ecx, 20(%3)\n\t"
+; 3479 :         "movl\t24(%1), %%ecx\n\t"
+; 3480 :         "sbbl\t24(%2), %%ecx\n\t"
+; 3481 :         "movl\t%%ecx, 24(%3)\n\t"
+; 3482 :         "movl\t28(%1), %%ecx\n\t"
+; 3483 :         "sbbl\t28(%2), %%ecx\n\t"
+; 3484 :         "movl\t%%ecx, 28(%3)\n\t"
+; 3485 :         "setc\t%0"
+; 3486 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3487 :         :
+; 3488 :         : "cc", "memory", "%ecx"
+; 3489 : );
+; 3490 : #elif defined(_M_IX64)
+; 3491 :     __asm__ volatile (
+; 3492 :         "addb\t$-1, %0\n\t"
+; 3493 :         "movq\t(%1), %%rcx\n\t"
+; 3494 :         "sbbq\t(%2), %%rcx\n\t"
+; 3495 :         "movq\t%%rcx, (%3)\n\t"
+; 3496 :         "movq\t8(%1), %%rcx\n\t"
+; 3497 :         "sbbq\t8(%2), %%rcx\n\t"
+; 3498 :         "movq\t%%rcx, 8(%3)\n\t"
+; 3499 :         "movq\t16(%1), %%rcx\n\t"
+; 3500 :         "sbbq\t16(%2), %%rcx\n\t"
+; 3501 :         "movq\t%%rcx, 16(%3)\n\t"
+; 3502 :         "movq\t24(%1), %%rcx\n\t"
+; 3503 :         "sbbq\t24(%2), %%rcx\n\t"
+; 3504 :         "movq\t%%rcx, 24(%3)\n\t"
+; 3505 :         "movq\t32(%1), %%rcx\n\t"
+; 3506 :         "sbbq\t32(%2), %%rcx\n\t"
+; 3507 :         "movq\t%%rcx, 32(%3)\n\t"
+; 3508 :         "movq\t40(%1), %%rcx\n\t"
+; 3509 :         "sbbq\t40(%2), %%rcx\n\t"
+; 3510 :         "movq\t%%rcx, 40(%3)\n\t"
+; 3511 :         "movq\t48(%1), %%rcx\n\t"
+; 3512 :         "sbbq\t48(%2), %%rcx\n\t"
+; 3513 :         "movq\t%%rcx, 48(%3)\n\t"
+; 3514 :         "movq\t56(%1), %%rcx\n\t"
+; 3515 :         "sbbq\t56(%2), %%rcx\n\t"
+; 3516 :         "movq\t%%rcx, 56(%3)\n\t"
+; 3517 :         "setc\t%0"
+; 3518 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 3519 :         :
+; 3520 :         : "cc", "memory", "%rcx"
+; 3521 : );
+; 3522 : #else
+; 3523 : #error unknown platform
+; 3524 : #endif
+; 3525 : #else
+; 3526 : #error unknown compiler
+; 3527 : #endif
+; 3528 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 3536 : }
+; 3529 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -1571,7 +1571,7 @@ yp$ = 240
 zp$ = 248
 _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 
-; 2494 : {
+; 2487 : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1589,8 +1589,8 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 2495 : #ifdef _MSC_VER
-; 2496 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 2488 : #ifdef _MSC_VER
+; 2489 :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -1610,7 +1610,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2497 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 2490 :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -1630,7 +1630,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2498 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 2491 :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -1650,7 +1650,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2499 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 2492 :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -1670,7 +1670,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2500 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 2493 :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -1690,7 +1690,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2501 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 2494 :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -1710,7 +1710,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2502 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 2495 :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -1730,7 +1730,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2503 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 2496 :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -1750,7 +1750,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2504 :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
+; 2497 :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -1770,7 +1770,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2505 :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
+; 2498 :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -1790,7 +1790,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2506 :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
+; 2499 :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -1810,7 +1810,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2507 :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
+; 2500 :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -1830,7 +1830,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2508 :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
+; 2501 :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -1850,7 +1850,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2509 :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
+; 2502 :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -1870,7 +1870,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2510 :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
+; 2503 :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -1890,7 +1890,7 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2511 :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
+; 2504 :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -1910,130 +1910,130 @@ _SUBTRUCT_16WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 2512 : #elif defined(__GNUC__)
-; 2513 : #ifdef _M_IX86
-; 2514 :     __asm__ volatile (
-; 2515 :         "addb\t$-1, %0\n\t"
-; 2516 :         "movl\t(%1), %%ecx\n\t"
-; 2517 :         "sbbl\t(%2), %%ecx\n\t"
-; 2518 :         "movl\t%%ecx, (%3)\n\t"
-; 2519 :         "movl\t4(%1), %%ecx\n\t"
-; 2520 :         "sbbl\t4(%2), %%ecx\n\t"
-; 2521 :         "movl\t%%ecx, 4(%3)\n\t"
-; 2522 :         "movl\t8(%1), %%ecx\n\t"
-; 2523 :         "sbbl\t8(%2), %%ecx\n\t"
-; 2524 :         "movl\t%%ecx, 8(%3)\n\t"
-; 2525 :         "movl\t12(%1), %%ecx\n\t"
-; 2526 :         "sbbl\t12(%2), %%ecx\n\t"
-; 2527 :         "movl\t%%ecx, 12(%3)\n\t"
-; 2528 :         "movl\t16(%1), %%ecx\n\t"
-; 2529 :         "sbbl\t16(%2), %%ecx\n\t"
-; 2530 :         "movl\t%%ecx, 16(%3)\n\t"
-; 2531 :         "movl\t20(%1), %%ecx\n\t"
-; 2532 :         "sbbl\t20(%2), %%ecx\n\t"
-; 2533 :         "movl\t%%ecx, 20(%3)\n\t"
-; 2534 :         "movl\t24(%1), %%ecx\n\t"
-; 2535 :         "sbbl\t24(%2), %%ecx\n\t"
-; 2536 :         "movl\t%%ecx, 24(%3)\n\t"
-; 2537 :         "movl\t28(%1), %%ecx\n\t"
-; 2538 :         "sbbl\t28(%2), %%ecx\n\t"
-; 2539 :         "movl\t%%ecx, 28(%3)\n\t"
-; 2540 :         "movl\t32(%1), %%ecx\n\t"
-; 2541 :         "sbbl\t32(%2), %%ecx\n\t"
-; 2542 :         "movl\t%%ecx, 32(%3)\n\t"
-; 2543 :         "movl\t36(%1), %%ecx\n\t"
-; 2544 :         "sbbl\t36(%2), %%ecx\n\t"
-; 2545 :         "movl\t%%ecx, 36(%3)\n\t"
-; 2546 :         "movl\t40(%1), %%ecx\n\t"
-; 2547 :         "sbbl\t40(%2), %%ecx\n\t"
-; 2548 :         "movl\t%%ecx, 40(%3)\n\t"
-; 2549 :         "movl\t44(%1), %%ecx\n\t"
-; 2550 :         "sbbl\t44(%2), %%ecx\n\t"
-; 2551 :         "movl\t%%ecx, 44(%3)\n\t"
-; 2552 :         "movl\t48(%1), %%ecx\n\t"
-; 2553 :         "sbbl\t48(%2), %%ecx\n\t"
-; 2554 :         "movl\t%%ecx, 48(%3)\n\t"
-; 2555 :         "movl\t52(%1), %%ecx\n\t"
-; 2556 :         "sbbl\t52(%2), %%ecx\n\t"
-; 2557 :         "movl\t%%ecx, 52(%3)\n\t"
-; 2558 :         "movl\t56(%1), %%ecx\n\t"
-; 2559 :         "sbbl\t56(%2), %%ecx\n\t"
-; 2560 :         "movl\t%%ecx, 56(%3)\n\t"
-; 2561 :         "movl\t60(%1), %%ecx\n\t"
-; 2562 :         "sbbl\t60(%2), %%ecx\n\t"
-; 2563 :         "movl\t%%ecx, 60(%3)\n\t"
-; 2564 :         "setc\t%0"
-; 2565 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2566 :         :
-; 2567 :         : "cc", "memory", "%ecx"
-; 2568 : );
-; 2569 : #elif defined(_M_IX64)
-; 2570 :     __asm__ volatile (
-; 2571 :         "addb\t$-1, %0\n\t"
-; 2572 :         "movq\t(%1), %%rcx\n\t"
-; 2573 :         "sbbq\t(%2), %%rcx\n\t"
-; 2574 :         "movq\t%%rcx, (%3)\n\t"
-; 2575 :         "movq\t8(%1), %%rcx\n\t"
-; 2576 :         "sbbq\t8(%2), %%rcx\n\t"
-; 2577 :         "movq\t%%rcx, 8(%3)\n\t"
-; 2578 :         "movq\t16(%1), %%rcx\n\t"
-; 2579 :         "sbbq\t16(%2), %%rcx\n\t"
-; 2580 :         "movq\t%%rcx, 16(%3)\n\t"
-; 2581 :         "movq\t24(%1), %%rcx\n\t"
-; 2582 :         "sbbq\t24(%2), %%rcx\n\t"
-; 2583 :         "movq\t%%rcx, 24(%3)\n\t"
-; 2584 :         "movq\t32(%1), %%rcx\n\t"
-; 2585 :         "sbbq\t32(%2), %%rcx\n\t"
-; 2586 :         "movq\t%%rcx, 32(%3)\n\t"
-; 2587 :         "movq\t40(%1), %%rcx\n\t"
-; 2588 :         "sbbq\t40(%2), %%rcx\n\t"
-; 2589 :         "movq\t%%rcx, 40(%3)\n\t"
-; 2590 :         "movq\t48(%1), %%rcx\n\t"
-; 2591 :         "sbbq\t48(%2), %%rcx\n\t"
-; 2592 :         "movq\t%%rcx, 48(%3)\n\t"
-; 2593 :         "movq\t56(%1), %%rcx\n\t"
-; 2594 :         "sbbq\t56(%2), %%rcx\n\t"
-; 2595 :         "movq\t%%rcx, 56(%3)\n\t"
-; 2596 :         "movq\t64(%1), %%rcx\n\t"
-; 2597 :         "sbbq\t64(%2), %%rcx\n\t"
-; 2598 :         "movq\t%%rcx, 64(%3)\n\t"
-; 2599 :         "movq\t72(%1), %%rcx\n\t"
-; 2600 :         "sbbq\t72(%2), %%rcx\n\t"
-; 2601 :         "movq\t%%rcx, 72(%3)\n\t"
-; 2602 :         "movq\t80(%1), %%rcx\n\t"
-; 2603 :         "sbbq\t80(%2), %%rcx\n\t"
-; 2604 :         "movq\t%%rcx, 80(%3)\n\t"
-; 2605 :         "movq\t88(%1), %%rcx\n\t"
-; 2606 :         "sbbq\t88(%2), %%rcx\n\t"
-; 2607 :         "movq\t%%rcx, 88(%3)\n\t"
-; 2608 :         "movq\t96(%1), %%rcx\n\t"
-; 2609 :         "sbbq\t96(%2), %%rcx\n\t"
-; 2610 :         "movq\t%%rcx, 96(%3)\n\t"
-; 2611 :         "movq\t104(%1), %%rcx\n\t"
-; 2612 :         "sbbq\t104(%2), %%rcx\n\t"
-; 2613 :         "movq\t%%rcx, 104(%3)\n\t"
-; 2614 :         "movq\t112(%1), %%rcx\n\t"
-; 2615 :         "sbbq\t112(%2), %%rcx\n\t"
-; 2616 :         "movq\t%%rcx, 112(%3)\n\t"
-; 2617 :         "movq\t120(%1), %%rcx\n\t"
-; 2618 :         "sbbq\t120(%2), %%rcx\n\t"
-; 2619 :         "movq\t%%rcx, 120(%3)\n\t"
-; 2620 :         "setc\t%0"
-; 2621 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 2622 :         :
-; 2623 :         : "cc", "memory", "%rcx"
-; 2624 : );
-; 2625 : #else
-; 2626 : #error unknown platform
-; 2627 : #endif
-; 2628 : #else
-; 2629 : #error unknown compiler
-; 2630 : #endif
-; 2631 :     return (c);
+; 2505 : #elif defined(__GNUC__)
+; 2506 : #ifdef _M_IX86
+; 2507 :     __asm__ volatile (
+; 2508 :         "addb\t$-1, %0\n\t"
+; 2509 :         "movl\t(%1), %%ecx\n\t"
+; 2510 :         "sbbl\t(%2), %%ecx\n\t"
+; 2511 :         "movl\t%%ecx, (%3)\n\t"
+; 2512 :         "movl\t4(%1), %%ecx\n\t"
+; 2513 :         "sbbl\t4(%2), %%ecx\n\t"
+; 2514 :         "movl\t%%ecx, 4(%3)\n\t"
+; 2515 :         "movl\t8(%1), %%ecx\n\t"
+; 2516 :         "sbbl\t8(%2), %%ecx\n\t"
+; 2517 :         "movl\t%%ecx, 8(%3)\n\t"
+; 2518 :         "movl\t12(%1), %%ecx\n\t"
+; 2519 :         "sbbl\t12(%2), %%ecx\n\t"
+; 2520 :         "movl\t%%ecx, 12(%3)\n\t"
+; 2521 :         "movl\t16(%1), %%ecx\n\t"
+; 2522 :         "sbbl\t16(%2), %%ecx\n\t"
+; 2523 :         "movl\t%%ecx, 16(%3)\n\t"
+; 2524 :         "movl\t20(%1), %%ecx\n\t"
+; 2525 :         "sbbl\t20(%2), %%ecx\n\t"
+; 2526 :         "movl\t%%ecx, 20(%3)\n\t"
+; 2527 :         "movl\t24(%1), %%ecx\n\t"
+; 2528 :         "sbbl\t24(%2), %%ecx\n\t"
+; 2529 :         "movl\t%%ecx, 24(%3)\n\t"
+; 2530 :         "movl\t28(%1), %%ecx\n\t"
+; 2531 :         "sbbl\t28(%2), %%ecx\n\t"
+; 2532 :         "movl\t%%ecx, 28(%3)\n\t"
+; 2533 :         "movl\t32(%1), %%ecx\n\t"
+; 2534 :         "sbbl\t32(%2), %%ecx\n\t"
+; 2535 :         "movl\t%%ecx, 32(%3)\n\t"
+; 2536 :         "movl\t36(%1), %%ecx\n\t"
+; 2537 :         "sbbl\t36(%2), %%ecx\n\t"
+; 2538 :         "movl\t%%ecx, 36(%3)\n\t"
+; 2539 :         "movl\t40(%1), %%ecx\n\t"
+; 2540 :         "sbbl\t40(%2), %%ecx\n\t"
+; 2541 :         "movl\t%%ecx, 40(%3)\n\t"
+; 2542 :         "movl\t44(%1), %%ecx\n\t"
+; 2543 :         "sbbl\t44(%2), %%ecx\n\t"
+; 2544 :         "movl\t%%ecx, 44(%3)\n\t"
+; 2545 :         "movl\t48(%1), %%ecx\n\t"
+; 2546 :         "sbbl\t48(%2), %%ecx\n\t"
+; 2547 :         "movl\t%%ecx, 48(%3)\n\t"
+; 2548 :         "movl\t52(%1), %%ecx\n\t"
+; 2549 :         "sbbl\t52(%2), %%ecx\n\t"
+; 2550 :         "movl\t%%ecx, 52(%3)\n\t"
+; 2551 :         "movl\t56(%1), %%ecx\n\t"
+; 2552 :         "sbbl\t56(%2), %%ecx\n\t"
+; 2553 :         "movl\t%%ecx, 56(%3)\n\t"
+; 2554 :         "movl\t60(%1), %%ecx\n\t"
+; 2555 :         "sbbl\t60(%2), %%ecx\n\t"
+; 2556 :         "movl\t%%ecx, 60(%3)\n\t"
+; 2557 :         "setc\t%0"
+; 2558 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2559 :         :
+; 2560 :         : "cc", "memory", "%ecx"
+; 2561 : );
+; 2562 : #elif defined(_M_IX64)
+; 2563 :     __asm__ volatile (
+; 2564 :         "addb\t$-1, %0\n\t"
+; 2565 :         "movq\t(%1), %%rcx\n\t"
+; 2566 :         "sbbq\t(%2), %%rcx\n\t"
+; 2567 :         "movq\t%%rcx, (%3)\n\t"
+; 2568 :         "movq\t8(%1), %%rcx\n\t"
+; 2569 :         "sbbq\t8(%2), %%rcx\n\t"
+; 2570 :         "movq\t%%rcx, 8(%3)\n\t"
+; 2571 :         "movq\t16(%1), %%rcx\n\t"
+; 2572 :         "sbbq\t16(%2), %%rcx\n\t"
+; 2573 :         "movq\t%%rcx, 16(%3)\n\t"
+; 2574 :         "movq\t24(%1), %%rcx\n\t"
+; 2575 :         "sbbq\t24(%2), %%rcx\n\t"
+; 2576 :         "movq\t%%rcx, 24(%3)\n\t"
+; 2577 :         "movq\t32(%1), %%rcx\n\t"
+; 2578 :         "sbbq\t32(%2), %%rcx\n\t"
+; 2579 :         "movq\t%%rcx, 32(%3)\n\t"
+; 2580 :         "movq\t40(%1), %%rcx\n\t"
+; 2581 :         "sbbq\t40(%2), %%rcx\n\t"
+; 2582 :         "movq\t%%rcx, 40(%3)\n\t"
+; 2583 :         "movq\t48(%1), %%rcx\n\t"
+; 2584 :         "sbbq\t48(%2), %%rcx\n\t"
+; 2585 :         "movq\t%%rcx, 48(%3)\n\t"
+; 2586 :         "movq\t56(%1), %%rcx\n\t"
+; 2587 :         "sbbq\t56(%2), %%rcx\n\t"
+; 2588 :         "movq\t%%rcx, 56(%3)\n\t"
+; 2589 :         "movq\t64(%1), %%rcx\n\t"
+; 2590 :         "sbbq\t64(%2), %%rcx\n\t"
+; 2591 :         "movq\t%%rcx, 64(%3)\n\t"
+; 2592 :         "movq\t72(%1), %%rcx\n\t"
+; 2593 :         "sbbq\t72(%2), %%rcx\n\t"
+; 2594 :         "movq\t%%rcx, 72(%3)\n\t"
+; 2595 :         "movq\t80(%1), %%rcx\n\t"
+; 2596 :         "sbbq\t80(%2), %%rcx\n\t"
+; 2597 :         "movq\t%%rcx, 80(%3)\n\t"
+; 2598 :         "movq\t88(%1), %%rcx\n\t"
+; 2599 :         "sbbq\t88(%2), %%rcx\n\t"
+; 2600 :         "movq\t%%rcx, 88(%3)\n\t"
+; 2601 :         "movq\t96(%1), %%rcx\n\t"
+; 2602 :         "sbbq\t96(%2), %%rcx\n\t"
+; 2603 :         "movq\t%%rcx, 96(%3)\n\t"
+; 2604 :         "movq\t104(%1), %%rcx\n\t"
+; 2605 :         "sbbq\t104(%2), %%rcx\n\t"
+; 2606 :         "movq\t%%rcx, 104(%3)\n\t"
+; 2607 :         "movq\t112(%1), %%rcx\n\t"
+; 2608 :         "sbbq\t112(%2), %%rcx\n\t"
+; 2609 :         "movq\t%%rcx, 112(%3)\n\t"
+; 2610 :         "movq\t120(%1), %%rcx\n\t"
+; 2611 :         "sbbq\t120(%2), %%rcx\n\t"
+; 2612 :         "movq\t%%rcx, 120(%3)\n\t"
+; 2613 :         "setc\t%0"
+; 2614 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 2615 :         :
+; 2616 :         : "cc", "memory", "%rcx"
+; 2617 : );
+; 2618 : #else
+; 2619 : #error unknown platform
+; 2620 : #endif
+; 2621 : #else
+; 2622 : #error unknown compiler
+; 2623 : #endif
+; 2624 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 2632 : }
+; 2625 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -2051,7 +2051,7 @@ yp$ = 240
 zp$ = 248
 _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 
-; 806  : {
+; 799  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -2069,8 +2069,8 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__E05E7037_autogenerated_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 807  : #ifdef _MSC_VER
-; 808  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
+; 800  : #ifdef _MSC_VER
+; 801  :     c = _SUBTRUCT_UNIT(c, xp[0], yp[0], &zp[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -2090,7 +2090,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 809  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
+; 802  :     c = _SUBTRUCT_UNIT(c, xp[1], yp[1], &zp[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -2110,7 +2110,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 810  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
+; 803  :     c = _SUBTRUCT_UNIT(c, xp[2], yp[2], &zp[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -2130,7 +2130,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 811  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
+; 804  :     c = _SUBTRUCT_UNIT(c, xp[3], yp[3], &zp[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -2150,7 +2150,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 812  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
+; 805  :     c = _SUBTRUCT_UNIT(c, xp[4], yp[4], &zp[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -2170,7 +2170,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 813  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
+; 806  :     c = _SUBTRUCT_UNIT(c, xp[5], yp[5], &zp[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -2190,7 +2190,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 814  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
+; 807  :     c = _SUBTRUCT_UNIT(c, xp[6], yp[6], &zp[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -2210,7 +2210,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 815  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
+; 808  :     c = _SUBTRUCT_UNIT(c, xp[7], yp[7], &zp[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -2230,7 +2230,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 816  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
+; 809  :     c = _SUBTRUCT_UNIT(c, xp[8], yp[8], &zp[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -2250,7 +2250,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 817  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
+; 810  :     c = _SUBTRUCT_UNIT(c, xp[9], yp[9], &zp[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -2270,7 +2270,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 818  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
+; 811  :     c = _SUBTRUCT_UNIT(c, xp[10], yp[10], &zp[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -2290,7 +2290,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 819  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
+; 812  :     c = _SUBTRUCT_UNIT(c, xp[11], yp[11], &zp[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -2310,7 +2310,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 820  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
+; 813  :     c = _SUBTRUCT_UNIT(c, xp[12], yp[12], &zp[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -2330,7 +2330,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 821  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
+; 814  :     c = _SUBTRUCT_UNIT(c, xp[13], yp[13], &zp[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -2350,7 +2350,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 822  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
+; 815  :     c = _SUBTRUCT_UNIT(c, xp[14], yp[14], &zp[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -2370,7 +2370,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 823  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
+; 816  :     c = _SUBTRUCT_UNIT(c, xp[15], yp[15], &zp[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -2390,7 +2390,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 824  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
+; 817  :     c = _SUBTRUCT_UNIT(c, xp[16], yp[16], &zp[16]);
 
 	mov	eax, 8
 	imul	rax, rax, 16
@@ -2410,7 +2410,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 825  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
+; 818  :     c = _SUBTRUCT_UNIT(c, xp[17], yp[17], &zp[17]);
 
 	mov	eax, 8
 	imul	rax, rax, 17
@@ -2430,7 +2430,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 826  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
+; 819  :     c = _SUBTRUCT_UNIT(c, xp[18], yp[18], &zp[18]);
 
 	mov	eax, 8
 	imul	rax, rax, 18
@@ -2450,7 +2450,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 827  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
+; 820  :     c = _SUBTRUCT_UNIT(c, xp[19], yp[19], &zp[19]);
 
 	mov	eax, 8
 	imul	rax, rax, 19
@@ -2470,7 +2470,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 828  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
+; 821  :     c = _SUBTRUCT_UNIT(c, xp[20], yp[20], &zp[20]);
 
 	mov	eax, 8
 	imul	rax, rax, 20
@@ -2490,7 +2490,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 829  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
+; 822  :     c = _SUBTRUCT_UNIT(c, xp[21], yp[21], &zp[21]);
 
 	mov	eax, 8
 	imul	rax, rax, 21
@@ -2510,7 +2510,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 830  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
+; 823  :     c = _SUBTRUCT_UNIT(c, xp[22], yp[22], &zp[22]);
 
 	mov	eax, 8
 	imul	rax, rax, 22
@@ -2530,7 +2530,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 831  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
+; 824  :     c = _SUBTRUCT_UNIT(c, xp[23], yp[23], &zp[23]);
 
 	mov	eax, 8
 	imul	rax, rax, 23
@@ -2550,7 +2550,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 832  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
+; 825  :     c = _SUBTRUCT_UNIT(c, xp[24], yp[24], &zp[24]);
 
 	mov	eax, 8
 	imul	rax, rax, 24
@@ -2570,7 +2570,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 833  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
+; 826  :     c = _SUBTRUCT_UNIT(c, xp[25], yp[25], &zp[25]);
 
 	mov	eax, 8
 	imul	rax, rax, 25
@@ -2590,7 +2590,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 834  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
+; 827  :     c = _SUBTRUCT_UNIT(c, xp[26], yp[26], &zp[26]);
 
 	mov	eax, 8
 	imul	rax, rax, 26
@@ -2610,7 +2610,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 835  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
+; 828  :     c = _SUBTRUCT_UNIT(c, xp[27], yp[27], &zp[27]);
 
 	mov	eax, 8
 	imul	rax, rax, 27
@@ -2630,7 +2630,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 836  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
+; 829  :     c = _SUBTRUCT_UNIT(c, xp[28], yp[28], &zp[28]);
 
 	mov	eax, 8
 	imul	rax, rax, 28
@@ -2650,7 +2650,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 837  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
+; 830  :     c = _SUBTRUCT_UNIT(c, xp[29], yp[29], &zp[29]);
 
 	mov	eax, 8
 	imul	rax, rax, 29
@@ -2670,7 +2670,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 838  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
+; 831  :     c = _SUBTRUCT_UNIT(c, xp[30], yp[30], &zp[30]);
 
 	mov	eax, 8
 	imul	rax, rax, 30
@@ -2690,7 +2690,7 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 839  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
+; 832  :     c = _SUBTRUCT_UNIT(c, xp[31], yp[31], &zp[31]);
 
 	mov	eax, 8
 	imul	rax, rax, 31
@@ -2710,226 +2710,226 @@ _SUBTRUCT_32WORDS_SBB PROC				; COMDAT
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR c$[rbp], al
 
-; 840  : #elif defined(__GNUC__)
-; 841  : #ifdef _M_IX86
-; 842  :     __asm__ volatile (
-; 843  :         "addb\t$-1, %0\n\t"
-; 844  :         "movl\t(%1), %%ecx\n\t"
-; 845  :         "sbbl\t(%2), %%ecx\n\t"
-; 846  :         "movl\t%%ecx, (%3)\n\t"
-; 847  :         "movl\t4(%1), %%ecx\n\t"
-; 848  :         "sbbl\t4(%2), %%ecx\n\t"
-; 849  :         "movl\t%%ecx, 4(%3)\n\t"
-; 850  :         "movl\t8(%1), %%ecx\n\t"
-; 851  :         "sbbl\t8(%2), %%ecx\n\t"
-; 852  :         "movl\t%%ecx, 8(%3)\n\t"
-; 853  :         "movl\t12(%1), %%ecx\n\t"
-; 854  :         "sbbl\t12(%2), %%ecx\n\t"
-; 855  :         "movl\t%%ecx, 12(%3)\n\t"
-; 856  :         "movl\t16(%1), %%ecx\n\t"
-; 857  :         "sbbl\t16(%2), %%ecx\n\t"
-; 858  :         "movl\t%%ecx, 16(%3)\n\t"
-; 859  :         "movl\t20(%1), %%ecx\n\t"
-; 860  :         "sbbl\t20(%2), %%ecx\n\t"
-; 861  :         "movl\t%%ecx, 20(%3)\n\t"
-; 862  :         "movl\t24(%1), %%ecx\n\t"
-; 863  :         "sbbl\t24(%2), %%ecx\n\t"
-; 864  :         "movl\t%%ecx, 24(%3)\n\t"
-; 865  :         "movl\t28(%1), %%ecx\n\t"
-; 866  :         "sbbl\t28(%2), %%ecx\n\t"
-; 867  :         "movl\t%%ecx, 28(%3)\n\t"
-; 868  :         "movl\t32(%1), %%ecx\n\t"
-; 869  :         "sbbl\t32(%2), %%ecx\n\t"
-; 870  :         "movl\t%%ecx, 32(%3)\n\t"
-; 871  :         "movl\t36(%1), %%ecx\n\t"
-; 872  :         "sbbl\t36(%2), %%ecx\n\t"
-; 873  :         "movl\t%%ecx, 36(%3)\n\t"
-; 874  :         "movl\t40(%1), %%ecx\n\t"
-; 875  :         "sbbl\t40(%2), %%ecx\n\t"
-; 876  :         "movl\t%%ecx, 40(%3)\n\t"
-; 877  :         "movl\t44(%1), %%ecx\n\t"
-; 878  :         "sbbl\t44(%2), %%ecx\n\t"
-; 879  :         "movl\t%%ecx, 44(%3)\n\t"
-; 880  :         "movl\t48(%1), %%ecx\n\t"
-; 881  :         "sbbl\t48(%2), %%ecx\n\t"
-; 882  :         "movl\t%%ecx, 48(%3)\n\t"
-; 883  :         "movl\t52(%1), %%ecx\n\t"
-; 884  :         "sbbl\t52(%2), %%ecx\n\t"
-; 885  :         "movl\t%%ecx, 52(%3)\n\t"
-; 886  :         "movl\t56(%1), %%ecx\n\t"
-; 887  :         "sbbl\t56(%2), %%ecx\n\t"
-; 888  :         "movl\t%%ecx, 56(%3)\n\t"
-; 889  :         "movl\t60(%1), %%ecx\n\t"
-; 890  :         "sbbl\t60(%2), %%ecx\n\t"
-; 891  :         "movl\t%%ecx, 60(%3)\n\t"
-; 892  :         "movl\t64(%1), %%ecx\n\t"
-; 893  :         "sbbl\t64(%2), %%ecx\n\t"
-; 894  :         "movl\t%%ecx, 64(%3)\n\t"
-; 895  :         "movl\t68(%1), %%ecx\n\t"
-; 896  :         "sbbl\t68(%2), %%ecx\n\t"
-; 897  :         "movl\t%%ecx, 68(%3)\n\t"
-; 898  :         "movl\t72(%1), %%ecx\n\t"
-; 899  :         "sbbl\t72(%2), %%ecx\n\t"
-; 900  :         "movl\t%%ecx, 72(%3)\n\t"
-; 901  :         "movl\t76(%1), %%ecx\n\t"
-; 902  :         "sbbl\t76(%2), %%ecx\n\t"
-; 903  :         "movl\t%%ecx, 76(%3)\n\t"
-; 904  :         "movl\t80(%1), %%ecx\n\t"
-; 905  :         "sbbl\t80(%2), %%ecx\n\t"
-; 906  :         "movl\t%%ecx, 80(%3)\n\t"
-; 907  :         "movl\t84(%1), %%ecx\n\t"
-; 908  :         "sbbl\t84(%2), %%ecx\n\t"
-; 909  :         "movl\t%%ecx, 84(%3)\n\t"
-; 910  :         "movl\t88(%1), %%ecx\n\t"
-; 911  :         "sbbl\t88(%2), %%ecx\n\t"
-; 912  :         "movl\t%%ecx, 88(%3)\n\t"
-; 913  :         "movl\t92(%1), %%ecx\n\t"
-; 914  :         "sbbl\t92(%2), %%ecx\n\t"
-; 915  :         "movl\t%%ecx, 92(%3)\n\t"
-; 916  :         "movl\t96(%1), %%ecx\n\t"
-; 917  :         "sbbl\t96(%2), %%ecx\n\t"
-; 918  :         "movl\t%%ecx, 96(%3)\n\t"
-; 919  :         "movl\t100(%1), %%ecx\n\t"
-; 920  :         "sbbl\t100(%2), %%ecx\n\t"
-; 921  :         "movl\t%%ecx, 100(%3)\n\t"
-; 922  :         "movl\t104(%1), %%ecx\n\t"
-; 923  :         "sbbl\t104(%2), %%ecx\n\t"
-; 924  :         "movl\t%%ecx, 104(%3)\n\t"
-; 925  :         "movl\t108(%1), %%ecx\n\t"
-; 926  :         "sbbl\t108(%2), %%ecx\n\t"
-; 927  :         "movl\t%%ecx, 108(%3)\n\t"
-; 928  :         "movl\t112(%1), %%ecx\n\t"
-; 929  :         "sbbl\t112(%2), %%ecx\n\t"
-; 930  :         "movl\t%%ecx, 112(%3)\n\t"
-; 931  :         "movl\t116(%1), %%ecx\n\t"
-; 932  :         "sbbl\t116(%2), %%ecx\n\t"
-; 933  :         "movl\t%%ecx, 116(%3)\n\t"
-; 934  :         "movl\t120(%1), %%ecx\n\t"
-; 935  :         "sbbl\t120(%2), %%ecx\n\t"
-; 936  :         "movl\t%%ecx, 120(%3)\n\t"
-; 937  :         "movl\t124(%1), %%ecx\n\t"
-; 938  :         "sbbl\t124(%2), %%ecx\n\t"
-; 939  :         "movl\t%%ecx, 124(%3)\n\t"
-; 940  :         "setc\t%0"
-; 941  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 942  :         :
-; 943  :         : "cc", "memory", "%ecx"
-; 944  : );
-; 945  : #elif defined(_M_IX64)
-; 946  :     __asm__ volatile (
-; 947  :         "addb\t$-1, %0\n\t"
-; 948  :         "movq\t(%1), %%rcx\n\t"
-; 949  :         "sbbq\t(%2), %%rcx\n\t"
-; 950  :         "movq\t%%rcx, (%3)\n\t"
-; 951  :         "movq\t8(%1), %%rcx\n\t"
-; 952  :         "sbbq\t8(%2), %%rcx\n\t"
-; 953  :         "movq\t%%rcx, 8(%3)\n\t"
-; 954  :         "movq\t16(%1), %%rcx\n\t"
-; 955  :         "sbbq\t16(%2), %%rcx\n\t"
-; 956  :         "movq\t%%rcx, 16(%3)\n\t"
-; 957  :         "movq\t24(%1), %%rcx\n\t"
-; 958  :         "sbbq\t24(%2), %%rcx\n\t"
-; 959  :         "movq\t%%rcx, 24(%3)\n\t"
-; 960  :         "movq\t32(%1), %%rcx\n\t"
-; 961  :         "sbbq\t32(%2), %%rcx\n\t"
-; 962  :         "movq\t%%rcx, 32(%3)\n\t"
-; 963  :         "movq\t40(%1), %%rcx\n\t"
-; 964  :         "sbbq\t40(%2), %%rcx\n\t"
-; 965  :         "movq\t%%rcx, 40(%3)\n\t"
-; 966  :         "movq\t48(%1), %%rcx\n\t"
-; 967  :         "sbbq\t48(%2), %%rcx\n\t"
-; 968  :         "movq\t%%rcx, 48(%3)\n\t"
-; 969  :         "movq\t56(%1), %%rcx\n\t"
-; 970  :         "sbbq\t56(%2), %%rcx\n\t"
-; 971  :         "movq\t%%rcx, 56(%3)\n\t"
-; 972  :         "movq\t64(%1), %%rcx\n\t"
-; 973  :         "sbbq\t64(%2), %%rcx\n\t"
-; 974  :         "movq\t%%rcx, 64(%3)\n\t"
-; 975  :         "movq\t72(%1), %%rcx\n\t"
-; 976  :         "sbbq\t72(%2), %%rcx\n\t"
-; 977  :         "movq\t%%rcx, 72(%3)\n\t"
-; 978  :         "movq\t80(%1), %%rcx\n\t"
-; 979  :         "sbbq\t80(%2), %%rcx\n\t"
-; 980  :         "movq\t%%rcx, 80(%3)\n\t"
-; 981  :         "movq\t88(%1), %%rcx\n\t"
-; 982  :         "sbbq\t88(%2), %%rcx\n\t"
-; 983  :         "movq\t%%rcx, 88(%3)\n\t"
-; 984  :         "movq\t96(%1), %%rcx\n\t"
-; 985  :         "sbbq\t96(%2), %%rcx\n\t"
-; 986  :         "movq\t%%rcx, 96(%3)\n\t"
-; 987  :         "movq\t104(%1), %%rcx\n\t"
-; 988  :         "sbbq\t104(%2), %%rcx\n\t"
-; 989  :         "movq\t%%rcx, 104(%3)\n\t"
-; 990  :         "movq\t112(%1), %%rcx\n\t"
-; 991  :         "sbbq\t112(%2), %%rcx\n\t"
-; 992  :         "movq\t%%rcx, 112(%3)\n\t"
-; 993  :         "movq\t120(%1), %%rcx\n\t"
-; 994  :         "sbbq\t120(%2), %%rcx\n\t"
-; 995  :         "movq\t%%rcx, 120(%3)\n\t"
-; 996  :         "movq\t128(%1), %%rcx\n\t"
-; 997  :         "sbbq\t128(%2), %%rcx\n\t"
-; 998  :         "movq\t%%rcx, 128(%3)\n\t"
-; 999  :         "movq\t136(%1), %%rcx\n\t"
-; 1000 :         "sbbq\t136(%2), %%rcx\n\t"
-; 1001 :         "movq\t%%rcx, 136(%3)\n\t"
-; 1002 :         "movq\t144(%1), %%rcx\n\t"
-; 1003 :         "sbbq\t144(%2), %%rcx\n\t"
-; 1004 :         "movq\t%%rcx, 144(%3)\n\t"
-; 1005 :         "movq\t152(%1), %%rcx\n\t"
-; 1006 :         "sbbq\t152(%2), %%rcx\n\t"
-; 1007 :         "movq\t%%rcx, 152(%3)\n\t"
-; 1008 :         "movq\t160(%1), %%rcx\n\t"
-; 1009 :         "sbbq\t160(%2), %%rcx\n\t"
-; 1010 :         "movq\t%%rcx, 160(%3)\n\t"
-; 1011 :         "movq\t168(%1), %%rcx\n\t"
-; 1012 :         "sbbq\t168(%2), %%rcx\n\t"
-; 1013 :         "movq\t%%rcx, 168(%3)\n\t"
-; 1014 :         "movq\t176(%1), %%rcx\n\t"
-; 1015 :         "sbbq\t176(%2), %%rcx\n\t"
-; 1016 :         "movq\t%%rcx, 176(%3)\n\t"
-; 1017 :         "movq\t184(%1), %%rcx\n\t"
-; 1018 :         "sbbq\t184(%2), %%rcx\n\t"
-; 1019 :         "movq\t%%rcx, 184(%3)\n\t"
-; 1020 :         "movq\t192(%1), %%rcx\n\t"
-; 1021 :         "sbbq\t192(%2), %%rcx\n\t"
-; 1022 :         "movq\t%%rcx, 192(%3)\n\t"
-; 1023 :         "movq\t200(%1), %%rcx\n\t"
-; 1024 :         "sbbq\t200(%2), %%rcx\n\t"
-; 1025 :         "movq\t%%rcx, 200(%3)\n\t"
-; 1026 :         "movq\t208(%1), %%rcx\n\t"
-; 1027 :         "sbbq\t208(%2), %%rcx\n\t"
-; 1028 :         "movq\t%%rcx, 208(%3)\n\t"
-; 1029 :         "movq\t216(%1), %%rcx\n\t"
-; 1030 :         "sbbq\t216(%2), %%rcx\n\t"
-; 1031 :         "movq\t%%rcx, 216(%3)\n\t"
-; 1032 :         "movq\t224(%1), %%rcx\n\t"
-; 1033 :         "sbbq\t224(%2), %%rcx\n\t"
-; 1034 :         "movq\t%%rcx, 224(%3)\n\t"
-; 1035 :         "movq\t232(%1), %%rcx\n\t"
-; 1036 :         "sbbq\t232(%2), %%rcx\n\t"
-; 1037 :         "movq\t%%rcx, 232(%3)\n\t"
-; 1038 :         "movq\t240(%1), %%rcx\n\t"
-; 1039 :         "sbbq\t240(%2), %%rcx\n\t"
-; 1040 :         "movq\t%%rcx, 240(%3)\n\t"
-; 1041 :         "movq\t248(%1), %%rcx\n\t"
-; 1042 :         "sbbq\t248(%2), %%rcx\n\t"
-; 1043 :         "movq\t%%rcx, 248(%3)\n\t"
-; 1044 :         "setc\t%0"
-; 1045 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
-; 1046 :         :
-; 1047 :         : "cc", "memory", "%rcx"
-; 1048 : );
-; 1049 : #else
-; 1050 : #error unknown platform
-; 1051 : #endif
-; 1052 : #else
-; 1053 : #error unknown compiler
-; 1054 : #endif
-; 1055 :     return (c);
+; 833  : #elif defined(__GNUC__)
+; 834  : #ifdef _M_IX86
+; 835  :     __asm__ volatile (
+; 836  :         "addb\t$-1, %0\n\t"
+; 837  :         "movl\t(%1), %%ecx\n\t"
+; 838  :         "sbbl\t(%2), %%ecx\n\t"
+; 839  :         "movl\t%%ecx, (%3)\n\t"
+; 840  :         "movl\t4(%1), %%ecx\n\t"
+; 841  :         "sbbl\t4(%2), %%ecx\n\t"
+; 842  :         "movl\t%%ecx, 4(%3)\n\t"
+; 843  :         "movl\t8(%1), %%ecx\n\t"
+; 844  :         "sbbl\t8(%2), %%ecx\n\t"
+; 845  :         "movl\t%%ecx, 8(%3)\n\t"
+; 846  :         "movl\t12(%1), %%ecx\n\t"
+; 847  :         "sbbl\t12(%2), %%ecx\n\t"
+; 848  :         "movl\t%%ecx, 12(%3)\n\t"
+; 849  :         "movl\t16(%1), %%ecx\n\t"
+; 850  :         "sbbl\t16(%2), %%ecx\n\t"
+; 851  :         "movl\t%%ecx, 16(%3)\n\t"
+; 852  :         "movl\t20(%1), %%ecx\n\t"
+; 853  :         "sbbl\t20(%2), %%ecx\n\t"
+; 854  :         "movl\t%%ecx, 20(%3)\n\t"
+; 855  :         "movl\t24(%1), %%ecx\n\t"
+; 856  :         "sbbl\t24(%2), %%ecx\n\t"
+; 857  :         "movl\t%%ecx, 24(%3)\n\t"
+; 858  :         "movl\t28(%1), %%ecx\n\t"
+; 859  :         "sbbl\t28(%2), %%ecx\n\t"
+; 860  :         "movl\t%%ecx, 28(%3)\n\t"
+; 861  :         "movl\t32(%1), %%ecx\n\t"
+; 862  :         "sbbl\t32(%2), %%ecx\n\t"
+; 863  :         "movl\t%%ecx, 32(%3)\n\t"
+; 864  :         "movl\t36(%1), %%ecx\n\t"
+; 865  :         "sbbl\t36(%2), %%ecx\n\t"
+; 866  :         "movl\t%%ecx, 36(%3)\n\t"
+; 867  :         "movl\t40(%1), %%ecx\n\t"
+; 868  :         "sbbl\t40(%2), %%ecx\n\t"
+; 869  :         "movl\t%%ecx, 40(%3)\n\t"
+; 870  :         "movl\t44(%1), %%ecx\n\t"
+; 871  :         "sbbl\t44(%2), %%ecx\n\t"
+; 872  :         "movl\t%%ecx, 44(%3)\n\t"
+; 873  :         "movl\t48(%1), %%ecx\n\t"
+; 874  :         "sbbl\t48(%2), %%ecx\n\t"
+; 875  :         "movl\t%%ecx, 48(%3)\n\t"
+; 876  :         "movl\t52(%1), %%ecx\n\t"
+; 877  :         "sbbl\t52(%2), %%ecx\n\t"
+; 878  :         "movl\t%%ecx, 52(%3)\n\t"
+; 879  :         "movl\t56(%1), %%ecx\n\t"
+; 880  :         "sbbl\t56(%2), %%ecx\n\t"
+; 881  :         "movl\t%%ecx, 56(%3)\n\t"
+; 882  :         "movl\t60(%1), %%ecx\n\t"
+; 883  :         "sbbl\t60(%2), %%ecx\n\t"
+; 884  :         "movl\t%%ecx, 60(%3)\n\t"
+; 885  :         "movl\t64(%1), %%ecx\n\t"
+; 886  :         "sbbl\t64(%2), %%ecx\n\t"
+; 887  :         "movl\t%%ecx, 64(%3)\n\t"
+; 888  :         "movl\t68(%1), %%ecx\n\t"
+; 889  :         "sbbl\t68(%2), %%ecx\n\t"
+; 890  :         "movl\t%%ecx, 68(%3)\n\t"
+; 891  :         "movl\t72(%1), %%ecx\n\t"
+; 892  :         "sbbl\t72(%2), %%ecx\n\t"
+; 893  :         "movl\t%%ecx, 72(%3)\n\t"
+; 894  :         "movl\t76(%1), %%ecx\n\t"
+; 895  :         "sbbl\t76(%2), %%ecx\n\t"
+; 896  :         "movl\t%%ecx, 76(%3)\n\t"
+; 897  :         "movl\t80(%1), %%ecx\n\t"
+; 898  :         "sbbl\t80(%2), %%ecx\n\t"
+; 899  :         "movl\t%%ecx, 80(%3)\n\t"
+; 900  :         "movl\t84(%1), %%ecx\n\t"
+; 901  :         "sbbl\t84(%2), %%ecx\n\t"
+; 902  :         "movl\t%%ecx, 84(%3)\n\t"
+; 903  :         "movl\t88(%1), %%ecx\n\t"
+; 904  :         "sbbl\t88(%2), %%ecx\n\t"
+; 905  :         "movl\t%%ecx, 88(%3)\n\t"
+; 906  :         "movl\t92(%1), %%ecx\n\t"
+; 907  :         "sbbl\t92(%2), %%ecx\n\t"
+; 908  :         "movl\t%%ecx, 92(%3)\n\t"
+; 909  :         "movl\t96(%1), %%ecx\n\t"
+; 910  :         "sbbl\t96(%2), %%ecx\n\t"
+; 911  :         "movl\t%%ecx, 96(%3)\n\t"
+; 912  :         "movl\t100(%1), %%ecx\n\t"
+; 913  :         "sbbl\t100(%2), %%ecx\n\t"
+; 914  :         "movl\t%%ecx, 100(%3)\n\t"
+; 915  :         "movl\t104(%1), %%ecx\n\t"
+; 916  :         "sbbl\t104(%2), %%ecx\n\t"
+; 917  :         "movl\t%%ecx, 104(%3)\n\t"
+; 918  :         "movl\t108(%1), %%ecx\n\t"
+; 919  :         "sbbl\t108(%2), %%ecx\n\t"
+; 920  :         "movl\t%%ecx, 108(%3)\n\t"
+; 921  :         "movl\t112(%1), %%ecx\n\t"
+; 922  :         "sbbl\t112(%2), %%ecx\n\t"
+; 923  :         "movl\t%%ecx, 112(%3)\n\t"
+; 924  :         "movl\t116(%1), %%ecx\n\t"
+; 925  :         "sbbl\t116(%2), %%ecx\n\t"
+; 926  :         "movl\t%%ecx, 116(%3)\n\t"
+; 927  :         "movl\t120(%1), %%ecx\n\t"
+; 928  :         "sbbl\t120(%2), %%ecx\n\t"
+; 929  :         "movl\t%%ecx, 120(%3)\n\t"
+; 930  :         "movl\t124(%1), %%ecx\n\t"
+; 931  :         "sbbl\t124(%2), %%ecx\n\t"
+; 932  :         "movl\t%%ecx, 124(%3)\n\t"
+; 933  :         "setc\t%0"
+; 934  :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 935  :         :
+; 936  :         : "cc", "memory", "%ecx"
+; 937  : );
+; 938  : #elif defined(_M_IX64)
+; 939  :     __asm__ volatile (
+; 940  :         "addb\t$-1, %0\n\t"
+; 941  :         "movq\t(%1), %%rcx\n\t"
+; 942  :         "sbbq\t(%2), %%rcx\n\t"
+; 943  :         "movq\t%%rcx, (%3)\n\t"
+; 944  :         "movq\t8(%1), %%rcx\n\t"
+; 945  :         "sbbq\t8(%2), %%rcx\n\t"
+; 946  :         "movq\t%%rcx, 8(%3)\n\t"
+; 947  :         "movq\t16(%1), %%rcx\n\t"
+; 948  :         "sbbq\t16(%2), %%rcx\n\t"
+; 949  :         "movq\t%%rcx, 16(%3)\n\t"
+; 950  :         "movq\t24(%1), %%rcx\n\t"
+; 951  :         "sbbq\t24(%2), %%rcx\n\t"
+; 952  :         "movq\t%%rcx, 24(%3)\n\t"
+; 953  :         "movq\t32(%1), %%rcx\n\t"
+; 954  :         "sbbq\t32(%2), %%rcx\n\t"
+; 955  :         "movq\t%%rcx, 32(%3)\n\t"
+; 956  :         "movq\t40(%1), %%rcx\n\t"
+; 957  :         "sbbq\t40(%2), %%rcx\n\t"
+; 958  :         "movq\t%%rcx, 40(%3)\n\t"
+; 959  :         "movq\t48(%1), %%rcx\n\t"
+; 960  :         "sbbq\t48(%2), %%rcx\n\t"
+; 961  :         "movq\t%%rcx, 48(%3)\n\t"
+; 962  :         "movq\t56(%1), %%rcx\n\t"
+; 963  :         "sbbq\t56(%2), %%rcx\n\t"
+; 964  :         "movq\t%%rcx, 56(%3)\n\t"
+; 965  :         "movq\t64(%1), %%rcx\n\t"
+; 966  :         "sbbq\t64(%2), %%rcx\n\t"
+; 967  :         "movq\t%%rcx, 64(%3)\n\t"
+; 968  :         "movq\t72(%1), %%rcx\n\t"
+; 969  :         "sbbq\t72(%2), %%rcx\n\t"
+; 970  :         "movq\t%%rcx, 72(%3)\n\t"
+; 971  :         "movq\t80(%1), %%rcx\n\t"
+; 972  :         "sbbq\t80(%2), %%rcx\n\t"
+; 973  :         "movq\t%%rcx, 80(%3)\n\t"
+; 974  :         "movq\t88(%1), %%rcx\n\t"
+; 975  :         "sbbq\t88(%2), %%rcx\n\t"
+; 976  :         "movq\t%%rcx, 88(%3)\n\t"
+; 977  :         "movq\t96(%1), %%rcx\n\t"
+; 978  :         "sbbq\t96(%2), %%rcx\n\t"
+; 979  :         "movq\t%%rcx, 96(%3)\n\t"
+; 980  :         "movq\t104(%1), %%rcx\n\t"
+; 981  :         "sbbq\t104(%2), %%rcx\n\t"
+; 982  :         "movq\t%%rcx, 104(%3)\n\t"
+; 983  :         "movq\t112(%1), %%rcx\n\t"
+; 984  :         "sbbq\t112(%2), %%rcx\n\t"
+; 985  :         "movq\t%%rcx, 112(%3)\n\t"
+; 986  :         "movq\t120(%1), %%rcx\n\t"
+; 987  :         "sbbq\t120(%2), %%rcx\n\t"
+; 988  :         "movq\t%%rcx, 120(%3)\n\t"
+; 989  :         "movq\t128(%1), %%rcx\n\t"
+; 990  :         "sbbq\t128(%2), %%rcx\n\t"
+; 991  :         "movq\t%%rcx, 128(%3)\n\t"
+; 992  :         "movq\t136(%1), %%rcx\n\t"
+; 993  :         "sbbq\t136(%2), %%rcx\n\t"
+; 994  :         "movq\t%%rcx, 136(%3)\n\t"
+; 995  :         "movq\t144(%1), %%rcx\n\t"
+; 996  :         "sbbq\t144(%2), %%rcx\n\t"
+; 997  :         "movq\t%%rcx, 144(%3)\n\t"
+; 998  :         "movq\t152(%1), %%rcx\n\t"
+; 999  :         "sbbq\t152(%2), %%rcx\n\t"
+; 1000 :         "movq\t%%rcx, 152(%3)\n\t"
+; 1001 :         "movq\t160(%1), %%rcx\n\t"
+; 1002 :         "sbbq\t160(%2), %%rcx\n\t"
+; 1003 :         "movq\t%%rcx, 160(%3)\n\t"
+; 1004 :         "movq\t168(%1), %%rcx\n\t"
+; 1005 :         "sbbq\t168(%2), %%rcx\n\t"
+; 1006 :         "movq\t%%rcx, 168(%3)\n\t"
+; 1007 :         "movq\t176(%1), %%rcx\n\t"
+; 1008 :         "sbbq\t176(%2), %%rcx\n\t"
+; 1009 :         "movq\t%%rcx, 176(%3)\n\t"
+; 1010 :         "movq\t184(%1), %%rcx\n\t"
+; 1011 :         "sbbq\t184(%2), %%rcx\n\t"
+; 1012 :         "movq\t%%rcx, 184(%3)\n\t"
+; 1013 :         "movq\t192(%1), %%rcx\n\t"
+; 1014 :         "sbbq\t192(%2), %%rcx\n\t"
+; 1015 :         "movq\t%%rcx, 192(%3)\n\t"
+; 1016 :         "movq\t200(%1), %%rcx\n\t"
+; 1017 :         "sbbq\t200(%2), %%rcx\n\t"
+; 1018 :         "movq\t%%rcx, 200(%3)\n\t"
+; 1019 :         "movq\t208(%1), %%rcx\n\t"
+; 1020 :         "sbbq\t208(%2), %%rcx\n\t"
+; 1021 :         "movq\t%%rcx, 208(%3)\n\t"
+; 1022 :         "movq\t216(%1), %%rcx\n\t"
+; 1023 :         "sbbq\t216(%2), %%rcx\n\t"
+; 1024 :         "movq\t%%rcx, 216(%3)\n\t"
+; 1025 :         "movq\t224(%1), %%rcx\n\t"
+; 1026 :         "sbbq\t224(%2), %%rcx\n\t"
+; 1027 :         "movq\t%%rcx, 224(%3)\n\t"
+; 1028 :         "movq\t232(%1), %%rcx\n\t"
+; 1029 :         "sbbq\t232(%2), %%rcx\n\t"
+; 1030 :         "movq\t%%rcx, 232(%3)\n\t"
+; 1031 :         "movq\t240(%1), %%rcx\n\t"
+; 1032 :         "sbbq\t240(%2), %%rcx\n\t"
+; 1033 :         "movq\t%%rcx, 240(%3)\n\t"
+; 1034 :         "movq\t248(%1), %%rcx\n\t"
+; 1035 :         "sbbq\t248(%2), %%rcx\n\t"
+; 1036 :         "movq\t%%rcx, 248(%3)\n\t"
+; 1037 :         "setc\t%0"
+; 1038 :         : "+r"(c), "+r"(xp), "+r"(yp), "+r"(zp)
+; 1039 :         :
+; 1040 :         : "cc", "memory", "%rcx"
+; 1041 : );
+; 1042 : #else
+; 1043 : #error unknown platform
+; 1044 : #endif
+; 1045 : #else
+; 1046 : #error unknown compiler
+; 1047 : #endif
+; 1048 :     return (c);
 
 	movzx	eax, BYTE PTR c$[rbp]
 
-; 1056 : }
+; 1049 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -2945,7 +2945,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 629  :     {
+; 622  :     {
 
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -2960,45 +2960,45 @@ _LZCNT_ALT_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 630  :         if (x == 0)
+; 623  :         if (x == 0)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 631  :             return (sizeof(x) * 8);
+; 624  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 632  : #ifdef _M_IX86
-; 633  :         _UINT32_T pos;
-; 634  : #ifdef _MSC_VER
-; 635  :         _BitScanReverse(&pos, x);
-; 636  : #elif defined(__GNUC__)
-; 637  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 638  : #else
-; 639  : #error unknown compiler
-; 640  : #endif
-; 641  : #elif defined(_M_X64)
-; 642  : #ifdef _MSC_VER
-; 643  :         _UINT32_T pos;
-; 644  :         _BitScanReverse64(&pos, x);
+; 625  : #ifdef _M_IX86
+; 626  :         _UINT32_T pos;
+; 627  : #ifdef _MSC_VER
+; 628  :         _BitScanReverse(&pos, x);
+; 629  : #elif defined(__GNUC__)
+; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 631  : #else
+; 632  : #error unknown compiler
+; 633  : #endif
+; 634  : #elif defined(_M_X64)
+; 635  : #ifdef _MSC_VER
+; 636  :         _UINT32_T pos;
+; 637  :         _BitScanReverse64(&pos, x);
 
 	mov	rax, QWORD PTR x$[rbp]
 	bsr	rax, rax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 645  : #elif defined(__GNUC__)
-; 646  :         _UINT64_T pos;
-; 647  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 648  : #else
-; 649  : #error unknown compiler
-; 650  : #endif
-; 651  : #else
-; 652  : #error unknown platform
-; 653  : #endif
-; 654  :         return (sizeof(x) * 8 - 1 - pos);
+; 638  : #elif defined(__GNUC__)
+; 639  :         _UINT64_T pos;
+; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 641  : #else
+; 642  : #error unknown compiler
+; 643  : #endif
+; 644  : #else
+; 645  : #error unknown platform
+; 646  : #endif
+; 647  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 63					; 0000003fH
@@ -3006,7 +3006,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 655  :     }
+; 648  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -3027,7 +3027,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_32 PROC					; COMDAT
 
-; 596  :     {
+; 589  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -3042,31 +3042,31 @@ _LZCNT_ALT_32 PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 597  :         if (x == 0)
+; 590  :         if (x == 0)
 
 	cmp	DWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 598  :             return (sizeof(x) * 8);
+; 591  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 599  :         _UINT32_T pos;
-; 600  : #ifdef _MSC_VER
-; 601  :         _BitScanReverse(&pos, x);
+; 592  :         _UINT32_T pos;
+; 593  : #ifdef _MSC_VER
+; 594  :         _BitScanReverse(&pos, x);
 
 	mov	eax, DWORD PTR x$[rbp]
 	bsr	eax, eax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 602  : #elif defined(__GNUC__)
-; 603  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 604  : #else
-; 605  : #error unknown compiler
-; 606  : #endif
-; 607  :         return (sizeof(x) * 8 - 1 - pos);
+; 595  : #elif defined(__GNUC__)
+; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 597  : #else
+; 598  : #error unknown compiler
+; 599  : #endif
+; 600  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 31
@@ -3074,7 +3074,7 @@ $LN2@LZCNT_ALT_:
 	mov	rax, rcx
 $LN1@LZCNT_ALT_:
 
-; 608  :     }
+; 601  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -3097,7 +3097,7 @@ v$ = 240
 w$ = 248
 _SUBTRUCT_UNIT PROC					; COMDAT
 
-; 269  :     {
+; 262  :     {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -3115,10 +3115,10 @@ _SUBTRUCT_UNIT PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 270  : #ifdef _M_IX86
-; 271  :         return (_subborrow_u32(borrow, u, v, w));
-; 272  : #elif defined(_M_X64)
-; 273  :         return (_subborrow_u64(borrow, u, v, w));
+; 263  : #ifdef _M_IX86
+; 264  :         return (_subborrow_u32(borrow, u, v, w));
+; 265  : #elif defined(_M_X64)
+; 266  :         return (_subborrow_u64(borrow, u, v, w));
 
 	mov	rax, QWORD PTR u$[rbp]
 	movzx	ecx, BYTE PTR borrow$[rbp]
@@ -3129,10 +3129,10 @@ _SUBTRUCT_UNIT PROC					; COMDAT
 	mov	QWORD PTR [rdx], rax
 	movzx	eax, cl
 
-; 274  : #else
-; 275  : #error unknown platform
-; 276  : #endif
-; 277  :     }
+; 267  : #else
+; 268  : #error unknown platform
+; 269  : #endif
+; 270  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -3148,7 +3148,7 @@ value$ = 224
 result_high$ = 232
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 182  :     {
+; 175  :     {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -3164,18 +3164,18 @@ _FROMDWORDTOWORD PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 183  :         *result_high = (_UINT32_T)(value >> 32);
+; 176  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, QWORD PTR value$[rbp]
 	shr	rax, 32					; 00000020H
 	mov	rcx, QWORD PTR result_high$[rbp]
 	mov	DWORD PTR [rcx], eax
 
-; 184  :         return ((_UINT32_T)value);
+; 177  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR value$[rbp]
 
-; 185  :     }
+; 178  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -3191,7 +3191,7 @@ value_high$ = 224
 value_low$ = 232
 _FROMWORDTODWORD PROC					; COMDAT
 
-; 177  :     {
+; 170  :     {
 
 	mov	DWORD PTR [rsp+16], edx
 	mov	DWORD PTR [rsp+8], ecx
@@ -3207,14 +3207,14 @@ _FROMWORDTODWORD PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 178  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR value_high$[rbp]
 	shl	rax, 32					; 00000020H
 	mov	ecx, DWORD PTR value_low$[rbp]
 	or	rax, rcx
 
-; 179  :     }
+; 172  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -3240,7 +3240,7 @@ y$ = 488
 o$ = 496
 PMC_Subtruct_X_X PROC					; COMDAT
 
-; 665  : {
+; 658  : {
 
 $LN22:
 	mov	QWORD PTR [rsp+24], r8
@@ -3258,51 +3258,51 @@ $LN22:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 666  :     if (x == NULL)
+; 659  :     if (x == NULL)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN2@PMC_Subtru
 
-; 667  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 660  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN2@PMC_Subtru:
 
-; 668  :     if (y == NULL)
+; 661  :     if (y == NULL)
 
 	cmp	QWORD PTR y$[rbp], 0
 	jne	SHORT $LN3@PMC_Subtru
 
-; 669  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 662  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN3@PMC_Subtru:
 
-; 670  :     if (o == NULL)
+; 663  :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN4@PMC_Subtru
 
-; 671  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 664  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN4@PMC_Subtru:
 
-; 672  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 665  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR nx$[rbp], rax
 
-; 673  :     NUMBER_HEADER* ny = (NUMBER_HEADER*)y;
+; 666  :     NUMBER_HEADER* ny = (NUMBER_HEADER*)y;
 
 	mov	rax, QWORD PTR y$[rbp]
 	mov	QWORD PTR ny$[rbp], rax
 
-; 674  :     PMC_STATUS_CODE result;
-; 675  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 667  :     PMC_STATUS_CODE result;
+; 668  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nx$[rbp]
 	call	CheckNumber
@@ -3310,13 +3310,13 @@ $LN4@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Subtru
 
-; 676  :         return (result);
+; 669  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN5@PMC_Subtru:
 
-; 677  :     if ((result = CheckNumber(ny)) != PMC_STATUS_OK)
+; 670  :     if ((result = CheckNumber(ny)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR ny$[rbp]
 	call	CheckNumber
@@ -3324,14 +3324,14 @@ $LN5@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN6@PMC_Subtru
 
-; 678  :         return (result);
+; 671  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN6@PMC_Subtru:
 
-; 679  :     NUMBER_HEADER* nz;
-; 680  :     if (nx->IS_ZERO)
+; 672  :     NUMBER_HEADER* nz;
+; 673  :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -3340,8 +3340,8 @@ $LN6@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN7@PMC_Subtru
 
-; 681  :     {
-; 682  :         if (ny->IS_ZERO)
+; 674  :     {
+; 675  :         if (ny->IS_ZERO)
 
 	mov	rax, QWORD PTR ny$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -3350,43 +3350,43 @@ $LN6@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN9@PMC_Subtru
 
-; 683  :         {
-; 684  :             // y が 0 である場合
-; 685  : 
-; 686  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 687  :             *o = &number_zero;
+; 676  :         {
+; 677  :             // y が 0 である場合
+; 678  : 
+; 679  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 680  :             *o = &number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 688  :         }
+; 681  :         }
 
 	jmp	SHORT $LN10@PMC_Subtru
 $LN9@PMC_Subtru:
 
-; 689  :         else
-; 690  :         {
-; 691  :             // y が 0 ではない場合
-; 692  : 
-; 693  :             // 演算結果は負となってしまうのでエラーを返す。
-; 694  :             return (PMC_STATUS_OVERFLOW);
+; 682  :         else
+; 683  :         {
+; 684  :             // y が 0 ではない場合
+; 685  : 
+; 686  :             // 演算結果は負となってしまうのでエラーを返す。
+; 687  :             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN10@PMC_Subtru:
 
-; 695  :         }
-; 696  :     }
+; 688  :         }
+; 689  :     }
 
 	jmp	$LN8@PMC_Subtru
 $LN7@PMC_Subtru:
 
-; 697  :     else
-; 698  :     {
-; 699  :         // x が 0 ではない場合
-; 700  : 
-; 701  :         if (ny->IS_ZERO)
+; 690  :     else
+; 691  :     {
+; 692  :         // x が 0 ではない場合
+; 693  : 
+; 694  :         if (ny->IS_ZERO)
 
 	mov	rax, QWORD PTR ny$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -3395,11 +3395,11 @@ $LN7@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN11@PMC_Subtru
 
-; 702  :         {
-; 703  :             // y が 0 である場合
-; 704  : 
-; 705  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 706  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
+; 695  :         {
+; 696  :             // y が 0 である場合
+; 697  : 
+; 698  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 699  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nz$[rbp]
 	mov	rcx, QWORD PTR nx$[rbp]
@@ -3408,56 +3408,56 @@ $LN7@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN13@PMC_Subtru
 
-; 707  :                 return (result);
+; 700  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN13@PMC_Subtru:
 
-; 708  :         }
+; 701  :         }
 
 	jmp	$LN12@PMC_Subtru
 $LN11@PMC_Subtru:
 
-; 709  :         else
-; 710  :         {
-; 711  :             // x と y がともに 0 ではない場合
-; 712  : 
-; 713  :             // x と y の差を計算する
-; 714  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 702  :         else
+; 703  :         {
+; 704  :             // x と y がともに 0 ではない場合
+; 705  : 
+; 706  :             // x と y の差を計算する
+; 707  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR x_bit_count$5[rbp], rax
 
-; 715  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
+; 708  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR ny$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR y_bit_count$6[rbp], rax
 
-; 716  :             if (x_bit_count < y_bit_count)
+; 709  :             if (x_bit_count < y_bit_count)
 
 	mov	rax, QWORD PTR y_bit_count$6[rbp]
 	cmp	QWORD PTR x_bit_count$5[rbp], rax
 	jae	SHORT $LN14@PMC_Subtru
 
-; 717  :             {
-; 718  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 719  :                 return (PMC_STATUS_OVERFLOW);
+; 710  :             {
+; 711  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 712  :                 return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN14@PMC_Subtru:
 
-; 720  :             }
-; 721  :             __UNIT_TYPE z_bit_count = x_bit_count;
+; 713  :             }
+; 714  :             __UNIT_TYPE z_bit_count = x_bit_count;
 
 	mov	rax, QWORD PTR x_bit_count$5[rbp]
 	mov	QWORD PTR z_bit_count$7[rbp], rax
 
-; 722  :             __UNIT_TYPE nz_light_check_code;
-; 723  :             if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 715  :             __UNIT_TYPE nz_light_check_code;
+; 716  :             if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$8[rbp]
 	mov	rdx, QWORD PTR z_bit_count$7[rbp]
@@ -3467,13 +3467,13 @@ $LN14@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN15@PMC_Subtru
 
-; 724  :                 return (result);
+; 717  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN15@PMC_Subtru:
 
-; 725  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 718  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR nz$[rbp]
 	mov	rax, QWORD PTR [rax+48]
@@ -3494,13 +3494,13 @@ $LN15@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN16@PMC_Subtru
 
-; 726  :             {
-; 727  :                 DeallocateNumber(nz);
+; 719  :             {
+; 720  :                 DeallocateNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	DeallocateNumber
 
-; 728  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 721  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	cmp	DWORD PTR result$[rbp], -258		; fffffffffffffefeH
 	jne	SHORT $LN20@PMC_Subtru
@@ -3514,8 +3514,8 @@ $LN21@PMC_Subtru:
 	jmp	SHORT $LN1@PMC_Subtru
 $LN16@PMC_Subtru:
 
-; 729  :             }
-; 730  :             if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 722  :             }
+; 723  :             if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$8[rbp]
 	mov	rax, QWORD PTR nz$[rbp]
@@ -3525,29 +3525,29 @@ $LN16@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN17@PMC_Subtru
 
-; 731  :                 return (result);
+; 724  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN17@PMC_Subtru:
 
-; 732  :             CommitNumber(nz);
+; 725  :             CommitNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	CommitNumber
 $LN12@PMC_Subtru:
 
-; 733  :         }
-; 734  :         *o = nz;
+; 726  :         }
+; 727  :         *o = nz;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR nz$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN8@PMC_Subtru:
 
-; 735  :     }
-; 736  : #ifdef _DEBUG
-; 737  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 728  :     }
+; 729  : #ifdef _DEBUG
+; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3556,19 +3556,19 @@ $LN8@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_Subtru
 
-; 738  :         return (result);
+; 731  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN18@PMC_Subtru:
 
-; 739  : #endif
-; 740  :     return (PMC_STATUS_OK);
+; 732  : #endif
+; 733  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Subtru:
 
-; 741  : }
+; 734  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -3609,7 +3609,7 @@ y$ = 744
 o$ = 752
 PMC_Subtruct_X_L PROC					; COMDAT
 
-; 524  : {
+; 517  : {
 
 $LN38:
 	mov	QWORD PTR [rsp+24], r8
@@ -3627,50 +3627,50 @@ $LN38:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 525  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(y) * 8)
+; 518  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(y) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Subtru
 
-; 526  :     {
-; 527  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 528  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 519  :     {
+; 520  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 521  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Subtru
 $LN2@PMC_Subtru:
 
-; 529  :     }
-; 530  :     if (x == NULL)
+; 522  :     }
+; 523  :     if (x == NULL)
 
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN3@PMC_Subtru
 
-; 531  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 524  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN3@PMC_Subtru:
 
-; 532  :     if (o == NULL)
+; 525  :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN4@PMC_Subtru
 
-; 533  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 526  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN4@PMC_Subtru:
 
-; 534  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 527  :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR nx$[rbp], rax
 
-; 535  :     PMC_STATUS_CODE result;
-; 536  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 528  :     PMC_STATUS_CODE result;
+; 529  :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nx$[rbp]
 	call	CheckNumber
@@ -3678,14 +3678,14 @@ $LN4@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Subtru
 
-; 537  :         return (result);
+; 530  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN5@PMC_Subtru:
 
-; 538  :     NUMBER_HEADER* nz;
-; 539  :     if (nx->IS_ZERO)
+; 531  :     NUMBER_HEADER* nz;
+; 532  :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -3694,60 +3694,60 @@ $LN5@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN6@PMC_Subtru
 
-; 540  :     {
-; 541  :         // x が 0 である場合
-; 542  : 
-; 543  :         if (y == 0)
+; 533  :     {
+; 534  :         // x が 0 である場合
+; 535  : 
+; 536  :         if (y == 0)
 
 	cmp	QWORD PTR y$[rbp], 0
 	jne	SHORT $LN8@PMC_Subtru
 
-; 544  :         {
-; 545  :             // y が 0 である場合
-; 546  : 
-; 547  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 548  :             *o = &number_zero;
+; 537  :         {
+; 538  :             // y が 0 である場合
+; 539  : 
+; 540  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 541  :             *o = &number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 549  :         }
+; 542  :         }
 
 	jmp	SHORT $LN9@PMC_Subtru
 $LN8@PMC_Subtru:
 
-; 550  :         else
-; 551  :         {
-; 552  :             // y が 0 ではない場合
-; 553  : 
-; 554  :             // 演算結果は負となってしまうのでエラーを返す。
-; 555  :             return (PMC_STATUS_OVERFLOW);
+; 543  :         else
+; 544  :         {
+; 545  :             // y が 0 ではない場合
+; 546  : 
+; 547  :             // 演算結果は負となってしまうのでエラーを返す。
+; 548  :             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN9@PMC_Subtru:
 
-; 556  :         }
-; 557  :     }
+; 549  :         }
+; 550  :     }
 
 	jmp	$LN7@PMC_Subtru
 $LN6@PMC_Subtru:
 
-; 558  :     else
-; 559  :     {
-; 560  :         // x が 0 ではない場合
-; 561  : 
-; 562  :         if (y == 0)
+; 551  :     else
+; 552  :     {
+; 553  :         // x が 0 ではない場合
+; 554  : 
+; 555  :         if (y == 0)
 
 	cmp	QWORD PTR y$[rbp], 0
 	jne	SHORT $LN10@PMC_Subtru
 
-; 563  :         {
-; 564  :             // y が 0 である場合
-; 565  : 
-; 566  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 567  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
+; 556  :         {
+; 557  :             // y が 0 である場合
+; 558  : 
+; 559  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 560  :             if ((result = DuplicateNumber(nx, &nz)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nz$[rbp]
 	mov	rcx, QWORD PTR nx$[rbp]
@@ -3756,53 +3756,53 @@ $LN6@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN12@PMC_Subtru
 
-; 568  :                 return (result);
+; 561  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN12@PMC_Subtru:
 
-; 569  :         }
+; 562  :         }
 
 	jmp	$LN11@PMC_Subtru
 $LN10@PMC_Subtru:
 
-; 570  :         else
-; 571  :         {
-; 572  :             // x と y がともに 0 ではない場合
-; 573  : 
-; 574  :             // x と y の差を計算する
-; 575  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(y) * 8)
+; 563  :         else
+; 564  :         {
+; 565  :             // x と y がともに 0 ではない場合
+; 566  : 
+; 567  :             // x と y の差を計算する
+; 568  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(y) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	$LN13@PMC_Subtru
 
-; 576  :             {
-; 577  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 578  : 
-; 579  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 569  :             {
+; 570  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 571  : 
+; 572  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR x_bit_count$8[rbp], rax
 
-; 580  :                 _UINT32_T y_hi;
-; 581  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(y, &y_hi);
+; 573  :                 _UINT32_T y_hi;
+; 574  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(y, &y_hi);
 
 	lea	rdx, QWORD PTR y_hi$9[rbp]
 	mov	rcx, QWORD PTR y$[rbp]
 	call	_FROMDWORDTOWORD
 	mov	DWORD PTR y_lo$10[rbp], eax
 
-; 582  :                 if (y_hi == 0)
+; 575  :                 if (y_hi == 0)
 
 	cmp	DWORD PTR y_hi$9[rbp], 0
 	jne	$LN15@PMC_Subtru
 
-; 583  :                 {
-; 584  :                     // y の値が 32bit で表現可能な場合
-; 585  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
+; 576  :                 {
+; 577  :                     // y の値が 32bit で表現可能な場合
+; 578  :                     __UNIT_TYPE y_bit_count = sizeof(y_lo) * 8 - _LZCNT_ALT_32(y_lo);
 
 	mov	ecx, DWORD PTR y_lo$10[rbp]
 	call	_LZCNT_ALT_32
@@ -3812,28 +3812,28 @@ $LN10@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$11[rbp], rax
 
-; 586  :                     if (x_bit_count < y_bit_count)
+; 579  :                     if (x_bit_count < y_bit_count)
 
 	mov	rax, QWORD PTR y_bit_count$11[rbp]
 	cmp	QWORD PTR x_bit_count$8[rbp], rax
 	jae	SHORT $LN17@PMC_Subtru
 
-; 587  :                     {
-; 588  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 589  :                         return (PMC_STATUS_OVERFLOW);
+; 580  :                     {
+; 581  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 582  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN17@PMC_Subtru:
 
-; 590  :                     }
-; 591  :                     __UNIT_TYPE z_bit_count = x_bit_count;
+; 583  :                     }
+; 584  :                     __UNIT_TYPE z_bit_count = x_bit_count;
 
 	mov	rax, QWORD PTR x_bit_count$8[rbp]
 	mov	QWORD PTR z_bit_count$12[rbp], rax
 
-; 592  :                     __UNIT_TYPE nz_light_check_code;
-; 593  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 585  :                     __UNIT_TYPE nz_light_check_code;
+; 586  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$13[rbp]
 	mov	rdx, QWORD PTR z_bit_count$12[rbp]
@@ -3843,13 +3843,13 @@ $LN17@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_Subtru
 
-; 594  :                         return (result);
+; 587  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN18@PMC_Subtru:
 
-; 595  :                     if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 588  :                     if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR y_lo$10[rbp]
 	mov	rcx, QWORD PTR nz$[rbp]
@@ -3867,13 +3867,13 @@ $LN18@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN19@PMC_Subtru
 
-; 596  :                     {
-; 597  :                         DeallocateNumber(nz);
+; 589  :                     {
+; 590  :                         DeallocateNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	DeallocateNumber
 
-; 598  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 591  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	cmp	DWORD PTR result$[rbp], -258		; fffffffffffffefeH
 	jne	SHORT $LN32@PMC_Subtru
@@ -3887,8 +3887,8 @@ $LN33@PMC_Subtru:
 	jmp	$LN1@PMC_Subtru
 $LN19@PMC_Subtru:
 
-; 599  :                     }
-; 600  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 592  :                     }
+; 593  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$13[rbp]
 	mov	rax, QWORD PTR nz$[rbp]
@@ -3898,21 +3898,21 @@ $LN19@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN20@PMC_Subtru
 
-; 601  :                         return (result);
+; 594  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN20@PMC_Subtru:
 
-; 602  :                 }
+; 595  :                 }
 
 	jmp	$LN16@PMC_Subtru
 $LN15@PMC_Subtru:
 
-; 603  :                 else
-; 604  :                 {
-; 605  :                     // y の値が 32bit では表現できない場合
-; 606  :                     __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_32(y_hi);
+; 596  :                 else
+; 597  :                 {
+; 598  :                     // y の値が 32bit では表現できない場合
+; 599  :                     __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_32(y_hi);
 
 	mov	ecx, DWORD PTR y_hi$9[rbp]
 	call	_LZCNT_ALT_32
@@ -3922,28 +3922,28 @@ $LN15@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$14[rbp], rax
 
-; 607  :                     if (x_bit_count < y_bit_count)
+; 600  :                     if (x_bit_count < y_bit_count)
 
 	mov	rax, QWORD PTR y_bit_count$14[rbp]
 	cmp	QWORD PTR x_bit_count$8[rbp], rax
 	jae	SHORT $LN21@PMC_Subtru
 
-; 608  :                     {
-; 609  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 610  :                         return (PMC_STATUS_OVERFLOW);
+; 601  :                     {
+; 602  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 603  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN21@PMC_Subtru:
 
-; 611  :                     }
-; 612  :                     __UNIT_TYPE z_bit_count = x_bit_count;
+; 604  :                     }
+; 605  :                     __UNIT_TYPE z_bit_count = x_bit_count;
 
 	mov	rax, QWORD PTR x_bit_count$8[rbp]
 	mov	QWORD PTR z_bit_count$15[rbp], rax
 
-; 613  :                     __UNIT_TYPE nz_light_check_code;
-; 614  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 606  :                     __UNIT_TYPE nz_light_check_code;
+; 607  :                     if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$16[rbp]
 	mov	rdx, QWORD PTR z_bit_count$15[rbp]
@@ -3953,13 +3953,13 @@ $LN21@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN22@PMC_Subtru
 
-; 615  :                         return (result);
+; 608  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN22@PMC_Subtru:
 
-; 616  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 609  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR y_lo$10[rbp]
 	mov	ecx, DWORD PTR y_hi$9[rbp]
@@ -3980,13 +3980,13 @@ $LN22@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN23@PMC_Subtru
 
-; 617  :                     {
-; 618  :                         DeallocateNumber(nz);
+; 610  :                     {
+; 611  :                         DeallocateNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	DeallocateNumber
 
-; 619  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 612  :                         return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	cmp	DWORD PTR result$[rbp], -258		; fffffffffffffefeH
 	jne	SHORT $LN34@PMC_Subtru
@@ -4000,8 +4000,8 @@ $LN35@PMC_Subtru:
 	jmp	$LN1@PMC_Subtru
 $LN23@PMC_Subtru:
 
-; 620  :                     }
-; 621  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 613  :                     }
+; 614  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$16[rbp]
 	mov	rax, QWORD PTR nz$[rbp]
@@ -4011,30 +4011,30 @@ $LN23@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN24@PMC_Subtru
 
-; 622  :                         return (result);
+; 615  :                         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN24@PMC_Subtru:
 $LN16@PMC_Subtru:
 
-; 623  :                 }
-; 624  :             }
+; 616  :                 }
+; 617  :             }
 
 	jmp	$LN14@PMC_Subtru
 $LN13@PMC_Subtru:
 
-; 625  :             else
-; 626  :             {
-; 627  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 628  : 
-; 629  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
+; 618  :             else
+; 619  :             {
+; 620  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 621  : 
+; 622  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR x_bit_count$17[rbp], rax
 
-; 630  :                 __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)y);
+; 623  :                 __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)y);
 
 	mov	rcx, QWORD PTR y$[rbp]
 	call	_LZCNT_ALT_UNIT
@@ -4044,28 +4044,28 @@ $LN13@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR y_bit_count$18[rbp], rax
 
-; 631  :                 if (x_bit_count < y_bit_count)
+; 624  :                 if (x_bit_count < y_bit_count)
 
 	mov	rax, QWORD PTR y_bit_count$18[rbp]
 	cmp	QWORD PTR x_bit_count$17[rbp], rax
 	jae	SHORT $LN25@PMC_Subtru
 
-; 632  :                 {
-; 633  :                     // 演算結果は負となってしまうのでエラーを返す。
-; 634  :                     return (PMC_STATUS_OVERFLOW);
+; 625  :                 {
+; 626  :                     // 演算結果は負となってしまうのでエラーを返す。
+; 627  :                     return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN25@PMC_Subtru:
 
-; 635  :                 }
-; 636  :                 __UNIT_TYPE z_bit_count = x_bit_count;
+; 628  :                 }
+; 629  :                 __UNIT_TYPE z_bit_count = x_bit_count;
 
 	mov	rax, QWORD PTR x_bit_count$17[rbp]
 	mov	QWORD PTR z_bit_count$19[rbp], rax
 
-; 637  :                 __UNIT_TYPE nz_light_check_code;
-; 638  :                 if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
+; 630  :                 __UNIT_TYPE nz_light_check_code;
+; 631  :                 if ((result = AllocateNumber(&nz, z_bit_count, &nz_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nz_light_check_code$20[rbp]
 	mov	rdx, QWORD PTR z_bit_count$19[rbp]
@@ -4075,13 +4075,13 @@ $LN25@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN26@PMC_Subtru
 
-; 639  :                     return (result);
+; 632  :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN26@PMC_Subtru:
 
-; 640  :                 if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, (__UNIT_TYPE)y, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 633  :                 if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, (__UNIT_TYPE)y, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR nz$[rbp]
 	mov	rax, QWORD PTR [rax+48]
@@ -4098,13 +4098,13 @@ $LN26@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN27@PMC_Subtru
 
-; 641  :                 {
-; 642  :                     DeallocateNumber(nz);
+; 634  :                 {
+; 635  :                     DeallocateNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	DeallocateNumber
 
-; 643  :                     return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 636  :                     return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	cmp	DWORD PTR result$[rbp], -258		; fffffffffffffefeH
 	jne	SHORT $LN36@PMC_Subtru
@@ -4118,8 +4118,8 @@ $LN37@PMC_Subtru:
 	jmp	SHORT $LN1@PMC_Subtru
 $LN27@PMC_Subtru:
 
-; 644  :                 }
-; 645  :                 if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
+; 637  :                 }
+; 638  :                 if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$20[rbp]
 	mov	rax, QWORD PTR nz$[rbp]
@@ -4129,20 +4129,20 @@ $LN27@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN28@PMC_Subtru
 
-; 646  :                     return (result);
+; 639  :                     return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN28@PMC_Subtru:
 $LN14@PMC_Subtru:
 
-; 647  :             }
-; 648  :             CommitNumber(nz);
+; 640  :             }
+; 641  :             CommitNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	CommitNumber
 
-; 649  :             if (nz->IS_ZERO)
+; 642  :             if (nz->IS_ZERO)
 
 	mov	rax, QWORD PTR nz$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -4151,31 +4151,31 @@ $LN14@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN29@PMC_Subtru
 
-; 650  :             {
-; 651  :                 DeallocateNumber(nz);
+; 643  :             {
+; 644  :                 DeallocateNumber(nz);
 
 	mov	rcx, QWORD PTR nz$[rbp]
 	call	DeallocateNumber
 
-; 652  :                 nz = &number_zero;
+; 645  :                 nz = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nz$[rbp], rax
 $LN29@PMC_Subtru:
 $LN11@PMC_Subtru:
 
-; 653  :             }
-; 654  :         }
-; 655  :         *o = nz;
+; 646  :             }
+; 647  :         }
+; 648  :         *o = nz;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR nz$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN7@PMC_Subtru:
 
-; 656  :     }
-; 657  : #ifdef _DEBUG
-; 658  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 649  :     }
+; 650  : #ifdef _DEBUG
+; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -4184,19 +4184,19 @@ $LN7@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN30@PMC_Subtru
 
-; 659  :         return (result);
+; 652  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN30@PMC_Subtru:
 
-; 660  : #endif
-; 661  :     return (PMC_STATUS_OK);
+; 653  : #endif
+; 654  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Subtru:
 
-; 662  : }
+; 655  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -4226,7 +4226,7 @@ v$ = 456
 w$ = 464
 PMC_Subtruct_X_I PROC					; COMDAT
 
-; 269  : {
+; 262  : {
 
 $LN22:
 	mov	QWORD PTR [rsp+24], r8
@@ -4244,50 +4244,50 @@ $LN22:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 270  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
+; 263  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Subtru
 
-; 271  :     {
-; 272  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 273  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 264  :     {
+; 265  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 266  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Subtru
 $LN2@PMC_Subtru:
 
-; 274  :     }
-; 275  :     if (u == NULL)
+; 267  :     }
+; 268  :     if (u == NULL)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN3@PMC_Subtru
 
-; 276  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 269  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN3@PMC_Subtru:
 
-; 277  :     if (w == NULL)
+; 270  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Subtru
 
-; 278  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 271  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN4@PMC_Subtru:
 
-; 279  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 272  :     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	QWORD PTR nu$[rbp], rax
 
-; 280  :     PMC_STATUS_CODE result;
-; 281  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
+; 273  :     PMC_STATUS_CODE result;
+; 274  :     if ((result = CheckNumber(nu)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nu$[rbp]
 	call	CheckNumber
@@ -4295,14 +4295,14 @@ $LN4@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Subtru
 
-; 282  :         return (result);
+; 275  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN5@PMC_Subtru:
 
-; 283  :     NUMBER_HEADER* nw;
-; 284  :     if (nu->IS_ZERO)
+; 276  :     NUMBER_HEADER* nw;
+; 277  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -4311,60 +4311,60 @@ $LN5@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN6@PMC_Subtru
 
-; 285  :     {
-; 286  :         // u が 0 である場合
-; 287  : 
-; 288  :         if (v == 0)
+; 278  :     {
+; 279  :         // u が 0 である場合
+; 280  : 
+; 281  :         if (v == 0)
 
 	cmp	DWORD PTR v$[rbp], 0
 	jne	SHORT $LN8@PMC_Subtru
 
-; 289  :         {
-; 290  :             // v が 0 である場合
-; 291  : 
-; 292  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 293  :             *w = &number_zero;
+; 282  :         {
+; 283  :             // v が 0 である場合
+; 284  : 
+; 285  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 286  :             *w = &number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
 
-; 294  :         }
+; 287  :         }
 
 	jmp	SHORT $LN9@PMC_Subtru
 $LN8@PMC_Subtru:
 
-; 295  :         else
-; 296  :         {
-; 297  :             // v が 0 ではない場合
-; 298  : 
-; 299  :             // 演算結果は負となってしまうのでエラーを返す。
-; 300  :             return (PMC_STATUS_OVERFLOW);
+; 288  :         else
+; 289  :         {
+; 290  :             // v が 0 ではない場合
+; 291  : 
+; 292  :             // 演算結果は負となってしまうのでエラーを返す。
+; 293  :             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN9@PMC_Subtru:
 
-; 301  :         }
-; 302  :     }
+; 294  :         }
+; 295  :     }
 
 	jmp	$LN7@PMC_Subtru
 $LN6@PMC_Subtru:
 
-; 303  :     else
-; 304  :     {
-; 305  :         // u が 0 ではない場合
-; 306  : 
-; 307  :         if (v == 0)
+; 296  :     else
+; 297  :     {
+; 298  :         // u が 0 ではない場合
+; 299  : 
+; 300  :         if (v == 0)
 
 	cmp	DWORD PTR v$[rbp], 0
 	jne	SHORT $LN10@PMC_Subtru
 
-; 308  :         {
-; 309  :             // v が 0 である場合
-; 310  : 
-; 311  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 312  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
+; 301  :         {
+; 302  :             // v が 0 である場合
+; 303  : 
+; 304  :             // 演算結果となる x の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 305  :             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
 
 	lea	rdx, QWORD PTR nw$[rbp]
 	mov	rcx, QWORD PTR nu$[rbp]
@@ -4373,29 +4373,29 @@ $LN6@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN12@PMC_Subtru
 
-; 313  :                 return (result);
+; 306  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN12@PMC_Subtru:
 
-; 314  :         }
+; 307  :         }
 
 	jmp	$LN11@PMC_Subtru
 $LN10@PMC_Subtru:
 
-; 315  :         else
-; 316  :         {
-; 317  :             // u と v がともに 0 ではない場合
-; 318  : 
-; 319  :             // u と v の差を計算する
-; 320  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 308  :         else
+; 309  :         {
+; 310  :             // u と v がともに 0 ではない場合
+; 311  : 
+; 312  :             // u と v の差を計算する
+; 313  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR u_bit_count$5[rbp], rax
 
-; 321  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+; 314  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
 	mov	ecx, DWORD PTR v$[rbp]
 	call	_LZCNT_ALT_32
@@ -4405,28 +4405,28 @@ $LN10@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR v_bit_count$6[rbp], rax
 
-; 322  :             if (u_bit_count < v_bit_count)
+; 315  :             if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$6[rbp]
 	cmp	QWORD PTR u_bit_count$5[rbp], rax
 	jae	SHORT $LN13@PMC_Subtru
 
-; 323  :             {
-; 324  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 325  :                 return (PMC_STATUS_OVERFLOW);
+; 316  :             {
+; 317  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 318  :                 return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN13@PMC_Subtru:
 
-; 326  :             }
-; 327  :             __UNIT_TYPE w_bit_count = u_bit_count;
+; 319  :             }
+; 320  :             __UNIT_TYPE w_bit_count = u_bit_count;
 
 	mov	rax, QWORD PTR u_bit_count$5[rbp]
 	mov	QWORD PTR w_bit_count$7[rbp], rax
 
-; 328  :             __UNIT_TYPE w_light_check_code;
-; 329  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+; 321  :             __UNIT_TYPE w_light_check_code;
+; 322  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR w_light_check_code$8[rbp]
 	mov	rdx, QWORD PTR w_bit_count$7[rbp]
@@ -4436,13 +4436,13 @@ $LN13@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN14@PMC_Subtru
 
-; 330  :                 return (result);
+; 323  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN14@PMC_Subtru:
 
-; 331  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
+; 324  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -4460,13 +4460,13 @@ $LN14@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN15@PMC_Subtru
 
-; 332  :             {
-; 333  :                 DeallocateNumber(nw);
+; 325  :             {
+; 326  :                 DeallocateNumber(nw);
 
 	mov	rcx, QWORD PTR nw$[rbp]
 	call	DeallocateNumber
 
-; 334  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
+; 327  :                 return (result == PMC_STATUS_INTERNAL_BORROW ? PMC_STATUS_OVERFLOW : result);
 
 	cmp	DWORD PTR result$[rbp], -258		; fffffffffffffefeH
 	jne	SHORT $LN20@PMC_Subtru
@@ -4480,8 +4480,8 @@ $LN21@PMC_Subtru:
 	jmp	SHORT $LN1@PMC_Subtru
 $LN15@PMC_Subtru:
 
-; 335  :             }
-; 336  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+; 328  :             }
+; 329  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$8[rbp]
 	mov	rax, QWORD PTR nw$[rbp]
@@ -4491,18 +4491,18 @@ $LN15@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN16@PMC_Subtru
 
-; 337  :                 return (result);
+; 330  :                 return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN16@PMC_Subtru:
 
-; 338  :             CommitNumber(nw);
+; 331  :             CommitNumber(nw);
 
 	mov	rcx, QWORD PTR nw$[rbp]
 	call	CommitNumber
 
-; 339  :             if (nw->IS_ZERO)
+; 332  :             if (nw->IS_ZERO)
 
 	mov	rax, QWORD PTR nw$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -4511,31 +4511,31 @@ $LN16@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN17@PMC_Subtru
 
-; 340  :             {
-; 341  :                 DeallocateNumber(nw);
+; 333  :             {
+; 334  :                 DeallocateNumber(nw);
 
 	mov	rcx, QWORD PTR nw$[rbp]
 	call	DeallocateNumber
 
-; 342  :                 nw = &number_zero;
+; 335  :                 nw = &number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR nw$[rbp], rax
 $LN17@PMC_Subtru:
 $LN11@PMC_Subtru:
 
-; 343  :             }
-; 344  :         }
-; 345  :         *w = nw;
+; 336  :             }
+; 337  :         }
+; 338  :         *w = nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
 	mov	QWORD PTR [rax], rcx
 $LN7@PMC_Subtru:
 
-; 346  :     }
-; 347  : #ifdef _DEBUG
-; 348  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 339  :     }
+; 340  : #ifdef _DEBUG
+; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -4544,19 +4544,19 @@ $LN7@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN18@PMC_Subtru
 
-; 349  :         return (result);
+; 342  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN18@PMC_Subtru:
 
-; 350  : #endif
-; 351  :     return (PMC_STATUS_OK);
+; 343  : #endif
+; 344  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Subtru:
 
-; 352  : }
+; 345  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -4595,7 +4595,7 @@ v$ = 968
 w$ = 976
 PMC_Subtruct_L_X PROC					; COMDAT
 
-; 355  : {
+; 348  : {
 
 $LN31:
 	mov	QWORD PTR [rsp+24], r8
@@ -4613,50 +4613,50 @@ $LN31:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 356  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
+; 349  :     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Subtru
 
-; 357  :     {
-; 358  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
-; 359  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 350  :     {
+; 351  :         // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
+; 352  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Subtru
 $LN2@PMC_Subtru:
 
-; 360  :     }
-; 361  :     if (v == NULL)
+; 353  :     }
+; 354  :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_Subtru
 
-; 362  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 355  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN3@PMC_Subtru:
 
-; 363  :     if (w == NULL)
+; 356  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Subtru
 
-; 364  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 357  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN4@PMC_Subtru:
 
-; 365  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 358  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 366  :     PMC_STATUS_CODE result;
-; 367  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 359  :     PMC_STATUS_CODE result;
+; 360  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -4664,21 +4664,21 @@ $LN4@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Subtru
 
-; 368  :         return (result);
+; 361  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN5@PMC_Subtru:
 
-; 369  :     if (u == 0)
+; 362  :     if (u == 0)
 
 	cmp	QWORD PTR u$[rbp], 0
 	jne	SHORT $LN6@PMC_Subtru
 
-; 370  :     {
-; 371  :         // u が 0 である場合
-; 372  : 
-; 373  :         if (nv->IS_ZERO)
+; 363  :     {
+; 364  :         // u が 0 である場合
+; 365  : 
+; 366  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -4687,42 +4687,42 @@ $LN5@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN8@PMC_Subtru
 
-; 374  :         {
-; 375  :             // v が 0 である場合
-; 376  : 
-; 377  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 378  :             *w = 0;
+; 367  :         {
+; 368  :             // v が 0 である場合
+; 369  : 
+; 370  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 371  :             *w = 0;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	QWORD PTR [rax], 0
 
-; 379  :         }
+; 372  :         }
 
 	jmp	SHORT $LN9@PMC_Subtru
 $LN8@PMC_Subtru:
 
-; 380  :         else
-; 381  :         {
-; 382  :             // v が 0 ではない場合
-; 383  : 
-; 384  :             // 演算結果は負となってしまうのでエラーを返す。
-; 385  :             return (PMC_STATUS_OVERFLOW);
+; 373  :         else
+; 374  :         {
+; 375  :             // v が 0 ではない場合
+; 376  : 
+; 377  :             // 演算結果は負となってしまうのでエラーを返す。
+; 378  :             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN9@PMC_Subtru:
 
-; 386  :         }
-; 387  :     }
+; 379  :         }
+; 380  :     }
 
 	jmp	$LN7@PMC_Subtru
 $LN6@PMC_Subtru:
 
-; 388  :     else
-; 389  :     {
-; 390  :         // u が 0 ではない場合
-; 391  : 
-; 392  :         if (nv->IS_ZERO)
+; 381  :     else
+; 382  :     {
+; 383  :         // u が 0 ではない場合
+; 384  : 
+; 385  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -4731,51 +4731,51 @@ $LN6@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN10@PMC_Subtru
 
-; 393  :         {
-; 394  :             // v が 0 である場合
-; 395  : 
-; 396  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 397  :             *w = u;
+; 386  :         {
+; 387  :             // v が 0 である場合
+; 388  : 
+; 389  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 390  :             *w = u;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 398  :         }
+; 391  :         }
 
 	jmp	$LN11@PMC_Subtru
 $LN10@PMC_Subtru:
 
-; 399  :         else
-; 400  :         {
-; 401  :             // u と v がともに 0 ではない場合
-; 402  : 
-; 403  :             // u と v の差を計算する
-; 404  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 392  :         else
+; 393  :         {
+; 394  :             // u と v がともに 0 ではない場合
+; 395  : 
+; 396  :             // u と v の差を計算する
+; 397  :             if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	$LN12@PMC_Subtru
 
-; 405  :             {
-; 406  :                 // _UINT64_T が 1 ワードで表現しきれない場合
-; 407  : 
-; 408  :                 _UINT32_T u_hi;
-; 409  :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
+; 398  :             {
+; 399  :                 // _UINT64_T が 1 ワードで表現しきれない場合
+; 400  : 
+; 401  :                 _UINT32_T u_hi;
+; 402  :                 _UINT32_T u_lo = _FROMDWORDTOWORD(u, &u_hi);
 
 	lea	rdx, QWORD PTR u_hi$8[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	call	_FROMDWORDTOWORD
 	mov	DWORD PTR u_lo$9[rbp], eax
 
-; 410  :                 if (u_hi == 0)
+; 403  :                 if (u_hi == 0)
 
 	cmp	DWORD PTR u_hi$8[rbp], 0
 	jne	$LN14@PMC_Subtru
 
-; 411  :                 {
-; 412  :                     // u の値が 32bit で表現可能な場合
-; 413  :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
+; 404  :                 {
+; 405  :                     // u の値が 32bit で表現可能な場合
+; 406  :                     __UNIT_TYPE u_bit_count = sizeof(u_lo) * 8 - _LZCNT_ALT_32(u_lo);
 
 	mov	ecx, DWORD PTR u_lo$9[rbp]
 	call	_LZCNT_ALT_32
@@ -4785,40 +4785,40 @@ $LN10@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$10[rbp], rax
 
-; 414  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 407  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$11[rbp], rax
 
-; 415  :                     if (u_bit_count < v_bit_count)
+; 408  :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$11[rbp]
 	cmp	QWORD PTR u_bit_count$10[rbp], rax
 	jae	SHORT $LN16@PMC_Subtru
 
-; 416  :                     {
-; 417  :                         // 明らかに u < v である場合
-; 418  : 
-; 419  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 420  :                         return (PMC_STATUS_OVERFLOW);
+; 409  :                     {
+; 410  :                         // 明らかに u < v である場合
+; 411  : 
+; 412  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 413  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 
-; 421  :                     }
+; 414  :                     }
 
 	jmp	SHORT $LN17@PMC_Subtru
 $LN16@PMC_Subtru:
 
-; 422  :                     else
-; 423  :                     {
-; 424  :                         // u のビット長が v のビット長以上である場合
-; 425  : 
-; 426  :                         // u が32bit 整数で表現できるので v も 32bit 整数で表現できる
-; 427  : 
-; 428  :                         __UNIT_TYPE temp_w;
-; 429  :                         char borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w);
+; 415  :                     else
+; 416  :                     {
+; 417  :                         // u のビット長が v のビット長以上である場合
+; 418  : 
+; 419  :                         // u が32bit 整数で表現できるので v も 32bit 整数で表現できる
+; 420  : 
+; 421  :                         __UNIT_TYPE temp_w;
+; 422  :                         char borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4831,27 +4831,27 @@ $LN16@PMC_Subtru:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR borrow$13[rbp], al
 
-; 430  :                         if (borrow)
+; 423  :                         if (borrow)
 
 	movsx	eax, BYTE PTR borrow$13[rbp]
 	test	eax, eax
 	je	SHORT $LN18@PMC_Subtru
 
-; 431  :                         {
-; 432  :                             // ボローが発生した場合は演算結果が負なのでエラーとする
-; 433  :                             return (PMC_STATUS_OVERFLOW);
+; 424  :                         {
+; 425  :                             // ボローが発生した場合は演算結果が負なのでエラーとする
+; 426  :                             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 
-; 434  :                         }
+; 427  :                         }
 
 	jmp	SHORT $LN19@PMC_Subtru
 $LN18@PMC_Subtru:
 
-; 435  :                         else
-; 436  :                         {
-; 437  :                             *w = temp_w;
+; 428  :                         else
+; 429  :                         {
+; 430  :                             *w = temp_w;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR temp_w$12[rbp]
@@ -4859,17 +4859,17 @@ $LN18@PMC_Subtru:
 $LN19@PMC_Subtru:
 $LN17@PMC_Subtru:
 
-; 438  :                         }
-; 439  :                     }
-; 440  :                 }
+; 431  :                         }
+; 432  :                     }
+; 433  :                 }
 
 	jmp	$LN15@PMC_Subtru
 $LN14@PMC_Subtru:
 
-; 441  :                 else
-; 442  :                 {
-; 443  :                     // u の値が 32bit では表現できない場合
-; 444  :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
+; 434  :                 else
+; 435  :                 {
+; 436  :                     // u の値が 32bit では表現できない場合
+; 437  :                     __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u_hi);
 
 	mov	ecx, DWORD PTR u_hi$8[rbp]
 	call	_LZCNT_ALT_32
@@ -4879,42 +4879,42 @@ $LN14@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$14[rbp], rax
 
-; 445  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 438  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$15[rbp], rax
 
-; 446  :                     if (u_bit_count < v_bit_count)
+; 439  :                     if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$15[rbp]
 	cmp	QWORD PTR u_bit_count$14[rbp], rax
 	jae	SHORT $LN20@PMC_Subtru
 
-; 447  :                     {
-; 448  :                         // 明らかに u < v である場合
-; 449  : 
-; 450  :                         // 演算結果は負となってしまうのでエラーを返す。
-; 451  :                         return (PMC_STATUS_OVERFLOW);
+; 440  :                     {
+; 441  :                         // 明らかに u < v である場合
+; 442  : 
+; 443  :                         // 演算結果は負となってしまうのでエラーを返す。
+; 444  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 
-; 452  :                     }
+; 445  :                     }
 
 	jmp	$LN21@PMC_Subtru
 $LN20@PMC_Subtru:
 
-; 453  :                     else
-; 454  :                     {
-; 455  :                         // u のビット長が v のビット長以上である場合
-; 456  : 
-; 457  :                         // この時点では u は 33 ～ 64bit 整数であり、v は 1 ～ 64bit整数である
-; 458  : 
-; 459  :                         __UNIT_TYPE temp_w_hi;
-; 460  :                         __UNIT_TYPE temp_w_lo;
-; 461  :                         char borrow;
-; 462  :                         borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w_lo);
+; 446  :                     else
+; 447  :                     {
+; 448  :                         // u のビット長が v のビット長以上である場合
+; 449  : 
+; 450  :                         // この時点では u は 33 ～ 64bit 整数であり、v は 1 ～ 64bit整数である
+; 451  : 
+; 452  :                         __UNIT_TYPE temp_w_hi;
+; 453  :                         __UNIT_TYPE temp_w_lo;
+; 454  :                         char borrow;
+; 455  :                         borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w_lo);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4927,15 +4927,15 @@ $LN20@PMC_Subtru:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR borrow$18[rbp], al
 
-; 463  :                         if (nv->UNIT_WORD_COUNT <= 1)
+; 456  :                         if (nv->UNIT_WORD_COUNT <= 1)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	cmp	QWORD PTR [rax+8], 1
 	ja	SHORT $LN22@PMC_Subtru
 
-; 464  :                         {
-; 465  :                             // v が 1 ワードで表現できる場合(1 ～ 32bit 整数)
-; 466  :                             borrow = _SUBTRUCT_UNIT(borrow, u_hi, 0, &temp_w_hi);
+; 457  :                         {
+; 458  :                             // v が 1 ワードで表現できる場合(1 ～ 32bit 整数)
+; 459  :                             borrow = _SUBTRUCT_UNIT(borrow, u_hi, 0, &temp_w_hi);
 
 	mov	eax, DWORD PTR u_hi$8[rbp]
 	lea	r9, QWORD PTR temp_w_hi$16[rbp]
@@ -4945,15 +4945,15 @@ $LN20@PMC_Subtru:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR borrow$18[rbp], al
 
-; 467  :                         }
+; 460  :                         }
 
 	jmp	SHORT $LN23@PMC_Subtru
 $LN22@PMC_Subtru:
 
-; 468  :                         else
-; 469  :                         {
-; 470  :                             // v が 1 ワードで表現できない場合(33 ～ 64bit 整数)
-; 471  :                             borrow = _SUBTRUCT_UNIT(borrow, u_hi, nv->BLOCK[1], &temp_w_hi);
+; 461  :                         else
+; 462  :                         {
+; 463  :                             // v が 1 ワードで表現できない場合(33 ～ 64bit 整数)
+; 464  :                             borrow = _SUBTRUCT_UNIT(borrow, u_hi, nv->BLOCK[1], &temp_w_hi);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4967,28 +4967,28 @@ $LN22@PMC_Subtru:
 	mov	BYTE PTR borrow$18[rbp], al
 $LN23@PMC_Subtru:
 
-; 472  :                         }
-; 473  :                         if (borrow)
+; 465  :                         }
+; 466  :                         if (borrow)
 
 	movsx	eax, BYTE PTR borrow$18[rbp]
 	test	eax, eax
 	je	SHORT $LN24@PMC_Subtru
 
-; 474  :                         {
-; 475  :                             // ボローが発生した場合は演算結果が負なのでエラーとする
-; 476  :                             return (PMC_STATUS_OVERFLOW);
+; 467  :                         {
+; 468  :                             // ボローが発生した場合は演算結果が負なのでエラーとする
+; 469  :                             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 
-; 477  :                         }
+; 470  :                         }
 
 	jmp	SHORT $LN25@PMC_Subtru
 $LN24@PMC_Subtru:
 
-; 478  :                         else
-; 479  :                         {
-; 480  :                             *w = _FROMWORDTODWORD((_UINT32_T)temp_w_hi, (_UINT32_T)temp_w_lo);
+; 471  :                         else
+; 472  :                         {
+; 473  :                             *w = _FROMWORDTODWORD((_UINT32_T)temp_w_hi, (_UINT32_T)temp_w_lo);
 
 	mov	edx, DWORD PTR temp_w_lo$17[rbp]
 	mov	ecx, DWORD PTR temp_w_hi$16[rbp]
@@ -4999,20 +4999,20 @@ $LN25@PMC_Subtru:
 $LN21@PMC_Subtru:
 $LN15@PMC_Subtru:
 
-; 481  :                         }
-; 482  : 
-; 483  :                     }
-; 484  :                 }
-; 485  :             }
+; 474  :                         }
+; 475  : 
+; 476  :                     }
+; 477  :                 }
+; 478  :             }
 
 	jmp	$LN13@PMC_Subtru
 $LN12@PMC_Subtru:
 
-; 486  :             else
-; 487  :             {
-; 488  :                 // _UINT64_T が 1 ワードで表現できる場合
-; 489  : 
-; 490  :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
+; 479  :             else
+; 480  :             {
+; 481  :                 // _UINT64_T が 1 ワードで表現できる場合
+; 482  : 
+; 483  :                 __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)u);
 
 	mov	rcx, QWORD PTR u$[rbp]
 	call	_LZCNT_ALT_UNIT
@@ -5022,40 +5022,40 @@ $LN12@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$19[rbp], rax
 
-; 491  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 484  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$20[rbp], rax
 
-; 492  :                 if (u_bit_count < v_bit_count)
+; 485  :                 if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$20[rbp]
 	cmp	QWORD PTR u_bit_count$19[rbp], rax
 	jae	SHORT $LN26@PMC_Subtru
 
-; 493  :                 {
-; 494  :                     // 明らかに u < v である場合
-; 495  : 
-; 496  :                     // 演算結果は負となってしまうのでエラーを返す。
-; 497  :                     return (PMC_STATUS_OVERFLOW);
+; 486  :                 {
+; 487  :                     // 明らかに u < v である場合
+; 488  : 
+; 489  :                     // 演算結果は負となってしまうのでエラーを返す。
+; 490  :                     return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	SHORT $LN1@PMC_Subtru
 
-; 498  :                 }
+; 491  :                 }
 
 	jmp	SHORT $LN27@PMC_Subtru
 $LN26@PMC_Subtru:
 
-; 499  :                 else
-; 500  :                 {
-; 501  :                     // u のビット長が v のビット長以上である場合
-; 502  : 
-; 503  :                     // u が 64bit 整数で表現できるので v も 64bit 整数で表現できる
-; 504  : 
-; 505  :                     __UNIT_TYPE temp_w;
-; 506  :                     char borrow = _SUBTRUCT_UNIT(0, (__UNIT_TYPE)u, nv->BLOCK[0], &temp_w);
+; 492  :                 else
+; 493  :                 {
+; 494  :                     // u のビット長が v のビット長以上である場合
+; 495  : 
+; 496  :                     // u が 64bit 整数で表現できるので v も 64bit 整数で表現できる
+; 497  : 
+; 498  :                     __UNIT_TYPE temp_w;
+; 499  :                     char borrow = _SUBTRUCT_UNIT(0, (__UNIT_TYPE)u, nv->BLOCK[0], &temp_w);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5068,27 +5068,27 @@ $LN26@PMC_Subtru:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR borrow$22[rbp], al
 
-; 507  :                     if (borrow)
+; 500  :                     if (borrow)
 
 	movsx	eax, BYTE PTR borrow$22[rbp]
 	test	eax, eax
 	je	SHORT $LN28@PMC_Subtru
 
-; 508  :                     {
-; 509  :                         // ボローが発生した場合は演算結果が負なのでエラーとする
-; 510  :                         return (PMC_STATUS_OVERFLOW);
+; 501  :                     {
+; 502  :                         // ボローが発生した場合は演算結果が負なのでエラーとする
+; 503  :                         return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	SHORT $LN1@PMC_Subtru
 
-; 511  :                     }
+; 504  :                     }
 
 	jmp	SHORT $LN29@PMC_Subtru
 $LN28@PMC_Subtru:
 
-; 512  :                     else
-; 513  :                     {
-; 514  :                         *w = temp_w;
+; 505  :                     else
+; 506  :                     {
+; 507  :                         *w = temp_w;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR temp_w$21[rbp]
@@ -5099,17 +5099,17 @@ $LN13@PMC_Subtru:
 $LN11@PMC_Subtru:
 $LN7@PMC_Subtru:
 
-; 515  :                     }
-; 516  :                 }
-; 517  :             }
-; 518  :         }
-; 519  :     }
-; 520  :     return (PMC_STATUS_OK);
+; 508  :                     }
+; 509  :                 }
+; 510  :             }
+; 511  :         }
+; 512  :     }
+; 513  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Subtru:
 
-; 521  : }
+; 514  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5137,7 +5137,7 @@ v$ = 424
 w$ = 432
 PMC_Subtruct_I_X PROC					; COMDAT
 
-; 189  : {
+; 182  : {
 
 $LN17:
 	mov	QWORD PTR [rsp+24], r8
@@ -5155,50 +5155,50 @@ $LN17:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 190  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
+; 183  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_Subtru
 
-; 191  :     {
-; 192  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 193  :         return (PMC_STATUS_INTERNAL_ERROR);
+; 184  :     {
+; 185  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 186  :         return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_Subtru
 $LN2@PMC_Subtru:
 
-; 194  :     }
-; 195  :     if (v == NULL)
+; 187  :     }
+; 188  :     if (v == NULL)
 
 	cmp	QWORD PTR v$[rbp], 0
 	jne	SHORT $LN3@PMC_Subtru
 
-; 196  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 189  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN3@PMC_Subtru:
 
-; 197  :     if (w == NULL)
+; 190  :     if (w == NULL)
 
 	cmp	QWORD PTR w$[rbp], 0
 	jne	SHORT $LN4@PMC_Subtru
 
-; 198  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 191  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_Subtru
 $LN4@PMC_Subtru:
 
-; 199  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 192  :     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
 	mov	rax, QWORD PTR v$[rbp]
 	mov	QWORD PTR nv$[rbp], rax
 
-; 200  :     PMC_STATUS_CODE result;
-; 201  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
+; 193  :     PMC_STATUS_CODE result;
+; 194  :     if ((result = CheckNumber(nv)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nv$[rbp]
 	call	CheckNumber
@@ -5206,21 +5206,21 @@ $LN4@PMC_Subtru:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_Subtru
 
-; 202  :         return (result);
+; 195  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@PMC_Subtru
 $LN5@PMC_Subtru:
 
-; 203  :     if (u == 0)
+; 196  :     if (u == 0)
 
 	cmp	DWORD PTR u$[rbp], 0
 	jne	SHORT $LN6@PMC_Subtru
 
-; 204  :     {
-; 205  :         // u が 0 である場合
-; 206  : 
-; 207  :         if (nv->IS_ZERO)
+; 197  :     {
+; 198  :         // u が 0 である場合
+; 199  : 
+; 200  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5229,42 +5229,42 @@ $LN5@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN8@PMC_Subtru
 
-; 208  :         {
-; 209  :             // v が 0 である場合
-; 210  : 
-; 211  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 212  :             *w = 0;
+; 201  :         {
+; 202  :             // v が 0 である場合
+; 203  : 
+; 204  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
+; 205  :             *w = 0;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	DWORD PTR [rax], 0
 
-; 213  :         }
+; 206  :         }
 
 	jmp	SHORT $LN9@PMC_Subtru
 $LN8@PMC_Subtru:
 
-; 214  :         else
-; 215  :         {
-; 216  :             // v が 0 ではない場合
-; 217  : 
-; 218  :             // 演算結果は負となってしまうのでエラーを返す。
-; 219  :             return (PMC_STATUS_OVERFLOW);
+; 207  :         else
+; 208  :         {
+; 209  :             // v が 0 ではない場合
+; 210  : 
+; 211  :             // 演算結果は負となってしまうのでエラーを返す。
+; 212  :             return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	$LN1@PMC_Subtru
 $LN9@PMC_Subtru:
 
-; 220  :         }
-; 221  :     }
+; 213  :         }
+; 214  :     }
 
 	jmp	$LN7@PMC_Subtru
 $LN6@PMC_Subtru:
 
-; 222  :     else
-; 223  :     {
-; 224  :         // u が 0 ではない場合
-; 225  : 
-; 226  :         if (nv->IS_ZERO)
+; 215  :     else
+; 216  :     {
+; 217  :         // u が 0 ではない場合
+; 218  : 
+; 219  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	eax, DWORD PTR [rax+40]
@@ -5273,27 +5273,27 @@ $LN6@PMC_Subtru:
 	test	eax, eax
 	je	SHORT $LN10@PMC_Subtru
 
-; 227  :         {
-; 228  :             // v が 0 である場合
-; 229  : 
-; 230  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 231  :             *w = u;
+; 220  :         {
+; 221  :             // v が 0 である場合
+; 222  : 
+; 223  :             // 演算結果となる u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 224  :             *w = u;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	DWORD PTR [rax], ecx
 
-; 232  :         }
+; 225  :         }
 
 	jmp	$LN11@PMC_Subtru
 $LN10@PMC_Subtru:
 
-; 233  :         else
-; 234  :         {
-; 235  :             // u と v がともに 0 ではない場合
-; 236  : 
-; 237  :             // x と y の差を計算する
-; 238  :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
+; 226  :         else
+; 227  :         {
+; 228  :             // u と v がともに 0 ではない場合
+; 229  : 
+; 230  :             // x と y の差を計算する
+; 231  :             __UNIT_TYPE u_bit_count = sizeof(u) * 8 - _LZCNT_ALT_32(u);
 
 	mov	ecx, DWORD PTR u$[rbp]
 	call	_LZCNT_ALT_32
@@ -5303,38 +5303,38 @@ $LN10@PMC_Subtru:
 	mov	rax, rcx
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
-; 239  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
+; 232  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR v_bit_count$5[rbp], rax
 
-; 240  :             if (u_bit_count < v_bit_count)
+; 233  :             if (u_bit_count < v_bit_count)
 
 	mov	rax, QWORD PTR v_bit_count$5[rbp]
 	cmp	QWORD PTR u_bit_count$4[rbp], rax
 	jae	SHORT $LN12@PMC_Subtru
 
-; 241  :             {
-; 242  :                 // 明らかに u < v である場合
-; 243  :                 // 演算結果は負となってしまうのでエラーを返す。
-; 244  :                 return (PMC_STATUS_OVERFLOW);
+; 234  :             {
+; 235  :                 // 明らかに u < v である場合
+; 236  :                 // 演算結果は負となってしまうのでエラーを返す。
+; 237  :                 return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	SHORT $LN1@PMC_Subtru
 
-; 245  :             }
+; 238  :             }
 
 	jmp	SHORT $LN13@PMC_Subtru
 $LN12@PMC_Subtru:
 
-; 246  :             else
-; 247  :             {
-; 248  :                 // u のビット長が v のビット長以上である場合
-; 249  : 
-; 250  :                 // u が 32bit 整数なので、v も32bit 整数で表現できる
-; 251  :                 __UNIT_TYPE temp_w;
-; 252  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
+; 239  :             else
+; 240  :             {
+; 241  :                 // u のビット長が v のビット長以上である場合
+; 242  : 
+; 243  :                 // u が 32bit 整数なので、v も32bit 整数で表現できる
+; 244  :                 __UNIT_TYPE temp_w;
+; 245  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5347,27 +5347,27 @@ $LN12@PMC_Subtru:
 	call	_SUBTRUCT_UNIT
 	mov	BYTE PTR borrow$7[rbp], al
 
-; 253  :                 if (borrow)
+; 246  :                 if (borrow)
 
 	movsx	eax, BYTE PTR borrow$7[rbp]
 	test	eax, eax
 	je	SHORT $LN14@PMC_Subtru
 
-; 254  :                 {
-; 255  :                     // ボローが発生した場合は演算結果が負なのでエラーとする
-; 256  :                     return (PMC_STATUS_OVERFLOW);
+; 247  :                 {
+; 248  :                     // ボローが発生した場合は演算結果が負なのでエラーとする
+; 249  :                     return (PMC_STATUS_OVERFLOW);
 
 	mov	eax, -2
 	jmp	SHORT $LN1@PMC_Subtru
 
-; 257  :                 }
+; 250  :                 }
 
 	jmp	SHORT $LN15@PMC_Subtru
 $LN14@PMC_Subtru:
 
-; 258  :                 else
-; 259  :                 {
-; 260  :                     *w = (_UINT32_T)temp_w;
+; 251  :                 else
+; 252  :                 {
+; 253  :                     *w = (_UINT32_T)temp_w;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	ecx, DWORD PTR temp_w$6[rbp]
@@ -5377,16 +5377,16 @@ $LN13@PMC_Subtru:
 $LN11@PMC_Subtru:
 $LN7@PMC_Subtru:
 
-; 261  :                 }
-; 262  :             }
-; 263  :         }
-; 264  :     }
-; 265  :     return (PMC_STATUS_OK);
+; 254  :                 }
+; 255  :             }
+; 256  :         }
+; 257  :     }
+; 258  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_Subtru:
 
-; 266  : }
+; 259  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5406,7 +5406,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_Subtruct PROC				; COMDAT
 
-; 744  : {
+; 737  : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -5422,11 +5422,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 745  :     return (PMC_STATUS_OK);
+; 738  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 746  : }
+; 739  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5451,7 +5451,7 @@ wp$ = 336
 w_count$ = 344
 Subtruct_Imp PROC					; COMDAT
 
-; 125  : {
+; 118  : {
 
 $LN10:
 	mov	QWORD PTR [rsp+32], r9
@@ -5470,26 +5470,26 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__6B07DC87_pmc_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 126  :     char c = 0;
+; 119  :     char c = 0;
 
 	mov	BYTE PTR c$[rbp], 0
 
-; 127  : 
-; 128  :     // まず 32 ワードずつ減算をする。
-; 129  :     __UNIT_TYPE count = v_count >> 5;
+; 120  : 
+; 121  :     // まず 32 ワードずつ減算をする。
+; 122  :     __UNIT_TYPE count = v_count >> 5;
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@Subtruct_I:
 
-; 130  :     while (count != 0)
+; 123  :     while (count != 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	je	SHORT $LN3@Subtruct_I
 
-; 131  :     {
-; 132  :         c= _SUBTRUCT_32WORDS_SBB(c, up, vp, wp);
+; 124  :     {
+; 125  :         c= _SUBTRUCT_32WORDS_SBB(c, up, vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	r8, QWORD PTR vp$[rbp]
@@ -5498,47 +5498,47 @@ $LN2@Subtruct_I:
 	call	_SUBTRUCT_32WORDS_SBB
 	mov	BYTE PTR c$[rbp], al
 
-; 133  :         up += 32;
+; 126  :         up += 32;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR up$[rbp], rax
 
-; 134  :         vp += 32;
+; 127  :         vp += 32;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR vp$[rbp], rax
 
-; 135  :         wp += 32;
+; 128  :         wp += 32;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR wp$[rbp], rax
 
-; 136  :         --count;
+; 129  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 137  :     }
+; 130  :     }
 
 	jmp	SHORT $LN2@Subtruct_I
 $LN3@Subtruct_I:
 
-; 138  :     // この時点で未処理の桁は 32 ワード未満のはず
-; 139  : 
-; 140  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード減算を行う。
-; 141  :     if (v_count & 0x10)
+; 131  :     // この時点で未処理の桁は 32 ワード未満のはず
+; 132  : 
+; 133  :     // 未処理の桁が 16 ワード以上あるなら 16 ワード減算を行う。
+; 134  :     if (v_count & 0x10)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	SHORT $LN4@Subtruct_I
 
-; 142  :     {
-; 143  :         c = _SUBTRUCT_16WORDS_SBB(c, up, vp, wp);
+; 135  :     {
+; 136  :         c = _SUBTRUCT_16WORDS_SBB(c, up, vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	r8, QWORD PTR vp$[rbp]
@@ -5547,38 +5547,38 @@ $LN3@Subtruct_I:
 	call	_SUBTRUCT_16WORDS_SBB
 	mov	BYTE PTR c$[rbp], al
 
-; 144  :         up += 16;
+; 137  :         up += 16;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR up$[rbp], rax
 
-; 145  :         vp += 16;
+; 138  :         vp += 16;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR vp$[rbp], rax
 
-; 146  :         wp += 16;
+; 139  :         wp += 16;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR wp$[rbp], rax
 $LN4@Subtruct_I:
 
-; 147  :     }
-; 148  :     // この時点で未処理の桁は 16 ワード未満のはず
-; 149  : 
-; 150  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード減算を行う。
-; 151  :     if (v_count & 0x8)
+; 140  :     }
+; 141  :     // この時点で未処理の桁は 16 ワード未満のはず
+; 142  : 
+; 143  :     // 未処理の桁が 8 ワード以上あるなら 8 ワード減算を行う。
+; 144  :     if (v_count & 0x8)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	SHORT $LN5@Subtruct_I
 
-; 152  :     {
-; 153  :         c = _SUBTRUCT_8WORDS_SBB(c, up, vp, wp);
+; 145  :     {
+; 146  :         c = _SUBTRUCT_8WORDS_SBB(c, up, vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	r8, QWORD PTR vp$[rbp]
@@ -5587,38 +5587,38 @@ $LN4@Subtruct_I:
 	call	_SUBTRUCT_8WORDS_SBB
 	mov	BYTE PTR c$[rbp], al
 
-; 154  :         up += 8;
+; 147  :         up += 8;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR up$[rbp], rax
 
-; 155  :         vp += 8;
+; 148  :         vp += 8;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR vp$[rbp], rax
 
-; 156  :         wp += 8;
+; 149  :         wp += 8;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR wp$[rbp], rax
 $LN5@Subtruct_I:
 
-; 157  :     }
-; 158  :     // この時点で未処理の桁は 8 ワード未満のはず
-; 159  : 
-; 160  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード減算を行う。
-; 161  :     if (v_count & 0x4)
+; 150  :     }
+; 151  :     // この時点で未処理の桁は 8 ワード未満のはず
+; 152  : 
+; 153  :     // 未処理の桁が 4 ワード以上あるなら 4 ワード減算を行う。
+; 154  :     if (v_count & 0x4)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	SHORT $LN6@Subtruct_I
 
-; 162  :     {
-; 163  :         c = _SUBTRUCT_4WORDS_SBB(c, up, vp, wp);
+; 155  :     {
+; 156  :         c = _SUBTRUCT_4WORDS_SBB(c, up, vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	r8, QWORD PTR vp$[rbp]
@@ -5627,38 +5627,38 @@ $LN5@Subtruct_I:
 	call	_SUBTRUCT_4WORDS_SBB
 	mov	BYTE PTR c$[rbp], al
 
-; 164  :         up += 4;
+; 157  :         up += 4;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR up$[rbp], rax
 
-; 165  :         vp += 4;
+; 158  :         vp += 4;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR vp$[rbp], rax
 
-; 166  :         wp += 4;
+; 159  :         wp += 4;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR wp$[rbp], rax
 $LN6@Subtruct_I:
 
-; 167  :     }
-; 168  :     // この時点で未処理の桁は 4 ワード未満のはず
-; 169  : 
-; 170  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード減算を行う。
-; 171  :     if (v_count & 0x2)
+; 160  :     }
+; 161  :     // この時点で未処理の桁は 4 ワード未満のはず
+; 162  : 
+; 163  :     // 未処理の桁が 2 ワード以上あるなら 2 ワード減算を行う。
+; 164  :     if (v_count & 0x2)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	SHORT $LN7@Subtruct_I
 
-; 172  :     {
-; 173  :         c = _SUBTRUCT_2WORDS_SBB(c, up, vp, wp);
+; 165  :     {
+; 166  :         c = _SUBTRUCT_2WORDS_SBB(c, up, vp, wp);
 
 	mov	r9, QWORD PTR wp$[rbp]
 	mov	r8, QWORD PTR vp$[rbp]
@@ -5667,37 +5667,37 @@ $LN6@Subtruct_I:
 	call	_SUBTRUCT_2WORDS_SBB
 	mov	BYTE PTR c$[rbp], al
 
-; 174  :         up += 2;
+; 167  :         up += 2;
 
 	mov	rax, QWORD PTR up$[rbp]
 	add	rax, 16
 	mov	QWORD PTR up$[rbp], rax
 
-; 175  :         vp += 2;
+; 168  :         vp += 2;
 
 	mov	rax, QWORD PTR vp$[rbp]
 	add	rax, 16
 	mov	QWORD PTR vp$[rbp], rax
 
-; 176  :         wp += 2;
+; 169  :         wp += 2;
 
 	mov	rax, QWORD PTR wp$[rbp]
 	add	rax, 16
 	mov	QWORD PTR wp$[rbp], rax
 $LN7@Subtruct_I:
 
-; 177  :     }
-; 178  :     // この時点で未処理の桁は 2 ワード未満のはず
-; 179  : 
-; 180  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード減算を行う。
-; 181  :     if (v_count & 1)
+; 170  :     }
+; 171  :     // この時点で未処理の桁は 2 ワード未満のはず
+; 172  : 
+; 173  :     // 未処理の桁が 1 ワード以上あるなら 1 ワード減算を行う。
+; 174  :     if (v_count & 1)
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	$LN8@Subtruct_I
 
-; 182  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
+; 175  :         c = _SUBTRUCT_UNIT(c, *up++, *vp++, wp++);
 
 	mov	rax, QWORD PTR wp$[rbp]
 	mov	QWORD PTR tv151[rbp], rax
@@ -5724,9 +5724,9 @@ $LN7@Subtruct_I:
 	mov	BYTE PTR c$[rbp], al
 $LN8@Subtruct_I:
 
-; 183  : 
-; 184  :     // 残りの桁の繰り上がりを計算し、復帰する。
-; 185  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
+; 176  : 
+; 177  :     // 残りの桁の繰り上がりを計算し、復帰する。
+; 178  :     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
 
 	mov	rax, QWORD PTR v_count$[rbp]
 	mov	rcx, QWORD PTR w_count$[rbp]
@@ -5743,7 +5743,7 @@ $LN8@Subtruct_I:
 	movzx	ecx, BYTE PTR c$[rbp]
 	call	DoBorrow
 
-; 186  : }
+; 179  : }
 
 	lea	rsp, QWORD PTR [rbp+280]
 	pop	rdi

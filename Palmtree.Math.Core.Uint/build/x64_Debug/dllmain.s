@@ -8,7 +8,7 @@
 DllMain:
 .LFB4284:
 	.file 1 "../dllmain.c"
-	.loc 1 42 1
+	.loc 1 35 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -23,7 +23,7 @@ DllMain:
 	movq	%rcx, 16(%rbp)
 	movl	%edx, 24(%rbp)
 	movq	%r8, 32(%rbp)
-	.loc 1 43 7
+	.loc 1 36 7
 	movl	$1, -4(%rbp)
 	cmpl	$1, 24(%rbp)
 	je	.L2
@@ -35,40 +35,40 @@ DllMain:
 	je	.L12
 	jmp	.L10
 .L2:
-	.loc 1 47 18
+	.loc 1 40 18
 	call	AllocateHeapArea
-	.loc 1 47 16
+	.loc 1 40 16
 	testl	%eax, %eax
 	jne	.L13
-	.loc 1 48 24
+	.loc 1 41 24
 	movl	$0, -4(%rbp)
-	.loc 1 49 13
+	.loc 1 42 13
 	jmp	.L13
 .L3:
-	.loc 1 58 13
+	.loc 1 51 13
 	call	DeallocateHeapArea
-	.loc 1 59 13
+	.loc 1 52 13
 	jmp	.L8
 .L10:
-	.loc 1 61 20
+	.loc 1 54 20
 	movl	$0, -4(%rbp)
-	.loc 1 62 13
+	.loc 1 55 13
 	jmp	.L8
 .L11:
-	.loc 1 52 13
+	.loc 1 45 13
 	nop
 	jmp	.L8
 .L12:
-	.loc 1 55 13
+	.loc 1 48 13
 	nop
 	jmp	.L8
 .L13:
-	.loc 1 49 13
+	.loc 1 42 13
 	nop
 .L8:
-	.loc 1 64 9
+	.loc 1 57 9
 	movl	-4(%rbp), %eax
-	.loc 1 65 1
+	.loc 1 58 1
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -3924,26 +3924,26 @@ DllMain:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1d
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x49c0
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1d
-	.byte	0x60
+	.byte	0x5a
 	.byte	0x12
 	.long	0x49d1
 	.uleb128 0x12
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1d
-	.byte	0x65
+	.byte	0x5f
 	.byte	0x10
 	.long	0x4a55
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1d
-	.byte	0x67
+	.byte	0x61
 	.byte	0xe
 	.long	0x45a
 	.byte	0x4
@@ -3954,41 +3954,41 @@ DllMain:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1d
-	.byte	0x68
+	.byte	0x62
 	.byte	0x3
 	.long	0x4a06
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
-	.byte	0x71
+	.byte	0x6b
 	.byte	0x10
 	.long	0x4af0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
-	.byte	0x73
+	.byte	0x6d
 	.byte	0xa
 	.long	0x139
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1d
-	.byte	0x74
+	.byte	0x6e
 	.byte	0xa
 	.long	0x139
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1d
-	.byte	0x75
+	.byte	0x6f
 	.byte	0xa
 	.long	0x139
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1d
-	.byte	0x76
+	.byte	0x70
 	.byte	0xa
 	.long	0x139
 	.byte	0xc
@@ -3996,68 +3996,68 @@ DllMain:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1d
-	.byte	0x77
+	.byte	0x71
 	.byte	0x3
 	.long	0x4a74
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x1e
-	.byte	0x34
+	.byte	0x2e
 	.byte	0x13
 	.long	0x49f4
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x1f
-	.byte	0x2d
+	.byte	0x26
 	.byte	0x14
 	.long	0x4c5d
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x1f
-	.byte	0x2f
+	.byte	0x28
 	.byte	0x13
 	.long	0x49e2
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x1f
-	.byte	0x30
+	.byte	0x29
 	.byte	0x13
 	.long	0x49e2
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x1f
-	.byte	0x31
+	.byte	0x2a
 	.byte	0x15
 	.long	0x4b0c
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x1f
-	.byte	0x32
+	.byte	0x2b
 	.byte	0x15
 	.long	0x4b0c
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x1f
-	.byte	0x33
+	.byte	0x2c
 	.byte	0x15
 	.long	0x4b0c
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x1f
-	.byte	0x34
+	.byte	0x2d
 	.byte	0x15
 	.long	0x4b0c
 	.byte	0x20
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
 	.byte	0x1f
-	.byte	0x35
+	.byte	0x2e
 	.byte	0x12
 	.long	0x45a
 	.byte	0x4
@@ -4067,7 +4067,7 @@ DllMain:
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x1f
-	.byte	0x36
+	.byte	0x2f
 	.byte	0x12
 	.long	0x45a
 	.byte	0x4
@@ -4077,7 +4077,7 @@ DllMain:
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
 	.byte	0x1f
-	.byte	0x37
+	.byte	0x30
 	.byte	0x12
 	.long	0x45a
 	.byte	0x4
@@ -4087,7 +4087,7 @@ DllMain:
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
 	.byte	0x1f
-	.byte	0x38
+	.byte	0x31
 	.byte	0x12
 	.long	0x45a
 	.byte	0x4
@@ -4097,7 +4097,7 @@ DllMain:
 	.uleb128 0x18
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x1f
-	.byte	0x39
+	.byte	0x32
 	.byte	0x12
 	.long	0x45a
 	.byte	0x4
@@ -4107,14 +4107,14 @@ DllMain:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x1f
-	.byte	0x3b
+	.byte	0x34
 	.byte	0x10
 	.long	0xc8
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x1f
-	.byte	0x3f
+	.byte	0x38
 	.byte	0x16
 	.long	0x4c5d
 	.byte	0x38
@@ -4125,31 +4125,31 @@ DllMain:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x1f
-	.byte	0x40
+	.byte	0x39
 	.byte	0x7
 	.long	0x4b20
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x1f
-	.byte	0x46
+	.byte	0x3f
 	.byte	0x23
 	.long	0x4a55
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x1f
-	.byte	0x49
+	.byte	0x42
 	.byte	0x1a
 	.long	0x4c63
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x1f
-	.byte	0x4c
+	.byte	0x45
 	.byte	0x1a
 	.long	0x4c63
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x1f
-	.byte	0x4f
+	.byte	0x48
 	.byte	0x20
 	.long	0x4af0
 	.uleb128 0x19
@@ -4162,7 +4162,7 @@ DllMain:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x1f
-	.word	0x134
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4cf8
 	.uleb128 0x6
@@ -4171,7 +4171,7 @@ DllMain:
 	.uleb128 0x1b
 	.ascii "DllMain\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x22
 	.byte	0x6
 	.long	0x5e2
 	.quad	.LFB4284
@@ -4181,7 +4181,7 @@ DllMain:
 	.uleb128 0x1c
 	.ascii "hinstDLL\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x22
 	.byte	0x18
 	.long	0x1ef5
 	.uleb128 0x2
@@ -4190,7 +4190,7 @@ DllMain:
 	.uleb128 0x1c
 	.ascii "dwReason\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x22
 	.byte	0x28
 	.long	0x5ef
 	.uleb128 0x2
@@ -4199,7 +4199,7 @@ DllMain:
 	.uleb128 0x1c
 	.ascii "lpvReserved\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x22
 	.byte	0x39
 	.long	0x606
 	.uleb128 0x2
@@ -4208,7 +4208,7 @@ DllMain:
 	.uleb128 0x1d
 	.ascii "result\0"
 	.byte	0x1
-	.byte	0x2b
+	.byte	0x24
 	.byte	0x7
 	.long	0x5e2
 	.uleb128 0x2

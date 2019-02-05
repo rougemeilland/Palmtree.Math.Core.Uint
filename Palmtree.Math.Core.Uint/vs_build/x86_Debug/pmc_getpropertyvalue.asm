@@ -62,7 +62,7 @@ _function_code$ = 12					; size = 4
 _o$ = 16						; size = 4
 _PMC_GetPropertyValue_X_I@12 PROC
 
-; 38   : {
+; 31   : {
 
 	push	ebp
 	mov	ebp, esp
@@ -73,35 +73,35 @@ _PMC_GetPropertyValue_X_I@12 PROC
 	mov	ecx, OFFSET __5449575B_pmc_getpropertyvalue@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 39   :     if (x == NULL)
+; 32   :     if (x == NULL)
 
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN4@PMC_GetPro
 
-; 40   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_GetPro
 $LN4@PMC_GetPro:
 
-; 41   :     if (o == NULL)
+; 34   :     if (o == NULL)
 
 	cmp	DWORD PTR _o$[ebp], 0
 	jne	SHORT $LN5@PMC_GetPro
 
-; 42   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_GetPro
 $LN5@PMC_GetPro:
 
-; 43   :     PMC_STATUS_CODE result;
-; 44   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
+; 36   :     PMC_STATUS_CODE result;
+; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 
 	mov	eax, DWORD PTR _x$[ebp]
 	mov	DWORD PTR _nx$[ebp], eax
 
-; 45   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
+; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nx$[ebp]
 	push	ecx
@@ -111,13 +111,13 @@ $LN5@PMC_GetPro:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@PMC_GetPro
 
-; 46   :         return (result);
+; 39   :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_GetPro
 $LN6@PMC_GetPro:
 
-; 47   :     switch (function_code)
+; 40   :     switch (function_code)
 
 	mov	edx, DWORD PTR _function_code$[ebp]
 	mov	DWORD PTR tv69[ebp], edx
@@ -130,9 +130,9 @@ $LN6@PMC_GetPro:
 	jmp	DWORD PTR $LN13@PMC_GetPro[ecx*4]
 $LN7@PMC_GetPro:
 
-; 48   :     {
-; 49   :     case PMC_PROPERTY_IS_EVEN:
-; 50   :         *o = nx->IS_EVEN;
+; 41   :     {
+; 42   :     case PMC_PROPERTY_IS_EVEN:
+; 43   :         *o = nx->IS_EVEN;
 
 	mov	edx, DWORD PTR _nx$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -141,14 +141,14 @@ $LN7@PMC_GetPro:
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 51   :         return (PMC_STATUS_OK);
+; 44   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN8@PMC_GetPro:
 
-; 52   :     case PMC_PROPERTY_IS_ONE:
-; 53   :         *o = nx->IS_ONE;
+; 45   :     case PMC_PROPERTY_IS_ONE:
+; 46   :         *o = nx->IS_ONE;
 
 	mov	edx, DWORD PTR _nx$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -157,14 +157,14 @@ $LN8@PMC_GetPro:
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 54   :         return (PMC_STATUS_OK);
+; 47   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN9@PMC_GetPro:
 
-; 55   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 56   :         *o = nx->IS_POWER_OF_TWO;
+; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
+; 49   :         *o = nx->IS_POWER_OF_TWO;
 
 	mov	edx, DWORD PTR _nx$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -173,14 +173,14 @@ $LN9@PMC_GetPro:
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 57   :         return (PMC_STATUS_OK);
+; 50   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN10@PMC_GetPro:
 
-; 58   :     case PMC_PROPERTY_IS_ZERO:
-; 59   :         *o = nx->IS_ZERO;
+; 51   :     case PMC_PROPERTY_IS_ZERO:
+; 52   :         *o = nx->IS_ZERO;
 
 	mov	edx, DWORD PTR _nx$[ebp]
 	mov	eax, DWORD PTR [edx+24]
@@ -189,20 +189,20 @@ $LN10@PMC_GetPro:
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], eax
 
-; 60   :         return (PMC_STATUS_OK);
+; 53   :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@PMC_GetPro
 $LN11@PMC_GetPro:
 
-; 61   :     default:
-; 62   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 54   :     default:
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 $LN1@PMC_GetPro:
 
-; 63   :     }
-; 64   : }
+; 56   :     }
+; 57   : }
 
 	add	esp, 12					; 0000000cH
 	cmp	ebp, esp
@@ -224,18 +224,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_GetPropertyValue PROC
 
-; 67   : {
+; 60   : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __5449575B_pmc_getpropertyvalue@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 68   :     return (PMC_STATUS_OK);
+; 61   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 69   : }
+; 62   : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

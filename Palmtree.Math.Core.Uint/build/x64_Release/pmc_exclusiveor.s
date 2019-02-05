@@ -49,7 +49,7 @@ PMC_ExclusiveOr_X_I_Imp:
 	leaq	56(%rsp), %r8
 	movl	$31, %eax
 /APP
- # 603 "../pmc_inline_func.h" 1
+ # 596 "../pmc_inline_func.h" 1
 	bsrl %ebx, %edx
  # 0 "" 2
 /NO_APP
@@ -161,7 +161,7 @@ PMC_ExclusiveOr_X_L_Imp:
 	leaq	56(%rsp), %r8
 	movl	$63, %eax
 /APP
- # 647 "../pmc_inline_func.h" 1
+ # 640 "../pmc_inline_func.h" 1
 	bsrq %rdx, %rdx
  # 0 "" 2
 /NO_APP
