@@ -31,10 +31,10 @@
 #ifdef _DEBUG
 void TEST_PMC_ModPow_X_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*v_buf, size_t v_buf_size, unsigned char*e_buf, size_t e_buf_size, unsigned char*m_buf, size_t m_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char*desired_r_buf, size_t desired_r_buf_size)
 {
-    HANDLE v;
-    HANDLE e;
-    HANDLE m;
-    HANDLE r;
+    PMC_HANDLE_UINT v;
+    PMC_HANDLE_UINT e;
+    PMC_HANDLE_UINT m;
+    PMC_HANDLE_UINT r;
     unsigned char actual_r_buf[256];
     size_t actual_r_buf_size;
     PMC_STATUS_CODE result;

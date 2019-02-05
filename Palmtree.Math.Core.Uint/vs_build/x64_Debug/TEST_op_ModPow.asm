@@ -202,7 +202,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 149  : {
+; 147  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -220,26 +220,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -248,41 +248,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -353,10 +353,10 @@ $LN20:
 	lea	rcx, OFFSET FLAT:__C90C8F96_test_op_modpow@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE v;
-; 35   :     HANDLE e;
-; 36   :     HANDLE m;
-; 37   :     HANDLE r;
+; 34   :     PMC_HANDLE_UINT v;
+; 35   :     PMC_HANDLE_UINT e;
+; 36   :     PMC_HANDLE_UINT m;
+; 37   :     PMC_HANDLE_UINT r;
 ; 38   :     unsigned char actual_r_buf[256];
 ; 39   :     size_t actual_r_buf_size;
 ; 40   :     PMC_STATUS_CODE result;
@@ -461,7 +461,7 @@ $LN13@TEST_PMC_M:
 	mov	rdx, QWORD PTR e$[rbp]
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+544]
+	call	QWORD PTR [rax+528]
 	mov	DWORD PTR r_result$[rbp], eax
 	mov	eax, DWORD PTR desired_result_code$[rbp]
 	cmp	DWORD PTR r_result$[rbp], eax

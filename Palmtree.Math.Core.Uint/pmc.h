@@ -104,6 +104,30 @@ typedef int PMC_PROPERTY_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
+struct __tag_PMC_HANDLE_UINT
+{
+#ifdef _M_IX86
+    _UINT32_T dummy;
+#elif defined(_M_IX64)
+    _UINT64_T dummy;
+#else
+#error unknown platform
+#endif
+};
+typedef struct __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
+
+struct __tag_PMC_HANDLE_SINT
+{
+#ifdef _M_IX86
+    _UINT32_T dummy;
+#elif defined(_M_IX64)
+    _UINT64_T dummy;
+#else
+#error unknown platform
+#endif
+};
+typedef struct __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
+
 typedef struct __tag_PMC_STATISTICS_INFO
 {
     long COUNT_MULTI64;                  // 32bit * 32bit => 64bitの乗算の回数
@@ -135,117 +159,115 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     void (__PMC_CALL * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);// 与えられた領域に現在まで採取されている統計情報を複写する。
 
     // コンストラクタ(32bit整数により初期化)
-    PMC_STATUS_CODE (__PMC_CALL * PMC_From_I)(_UINT32_T x, HANDLE* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_From_I)(_UINT32_T x, PMC_HANDLE_UINT* pp);
 
     // コンストラクタ(64bit整数により初期化)
-    PMC_STATUS_CODE (__PMC_CALL * PMC_From_L)(_UINT64_T x, HANDLE* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_From_L)(_UINT64_T x, PMC_HANDLE_UINT* pp);
 
     // デストラクタ
-    void  (__PMC_CALL * PMC_Dispose)(HANDLE p);
+    void  (__PMC_CALL * PMC_Dispose)(PMC_HANDLE_UINT p);
 
     // プロパティ値取得
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GetPropertyValue_X_I)(HANDLE x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
 
     // バイト操作
-    PMC_STATUS_CODE(__PMC_CALL * PMC_FromByteArray)(unsigned char* buffer, size_t count, HANDLE* pp);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ToByteArray)(HANDLE p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     // オブジェクトの複製
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Clone_X)(HANDLE x, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
     // To 演算子
-    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_I)(HANDLE p, _UINT32_T* o);
-    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_L)(HANDLE p, _UINT64_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
     // 文字列化
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ToString)(HANDLE x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
     // 文字列の解析
-    PMC_STATUS_CODE(__PMC_CALL * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
 
     // Add 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_I_X)(_UINT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_L_X)(_UINT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // Subtruct 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_I_X)(_UINT32_T u, HANDLE v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_L_X)(_UINT64_T u, HANDLE v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // Multiply 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_I_X)(_UINT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_L_X)(_UINT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // DivRem 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_I_X)(_UINT32_T u, HANDLE v, _UINT32_T* q, _UINT32_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_L_X)(_UINT64_T u, HANDLE v, _UINT64_T* q, _UINT64_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_I)(HANDLE u, _UINT32_T v, HANDLE* q, _UINT32_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_L)(HANDLE u, _UINT64_T v, HANDLE* q, _UINT64_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_X)(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r);
 
     // LeftShift 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_LeftShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_LeftShift_X_L)(HANDLE p, _UINT64_T n, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_LeftShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
     // RightShift 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_RightShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_RightShift_X_L)(HANDLE p, _UINT64_T n, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_RightShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
     // BitwiseAnd 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_I_X)(_UINT32_T u, HANDLE v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_L_X)(_UINT64_T u, HANDLE v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_I)(HANDLE u, _UINT32_T v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_L)(HANDLE u, _UINT64_T v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // BitwiseOr 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_I_X)(_UINT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_L_X)(_UINT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // ExclusiveOr 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_I_X)(_UINT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_L_X)(_UINT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // 比較演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_I_X)(_UINT32_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_L_X)(_UINT64_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_I)(HANDLE u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_L)(HANDLE u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
     // 等値演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_I_X)(_UINT32_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_L_X)(_UINT64_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_I)(HANDLE u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_L)(HANDLE u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
     // 最大公約数の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_I_X)(_UINT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_L_X)(_UINT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_I)(HANDLE u, _UINT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_L)(HANDLE u, _UINT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
     // べき乗の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Pow_X_I)(HANDLE x, _UINT32_T n, HANDLE* z);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Pow_X_I)(PMC_HANDLE_UINT x, _UINT32_T n, PMC_HANDLE_UINT* z);
 
     // べき剰余の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ModPow_X_X_X)(HANDLE v, HANDLE e, HANDLE m, HANDLE* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
 } PMC_UINT_ENTRY_POINTS;
 
@@ -262,115 +284,115 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     void (__PMC_CALL * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);// 与えられた領域に現在まで採取されている統計情報を複写する。
 
     // コンストラクタ(32bit整数により初期化)
-    PMC_STATUS_CODE(__PMC_CALL * PMC_From_I)(_INT32_T x, HANDLE* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
 
     // コンストラクタ(64bit整数により初期化)
-    PMC_STATUS_CODE(__PMC_CALL * PMC_From_L)(_INT64_T x, HANDLE* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
 
     // デストラクタ
-    void  (__PMC_CALL * PMC_Dispose)(HANDLE p);
+    void  (__PMC_CALL * PMC_Dispose)(PMC_HANDLE_SINT p);
 
     // プロパティ値取得
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GetPropertyValue_X_I)(HANDLE x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
 
     // バイト操作
-    PMC_STATUS_CODE(__PMC_CALL * PMC_FromByteArray)(unsigned char* buffer, size_t count, HANDLE* pp);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ToByteArray)(HANDLE p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ToByteArray)(PMC_HANDLE_SINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     // オブジェクトの複製
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Clone_X)(HANDLE x, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Clone_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
 
     // To 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_To_X_I)(HANDLE p, _INT32_T* o);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_To_X_L)(HANDLE p, _INT64_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_I)(PMC_HANDLE_SINT p, _INT32_T* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_To_X_L)(PMC_HANDLE_SINT p, _INT64_T* o);
 
     // 文字列化
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ToString)(HANDLE x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ToString)(PMC_HANDLE_SINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
     // 文字列の解析
-    PMC_STATUS_CODE(__PMC_CALL * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_SINT* o);
 
     // Add 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Add_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Add_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // Subtruct 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_I_X)(_UINT32_T u, HANDLE v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_L_X)(_UINT64_T u, HANDLE v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Subtruct_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_SINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_SINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // Multiply 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Multiply_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // DivRem 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_I_X)(_INT32_T u, HANDLE v, _UINT32_T* q, _UINT32_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_L_X)(_INT64_T u, HANDLE v, _UINT64_T* q, _UINT64_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_I)(HANDLE u, _INT32_T v, HANDLE* q, _INT32_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_L)(HANDLE u, _INT64_T v, HANDLE* q, _INT64_T* r);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_DivRem_X_X)(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _UINT32_T* q, _UINT32_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _UINT64_T* q, _UINT64_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
 
     // LeftShift 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_LeftShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_LeftShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
 
     // RightShift 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_RightShift_X_I)(HANDLE p, _UINT32_T n, HANDLE* o);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_RightShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
 
     // BitwiseAnd 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_I_X)(_INT32_T u, HANDLE v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_L_X)(_INT64_T u, HANDLE v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_I)(HANDLE u, _INT32_T v, _UINT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_L)(HANDLE u, _INT64_T v, _UINT64_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseAnd_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _UINT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _UINT64_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseAnd_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // BitwiseOr 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_BitwiseOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_BitwiseOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // ExclusiveOr 演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ExclusiveOr_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ExclusiveOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // 比較演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_I_X)(_INT32_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_L_X)(_INT64_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_I)(HANDLE u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_L)(HANDLE u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Compare_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
 
     // 等値演算子
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_I_X)(_INT32_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_L_X)(_INT64_T u, HANDLE v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_I)(HANDLE u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_L)(HANDLE u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Equals_X_X)(HANDLE u, HANDLE v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
 
     // 最大公約数の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_I_X)(_INT32_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_L_X)(_INT64_T u, HANDLE v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_I)(HANDLE u, _INT32_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_L)(HANDLE u, _INT64_T v, HANDLE* w);
-    PMC_STATUS_CODE(__PMC_CALL * PMC_GreatestCommonDivisor_X_X)(HANDLE u, HANDLE v, HANDLE* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_GreatestCommonDivisor_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // べき乗の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_Pow_X_I)(HANDLE x, _UINT32_T n, HANDLE* z);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_Pow_X_I)(PMC_HANDLE_SINT x, _UINT32_T n, PMC_HANDLE_SINT* z);
 
     // べき剰余の計算
-    PMC_STATUS_CODE(__PMC_CALL * PMC_ModPow_X_X_X)(HANDLE v, HANDLE e, HANDLE m, HANDLE* r);
+    PMC_STATUS_CODE (__PMC_CALL * PMC_ModPow_X_X_X)(PMC_HANDLE_SINT v, PMC_HANDLE_SINT e, PMC_HANDLE_SINT m, PMC_HANDLE_SINT* r);
 
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion

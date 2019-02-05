@@ -31,8 +31,8 @@
 #ifdef _DEBUG
 void TEST_PMC_Clone_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned char*desired_o_buf, size_t desired_o_buf_size)
 {
-    HANDLE x;
-    HANDLE o;
+    PMC_HANDLE_UINT x;
+    PMC_HANDLE_UINT o;
     unsigned char actual_o_buf[256];
     size_t actual_o_buf_size;
     PMC_STATUS_CODE result;

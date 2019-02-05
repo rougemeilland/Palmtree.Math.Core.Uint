@@ -3212,7 +3212,7 @@ $LN9@PMC_Greate:
 	jmp	$LN1@PMC_Greate
 $LN11@PMC_Greate:
 
-; 514  :             *w = nw;
+; 514  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
@@ -3259,7 +3259,7 @@ $LN7@PMC_Greate:
 	jmp	$LN1@PMC_Greate
 $LN14@PMC_Greate:
 
-; 528  :             *w = nw;
+; 528  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
@@ -3639,7 +3639,7 @@ $LN25@PMC_Greate:
 	call	_CommitNumber
 	add	esp, 4
 
-; 589  :             *w = nw;
+; 589  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
@@ -3649,7 +3649,7 @@ $LN8@PMC_Greate:
 ; 590  :         }
 ; 591  :     }
 ; 592  : #ifdef _DEBUG
-; 593  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 593  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -3912,7 +3912,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 473  : #ifdef _DEBUG
-; 474  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 474  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -4037,7 +4037,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 207  : #ifdef _DEBUG
-; 208  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 208  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -4164,7 +4164,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 450  : #ifdef _DEBUG
-; 451  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 451  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -4289,7 +4289,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 184  : #ifdef _DEBUG
-; 185  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 185  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]

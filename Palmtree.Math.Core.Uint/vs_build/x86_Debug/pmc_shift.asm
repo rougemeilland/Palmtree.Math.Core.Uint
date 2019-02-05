@@ -32,9 +32,7 @@ PUBLIC	_LeftShift_Imp_DIV
 PUBLIC	_LeftShift_Imp
 PUBLIC	_Initialize_Shift
 PUBLIC	_PMC_RightShift_X_I@12
-PUBLIC	_PMC_RightShift_X_L@16
 PUBLIC	_PMC_LeftShift_X_I@12
-PUBLIC	_PMC_LeftShift_X_L@16
 PUBLIC	__JustMyCode_Default
 EXTRN	_CheckBlockLight:PROC
 EXTRN	_AllocateNumber:PROC
@@ -241,313 +239,11 @@ _result$ = -20						; size = 4
 _no$ = -12						; size = 4
 _np$ = -4						; size = 4
 _p$ = 8							; size = 4
-_n$ = 12						; size = 8
-_o$ = 20						; size = 4
-_PMC_LeftShift_X_L@16 PROC
-
-; 714  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 40					; 00000028H
-	push	edi
-	lea	edi, DWORD PTR [ebp-40]
-	mov	ecx, 10					; 0000000aH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	ecx, OFFSET __372CD743_pmc_shift@c
-	call	@__CheckForDebuggerJustMyCode@4
-
-; 715  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-
-	mov	eax, 1
-	test	eax, eax
-	je	SHORT $LN2@PMC_LeftSh
-
-; 716  :     {
-; 717  :         // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-; 718  :         return (PMC_STATUS_NOT_SUPPORTED);
-
-	mov	eax, -6					; fffffffaH
-	jmp	$LN1@PMC_LeftSh
-$LN2@PMC_LeftSh:
-
-; 719  :     }
-; 720  :     if (p == NULL)
-
-	cmp	DWORD PTR _p$[ebp], 0
-	jne	SHORT $LN3@PMC_LeftSh
-
-; 721  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	or	eax, -1
-	jmp	$LN1@PMC_LeftSh
-$LN3@PMC_LeftSh:
-
-; 722  :     if (o == NULL)
-
-	cmp	DWORD PTR _o$[ebp], 0
-	jne	SHORT $LN4@PMC_LeftSh
-
-; 723  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	or	eax, -1
-	jmp	$LN1@PMC_LeftSh
-$LN4@PMC_LeftSh:
-
-; 724  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-
-	mov	ecx, DWORD PTR _p$[ebp]
-	mov	DWORD PTR _np$[ebp], ecx
-
-; 725  :     NUMBER_HEADER* no;
-; 726  :     PMC_STATUS_CODE result;
-; 727  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-
-	mov	edx, DWORD PTR _np$[ebp]
-	push	edx
-	call	_CheckNumber
-	add	esp, 4
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN5@PMC_LeftSh
-
-; 728  :         return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	$LN1@PMC_LeftSh
-$LN5@PMC_LeftSh:
-
-; 729  :     if (np->IS_ZERO)
-
-	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
-	and	ecx, 1
-	je	SHORT $LN6@PMC_LeftSh
-
-; 730  :         *o = &number_zero;
-
-	mov	edx, DWORD PTR _o$[ebp]
-	mov	DWORD PTR [edx], OFFSET _number_zero
-	jmp	$LN7@PMC_LeftSh
-$LN6@PMC_LeftSh:
-
-; 731  :     else if (n == 0)
-
-	mov	eax, DWORD PTR _n$[ebp]
-	or	eax, DWORD PTR _n$[ebp+4]
-	jne	SHORT $LN8@PMC_LeftSh
-
-; 732  :     {
-; 733  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-
-	lea	ecx, DWORD PTR _no$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _np$[ebp]
-	push	edx
-	call	_DuplicateNumber
-	add	esp, 8
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN10@PMC_LeftSh
-
-; 734  :             return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	$LN1@PMC_LeftSh
-$LN10@PMC_LeftSh:
-
-; 735  :         *o = no;
-
-	mov	eax, DWORD PTR _o$[ebp]
-	mov	ecx, DWORD PTR _no$[ebp]
-	mov	DWORD PTR [eax], ecx
-
-; 736  :     }
-
-	jmp	$LN7@PMC_LeftSh
-$LN8@PMC_LeftSh:
-
-; 737  :     else
-; 738  :     {
-; 739  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-
-	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+12]
-	mov	DWORD PTR _p_bit_count$3[ebp], eax
-
-; 740  :         __UNIT_TYPE o_bit_count = p_bit_count + (__UNIT_TYPE)n;
-
-	mov	ecx, DWORD PTR _n$[ebp]
-	add	ecx, DWORD PTR _p_bit_count$3[ebp]
-	mov	DWORD PTR _o_bit_count$2[ebp], ecx
-
-; 741  :         __UNIT_TYPE no_light_check_code;
-; 742  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-
-	lea	edx, DWORD PTR _no_light_check_code$1[ebp]
-	push	edx
-	mov	eax, DWORD PTR _o_bit_count$2[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _no$[ebp]
-	push	ecx
-	call	_AllocateNumber
-	add	esp, 12					; 0000000cH
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN11@PMC_LeftSh
-
-; 743  :             return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN11@PMC_LeftSh:
-
-; 744  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
-
-	push	0
-	mov	edx, DWORD PTR _no$[ebp]
-	mov	eax, DWORD PTR [edx+32]
-	push	eax
-	mov	ecx, DWORD PTR _n$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+8]
-	push	eax
-	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
-	push	edx
-	call	_LeftShift_Imp
-	add	esp, 20					; 00000014H
-
-; 745  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-
-	mov	eax, DWORD PTR _no_light_check_code$1[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _no$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
-	push	edx
-	call	_CheckBlockLight
-	add	esp, 8
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN12@PMC_LeftSh
-
-; 746  :             return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN12@PMC_LeftSh:
-
-; 747  :         CommitNumber(no);
-
-	mov	eax, DWORD PTR _no$[ebp]
-	push	eax
-	call	_CommitNumber
-	add	esp, 4
-
-; 748  :         *o = no;
-
-	mov	ecx, DWORD PTR _o$[ebp]
-	mov	edx, DWORD PTR _no$[ebp]
-	mov	DWORD PTR [ecx], edx
-$LN7@PMC_LeftSh:
-
-; 749  :     }
-; 750  : #ifdef _DEBUG
-; 751  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-
-	mov	eax, DWORD PTR _o$[ebp]
-	mov	ecx, DWORD PTR [eax]
-	push	ecx
-	call	_CheckNumber
-	add	esp, 4
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN13@PMC_LeftSh
-
-; 752  :         return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN13@PMC_LeftSh:
-
-; 753  : #endif
-; 754  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_LeftSh:
-
-; 755  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN18@PMC_LeftSh
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	add	esp, 40					; 00000028H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	16					; 00000010H
-	npad	1
-$LN18@PMC_LeftSh:
-	DD	2
-	DD	$LN17@PMC_LeftSh
-$LN17@PMC_LeftSh:
-	DD	-12					; fffffff4H
-	DD	4
-	DD	$LN15@PMC_LeftSh
-	DD	-36					; ffffffdcH
-	DD	4
-	DD	$LN16@PMC_LeftSh
-$LN16@PMC_LeftSh:
-	DB	110					; 0000006eH
-	DB	111					; 0000006fH
-	DB	95					; 0000005fH
-	DB	108					; 0000006cH
-	DB	105					; 00000069H
-	DB	103					; 00000067H
-	DB	104					; 00000068H
-	DB	116					; 00000074H
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	104					; 00000068H
-	DB	101					; 00000065H
-	DB	99					; 00000063H
-	DB	107					; 0000006bH
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	111					; 0000006fH
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	0
-$LN15@PMC_LeftSh:
-	DB	110					; 0000006eH
-	DB	111					; 0000006fH
-	DB	0
-_PMC_LeftShift_X_L@16 ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
-_TEXT	SEGMENT
-_no_light_check_code$1 = -36				; size = 4
-_o_bit_count$2 = -28					; size = 4
-_p_bit_count$3 = -24					; size = 4
-_result$ = -20						; size = 4
-_no$ = -12						; size = 4
-_np$ = -4						; size = 4
-_p$ = 8							; size = 4
 _n$ = 12						; size = 4
 _o$ = 16						; size = 4
 _PMC_LeftShift_X_I@12 PROC
 
-; 670  : {
+; 621  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -560,50 +256,50 @@ _PMC_LeftShift_X_I@12 PROC
 	mov	ecx, OFFSET __372CD743_pmc_shift@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 671  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
+; 622  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
 
 	xor	eax, eax
 	je	SHORT $LN2@PMC_LeftSh
 
-; 672  :     {
-; 673  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 674  :         return (PMC_STATUS_NOT_SUPPORTED);
+; 623  :     {
+; 624  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 625  :         return (PMC_STATUS_NOT_SUPPORTED);
 
 	mov	eax, -6					; fffffffaH
 	jmp	$LN1@PMC_LeftSh
 $LN2@PMC_LeftSh:
 
-; 675  :     }
-; 676  :     if (p == NULL)
+; 626  :     }
+; 627  :     if (p == NULL)
 
 	cmp	DWORD PTR _p$[ebp], 0
 	jne	SHORT $LN3@PMC_LeftSh
 
-; 677  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 628  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_LeftSh
 $LN3@PMC_LeftSh:
 
-; 678  :     if (o == NULL)
+; 629  :     if (o == NULL)
 
 	cmp	DWORD PTR _o$[ebp], 0
 	jne	SHORT $LN4@PMC_LeftSh
 
-; 679  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 630  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_LeftSh
 $LN4@PMC_LeftSh:
 
-; 680  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 631  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
 	mov	ecx, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _np$[ebp], ecx
 
-; 681  :     NUMBER_HEADER* no;
-; 682  :     PMC_STATUS_CODE result;
-; 683  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+; 632  :     NUMBER_HEADER* no;
+; 633  :     PMC_STATUS_CODE result;
+; 634  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _np$[ebp]
 	push	edx
@@ -613,13 +309,13 @@ $LN4@PMC_LeftSh:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN5@PMC_LeftSh
 
-; 684  :         return (result);
+; 635  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_LeftSh
 $LN5@PMC_LeftSh:
 
-; 685  :     if (np->IS_ZERO)
+; 636  :     if (np->IS_ZERO)
 
 	mov	eax, DWORD PTR _np$[ebp]
 	mov	ecx, DWORD PTR [eax+24]
@@ -627,20 +323,20 @@ $LN5@PMC_LeftSh:
 	and	ecx, 1
 	je	SHORT $LN6@PMC_LeftSh
 
-; 686  :         *o = &number_zero;
+; 637  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
 	jmp	$LN7@PMC_LeftSh
 $LN6@PMC_LeftSh:
 
-; 687  :     else if (n == 0)
+; 638  :     else if (n == 0)
 
 	cmp	DWORD PTR _n$[ebp], 0
 	jne	SHORT $LN8@PMC_LeftSh
 
-; 688  :     {
-; 689  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
+; 639  :     {
+; 640  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
 
 	lea	eax, DWORD PTR _no$[ebp]
 	push	eax
@@ -652,39 +348,39 @@ $LN6@PMC_LeftSh:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN10@PMC_LeftSh
 
-; 690  :             return (result);
+; 641  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_LeftSh
 $LN10@PMC_LeftSh:
 
-; 691  :         *o = no;
+; 642  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _no$[ebp]
 	mov	DWORD PTR [edx], eax
 
-; 692  :     }
+; 643  :     }
 
 	jmp	$LN7@PMC_LeftSh
 $LN8@PMC_LeftSh:
 
-; 693  :     else
-; 694  :     {
-; 695  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
+; 644  :     else
+; 645  :     {
+; 646  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	mov	DWORD PTR _p_bit_count$3[ebp], edx
 
-; 696  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
+; 647  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
 
 	mov	eax, DWORD PTR _p_bit_count$3[ebp]
 	add	eax, DWORD PTR _n$[ebp]
 	mov	DWORD PTR _o_bit_count$2[ebp], eax
 
-; 697  :         __UNIT_TYPE no_light_check_code;
-; 698  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
+; 648  :         __UNIT_TYPE no_light_check_code;
+; 649  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
 
 	lea	ecx, DWORD PTR _no_light_check_code$1[ebp]
 	push	ecx
@@ -698,13 +394,13 @@ $LN8@PMC_LeftSh:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN11@PMC_LeftSh
 
-; 699  :             return (result);
+; 650  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_LeftSh
 $LN11@PMC_LeftSh:
 
-; 700  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, n, no->BLOCK, FALSE);
+; 651  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, n, no->BLOCK, FALSE);
 
 	push	0
 	mov	ecx, DWORD PTR _no$[ebp]
@@ -721,7 +417,7 @@ $LN11@PMC_LeftSh:
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
 
-; 701  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
+; 652  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _no_light_check_code$1[ebp]
 	push	edx
@@ -734,29 +430,29 @@ $LN11@PMC_LeftSh:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN12@PMC_LeftSh
 
-; 702  :             return (result);
+; 653  :             return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_LeftSh
 $LN12@PMC_LeftSh:
 
-; 703  :         CommitNumber(no);
+; 654  :         CommitNumber(no);
 
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
 	call	_CommitNumber
 	add	esp, 4
 
-; 704  :         *o = no;
+; 655  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR _no$[ebp]
 	mov	DWORD PTR [eax], ecx
 $LN7@PMC_LeftSh:
 
-; 705  :     }
-; 706  : #ifdef _DEBUG
-; 707  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 656  :     }
+; 657  : #ifdef _DEBUG
+; 658  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -767,19 +463,19 @@ $LN7@PMC_LeftSh:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN13@PMC_LeftSh
 
-; 708  :         return (result);
+; 659  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_LeftSh
 $LN13@PMC_LeftSh:
 
-; 709  : #endif
-; 710  :     return (PMC_STATUS_OK);
+; 660  : #endif
+; 661  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_LeftSh:
 
-; 711  : }
+; 662  : }
 
 	push	edx
 	mov	ecx, ebp
@@ -831,334 +527,6 @@ $LN15@PMC_LeftSh:
 	DB	111					; 0000006fH
 	DB	0
 _PMC_LeftShift_X_I@12 ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
-_TEXT	SEGMENT
-tv164 = -48						; size = 8
-_no_light_check_code$1 = -36				; size = 4
-_o_bit_count$2 = -28					; size = 4
-_p_bit_count$3 = -24					; size = 4
-_result$ = -20						; size = 4
-_no$ = -12						; size = 4
-_np$ = -4						; size = 4
-_p$ = 8							; size = 4
-_n$ = 12						; size = 8
-_o$ = 20						; size = 4
-_PMC_RightShift_X_L@16 PROC
-
-; 621  : {
-
-	push	ebp
-	mov	ebp, esp
-	sub	esp, 48					; 00000030H
-	push	edi
-	lea	edi, DWORD PTR [ebp-48]
-	mov	ecx, 12					; 0000000cH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	ecx, OFFSET __372CD743_pmc_shift@c
-	call	@__CheckForDebuggerJustMyCode@4
-
-; 622  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-
-	mov	eax, 1
-	test	eax, eax
-	je	SHORT $LN2@PMC_RightS
-
-; 623  :     {
-; 624  :         // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-; 625  :         return (PMC_STATUS_NOT_SUPPORTED);
-
-	mov	eax, -6					; fffffffaH
-	jmp	$LN1@PMC_RightS
-$LN2@PMC_RightS:
-
-; 626  :     }
-; 627  :     if (p == NULL)
-
-	cmp	DWORD PTR _p$[ebp], 0
-	jne	SHORT $LN3@PMC_RightS
-
-; 628  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	or	eax, -1
-	jmp	$LN1@PMC_RightS
-$LN3@PMC_RightS:
-
-; 629  :     if (o == NULL)
-
-	cmp	DWORD PTR _o$[ebp], 0
-	jne	SHORT $LN4@PMC_RightS
-
-; 630  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	or	eax, -1
-	jmp	$LN1@PMC_RightS
-$LN4@PMC_RightS:
-
-; 631  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-
-	mov	ecx, DWORD PTR _p$[ebp]
-	mov	DWORD PTR _np$[ebp], ecx
-
-; 632  :     NUMBER_HEADER* no;
-; 633  :     PMC_STATUS_CODE result;
-; 634  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-
-	mov	edx, DWORD PTR _np$[ebp]
-	push	edx
-	call	_CheckNumber
-	add	esp, 4
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN5@PMC_RightS
-
-; 635  :         return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	$LN1@PMC_RightS
-$LN5@PMC_RightS:
-
-; 636  :     if (np->IS_ZERO)
-
-	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
-	and	ecx, 1
-	je	SHORT $LN6@PMC_RightS
-
-; 637  :         *o = &number_zero;
-
-	mov	edx, DWORD PTR _o$[ebp]
-	mov	DWORD PTR [edx], OFFSET _number_zero
-	jmp	$LN7@PMC_RightS
-$LN6@PMC_RightS:
-
-; 638  :     else if (n == 0)
-
-	mov	eax, DWORD PTR _n$[ebp]
-	or	eax, DWORD PTR _n$[ebp+4]
-	jne	SHORT $LN8@PMC_RightS
-
-; 639  :     {
-; 640  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-
-	lea	ecx, DWORD PTR _no$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _np$[ebp]
-	push	edx
-	call	_DuplicateNumber
-	add	esp, 8
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN10@PMC_RightS
-
-; 641  :             return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	$LN1@PMC_RightS
-$LN10@PMC_RightS:
-
-; 642  :         *o = no;
-
-	mov	eax, DWORD PTR _o$[ebp]
-	mov	ecx, DWORD PTR _no$[ebp]
-	mov	DWORD PTR [eax], ecx
-
-; 643  :     }
-
-	jmp	$LN7@PMC_RightS
-$LN8@PMC_RightS:
-
-; 644  :     else
-; 645  :     {
-; 646  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-
-	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+12]
-	mov	DWORD PTR _p_bit_count$3[ebp], eax
-
-; 647  :         if (p_bit_count <= n)
-
-	mov	ecx, DWORD PTR _p_bit_count$3[ebp]
-	xor	edx, edx
-	mov	DWORD PTR tv164[ebp], ecx
-	mov	DWORD PTR tv164[ebp+4], edx
-	mov	eax, DWORD PTR tv164[ebp+4]
-	cmp	eax, DWORD PTR _n$[ebp+4]
-	ja	SHORT $LN11@PMC_RightS
-	jb	SHORT $LN17@PMC_RightS
-	mov	ecx, DWORD PTR tv164[ebp]
-	cmp	ecx, DWORD PTR _n$[ebp]
-	ja	SHORT $LN11@PMC_RightS
-$LN17@PMC_RightS:
-
-; 648  :             *o = &number_zero;
-
-	mov	edx, DWORD PTR _o$[ebp]
-	mov	DWORD PTR [edx], OFFSET _number_zero
-	jmp	$LN7@PMC_RightS
-$LN11@PMC_RightS:
-
-; 649  :         else
-; 650  :         {
-; 651  :             __UNIT_TYPE o_bit_count = p_bit_count - (__UNIT_TYPE)n;
-
-	mov	eax, DWORD PTR _p_bit_count$3[ebp]
-	sub	eax, DWORD PTR _n$[ebp]
-	mov	DWORD PTR _o_bit_count$2[ebp], eax
-
-; 652  :             __UNIT_TYPE no_light_check_code;
-; 653  :             if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-
-	lea	ecx, DWORD PTR _no_light_check_code$1[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _o_bit_count$2[ebp]
-	push	edx
-	lea	eax, DWORD PTR _no$[ebp]
-	push	eax
-	call	_AllocateNumber
-	add	esp, 12					; 0000000cH
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN13@PMC_RightS
-
-; 654  :                 return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_RightS
-$LN13@PMC_RightS:
-
-; 655  :             RightShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
-
-	push	0
-	mov	ecx, DWORD PTR _no$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
-	push	edx
-	mov	eax, DWORD PTR _n$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
-	push	edx
-	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
-	push	ecx
-	call	_RightShift_Imp
-	add	esp, 20					; 00000014H
-
-; 656  :             if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-
-	mov	edx, DWORD PTR _no_light_check_code$1[ebp]
-	push	edx
-	mov	eax, DWORD PTR _no$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
-	push	ecx
-	call	_CheckBlockLight
-	add	esp, 8
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN14@PMC_RightS
-
-; 657  :                 return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_RightS
-$LN14@PMC_RightS:
-
-; 658  :             CommitNumber(no);
-
-	mov	edx, DWORD PTR _no$[ebp]
-	push	edx
-	call	_CommitNumber
-	add	esp, 4
-
-; 659  :             *o = no;
-
-	mov	eax, DWORD PTR _o$[ebp]
-	mov	ecx, DWORD PTR _no$[ebp]
-	mov	DWORD PTR [eax], ecx
-$LN7@PMC_RightS:
-
-; 660  :         }
-; 661  :     }
-; 662  : #ifdef _DEBUG
-; 663  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-
-	mov	edx, DWORD PTR _o$[ebp]
-	mov	eax, DWORD PTR [edx]
-	push	eax
-	call	_CheckNumber
-	add	esp, 4
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	je	SHORT $LN15@PMC_RightS
-
-; 664  :         return (result);
-
-	mov	eax, DWORD PTR _result$[ebp]
-	jmp	SHORT $LN1@PMC_RightS
-$LN15@PMC_RightS:
-
-; 665  : #endif
-; 666  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_RightS:
-
-; 667  : }
-
-	push	edx
-	mov	ecx, ebp
-	push	eax
-	lea	edx, DWORD PTR $LN21@PMC_RightS
-	call	@_RTC_CheckStackVars@8
-	pop	eax
-	pop	edx
-	pop	edi
-	add	esp, 48					; 00000030H
-	cmp	ebp, esp
-	call	__RTC_CheckEsp
-	mov	esp, ebp
-	pop	ebp
-	ret	16					; 00000010H
-	npad	2
-$LN21@PMC_RightS:
-	DD	2
-	DD	$LN20@PMC_RightS
-$LN20@PMC_RightS:
-	DD	-12					; fffffff4H
-	DD	4
-	DD	$LN18@PMC_RightS
-	DD	-36					; ffffffdcH
-	DD	4
-	DD	$LN19@PMC_RightS
-$LN19@PMC_RightS:
-	DB	110					; 0000006eH
-	DB	111					; 0000006fH
-	DB	95					; 0000005fH
-	DB	108					; 0000006cH
-	DB	105					; 00000069H
-	DB	103					; 00000067H
-	DB	104					; 00000068H
-	DB	116					; 00000074H
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	104					; 00000068H
-	DB	101					; 00000065H
-	DB	99					; 00000063H
-	DB	107					; 0000006bH
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	111					; 0000006fH
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	0
-$LN18@PMC_RightS:
-	DB	110					; 0000006eH
-	DB	111					; 0000006fH
-	DB	0
-_PMC_RightShift_X_L@16 ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1254,7 +622,7 @@ $LN5@PMC_RightS:
 	and	ecx, 1
 	je	SHORT $LN6@PMC_RightS
 
-; 588  :         *o = &number_zero;
+; 588  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -1285,7 +653,7 @@ $LN6@PMC_RightS:
 	jmp	$LN1@PMC_RightS
 $LN10@PMC_RightS:
 
-; 593  :         *o = no;
+; 593  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _no$[ebp]
@@ -1310,7 +678,7 @@ $LN8@PMC_RightS:
 	cmp	eax, DWORD PTR _n$[ebp]
 	ja	SHORT $LN11@PMC_RightS
 
-; 599  :             *o = &number_zero;
+; 599  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], OFFSET _number_zero
@@ -1389,7 +757,7 @@ $LN14@PMC_RightS:
 	call	_CommitNumber
 	add	esp, 4
 
-; 610  :             *o = no;
+; 610  :             *o = (PMC_HANDLE_UINT)no;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _no$[ebp]
@@ -1399,7 +767,7 @@ $LN7@PMC_RightS:
 ; 611  :         }
 ; 612  :     }
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -1482,18 +850,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_Shift PROC
 
-; 758  : {
+; 665  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __372CD743_pmc_shift@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 759  :     return (PMC_STATUS_OK);
+; 666  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 760  : }
+; 667  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp

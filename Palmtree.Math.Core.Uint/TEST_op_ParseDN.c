@@ -31,7 +31,7 @@
 #ifdef _DEBUG
 void TEST_PMC_ParseDN1(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, wchar_t* str, unsigned int styles, wchar_t* group_separator, wchar_t* decimal_separator, wchar_t* positive_sign, wchar_t* negative_sign, PMC_STATUS_CODE desired_result_code, unsigned char* desired_buf, size_t desired_buf_size)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     static unsigned char actual_buf[256];
     static size_t actual_buf_size;
     PMC_STATUS_CODE result;
@@ -55,7 +55,7 @@ void TEST_PMC_ParseDN1(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, in
 
 void TEST_PMC_ParseDN2(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, wchar_t* str, unsigned int styles, PMC_STATUS_CODE desired_result_code, unsigned char* desired_buf, size_t desired_buf_size)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     static unsigned char actual_buf[256];
     static size_t actual_buf_size;
     PMC_STATUS_CODE result;

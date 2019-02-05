@@ -2880,7 +2880,7 @@ $LN6@PMC_Subtru:
 ; 677  :             // y が 0 である場合
 ; 678  : 
 ; 679  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 680  :             *o = &number_zero;
+; 680  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -3081,7 +3081,7 @@ $LN17@PMC_Subtru:
 $LN12@PMC_Subtru:
 
 ; 726  :         }
-; 727  :         *o = nz;
+; 727  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR _nz$[ebp]
@@ -3090,7 +3090,7 @@ $LN8@PMC_Subtru:
 
 ; 728  :     }
 ; 729  : #ifdef _DEBUG
-; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 730  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -3287,7 +3287,7 @@ $LN5@PMC_Subtru:
 ; 538  :             // y が 0 である場合
 ; 539  : 
 ; 540  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 541  :             *o = &number_zero;
+; 541  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
@@ -3793,7 +3793,7 @@ $LN11@PMC_Subtru:
 
 ; 646  :             }
 ; 647  :         }
-; 648  :         *o = nz;
+; 648  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _nz$[ebp]
@@ -3802,7 +3802,7 @@ $LN7@PMC_Subtru:
 
 ; 649  :     }
 ; 650  : #ifdef _DEBUG
-; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 651  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -4044,7 +4044,7 @@ $LN5@PMC_Subtru:
 ; 283  :             // v が 0 である場合
 ; 284  : 
 ; 285  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 286  :             *w = &number_zero;
+; 286  :             *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -4263,7 +4263,7 @@ $LN11@PMC_Subtru:
 
 ; 336  :             }
 ; 337  :         }
-; 338  :         *w = nw;
+; 338  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR _nw$[ebp]
@@ -4272,7 +4272,7 @@ $LN7@PMC_Subtru:
 
 ; 339  :     }
 ; 340  : #ifdef _DEBUG
-; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 341  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]

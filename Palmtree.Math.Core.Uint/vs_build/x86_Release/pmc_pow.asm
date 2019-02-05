@@ -1060,7 +1060,7 @@ _PMC_Pow_X_I@12 PROC					; COMDAT
 
 ; 190  :         return (result);
 ; 191  : #ifdef _DEBUG
-; 192  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 192  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 ; 193  :         return (result);
 ; 194  : #endif
 ; 195  :     return (PMC_STATUS_OK);
@@ -1078,7 +1078,7 @@ $LN6@PMC_Pow_X_:
 
 ; 190  :         return (result);
 ; 191  : #ifdef _DEBUG
-; 192  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 192  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 ; 193  :         return (result);
 ; 194  : #endif
 ; 195  :     return (PMC_STATUS_OK);

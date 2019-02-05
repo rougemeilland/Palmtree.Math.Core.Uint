@@ -469,7 +469,7 @@ $LN2@PMC_From_L:
 	cmp	QWORD PTR x$[rbp], 0
 	jne	SHORT $LN3@PMC_From_L
 
-; 114  :         *o = &number_zero;
+; 114  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -494,7 +494,7 @@ $LN3@PMC_From_L:
 	jmp	SHORT $LN1@PMC_From_L
 $LN5@PMC_From_L:
 
-; 119  :         *o = p;
+; 119  :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR p$[rbp]
@@ -503,7 +503,7 @@ $LN4@PMC_From_L:
 
 ; 120  :     }
 ; 121  : #ifdef _DEBUG
-; 122  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 122  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -582,7 +582,7 @@ $LN2@PMC_From_I:
 	cmp	DWORD PTR x$[rbp], 0
 	jne	SHORT $LN3@PMC_From_I
 
-; 89   :         *o = &number_zero;
+; 89   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -608,7 +608,7 @@ $LN3@PMC_From_I:
 	jmp	SHORT $LN1@PMC_From_I
 $LN5@PMC_From_I:
 
-; 95   :         *o = p;
+; 95   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR p$4[rbp]
@@ -617,7 +617,7 @@ $LN4@PMC_From_I:
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]

@@ -72,12 +72,12 @@ $LN12:
 
 ; 46   :             return (result);
 ; 47   :     }
-; 48   :     *o = no;
+; 48   :     *o = (PMC_HANDLE_UINT)no;
 
 	mov	QWORD PTR [rdi], rax
 
 ; 49   : #ifdef _DEBUG
-; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 50   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 51   :         return (result);
 ; 52   : #endif
 ; 53   :     return (PMC_STATUS_OK);
@@ -105,12 +105,12 @@ $LN5@PMC_Clone_:
 
 ; 46   :             return (result);
 ; 47   :     }
-; 48   :     *o = no;
+; 48   :     *o = (PMC_HANDLE_UINT)no;
 
 	mov	QWORD PTR [rdi], rax
 
 ; 49   : #ifdef _DEBUG
-; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 50   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 51   :         return (result);
 ; 52   : #endif
 ; 53   :     return (PMC_STATUS_OK);

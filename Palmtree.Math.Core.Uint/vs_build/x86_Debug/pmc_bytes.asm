@@ -495,7 +495,7 @@ $LN3@PMC_FromBy:
 	cmp	DWORD PTR _bit_count$[ebp], 0
 	jne	SHORT $LN4@PMC_FromBy
 
-; 54   :         *o = &number_zero;
+; 54   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -547,7 +547,7 @@ $LN6@PMC_FromBy:
 	call	_CommitNumber
 	add	esp, 4
 
-; 62   :         *o = p;
+; 62   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR _p$1[ebp]
@@ -556,7 +556,7 @@ $LN5@PMC_FromBy:
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR [eax]

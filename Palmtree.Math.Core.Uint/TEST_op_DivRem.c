@@ -31,7 +31,7 @@
 #ifdef _DEBUG
 void TEST_PMC_DivRem_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int32 u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_return_code, unsigned __int32 desired_q, unsigned __int32 desired_r)
 {
-	HANDLE v;
+	PMC_HANDLE_UINT v;
 	unsigned __int32 actual_q;
     unsigned __int32 actual_r;
     PMC_STATUS_CODE result;
@@ -49,7 +49,7 @@ void TEST_PMC_DivRem_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, 
 
 void TEST_PMC_DivRem_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 u, unsigned char*v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_return_code, unsigned __int64 desired_q, unsigned __int64 desired_r)
 {
-	HANDLE v;
+	PMC_HANDLE_UINT v;
 	unsigned __int64 actual_q;
     unsigned __int64 actual_r;
     PMC_STATUS_CODE result;
@@ -67,8 +67,8 @@ void TEST_PMC_DivRem_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, 
 
 void TEST_PMC_DivRem_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned __int32 v, PMC_STATUS_CODE desired_return_code, unsigned char*desired_q_buf, size_t desired_q_buf_size, unsigned __int32 desired_r)
 {
-    HANDLE u;
-    HANDLE q;
+    PMC_HANDLE_UINT u;
+    PMC_HANDLE_UINT q;
     unsigned char actual_q_buf[256];
     size_t actual_q_buf_size;
     unsigned __int32 actual_r;
@@ -91,8 +91,8 @@ void TEST_PMC_DivRem_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, 
 
 void TEST_PMC_DivRem_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned __int64 v, PMC_STATUS_CODE desired_return_code, unsigned char*desired_q_buf, size_t desired_q_buf_size, unsigned __int64 desired_r)
 {
-    HANDLE u;
-    HANDLE q;
+    PMC_HANDLE_UINT u;
+    PMC_HANDLE_UINT q;
     unsigned char actual_q_buf[256];
     size_t actual_q_buf_size;
     unsigned __int64 actual_r;
@@ -115,10 +115,10 @@ void TEST_PMC_DivRem_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, 
 
 void TEST_PMC_DivRem_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned char*v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_return_code, unsigned char*desired_q_buf, size_t desired_q_buf_size, unsigned char*desired_r_buf, size_t desired_r_buf_size)
 {
-	HANDLE u;
-	HANDLE v;
-	HANDLE q;
-	HANDLE r;
+	PMC_HANDLE_UINT u;
+	PMC_HANDLE_UINT v;
+	PMC_HANDLE_UINT q;
+	PMC_HANDLE_UINT r;
 	unsigned char actual_q_buf[256];
 	size_t actual_q_buf_size;
 	unsigned char actual_r_buf[256];

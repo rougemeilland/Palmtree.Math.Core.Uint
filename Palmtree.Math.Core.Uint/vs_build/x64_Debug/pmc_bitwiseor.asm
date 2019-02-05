@@ -3126,14 +3126,14 @@ $LN11@PMC_Bitwis:
 $LN8@PMC_Bitwis:
 
 ; 435  :     }
-; 436  :     *w = nw;
+; 436  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
 	mov	QWORD PTR [rax], rcx
 
 ; 437  : #ifdef _DEBUG
-; 438  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 438  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3264,7 +3264,7 @@ $LN5@PMC_Bitwis:
 $LN6@PMC_Bitwis:
 
 ; 384  : #ifdef _DEBUG
-; 385  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 385  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3390,7 +3390,7 @@ $LN5@PMC_Bitwis:
 $LN6@PMC_Bitwis:
 
 ; 260  : #ifdef _DEBUG
-; 261  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 261  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3516,7 +3516,7 @@ $LN5@PMC_Bitwis:
 $LN6@PMC_Bitwis:
 
 ; 361  : #ifdef _DEBUG
-; 362  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 362  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3642,7 +3642,7 @@ $LN5@PMC_Bitwis:
 $LN6@PMC_Bitwis:
 
 ; 237  : #ifdef _DEBUG
-; 238  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 238  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]

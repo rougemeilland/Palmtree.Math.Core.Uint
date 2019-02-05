@@ -50,208 +50,208 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG95025 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94983 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95026 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG94984 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95027 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG94985 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_'
 	DB	'0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH
 	DB	090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG95028 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG94986 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95029 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94987 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95030 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG94988 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95031 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG94989 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95032 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG94990 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95059 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95017 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95060 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95018 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95061 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95019 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_'
 	DB	'0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH
 	DB	090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG95062 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95020 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95063 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG95021 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95064 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95022 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95065 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG95023 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95066 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95024 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95093 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95051 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95094 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95052 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95095 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95053 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, 'n0', 0a9H, '_'
 	DB	'0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH
 	DB	090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG95096 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95054 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95097 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG95055 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95098 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95056 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95099 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG95057 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95100 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95058 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95127 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95085 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95128 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95086 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95129 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95087 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, 'n0', 0a9H, '_'
 	DB	'0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH
 	DB	090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG95130 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95088 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95131 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG95089 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95132 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95090 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95133 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG95091 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95134 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95092 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95165 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95123 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95166 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95124 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95167 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95125 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95168 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95126 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95169 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95127 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_'
 	DB	'0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH
 	DB	090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG95170 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95128 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
 	ORG $+4
-$SG95171 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG95129 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95172 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95130 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
-$SG95173 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG95131 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95174 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
+$SG95132 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'A', 00H, 'd', 00H
 	DB	'd', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H
 	DB	00H, 00H
@@ -275,32 +275,32 @@ _buffer2$ = 16						; size = 4
 _count2$ = 20						; size = 4
 __EQUALS_MEMORY PROC
 
-; 149  : {
+; 147  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __630249ED_pmc_uint_debug@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	eax, DWORD PTR _count1$[ebp]
 	cmp	eax, DWORD PTR _count2$[ebp]
 	je	SHORT $LN2@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	DWORD PTR _count1$[ebp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	ecx, DWORD PTR _buffer1$[ebp]
 	movzx	edx, BYTE PTR [ecx]
@@ -309,41 +309,41 @@ $LN2@EQUALS_MEM:
 	cmp	edx, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	edx, DWORD PTR _buffer1$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _buffer1$[ebp], edx
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	eax, DWORD PTR _buffer2$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _buffer2$[ebp], eax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	ecx, DWORD PTR _count1$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _count1$[ebp], ecx
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -397,9 +397,9 @@ _TEST_PMC_Add_X_X PROC
 	mov	ecx, OFFSET __2574342F_test_op_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 110  :     HANDLE x;
-; 111  :     HANDLE y;
-; 112  :     HANDLE z;
+; 110  :     PMC_HANDLE_UINT x;
+; 111  :     PMC_HANDLE_UINT y;
+; 112  :     PMC_HANDLE_UINT z;
 ; 113  :     unsigned char actual_z_buf[256];
 ; 114  :     size_t actual_z_buf_size;
 ; 115  :     PMC_STATUS_CODE result;
@@ -430,7 +430,7 @@ $LN6@TEST_PMC_A:
 $LN7@TEST_PMC_A:
 	mov	edx, DWORD PTR _x_result$[ebp]
 	push	edx
-	push	OFFSET $SG95165
+	push	OFFSET $SG95123
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -439,7 +439,7 @@ $LN7@TEST_PMC_A:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95166
+	push	OFFSET $SG95124
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -472,7 +472,7 @@ $LN8@TEST_PMC_A:
 $LN9@TEST_PMC_A:
 	mov	edx, DWORD PTR _y_result$[ebp]
 	push	edx
-	push	OFFSET $SG95167
+	push	OFFSET $SG95125
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -481,7 +481,7 @@ $LN9@TEST_PMC_A:
 	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95168
+	push	OFFSET $SG95126
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -514,7 +514,7 @@ $LN10@TEST_PMC_A:
 $LN11@TEST_PMC_A:
 	mov	edx, DWORD PTR _z_result$[ebp]
 	push	edx
-	push	OFFSET $SG95169
+	push	OFFSET $SG95127
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -523,7 +523,7 @@ $LN11@TEST_PMC_A:
 	push	3
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95170
+	push	OFFSET $SG95128
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -557,7 +557,7 @@ $LN12@TEST_PMC_A:
 $LN13@TEST_PMC_A:
 	mov	edx, DWORD PTR _result$[ebp]
 	push	edx
-	push	OFFSET $SG95171
+	push	OFFSET $SG95129
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -566,7 +566,7 @@ $LN13@TEST_PMC_A:
 	push	4
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95172
+	push	OFFSET $SG95130
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -594,13 +594,13 @@ $LN13@TEST_PMC_A:
 $LN14@TEST_PMC_A:
 	mov	DWORD PTR tv176[ebp], 0
 $LN15@TEST_PMC_A:
-	push	OFFSET $SG95173
+	push	OFFSET $SG95131
 	mov	ecx, DWORD PTR tv176[ebp]
 	push	ecx
 	push	5
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95174
+	push	OFFSET $SG95132
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -785,8 +785,8 @@ _TEST_PMC_Add_X_L PROC
 	mov	ecx, OFFSET __2574342F_test_op_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 91   :     HANDLE x;
-; 92   :     HANDLE z;
+; 91   :     PMC_HANDLE_UINT x;
+; 92   :     PMC_HANDLE_UINT z;
 ; 93   :     unsigned char actual_z_buf[256];
 ; 94   :     size_t actual_z_buf_size;
 ; 95   :     PMC_STATUS_CODE result;
@@ -816,7 +816,7 @@ $LN5@TEST_PMC_A:
 $LN6@TEST_PMC_A:
 	mov	edx, DWORD PTR _x_result$[ebp]
 	push	edx
-	push	OFFSET $SG95127
+	push	OFFSET $SG95085
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -825,7 +825,7 @@ $LN6@TEST_PMC_A:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95128
+	push	OFFSET $SG95086
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -860,7 +860,7 @@ $LN7@TEST_PMC_A:
 $LN8@TEST_PMC_A:
 	mov	eax, DWORD PTR _z_result$[ebp]
 	push	eax
-	push	OFFSET $SG95129
+	push	OFFSET $SG95087
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -869,7 +869,7 @@ $LN8@TEST_PMC_A:
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95130
+	push	OFFSET $SG95088
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -903,7 +903,7 @@ $LN9@TEST_PMC_A:
 $LN10@TEST_PMC_A:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG95131
+	push	OFFSET $SG95089
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -912,7 +912,7 @@ $LN10@TEST_PMC_A:
 	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95132
+	push	OFFSET $SG95090
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -940,13 +940,13 @@ $LN10@TEST_PMC_A:
 $LN11@TEST_PMC_A:
 	mov	DWORD PTR tv158[ebp], 0
 $LN12@TEST_PMC_A:
-	push	OFFSET $SG95133
+	push	OFFSET $SG95091
 	mov	edx, DWORD PTR tv158[ebp]
 	push	edx
 	push	4
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG95134
+	push	OFFSET $SG95092
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1108,8 +1108,8 @@ _TEST_PMC_Add_X_I PROC
 	mov	ecx, OFFSET __2574342F_test_op_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 72   :     HANDLE x;
-; 73   :     HANDLE z;
+; 72   :     PMC_HANDLE_UINT x;
+; 73   :     PMC_HANDLE_UINT z;
 ; 74   :     unsigned char actual_z_buf[256];
 ; 75   :     size_t actual_z_buf_size;
 ; 76   :     PMC_STATUS_CODE result;
@@ -1139,7 +1139,7 @@ $LN5@TEST_PMC_A:
 $LN6@TEST_PMC_A:
 	mov	edx, DWORD PTR _x_result$[ebp]
 	push	edx
-	push	OFFSET $SG95093
+	push	OFFSET $SG95051
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1148,7 +1148,7 @@ $LN6@TEST_PMC_A:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95094
+	push	OFFSET $SG95052
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1181,7 +1181,7 @@ $LN7@TEST_PMC_A:
 $LN8@TEST_PMC_A:
 	mov	edx, DWORD PTR _z_result$[ebp]
 	push	edx
-	push	OFFSET $SG95095
+	push	OFFSET $SG95053
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1190,7 +1190,7 @@ $LN8@TEST_PMC_A:
 	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95096
+	push	OFFSET $SG95054
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1224,7 +1224,7 @@ $LN9@TEST_PMC_A:
 $LN10@TEST_PMC_A:
 	mov	edx, DWORD PTR _result$[ebp]
 	push	edx
-	push	OFFSET $SG95097
+	push	OFFSET $SG95055
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1233,7 +1233,7 @@ $LN10@TEST_PMC_A:
 	push	3
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95098
+	push	OFFSET $SG95056
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1261,13 +1261,13 @@ $LN10@TEST_PMC_A:
 $LN11@TEST_PMC_A:
 	mov	DWORD PTR tv158[ebp], 0
 $LN12@TEST_PMC_A:
-	push	OFFSET $SG95099
+	push	OFFSET $SG95057
 	mov	ecx, DWORD PTR tv158[ebp]
 	push	ecx
 	push	4
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95100
+	push	OFFSET $SG95058
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1429,8 +1429,8 @@ _TEST_PMC_Add_L_X PROC
 	mov	ecx, OFFSET __2574342F_test_op_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 53   :     HANDLE v;
-; 54   :     HANDLE w;
+; 53   :     PMC_HANDLE_UINT v;
+; 54   :     PMC_HANDLE_UINT w;
 ; 55   :     unsigned char actual_w_buf[256];
 ; 56   :     size_t actual_w_buf_size;
 ; 57   :     PMC_STATUS_CODE result;
@@ -1460,7 +1460,7 @@ $LN5@TEST_PMC_A:
 $LN6@TEST_PMC_A:
 	mov	edx, DWORD PTR _v_result$[ebp]
 	push	edx
-	push	OFFSET $SG95059
+	push	OFFSET $SG95017
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1469,7 +1469,7 @@ $LN6@TEST_PMC_A:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95060
+	push	OFFSET $SG95018
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1504,7 +1504,7 @@ $LN7@TEST_PMC_A:
 $LN8@TEST_PMC_A:
 	mov	eax, DWORD PTR _w_result$[ebp]
 	push	eax
-	push	OFFSET $SG95061
+	push	OFFSET $SG95019
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1513,7 +1513,7 @@ $LN8@TEST_PMC_A:
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95062
+	push	OFFSET $SG95020
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1547,7 +1547,7 @@ $LN9@TEST_PMC_A:
 $LN10@TEST_PMC_A:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG95063
+	push	OFFSET $SG95021
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1556,7 +1556,7 @@ $LN10@TEST_PMC_A:
 	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95064
+	push	OFFSET $SG95022
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1584,13 +1584,13 @@ $LN10@TEST_PMC_A:
 $LN11@TEST_PMC_A:
 	mov	DWORD PTR tv158[ebp], 0
 $LN12@TEST_PMC_A:
-	push	OFFSET $SG95065
+	push	OFFSET $SG95023
 	mov	edx, DWORD PTR tv158[ebp]
 	push	edx
 	push	4
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG95066
+	push	OFFSET $SG95024
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1752,8 +1752,8 @@ _TEST_PMC_Add_I_X PROC
 	mov	ecx, OFFSET __2574342F_test_op_add@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 34   :     HANDLE v;
-; 35   :     HANDLE w;
+; 34   :     PMC_HANDLE_UINT v;
+; 35   :     PMC_HANDLE_UINT w;
 ; 36   :     unsigned char actual_w_buf[256];
 ; 37   :     size_t actual_w_buf_size;
 ; 38   :     PMC_STATUS_CODE result;
@@ -1783,7 +1783,7 @@ $LN5@TEST_PMC_A:
 $LN6@TEST_PMC_A:
 	mov	edx, DWORD PTR _v_result$[ebp]
 	push	edx
-	push	OFFSET $SG95025
+	push	OFFSET $SG94983
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1792,7 +1792,7 @@ $LN6@TEST_PMC_A:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95026
+	push	OFFSET $SG94984
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1825,7 +1825,7 @@ $LN7@TEST_PMC_A:
 $LN8@TEST_PMC_A:
 	mov	edx, DWORD PTR _w_result$[ebp]
 	push	edx
-	push	OFFSET $SG95027
+	push	OFFSET $SG94985
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1834,7 +1834,7 @@ $LN8@TEST_PMC_A:
 	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95028
+	push	OFFSET $SG94986
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1868,7 +1868,7 @@ $LN9@TEST_PMC_A:
 $LN10@TEST_PMC_A:
 	mov	edx, DWORD PTR _result$[ebp]
 	push	edx
-	push	OFFSET $SG95029
+	push	OFFSET $SG94987
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1877,7 +1877,7 @@ $LN10@TEST_PMC_A:
 	push	3
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95030
+	push	OFFSET $SG94988
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1905,13 +1905,13 @@ $LN10@TEST_PMC_A:
 $LN11@TEST_PMC_A:
 	mov	DWORD PTR tv158[ebp], 0
 $LN12@TEST_PMC_A:
-	push	OFFSET $SG95031
+	push	OFFSET $SG94989
 	mov	ecx, DWORD PTR tv158[ebp]
 	push	ecx
 	push	4
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95032
+	push	OFFSET $SG94990
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax

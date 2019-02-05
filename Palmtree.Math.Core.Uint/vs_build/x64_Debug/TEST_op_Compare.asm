@@ -408,8 +408,8 @@ $LN13:
 	lea	rcx, OFFSET FLAT:__21B28967_test_op_compare@c
 	call	__CheckForDebuggerJustMyCode
 
-; 86   :     HANDLE x;
-; 87   :     HANDLE y;
+; 86   :     PMC_HANDLE_UINT x;
+; 87   :     PMC_HANDLE_UINT y;
 ; 88   :     int actual_z;
 ; 89   :     PMC_STATUS_CODE result;
 ; 90   :     PMC_STATUS_CODE x_result;
@@ -480,7 +480,7 @@ $LN8@TEST_PMC_C:
 	mov	rdx, QWORD PTR y$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+448]
+	call	QWORD PTR [rax+432]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_C
@@ -600,7 +600,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__21B28967_test_op_compare@c
 	call	__CheckForDebuggerJustMyCode
 
-; 73   :     HANDLE x;
+; 73   :     PMC_HANDLE_UINT x;
 ; 74   :     int actual_z;
 ; 75   :     PMC_STATUS_CODE result;
 ; 76   :     PMC_STATUS_CODE x_result;
@@ -640,7 +640,7 @@ $LN5@TEST_PMC_C:
 	mov	rdx, QWORD PTR y$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+440]
+	call	QWORD PTR [rax+424]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_C
@@ -748,7 +748,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__21B28967_test_op_compare@c
 	call	__CheckForDebuggerJustMyCode
 
-; 60   :     HANDLE x;
+; 60   :     PMC_HANDLE_UINT x;
 ; 61   :     int actual_z;
 ; 62   :     PMC_STATUS_CODE result;
 ; 63   :     PMC_STATUS_CODE x_result;
@@ -788,7 +788,7 @@ $LN5@TEST_PMC_C:
 	mov	edx, DWORD PTR y$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+432]
+	call	QWORD PTR [rax+416]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_C
@@ -896,7 +896,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__21B28967_test_op_compare@c
 	call	__CheckForDebuggerJustMyCode
 
-; 47   :     HANDLE v;
+; 47   :     PMC_HANDLE_UINT v;
 ; 48   :     int actual_w;
 ; 49   :     PMC_STATUS_CODE result;
 ; 50   :     PMC_STATUS_CODE v_result;
@@ -936,7 +936,7 @@ $LN5@TEST_PMC_C:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+424]
+	call	QWORD PTR [rax+408]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_C
@@ -1044,7 +1044,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__21B28967_test_op_compare@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE v;
+; 34   :     PMC_HANDLE_UINT v;
 ; 35   :     int actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
@@ -1084,7 +1084,7 @@ $LN5@TEST_PMC_C:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+416]
+	call	QWORD PTR [rax+400]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_C

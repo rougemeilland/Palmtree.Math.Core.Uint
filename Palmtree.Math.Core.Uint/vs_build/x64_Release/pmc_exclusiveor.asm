@@ -1538,12 +1538,12 @@ $LN21@PMC_Exclus:
 
 ; 452  :         }
 ; 453  :     }
-; 454  :     *w = nw;
+; 454  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	QWORD PTR [rsi], rax
 
 ; 455  : #ifdef _DEBUG
-; 456  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 456  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 457  :         return (result);
 ; 458  : #endif
 ; 459  :     return (PMC_STATUS_OK);
@@ -1636,13 +1636,13 @@ $LN16@PMC_Exclus:
 
 ; 452  :         }
 ; 453  :     }
-; 454  :     *w = nw;
+; 454  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rbp, QWORD PTR [rsp+88]
 	mov	QWORD PTR [rsi], rax
 
 ; 455  : #ifdef _DEBUG
-; 456  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 456  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 457  :         return (result);
 ; 458  : #endif
 ; 459  :     return (PMC_STATUS_OK);
@@ -1724,7 +1724,7 @@ $LN10:
 
 ; 396  :         return (result);
 ; 397  : #ifdef _DEBUG
-; 398  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 398  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 399  :         return (result);
 ; 400  : #endif
 ; 401  :     return (PMC_STATUS_OK);
@@ -1748,7 +1748,7 @@ $LN6@PMC_Exclus:
 
 ; 396  :         return (result);
 ; 397  : #ifdef _DEBUG
-; 398  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 398  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 399  :         return (result);
 ; 400  : #endif
 ; 401  :     return (PMC_STATUS_OK);
@@ -1814,7 +1814,7 @@ $LN10:
 
 ; 266  :         return (result);
 ; 267  : #ifdef _DEBUG
-; 268  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 268  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 269  :         return (result);
 ; 270  : #endif
 ; 271  :     return (PMC_STATUS_OK);
@@ -1838,7 +1838,7 @@ $LN6@PMC_Exclus:
 
 ; 266  :         return (result);
 ; 267  : #ifdef _DEBUG
-; 268  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 268  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 269  :         return (result);
 ; 270  : #endif
 ; 271  :     return (PMC_STATUS_OK);
@@ -1905,7 +1905,7 @@ $LN10:
 
 ; 372  :         return (result);
 ; 373  : #ifdef _DEBUG
-; 374  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 374  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 375  :         return (result);
 ; 376  : #endif
 ; 377  :     return (PMC_STATUS_OK);
@@ -1929,7 +1929,7 @@ $LN6@PMC_Exclus:
 
 ; 372  :         return (result);
 ; 373  : #ifdef _DEBUG
-; 374  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 374  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 375  :         return (result);
 ; 376  : #endif
 ; 377  :     return (PMC_STATUS_OK);
@@ -1996,7 +1996,7 @@ $LN10:
 
 ; 242  :         return (result);
 ; 243  : #ifdef _DEBUG
-; 244  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 244  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 245  :         return (result);
 ; 246  : #endif
 ; 247  :     return (PMC_STATUS_OK);
@@ -2020,7 +2020,7 @@ $LN6@PMC_Exclus:
 
 ; 242  :         return (result);
 ; 243  : #ifdef _DEBUG
-; 244  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 244  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 245  :         return (result);
 ; 246  : #endif
 ; 247  :     return (PMC_STATUS_OK);

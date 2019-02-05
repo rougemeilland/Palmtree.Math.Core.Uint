@@ -31,8 +31,8 @@
 #ifdef _DEBUG
 void TEST_PMC_Multiply_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int32 u, unsigned char*v_buf, size_t v_buf_size, unsigned char*desired_w_buf, size_t desired_w_buf_size)
 {
-    HANDLE v;
-    HANDLE w;
+    PMC_HANDLE_UINT v;
+    PMC_HANDLE_UINT w;
     unsigned char actual_w_buf[256];
     size_t actual_w_buf_size;
     PMC_STATUS_CODE result;
@@ -50,8 +50,8 @@ void TEST_PMC_Multiply_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep
 
 void TEST_PMC_Multiply_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 u, unsigned char*v_buf, size_t v_buf_size, unsigned char*desired_w_buf, size_t desired_w_buf_size)
 {
-    HANDLE v;
-    HANDLE w;
+    PMC_HANDLE_UINT v;
+    PMC_HANDLE_UINT w;
     unsigned char actual_w_buf[256];
     size_t actual_w_buf_size;
     PMC_STATUS_CODE result;
@@ -69,8 +69,8 @@ void TEST_PMC_Multiply_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep
 
 void TEST_PMC_Multiply_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned __int32 y, unsigned char*desired_z_buf, size_t desired_z_buf_size)
 {
-    HANDLE x;
-    HANDLE z;
+    PMC_HANDLE_UINT x;
+    PMC_HANDLE_UINT z;
     unsigned char actual_z_buf[256];
     size_t actual_z_buf_size;
     PMC_STATUS_CODE result;
@@ -88,8 +88,8 @@ void TEST_PMC_Multiply_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep
 
 void TEST_PMC_Multiply_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned __int64 y, unsigned char*desired_z_buf, size_t desired_z_buf_size)
 {
-    HANDLE x;
-    HANDLE z;
+    PMC_HANDLE_UINT x;
+    PMC_HANDLE_UINT z;
     unsigned char actual_z_buf[256];
     size_t actual_z_buf_size;
     PMC_STATUS_CODE result;
@@ -107,9 +107,9 @@ void TEST_PMC_Multiply_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep
 
 void TEST_PMC_Multiply_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned char*y_buf, size_t y_buf_size, unsigned char*desired_z_buf, size_t desired_z_buf_size)
 {
-    HANDLE x;
-    HANDLE y;
-    HANDLE z;
+    PMC_HANDLE_UINT x;
+    PMC_HANDLE_UINT y;
+    PMC_HANDLE_UINT z;
     unsigned char actual_z_buf[256];
     size_t actual_z_buf_size;
     PMC_STATUS_CODE result;

@@ -28,9 +28,7 @@ PUBLIC	LeftShift_Imp_DIV
 PUBLIC	LeftShift_Imp
 PUBLIC	Initialize_Shift
 PUBLIC	PMC_RightShift_X_I
-PUBLIC	PMC_RightShift_X_L
 PUBLIC	PMC_LeftShift_X_I
-PUBLIC	PMC_LeftShift_X_L
 PUBLIC	__JustMyCode_Default
 EXTRN	CheckBlockLight:PROC
 EXTRN	AllocateNumber:PROC
@@ -80,21 +78,9 @@ $pdata$PMC_RightShift_X_I DD imagerel $LN17
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_RightShift_X_L DD imagerel $LN17
-	DD	imagerel $LN17+529
-	DD	imagerel $unwind$PMC_RightShift_X_L
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$PMC_LeftShift_X_I DD imagerel $LN15
 	DD	imagerel $LN15+493
 	DD	imagerel $unwind$PMC_LeftShift_X_I
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$PMC_LeftShift_X_L DD imagerel $LN15
-	DD	imagerel $LN15+494
-	DD	imagerel $unwind$PMC_LeftShift_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -158,51 +144,6 @@ $unwind$_COPY_MEMORY_UNIT DD 025063501H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_LeftShift_X_L DD 035053401H
-	DD	0118331dH
-	DD	070110037H
-	DD	05010H
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-PMC_LeftShift_X_L$rtcName$0 DB 06eH
-	DB	06fH
-	DB	00H
-	ORG $+5
-PMC_LeftShift_X_L$rtcName$1 DB 06eH
-	DB	06fH
-	DB	05fH
-	DB	06cH
-	DB	069H
-	DB	067H
-	DB	068H
-	DB	074H
-	DB	05fH
-	DB	063H
-	DB	068H
-	DB	065H
-	DB	063H
-	DB	06bH
-	DB	05fH
-	DB	063H
-	DB	06fH
-	DB	064H
-	DB	065H
-	DB	00H
-	ORG $+4
-PMC_LeftShift_X_L$rtcVarDesc DD 0d8H
-	DD	08H
-	DQ	FLAT:PMC_LeftShift_X_L$rtcName$1
-	DD	058H
-	DD	08H
-	DQ	FLAT:PMC_LeftShift_X_L$rtcName$0
-	ORG $+96
-PMC_LeftShift_X_L$rtcFrameData DD 02H
-	DD	00H
-	DQ	FLAT:PMC_LeftShift_X_L$rtcVarDesc
-CONST	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
 $unwind$PMC_LeftShift_X_I DD 035053301H
 	DD	0117331cH
 	DD	070100037H
@@ -245,51 +186,6 @@ PMC_LeftShift_X_I$rtcVarDesc DD 0d8H
 PMC_LeftShift_X_I$rtcFrameData DD 02H
 	DD	00H
 	DQ	FLAT:PMC_LeftShift_X_I$rtcVarDesc
-CONST	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$PMC_RightShift_X_L DD 035053401H
-	DD	0118331dH
-	DD	070110037H
-	DD	05010H
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-PMC_RightShift_X_L$rtcName$0 DB 06eH
-	DB	06fH
-	DB	00H
-	ORG $+5
-PMC_RightShift_X_L$rtcName$1 DB 06eH
-	DB	06fH
-	DB	05fH
-	DB	06cH
-	DB	069H
-	DB	067H
-	DB	068H
-	DB	074H
-	DB	05fH
-	DB	063H
-	DB	068H
-	DB	065H
-	DB	063H
-	DB	06bH
-	DB	05fH
-	DB	063H
-	DB	06fH
-	DB	064H
-	DB	065H
-	DB	00H
-	ORG $+4
-PMC_RightShift_X_L$rtcVarDesc DD 0d8H
-	DD	08H
-	DQ	FLAT:PMC_RightShift_X_L$rtcName$1
-	DD	058H
-	DD	08H
-	DQ	FLAT:PMC_RightShift_X_L$rtcName$0
-	ORG $+96
-PMC_RightShift_X_L$rtcFrameData DD 02H
-	DD	00H
-	DQ	FLAT:PMC_RightShift_X_L$rtcVarDesc
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -584,256 +480,6 @@ _COPY_MEMORY_UNIT ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
-;	COMDAT PMC_LeftShift_X_L
-_TEXT	SEGMENT
-np$ = 8
-no$ = 40
-result$ = 68
-p_bit_count$5 = 104
-o_bit_count$6 = 136
-no_light_check_code$7 = 168
-p$ = 416
-n$ = 424
-o$ = 432
-PMC_LeftShift_X_L PROC					; COMDAT
-
-; 714  : {
-
-$LN15:
-	mov	QWORD PTR [rsp+24], r8
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 440				; 000001b8H
-	lea	rbp, QWORD PTR [rsp+48]
-	mov	rdi, rsp
-	mov	ecx, 110				; 0000006eH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	rcx, QWORD PTR [rsp+472]
-	lea	rcx, OFFSET FLAT:__372CD743_pmc_shift@c
-	call	__CheckForDebuggerJustMyCode
-
-; 715  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-
-	xor	eax, eax
-	test	eax, eax
-	je	SHORT $LN2@PMC_LeftSh
-
-; 716  :     {
-; 717  :         // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-; 718  :         return (PMC_STATUS_NOT_SUPPORTED);
-
-	mov	eax, -6
-	jmp	$LN1@PMC_LeftSh
-$LN2@PMC_LeftSh:
-
-; 719  :     }
-; 720  :     if (p == NULL)
-
-	cmp	QWORD PTR p$[rbp], 0
-	jne	SHORT $LN3@PMC_LeftSh
-
-; 721  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	mov	eax, -1
-	jmp	$LN1@PMC_LeftSh
-$LN3@PMC_LeftSh:
-
-; 722  :     if (o == NULL)
-
-	cmp	QWORD PTR o$[rbp], 0
-	jne	SHORT $LN4@PMC_LeftSh
-
-; 723  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	mov	eax, -1
-	jmp	$LN1@PMC_LeftSh
-$LN4@PMC_LeftSh:
-
-; 724  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-
-	mov	rax, QWORD PTR p$[rbp]
-	mov	QWORD PTR np$[rbp], rax
-
-; 725  :     NUMBER_HEADER* no;
-; 726  :     PMC_STATUS_CODE result;
-; 727  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-
-	mov	rcx, QWORD PTR np$[rbp]
-	call	CheckNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN5@PMC_LeftSh
-
-; 728  :         return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN5@PMC_LeftSh:
-
-; 729  :     if (np->IS_ZERO)
-
-	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
-	and	eax, 1
-	test	eax, eax
-	je	SHORT $LN6@PMC_LeftSh
-
-; 730  :         *o = &number_zero;
-
-	mov	rax, QWORD PTR o$[rbp]
-	lea	rcx, OFFSET FLAT:number_zero
-	mov	QWORD PTR [rax], rcx
-	jmp	$LN7@PMC_LeftSh
-$LN6@PMC_LeftSh:
-
-; 731  :     else if (n == 0)
-
-	cmp	QWORD PTR n$[rbp], 0
-	jne	SHORT $LN8@PMC_LeftSh
-
-; 732  :     {
-; 733  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-
-	lea	rdx, QWORD PTR no$[rbp]
-	mov	rcx, QWORD PTR np$[rbp]
-	call	DuplicateNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN10@PMC_LeftSh
-
-; 734  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN10@PMC_LeftSh:
-
-; 735  :         *o = no;
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR no$[rbp]
-	mov	QWORD PTR [rax], rcx
-
-; 736  :     }
-
-	jmp	$LN9@PMC_LeftSh
-$LN8@PMC_LeftSh:
-
-; 737  :     else
-; 738  :     {
-; 739  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rax, QWORD PTR [rax+16]
-	mov	QWORD PTR p_bit_count$5[rbp], rax
-
-; 740  :         __UNIT_TYPE o_bit_count = p_bit_count + (__UNIT_TYPE)n;
-
-	mov	rax, QWORD PTR n$[rbp]
-	mov	rcx, QWORD PTR p_bit_count$5[rbp]
-	add	rcx, rax
-	mov	rax, rcx
-	mov	QWORD PTR o_bit_count$6[rbp], rax
-
-; 741  :         __UNIT_TYPE no_light_check_code;
-; 742  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-
-	lea	r8, QWORD PTR no_light_check_code$7[rbp]
-	mov	rdx, QWORD PTR o_bit_count$6[rbp]
-	lea	rcx, QWORD PTR no$[rbp]
-	call	AllocateNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN11@PMC_LeftSh
-
-; 743  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN11@PMC_LeftSh:
-
-; 744  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
-
-	mov	DWORD PTR [rsp+32], 0
-	mov	rax, QWORD PTR no$[rbp]
-	mov	r9, QWORD PTR [rax+56]
-	mov	r8, QWORD PTR n$[rbp]
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
-	call	LeftShift_Imp
-
-; 745  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-
-	mov	rdx, QWORD PTR no_light_check_code$7[rbp]
-	mov	rax, QWORD PTR no$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
-	call	CheckBlockLight
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN12@PMC_LeftSh
-
-; 746  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN12@PMC_LeftSh:
-
-; 747  :         CommitNumber(no);
-
-	mov	rcx, QWORD PTR no$[rbp]
-	call	CommitNumber
-
-; 748  :         *o = no;
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR no$[rbp]
-	mov	QWORD PTR [rax], rcx
-$LN9@PMC_LeftSh:
-$LN7@PMC_LeftSh:
-
-; 749  :     }
-; 750  : #ifdef _DEBUG
-; 751  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR [rax]
-	call	CheckNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN13@PMC_LeftSh
-
-; 752  :         return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN13@PMC_LeftSh:
-
-; 753  : #endif
-; 754  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_LeftSh:
-
-; 755  : }
-
-	mov	rdi, rax
-	lea	rcx, QWORD PTR [rbp-48]
-	lea	rdx, OFFSET FLAT:PMC_LeftShift_X_L$rtcFrameData
-	call	_RTC_CheckStackVars
-	mov	rax, rdi
-	lea	rsp, QWORD PTR [rbp+392]
-	pop	rdi
-	pop	rbp
-	ret	0
-PMC_LeftShift_X_L ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
 ;	COMDAT PMC_LeftShift_X_I
 _TEXT	SEGMENT
 np$ = 8
@@ -847,7 +493,7 @@ n$ = 424
 o$ = 432
 PMC_LeftShift_X_I PROC					; COMDAT
 
-; 670  : {
+; 621  : {
 
 $LN15:
 	mov	QWORD PTR [rsp+24], r8
@@ -865,293 +511,42 @@ $LN15:
 	lea	rcx, OFFSET FLAT:__372CD743_pmc_shift@c
 	call	__CheckForDebuggerJustMyCode
 
-; 671  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
+; 622  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN2@PMC_LeftSh
 
-; 672  :     {
-; 673  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
-; 674  :         return (PMC_STATUS_NOT_SUPPORTED);
+; 623  :     {
+; 624  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
+; 625  :         return (PMC_STATUS_NOT_SUPPORTED);
 
 	mov	eax, -6
 	jmp	$LN1@PMC_LeftSh
 $LN2@PMC_LeftSh:
 
-; 675  :     }
-; 676  :     if (p == NULL)
+; 626  :     }
+; 627  :     if (p == NULL)
 
 	cmp	QWORD PTR p$[rbp], 0
 	jne	SHORT $LN3@PMC_LeftSh
 
-; 677  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 628  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_LeftSh
 $LN3@PMC_LeftSh:
 
-; 678  :     if (o == NULL)
+; 629  :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN4@PMC_LeftSh
 
-; 679  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 630  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_LeftSh
 $LN4@PMC_LeftSh:
-
-; 680  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-
-	mov	rax, QWORD PTR p$[rbp]
-	mov	QWORD PTR np$[rbp], rax
-
-; 681  :     NUMBER_HEADER* no;
-; 682  :     PMC_STATUS_CODE result;
-; 683  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-
-	mov	rcx, QWORD PTR np$[rbp]
-	call	CheckNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN5@PMC_LeftSh
-
-; 684  :         return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN5@PMC_LeftSh:
-
-; 685  :     if (np->IS_ZERO)
-
-	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
-	and	eax, 1
-	test	eax, eax
-	je	SHORT $LN6@PMC_LeftSh
-
-; 686  :         *o = &number_zero;
-
-	mov	rax, QWORD PTR o$[rbp]
-	lea	rcx, OFFSET FLAT:number_zero
-	mov	QWORD PTR [rax], rcx
-	jmp	$LN7@PMC_LeftSh
-$LN6@PMC_LeftSh:
-
-; 687  :     else if (n == 0)
-
-	cmp	DWORD PTR n$[rbp], 0
-	jne	SHORT $LN8@PMC_LeftSh
-
-; 688  :     {
-; 689  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-
-	lea	rdx, QWORD PTR no$[rbp]
-	mov	rcx, QWORD PTR np$[rbp]
-	call	DuplicateNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN10@PMC_LeftSh
-
-; 690  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN10@PMC_LeftSh:
-
-; 691  :         *o = no;
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR no$[rbp]
-	mov	QWORD PTR [rax], rcx
-
-; 692  :     }
-
-	jmp	$LN9@PMC_LeftSh
-$LN8@PMC_LeftSh:
-
-; 693  :     else
-; 694  :     {
-; 695  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rax, QWORD PTR [rax+16]
-	mov	QWORD PTR p_bit_count$5[rbp], rax
-
-; 696  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
-
-	mov	eax, DWORD PTR n$[rbp]
-	mov	rcx, QWORD PTR p_bit_count$5[rbp]
-	add	rcx, rax
-	mov	rax, rcx
-	mov	QWORD PTR o_bit_count$6[rbp], rax
-
-; 697  :         __UNIT_TYPE no_light_check_code;
-; 698  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-
-	lea	r8, QWORD PTR no_light_check_code$7[rbp]
-	mov	rdx, QWORD PTR o_bit_count$6[rbp]
-	lea	rcx, QWORD PTR no$[rbp]
-	call	AllocateNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN11@PMC_LeftSh
-
-; 699  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_LeftSh
-$LN11@PMC_LeftSh:
-
-; 700  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, n, no->BLOCK, FALSE);
-
-	mov	eax, DWORD PTR n$[rbp]
-	mov	DWORD PTR [rsp+32], 0
-	mov	rcx, QWORD PTR no$[rbp]
-	mov	r9, QWORD PTR [rcx+56]
-	mov	r8d, eax
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
-	mov	rax, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
-	call	LeftShift_Imp
-
-; 701  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-
-	mov	rdx, QWORD PTR no_light_check_code$7[rbp]
-	mov	rax, QWORD PTR no$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
-	call	CheckBlockLight
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN12@PMC_LeftSh
-
-; 702  :             return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN12@PMC_LeftSh:
-
-; 703  :         CommitNumber(no);
-
-	mov	rcx, QWORD PTR no$[rbp]
-	call	CommitNumber
-
-; 704  :         *o = no;
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR no$[rbp]
-	mov	QWORD PTR [rax], rcx
-$LN9@PMC_LeftSh:
-$LN7@PMC_LeftSh:
-
-; 705  :     }
-; 706  : #ifdef _DEBUG
-; 707  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR [rax]
-	call	CheckNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN13@PMC_LeftSh
-
-; 708  :         return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_LeftSh
-$LN13@PMC_LeftSh:
-
-; 709  : #endif
-; 710  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_LeftSh:
-
-; 711  : }
-
-	mov	rdi, rax
-	lea	rcx, QWORD PTR [rbp-48]
-	lea	rdx, OFFSET FLAT:PMC_LeftShift_X_I$rtcFrameData
-	call	_RTC_CheckStackVars
-	mov	rax, rdi
-	lea	rsp, QWORD PTR [rbp+392]
-	pop	rdi
-	pop	rbp
-	ret	0
-PMC_LeftShift_X_I ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
-;	COMDAT PMC_RightShift_X_L
-_TEXT	SEGMENT
-np$ = 8
-no$ = 40
-result$ = 68
-p_bit_count$5 = 104
-o_bit_count$6 = 136
-no_light_check_code$7 = 168
-p$ = 416
-n$ = 424
-o$ = 432
-PMC_RightShift_X_L PROC					; COMDAT
-
-; 621  : {
-
-$LN17:
-	mov	QWORD PTR [rsp+24], r8
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 440				; 000001b8H
-	lea	rbp, QWORD PTR [rsp+48]
-	mov	rdi, rsp
-	mov	ecx, 110				; 0000006eH
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	rcx, QWORD PTR [rsp+472]
-	lea	rcx, OFFSET FLAT:__372CD743_pmc_shift@c
-	call	__CheckForDebuggerJustMyCode
-
-; 622  :     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-
-	xor	eax, eax
-	test	eax, eax
-	je	SHORT $LN2@PMC_RightS
-
-; 623  :     {
-; 624  :         // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-; 625  :         return (PMC_STATUS_NOT_SUPPORTED);
-
-	mov	eax, -6
-	jmp	$LN1@PMC_RightS
-$LN2@PMC_RightS:
-
-; 626  :     }
-; 627  :     if (p == NULL)
-
-	cmp	QWORD PTR p$[rbp], 0
-	jne	SHORT $LN3@PMC_RightS
-
-; 628  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	mov	eax, -1
-	jmp	$LN1@PMC_RightS
-$LN3@PMC_RightS:
-
-; 629  :     if (o == NULL)
-
-	cmp	QWORD PTR o$[rbp], 0
-	jne	SHORT $LN4@PMC_RightS
-
-; 630  :         return (PMC_STATUS_ARGUMENT_ERROR);
-
-	mov	eax, -1
-	jmp	$LN1@PMC_RightS
-$LN4@PMC_RightS:
 
 ; 631  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
@@ -1166,13 +561,13 @@ $LN4@PMC_RightS:
 	call	CheckNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN5@PMC_RightS
+	je	SHORT $LN5@PMC_LeftSh
 
 ; 635  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_RightS
-$LN5@PMC_RightS:
+	jmp	$LN1@PMC_LeftSh
+$LN5@PMC_LeftSh:
 
 ; 636  :     if (np->IS_ZERO)
 
@@ -1181,20 +576,20 @@ $LN5@PMC_RightS:
 	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $LN6@PMC_RightS
+	je	SHORT $LN6@PMC_LeftSh
 
-; 637  :         *o = &number_zero;
+; 637  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rax], rcx
-	jmp	$LN7@PMC_RightS
-$LN6@PMC_RightS:
+	jmp	$LN7@PMC_LeftSh
+$LN6@PMC_LeftSh:
 
 ; 638  :     else if (n == 0)
 
-	cmp	QWORD PTR n$[rbp], 0
-	jne	SHORT $LN8@PMC_RightS
+	cmp	DWORD PTR n$[rbp], 0
+	jne	SHORT $LN8@PMC_LeftSh
 
 ; 639  :     {
 ; 640  :         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
@@ -1204,15 +599,15 @@ $LN6@PMC_RightS:
 	call	DuplicateNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN10@PMC_RightS
+	je	SHORT $LN10@PMC_LeftSh
 
 ; 641  :             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_RightS
-$LN10@PMC_RightS:
+	jmp	$LN1@PMC_LeftSh
+$LN10@PMC_LeftSh:
 
-; 642  :         *o = no;
+; 642  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
@@ -1220,8 +615,8 @@ $LN10@PMC_RightS:
 
 ; 643  :     }
 
-	jmp	$LN9@PMC_RightS
-$LN8@PMC_RightS:
+	jmp	$LN9@PMC_LeftSh
+$LN8@PMC_LeftSh:
 
 ; 644  :     else
 ; 645  :     {
@@ -1231,32 +626,16 @@ $LN8@PMC_RightS:
 	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR p_bit_count$5[rbp], rax
 
-; 647  :         if (p_bit_count <= n)
+; 647  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
 
-	mov	rax, QWORD PTR n$[rbp]
-	cmp	QWORD PTR p_bit_count$5[rbp], rax
-	ja	SHORT $LN11@PMC_RightS
-
-; 648  :             *o = &number_zero;
-
-	mov	rax, QWORD PTR o$[rbp]
-	lea	rcx, OFFSET FLAT:number_zero
-	mov	QWORD PTR [rax], rcx
-	jmp	$LN12@PMC_RightS
-$LN11@PMC_RightS:
-
-; 649  :         else
-; 650  :         {
-; 651  :             __UNIT_TYPE o_bit_count = p_bit_count - (__UNIT_TYPE)n;
-
-	mov	rax, QWORD PTR n$[rbp]
+	mov	eax, DWORD PTR n$[rbp]
 	mov	rcx, QWORD PTR p_bit_count$5[rbp]
-	sub	rcx, rax
+	add	rcx, rax
 	mov	rax, rcx
 	mov	QWORD PTR o_bit_count$6[rbp], rax
 
-; 652  :             __UNIT_TYPE no_light_check_code;
-; 653  :             if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
+; 648  :         __UNIT_TYPE no_light_check_code;
+; 649  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR no_light_check_code$7[rbp]
 	mov	rdx, QWORD PTR o_bit_count$6[rbp]
@@ -1264,27 +643,28 @@ $LN11@PMC_RightS:
 	call	AllocateNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN13@PMC_RightS
+	je	SHORT $LN11@PMC_LeftSh
 
-; 654  :                 return (result);
+; 650  :             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_RightS
-$LN13@PMC_RightS:
+	jmp	$LN1@PMC_LeftSh
+$LN11@PMC_LeftSh:
 
-; 655  :             RightShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
+; 651  :         LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, n, no->BLOCK, FALSE);
 
+	mov	eax, DWORD PTR n$[rbp]
 	mov	DWORD PTR [rsp+32], 0
-	mov	rax, QWORD PTR no$[rbp]
-	mov	r9, QWORD PTR [rax+56]
-	mov	r8, QWORD PTR n$[rbp]
+	mov	rcx, QWORD PTR no$[rbp]
+	mov	r9, QWORD PTR [rcx+56]
+	mov	r8d, eax
 	mov	rax, QWORD PTR np$[rbp]
 	mov	rdx, QWORD PTR [rax+8]
 	mov	rax, QWORD PTR np$[rbp]
 	mov	rcx, QWORD PTR [rax+56]
-	call	RightShift_Imp
+	call	LeftShift_Imp
 
-; 656  :             if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
+; 652  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR no_light_check_code$7[rbp]
 	mov	rax, QWORD PTR no$[rbp]
@@ -1292,64 +672,62 @@ $LN13@PMC_RightS:
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN14@PMC_RightS
+	je	SHORT $LN12@PMC_LeftSh
 
-; 657  :                 return (result);
+; 653  :             return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_RightS
-$LN14@PMC_RightS:
+	jmp	SHORT $LN1@PMC_LeftSh
+$LN12@PMC_LeftSh:
 
-; 658  :             CommitNumber(no);
+; 654  :         CommitNumber(no);
 
 	mov	rcx, QWORD PTR no$[rbp]
 	call	CommitNumber
 
-; 659  :             *o = no;
+; 655  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
 	mov	QWORD PTR [rax], rcx
-$LN12@PMC_RightS:
-$LN9@PMC_RightS:
-$LN7@PMC_RightS:
+$LN9@PMC_LeftSh:
+$LN7@PMC_LeftSh:
 
-; 660  :         }
-; 661  :     }
-; 662  : #ifdef _DEBUG
-; 663  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 656  :     }
+; 657  : #ifdef _DEBUG
+; 658  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
 	call	CheckNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN15@PMC_RightS
+	je	SHORT $LN13@PMC_LeftSh
 
-; 664  :         return (result);
+; 659  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_RightS
-$LN15@PMC_RightS:
+	jmp	SHORT $LN1@PMC_LeftSh
+$LN13@PMC_LeftSh:
 
-; 665  : #endif
-; 666  :     return (PMC_STATUS_OK);
+; 660  : #endif
+; 661  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
-$LN1@PMC_RightS:
+$LN1@PMC_LeftSh:
 
-; 667  : }
+; 662  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
-	lea	rdx, OFFSET FLAT:PMC_RightShift_X_L$rtcFrameData
+	lea	rdx, OFFSET FLAT:PMC_LeftShift_X_I$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rax, rdi
 	lea	rsp, QWORD PTR [rbp+392]
 	pop	rdi
 	pop	rbp
 	ret	0
-PMC_RightShift_X_L ENDP
+PMC_LeftShift_X_I ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1451,7 +829,7 @@ $LN5@PMC_RightS:
 	test	eax, eax
 	je	SHORT $LN6@PMC_RightS
 
-; 588  :         *o = &number_zero;
+; 588  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -1480,7 +858,7 @@ $LN6@PMC_RightS:
 	jmp	$LN1@PMC_RightS
 $LN10@PMC_RightS:
 
-; 593  :         *o = no;
+; 593  :         *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
@@ -1505,7 +883,7 @@ $LN8@PMC_RightS:
 	cmp	QWORD PTR p_bit_count$5[rbp], rax
 	ja	SHORT $LN11@PMC_RightS
 
-; 599  :             *o = &number_zero;
+; 599  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -1574,7 +952,7 @@ $LN14@PMC_RightS:
 	mov	rcx, QWORD PTR no$[rbp]
 	call	CommitNumber
 
-; 610  :             *o = no;
+; 610  :             *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
@@ -1586,7 +964,7 @@ $LN7@PMC_RightS:
 ; 611  :         }
 ; 612  :     }
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -1627,7 +1005,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_Shift PROC					; COMDAT
 
-; 758  : {
+; 665  : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -1643,11 +1021,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__372CD743_pmc_shift@c
 	call	__CheckForDebuggerJustMyCode
 
-; 759  :     return (PMC_STATUS_OK);
+; 666  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 760  : }
+; 667  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

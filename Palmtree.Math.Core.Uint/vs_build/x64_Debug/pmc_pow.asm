@@ -1157,7 +1157,7 @@ $LN5@PMC_Pow_X_:
 $LN6@PMC_Pow_X_:
 
 ; 191  : #ifdef _DEBUG
-; 192  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 192  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR [rax]

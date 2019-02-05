@@ -102,7 +102,7 @@ int main(int argc, char** argv)
     debug_env.pause = pause_console;
     (*proc)(&debug_env);
     printf("***ok\n");
-#ifdef _MSCVER
+#ifdef _MSC_VER
     getchar();
 #endif
     return (0);

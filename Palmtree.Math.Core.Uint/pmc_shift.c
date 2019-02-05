@@ -568,7 +568,7 @@ void LeftShift_Imp_DIV(__UNIT_TYPE_DIV* p, __UNIT_TYPE p_word_count, __UNIT_TYPE
     }
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_RightShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_RightShift_X_I(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
     {
@@ -585,18 +585,18 @@ PMC_STATUS_CODE __PMC_CALL PMC_RightShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
         return (result);
     if (np->IS_ZERO)
-        *o = &number_zero;
+        *o = (PMC_HANDLE_UINT)&number_zero;
     else if (n == 0)
     {
         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
             return (result);
-        *o = no;
+        *o = (PMC_HANDLE_UINT)no;
     }
     else
     {
         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
         if (p_bit_count <= n)
-            *o = &number_zero;
+            *o = (PMC_HANDLE_UINT)&number_zero;
         else
         {
             __UNIT_TYPE o_bit_count = p_bit_count - n;
@@ -607,66 +607,17 @@ PMC_STATUS_CODE __PMC_CALL PMC_RightShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
             if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
                 return (result);
             CommitNumber(no);
-            *o = no;
+            *o = (PMC_HANDLE_UINT)no;
         }
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_RightShift_X_L(HANDLE p, _UINT64_T n, HANDLE* o)
-{
-    if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-    {
-        // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-        return (PMC_STATUS_NOT_SUPPORTED);
-    }
-    if (p == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    if (o == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-    NUMBER_HEADER* no;
-    PMC_STATUS_CODE result;
-    if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-        return (result);
-    if (np->IS_ZERO)
-        *o = &number_zero;
-    else if (n == 0)
-    {
-        if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-            return (result);
-        *o = no;
-    }
-    else
-    {
-        __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-        if (p_bit_count <= n)
-            *o = &number_zero;
-        else
-        {
-            __UNIT_TYPE o_bit_count = p_bit_count - (__UNIT_TYPE)n;
-            __UNIT_TYPE no_light_check_code;
-            if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-                return (result);
-            RightShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
-            if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-                return (result);
-            CommitNumber(no);
-            *o = no;
-        }
-    }
-#ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-        return (result);
-#endif
-    return (PMC_STATUS_OK);
-}
-
-PMC_STATUS_CODE __PMC_CALL PMC_LeftShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_LeftShift_X_I(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
     {
@@ -683,12 +634,12 @@ PMC_STATUS_CODE __PMC_CALL PMC_LeftShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
         return (result);
     if (np->IS_ZERO)
-        *o = &number_zero;
+        *o = (PMC_HANDLE_UINT)&number_zero;
     else if (n == 0)
     {
         if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
             return (result);
-        *o = no;
+        *o = (PMC_HANDLE_UINT)no;
     }
     else
     {
@@ -701,54 +652,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_LeftShift_X_I(HANDLE p, _UINT32_T n, HANDLE* o)
         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
             return (result);
         CommitNumber(no);
-        *o = no;
+        *o = (PMC_HANDLE_UINT)no;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
-        return (result);
-#endif
-    return (PMC_STATUS_OK);
-}
-
-PMC_STATUS_CODE __PMC_CALL PMC_LeftShift_X_L(HANDLE p, _UINT64_T n, HANDLE* o)
-{
-    if (__UNIT_TYPE_BIT_COUNT < sizeof(n) * 8)
-    {
-        // _UINT64_T が 1 ワードで表現しきれない処理系には対応しない
-        return (PMC_STATUS_NOT_SUPPORTED);
-    }
-    if (p == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    if (o == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-    NUMBER_HEADER* no;
-    PMC_STATUS_CODE result;
-    if ((result = CheckNumber(np)) != PMC_STATUS_OK)
-        return (result);
-    if (np->IS_ZERO)
-        *o = &number_zero;
-    else if (n == 0)
-    {
-        if ((result = DuplicateNumber(np, &no)) != PMC_STATUS_OK)
-            return (result);
-        *o = no;
-    }
-    else
-    {
-        __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
-        __UNIT_TYPE o_bit_count = p_bit_count + (__UNIT_TYPE)n;
-        __UNIT_TYPE no_light_check_code;
-        if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
-            return (result);
-        LeftShift_Imp(np->BLOCK, np->UNIT_WORD_COUNT, (__UNIT_TYPE)n, no->BLOCK, FALSE);
-        if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
-            return (result);
-        CommitNumber(no);
-        *o = no;
-    }
-#ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

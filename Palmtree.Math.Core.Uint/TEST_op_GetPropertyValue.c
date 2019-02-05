@@ -31,7 +31,7 @@
 #ifdef _DEBUG
 void TEST_PMC_GetPropertyValue_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, PMC_PROPERTY_CODE function_code, _INT32_T desired_value)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     _INT32_T actual_value;
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE x_result;

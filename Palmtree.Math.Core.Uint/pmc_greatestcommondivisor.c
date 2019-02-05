@@ -165,7 +165,7 @@ static PMC_STATUS_CODE PMC_GreatestCommonDivisor_X_I_Imp(NUMBER_HEADER* u, _UINT
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_I_X(_UINT32_T u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
     {
@@ -182,13 +182,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_I_X(_UINT32_T u, HANDLE v, 
     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
     {
@@ -205,7 +205,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_I(HANDLE u, _UINT32_T v, 
     if ((result = PMC_GreatestCommonDivisor_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
@@ -431,7 +431,7 @@ static PMC_STATUS_CODE PMC_GreatestCommonDivisor_X_L_Imp(NUMBER_HEADER* u, _UINT
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_L_X(_UINT64_T u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_L_X(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
     {
@@ -448,13 +448,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_L_X(_UINT64_T u, HANDLE v, 
     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_L(HANDLE u, _UINT64_T v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
     {
@@ -471,13 +471,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_L(HANDLE u, _UINT64_T v, 
     if ((result = PMC_GreatestCommonDivisor_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_X(HANDLE u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -511,7 +511,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_X(HANDLE u, HANDLE v, HAN
             // GCD は v そのものであるため、v を計算結果として返す。
             if ((result = DuplicateNumber(nv, &nw)) != PMC_STATUS_OK)
                 return (result);
-            *w = nw;
+            *w = (PMC_HANDLE_UINT)nw;
         }
     }
     else
@@ -525,7 +525,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_X(HANDLE u, HANDLE v, HAN
             // GCD は u そのものであるため、u を計算結果として返す。
             if ((result = DuplicateNumber(nu, &nw)) != PMC_STATUS_OK)
                 return (result);
-            *w = nw;
+            *w = (PMC_HANDLE_UINT)nw;
         }
         else
         {
@@ -586,11 +586,11 @@ PMC_STATUS_CODE __PMC_CALL PMC_GreatestCommonDivisor_X_X(HANDLE u, HANDLE v, HAN
             if ((result = CheckBlockLight(nw->BLOCK, nw_check_code)) != PMC_STATUS_OK)
                 return (result);
             CommitNumber(nw);
-            *w = nw;
+            *w = (PMC_HANDLE_UINT)nw;
         }
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

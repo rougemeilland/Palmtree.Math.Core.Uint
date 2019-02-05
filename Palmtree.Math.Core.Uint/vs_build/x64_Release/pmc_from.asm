@@ -216,14 +216,14 @@ $LN30:
 	test	rcx, rcx
 	jne	SHORT $LN3@PMC_From_L
 
-; 114  :         *o = &number_zero;
+; 114  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rdx], rax
 
 ; 120  :     }
 ; 121  : #ifdef _DEBUG
-; 122  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 122  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 123  :         return (result);
 ; 124  : #endif
 ; 125  :     return (PMC_STATUS_OK);
@@ -285,14 +285,14 @@ $LN3@PMC_From_L:
 ; 116  :     {
 ; 117  :         if ((result = From_L_Imp(x, &p)) != PMC_STATUS_OK)
 ; 118  :             return (result);
-; 119  :         *o = p;
+; 119  :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR p$[rsp]
 	mov	QWORD PTR [rdi], rax
 
 ; 120  :     }
 ; 121  : #ifdef _DEBUG
-; 122  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 122  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 123  :         return (result);
 ; 124  : #endif
 ; 125  :     return (PMC_STATUS_OK);
@@ -338,14 +338,14 @@ $LN14:
 	test	ecx, ecx
 	jne	SHORT $LN3@PMC_From_I
 
-; 89   :         *o = &number_zero;
+; 89   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [rdx], rax
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 99   :         return (result);
 ; 100  : #endif
 ; 101  :     return (PMC_STATUS_OK);
@@ -407,14 +407,14 @@ $LN3@PMC_From_I:
 ; 92   :         NUMBER_HEADER* p;
 ; 93   :         if ((result = From_I_Imp(x, &p)) != PMC_STATUS_OK)
 ; 94   :             return (result);
-; 95   :         *o = p;
+; 95   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR p$1[rsp]
 	mov	QWORD PTR [rdi], rax
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 99   :         return (result);
 ; 100  : #endif
 ; 101  :     return (PMC_STATUS_OK);

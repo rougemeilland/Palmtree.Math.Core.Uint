@@ -5060,20 +5060,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC
 
-; 350  :     {
+; 348  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 352  :     }
+; 350  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5087,20 +5087,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC
 
-; 344  :     {
+; 342  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 343  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 346  :     }
+; 344  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5113,18 +5113,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC
 
-; 327  :     {
+; 325  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 329  :     }
+; 327  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5137,18 +5137,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC
 
-; 321  :     {
+; 319  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 320  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 323  :     }
+; 321  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5275,7 +5275,7 @@ $LN6@PMC_Multip:
 ; 715  :         // x が 0 である場合
 ; 716  : 
 ; 717  :         // y の値にかかわらず 0 を返す。
-; 718  :         *w = &number_zero;
+; 718  :         *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
@@ -5307,7 +5307,7 @@ $LN7@PMC_Multip:
 ; 725  :             // y が 0 である場合
 ; 726  : 
 ; 727  :             //  0  を返す。
-; 728  :             *w = &number_zero;
+; 728  :             *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -5340,7 +5340,7 @@ $LN11@PMC_Multip:
 	jmp	$LN1@PMC_Multip
 $LN13@PMC_Multip:
 
-; 737  :             *w = nw;
+; 737  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR _nw$[ebp]
@@ -5508,7 +5508,7 @@ $LN20@PMC_Multip:
 $LN15@PMC_Multip:
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR _nw$[ebp]
@@ -5517,7 +5517,7 @@ $LN8@PMC_Multip:
 
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -5687,7 +5687,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 690  : #ifdef _DEBUG
-; 691  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 691  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -5812,7 +5812,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 538  : #ifdef _DEBUG
-; 539  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 539  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -5939,7 +5939,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 667  : #ifdef _DEBUG
-; 668  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 668  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
@@ -6064,7 +6064,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 515  : #ifdef _DEBUG
-; 516  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 516  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]

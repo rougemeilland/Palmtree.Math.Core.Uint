@@ -5612,7 +5612,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 350  :     {
+; 348  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5627,13 +5627,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 352  :     }
+; 350  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5648,7 +5648,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 344  :     {
+; 342  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5663,13 +5663,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 343  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 346  :     }
+; 344  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5683,7 +5683,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 327  :     {
+; 325  :     {
 
 	push	rbp
 	push	rdi
@@ -5696,12 +5696,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 329  :     }
+; 327  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5715,7 +5715,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 321  :     {
+; 319  :     {
 
 	push	rbp
 	push	rdi
@@ -5728,12 +5728,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 320  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 323  :     }
+; 321  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5862,7 +5862,7 @@ $LN6@PMC_Multip:
 ; 715  :         // x が 0 である場合
 ; 716  : 
 ; 717  :         // y の値にかかわらず 0 を返す。
-; 718  :         *w = &number_zero;
+; 718  :         *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -5897,7 +5897,7 @@ $LN7@PMC_Multip:
 ; 725  :             // y が 0 である場合
 ; 726  : 
 ; 727  :             //  0  を返す。
-; 728  :             *w = &number_zero;
+; 728  :             *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -5928,7 +5928,7 @@ $LN11@PMC_Multip:
 	jmp	$LN1@PMC_Multip
 $LN13@PMC_Multip:
 
-; 737  :             *w = nw;
+; 737  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -6082,7 +6082,7 @@ $LN17@PMC_Multip:
 $LN15@PMC_Multip:
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -6092,7 +6092,7 @@ $LN8@PMC_Multip:
 
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6223,7 +6223,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 690  : #ifdef _DEBUG
-; 691  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 691  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6349,7 +6349,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 538  : #ifdef _DEBUG
-; 539  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 539  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6475,7 +6475,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 667  : #ifdef _DEBUG
-; 668  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 668  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -6601,7 +6601,7 @@ $LN5@PMC_Multip:
 $LN6@PMC_Multip:
 
 ; 515  : #ifdef _DEBUG
-; 516  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 516  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]

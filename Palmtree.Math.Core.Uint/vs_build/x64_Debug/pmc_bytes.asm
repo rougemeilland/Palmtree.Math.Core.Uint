@@ -617,7 +617,7 @@ $LN3@PMC_FromBy:
 	cmp	QWORD PTR bit_count$[rbp], 0
 	jne	SHORT $LN4@PMC_FromBy
 
-; 54   :         *o = &number_zero;
+; 54   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -660,7 +660,7 @@ $LN6@PMC_FromBy:
 	mov	rcx, QWORD PTR p$4[rbp]
 	call	CommitNumber
 
-; 62   :         *o = p;
+; 62   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR p$4[rbp]
@@ -669,7 +669,7 @@ $LN5@PMC_FromBy:
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]

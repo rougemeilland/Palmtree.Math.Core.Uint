@@ -167,7 +167,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__8E312870_test_op_getpropertyvalue@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE x;
+; 34   :     PMC_HANDLE_UINT x;
 ; 35   :     _INT32_T actual_value;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE x_result;

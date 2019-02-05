@@ -1764,7 +1764,7 @@ $LN7@PMC_Subtru:
 ; 677  :             // y が 0 である場合
 ; 678  : 
 ; 679  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 680  :             *o = &number_zero;
+; 680  :             *o = (PMC_HANDLE_UINT)&number_zero;
 ; 681  :         }
 ; 682  :         else
 ; 683  :         {
@@ -1911,7 +1911,7 @@ $LN16@PMC_Subtru:
 $LN12@PMC_Subtru:
 
 ; 726  :         }
-; 727  :         *o = nz;
+; 727  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	eax, DWORD PTR _nz$[ebp]
 	pop	edi
@@ -1919,7 +1919,7 @@ $LN12@PMC_Subtru:
 
 ; 728  :     }
 ; 729  : #ifdef _DEBUG
-; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 730  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 731  :         return (result);
 ; 732  : #endif
 ; 733  :     return (PMC_STATUS_OK);
@@ -2031,7 +2031,7 @@ _PMC_Subtruct_X_L@16 PROC				; COMDAT
 ; 538  :             // y が 0 である場合
 ; 539  : 
 ; 540  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 541  :             *o = &number_zero;
+; 541  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	pop	ebx
 	mov	DWORD PTR [edi], OFFSET _number_zero
@@ -2084,13 +2084,13 @@ $LN6@PMC_Subtru:
 
 ; 646  :             }
 ; 647  :         }
-; 648  :         *o = nz;
+; 648  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	DWORD PTR [edi], eax
 
 ; 649  :     }
 ; 650  : #ifdef _DEBUG
-; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 651  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 652  :         return (result);
 ; 653  : #endif
 ; 654  :     return (PMC_STATUS_OK);
@@ -2459,14 +2459,14 @@ $LN29@PMC_Subtru:
 
 ; 646  :             }
 ; 647  :         }
-; 648  :         *o = nz;
+; 648  :         *o = (PMC_HANDLE_UINT)nz;
 
 	pop	ebx
 	mov	DWORD PTR [edi], eax
 
 ; 649  :     }
 ; 650  : #ifdef _DEBUG
-; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 651  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 652  :         return (result);
 ; 653  : #endif
 ; 654  :     return (PMC_STATUS_OK);
@@ -2561,7 +2561,7 @@ _PMC_Subtruct_X_I@12 PROC				; COMDAT
 ; 283  :             // v が 0 である場合
 ; 284  : 
 ; 285  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 286  :             *w = &number_zero;
+; 286  :             *w = (PMC_HANDLE_UINT)&number_zero;
 
 	pop	ebx
 	mov	DWORD PTR [edi], OFFSET _number_zero
@@ -2611,13 +2611,13 @@ $LN6@PMC_Subtru:
 
 ; 336  :             }
 ; 337  :         }
-; 338  :         *w = nw;
+; 338  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	DWORD PTR [edi], eax
 
 ; 339  :     }
 ; 340  : #ifdef _DEBUG
-; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 341  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 342  :         return (result);
 ; 343  : #endif
 ; 344  :     return (PMC_STATUS_OK);
@@ -2765,14 +2765,14 @@ $LN17@PMC_Subtru:
 
 ; 336  :             }
 ; 337  :         }
-; 338  :         *w = nw;
+; 338  :         *w = (PMC_HANDLE_UINT)nw;
 
 	pop	ebx
 	mov	DWORD PTR [edi], eax
 
 ; 339  :     }
 ; 340  : #ifdef _DEBUG
-; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 341  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 342  :         return (result);
 ; 343  : #endif
 ; 344  :     return (PMC_STATUS_OK);

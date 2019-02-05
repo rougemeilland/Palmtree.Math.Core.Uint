@@ -100,7 +100,7 @@ static void PMC_Compare_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, _INT32_T* w)
     }
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Compare_I_X(_UINT32_T u, HANDLE v, _INT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Compare_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
     {
@@ -120,7 +120,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_I_X(_UINT32_T u, HANDLE v, _INT32_T* w)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_I(HANDLE u, _UINT32_T v, _INT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_I(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
     {
@@ -258,7 +258,7 @@ static void PMC_Compare_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, _INT32_T* w)
     }
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Compare_L_X(_UINT64_T u, HANDLE v, _INT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Compare_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
     {
@@ -278,7 +278,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_L_X(_UINT64_T u, HANDLE v, _INT32_T* w)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_L(HANDLE u, _UINT64_T v, _INT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_L(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
     {
@@ -298,7 +298,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_L(HANDLE u, _UINT64_T v, _INT32_T* w)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_X(HANDLE u, HANDLE v, _INT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w)
 {
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);

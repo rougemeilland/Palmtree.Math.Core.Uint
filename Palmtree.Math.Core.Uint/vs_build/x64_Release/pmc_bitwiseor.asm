@@ -1542,14 +1542,14 @@ $LN10@PMC_Bitwis:
 $LN11@PMC_Bitwis:
 
 ; 435  :     }
-; 436  :     *w = nw;
+; 436  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR nw$[rsp]
 	mov	rbp, QWORD PTR [rsp+88]
 	mov	QWORD PTR [rsi], rax
 
 ; 437  : #ifdef _DEBUG
-; 438  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 438  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 439  :         return (result);
 ; 440  : #endif
 ; 441  :     return (PMC_STATUS_OK);
@@ -1630,7 +1630,7 @@ $LN10:
 
 ; 383  :         return (result);
 ; 384  : #ifdef _DEBUG
-; 385  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 385  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 386  :         return (result);
 ; 387  : #endif
 ; 388  :     return (PMC_STATUS_OK);
@@ -1654,7 +1654,7 @@ $LN6@PMC_Bitwis:
 
 ; 383  :         return (result);
 ; 384  : #ifdef _DEBUG
-; 385  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 385  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 386  :         return (result);
 ; 387  : #endif
 ; 388  :     return (PMC_STATUS_OK);
@@ -1719,7 +1719,7 @@ $LN10:
 
 ; 259  :         return (result);
 ; 260  : #ifdef _DEBUG
-; 261  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 261  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 262  :         return (result);
 ; 263  : #endif
 ; 264  :     return (PMC_STATUS_OK);
@@ -1743,7 +1743,7 @@ $LN6@PMC_Bitwis:
 
 ; 259  :         return (result);
 ; 260  : #ifdef _DEBUG
-; 261  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 261  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 262  :         return (result);
 ; 263  : #endif
 ; 264  :     return (PMC_STATUS_OK);
@@ -1809,7 +1809,7 @@ $LN10:
 
 ; 360  :         return (result);
 ; 361  : #ifdef _DEBUG
-; 362  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 362  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 363  :         return (result);
 ; 364  : #endif
 ; 365  :     return (PMC_STATUS_OK);
@@ -1833,7 +1833,7 @@ $LN6@PMC_Bitwis:
 
 ; 360  :         return (result);
 ; 361  : #ifdef _DEBUG
-; 362  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 362  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 363  :         return (result);
 ; 364  : #endif
 ; 365  :     return (PMC_STATUS_OK);
@@ -1899,7 +1899,7 @@ $LN10:
 
 ; 236  :         return (result);
 ; 237  : #ifdef _DEBUG
-; 238  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 238  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 239  :         return (result);
 ; 240  : #endif
 ; 241  :     return (PMC_STATUS_OK);
@@ -1923,7 +1923,7 @@ $LN6@PMC_Bitwis:
 
 ; 236  :         return (result);
 ; 237  : #ifdef _DEBUG
-; 238  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 238  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 239  :         return (result);
 ; 240  : #endif
 ; 241  :     return (PMC_STATUS_OK);

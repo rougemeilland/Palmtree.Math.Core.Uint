@@ -31,7 +31,7 @@
 #ifdef _DEBUG
 void TEST_PMC_From_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int32 v, unsigned char*buf, size_t buf_size)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     unsigned char rbuffer[256];
     size_t rlength;
     PMC_STATUS_CODE result;
@@ -45,7 +45,7 @@ void TEST_PMC_From_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int 
 
 void TEST_PMC_From_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 v, unsigned char*buf, size_t buf_size)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     unsigned char rbuffer[256];
     size_t rlength;
     PMC_STATUS_CODE result;
@@ -59,7 +59,7 @@ void TEST_PMC_From_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int 
 
 void TEST_PMC_To_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, PMC_STATUS_CODE desired_result_code, unsigned __int32 desired_rvalue)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     unsigned __int32 rvalue;
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE x_result;
@@ -73,7 +73,7 @@ void TEST_PMC_To_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int 
 
 void TEST_PMC_To_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, PMC_STATUS_CODE desired_result_code, unsigned __int64 desired_rvalue)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     unsigned __int64 rvalue;
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE x_result;

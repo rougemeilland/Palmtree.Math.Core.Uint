@@ -125,10 +125,8 @@ extern void TEST_PMC_ParseX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
 extern void TEST_PMC_Pow_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned __int32 y, PMC_STATUS_CODE desired_result_code, unsigned char*desired_z_buf, size_t desired_z_buf_size);
 
 extern void TEST_PMC_RightShift_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned __int32 n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
-extern void TEST_PMC_RightShift_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned __int64 n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_LeftShift_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned __int32 n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
-extern void TEST_PMC_LeftShift_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned __int64 n, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
 extern void TEST_PMC_Subtruct_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int32 u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned __int32 desired_w);
 extern void TEST_PMC_Subtruct_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 u, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned __int64 desired_w);

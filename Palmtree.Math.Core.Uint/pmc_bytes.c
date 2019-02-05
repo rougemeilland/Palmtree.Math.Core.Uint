@@ -42,7 +42,7 @@ static __UNIT_TYPE CountActualBitsFromBuffer(unsigned char* p, size_t count)
 }
 
 
-PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o)
 {
     PMC_STATUS_CODE result;
     if (buffer == NULL)
@@ -51,7 +51,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count
         return (PMC_STATUS_ARGUMENT_ERROR);
     __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer, count);
     if (bit_count == 0)
-        *o = &number_zero;
+        *o = (PMC_HANDLE_UINT)&number_zero;
     else
     {
         NUMBER_HEADER* p;
@@ -59,16 +59,16 @@ PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count
             return (result);
         _COPY_MEMORY_BYTE(p->BLOCK, buffer, _DIVIDE_CEILING_SIZE(bit_count, 8));
         CommitNumber(p);
-        *o = p;
+        *o = (PMC_HANDLE_UINT)p;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(HANDLE p, unsigned char* buffer, size_t buffer_size, size_t *count)
+PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count)
 {
     if (p == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);

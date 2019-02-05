@@ -192,14 +192,14 @@ $LN7@PMC_Clone_:
 $LN6@PMC_Clone_:
 
 ; 47   :     }
-; 48   :     *o = no;
+; 48   :     *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
 	mov	QWORD PTR [rax], rcx
 
 ; 49   : #ifdef _DEBUG
-; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 50   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]

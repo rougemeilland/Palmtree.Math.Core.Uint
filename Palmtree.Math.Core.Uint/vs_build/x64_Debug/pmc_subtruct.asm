@@ -3354,7 +3354,7 @@ $LN6@PMC_Subtru:
 ; 677  :             // y が 0 である場合
 ; 678  : 
 ; 679  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 680  :             *o = &number_zero;
+; 680  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -3538,7 +3538,7 @@ $LN17@PMC_Subtru:
 $LN12@PMC_Subtru:
 
 ; 726  :         }
-; 727  :         *o = nz;
+; 727  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR nz$[rbp]
@@ -3547,7 +3547,7 @@ $LN8@PMC_Subtru:
 
 ; 728  :     }
 ; 729  : #ifdef _DEBUG
-; 730  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 730  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3706,7 +3706,7 @@ $LN5@PMC_Subtru:
 ; 538  :             // y が 0 である場合
 ; 539  : 
 ; 540  :             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 541  :             *o = &number_zero;
+; 541  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR o$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -4166,7 +4166,7 @@ $LN11@PMC_Subtru:
 
 ; 646  :             }
 ; 647  :         }
-; 648  :         *o = nz;
+; 648  :         *o = (PMC_HANDLE_UINT)nz;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR nz$[rbp]
@@ -4175,7 +4175,7 @@ $LN7@PMC_Subtru:
 
 ; 649  :     }
 ; 650  : #ifdef _DEBUG
-; 651  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 651  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -4323,7 +4323,7 @@ $LN5@PMC_Subtru:
 ; 283  :             // v が 0 である場合
 ; 284  : 
 ; 285  :             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-; 286  :             *w = &number_zero;
+; 286  :             *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	rax, QWORD PTR w$[rbp]
 	lea	rcx, OFFSET FLAT:number_zero
@@ -4526,7 +4526,7 @@ $LN11@PMC_Subtru:
 
 ; 336  :             }
 ; 337  :         }
-; 338  :         *w = nw;
+; 338  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -4535,7 +4535,7 @@ $LN7@PMC_Subtru:
 
 ; 339  :     }
 ; 340  : #ifdef _DEBUG
-; 341  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 341  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]

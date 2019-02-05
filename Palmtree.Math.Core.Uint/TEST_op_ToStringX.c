@@ -31,7 +31,7 @@
 #ifdef _DEBUG
 void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, char format_spec, int min_width, wchar_t* desired_str)
 {
-    HANDLE x;
+    PMC_HANDLE_UINT x;
     static wchar_t actual_str_buffer[4096];
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE x_result;

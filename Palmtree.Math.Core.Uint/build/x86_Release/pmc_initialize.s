@@ -54,42 +54,40 @@ L6:
 	movl	$_PMC_DivRem_X_I@16, _entry_points+120
 	movl	$_PMC_DivRem_X_L@20, _entry_points+124
 	movl	$_PMC_DivRem_X_X@16, _entry_points+128
-	movl	$_PMC_RightShift_X_I@12, _entry_points+140
-	movl	$_PMC_RightShift_X_L@16, _entry_points+144
+	movl	$_PMC_RightShift_X_I@12, _entry_points+136
 	movl	$_PMC_LeftShift_X_I@12, _entry_points+132
-	movl	$_PMC_LeftShift_X_L@16, _entry_points+136
-	movl	$_PMC_BitwiseAnd_I_X@12, _entry_points+148
-	movl	$_PMC_BitwiseAnd_L_X@16, _entry_points+152
-	movl	$_PMC_BitwiseAnd_X_I@12, _entry_points+156
-	movl	$_PMC_BitwiseAnd_X_L@16, _entry_points+160
-	movl	$_PMC_BitwiseAnd_X_X@12, _entry_points+164
-	movl	$_PMC_BitwiseOr_I_X@12, _entry_points+168
-	movl	$_PMC_BitwiseOr_L_X@16, _entry_points+172
-	movl	$_PMC_BitwiseOr_X_I@12, _entry_points+176
-	movl	$_PMC_BitwiseOr_X_L@16, _entry_points+180
-	movl	$_PMC_BitwiseOr_X_X@12, _entry_points+184
-	movl	$_PMC_ExclusiveOr_I_X@12, _entry_points+188
-	movl	$_PMC_ExclusiveOr_L_X@16, _entry_points+192
-	movl	$_PMC_ExclusiveOr_X_I@12, _entry_points+196
-	movl	$_PMC_ExclusiveOr_X_L@16, _entry_points+200
-	movl	$_PMC_ExclusiveOr_X_X@12, _entry_points+204
-	movl	$_PMC_Compare_I_X@12, _entry_points+208
-	movl	$_PMC_Compare_L_X@16, _entry_points+212
-	movl	$_PMC_Compare_X_I@12, _entry_points+216
-	movl	$_PMC_Compare_X_L@16, _entry_points+220
-	movl	$_PMC_Compare_X_X@12, _entry_points+224
-	movl	$_PMC_Equals_I_X@12, _entry_points+228
-	movl	$_PMC_Equals_L_X@16, _entry_points+232
-	movl	$_PMC_Equals_X_I@12, _entry_points+236
-	movl	$_PMC_Equals_X_L@16, _entry_points+240
-	movl	$_PMC_Equals_X_X@12, _entry_points+244
-	movl	$_PMC_GreatestCommonDivisor_I_X@12, _entry_points+248
-	movl	$_PMC_GreatestCommonDivisor_L_X@16, _entry_points+252
-	movl	$_PMC_GreatestCommonDivisor_X_I@12, _entry_points+256
-	movl	$_PMC_GreatestCommonDivisor_X_L@16, _entry_points+260
-	movl	$_PMC_GreatestCommonDivisor_X_X@12, _entry_points+264
-	movl	$_PMC_Pow_X_I@12, _entry_points+268
-	movl	$_PMC_ModPow_X_X_X@16, _entry_points+272
+	movl	$_PMC_BitwiseAnd_I_X@12, _entry_points+140
+	movl	$_PMC_BitwiseAnd_L_X@16, _entry_points+144
+	movl	$_PMC_BitwiseAnd_X_I@12, _entry_points+148
+	movl	$_PMC_BitwiseAnd_X_L@16, _entry_points+152
+	movl	$_PMC_BitwiseAnd_X_X@12, _entry_points+156
+	movl	$_PMC_BitwiseOr_I_X@12, _entry_points+160
+	movl	$_PMC_BitwiseOr_L_X@16, _entry_points+164
+	movl	$_PMC_BitwiseOr_X_I@12, _entry_points+168
+	movl	$_PMC_BitwiseOr_X_L@16, _entry_points+172
+	movl	$_PMC_BitwiseOr_X_X@12, _entry_points+176
+	movl	$_PMC_ExclusiveOr_I_X@12, _entry_points+180
+	movl	$_PMC_ExclusiveOr_L_X@16, _entry_points+184
+	movl	$_PMC_ExclusiveOr_X_I@12, _entry_points+188
+	movl	$_PMC_ExclusiveOr_X_L@16, _entry_points+192
+	movl	$_PMC_ExclusiveOr_X_X@12, _entry_points+196
+	movl	$_PMC_Compare_I_X@12, _entry_points+200
+	movl	$_PMC_Compare_L_X@16, _entry_points+204
+	movl	$_PMC_Compare_X_I@12, _entry_points+208
+	movl	$_PMC_Compare_X_L@16, _entry_points+212
+	movl	$_PMC_Compare_X_X@12, _entry_points+216
+	movl	$_PMC_Equals_I_X@12, _entry_points+220
+	movl	$_PMC_Equals_L_X@16, _entry_points+224
+	movl	$_PMC_Equals_X_I@12, _entry_points+228
+	movl	$_PMC_Equals_X_L@16, _entry_points+232
+	movl	$_PMC_Equals_X_X@12, _entry_points+236
+	movl	$_PMC_GreatestCommonDivisor_I_X@12, _entry_points+240
+	movl	$_PMC_GreatestCommonDivisor_L_X@16, _entry_points+244
+	movl	$_PMC_GreatestCommonDivisor_X_I@12, _entry_points+248
+	movl	$_PMC_GreatestCommonDivisor_X_L@16, _entry_points+252
+	movl	$_PMC_GreatestCommonDivisor_X_X@12, _entry_points+256
+	movl	$_PMC_Pow_X_I@12, _entry_points+260
+	movl	$_PMC_ModPow_X_X_X@16, _entry_points+264
 	movl	$_PMC_GetPropertyValue_X_I@12, _entry_points+20
 	movl	$_PMC_Clone_X@8, _entry_points+32
 	movb	$1, _initialized
@@ -197,7 +195,7 @@ L5:
 	.cfi_endproc
 LFE5441:
 .lcomm _initialized,1,1
-.lcomm _entry_points,276,32
+.lcomm _entry_points,268,32
 	.comm	_configuration_info, 4, 2
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_GetCPUInfo;	.scl	2;	.type	32;	.endef
@@ -232,9 +230,7 @@ LFE5441:
 	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
 	.def	_PMC_DivRem_X_X@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_RightShift_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_RightShift_X_L@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_LeftShift_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_LeftShift_X_L@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_BitwiseAnd_I_X@12;	.scl	2;	.type	32;	.endef
 	.def	_PMC_BitwiseAnd_L_X@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_BitwiseAnd_X_I@12;	.scl	2;	.type	32;	.endef

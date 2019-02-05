@@ -7967,7 +7967,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 350  :     {
+; 348  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -7982,13 +7982,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 352  :     }
+; 350  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8003,7 +8003,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 344  :     {
+; 342  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -8018,13 +8018,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 343  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 346  :     }
+; 344  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8038,7 +8038,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 327  :     {
+; 325  :     {
 
 	push	rbp
 	push	rdi
@@ -8051,12 +8051,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 329  :     }
+; 327  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8070,7 +8070,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 321  :     {
+; 319  :     {
 
 	push	rbp
 	push	rdi
@@ -8083,12 +8083,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 320  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 323  :     }
+; 321  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8238,14 +8238,14 @@ $LN9@PMC_TryPar:
 $LN6@PMC_TryPar:
 
 ; 1018 :     }
-; 1019 :     *o = no;
+; 1019 :     *o = (PMC_HANDLE_UINT)no;
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR no$[rbp]
 	mov	QWORD PTR [rax], rcx
 
 ; 1020 : #ifdef _DEBUG
-; 1021 :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 1021 :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR [rax]

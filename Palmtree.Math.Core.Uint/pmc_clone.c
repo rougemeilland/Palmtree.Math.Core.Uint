@@ -27,7 +27,7 @@
 #include "pmc_uint_internal.h"
 
 
-PMC_STATUS_CODE __PMC_CALL PMC_Clone_X(HANDLE x, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o)
 {
     if (x == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -45,9 +45,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_Clone_X(HANDLE x, HANDLE* o)
         if ((result = DuplicateNumber(nx, &no)) != PMC_STATUS_OK)
             return (result);
     }
-    *o = no;
+    *o = (PMC_HANDLE_UINT)no;
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

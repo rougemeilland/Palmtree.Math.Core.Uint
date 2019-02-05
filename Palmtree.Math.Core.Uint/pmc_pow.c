@@ -172,7 +172,7 @@ static PMC_STATUS_CODE PMC_Pow_X_I_Imp(NUMBER_HEADER* v, _UINT32_T e, NUMBER_HEA
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Pow_X_I(HANDLE v, _UINT32_T e, HANDLE* r)
+PMC_STATUS_CODE __PMC_CALL PMC_Pow_X_I(PMC_HANDLE_UINT v, _UINT32_T e, PMC_HANDLE_UINT* r)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(e) * 8)
     {
@@ -189,7 +189,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Pow_X_I(HANDLE v, _UINT32_T e, HANDLE* r)
     if ((result = PMC_Pow_X_I_Imp((NUMBER_HEADER*)v, e, (NUMBER_HEADER**)r)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

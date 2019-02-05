@@ -195,7 +195,7 @@ _PMC_From_L@12 PROC					; COMDAT
 	or	eax, edi
 	jne	SHORT $LN3@PMC_From_L
 
-; 114  :         *o = &number_zero;
+; 114  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	pop	edi
@@ -332,7 +332,7 @@ $LN13@PMC_From_L:
 ; 116  :     {
 ; 117  :         if ((result = From_L_Imp(x, &p)) != PMC_STATUS_OK)
 ; 118  :             return (result);
-; 119  :         *o = p;
+; 119  :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 
@@ -344,14 +344,14 @@ $LN13@PMC_From_L:
 ; 116  :     {
 ; 117  :         if ((result = From_L_Imp(x, &p)) != PMC_STATUS_OK)
 ; 118  :             return (result);
-; 119  :         *o = p;
+; 119  :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR [ecx], eax
 
 ; 120  :     }
 ; 121  : #ifdef _DEBUG
-; 122  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 122  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 123  :         return (result);
 ; 124  : #endif
 ; 125  :     return (PMC_STATUS_OK);
@@ -393,7 +393,7 @@ _PMC_From_I@8 PROC					; COMDAT
 	test	esi, esi
 	jne	SHORT $LN3@PMC_From_I
 
-; 89   :         *o = &number_zero;
+; 89   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	pop	esi
@@ -401,7 +401,7 @@ _PMC_From_I@8 PROC					; COMDAT
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 99   :         return (result);
 ; 100  : #endif
 ; 101  :     return (PMC_STATUS_OK);
@@ -460,7 +460,7 @@ $LN3@PMC_From_I:
 ; 92   :         NUMBER_HEADER* p;
 ; 93   :         if ((result = From_I_Imp(x, &p)) != PMC_STATUS_OK)
 ; 94   :             return (result);
-; 95   :         *o = p;
+; 95   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 
@@ -473,14 +473,14 @@ $LN3@PMC_From_I:
 ; 92   :         NUMBER_HEADER* p;
 ; 93   :         if ((result = From_I_Imp(x, &p)) != PMC_STATUS_OK)
 ; 94   :             return (result);
-; 95   :         *o = p;
+; 95   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	eax, DWORD PTR _p$1[ebp]
 	mov	DWORD PTR [ecx], eax
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 99   :         return (result);
 ; 100  : #endif
 ; 101  :     return (PMC_STATUS_OK);

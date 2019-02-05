@@ -2399,7 +2399,7 @@ $LN22@PMC_ModPow:
 	pop	edi
 
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 ; 615  :         return (result);
 ; 616  : #endif
 ; 617  :     return (PMC_STATUS_OK);

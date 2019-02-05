@@ -591,7 +591,7 @@ static PMC_STATUS_CODE PMC_ModPow_X_X_X_Imp(NUMBER_HEADER* v, NUMBER_HEADER* e, 
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_ModPow_X_X_X(HANDLE v, HANDLE e, HANDLE m, HANDLE* r)
+PMC_STATUS_CODE __PMC_CALL PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r)
 {
     if (v == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -611,7 +611,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_ModPow_X_X_X(HANDLE v, HANDLE e, HANDLE m, HANDLE
     if ((result = PMC_ModPow_X_X_X_Imp((NUMBER_HEADER*)v, (NUMBER_HEADER*)e, (NUMBER_HEADER*)m, (NUMBER_HEADER**)r)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

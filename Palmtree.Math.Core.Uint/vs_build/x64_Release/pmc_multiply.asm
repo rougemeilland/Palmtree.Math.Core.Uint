@@ -2151,7 +2151,7 @@ $LL2@Multiply_W:
 	add	rcx, QWORD PTR [r9+248]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2193,7 +2193,7 @@ $LL2@Multiply_W:
 	mov	QWORD PTR t_hi$63[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2619,7 +2619,7 @@ $LN3@Multiply_W:
 	add	rcx, QWORD PTR [r9+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2661,7 +2661,7 @@ $LN3@Multiply_W:
 	mov	QWORD PTR t_hi$95[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN605@Multiply_W:
@@ -2868,7 +2868,7 @@ $LN605@Multiply_W:
 	add	rcx, QWORD PTR [r9+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2910,7 +2910,7 @@ $LN605@Multiply_W:
 	mov	QWORD PTR t_hi$111[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN705@Multiply_W:
@@ -3013,7 +3013,7 @@ $LN705@Multiply_W:
 	add	rcx, QWORD PTR [r9+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3055,7 +3055,7 @@ $LN705@Multiply_W:
 	mov	QWORD PTR t_hi$119[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN757@Multiply_W:
@@ -3106,7 +3106,7 @@ $LN757@Multiply_W:
 	add	rcx, QWORD PTR [r9+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3148,7 +3148,7 @@ $LN757@Multiply_W:
 	mov	QWORD PTR t_hi$123[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN785@Multiply_W:
@@ -3198,7 +3198,7 @@ $LN785@Multiply_W:
 	mov	QWORD PTR t_lo$124[rbp-256], r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -4561,7 +4561,7 @@ $LL2@Multiply_W:
 	add	r9, 256					; 00000100H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 	lock xadd DWORD PTR statistics_info, eax
@@ -5101,7 +5101,7 @@ $LN3@Multiply_W:
 	sub	r9, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 	lock xadd DWORD PTR statistics_info, eax
@@ -5376,7 +5376,7 @@ $LN605@Multiply_W:
 	add	r9, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 	lock xadd DWORD PTR statistics_info, eax
@@ -5536,7 +5536,7 @@ $LN705@Multiply_W:
 	add	r9, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 	lock xadd DWORD PTR statistics_info, eax
@@ -5630,7 +5630,7 @@ $LN757@Multiply_W:
 	add	r9, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info, eax
@@ -5673,7 +5673,7 @@ $LN785@Multiply_W:
 	add	r9, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -6057,11 +6057,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI64Counter PROC				; COMDAT
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, ecx
 
-; 352  :     }
+; 350  :     }
 
 	ret	0
 AddToMULTI64Counter ENDP
@@ -6073,11 +6073,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI32Counter PROC				; COMDAT
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 343  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 
-; 346  :     }
+; 344  :     }
 
 	ret	0
 AddToMULTI32Counter ENDP
@@ -6088,11 +6088,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 
-; 329  :     }
+; 327  :     }
 
 	ret	0
 IncrementMULTI64Counter ENDP
@@ -6103,11 +6103,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 320  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 
-; 323  :     }
+; 321  :     }
 
 	ret	0
 IncrementMULTI32Counter ENDP
@@ -6180,7 +6180,7 @@ $LN27:
 ; 715  :         // x が 0 である場合
 ; 716  : 
 ; 717  :         // y の値にかかわらず 0 を返す。
-; 718  :         *w = &number_zero;
+; 718  :         *w = (PMC_HANDLE_UINT)&number_zero;
 ; 719  :     }
 ; 720  :     else if (nu->IS_ONE)
 
@@ -6201,7 +6201,7 @@ $LN27:
 ; 725  :             // y が 0 である場合
 ; 726  : 
 ; 727  :             //  0  を返す。
-; 728  :             *w = &number_zero;
+; 728  :             *w = (PMC_HANDLE_UINT)&number_zero;
 ; 729  :         }
 ; 730  :         else
 ; 731  :         {
@@ -6217,10 +6217,10 @@ $LN27:
 	jne	$LN1@PMC_Multip
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 779  :         return (result);
 ; 780  : #endif
 ; 781  :     return (PMC_STATUS_OK);
@@ -6239,7 +6239,7 @@ $LN27:
 $LN9@PMC_Multip:
 
 ; 736  :                 return (result);
-; 737  :             *w = nw;
+; 737  :             *w = (PMC_HANDLE_UINT)nw;
 ; 738  :         }
 ; 739  :     }
 ; 740  :     else
@@ -6253,10 +6253,10 @@ $LN9@PMC_Multip:
 $LN25@PMC_Multip:
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 779  :         return (result);
 ; 780  : #endif
 ; 781  :     return (PMC_STATUS_OK);
@@ -6298,10 +6298,10 @@ $LN14@PMC_Multip:
 	jne	$LN1@PMC_Multip
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 779  :         return (result);
 ; 780  : #endif
 ; 781  :     return (PMC_STATUS_OK);
@@ -6370,10 +6370,10 @@ $LN16@PMC_Multip:
 	call	CommitNumber
 
 ; 774  :         }
-; 775  :         *w = nw;
+; 775  :         *w = (PMC_HANDLE_UINT)nw;
 ; 776  :     }
 ; 777  : #ifdef _DEBUG
-; 778  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 778  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 779  :         return (result);
 ; 780  : #endif
 ; 781  :     return (PMC_STATUS_OK);
@@ -6457,7 +6457,7 @@ $LN10:
 
 ; 689  :         return (result);
 ; 690  : #ifdef _DEBUG
-; 691  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 691  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 692  :         return (result);
 ; 693  : #endif
 ; 694  :     return (PMC_STATUS_OK);
@@ -6481,7 +6481,7 @@ $LN6@PMC_Multip:
 
 ; 689  :         return (result);
 ; 690  : #ifdef _DEBUG
-; 691  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 691  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 692  :         return (result);
 ; 693  : #endif
 ; 694  :     return (PMC_STATUS_OK);
@@ -6546,7 +6546,7 @@ $LN10:
 
 ; 537  :         return (result);
 ; 538  : #ifdef _DEBUG
-; 539  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 539  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 540  :         return (result);
 ; 541  : #endif
 ; 542  :     return (PMC_STATUS_OK);
@@ -6570,7 +6570,7 @@ $LN6@PMC_Multip:
 
 ; 537  :         return (result);
 ; 538  : #ifdef _DEBUG
-; 539  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 539  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 540  :         return (result);
 ; 541  : #endif
 ; 542  :     return (PMC_STATUS_OK);
@@ -6636,7 +6636,7 @@ $LN10:
 
 ; 666  :         return (result);
 ; 667  : #ifdef _DEBUG
-; 668  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 668  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 669  :         return (result);
 ; 670  : #endif
 ; 671  :     return (PMC_STATUS_OK);
@@ -6660,7 +6660,7 @@ $LN6@PMC_Multip:
 
 ; 666  :         return (result);
 ; 667  : #ifdef _DEBUG
-; 668  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 668  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 669  :         return (result);
 ; 670  : #endif
 ; 671  :     return (PMC_STATUS_OK);
@@ -6726,7 +6726,7 @@ $LN10:
 
 ; 514  :         return (result);
 ; 515  : #ifdef _DEBUG
-; 516  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 516  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 517  :         return (result);
 ; 518  : #endif
 ; 519  :     return (PMC_STATUS_OK);
@@ -6750,7 +6750,7 @@ $LN6@PMC_Multip:
 
 ; 514  :         return (result);
 ; 515  : #ifdef _DEBUG
-; 516  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 516  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 517  :         return (result);
 ; 518  : #endif
 ; 519  :     return (PMC_STATUS_OK);

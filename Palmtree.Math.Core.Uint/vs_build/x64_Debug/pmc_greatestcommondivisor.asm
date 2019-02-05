@@ -3322,7 +3322,7 @@ $LN9@PMC_Greate:
 	jmp	$LN1@PMC_Greate
 $LN11@PMC_Greate:
 
-; 514  :             *w = nw;
+; 514  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -3367,7 +3367,7 @@ $LN7@PMC_Greate:
 	jmp	$LN1@PMC_Greate
 $LN14@PMC_Greate:
 
-; 528  :             *w = nw;
+; 528  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -3671,7 +3671,7 @@ $LN25@PMC_Greate:
 	mov	rcx, QWORD PTR nw$[rbp]
 	call	CommitNumber
 
-; 589  :             *w = nw;
+; 589  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR nw$[rbp]
@@ -3682,7 +3682,7 @@ $LN8@PMC_Greate:
 ; 590  :         }
 ; 591  :     }
 ; 592  : #ifdef _DEBUG
-; 593  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 593  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3813,7 +3813,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 473  : #ifdef _DEBUG
-; 474  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 474  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -3939,7 +3939,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 207  : #ifdef _DEBUG
-; 208  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 208  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -4065,7 +4065,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 450  : #ifdef _DEBUG
-; 451  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 451  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -4191,7 +4191,7 @@ $LN5@PMC_Greate:
 $LN6@PMC_Greate:
 
 ; 184  : #ifdef _DEBUG
-; 185  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 185  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rcx, QWORD PTR [rax]

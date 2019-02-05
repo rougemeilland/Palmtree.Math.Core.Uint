@@ -437,7 +437,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 149  : {
+; 147  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -455,26 +455,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -483,41 +483,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -581,9 +581,9 @@ $LN16:
 	lea	rcx, OFFSET FLAT:__83453097_test_op_bitwiseand@c
 	call	__CheckForDebuggerJustMyCode
 
-; 86   :     HANDLE u;
-; 87   :     HANDLE v;
-; 88   :     HANDLE w;
+; 86   :     PMC_HANDLE_UINT u;
+; 87   :     PMC_HANDLE_UINT v;
+; 88   :     PMC_HANDLE_UINT w;
 ; 89   :     unsigned char actual_w_buf[256];
 ; 90   :     size_t actual_w_buf_size;
 ; 91   :     PMC_STATUS_CODE result;
@@ -656,7 +656,7 @@ $LN9@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+328]
+	call	QWORD PTR [rax+312]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN10@TEST_PMC_B
@@ -826,7 +826,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__83453097_test_op_bitwiseand@c
 	call	__CheckForDebuggerJustMyCode
 
-; 73   :     HANDLE u;
+; 73   :     PMC_HANDLE_UINT u;
 ; 74   :     unsigned __int64 actual_w;
 ; 75   :     PMC_STATUS_CODE result;
 ; 76   :     PMC_STATUS_CODE u_result;
@@ -866,7 +866,7 @@ $LN5@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+320]
+	call	QWORD PTR [rax+304]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_B
@@ -974,7 +974,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__83453097_test_op_bitwiseand@c
 	call	__CheckForDebuggerJustMyCode
 
-; 60   :     HANDLE u;
+; 60   :     PMC_HANDLE_UINT u;
 ; 61   :     unsigned __int32 actual_w;
 ; 62   :     PMC_STATUS_CODE result;
 ; 63   :     PMC_STATUS_CODE u_result;
@@ -1014,7 +1014,7 @@ $LN5@TEST_PMC_B:
 	mov	edx, DWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+312]
+	call	QWORD PTR [rax+296]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_B
@@ -1122,7 +1122,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__83453097_test_op_bitwiseand@c
 	call	__CheckForDebuggerJustMyCode
 
-; 47   :     HANDLE v;
+; 47   :     PMC_HANDLE_UINT v;
 ; 48   :     unsigned __int64 actual_w;
 ; 49   :     PMC_STATUS_CODE result;
 ; 50   :     PMC_STATUS_CODE v_result;
@@ -1162,7 +1162,7 @@ $LN5@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+304]
+	call	QWORD PTR [rax+288]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_B
@@ -1270,7 +1270,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__83453097_test_op_bitwiseand@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE v;
+; 34   :     PMC_HANDLE_UINT v;
 ; 35   :     unsigned __int32 actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
@@ -1310,7 +1310,7 @@ $LN5@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+296]
+	call	QWORD PTR [rax+280]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_B

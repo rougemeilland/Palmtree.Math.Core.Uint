@@ -305,7 +305,7 @@ $LN2@PMC_From_L:
 	or	ecx, DWORD PTR _x$[ebp+4]
 	jne	SHORT $LN3@PMC_From_L
 
-; 114  :         *o = &number_zero;
+; 114  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
@@ -334,7 +334,7 @@ $LN3@PMC_From_L:
 	jmp	SHORT $LN1@PMC_From_L
 $LN5@PMC_From_L:
 
-; 119  :         *o = p;
+; 119  :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR _p$[ebp]
@@ -343,7 +343,7 @@ $LN4@PMC_From_L:
 
 ; 120  :     }
 ; 121  : #ifdef _DEBUG
-; 122  :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 122  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR [edx]
@@ -432,7 +432,7 @@ $LN2@PMC_From_I:
 	cmp	DWORD PTR _x$[ebp], 0
 	jne	SHORT $LN3@PMC_From_I
 
-; 89   :         *o = &number_zero;
+; 89   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [ecx], OFFSET _number_zero
@@ -460,7 +460,7 @@ $LN3@PMC_From_I:
 	jmp	SHORT $LN1@PMC_From_I
 $LN5@PMC_From_I:
 
-; 95   :         *o = p;
+; 95   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR _p$1[ebp]
@@ -469,7 +469,7 @@ $LN4@PMC_From_I:
 
 ; 96   :     }
 ; 97   : #ifdef _DEBUG
-; 98   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 98   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR [eax]

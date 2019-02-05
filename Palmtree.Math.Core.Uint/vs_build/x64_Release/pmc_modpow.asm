@@ -2240,7 +2240,7 @@ $LN39@PMC_ModPow:
 $LN18@PMC_ModPow:
 
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 ; 615  :         return (result);
 ; 616  : #endif
 ; 617  :     return (PMC_STATUS_OK);
@@ -2341,7 +2341,7 @@ $LN34@PMC_ModPow:
 	lea	rax, OFFSET FLAT:number_one
 
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 ; 615  :         return (result);
 ; 616  : #endif
 ; 617  :     return (PMC_STATUS_OK);

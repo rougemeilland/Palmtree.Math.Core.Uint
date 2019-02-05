@@ -28,7 +28,7 @@
 #include "pmc_inline_func.h"
 
 
-PMC_STATUS_CODE __PMC_CALL PMC_To_X_I(HANDLE p, _UINT32_T* o)
+PMC_STATUS_CODE __PMC_CALL PMC_To_X_I(PMC_HANDLE_UINT p, _UINT32_T* o)
 {
     if (sizeof(__UNIT_TYPE) < sizeof(*o))
     {
@@ -48,7 +48,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_To_X_I(HANDLE p, _UINT32_T* o)
     return (PMC_STATUS_OK);
 }   
 
-PMC_STATUS_CODE __PMC_CALL PMC_To_X_L(HANDLE p, _UINT64_T* o)
+PMC_STATUS_CODE __PMC_CALL PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o)
 {
     if (sizeof(__UNIT_TYPE) * 2 < sizeof(*o))
     {

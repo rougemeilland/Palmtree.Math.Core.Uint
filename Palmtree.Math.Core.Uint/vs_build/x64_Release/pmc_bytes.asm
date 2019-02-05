@@ -442,14 +442,14 @@ $LL9@PMC_FromBy:
 	jne	SHORT $LL9@PMC_FromBy
 $LN25@PMC_FromBy:
 
-; 54   :         *o = &number_zero;
+; 54   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	lea	rax, OFFSET FLAT:number_zero
 	mov	QWORD PTR [r8], rax
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 66   :         return (result);
 ; 67   : #endif
 ; 68   :     return (PMC_STATUS_OK);
@@ -539,7 +539,7 @@ $LN21@PMC_FromBy:
 	mov	rcx, QWORD PTR p$1[rsp]
 	call	CommitNumber
 
-; 62   :         *o = p;
+; 62   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	rax, QWORD PTR p$1[rsp]
 	mov	rdi, QWORD PTR [rsp+56]
@@ -547,7 +547,7 @@ $LN21@PMC_FromBy:
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 66   :         return (result);
 ; 67   : #endif
 ; 68   :     return (PMC_STATUS_OK);

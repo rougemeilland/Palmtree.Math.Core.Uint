@@ -547,7 +547,7 @@ PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* x, NUMBER_HEADER** op)
 }
 
 
-void __PMC_CALL PMC_Dispose(HANDLE p)
+void __PMC_CALL PMC_Dispose(PMC_HANDLE_UINT p)
 {
     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
     PMC_STATUS_CODE result = CheckNumber(np);

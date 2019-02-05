@@ -27,7 +27,7 @@
 #include "pmc_uint_internal.h"
 
 
-PMC_STATUS_CODE __PMC_CALL PMC_GetPropertyValue_X_I(HANDLE x, PMC_PROPERTY_CODE function_code, _INT32_T* o)
+PMC_STATUS_CODE __PMC_CALL PMC_GetPropertyValue_X_I(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o)
 {
     if (x == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);

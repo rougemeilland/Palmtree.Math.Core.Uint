@@ -186,7 +186,7 @@ $LN10:
 	lea	rcx, OFFSET FLAT:__A0D25937_test_op_tostringn@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE x;
+; 34   :     PMC_HANDLE_UINT x;
 ; 35   :     static wchar_t actual_str_buffer[4096];
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE x_result;

@@ -22,21 +22,15 @@ __630249ED_pmc_uint_debug@h DB 01H
 __D4CE9C68_test_op_shift@c DB 01H
 msvcjmc	ENDS
 PUBLIC	TEST_PMC_RightShift_X_I
-PUBLIC	TEST_PMC_RightShift_X_L
 PUBLIC	TEST_PMC_LeftShift_X_I
-PUBLIC	TEST_PMC_LeftShift_X_L
 PUBLIC	__JustMyCode_Default
 PUBLIC	??_C@_1EK@HDEICNAJ@?$AAP?$AAM?$AAC?$AA_?$AAF?$AAr?$AAo?$AAm?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr@ ; `string'
 PUBLIC	??_C@_1DG@NPMNKGPJ@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ ; `string'
 PUBLIC	??_C@_1EM@DFPDCDC@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ ; `string'
 PUBLIC	??_C@_1EG@MCOLJMDD@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr?$AAa?$AAy@ ; `string'
 PUBLIC	??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@ ; `string'
-PUBLIC	??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ ; `string'
-PUBLIC	??_C@_1EM@ELBDKPKH@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ ; `string'
 PUBLIC	??_C@_1DE@JMLJBPB@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ ; `string'
 PUBLIC	??_C@_1EK@NCHDDMOK@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ ; `string'
-PUBLIC	??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ ; `string'
-PUBLIC	??_C@_1EK@JKDPKBHP@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ ; `string'
 EXTRN	TEST_Assert:PROC
 EXTRN	FormatTestLabel:PROC
 EXTRN	FormatTestMesssage:PROC
@@ -55,21 +49,9 @@ $pdata$TEST_PMC_RightShift_X_I DD imagerel $LN13
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$TEST_PMC_RightShift_X_L DD imagerel $LN14
-	DD	imagerel $LN14+736
-	DD	imagerel $unwind$TEST_PMC_RightShift_X_L
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$TEST_PMC_LeftShift_X_I DD imagerel $LN13
 	DD	imagerel $LN13+722
 	DD	imagerel $unwind$TEST_PMC_LeftShift_X_I
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
-$pdata$TEST_PMC_LeftShift_X_L DD imagerel $LN14
-	DD	imagerel $LN14+736
-	DD	imagerel $unwind$TEST_PMC_LeftShift_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -85,23 +67,6 @@ rtc$TMZ	ENDS
 rtc$IMZ	SEGMENT
 _RTC_InitBase.rtc$IMZ DQ FLAT:_RTC_InitBase
 rtc$IMZ	ENDS
-;	COMDAT ??_C@_1EK@JKDPKBHP@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-CONST	SEGMENT
-??_C@_1EK@JKDPKBHP@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ DB 'P'
-	DB	00H, 'M', 00H, 'C', 00H, '_', 00H, 'L', 00H, 'e', 00H, 'f', 00H
-	DB	't', 00H, 'S', 00H, 'h', 00H, 'i', 00H, 'f', 00H, 't', 00H, '_'
-	DB	00H, 'X', 00H, '_', 00H, 'L', 00H, 'n0', 0a9H, '_0^', 0b3H, '0'
-	DB	0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
-	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-CONST	SEGMENT
-??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ DB 'P'
-	DB	00H, 'M', 00H, 'C', 00H, '_', 00H, 'L', 00H, 'e', 00H, 'f', 00H
-	DB	't', 00H, 'S', 00H, 'h', 00H, 'i', 00H, 'f', 00H, 't', 00H, '_'
-	DB	00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '(', 00H, '%', 00H
-	DB	'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H ; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_1EK@NCHDDMOK@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
 CONST	SEGMENT
 ??_C@_1EK@NCHDDMOK@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@ DB 'P'
@@ -118,24 +83,6 @@ CONST	SEGMENT
 	DB	't', 00H, 'S', 00H, 'h', 00H, 'i', 00H, 'f', 00H, 't', 00H, '_'
 	DB	00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '(', 00H, '%', 00H
 	DB	'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1EM@ELBDKPKH@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-CONST	SEGMENT
-??_C@_1EM@ELBDKPKH@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ DB 'P'
-	DB	00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'i', 00H, 'g', 00H
-	DB	'h', 00H, 't', 00H, 'S', 00H, 'h', 00H, 'i', 00H, 'f', 00H, 't'
-	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, 'n0', 0a9H, '_0^', 0b3H
-	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
-	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H ; `string'
-CONST	ENDS
-;	COMDAT ??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-CONST	SEGMENT
-??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@ DB 'P'
-	DB	00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'i', 00H, 'g', 00H
-	DB	'h', 00H, 't', 00H, 'S', 00H, 'h', 00H, 'i', 00H, 'f', 00H, 't'
-	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '(', 00H
-	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
-	DB	00H						; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@
 CONST	SEGMENT
@@ -186,73 +133,6 @@ $unwind$_EQUALS_MEMORY DD 025053901H
 	DD	07016001dH
 	DD	05015H
 xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$TEST_PMC_LeftShift_X_L DD 025054a19H
-	DD	011d2322H
-	DD	07016005bH
-	DD	05015H
-	DD	imagerel __GSHandlerCheck
-	DD	02c0H
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-TEST_PMC_LeftShift_X_L$rtcName$0 DB 078H
-	DB	00H
-	ORG $+2
-TEST_PMC_LeftShift_X_L$rtcName$1 DB 07aH
-	DB	00H
-	ORG $+2
-TEST_PMC_LeftShift_X_L$rtcName$2 DB 061H
-	DB	063H
-	DB	074H
-	DB	075H
-	DB	061H
-	DB	06cH
-	DB	05fH
-	DB	07aH
-	DB	05fH
-	DB	062H
-	DB	075H
-	DB	066H
-	DB	00H
-	ORG $+3
-TEST_PMC_LeftShift_X_L$rtcName$3 DB 061H
-	DB	063H
-	DB	074H
-	DB	075H
-	DB	061H
-	DB	06cH
-	DB	05fH
-	DB	07aH
-	DB	05fH
-	DB	062H
-	DB	075H
-	DB	066H
-	DB	05fH
-	DB	073H
-	DB	069H
-	DB	07aH
-	DB	065H
-	DB	00H
-	ORG $+6
-TEST_PMC_LeftShift_X_L$rtcVarDesc DD 0188H
-	DD	08H
-	DQ	FLAT:TEST_PMC_LeftShift_X_L$rtcName$3
-	DD	070H
-	DD	0100H
-	DQ	FLAT:TEST_PMC_LeftShift_X_L$rtcName$2
-	DD	048H
-	DD	08H
-	DQ	FLAT:TEST_PMC_LeftShift_X_L$rtcName$1
-	DD	028H
-	DD	08H
-	DQ	FLAT:TEST_PMC_LeftShift_X_L$rtcName$0
-	ORG $+192
-TEST_PMC_LeftShift_X_L$rtcFrameData DD 04H
-	DD	00H
-	DQ	FLAT:TEST_PMC_LeftShift_X_L$rtcVarDesc
-CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$TEST_PMC_LeftShift_X_I DD 025054a19H
@@ -319,73 +199,6 @@ TEST_PMC_LeftShift_X_I$rtcVarDesc DD 0188H
 TEST_PMC_LeftShift_X_I$rtcFrameData DD 04H
 	DD	00H
 	DQ	FLAT:TEST_PMC_LeftShift_X_I$rtcVarDesc
-CONST	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$TEST_PMC_RightShift_X_L DD 025054a19H
-	DD	011d2322H
-	DD	07016005bH
-	DD	05015H
-	DD	imagerel __GSHandlerCheck
-	DD	02c0H
-xdata	ENDS
-;	COMDAT CONST
-CONST	SEGMENT
-TEST_PMC_RightShift_X_L$rtcName$0 DB 078H
-	DB	00H
-	ORG $+2
-TEST_PMC_RightShift_X_L$rtcName$1 DB 07aH
-	DB	00H
-	ORG $+2
-TEST_PMC_RightShift_X_L$rtcName$2 DB 061H
-	DB	063H
-	DB	074H
-	DB	075H
-	DB	061H
-	DB	06cH
-	DB	05fH
-	DB	07aH
-	DB	05fH
-	DB	062H
-	DB	075H
-	DB	066H
-	DB	00H
-	ORG $+3
-TEST_PMC_RightShift_X_L$rtcName$3 DB 061H
-	DB	063H
-	DB	074H
-	DB	075H
-	DB	061H
-	DB	06cH
-	DB	05fH
-	DB	07aH
-	DB	05fH
-	DB	062H
-	DB	075H
-	DB	066H
-	DB	05fH
-	DB	073H
-	DB	069H
-	DB	07aH
-	DB	065H
-	DB	00H
-	ORG $+6
-TEST_PMC_RightShift_X_L$rtcVarDesc DD 0188H
-	DD	08H
-	DQ	FLAT:TEST_PMC_RightShift_X_L$rtcName$3
-	DD	070H
-	DD	0100H
-	DQ	FLAT:TEST_PMC_RightShift_X_L$rtcName$2
-	DD	048H
-	DD	08H
-	DQ	FLAT:TEST_PMC_RightShift_X_L$rtcName$1
-	DD	028H
-	DD	08H
-	DQ	FLAT:TEST_PMC_RightShift_X_L$rtcName$0
-	ORG $+192
-TEST_PMC_RightShift_X_L$rtcFrameData DD 04H
-	DD	00H
-	DQ	FLAT:TEST_PMC_RightShift_X_L$rtcVarDesc
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -471,7 +284,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 149  : {
+; 147  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -489,26 +302,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -517,268 +330,47 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
 	pop	rbp
 	ret	0
 _EQUALS_MEMORY ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_shift.c
-;	COMDAT TEST_PMC_LeftShift_X_L
-_TEXT	SEGMENT
-x$ = 8
-z$ = 40
-actual_z_buf$ = 80
-actual_z_buf_size$ = 360
-result$ = 388
-x_result$ = 420
-z_result$ = 452
-tv159 = 660
-tv144 = 660
-tv92 = 660
-tv74 = 660
-tv133 = 664
-tv82 = 664
-tv64 = 664
-__$ArrayPad$ = 672
-env$ = 720
-ep$ = 728
-no$ = 736
-x_buf$ = 744
-x_buf_size$ = 752
-n$ = 760
-desired_z_buf$ = 768
-desired_z_buf_size$ = 776
-TEST_PMC_LeftShift_X_L PROC				; COMDAT
-
-; 95   : {
-
-$LN14:
-	mov	QWORD PTR [rsp+32], r9
-	mov	DWORD PTR [rsp+24], r8d
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 728				; 000002d8H
-	lea	rbp, QWORD PTR [rsp+32]
-	mov	rdi, rsp
-	mov	ecx, 182				; 000000b6H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	rcx, QWORD PTR [rsp+760]
-	mov	rax, QWORD PTR __security_cookie
-	xor	rax, rbp
-	mov	QWORD PTR __$ArrayPad$[rbp], rax
-	lea	rcx, OFFSET FLAT:__D4CE9C68_test_op_shift@c
-	call	__CheckForDebuggerJustMyCode
-
-; 96   : #ifdef _M_IX64
-; 97   :     HANDLE x;
-; 98   :     HANDLE z;
-; 99   :     unsigned char actual_z_buf[256];
-; 100  :     size_t actual_z_buf_size;
-; 101  :     PMC_STATUS_CODE result;
-; 102  :     PMC_STATUS_CODE x_result;
-; 103  :     PMC_STATUS_CODE z_result;
-; 104  :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
-
-	lea	r8, QWORD PTR x$[rbp]
-	mov	rdx, QWORD PTR x_buf_size$[rbp]
-	mov	rcx, QWORD PTR x_buf$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
-	mov	DWORD PTR x_result$[rbp], eax
-	cmp	DWORD PTR x_result$[rbp], 0
-	jne	SHORT $LN6@TEST_PMC_L
-	mov	DWORD PTR tv74[rbp], 1
-	jmp	SHORT $LN7@TEST_PMC_L
-$LN6@TEST_PMC_L:
-	mov	DWORD PTR tv74[rbp], 0
-$LN7@TEST_PMC_L:
-	mov	edx, DWORD PTR x_result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EK@HDEICNAJ@?$AAP?$AAM?$AAC?$AA_?$AAF?$AAr?$AAo?$AAm?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv64[rbp], rax
-	mov	r8d, 1
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv64[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv74[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 105  :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_L (%d.%d)", no, 2), (z_result = ep->PMC_LeftShift_X_L(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_LeftShift_X_Lの復帰コードが期待通りではない(%d)", z_result));
-
-	lea	r8, QWORD PTR z$[rbp]
-	mov	rdx, QWORD PTR n$[rbp]
-	mov	rcx, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+272]
-	mov	DWORD PTR z_result$[rbp], eax
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	SHORT $LN8@TEST_PMC_L
-	mov	DWORD PTR tv92[rbp], 1
-	jmp	SHORT $LN9@TEST_PMC_L
-$LN8@TEST_PMC_L:
-	mov	DWORD PTR tv92[rbp], 0
-$LN9@TEST_PMC_L:
-	mov	edx, DWORD PTR z_result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EK@JKDPKBHP@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv82[rbp], rax
-	mov	r8d, 2
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv82[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv92[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 106  :     if (z_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	$LN2@TEST_PMC_L
-
-; 107  :     {
-; 108  :         TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_L (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
-
-	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
-	mov	r8d, 256				; 00000100H
-	lea	rdx, QWORD PTR actual_z_buf$[rbp]
-	mov	rcx, QWORD PTR z$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	jne	SHORT $LN10@TEST_PMC_L
-	mov	DWORD PTR tv144[rbp], 1
-	jmp	SHORT $LN11@TEST_PMC_L
-$LN10@TEST_PMC_L:
-	mov	DWORD PTR tv144[rbp], 0
-$LN11@TEST_PMC_L:
-	mov	edx, DWORD PTR result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EG@MCOLJMDD@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr?$AAa?$AAy@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv133[rbp], rax
-	mov	r8d, 3
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv133[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv144[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 109  :         TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_L (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
-
-	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
-	mov	r8, QWORD PTR desired_z_buf$[rbp]
-	mov	rdx, QWORD PTR actual_z_buf_size$[rbp]
-	lea	rcx, QWORD PTR actual_z_buf$[rbp]
-	call	_EQUALS_MEMORY
-	test	eax, eax
-	jne	SHORT $LN12@TEST_PMC_L
-	mov	DWORD PTR tv159[rbp], 1
-	jmp	SHORT $LN13@TEST_PMC_L
-$LN12@TEST_PMC_L:
-	mov	DWORD PTR tv159[rbp], 0
-$LN13@TEST_PMC_L:
-	mov	r8d, 4
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DE@CCEBEBOO@?$AAP?$AAM?$AAC?$AA_?$AAL?$AAe?$AAf?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_?$AAX@
-	call	FormatTestLabel
-	lea	r9, OFFSET FLAT:??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@
-	mov	r8d, DWORD PTR tv159[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-$LN2@TEST_PMC_L:
-
-; 110  :     }
-; 111  :     if (z_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	SHORT $LN3@TEST_PMC_L
-
-; 112  :         ep->PMC_Dispose(z);
-
-	mov	rcx, QWORD PTR z$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+32]
-$LN3@TEST_PMC_L:
-
-; 113  :     if (x_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR x_result$[rbp], 0
-	jne	SHORT $LN4@TEST_PMC_L
-
-; 114  :         ep->PMC_Dispose(x);
-
-	mov	rcx, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+32]
-$LN4@TEST_PMC_L:
-
-; 115  : #endif
-; 116  : }
-
-	lea	rcx, QWORD PTR [rbp-32]
-	lea	rdx, OFFSET FLAT:TEST_PMC_LeftShift_X_L$rtcFrameData
-	call	_RTC_CheckStackVars
-	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
-	xor	rcx, rbp
-	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+696]
-	pop	rdi
-	pop	rbp
-	ret	0
-TEST_PMC_LeftShift_X_L ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_shift.c
@@ -809,7 +401,7 @@ desired_z_buf$ = 768
 desired_z_buf_size$ = 776
 TEST_PMC_LeftShift_X_I PROC				; COMDAT
 
-; 76   : {
+; 52   : {
 
 $LN13:
 	mov	QWORD PTR [rsp+32], r9
@@ -831,14 +423,14 @@ $LN13:
 	lea	rcx, OFFSET FLAT:__D4CE9C68_test_op_shift@c
 	call	__CheckForDebuggerJustMyCode
 
-; 77   :     HANDLE x;
-; 78   :     HANDLE z;
-; 79   :     unsigned char actual_z_buf[256];
-; 80   :     size_t actual_z_buf_size;
-; 81   :     PMC_STATUS_CODE result;
-; 82   :     PMC_STATUS_CODE x_result;
-; 83   :     PMC_STATUS_CODE z_result;
-; 84   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 53   :     PMC_HANDLE_UINT x;
+; 54   :     PMC_HANDLE_UINT z;
+; 55   :     unsigned char actual_z_buf[256];
+; 56   :     size_t actual_z_buf_size;
+; 57   :     PMC_STATUS_CODE result;
+; 58   :     PMC_STATUS_CODE x_result;
+; 59   :     PMC_STATUS_CODE z_result;
+; 60   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -868,7 +460,7 @@ $LN6@TEST_PMC_L:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 85   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 2), (z_result = ep->PMC_LeftShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_LeftShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 61   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 2), (z_result = ep->PMC_LeftShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_LeftShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	lea	r8, QWORD PTR z$[rbp]
 	mov	edx, DWORD PTR n$[rbp]
@@ -898,7 +490,7 @@ $LN8@TEST_PMC_L:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 62   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -929,7 +521,7 @@ $LN10@TEST_PMC_L:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 87   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
+; 63   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
 
 	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_z_buf$[rbp]
@@ -953,31 +545,31 @@ $LN12@TEST_PMC_L:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 88   :     if (z_result == PMC_STATUS_OK)
+; 64   :     if (z_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_L
 
-; 89   :         ep->PMC_Dispose(z);
+; 65   :         ep->PMC_Dispose(z);
 
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN2@TEST_PMC_L:
 
-; 90   :     if (x_result == PMC_STATUS_OK)
+; 66   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_L
 
-; 91   :         ep->PMC_Dispose(x);
+; 67   :         ep->PMC_Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN3@TEST_PMC_L:
 
-; 92   : }
+; 68   : }
 
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TEST_PMC_LeftShift_X_I$rtcFrameData
@@ -990,227 +582,6 @@ $LN3@TEST_PMC_L:
 	pop	rbp
 	ret	0
 TEST_PMC_LeftShift_X_I ENDP
-_TEXT	ENDS
-; Function compile flags: /Odtp /RTCsu /ZI
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_shift.c
-;	COMDAT TEST_PMC_RightShift_X_L
-_TEXT	SEGMENT
-x$ = 8
-z$ = 40
-actual_z_buf$ = 80
-actual_z_buf_size$ = 360
-result$ = 388
-x_result$ = 420
-z_result$ = 452
-tv159 = 660
-tv144 = 660
-tv92 = 660
-tv74 = 660
-tv133 = 664
-tv82 = 664
-tv64 = 664
-__$ArrayPad$ = 672
-env$ = 720
-ep$ = 728
-no$ = 736
-x_buf$ = 744
-x_buf_size$ = 752
-n$ = 760
-desired_z_buf$ = 768
-desired_z_buf_size$ = 776
-TEST_PMC_RightShift_X_L PROC				; COMDAT
-
-; 52   : {
-
-$LN14:
-	mov	QWORD PTR [rsp+32], r9
-	mov	DWORD PTR [rsp+24], r8d
-	mov	QWORD PTR [rsp+16], rdx
-	mov	QWORD PTR [rsp+8], rcx
-	push	rbp
-	push	rdi
-	sub	rsp, 728				; 000002d8H
-	lea	rbp, QWORD PTR [rsp+32]
-	mov	rdi, rsp
-	mov	ecx, 182				; 000000b6H
-	mov	eax, -858993460				; ccccccccH
-	rep stosd
-	mov	rcx, QWORD PTR [rsp+760]
-	mov	rax, QWORD PTR __security_cookie
-	xor	rax, rbp
-	mov	QWORD PTR __$ArrayPad$[rbp], rax
-	lea	rcx, OFFSET FLAT:__D4CE9C68_test_op_shift@c
-	call	__CheckForDebuggerJustMyCode
-
-; 53   : #ifdef _M_IX64
-; 54   :     HANDLE x;
-; 55   :     HANDLE z;
-; 56   :     unsigned char actual_z_buf[256];
-; 57   :     size_t actual_z_buf_size;
-; 58   :     PMC_STATUS_CODE result;
-; 59   :     PMC_STATUS_CODE x_result;
-; 60   :     PMC_STATUS_CODE z_result;
-; 61   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
-
-	lea	r8, QWORD PTR x$[rbp]
-	mov	rdx, QWORD PTR x_buf_size$[rbp]
-	mov	rcx, QWORD PTR x_buf$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
-	mov	DWORD PTR x_result$[rbp], eax
-	cmp	DWORD PTR x_result$[rbp], 0
-	jne	SHORT $LN6@TEST_PMC_R
-	mov	DWORD PTR tv74[rbp], 1
-	jmp	SHORT $LN7@TEST_PMC_R
-$LN6@TEST_PMC_R:
-	mov	DWORD PTR tv74[rbp], 0
-$LN7@TEST_PMC_R:
-	mov	edx, DWORD PTR x_result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EK@HDEICNAJ@?$AAP?$AAM?$AAC?$AA_?$AAF?$AAr?$AAo?$AAm?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv64[rbp], rax
-	mov	r8d, 1
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv64[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv74[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 62   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_L (%d.%d)", no, 2), (z_result = ep->PMC_RightShift_X_L(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_RightShift_X_Lの復帰コードが期待通りではない(%d)", z_result));
-
-	lea	r8, QWORD PTR z$[rbp]
-	mov	rdx, QWORD PTR n$[rbp]
-	mov	rcx, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+288]
-	mov	DWORD PTR z_result$[rbp], eax
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	SHORT $LN8@TEST_PMC_R
-	mov	DWORD PTR tv92[rbp], 1
-	jmp	SHORT $LN9@TEST_PMC_R
-$LN8@TEST_PMC_R:
-	mov	DWORD PTR tv92[rbp], 0
-$LN9@TEST_PMC_R:
-	mov	edx, DWORD PTR z_result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EM@ELBDKPKH@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv82[rbp], rax
-	mov	r8d, 2
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv82[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv92[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 63   :     if (z_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	$LN2@TEST_PMC_R
-
-; 64   :     {
-; 65   :         TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_L (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
-
-	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
-	mov	r8d, 256				; 00000100H
-	lea	rdx, QWORD PTR actual_z_buf$[rbp]
-	mov	rcx, QWORD PTR z$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	jne	SHORT $LN10@TEST_PMC_R
-	mov	DWORD PTR tv144[rbp], 1
-	jmp	SHORT $LN11@TEST_PMC_R
-$LN10@TEST_PMC_R:
-	mov	DWORD PTR tv144[rbp], 0
-$LN11@TEST_PMC_R:
-	mov	edx, DWORD PTR result$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1EG@MCOLJMDD@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr?$AAa?$AAy@
-	call	FormatTestMesssage
-	mov	QWORD PTR tv133[rbp], rax
-	mov	r8d, 3
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv133[rbp]
-	mov	r9, rcx
-	mov	r8d, DWORD PTR tv144[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-
-; 66   :         TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_L (%d.%d)", no, 4), _EQUALS_MEMORY(actual_z_buf, actual_z_buf_size, desired_z_buf, desired_z_buf_size) == 0, L"データの内容が一致しない");
-
-	mov	r9, QWORD PTR desired_z_buf_size$[rbp]
-	mov	r8, QWORD PTR desired_z_buf$[rbp]
-	mov	rdx, QWORD PTR actual_z_buf_size$[rbp]
-	lea	rcx, QWORD PTR actual_z_buf$[rbp]
-	call	_EQUALS_MEMORY
-	test	eax, eax
-	jne	SHORT $LN12@TEST_PMC_R
-	mov	DWORD PTR tv159[rbp], 1
-	jmp	SHORT $LN13@TEST_PMC_R
-$LN12@TEST_PMC_R:
-	mov	DWORD PTR tv159[rbp], 0
-$LN13@TEST_PMC_R:
-	mov	r8d, 4
-	mov	edx, DWORD PTR no$[rbp]
-	lea	rcx, OFFSET FLAT:??_C@_1DG@PEEHHGOG@?$AAP?$AAM?$AAC?$AA_?$AAR?$AAi?$AAg?$AAh?$AAt?$AAS?$AAh?$AAi?$AAf?$AAt?$AA_@
-	call	FormatTestLabel
-	lea	r9, OFFSET FLAT:??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@
-	mov	r8d, DWORD PTR tv159[rbp]
-	mov	rdx, rax
-	mov	rcx, QWORD PTR env$[rbp]
-	call	TEST_Assert
-$LN2@TEST_PMC_R:
-
-; 67   :     }
-; 68   :     if (z_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR z_result$[rbp], 0
-	jne	SHORT $LN3@TEST_PMC_R
-
-; 69   :         ep->PMC_Dispose(z);
-
-	mov	rcx, QWORD PTR z$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+32]
-$LN3@TEST_PMC_R:
-
-; 70   :     if (x_result == PMC_STATUS_OK)
-
-	cmp	DWORD PTR x_result$[rbp], 0
-	jne	SHORT $LN4@TEST_PMC_R
-
-; 71   :         ep->PMC_Dispose(x);
-
-	mov	rcx, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+32]
-$LN4@TEST_PMC_R:
-
-; 72   : #endif
-; 73   : }
-
-	lea	rcx, QWORD PTR [rbp-32]
-	lea	rdx, OFFSET FLAT:TEST_PMC_RightShift_X_L$rtcFrameData
-	call	_RTC_CheckStackVars
-	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
-	xor	rcx, rbp
-	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+696]
-	pop	rdi
-	pop	rbp
-	ret	0
-TEST_PMC_RightShift_X_L ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_shift.c
@@ -1263,8 +634,8 @@ $LN13:
 	lea	rcx, OFFSET FLAT:__D4CE9C68_test_op_shift@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE x;
-; 35   :     HANDLE z;
+; 34   :     PMC_HANDLE_UINT x;
+; 35   :     PMC_HANDLE_UINT z;
 ; 36   :     unsigned char actual_z_buf[256];
 ; 37   :     size_t actual_z_buf_size;
 ; 38   :     PMC_STATUS_CODE result;
@@ -1306,7 +677,7 @@ $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR n$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+280]
+	call	QWORD PTR [rax+272]
 	mov	DWORD PTR z_result$[rbp], eax
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_R

@@ -49,19 +49,19 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG96230 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+$SG96174 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
 	DB	'_', 00H, 'w', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG96231 DB	'M', 00H, 'u', 00H, 'l', 00H, 't', 00H, 'i', 00H, 'p', 00H
+$SG96175 DB	'M', 00H, 'u', 00H, 'l', 00H, 't', 00H, 'i', 00H, 'p', 00H
 	DB	'l', 00H, 'y', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, '_'
 	DB	00H, 'I', 00H, 'm', 00H, 'p', 00H, ' ', 00H, '(', 00H, '%', 00H
 	DB	'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96232 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG96176 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG96233 DB	'M', 00H, 'u', 00H, 'l', 00H, 't', 00H, 'i', 00H, 'p', 00H
+$SG96177 DB	'M', 00H, 'u', 00H, 'l', 00H, 't', 00H, 'i', 00H, 'p', 00H
 	DB	'l', 00H, 'y', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, '_'
 	DB	00H, 'I', 00H, 'm', 00H, 'p', 00H, ' ', 00H, '(', 00H, '%', 00H
 	DB	'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
@@ -85,32 +85,32 @@ _buffer2$ = 16						; size = 4
 _count2$ = 20						; size = 4
 __EQUALS_MEMORY PROC
 
-; 149  : {
+; 147  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __630249ED_pmc_uint_debug@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	eax, DWORD PTR _count1$[ebp]
 	cmp	eax, DWORD PTR _count2$[ebp]
 	je	SHORT $LN2@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	DWORD PTR _count1$[ebp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	ecx, DWORD PTR _buffer1$[ebp]
 	movzx	edx, BYTE PTR [ecx]
@@ -119,41 +119,41 @@ $LN2@EQUALS_MEM:
 	cmp	edx, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	edx, DWORD PTR _buffer1$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _buffer1$[ebp], edx
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	eax, DWORD PTR _buffer2$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _buffer2$[ebp], eax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	ecx, DWORD PTR _count1$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _count1$[ebp], ecx
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -385,13 +385,13 @@ $LN4@INTERNALTE:
 $LN6@INTERNALTE:
 	mov	DWORD PTR tv151[ebp], 0
 $LN7@INTERNALTE:
-	push	OFFSET $SG96230
+	push	OFFSET $SG96174
 	mov	ecx, DWORD PTR tv151[ebp]
 	push	ecx
 	push	1
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG96231
+	push	OFFSET $SG96175
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -419,13 +419,13 @@ $LN7@INTERNALTE:
 $LN8@INTERNALTE:
 	mov	DWORD PTR tv166[ebp], 0
 $LN9@INTERNALTE:
-	push	OFFSET $SG96232
+	push	OFFSET $SG96176
 	mov	edx, DWORD PTR tv166[ebp]
 	push	edx
 	push	2
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG96233
+	push	OFFSET $SG96177
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax

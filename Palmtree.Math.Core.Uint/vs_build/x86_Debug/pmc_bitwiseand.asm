@@ -1475,7 +1475,7 @@ $LN6@PMC_Bitwis:
 	and	edx, 1
 	je	SHORT $LN7@PMC_Bitwis
 
-; 326  :         *w = &number_zero;
+; 326  :         *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
@@ -1490,7 +1490,7 @@ $LN7@PMC_Bitwis:
 	and	edx, 1
 	je	SHORT $LN9@PMC_Bitwis
 
-; 328  :         *w = &number_zero;
+; 328  :         *w = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
@@ -1615,7 +1615,7 @@ $LN12@PMC_Bitwis:
 $LN13@PMC_Bitwis:
 
 ; 346  :         }
-; 347  :         *w = nw;
+; 347  :         *w = (PMC_HANDLE_UINT)nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR _nw$[ebp]
@@ -1624,7 +1624,7 @@ $LN8@PMC_Bitwis:
 
 ; 348  :     }
 ; 349  : #ifdef _DEBUG
-; 350  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 350  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]

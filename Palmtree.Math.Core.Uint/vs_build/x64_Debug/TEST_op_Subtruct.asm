@@ -500,7 +500,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 149  : {
+; 147  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -518,26 +518,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 150  :     if (count1 != count2)
+; 148  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 151  :         return (-1);
+; 149  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 152  :     while (count1 > 0)
+; 150  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 153  :     {
-; 154  :         if (*buffer1 != *buffer2)
+; 151  :     {
+; 152  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -546,41 +546,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 155  :             return (-1);
+; 153  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 156  :         ++buffer1;
+; 154  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 157  :         ++buffer2;
+; 155  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 158  :         --count1;
+; 156  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 159  :     }
+; 157  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 160  :     return (0);
+; 158  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 161  : }
+; 159  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -645,9 +645,9 @@ $LN17:
 	lea	rcx, OFFSET FLAT:__029660FF_test_op_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 110  :     HANDLE x;
-; 111  :     HANDLE y;
-; 112  :     HANDLE z;
+; 110  :     PMC_HANDLE_UINT x;
+; 111  :     PMC_HANDLE_UINT y;
+; 112  :     PMC_HANDLE_UINT z;
 ; 113  :     unsigned char actual_z_buf[256];
 ; 114  :     size_t actual_z_buf_size;
 ; 115  :     PMC_STATUS_CODE result;
@@ -910,8 +910,8 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__029660FF_test_op_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 88   :     HANDLE x;
-; 89   :     HANDLE z;
+; 88   :     PMC_HANDLE_UINT x;
+; 89   :     PMC_HANDLE_UINT z;
 ; 90   :     unsigned char actual_z_buf[256];
 ; 91   :     size_t actual_z_buf_size;
 ; 92   :     PMC_STATUS_CODE result;
@@ -1131,8 +1131,8 @@ $LN14:
 	lea	rcx, OFFSET FLAT:__029660FF_test_op_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 66   :     HANDLE x;
-; 67   :     HANDLE z;
+; 66   :     PMC_HANDLE_UINT x;
+; 67   :     PMC_HANDLE_UINT z;
 ; 68   :     unsigned char actual_z_buf[256];
 ; 69   :     size_t actual_z_buf_size;
 ; 70   :     PMC_STATUS_CODE result;
@@ -1342,7 +1342,7 @@ $LN11:
 	lea	rcx, OFFSET FLAT:__029660FF_test_op_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 50   :     HANDLE v;
+; 50   :     PMC_HANDLE_UINT v;
 ; 51   :     unsigned __int64 actual_w;
 ; 52   :     PMC_STATUS_CODE result;
 ; 53   :     PMC_STATUS_CODE v_result;
@@ -1500,7 +1500,7 @@ $LN11:
 	lea	rcx, OFFSET FLAT:__029660FF_test_op_subtruct@c
 	call	__CheckForDebuggerJustMyCode
 
-; 34   :     HANDLE v;
+; 34   :     PMC_HANDLE_UINT v;
 ; 35   :     unsigned __int32 actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;

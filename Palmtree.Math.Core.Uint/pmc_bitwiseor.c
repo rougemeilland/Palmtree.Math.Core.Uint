@@ -218,7 +218,7 @@ static PMC_STATUS_CODE PMC_BitwiseOr_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMB
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_I_X(_UINT32_T u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
     {
@@ -235,13 +235,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_I_X(_UINT32_T u, HANDLE v, HANDLE* w)
     if ((result = PMC_BitwiseOr_X_I_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
     {
@@ -258,7 +258,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
     if ((result = PMC_BitwiseOr_X_I_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
@@ -342,7 +342,7 @@ static PMC_STATUS_CODE PMC_BitwiseOr_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, NUMB
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_L_X(_UINT64_T u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_L_X(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
     {
@@ -359,13 +359,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_L_X(_UINT64_T u, HANDLE v, HANDLE* w)
     if ((result = PMC_BitwiseOr_X_L_Imp((NUMBER_HEADER*)v, u, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_L(HANDLE u, _UINT64_T v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
     {
@@ -382,13 +382,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_L(HANDLE u, _UINT64_T v, HANDLE* w)
     if ((result = PMC_BitwiseOr_X_L_Imp((NUMBER_HEADER*)u, v, (NUMBER_HEADER**)w)) != PMC_STATUS_OK)
         return (result);
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_X(HANDLE u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -433,9 +433,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseOr_X_X(HANDLE u, HANDLE v, HANDLE* w)
             return (result);
         CommitNumber(nw);
     }
-    *w = nw;
+    *w = (PMC_HANDLE_UINT)nw;
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

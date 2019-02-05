@@ -1062,7 +1062,7 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 #endif
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, HANDLE v, _UINT32_T* q, _UINT32_T* r)
+PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r)
 {
     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
     {
@@ -1141,7 +1141,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, HANDLE v, _UINT32_T* q, _
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(HANDLE u, _UINT32_T v, HANDLE* q, _UINT32_T* r)
+PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r)
 {
     if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
     {
@@ -1222,7 +1222,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(HANDLE u, _UINT32_T v, HANDLE* q, _UIN
             }
         }
     }
-    *q = nq;
+    *q = (PMC_HANDLE_UINT)nq;
 #ifdef _DEBUG
     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
         return (result);
@@ -1230,7 +1230,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(HANDLE u, _UINT32_T v, HANDLE* q, _UIN
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, HANDLE v, _UINT64_T* q, _UINT64_T* r)
+PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r)
 {
     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(u))
     {
@@ -1396,7 +1396,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, HANDLE v, _UINT64_T* q, _
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UINT64_T* r)
+PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r)
 {
     if (sizeof(__UNIT_TYPE_DIV) * 2 < sizeof(v))
     {
@@ -1573,7 +1573,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UIN
 
         }
     }
-    *q = nq;
+    *q = (PMC_HANDLE_UINT)nq;
 #ifdef _DEBUG
     if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
         return (result);
@@ -1581,7 +1581,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(HANDLE u, _UINT64_T v, HANDLE* q, _UIN
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(HANDLE u, HANDLE v, HANDLE* q, HANDLE* r)
+PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r)
 {
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -1723,12 +1723,12 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(HANDLE u, HANDLE v, HANDLE* q, HANDLE*
             }
         }
     }
-    *q = nq;
-    *r = nr;
+    *q = (PMC_HANDLE_UINT)nq;
+    *r = (PMC_HANDLE_UINT)nr;
 #ifdef _DEBUG
-    if ((result = CheckNumber(*q)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*q)) != PMC_STATUS_OK)
         return (result);
-    if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

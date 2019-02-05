@@ -712,13 +712,13 @@ $LN23:
 	mov	QWORD PTR [rsp+72], rbp
 	jne	SHORT $LN19@PMC_Bitwis
 
-; 326  :         *w = &number_zero;
+; 326  :         *w = (PMC_HANDLE_UINT)&number_zero;
 ; 327  :     else if (nv->IS_ZERO)
 
 	test	BYTE PTR [rbx+40], 2
 	jne	SHORT $LN19@PMC_Bitwis
 
-; 328  :         *w = &number_zero;
+; 328  :         *w = (PMC_HANDLE_UINT)&number_zero;
 ; 329  :     else
 ; 330  :     {
 ; 331  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
@@ -809,10 +809,10 @@ $LN19@PMC_Bitwis:
 
 ; 345  :             nw = &number_zero;
 ; 346  :         }
-; 347  :         *w = nw;
+; 347  :         *w = (PMC_HANDLE_UINT)nw;
 ; 348  :     }
 ; 349  : #ifdef _DEBUG
-; 350  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 350  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 351  :         return (result);
 ; 352  : #endif
 ; 353  :     return (PMC_STATUS_OK);

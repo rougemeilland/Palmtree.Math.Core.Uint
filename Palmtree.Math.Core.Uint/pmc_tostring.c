@@ -522,7 +522,7 @@ static PMC_STATUS_CODE ToStringX(NUMBER_HEADER* x, wchar_t* buffer, size_t buffe
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_ToString(HANDLE x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option)
+PMC_STATUS_CODE __PMC_CALL PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option)
 {
     if (x == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);

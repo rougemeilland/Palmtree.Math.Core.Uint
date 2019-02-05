@@ -5565,12 +5565,12 @@ _PMC_Add_X_X@12 PROC					; COMDAT
 
 ; 599  :         }
 ; 600  :     }
-; 601  :     *w = nw;
+; 601  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	DWORD PTR [ebx], eax
 
 ; 602  : #ifdef _DEBUG
-; 603  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 603  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 604  :         return (result);
 ; 605  : #endif
 ; 606  :     return (PMC_STATUS_OK);
@@ -5629,14 +5629,14 @@ $LN7@PMC_Add_X_:
 
 ; 599  :         }
 ; 600  :     }
-; 601  :     *w = nw;
+; 601  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	pop	edi
 	mov	DWORD PTR [ebx], eax
 
 ; 602  : #ifdef _DEBUG
-; 603  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 603  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 604  :         return (result);
 ; 605  : #endif
 ; 606  :     return (PMC_STATUS_OK);
@@ -5750,14 +5750,14 @@ $LN22@PMC_Add_X_:
 
 ; 599  :         }
 ; 600  :     }
-; 601  :     *w = nw;
+; 601  :     *w = (PMC_HANDLE_UINT)nw;
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	pop	edi
 	mov	DWORD PTR [ebx], eax
 
 ; 602  : #ifdef _DEBUG
-; 603  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 603  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 604  :         return (result);
 ; 605  : #endif
 ; 606  :     return (PMC_STATUS_OK);
@@ -5840,7 +5840,7 @@ _PMC_Add_X_L@16 PROC					; COMDAT
 
 ; 542  :         return (result);
 ; 543  : #ifdef _DEBUG
-; 544  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 544  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 545  :         return (result);
 ; 546  : #endif
 ; 547  :     return (PMC_STATUS_OK);
@@ -5858,7 +5858,7 @@ $LN6@PMC_Add_X_:
 
 ; 542  :         return (result);
 ; 543  : #ifdef _DEBUG
-; 544  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 544  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 545  :         return (result);
 ; 546  : #endif
 ; 547  :     return (PMC_STATUS_OK);
@@ -5921,7 +5921,7 @@ _PMC_Add_X_I@12 PROC					; COMDAT
 
 ; 390  :         return (result);
 ; 391  : #ifdef _DEBUG
-; 392  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 392  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 393  :         return (result);
 ; 394  : #endif
 ; 395  :     return (PMC_STATUS_OK);
@@ -5939,7 +5939,7 @@ $LN6@PMC_Add_X_:
 
 ; 390  :         return (result);
 ; 391  : #ifdef _DEBUG
-; 392  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 392  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 393  :         return (result);
 ; 394  : #endif
 ; 395  :     return (PMC_STATUS_OK);
@@ -6003,7 +6003,7 @@ _PMC_Add_L_X@16 PROC					; COMDAT
 
 ; 519  :         return (result);
 ; 520  : #ifdef _DEBUG
-; 521  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 521  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 522  :         return (result);
 ; 523  : #endif
 ; 524  :     return (PMC_STATUS_OK);
@@ -6021,7 +6021,7 @@ $LN6@PMC_Add_L_:
 
 ; 519  :         return (result);
 ; 520  : #ifdef _DEBUG
-; 521  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 521  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 522  :         return (result);
 ; 523  : #endif
 ; 524  :     return (PMC_STATUS_OK);
@@ -6084,7 +6084,7 @@ _PMC_Add_I_X@12 PROC					; COMDAT
 
 ; 367  :         return (result);
 ; 368  : #ifdef _DEBUG
-; 369  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 369  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 370  :         return (result);
 ; 371  : #endif
 ; 372  :     return (PMC_STATUS_OK);
@@ -6102,7 +6102,7 @@ $LN6@PMC_Add_I_:
 
 ; 367  :         return (result);
 ; 368  : #ifdef _DEBUG
-; 369  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 369  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 370  :         return (result);
 ; 371  : #endif
 ; 372  :     return (PMC_STATUS_OK);

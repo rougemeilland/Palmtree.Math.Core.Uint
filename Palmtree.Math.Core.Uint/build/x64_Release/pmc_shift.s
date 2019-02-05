@@ -1433,89 +1433,6 @@ PMC_RightShift_X_I:
 	jmp	.L79
 	.seh_endproc
 	.p2align 4,,15
-	.globl	PMC_RightShift_X_L
-	.def	PMC_RightShift_X_L;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_RightShift_X_L
-PMC_RightShift_X_L:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
-	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rbx
-	movq	%rdx, %rdi
-	movq	%r8, %rsi
-	je	.L94
-	testq	%rcx, %rcx
-	je	.L94
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L88
-	testb	$2, 40(%rbx)
-	jne	.L92
-	testq	%rdi, %rdi
-	je	.L95
-	movq	16(%rbx), %rdx
-	cmpq	%rdx, %rdi
-	jb	.L96
-.L92:
-	movq	.refptr.number_zero(%rip), %rdx
-	movq	%rdx, (%rsi)
-.L88:
-	addq	$80, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L96:
-	leaq	64(%rsp), %rcx
-	subq	%rdi, %rdx
-	leaq	72(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L88
-	movq	64(%rsp), %rax
-	movq	%rdi, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
-	movl	$0, 32(%rsp)
-	call	RightShift_Imp_DIV
-	movq	64(%rsp), %rax
-	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L88
-	movq	64(%rsp), %rcx
-	movl	%eax, 60(%rsp)
-	call	CommitNumber
-	movq	64(%rsp), %rdx
-	movl	60(%rsp), %eax
-	movq	%rdx, (%rsi)
-	jmp	.L88
-	.p2align 4,,10
-.L95:
-	leaq	64(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L88
-	movq	64(%rsp), %rdx
-	movq	%rdx, (%rsi)
-	jmp	.L88
-	.p2align 4,,10
-.L94:
-	movl	$-1, %eax
-	jmp	.L88
-	.seh_endproc
-	.p2align 4,,15
 	.globl	PMC_LeftShift_X_I
 	.def	PMC_LeftShift_X_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_LeftShift_X_I
@@ -1533,31 +1450,31 @@ PMC_LeftShift_X_I:
 	movq	%rcx, %rbx
 	movl	%edx, %edi
 	movq	%r8, %rsi
-	je	.L102
+	je	.L93
 	testq	%rcx, %rcx
-	je	.L102
+	je	.L93
 	call	CheckNumber
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L88
 	testb	$2, 40(%rbx)
-	je	.L99
+	je	.L90
 	movq	.refptr.number_zero(%rip), %rdx
 	movq	%rdx, (%rsi)
-.L97:
+.L88:
 	addq	$80, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L99:
+.L90:
 	testl	%edi, %edi
-	jne	.L100
+	jne	.L91
 	leaq	64(%rsp), %rdx
 	movq	%rbx, %rcx
 	call	DuplicateNumber
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L88
 	movq	64(%rsp), %rdx
 	movq	%rdx, (%rsi)
 	addq	$80, %rsp
@@ -1566,14 +1483,14 @@ PMC_LeftShift_X_I:
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L100:
+.L91:
 	movq	16(%rbx), %rdx
 	leaq	64(%rsp), %rcx
 	leaq	72(%rsp), %r8
 	addq	%rdi, %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L88
 	movq	64(%rsp), %rax
 	movq	%rdi, %r8
 	movq	8(%rbx), %rdx
@@ -1586,102 +1503,18 @@ PMC_LeftShift_X_I:
 	movq	56(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L88
 	movq	64(%rsp), %rcx
 	movl	%eax, 60(%rsp)
 	call	CommitNumber
 	movq	64(%rsp), %rdx
 	movl	60(%rsp), %eax
 	movq	%rdx, (%rsi)
-	jmp	.L97
+	jmp	.L88
 	.p2align 4,,10
-.L102:
+.L93:
 	movl	$-1, %eax
-	jmp	.L97
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_LeftShift_X_L
-	.def	PMC_LeftShift_X_L;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_LeftShift_X_L
-PMC_LeftShift_X_L:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
-	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rbx
-	movq	%rdx, %rdi
-	movq	%r8, %rsi
-	je	.L108
-	testq	%rcx, %rcx
-	je	.L108
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L103
-	testb	$2, 40(%rbx)
-	je	.L105
-	movq	.refptr.number_zero(%rip), %rdx
-	movq	%rdx, (%rsi)
-.L103:
-	addq	$80, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L105:
-	testq	%rdi, %rdi
-	jne	.L106
-	leaq	64(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L103
-	movq	64(%rsp), %rdx
-	movq	%rdx, (%rsi)
-	addq	$80, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L106:
-	movq	16(%rbx), %rdx
-	leaq	64(%rsp), %rcx
-	leaq	72(%rsp), %r8
-	addq	%rdi, %rdx
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L103
-	movq	64(%rsp), %rax
-	movq	%rdi, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
-	movl	$0, 32(%rsp)
-	call	LeftShift_Imp_DIV
-	movq	64(%rsp), %rax
-	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L103
-	movq	64(%rsp), %rcx
-	movl	%eax, 60(%rsp)
-	call	CommitNumber
-	movq	64(%rsp), %rdx
-	movl	60(%rsp), %eax
-	movq	%rdx, (%rsi)
-	jmp	.L103
-	.p2align 4,,10
-.L108:
-	movl	$-1, %eax
-	jmp	.L103
+	jmp	.L88
 	.seh_endproc
 	.p2align 4,,15
 	.globl	Initialize_Shift

@@ -123,9 +123,7 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
     entry_points.PMC_DivRem_X_L = PMC_DivRem_X_L;
     entry_points.PMC_DivRem_X_X = PMC_DivRem_X_X;
     entry_points.PMC_RightShift_X_I = PMC_RightShift_X_I;
-    entry_points.PMC_RightShift_X_L = PMC_RightShift_X_L;
     entry_points.PMC_LeftShift_X_I = PMC_LeftShift_X_I;
-    entry_points.PMC_LeftShift_X_L = PMC_LeftShift_X_L;
     entry_points.PMC_BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
     entry_points.PMC_BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
     entry_points.PMC_BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;

@@ -418,13 +418,13 @@ $LL9@PMC_FromBy:
 	jne	SHORT $LL9@PMC_FromBy
 $LN25@PMC_FromBy:
 
-; 54   :         *o = &number_zero;
+; 54   :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	DWORD PTR [ebx], OFFSET _number_zero
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 66   :         return (result);
 ; 67   : #endif
 ; 68   :     return (PMC_STATUS_OK);
@@ -514,7 +514,7 @@ $LN21@PMC_FromBy:
 	push	DWORD PTR _p$1[ebp]
 	call	_CommitNumber
 
-; 62   :         *o = p;
+; 62   :         *o = (PMC_HANDLE_UINT)p;
 
 	mov	eax, DWORD PTR _p$1[ebp]
 	add	esp, 4
@@ -522,7 +522,7 @@ $LN21@PMC_FromBy:
 
 ; 63   :     }
 ; 64   : #ifdef _DEBUG
-; 65   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 65   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 ; 66   :         return (result);
 ; 67   : #endif
 ; 68   :     return (PMC_STATUS_OK);

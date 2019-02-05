@@ -31,8 +31,8 @@
 #ifdef _DEBUG
 void TEST_PMC_Pow_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*x_buf, size_t x_buf_size, unsigned __int32 y, PMC_STATUS_CODE desired_result_code, unsigned char*desired_z_buf, size_t desired_z_buf_size)
 {
-    HANDLE x;
-    HANDLE z;
+    PMC_HANDLE_UINT x;
+    PMC_HANDLE_UINT z;
     static unsigned char actual_z_buf[0x10000];
     size_t actual_z_buf_size;
     PMC_STATUS_CODE result;

@@ -2144,7 +2144,7 @@ _PMC_GreatestCommonDivisor_X_X@12 PROC			; COMDAT
 $LN7@PMC_Greate:
 
 ; 513  :                 return (result);
-; 514  :             *w = nw;
+; 514  :             *w = (PMC_HANDLE_UINT)nw;
 ; 515  :         }
 ; 516  :     }
 ; 517  :     else
@@ -2172,7 +2172,7 @@ $LN7@PMC_Greate:
 $LN14@PMC_Greate:
 
 ; 527  :                 return (result);
-; 528  :             *w = nw;
+; 528  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	mov	DWORD PTR [edi], eax
@@ -2180,7 +2180,7 @@ $LN14@PMC_Greate:
 ; 590  :         }
 ; 591  :     }
 ; 592  : #ifdef _DEBUG
-; 593  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 593  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 594  :         return (result);
 ; 595  : #endif
 ; 596  :     return (PMC_STATUS_OK);
@@ -2519,7 +2519,7 @@ $LN33@PMC_Greate:
 	push	DWORD PTR _nw$[ebp]
 	call	_CommitNumber
 
-; 589  :             *w = nw;
+; 589  :             *w = (PMC_HANDLE_UINT)nw;
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	add	esp, 4
@@ -2610,7 +2610,7 @@ _PMC_GreatestCommonDivisor_X_L@16 PROC			; COMDAT
 
 ; 472  :         return (result);
 ; 473  : #ifdef _DEBUG
-; 474  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 474  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 475  :         return (result);
 ; 476  : #endif
 ; 477  :     return (PMC_STATUS_OK);
@@ -2628,7 +2628,7 @@ $LN6@PMC_Greate:
 
 ; 472  :         return (result);
 ; 473  : #ifdef _DEBUG
-; 474  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 474  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 475  :         return (result);
 ; 476  : #endif
 ; 477  :     return (PMC_STATUS_OK);
@@ -2691,7 +2691,7 @@ _PMC_GreatestCommonDivisor_X_I@12 PROC			; COMDAT
 
 ; 206  :         return (result);
 ; 207  : #ifdef _DEBUG
-; 208  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 208  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 209  :         return (result);
 ; 210  : #endif
 ; 211  :     return (PMC_STATUS_OK);
@@ -2709,7 +2709,7 @@ $LN6@PMC_Greate:
 
 ; 206  :         return (result);
 ; 207  : #ifdef _DEBUG
-; 208  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 208  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 209  :         return (result);
 ; 210  : #endif
 ; 211  :     return (PMC_STATUS_OK);
@@ -2773,7 +2773,7 @@ _PMC_GreatestCommonDivisor_L_X@16 PROC			; COMDAT
 
 ; 449  :         return (result);
 ; 450  : #ifdef _DEBUG
-; 451  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 451  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 452  :         return (result);
 ; 453  : #endif
 ; 454  :     return (PMC_STATUS_OK);
@@ -2791,7 +2791,7 @@ $LN6@PMC_Greate:
 
 ; 449  :         return (result);
 ; 450  : #ifdef _DEBUG
-; 451  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 451  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 452  :         return (result);
 ; 453  : #endif
 ; 454  :     return (PMC_STATUS_OK);
@@ -2854,7 +2854,7 @@ _PMC_GreatestCommonDivisor_I_X@12 PROC			; COMDAT
 
 ; 183  :         return (result);
 ; 184  : #ifdef _DEBUG
-; 185  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 185  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 186  :         return (result);
 ; 187  : #endif
 ; 188  :     return (PMC_STATUS_OK);
@@ -2872,7 +2872,7 @@ $LN6@PMC_Greate:
 
 ; 183  :         return (result);
 ; 184  : #ifdef _DEBUG
-; 185  :     if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+; 185  :     if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
 ; 186  :         return (result);
 ; 187  : #endif
 ; 188  :     return (PMC_STATUS_OK);

@@ -138,7 +138,7 @@ static void BitwiseAnd_X_X(__UNIT_TYPE* u, __UNIT_TYPE*v, __UNIT_TYPE*w, __UNIT_
     }
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_I_X(_UINT32_T u, HANDLE v, _UINT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
     {
@@ -173,7 +173,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_I_X(_UINT32_T u, HANDLE v, _UINT32_T* 
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_I(HANDLE u, _UINT32_T v, _UINT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_I(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
     {
@@ -208,7 +208,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_I(HANDLE u, _UINT32_T v, _UINT32_T* 
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_L_X(_UINT64_T u, HANDLE v, _UINT64_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
     {
@@ -257,7 +257,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_L_X(_UINT64_T u, HANDLE v, _UINT64_T* 
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_L(HANDLE u, _UINT64_T v, _UINT64_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_L(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(v) * 8)
     {
@@ -306,7 +306,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_L(HANDLE u, _UINT64_T v, _UINT64_T* 
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_X(HANDLE u, HANDLE v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w)
 {
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -323,9 +323,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_X(HANDLE u, HANDLE v, HANDLE* w)
         return (result);
     NUMBER_HEADER* nw;
     if (nu->IS_ZERO)
-        *w = &number_zero;
+        *w = (PMC_HANDLE_UINT)&number_zero;
     else if (nv->IS_ZERO)
-        *w = &number_zero;
+        *w = (PMC_HANDLE_UINT)&number_zero;
     else
     {
         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
@@ -344,10 +344,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_BitwiseAnd_X_X(HANDLE u, HANDLE v, HANDLE* w)
             DeallocateNumber(nw);
             nw = &number_zero;
         }
-        *w = nw;
+        *w = (PMC_HANDLE_UINT)nw;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

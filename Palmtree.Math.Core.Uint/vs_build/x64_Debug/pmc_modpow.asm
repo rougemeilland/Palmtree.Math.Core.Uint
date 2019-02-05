@@ -3073,7 +3073,7 @@ $LN8@PMC_ModPow:
 $LN9@PMC_ModPow:
 
 ; 613  : #ifdef _DEBUG
-; 614  :     if ((result = CheckNumber(*r)) != PMC_STATUS_OK)
+; 614  :     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR [rax]

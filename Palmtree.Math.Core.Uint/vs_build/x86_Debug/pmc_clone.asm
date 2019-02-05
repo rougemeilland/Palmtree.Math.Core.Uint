@@ -158,14 +158,14 @@ $LN5@PMC_Clone_:
 $LN6@PMC_Clone_:
 
 ; 47   :     }
-; 48   :     *o = no;
+; 48   :     *o = (PMC_HANDLE_UINT)no;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR _no$[ebp]
 	mov	DWORD PTR [eax], ecx
 
 ; 49   : #ifdef _DEBUG
-; 50   :     if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+; 50   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR [edx]

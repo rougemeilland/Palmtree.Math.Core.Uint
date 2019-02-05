@@ -178,7 +178,7 @@ PMC_STATUS_CODE Subtruct_Imp(__UNIT_TYPE* up, __UNIT_TYPE u_count, __UNIT_TYPE* 
     return (DoBorrow(c, up, u_count - v_count, wp, w_count - v_count));
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_I_X(_UINT32_T u, HANDLE v, _UINT32_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(u) * 8)
     {
@@ -258,7 +258,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_I_X(_UINT32_T u, HANDLE v, _UINT32_T* w)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w)
 {
     if (__UNIT_TYPE_BIT_COUNT < sizeof(v) * 8)
     {
@@ -283,7 +283,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
             // v が 0 である場合
 
             // u と v がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-            *w = &number_zero;
+            *w = (PMC_HANDLE_UINT)&number_zero;
         }
         else
         {
@@ -335,16 +335,16 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_I(HANDLE u, _UINT32_T v, HANDLE* w)
                 nw = &number_zero;
             }
         }
-        *w = nw;
+        *w = (PMC_HANDLE_UINT)nw;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*w)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*w)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_L_X(_UINT64_T u, HANDLE v, _UINT64_T* w)
+PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(u) * 8)
     {
@@ -513,7 +513,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_L_X(_UINT64_T u, HANDLE v, _UINT64_T* w)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_L(HANDLE x, _UINT64_T y, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_L(PMC_HANDLE_UINT x, _UINT64_T y, PMC_HANDLE_UINT* o)
 {
     if (__UNIT_TYPE_BIT_COUNT * 2 < sizeof(y) * 8)
     {
@@ -538,7 +538,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_L(HANDLE x, _UINT64_T y, HANDLE* o)
             // y が 0 である場合
 
             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-            *o = &number_zero;
+            *o = (PMC_HANDLE_UINT)&number_zero;
         }
         else
         {
@@ -645,16 +645,16 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_L(HANDLE x, _UINT64_T y, HANDLE* o)
                 nz = &number_zero;
             }
         }
-        *o = nz;
+        *o = (PMC_HANDLE_UINT)nz;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_X(HANDLE x, HANDLE y, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT y, PMC_HANDLE_UINT* o)
 {
     if (x == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -677,7 +677,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_X(HANDLE x, HANDLE y, HANDLE* o)
             // y が 0 である場合
 
             // x と y がともに 0 であるので、演算結果の 0 を呼び出し元に返す。
-            *o = &number_zero;
+            *o = (PMC_HANDLE_UINT)&number_zero;
         }
         else
         {
@@ -724,10 +724,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Subtruct_X_X(HANDLE x, HANDLE y, HANDLE* o)
                 return (result);
             CommitNumber(nz);
         }
-        *o = nz;
+        *o = (PMC_HANDLE_UINT)nz;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);

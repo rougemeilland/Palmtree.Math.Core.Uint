@@ -80,28 +80,28 @@ PMC_STATUS_CODE From_L_Imp(_UINT64_T x, NUMBER_HEADER** o)
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_From_I(_UINT32_T x, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_From_I(_UINT32_T x, PMC_HANDLE_UINT* o)
 {
     PMC_STATUS_CODE result;
     if (sizeof(__UNIT_TYPE) < sizeof(x))
         return (PMC_STATUS_INTERNAL_ERROR);
     if (x == 0)
-        *o = &number_zero;
+        *o = (PMC_HANDLE_UINT)&number_zero;
     else
     {
         NUMBER_HEADER* p;
         if ((result = From_I_Imp(x, &p)) != PMC_STATUS_OK)
             return (result);
-        *o = p;
+        *o = (PMC_HANDLE_UINT)p;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_From_L(_UINT64_T x, HANDLE* o)
+PMC_STATUS_CODE __PMC_CALL PMC_From_L(_UINT64_T x, PMC_HANDLE_UINT* o)
 {
     NUMBER_HEADER* p;
     PMC_STATUS_CODE result;
@@ -111,15 +111,15 @@ PMC_STATUS_CODE __PMC_CALL PMC_From_L(_UINT64_T x, HANDLE* o)
         return (PMC_STATUS_INTERNAL_ERROR);
     }
     if (x == 0)
-        *o = &number_zero;
+        *o = (PMC_HANDLE_UINT)&number_zero;
     else
     {
         if ((result = From_L_Imp(x, &p)) != PMC_STATUS_OK)
             return (result);
-        *o = p;
+        *o = (PMC_HANDLE_UINT)p;
     }
 #ifdef _DEBUG
-    if ((result = CheckNumber(*o)) != PMC_STATUS_OK)
+    if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
 #endif
     return (PMC_STATUS_OK);
