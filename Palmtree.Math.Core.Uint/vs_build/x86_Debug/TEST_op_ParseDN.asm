@@ -314,7 +314,7 @@ _TEST_PMC_ParseDN2 PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	edx, DWORD PTR _x$[ebp]
@@ -365,7 +365,7 @@ $LN6@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 72   :     {
-; 73   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 73   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	push	OFFSET ?actual_buf_size@?1??TEST_PMC_ParseDN2@@9@9
@@ -446,7 +446,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_P
 
-; 77   :         ep->PMC_Dispose(x);
+; 77   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _x$[ebp]
@@ -604,7 +604,7 @@ _TEST_PMC_ParseDN1 PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -655,7 +655,7 @@ $LN6@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 48   :     {
-; 49   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 49   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	push	OFFSET ?actual_buf_size@?1??TEST_PMC_ParseDN1@@9@9
@@ -736,7 +736,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_P
 
-; 53   :         ep->PMC_Dispose(x);
+; 53   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _x$[ebp]

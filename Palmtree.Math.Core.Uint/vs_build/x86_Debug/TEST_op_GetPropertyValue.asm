@@ -128,7 +128,7 @@ _TEST_PMC_GetPropertyValue_X_I PROC
 ; 35   :     _INT32_T actual_value;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE x_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -170,7 +170,7 @@ $LN5@TEST_PMC_G:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 2), (result = ep->PMC_GetPropertyValue_X_I(x, function_code, &actual_value)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_GetPropertyValue_X_Iの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_GetPropertyValue_X_I (%d.%d)", no, 2), (result = ep->GetPropertyValue_X_I(x, function_code, &actual_value)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_GetPropertyValue_X_Iの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_value$[ebp]
@@ -242,7 +242,7 @@ $LN9@TEST_PMC_G:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_G
 
-; 42   :         ep->PMC_Dispose(x);
+; 42   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]

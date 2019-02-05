@@ -43,14 +43,14 @@ void TEST_PMC_ParseDN1(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, in
     opt.DecimalDigits = 2;
     lstrcpyW(opt.PositiveSign, positive_sign);
     lstrcpyW(opt.NegativeSign, negative_sign);
-    TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
     if (desired_result_code == PMC_STATUS_OK)
     {
-        TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+        TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 3), _EQUALS_MEMORY(actual_buf, actual_buf_size, desired_buf, desired_buf_size) == 0, L"データの内容が一致しない");
     }
     if (x_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(x);
+        ep->Dispose(x);
 }
 
 void TEST_PMC_ParseDN2(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, wchar_t* str, unsigned int styles, PMC_STATUS_CODE desired_result_code, unsigned char* desired_buf, size_t desired_buf_size)
@@ -67,14 +67,14 @@ void TEST_PMC_ParseDN2(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, in
     opt.DecimalDigits = 2;
     lstrcpyW(opt.PositiveSign, L"+");
     lstrcpyW(opt.NegativeSign, L"-");
-    TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
     if (desired_result_code == PMC_STATUS_OK)
     {
-        TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+        TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 3), _EQUALS_MEMORY(actual_buf, actual_buf_size, desired_buf, desired_buf_size) == 0, L"データの内容が一致しない");
     }
     if (x_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(x);
+        ep->Dispose(x);
 }
 #endif
 

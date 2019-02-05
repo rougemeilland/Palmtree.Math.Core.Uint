@@ -311,7 +311,7 @@ $LN14:
 ; 38   :     PMC_STATUS_CODE result;
 ; 39   :     PMC_STATUS_CODE x_result;
 ; 40   :     PMC_STATUS_CODE z_result;
-; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -341,7 +341,7 @@ $LN7@TEST_PMC_P:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 2), (z_result = ep->PMC_Pow_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Pow_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 2), (z_result = ep->Pow_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Pow_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	lea	r8, QWORD PTR z$[rbp]
 	mov	edx, DWORD PTR y$[rbp]
@@ -378,7 +378,7 @@ $LN9@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 44   :     {
-; 45   :         TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 45   :         TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_z_buf_size$[rbp]
 	mov	r8d, 65536				; 00010000H
@@ -440,7 +440,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR z_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_P
 
-; 49   :         ep->PMC_Dispose(z);
+; 49   :         ep->Dispose(z);
 
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -452,7 +452,7 @@ $LN3@TEST_PMC_P:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_P
 
-; 51   :         ep->PMC_Dispose(x);
+; 51   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]

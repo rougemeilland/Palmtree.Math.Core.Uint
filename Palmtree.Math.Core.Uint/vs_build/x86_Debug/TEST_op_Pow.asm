@@ -226,7 +226,7 @@ _TEST_PMC_Pow_X_I PROC
 ; 38   :     PMC_STATUS_CODE result;
 ; 39   :     PMC_STATUS_CODE x_result;
 ; 40   :     PMC_STATUS_CODE z_result;
-; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -268,7 +268,7 @@ $LN7@TEST_PMC_P:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 2), (z_result = ep->PMC_Pow_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Pow_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 2), (z_result = ep->Pow_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Pow_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -317,7 +317,7 @@ $LN9@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 44   :     {
-; 45   :         TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 45   :         TEST_Assert(env, FormatTestLabel(L"PMC_Pow_X_I (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	ecx, DWORD PTR _actual_z_buf_size$[ebp]
@@ -399,7 +399,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN3@TEST_PMC_P
 
-; 49   :         ep->PMC_Dispose(z);
+; 49   :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _z$[ebp]
@@ -416,7 +416,7 @@ $LN3@TEST_PMC_P:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_P
 
-; 51   :         ep->PMC_Dispose(x);
+; 51   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _x$[ebp]

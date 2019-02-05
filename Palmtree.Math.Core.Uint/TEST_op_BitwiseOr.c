@@ -38,14 +38,14 @@ void TEST_PMC_BitwiseOr_I_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE v_result;
     PMC_STATUS_CODE w_result;
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 2), (w_result = ep->PMC_BitwiseOr_I_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_I_Xの復帰コードが期待通りではない(%d)", w_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 2), (w_result = ep->BitwiseOr_I_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_I_Xの復帰コードが期待通りではない(%d)", w_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 3), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_I_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
     if (w_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(w);
+        ep->Dispose(w);
     if (v_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(v);
+        ep->Dispose(v);
 }
 
 void TEST_PMC_BitwiseOr_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 u, unsigned char* v_buf, size_t v_buf_size, unsigned char* desired_w_buf, size_t desired_w_buf_size)
@@ -57,14 +57,14 @@ void TEST_PMC_BitwiseOr_L_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE v_result;
     PMC_STATUS_CODE w_result;
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 2), (w_result = ep->PMC_BitwiseOr_L_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_L_Xの復帰コードが期待通りではない(%d)", w_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 2), (w_result = ep->BitwiseOr_L_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_L_Xの復帰コードが期待通りではない(%d)", w_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 3), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_L_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
     if (w_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(w);
+        ep->Dispose(w);
     if (v_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(v);
+        ep->Dispose(v);
 }
 
 void TEST_PMC_BitwiseOr_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned __int32 v, unsigned char*desired_w_buf, size_t desired_w_buf_size)
@@ -76,14 +76,14 @@ void TEST_PMC_BitwiseOr_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE u_result;
     PMC_STATUS_CODE w_result;
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_I (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_I (%d.%d)", no, 2), (w_result = ep->PMC_BitwiseOr_X_I(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Iの復帰コードが期待通りではない(%d)", w_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_I (%d.%d)", no, 2), (w_result = ep->BitwiseOr_X_I(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Iの復帰コードが期待通りではない(%d)", w_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
     if (w_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(w);
+        ep->Dispose(w);
     if (u_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(u);
+        ep->Dispose(u);
 }
 
 void TEST_PMC_BitwiseOr_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned __int64 v, unsigned char*desired_w_buf, size_t desired_w_buf_size)
@@ -95,14 +95,14 @@ void TEST_PMC_BitwiseOr_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE u_result;
     PMC_STATUS_CODE w_result;
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_L (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_L (%d.%d)", no, 2), (w_result = ep->PMC_BitwiseOr_X_L(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Lの復帰コードが期待通りではない(%d)", w_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_L (%d.%d)", no, 2), (w_result = ep->BitwiseOr_X_L(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Lの復帰コードが期待通りではない(%d)", w_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
     if (w_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(w);
+        ep->Dispose(w);
     if (u_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(u);
+        ep->Dispose(u);
 }
 
 void TEST_PMC_BitwiseOr_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*u_buf, size_t u_buf_size, unsigned char*v_buf, size_t v_buf_size, unsigned char*desired_w_buf, size_t desired_w_buf_size)
@@ -116,17 +116,17 @@ void TEST_PMC_BitwiseOr_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* e
     PMC_STATUS_CODE u_result;
     PMC_STATUS_CODE v_result;
     PMC_STATUS_CODE w_result;
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 2), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (w_result = ep->PMC_BitwiseOr_X_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Xの復帰コードが期待通りではない(%d)", w_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 4), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 3), (w_result = ep->BitwiseOr_X_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseOr_X_Xの復帰コードが期待通りではない(%d)", w_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseOr_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_w_buf, actual_w_buf_size, desired_w_buf, desired_w_buf_size) == 0, L"データの内容が一致しない");
     if (w_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(w);
+        ep->Dispose(w);
     if (v_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(v);
+        ep->Dispose(v);
     if (u_result == PMC_STATUS_OK)
-        ep->PMC_Dispose(u);
+        ep->Dispose(u);
 }
 #endif
 

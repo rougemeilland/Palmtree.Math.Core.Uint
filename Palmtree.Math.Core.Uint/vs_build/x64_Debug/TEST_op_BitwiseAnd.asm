@@ -590,7 +590,7 @@ $LN16:
 ; 92   :     PMC_STATUS_CODE u_result;
 ; 93   :     PMC_STATUS_CODE v_result;
 ; 94   :     PMC_STATUS_CODE w_result;
-; 95   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+; 95   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
@@ -620,7 +620,7 @@ $LN7@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 96   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 2), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 96   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -650,7 +650,7 @@ $LN9@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 97   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 3), (w_result = ep->PMC_BitwiseAnd_X_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Xの復帰コードが期待通りではない(%d)", w_result));
+; 97   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 3), (w_result = ep->BitwiseAnd_X_X(u, v, &w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Xの復帰コードが期待通りではない(%d)", w_result));
 
 	lea	r8, QWORD PTR w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -680,7 +680,7 @@ $LN11@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 98   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 4), (result = ep->PMC_ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 98   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(w, actual_w_buf, sizeof(actual_w_buf), &actual_w_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, QWORD PTR actual_w_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
@@ -740,7 +740,7 @@ $LN15@TEST_PMC_B:
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_B
 
-; 101  :         ep->PMC_Dispose(w);
+; 101  :         ep->Dispose(w);
 
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -752,7 +752,7 @@ $LN2@TEST_PMC_B:
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_B
 
-; 103  :         ep->PMC_Dispose(v);
+; 103  :         ep->Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -764,7 +764,7 @@ $LN3@TEST_PMC_B:
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_B
 
-; 105  :         ep->PMC_Dispose(u);
+; 105  :         ep->Dispose(u);
 
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -830,7 +830,7 @@ $LN10:
 ; 74   :     unsigned __int64 actual_w;
 ; 75   :     PMC_STATUS_CODE result;
 ; 76   :     PMC_STATUS_CODE u_result;
-; 77   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_L (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+; 77   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
@@ -860,7 +860,7 @@ $LN5@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 78   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_L (%d.%d)", no, 2), (result = ep->PMC_BitwiseAnd_X_L(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Lの復帰コードが期待通りではない(%d)", result));
+; 78   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_L (%d.%d)", no, 2), (result = ep->BitwiseAnd_X_L(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Lの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -915,7 +915,7 @@ $LN9@TEST_PMC_B:
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_B
 
-; 81   :         ep->PMC_Dispose(u);
+; 81   :         ep->Dispose(u);
 
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -978,7 +978,7 @@ $LN10:
 ; 61   :     unsigned __int32 actual_w;
 ; 62   :     PMC_STATUS_CODE result;
 ; 63   :     PMC_STATUS_CODE u_result;
-; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_I (%d.%d)", no, 1), (u_result = ep->PMC_FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
+; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
@@ -1008,7 +1008,7 @@ $LN5@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 65   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_I (%d.%d)", no, 2), (result = ep->PMC_BitwiseAnd_X_I(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Iの復帰コードが期待通りではない(%d)", result));
+; 65   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_X_I (%d.%d)", no, 2), (result = ep->BitwiseAnd_X_I(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_X_Iの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	edx, DWORD PTR v$[rbp]
@@ -1063,7 +1063,7 @@ $LN9@TEST_PMC_B:
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_B
 
-; 68   :         ep->PMC_Dispose(u);
+; 68   :         ep->Dispose(u);
 
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -1126,7 +1126,7 @@ $LN10:
 ; 48   :     unsigned __int64 actual_w;
 ; 49   :     PMC_STATUS_CODE result;
 ; 50   :     PMC_STATUS_CODE v_result;
-; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -1156,7 +1156,7 @@ $LN5@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_L_X (%d.%d)", no, 2), (result = ep->PMC_BitwiseAnd_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_L_Xの復帰コードが期待通りではない(%d)", result));
+; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_L_X (%d.%d)", no, 2), (result = ep->BitwiseAnd_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_L_Xの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -1211,7 +1211,7 @@ $LN9@TEST_PMC_B:
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_B
 
-; 55   :         ep->PMC_Dispose(v);
+; 55   :         ep->Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -1274,7 +1274,7 @@ $LN10:
 ; 35   :     unsigned __int32 actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -1304,7 +1304,7 @@ $LN5@TEST_PMC_B:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_I_X (%d.%d)", no, 2), (result = ep->PMC_BitwiseAnd_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_I_Xの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_BitwiseAnd_I_X (%d.%d)", no, 2), (result = ep->BitwiseAnd_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_BitwiseAnd_I_Xの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -1359,7 +1359,7 @@ $LN9@TEST_PMC_B:
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_B
 
-; 42   :         ep->PMC_Dispose(v);
+; 42   :         ep->Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]

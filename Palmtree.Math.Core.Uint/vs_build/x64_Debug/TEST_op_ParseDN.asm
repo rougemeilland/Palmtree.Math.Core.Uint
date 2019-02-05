@@ -396,7 +396,7 @@ $LN11:
 	lea	rcx, QWORD PTR opt$[rbp+22]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r9, QWORD PTR x$[rbp]
 	lea	r8, QWORD PTR opt$[rbp]
@@ -434,7 +434,7 @@ $LN6@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 72   :     {
-; 73   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 73   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN2 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, OFFSET FLAT:?actual_buf_size@?1??TEST_PMC_ParseDN2@@9@9
 	mov	r8d, 256				; 00000100H
@@ -496,7 +496,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_P
 
-; 77   :         ep->PMC_Dispose(x);
+; 77   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -607,7 +607,7 @@ $LN11:
 	lea	rcx, QWORD PTR opt$[rbp+22]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->PMC_TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r9, QWORD PTR x$[rbp]
 	lea	r8, QWORD PTR opt$[rbp]
@@ -645,7 +645,7 @@ $LN6@TEST_PMC_P:
 	jne	$LN2@TEST_PMC_P
 
 ; 48   :     {
-; 49   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->PMC_ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 49   :         TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 2), (result = ep->ToByteArray(x, actual_buf, sizeof(actual_buf), &actual_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	lea	r9, OFFSET FLAT:?actual_buf_size@?1??TEST_PMC_ParseDN1@@9@9
 	mov	r8d, 256				; 00000100H
@@ -707,7 +707,7 @@ $LN2@TEST_PMC_P:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_P
 
-; 53   :         ep->PMC_Dispose(x);
+; 53   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]

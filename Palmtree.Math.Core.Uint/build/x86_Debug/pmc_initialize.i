@@ -87378,118 +87378,118 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     unsigned PROCESSOR_FEATURE_ABM : 1;
 
 
-    void (__attribute__((__stdcall__)) * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
+    void (__attribute__((__stdcall__)) * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_From_I)(_UINT32_T x, PMC_HANDLE_UINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_I)(_UINT32_T x, PMC_HANDLE_UINT* pp);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_From_L)(_UINT64_T x, PMC_HANDLE_UINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_L)(_UINT64_T x, PMC_HANDLE_UINT* pp);
 
 
-    void (__attribute__((__stdcall__)) * PMC_Dispose)(PMC_HANDLE_UINT p);
+    void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_UINT p);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_LeftShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * LeftShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_RightShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * RightShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Pow_X_I)(PMC_HANDLE_UINT x, _UINT32_T n, PMC_HANDLE_UINT* z);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Pow_X_I)(PMC_HANDLE_UINT x, _UINT32_T n, PMC_HANDLE_UINT* z);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
 } PMC_UINT_ENTRY_POINTS;
 
@@ -87506,115 +87506,115 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     void (__attribute__((__stdcall__)) * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
 
 
     void (__attribute__((__stdcall__)) * PMC_Dispose)(PMC_HANDLE_SINT p);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ToByteArray)(PMC_HANDLE_SINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArray)(PMC_HANDLE_SINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Clone_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Clone_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_To_X_I)(PMC_HANDLE_SINT p, _INT32_T* o);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_To_X_L)(PMC_HANDLE_SINT p, _INT64_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_I)(PMC_HANDLE_SINT p, _INT32_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_SINT p, _INT64_T* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ToString)(PMC_HANDLE_SINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_SINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_SINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_SINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Add_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_SINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_SINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _UINT32_T* q, _UINT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _UINT64_T* q, _UINT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* q, _INT32_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT64_T* q, _INT64_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_LeftShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * LeftShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_RightShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * RightShift_X_I)(PMC_HANDLE_SINT p, _UINT32_T n, PMC_HANDLE_SINT* o);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseAnd_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT64_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT64_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_BitwiseOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ExclusiveOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_GreatestCommonDivisor_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_Pow_X_I)(PMC_HANDLE_SINT x, _UINT32_T n, PMC_HANDLE_SINT* z);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Pow_X_I)(PMC_HANDLE_SINT x, _UINT32_T n, PMC_HANDLE_SINT* z);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * PMC_ModPow_X_X_X)(PMC_HANDLE_SINT v, PMC_HANDLE_SINT e, PMC_HANDLE_SINT m, PMC_HANDLE_SINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ModPow_X_X_X)(PMC_HANDLE_SINT v, PMC_HANDLE_SINT e, PMC_HANDLE_SINT m, PMC_HANDLE_SINT* r);
 
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
@@ -88185,72 +88185,72 @@ static char initialized = 0;
  entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
     entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
     entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
- entry_points.PMC_GetStatisticsInfo = PMC_GetStatisticsInfo;
- entry_points.PMC_From_I = PMC_From_I;
- entry_points.PMC_From_L = PMC_From_L;
-    entry_points.PMC_FromByteArray = PMC_FromByteArray;
-    entry_points.PMC_Dispose = PMC_Dispose;
-    entry_points.PMC_To_X_I = PMC_To_X_I;
- entry_points.PMC_To_X_L = PMC_To_X_L;
-    entry_points.PMC_ToByteArray = PMC_ToByteArray;
-    entry_points.PMC_ToString = PMC_ToString;
-    entry_points.PMC_TryParse = PMC_TryParse;
-    entry_points.PMC_Add_I_X = PMC_Add_I_X;
- entry_points.PMC_Add_L_X = PMC_Add_L_X;
-    entry_points.PMC_Add_X_I = PMC_Add_X_I;
-    entry_points.PMC_Add_X_L = PMC_Add_X_L;
-    entry_points.PMC_Add_X_X = PMC_Add_X_X;
-    entry_points.PMC_Subtruct_I_X = PMC_Subtruct_I_X;
-    entry_points.PMC_Subtruct_L_X = PMC_Subtruct_L_X;
-    entry_points.PMC_Subtruct_X_I = PMC_Subtruct_X_I;
-    entry_points.PMC_Subtruct_X_L = PMC_Subtruct_X_L;
-    entry_points.PMC_Subtruct_X_X = PMC_Subtruct_X_X;
-    entry_points.PMC_Multiply_I_X = PMC_Multiply_I_X;
-    entry_points.PMC_Multiply_L_X = PMC_Multiply_L_X;
-    entry_points.PMC_Multiply_X_I = PMC_Multiply_X_I;
-    entry_points.PMC_Multiply_X_L = PMC_Multiply_X_L;
-    entry_points.PMC_Multiply_X_X = PMC_Multiply_X_X;
-    entry_points.PMC_DivRem_I_X = PMC_DivRem_I_X;
-    entry_points.PMC_DivRem_L_X = PMC_DivRem_L_X;
-    entry_points.PMC_DivRem_X_I = PMC_DivRem_X_I;
-    entry_points.PMC_DivRem_X_L = PMC_DivRem_X_L;
-    entry_points.PMC_DivRem_X_X = PMC_DivRem_X_X;
-    entry_points.PMC_RightShift_X_I = PMC_RightShift_X_I;
-    entry_points.PMC_LeftShift_X_I = PMC_LeftShift_X_I;
-    entry_points.PMC_BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
-    entry_points.PMC_BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
-    entry_points.PMC_BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
-    entry_points.PMC_BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
-    entry_points.PMC_BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
-    entry_points.PMC_BitwiseOr_I_X = PMC_BitwiseOr_I_X;
-    entry_points.PMC_BitwiseOr_L_X = PMC_BitwiseOr_L_X;
-    entry_points.PMC_BitwiseOr_X_I = PMC_BitwiseOr_X_I;
-    entry_points.PMC_BitwiseOr_X_L = PMC_BitwiseOr_X_L;
-    entry_points.PMC_BitwiseOr_X_X = PMC_BitwiseOr_X_X;
-    entry_points.PMC_ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
-    entry_points.PMC_ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
-    entry_points.PMC_ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
-    entry_points.PMC_ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
-    entry_points.PMC_ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
-    entry_points.PMC_Compare_I_X = PMC_Compare_I_X;
-    entry_points.PMC_Compare_L_X = PMC_Compare_L_X;
-    entry_points.PMC_Compare_X_I = PMC_Compare_X_I;
-    entry_points.PMC_Compare_X_L = PMC_Compare_X_L;
-    entry_points.PMC_Compare_X_X = PMC_Compare_X_X;
-    entry_points.PMC_Equals_I_X = PMC_Equals_I_X;
-    entry_points.PMC_Equals_L_X = PMC_Equals_L_X;
-    entry_points.PMC_Equals_X_I = PMC_Equals_X_I;
-    entry_points.PMC_Equals_X_L = PMC_Equals_X_L;
-    entry_points.PMC_Equals_X_X = PMC_Equals_X_X;
-    entry_points.PMC_GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
-    entry_points.PMC_GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
-    entry_points.PMC_GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
-    entry_points.PMC_GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
-    entry_points.PMC_GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
-    entry_points.PMC_Pow_X_I = PMC_Pow_X_I;
-    entry_points.PMC_ModPow_X_X_X = PMC_ModPow_X_X_X;
-    entry_points.PMC_GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
-    entry_points.PMC_Clone_X = PMC_Clone_X;
+ entry_points.GetStatisticsInfo = PMC_GetStatisticsInfo;
+ entry_points.From_I = PMC_From_I;
+ entry_points.From_L = PMC_From_L;
+    entry_points.FromByteArray = PMC_FromByteArray;
+    entry_points.Dispose = PMC_Dispose;
+    entry_points.To_X_I = PMC_To_X_I;
+ entry_points.To_X_L = PMC_To_X_L;
+    entry_points.ToByteArray = PMC_ToByteArray;
+    entry_points.ToString = PMC_ToString;
+    entry_points.TryParse = PMC_TryParse;
+    entry_points.Add_I_X = PMC_Add_I_X;
+ entry_points.Add_L_X = PMC_Add_L_X;
+    entry_points.Add_X_I = PMC_Add_X_I;
+    entry_points.Add_X_L = PMC_Add_X_L;
+    entry_points.Add_X_X = PMC_Add_X_X;
+    entry_points.Subtruct_I_X = PMC_Subtruct_I_X;
+    entry_points.Subtruct_L_X = PMC_Subtruct_L_X;
+    entry_points.Subtruct_X_I = PMC_Subtruct_X_I;
+    entry_points.Subtruct_X_L = PMC_Subtruct_X_L;
+    entry_points.Subtruct_X_X = PMC_Subtruct_X_X;
+    entry_points.Multiply_I_X = PMC_Multiply_I_X;
+    entry_points.Multiply_L_X = PMC_Multiply_L_X;
+    entry_points.Multiply_X_I = PMC_Multiply_X_I;
+    entry_points.Multiply_X_L = PMC_Multiply_X_L;
+    entry_points.Multiply_X_X = PMC_Multiply_X_X;
+    entry_points.DivRem_I_X = PMC_DivRem_I_X;
+    entry_points.DivRem_L_X = PMC_DivRem_L_X;
+    entry_points.DivRem_X_I = PMC_DivRem_X_I;
+    entry_points.DivRem_X_L = PMC_DivRem_X_L;
+    entry_points.DivRem_X_X = PMC_DivRem_X_X;
+    entry_points.RightShift_X_I = PMC_RightShift_X_I;
+    entry_points.LeftShift_X_I = PMC_LeftShift_X_I;
+    entry_points.BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
+    entry_points.BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
+    entry_points.BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
+    entry_points.BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
+    entry_points.BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
+    entry_points.BitwiseOr_I_X = PMC_BitwiseOr_I_X;
+    entry_points.BitwiseOr_L_X = PMC_BitwiseOr_L_X;
+    entry_points.BitwiseOr_X_I = PMC_BitwiseOr_X_I;
+    entry_points.BitwiseOr_X_L = PMC_BitwiseOr_X_L;
+    entry_points.BitwiseOr_X_X = PMC_BitwiseOr_X_X;
+    entry_points.ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
+    entry_points.ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
+    entry_points.ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
+    entry_points.ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
+    entry_points.ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
+    entry_points.Compare_I_X = PMC_Compare_I_X;
+    entry_points.Compare_L_X = PMC_Compare_L_X;
+    entry_points.Compare_X_I = PMC_Compare_X_I;
+    entry_points.Compare_X_L = PMC_Compare_X_L;
+    entry_points.Compare_X_X = PMC_Compare_X_X;
+    entry_points.Equals_I_X = PMC_Equals_I_X;
+    entry_points.Equals_L_X = PMC_Equals_L_X;
+    entry_points.Equals_X_I = PMC_Equals_X_I;
+    entry_points.Equals_X_L = PMC_Equals_X_L;
+    entry_points.Equals_X_X = PMC_Equals_X_X;
+    entry_points.GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
+    entry_points.GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
+    entry_points.GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
+    entry_points.GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
+    entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
+    entry_points.Pow_X_I = PMC_Pow_X_I;
+    entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
+    entry_points.GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
+    entry_points.Clone_X = PMC_Clone_X;
 
     initialized = 1;
     return (&entry_points);

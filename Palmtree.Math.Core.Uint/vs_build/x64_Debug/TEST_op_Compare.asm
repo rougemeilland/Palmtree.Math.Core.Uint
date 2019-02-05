@@ -414,7 +414,7 @@ $LN13:
 ; 89   :     PMC_STATUS_CODE result;
 ; 90   :     PMC_STATUS_CODE x_result;
 ; 91   :     PMC_STATUS_CODE y_result;
-; 92   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 92   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -444,7 +444,7 @@ $LN6@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 93   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
+; 93   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 2), (y_result = ep->FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
 
 	lea	r8, QWORD PTR y$[rbp]
 	mov	rdx, QWORD PTR y_buf_size$[rbp]
@@ -474,7 +474,7 @@ $LN8@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 94   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 3), (result = ep->PMC_Compare_X_X(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Xの復帰コードが期待通りではない(%d)", result));
+; 94   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_X (%d.%d)", no, 3), (result = ep->Compare_X_X(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Xの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_z$[rbp]
 	mov	rdx, QWORD PTR y$[rbp]
@@ -529,7 +529,7 @@ $LN12@TEST_PMC_C:
 	cmp	DWORD PTR y_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 97   :         ep->PMC_Dispose(y);
+; 97   :         ep->Dispose(y);
 
 	mov	rcx, QWORD PTR y$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -541,7 +541,7 @@ $LN2@TEST_PMC_C:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN3@TEST_PMC_C
 
-; 99   :         ep->PMC_Dispose(x);
+; 99   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -604,7 +604,7 @@ $LN10:
 ; 74   :     int actual_z;
 ; 75   :     PMC_STATUS_CODE result;
 ; 76   :     PMC_STATUS_CODE x_result;
-; 77   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 77   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -634,7 +634,7 @@ $LN5@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 78   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 2), (result = ep->PMC_Compare_X_L(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Lの復帰コードが期待通りではない(%d)", result));
+; 78   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_L (%d.%d)", no, 2), (result = ep->Compare_X_L(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Lの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_z$[rbp]
 	mov	rdx, QWORD PTR y$[rbp]
@@ -689,7 +689,7 @@ $LN9@TEST_PMC_C:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 81   :         ep->PMC_Dispose(x);
+; 81   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -752,7 +752,7 @@ $LN10:
 ; 61   :     int actual_z;
 ; 62   :     PMC_STATUS_CODE result;
 ; 63   :     PMC_STATUS_CODE x_result;
-; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 64   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
@@ -782,7 +782,7 @@ $LN5@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 65   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 2), (result = ep->PMC_Compare_X_I(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Iの復帰コードが期待通りではない(%d)", result));
+; 65   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_X_I (%d.%d)", no, 2), (result = ep->Compare_X_I(x, y, &actual_z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_X_Iの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_z$[rbp]
 	mov	edx, DWORD PTR y$[rbp]
@@ -837,7 +837,7 @@ $LN9@TEST_PMC_C:
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 68   :         ep->PMC_Dispose(x);
+; 68   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -900,7 +900,7 @@ $LN10:
 ; 48   :     int actual_w;
 ; 49   :     PMC_STATUS_CODE result;
 ; 50   :     PMC_STATUS_CODE v_result;
-; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 51   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -930,7 +930,7 @@ $LN5@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 2), (result = ep->PMC_Compare_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_L_Xの復帰コードが期待通りではない(%d)", result));
+; 52   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_L_X (%d.%d)", no, 2), (result = ep->Compare_L_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_L_Xの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -985,7 +985,7 @@ $LN9@TEST_PMC_C:
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 55   :         ep->PMC_Dispose(v);
+; 55   :         ep->Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
@@ -1048,7 +1048,7 @@ $LN10:
 ; 35   :     int actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
@@ -1078,7 +1078,7 @@ $LN5@TEST_PMC_C:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 2), (result = ep->PMC_Compare_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_I_Xの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Compare_I_X (%d.%d)", no, 2), (result = ep->Compare_I_X(u, v, &actual_w)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_Compare_I_Xの復帰コードが期待通りではない(%d)", result));
 
 	lea	r8, QWORD PTR actual_w$[rbp]
 	mov	rdx, QWORD PTR v$[rbp]
@@ -1133,7 +1133,7 @@ $LN9@TEST_PMC_C:
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_C
 
-; 42   :         ep->PMC_Dispose(v);
+; 42   :         ep->Dispose(v);
 
 	mov	rcx, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]

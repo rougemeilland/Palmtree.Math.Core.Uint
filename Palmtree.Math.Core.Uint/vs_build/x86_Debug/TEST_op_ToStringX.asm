@@ -189,7 +189,7 @@ _TEST_PMC_ToStringX PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 45   :     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 45   :     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	edx, DWORD PTR _x$[ebp]
@@ -231,7 +231,7 @@ $LN5@TEST_PMC_T:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 2), (result = ep->PMC_ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, min_width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+; 46   :     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, min_width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	edx, DWORD PTR _opt$[ebp]
@@ -313,7 +313,7 @@ $LN9@TEST_PMC_T:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_T
 
-; 49   :         ep->PMC_Dispose(x);
+; 49   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]

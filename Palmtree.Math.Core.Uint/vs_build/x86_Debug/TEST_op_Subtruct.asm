@@ -390,7 +390,7 @@ _TEST_PMC_Subtruct_X_X PROC
 ; 116  :     PMC_STATUS_CODE x_result;
 ; 117  :     PMC_STATUS_CODE y_result;
 ; 118  :     PMC_STATUS_CODE z_result;
-; 119  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 119  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -432,7 +432,7 @@ $LN8@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 120  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 2), (y_result = ep->PMC_FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
+; 120  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 2), (y_result = ep->FromByteArray(y_buf, y_buf_size, &y)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", y_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _y$[ebp]
@@ -474,7 +474,7 @@ $LN10@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 121  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 3), (z_result = ep->PMC_Subtruct_X_X(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Xの復帰コードが期待通りではない(%d)", z_result));
+; 121  :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 3), (z_result = ep->Subtruct_X_X(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Xの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -523,7 +523,7 @@ $LN12@TEST_PMC_S:
 	jne	$LN2@TEST_PMC_S
 
 ; 123  :     {
-; 124  :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 4), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 124  :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	ecx, DWORD PTR _actual_z_buf_size$[ebp]
@@ -607,7 +607,7 @@ $LN2@TEST_PMC_S:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN3@TEST_PMC_S
 
-; 128  :         ep->PMC_Dispose(z);
+; 128  :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _z$[ebp]
@@ -624,7 +624,7 @@ $LN3@TEST_PMC_S:
 	cmp	DWORD PTR _y_result$[ebp], 0
 	jne	SHORT $LN4@TEST_PMC_S
 
-; 130  :         ep->PMC_Dispose(y);
+; 130  :         ep->Dispose(y);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _y$[ebp]
@@ -641,7 +641,7 @@ $LN4@TEST_PMC_S:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_S
 
-; 132  :         ep->PMC_Dispose(x);
+; 132  :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _x$[ebp]
@@ -786,7 +786,7 @@ _TEST_PMC_Subtruct_X_L PROC
 ; 92   :     PMC_STATUS_CODE result;
 ; 93   :     PMC_STATUS_CODE x_result;
 ; 94   :     PMC_STATUS_CODE z_result;
-; 95   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 95   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -828,7 +828,7 @@ $LN7@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 96   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 2), (z_result = ep->PMC_Subtruct_X_L(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Lの復帰コードが期待通りではない(%d)", z_result));
+; 96   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 2), (z_result = ep->Subtruct_X_L(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Lの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -879,7 +879,7 @@ $LN9@TEST_PMC_S:
 	jne	$LN2@TEST_PMC_S
 
 ; 98   :     {
-; 99   :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 99   :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_L (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	edx, DWORD PTR _actual_z_buf_size$[ebp]
@@ -963,7 +963,7 @@ $LN2@TEST_PMC_S:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN3@TEST_PMC_S
 
-; 103  :         ep->PMC_Dispose(z);
+; 103  :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _z$[ebp]
@@ -980,7 +980,7 @@ $LN3@TEST_PMC_S:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_S
 
-; 105  :         ep->PMC_Dispose(x);
+; 105  :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _x$[ebp]
@@ -1119,7 +1119,7 @@ _TEST_PMC_Subtruct_X_I PROC
 ; 70   :     PMC_STATUS_CODE result;
 ; 71   :     PMC_STATUS_CODE x_result;
 ; 72   :     PMC_STATUS_CODE z_result;
-; 73   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 73   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -1161,7 +1161,7 @@ $LN7@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 74   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 2), (z_result = ep->PMC_Subtruct_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 74   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 2), (z_result = ep->Subtruct_X_I(x, y, &z)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -1210,7 +1210,7 @@ $LN9@TEST_PMC_S:
 	jne	$LN2@TEST_PMC_S
 
 ; 76   :     {
-; 77   :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 77   :         TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_X_I (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	ecx, DWORD PTR _actual_z_buf_size$[ebp]
@@ -1294,7 +1294,7 @@ $LN2@TEST_PMC_S:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN3@TEST_PMC_S
 
-; 81   :         ep->PMC_Dispose(z);
+; 81   :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _z$[ebp]
@@ -1311,7 +1311,7 @@ $LN3@TEST_PMC_S:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_S
 
-; 83   :         ep->PMC_Dispose(x);
+; 83   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _x$[ebp]
@@ -1438,7 +1438,7 @@ _TEST_PMC_Subtruct_L_X PROC
 ; 51   :     unsigned __int64 actual_w;
 ; 52   :     PMC_STATUS_CODE result;
 ; 53   :     PMC_STATUS_CODE v_result;
-; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_L_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -1480,7 +1480,7 @@ $LN6@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_L_X (%d.%d)", no, 2), (result = ep->PMC_Subtruct_L_X(u, v, &actual_w)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_L_Xの復帰コードが期待通りではない(%d)", result));
+; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_L_X (%d.%d)", no, 2), (result = ep->Subtruct_L_X(u, v, &actual_w)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_L_Xの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_w$[ebp]
@@ -1566,7 +1566,7 @@ $LN2@TEST_PMC_S:
 	cmp	DWORD PTR _v_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_S
 
-; 61   :         ep->PMC_Dispose(v);
+; 61   :         ep->Dispose(v);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _v$[ebp]
@@ -1659,7 +1659,7 @@ _TEST_PMC_Subtruct_I_X PROC
 ; 35   :     unsigned __int32 actual_w;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_I_X (%d.%d)", no, 1), (v_result = ep->PMC_FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -1701,7 +1701,7 @@ $LN6@TEST_PMC_S:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_I_X (%d.%d)", no, 2), (result = ep->PMC_Subtruct_I_X(u, v, &actual_w)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_I_Xの復帰コードが期待通りではない(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Subtruct_I_X (%d.%d)", no, 2), (result = ep->Subtruct_I_X(u, v, &actual_w)) == desired_result_code, FormatTestMesssage(L"PMC_Subtruct_I_Xの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_w$[ebp]
@@ -1782,7 +1782,7 @@ $LN2@TEST_PMC_S:
 	cmp	DWORD PTR _v_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_S
 
-; 45   :         ep->PMC_Dispose(v);
+; 45   :         ep->Dispose(v);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _v$[ebp]

@@ -278,7 +278,7 @@ _TEST_PMC_LeftShift_X_I PROC
 ; 57   :     PMC_STATUS_CODE result;
 ; 58   :     PMC_STATUS_CODE x_result;
 ; 59   :     PMC_STATUS_CODE z_result;
-; 60   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 60   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -320,7 +320,7 @@ $LN6@TEST_PMC_L:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 61   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 2), (z_result = ep->PMC_LeftShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_LeftShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 61   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 2), (z_result = ep->LeftShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_LeftShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -362,7 +362,7 @@ $LN8@TEST_PMC_L:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 62   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 62   :     TEST_Assert(env, FormatTestLabel(L"PMC_LeftShift_X_I (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_z_buf_size$[ebp]
@@ -444,7 +444,7 @@ $LN12@TEST_PMC_L:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN2@TEST_PMC_L
 
-; 65   :         ep->PMC_Dispose(z);
+; 65   :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _z$[ebp]
@@ -461,7 +461,7 @@ $LN2@TEST_PMC_L:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_L
 
-; 67   :         ep->PMC_Dispose(x);
+; 67   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]
@@ -600,7 +600,7 @@ _TEST_PMC_RightShift_X_I PROC
 ; 38   :     PMC_STATUS_CODE result;
 ; 39   :     PMC_STATUS_CODE x_result;
 ; 40   :     PMC_STATUS_CODE z_result;
-; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 1), (x_result = ep->PMC_FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 41   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 1), (x_result = ep->FromByteArray(x_buf, x_buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
@@ -642,7 +642,7 @@ $LN6@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 2), (z_result = ep->PMC_RightShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_RightShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 2), (z_result = ep->RightShift_X_I(x, n, &z)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_RightShift_X_Iの復帰コードが期待通りではない(%d)", z_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _z$[ebp]
@@ -684,7 +684,7 @@ $LN8@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 43   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 3), (result = ep->PMC_ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
+; 43   :     TEST_Assert(env, FormatTestLabel(L"PMC_RightShift_X_I (%d.%d)", no, 3), (result = ep->ToByteArray(z, actual_z_buf, sizeof(actual_z_buf), &actual_z_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_z_buf_size$[ebp]
@@ -766,7 +766,7 @@ $LN12@TEST_PMC_R:
 	cmp	DWORD PTR _z_result$[ebp], 0
 	jne	SHORT $LN2@TEST_PMC_R
 
-; 46   :         ep->PMC_Dispose(z);
+; 46   :         ep->Dispose(z);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _z$[ebp]
@@ -783,7 +783,7 @@ $LN2@TEST_PMC_R:
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_R
 
-; 48   :         ep->PMC_Dispose(x);
+; 48   :         ep->Dispose(x);
 
 	mov	esi, esp
 	mov	ecx, DWORD PTR _x$[ebp]
