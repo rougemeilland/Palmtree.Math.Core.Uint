@@ -27,7 +27,7 @@
 #include "pmc_uint_internal.h"
 
 
-PMC_STATUS_CODE __PMC_CALL PMC_GetPropertyValue_X_I(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o)
+PMC_STATUS_CODE __PMC_CALL PMC_GetNumberType_X(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o)
 {
     if (x == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -37,23 +37,17 @@ PMC_STATUS_CODE __PMC_CALL PMC_GetPropertyValue_X_I(PMC_HANDLE_UINT x, PMC_PROPE
     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
         return (result);
-    switch (function_code)
-    {
-    case PMC_PROPERTY_IS_EVEN:
-        *o = nx->IS_EVEN;
-        return (PMC_STATUS_OK);
-    case PMC_PROPERTY_IS_ONE:
-        *o = nx->IS_ONE;
-        return (PMC_STATUS_OK);
-    case PMC_PROPERTY_IS_POWER_OF_TWO:
-        *o = nx->IS_POWER_OF_TWO;
-        return (PMC_STATUS_OK);
-    case PMC_PROPERTY_IS_ZERO:
-        *o = nx->IS_ZERO;
-        return (PMC_STATUS_OK);
-    default:
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    }
+    PMC_NUMBER_TYPE_CODE value = 0;
+    if (nx->IS_ZERO)
+        value |= 0x01;
+    if (nx->IS_ONE)
+        value |= 0x02;
+    if (nx->IS_EVEN)
+        value |= 0x08;
+    if (nx->IS_POWER_OF_TWO)
+        value |= 0x10;
+    *o = value;
+    return (PMC_STATUS_OK);
 }
 
 PMC_STATUS_CODE Initialize_GetPropertyValue(PROCESSOR_FEATURES* feature)

@@ -6,177 +6,120 @@ INCLUDELIB MSVCRT
 INCLUDELIB OLDNAMES
 
 PUBLIC	Initialize_GetPropertyValue
-PUBLIC	PMC_GetPropertyValue_X_I
+PUBLIC	PMC_GetNumberType_X
 EXTRN	CheckNumber:PROC
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_GetPropertyValue_X_I DD imagerel $LN15
-	DD	imagerel $LN15+209
-	DD	imagerel $unwind$PMC_GetPropertyValue_X_I
+$pdata$PMC_GetNumberType_X DD imagerel $LN12
+	DD	imagerel $LN12+116
+	DD	imagerel $unwind$PMC_GetNumberType_X
 pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_GetPropertyValue_X_I DD 060f01H
-	DD	07640fH
-	DD	06340fH
-	DD	0700b320fH
+$unwind$PMC_GetNumberType_X DD 040a01H
+	DD	06340aH
+	DD	07006320aH
 xdata	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_getpropertyvalue.c
-;	COMDAT PMC_GetPropertyValue_X_I
+;	COMDAT PMC_GetNumberType_X
 _TEXT	SEGMENT
 x$ = 48
-function_code$ = 56
-o$ = 64
-PMC_GetPropertyValue_X_I PROC				; COMDAT
+o$ = 56
+PMC_GetNumberType_X PROC				; COMDAT
 
 ; 31   : {
 
-$LN15:
+$LN12:
 	mov	QWORD PTR [rsp+8], rbx
-	mov	QWORD PTR [rsp+16], rsi
 	push	rdi
 	sub	rsp, 32					; 00000020H
-	mov	rsi, r8
-	mov	ebx, edx
-	mov	rdi, rcx
+	mov	rdi, rdx
+	mov	rbx, rcx
 
 ; 32   :     if (x == NULL)
 
 	test	rcx, rcx
-	je	$LN13@PMC_GetPro
+	je	SHORT $LN10@PMC_GetNum
 
 ; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 ; 34   :     if (o == NULL)
 
-	test	r8, r8
-	je	$LN13@PMC_GetPro
+	test	rdx, rdx
+	je	SHORT $LN10@PMC_GetNum
 
-; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
 ; 38   :     if ((result = CheckNumber(nx)) != PMC_STATUS_OK)
 
 	call	CheckNumber
 	test	eax, eax
-	jne	$LN1@PMC_GetPro
+	jne	SHORT $LN1@PMC_GetNum
 
 ; 39   :         return (result);
-; 40   :     switch (function_code)
+; 40   :     PMC_NUMBER_TYPE_CODE value = 0;
+; 41   :     if (nx->IS_ZERO)
 
-	sub	ebx, 1
-	je	SHORT $LN7@PMC_GetPro
-	sub	ebx, 1
-	je	SHORT $LN8@PMC_GetPro
-	sub	ebx, 1
-	je	SHORT $LN9@PMC_GetPro
-	cmp	ebx, 1
-	jne	SHORT $LN13@PMC_GetPro
+	mov	r8d, DWORD PTR [rbx+40]
 
-; 51   :     case PMC_PROPERTY_IS_ZERO:
-; 52   :         *o = nx->IS_ZERO;
+; 42   :         value |= 0x01;
+; 43   :     if (nx->IS_ONE)
 
-	mov	eax, DWORD PTR [rdi+40]
-	shr	eax, 1
-	and	eax, ebx
-	mov	DWORD PTR [rsi], eax
+	mov	eax, r8d
+	mov	ecx, r8d
+	shr	ecx, 1
+	and	ecx, 1
 
-; 53   :         return (PMC_STATUS_OK);
+; 44   :         value |= 0x02;
+; 45   :     if (nx->IS_EVEN)
 
-	xor	eax, eax
+	mov	edx, ecx
+	or	edx, 2
+	and	al, 4
+	mov	eax, r8d
+	cmove	edx, ecx
 
-; 54   :     default:
-; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 56   :     }
-; 57   : }
+; 46   :         value |= 0x08;
+; 47   :     if (nx->IS_POWER_OF_TWO)
 
-	mov	rbx, QWORD PTR [rsp+48]
-	mov	rsi, QWORD PTR [rsp+56]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN9@PMC_GetPro:
+	mov	ecx, edx
+	or	ecx, 8
+	and	al, 8
+	cmove	ecx, edx
 
-; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 49   :         *o = nx->IS_POWER_OF_TWO;
+; 48   :         value |= 0x10;
+; 49   :     *o = value;
 
-	mov	eax, DWORD PTR [rdi+40]
-	shr	eax, 4
-	and	eax, 1
-	mov	DWORD PTR [rsi], eax
+	mov	eax, ecx
+	or	eax, 16
+	and	r8b, 16
+	cmove	eax, ecx
+	mov	DWORD PTR [rdi], eax
 
-; 50   :         return (PMC_STATUS_OK);
+; 50   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 54   :     default:
-; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 56   :     }
-; 57   : }
+; 51   : }
 
 	mov	rbx, QWORD PTR [rsp+48]
-	mov	rsi, QWORD PTR [rsp+56]
 	add	rsp, 32					; 00000020H
 	pop	rdi
 	ret	0
-$LN8@PMC_GetPro:
+$LN10@PMC_GetNum:
 
-; 45   :     case PMC_PROPERTY_IS_ONE:
-; 46   :         *o = nx->IS_ONE;
+; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
-	mov	eax, DWORD PTR [rdi+40]
-	shr	eax, 2
-	and	eax, 1
-	mov	DWORD PTR [rsi], eax
-
-; 47   :         return (PMC_STATUS_OK);
-
-	xor	eax, eax
-
-; 54   :     default:
-; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 56   :     }
-; 57   : }
-
-	mov	rbx, QWORD PTR [rsp+48]
-	mov	rsi, QWORD PTR [rsp+56]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN7@PMC_GetPro:
-
-; 41   :     {
-; 42   :     case PMC_PROPERTY_IS_EVEN:
-; 43   :         *o = nx->IS_EVEN;
-
-	mov	eax, DWORD PTR [rdi+40]
-	shr	eax, 3
-	and	eax, 1
-	mov	DWORD PTR [rsi], eax
-
-; 44   :         return (PMC_STATUS_OK);
-
-	xor	eax, eax
-
-; 54   :     default:
-; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
-; 56   :     }
-; 57   : }
-
-	mov	rbx, QWORD PTR [rsp+48]
-	mov	rsi, QWORD PTR [rsp+56]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN13@PMC_GetPro:
 	mov	eax, -1
-$LN1@PMC_GetPro:
+$LN1@PMC_GetNum:
+
+; 51   : }
+
 	mov	rbx, QWORD PTR [rsp+48]
-	mov	rsi, QWORD PTR [rsp+56]
 	add	rsp, 32					; 00000020H
 	pop	rdi
 	ret	0
-PMC_GetPropertyValue_X_I ENDP
+PMC_GetNumberType_X ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_getpropertyvalue.c
@@ -185,11 +128,11 @@ _TEXT	SEGMENT
 feature$ = 8
 Initialize_GetPropertyValue PROC			; COMDAT
 
-; 61   :     return (PMC_STATUS_OK);
+; 55   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 62   : }
+; 56   : }
 
 	ret	0
 Initialize_GetPropertyValue ENDP

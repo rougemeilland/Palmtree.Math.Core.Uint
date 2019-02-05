@@ -213,7 +213,9 @@ extern "C" {
 
     extern void __PMC_CALL PMC_Dispose(PMC_HANDLE_UINT p);
 
-    extern PMC_STATUS_CODE __PMC_CALL PMC_GetPropertyValue_X_I(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_GetNumberType_X(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+    extern PMC_STATUS_CODE __PMC_CALL PMC_GetConstantValue_I(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);

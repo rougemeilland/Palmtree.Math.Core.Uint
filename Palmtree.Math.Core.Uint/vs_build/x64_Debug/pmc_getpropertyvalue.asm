@@ -22,7 +22,7 @@ __BB6D3116_pmc_uint_internal@h DB 01H
 __5449575B_pmc_getpropertyvalue@c DB 01H
 msvcjmc	ENDS
 PUBLIC	Initialize_GetPropertyValue
-PUBLIC	PMC_GetPropertyValue_X_I
+PUBLIC	PMC_GetNumberType_X
 PUBLIC	__JustMyCode_Default
 EXTRN	CheckNumber:PROC
 EXTRN	_RTC_InitBase:PROC
@@ -36,9 +36,9 @@ $pdata$Initialize_GetPropertyValue DD imagerel $LN3
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_GetPropertyValue_X_I DD imagerel $LN13
-	DD	imagerel $LN13+308
-	DD	imagerel $unwind$PMC_GetPropertyValue_X_I
+$pdata$PMC_GetNumberType_X DD imagerel $LN10
+	DD	imagerel $LN10+267
+	DD	imagerel $unwind$PMC_GetNumberType_X
 pdata	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -50,10 +50,10 @@ _RTC_InitBase.rtc$IMZ DQ FLAT:_RTC_InitBase
 rtc$IMZ	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_GetPropertyValue_X_I DD 025053301H
-	DD	0117231cH
-	DD	070100025H
-	DD	0500fH
+$unwind$PMC_GetNumberType_X DD 025052f01H
+	DD	01132318H
+	DD	0700c0029H
+	DD	0500bH
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -71,55 +71,53 @@ __JustMyCode_Default ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_getpropertyvalue.c
-;	COMDAT PMC_GetPropertyValue_X_I
+;	COMDAT PMC_GetNumberType_X
 _TEXT	SEGMENT
 result$ = 4
 nx$ = 40
-tv69 = 244
-x$ = 288
-function_code$ = 296
-o$ = 304
-PMC_GetPropertyValue_X_I PROC				; COMDAT
+value$ = 68
+x$ = 320
+o$ = 328
+PMC_GetNumberType_X PROC				; COMDAT
 
 ; 31   : {
 
-$LN13:
-	mov	QWORD PTR [rsp+24], r8
-	mov	DWORD PTR [rsp+16], edx
+$LN10:
+	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 296				; 00000128H
+	sub	rsp, 328				; 00000148H
 	lea	rbp, QWORD PTR [rsp+32]
 	mov	rdi, rsp
-	mov	ecx, 74					; 0000004aH
+	mov	ecx, 82					; 00000052H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+328]
+	mov	rcx, QWORD PTR [rsp+360]
 	lea	rcx, OFFSET FLAT:__5449575B_pmc_getpropertyvalue@c
 	call	__CheckForDebuggerJustMyCode
 
 ; 32   :     if (x == NULL)
 
 	cmp	QWORD PTR x$[rbp], 0
-	jne	SHORT $LN4@PMC_GetPro
+	jne	SHORT $LN2@PMC_GetNum
 
 ; 33   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
-	jmp	$LN1@PMC_GetPro
-$LN4@PMC_GetPro:
+	jmp	$LN1@PMC_GetNum
+$LN2@PMC_GetNum:
 
 ; 34   :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
-	jne	SHORT $LN5@PMC_GetPro
+	jne	SHORT $LN3@PMC_GetNum
 
 ; 35   :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
-	jmp	$LN1@PMC_GetPro
-$LN5@PMC_GetPro:
+	jmp	$LN1@PMC_GetNum
+$LN3@PMC_GetNum:
 
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
@@ -133,108 +131,100 @@ $LN5@PMC_GetPro:
 	call	CheckNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN6@PMC_GetPro
+	je	SHORT $LN4@PMC_GetNum
 
 ; 39   :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@PMC_GetPro
-$LN6@PMC_GetPro:
+	jmp	SHORT $LN1@PMC_GetNum
+$LN4@PMC_GetNum:
 
-; 40   :     switch (function_code)
+; 40   :     PMC_NUMBER_TYPE_CODE value = 0;
 
-	mov	eax, DWORD PTR function_code$[rbp]
-	mov	DWORD PTR tv69[rbp], eax
-	cmp	DWORD PTR tv69[rbp], 1
-	je	SHORT $LN7@PMC_GetPro
-	cmp	DWORD PTR tv69[rbp], 2
-	je	SHORT $LN8@PMC_GetPro
-	cmp	DWORD PTR tv69[rbp], 3
-	je	SHORT $LN9@PMC_GetPro
-	cmp	DWORD PTR tv69[rbp], 4
-	je	SHORT $LN10@PMC_GetPro
-	jmp	SHORT $LN11@PMC_GetPro
-$LN7@PMC_GetPro:
+	mov	DWORD PTR value$[rbp], 0
 
-; 41   :     {
-; 42   :     case PMC_PROPERTY_IS_EVEN:
-; 43   :         *o = nx->IS_EVEN;
-
-	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 3
-	and	eax, 1
-	mov	rcx, QWORD PTR o$[rbp]
-	mov	DWORD PTR [rcx], eax
-
-; 44   :         return (PMC_STATUS_OK);
-
-	xor	eax, eax
-	jmp	SHORT $LN1@PMC_GetPro
-$LN8@PMC_GetPro:
-
-; 45   :     case PMC_PROPERTY_IS_ONE:
-; 46   :         *o = nx->IS_ONE;
-
-	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
-	and	eax, 1
-	mov	rcx, QWORD PTR o$[rbp]
-	mov	DWORD PTR [rcx], eax
-
-; 47   :         return (PMC_STATUS_OK);
-
-	xor	eax, eax
-	jmp	SHORT $LN1@PMC_GetPro
-$LN9@PMC_GetPro:
-
-; 48   :     case PMC_PROPERTY_IS_POWER_OF_TWO:
-; 49   :         *o = nx->IS_POWER_OF_TWO;
-
-	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 4
-	and	eax, 1
-	mov	rcx, QWORD PTR o$[rbp]
-	mov	DWORD PTR [rcx], eax
-
-; 50   :         return (PMC_STATUS_OK);
-
-	xor	eax, eax
-	jmp	SHORT $LN1@PMC_GetPro
-$LN10@PMC_GetPro:
-
-; 51   :     case PMC_PROPERTY_IS_ZERO:
-; 52   :         *o = nx->IS_ZERO;
+; 41   :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
 	mov	eax, DWORD PTR [rax+40]
 	shr	eax, 1
 	and	eax, 1
-	mov	rcx, QWORD PTR o$[rbp]
-	mov	DWORD PTR [rcx], eax
+	test	eax, eax
+	je	SHORT $LN5@PMC_GetNum
 
-; 53   :         return (PMC_STATUS_OK);
+; 42   :         value |= 0x01;
+
+	mov	eax, DWORD PTR value$[rbp]
+	or	eax, 1
+	mov	DWORD PTR value$[rbp], eax
+$LN5@PMC_GetNum:
+
+; 43   :     if (nx->IS_ONE)
+
+	mov	rax, QWORD PTR nx$[rbp]
+	mov	eax, DWORD PTR [rax+40]
+	shr	eax, 2
+	and	eax, 1
+	test	eax, eax
+	je	SHORT $LN6@PMC_GetNum
+
+; 44   :         value |= 0x02;
+
+	mov	eax, DWORD PTR value$[rbp]
+	or	eax, 2
+	mov	DWORD PTR value$[rbp], eax
+$LN6@PMC_GetNum:
+
+; 45   :     if (nx->IS_EVEN)
+
+	mov	rax, QWORD PTR nx$[rbp]
+	mov	eax, DWORD PTR [rax+40]
+	shr	eax, 3
+	and	eax, 1
+	test	eax, eax
+	je	SHORT $LN7@PMC_GetNum
+
+; 46   :         value |= 0x08;
+
+	mov	eax, DWORD PTR value$[rbp]
+	or	eax, 8
+	mov	DWORD PTR value$[rbp], eax
+$LN7@PMC_GetNum:
+
+; 47   :     if (nx->IS_POWER_OF_TWO)
+
+	mov	rax, QWORD PTR nx$[rbp]
+	mov	eax, DWORD PTR [rax+40]
+	shr	eax, 4
+	and	eax, 1
+	test	eax, eax
+	je	SHORT $LN8@PMC_GetNum
+
+; 48   :         value |= 0x10;
+
+	mov	eax, DWORD PTR value$[rbp]
+	or	eax, 16
+	mov	DWORD PTR value$[rbp], eax
+$LN8@PMC_GetNum:
+
+; 49   :     *o = value;
+
+	mov	rax, QWORD PTR o$[rbp]
+	mov	ecx, DWORD PTR value$[rbp]
+	mov	DWORD PTR [rax], ecx
+
+; 50   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
-	jmp	SHORT $LN1@PMC_GetPro
-$LN11@PMC_GetPro:
+$LN1@PMC_GetNum:
 
-; 54   :     default:
-; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 51   : }
 
-	mov	eax, -1
-$LN1@PMC_GetPro:
-
-; 56   :     }
-; 57   : }
-
-	lea	rsp, QWORD PTR [rbp+264]
+	lea	rsp, QWORD PTR [rbp+296]
 	pop	rdi
 	pop	rbp
 	ret	0
-PMC_GetPropertyValue_X_I ENDP
+PMC_GetNumberType_X ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_getpropertyvalue.c
@@ -243,7 +233,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_GetPropertyValue PROC			; COMDAT
 
-; 60   : {
+; 54   : {
 
 $LN3:
 	mov	QWORD PTR [rsp+8], rcx
@@ -259,11 +249,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__5449575B_pmc_getpropertyvalue@c
 	call	__CheckForDebuggerJustMyCode
 
-; 61   :     return (PMC_STATUS_OK);
+; 55   :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 62   : }
+; 56   : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

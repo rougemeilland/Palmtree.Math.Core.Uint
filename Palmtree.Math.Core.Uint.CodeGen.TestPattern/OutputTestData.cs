@@ -57,11 +57,6 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
         {
         }
 
-        public OutputTestData(string id, InputTestData[] in_params, bool is_available_as_test_data, bool is_available, PMC_PROPERTY_CODE out_value)
-            : this(id, in_params, is_available_as_test_data, is_available, null, (object)out_value)
-        {
-        }
-
         public OutputTestData(string id, InputTestData[] in_params, bool is_available_as_test_data, bool is_available, bool out_value)
             : this(id, in_params, is_available_as_test_data, is_available, null, (object)out_value)
         {
@@ -83,11 +78,6 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
         }
 
         public OutputTestData(string id, InputTestData[] in_params, bool is_available_as_test_data, bool is_available, string type, PMC_STATUS_CODE out_value)
-            : this(id, in_params, is_available_as_test_data, is_available, type, (object)out_value)
-        {
-        }
-
-        public OutputTestData(string id, InputTestData[] in_params, bool is_available_as_test_data, bool is_available, string type, PMC_PROPERTY_CODE out_value)
             : this(id, in_params, is_available_as_test_data, is_available, type, (object)out_value)
         {
         }
@@ -170,16 +160,6 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
                 if (!(_value is PMC_STATUS_CODE))
                     throw new ApplicationException();
                 return ((PMC_STATUS_CODE)_value);
-            }
-        }
-
-        public PMC_PROPERTY_CODE PMC_PROPERTY_CODEValue
-        {
-            get
-            {
-                if (!(_value is PMC_PROPERTY_CODE))
-                    throw new ApplicationException();
-                return ((PMC_PROPERTY_CODE)_value);
             }
         }
 

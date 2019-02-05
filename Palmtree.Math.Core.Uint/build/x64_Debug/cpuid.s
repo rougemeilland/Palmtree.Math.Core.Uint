@@ -4241,26 +4241,26 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1f
-	.byte	0x59
+	.byte	0x5e
 	.byte	0x12
 	.long	0x496a
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1f
-	.byte	0x5a
+	.byte	0x5f
 	.byte	0x12
 	.long	0x497b
 	.uleb128 0x14
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1f
-	.byte	0x5f
+	.byte	0x64
 	.byte	0x10
 	.long	0x49ff
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1f
-	.byte	0x61
+	.byte	0x66
 	.byte	0xe
 	.long	0x458
 	.byte	0x4
@@ -4271,41 +4271,41 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1f
-	.byte	0x62
+	.byte	0x67
 	.byte	0x3
 	.long	0x49b0
 	.uleb128 0x14
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x83
+	.byte	0x8a
 	.byte	0x10
 	.long	0x4a9a
 	.uleb128 0x15
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x85
+	.byte	0x8c
 	.byte	0xa
 	.long	0x137
 	.byte	0
 	.uleb128 0x15
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x86
+	.byte	0x8d
 	.byte	0xa
 	.long	0x137
 	.byte	0x4
 	.uleb128 0x15
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x87
+	.byte	0x8e
 	.byte	0xa
 	.long	0x137
 	.byte	0x8
 	.uleb128 0x15
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x88
+	.byte	0x8f
 	.byte	0xa
 	.long	0x137
 	.byte	0xc
@@ -4313,7 +4313,7 @@ GetCPUInfo:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x89
+	.byte	0x90
 	.byte	0x3
 	.long	0x4a1e
 	.uleb128 0x6
@@ -4546,7 +4546,7 @@ GetCPUInfo:
 	.uleb128 0x11
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x12b
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4d94
 	.uleb128 0x6

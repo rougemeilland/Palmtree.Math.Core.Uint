@@ -87295,14 +87295,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 76 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 89 "../pmc.h"
 
-# 84 "../pmc.h"
+# 89 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -87322,7 +87322,9 @@ typedef struct __tag_PMC_CONFIGURATION_INFO
 
 typedef int PMC_STATUS_CODE;
 
-typedef int PMC_PROPERTY_CODE;
+typedef int PMC_NUMBER_TYPE_CODE;
+
+typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
@@ -87390,7 +87392,10 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_UINT p);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
 
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
@@ -87515,7 +87520,10 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     void (__attribute__((__stdcall__)) * PMC_Dispose)(PMC_HANDLE_SINT p);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE(__attribute__((__stdcall__)) * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+
+    PMC_HANDLE_UINT(__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type);
 
 
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);
@@ -87851,7 +87859,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern void __attribute__((__stdcall__)) PMC_Dispose(PMC_HANDLE_UINT p);
 
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_GetPropertyValue_X_I(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_GetNumberType_X(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_GetConstantValue_I(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
@@ -87991,9 +88001,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 355 "../pmc_uint_internal.h" 3 4
+# 357 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 355 "../pmc_uint_internal.h"
+# 357 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -88005,9 +88015,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 365 "../pmc_uint_internal.h" 3 4
+# 367 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 365 "../pmc_uint_internal.h"
+# 367 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -88021,16 +88031,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 377 "../pmc_uint_internal.h" 3 4
+# 379 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 377 "../pmc_uint_internal.h"
+# 379 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 380 "../pmc_uint_internal.h" 3
+# 382 "../pmc_uint_internal.h" 3
                                                       long long
-# 380 "../pmc_uint_internal.h"
+# 382 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -88249,7 +88259,8 @@ static char initialized = 0;
     entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
     entry_points.Pow_X_I = PMC_Pow_X_I;
     entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
-    entry_points.GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
+    entry_points.GetNumberType_X = PMC_GetNumberType_X;
+    entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
     entry_points.Clone_X = PMC_Clone_X;
 
     initialized = 1;

@@ -730,6 +730,29 @@ DuplicateNumber:
 	ret
 	.seh_endproc
 	.p2align 4,,15
+	.globl	PMC_GetConstantValue_I
+	.def	PMC_GetConstantValue_I;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_GetConstantValue_I
+PMC_GetConstantValue_I:
+	.seh_endprologue
+	cmpl	$1, %ecx
+	je	.L120
+	cmpl	$2, %ecx
+	movl	$-1, %eax
+	jne	.L119
+	leaq	number_one(%rip), %rax
+	movq	%rax, (%rdx)
+	xorl	%eax, %eax
+.L119:
+	ret
+	.p2align 4,,10
+.L120:
+	leaq	number_zero(%rip), %rax
+	movq	%rax, (%rdx)
+	xorl	%eax, %eax
+	ret
+	.seh_endproc
+	.p2align 4,,15
 	.globl	PMC_Dispose
 	.def	PMC_Dispose;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Dispose
@@ -737,12 +760,12 @@ PMC_Dispose:
 	.seh_endprologue
 	movabsq	$6083915961648500080, %rax
 	cmpq	%rax, (%rcx)
-	jne	.L119
+	jne	.L123
 	testb	$1, 40(%rcx)
-	jne	.L119
+	jne	.L123
 	jmp	DeallocateNumber.part.4
 	.p2align 4,,10
-.L119:
+.L123:
 	ret
 	.seh_endproc
 	.p2align 4,,15
@@ -778,13 +801,13 @@ Initialize_Memory:
 	call	InitializeNumber.part.1
 	testl	%eax, %eax
 	movl	%eax, %ebx
-	jne	.L122
+	jne	.L126
 	movq	56+number_one(%rip), %rax
 	movq	%rsi, %rcx
 	orb	$1, 40+number_one(%rip)
 	movq	$1, (%rax)
 	call	CommitNumber
-.L121:
+.L125:
 	movl	%ebx, %eax
 	addq	$32, %rsp
 	popq	%rbx
@@ -792,14 +815,14 @@ Initialize_Memory:
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L122:
+.L126:
 	testb	$1, 40+number_zero(%rip)
-	je	.L124
+	je	.L128
 	movq	%rdi, %rcx
 	call	DetatchNumber.part.3
-.L124:
+.L128:
 	testb	$1, 40+number_one(%rip)
-	je	.L121
+	je	.L125
 	movq	%rsi, %rcx
 	call	DetatchNumber.part.3
 	movl	%ebx, %eax
@@ -838,10 +861,10 @@ DeallocateHeapArea:
 	.seh_endprologue
 	movq	hLocalHeap(%rip), %rcx
 	testq	%rcx, %rcx
-	je	.L132
+	je	.L136
 	call	*__imp_HeapDestroy(%rip)
 	movq	$0, hLocalHeap(%rip)
-.L132:
+.L136:
 	addq	$40, %rsp
 	ret
 	.seh_endproc

@@ -100692,14 +100692,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 76 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 89 "../pmc.h"
 
-# 84 "../pmc.h"
+# 89 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100719,7 +100719,9 @@ typedef struct __tag_PMC_CONFIGURATION_INFO
 
 typedef int PMC_STATUS_CODE;
 
-typedef int PMC_PROPERTY_CODE;
+typedef int PMC_NUMBER_TYPE_CODE;
+
+typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
@@ -100787,7 +100789,10 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     void ( * Dispose)(PMC_HANDLE_UINT p);
 
 
-    PMC_STATUS_CODE ( * GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE ( * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+
+    PMC_STATUS_CODE ( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
@@ -100912,7 +100917,10 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     void ( * PMC_Dispose)(PMC_HANDLE_SINT p);
 
 
-    PMC_STATUS_CODE ( * GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    PMC_STATUS_CODE( * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+
+    PMC_HANDLE_UINT( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type);
 
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);

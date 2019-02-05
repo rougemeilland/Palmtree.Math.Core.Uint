@@ -62,12 +62,12 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG95387 DB	',', 00H, 00H, 00H
-$SG95388 DB	'.', 00H, 00H, 00H
-$SG95389 DB	'3', 00H
+$SG95395 DB	',', 00H, 00H, 00H
+$SG95396 DB	'.', 00H, 00H, 00H
+$SG95397 DB	'3', 00H
 	ORG $+2
-$SG95390 DB	'+', 00H, 00H, 00H
-$SG95391 DB	'-', 00H, 00H, 00H
+$SG95398 DB	'+', 00H, 00H, 00H
+$SG95399 DB	'-', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -7690,20 +7690,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC
 
-; 348  :     {
+; 350  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 349  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 350  :     }
+; 352  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -7717,20 +7717,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC
 
-; 342  :     {
+; 344  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 343  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 344  :     }
+; 346  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -7743,18 +7743,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC
 
-; 325  :     {
+; 327  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 326  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 327  :     }
+; 329  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -7767,18 +7767,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC
 
-; 319  :     {
+; 321  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 320  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 321  :     }
+; 323  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -8006,7 +8006,7 @@ _Initialize_Parse PROC
 ; 1030 :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG95387
+	push	OFFSET $SG95395
 	push	OFFSET _default_number_format_option+4
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8015,7 +8015,7 @@ _Initialize_Parse PROC
 ; 1031 :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG95388
+	push	OFFSET $SG95396
 	push	OFFSET _default_number_format_option+10
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8024,7 +8024,7 @@ _Initialize_Parse PROC
 ; 1032 :     lstrcpy(default_number_format_option.GroupSizes, "3");
 
 	mov	esi, esp
-	push	OFFSET $SG95389
+	push	OFFSET $SG95397
 	push	OFFSET _default_number_format_option+28
 	call	DWORD PTR __imp__lstrcpyA@8
 	cmp	esi, esp
@@ -8033,7 +8033,7 @@ _Initialize_Parse PROC
 ; 1033 :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG95390
+	push	OFFSET $SG95398
 	push	OFFSET _default_number_format_option+16
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8042,7 +8042,7 @@ _Initialize_Parse PROC
 ; 1034 :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG95391
+	push	OFFSET $SG95399
 	push	OFFSET _default_number_format_option+22
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp

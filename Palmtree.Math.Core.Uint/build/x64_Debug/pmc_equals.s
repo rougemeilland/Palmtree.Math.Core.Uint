@@ -4625,32 +4625,32 @@ Initialize_Equals:
 	.uleb128 0x3
 	.ascii "_INT32_T\0"
 	.byte	0x1e
-	.byte	0x55
+	.byte	0x5a
 	.byte	0x11
 	.long	0x4969
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1e
-	.byte	0x59
+	.byte	0x5e
 	.byte	0x12
 	.long	0x4979
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1e
-	.byte	0x5a
+	.byte	0x5f
 	.byte	0x12
 	.long	0x498a
 	.uleb128 0x12
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1e
-	.byte	0x5f
+	.byte	0x64
 	.byte	0x10
 	.long	0x4a1f
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1e
-	.byte	0x61
+	.byte	0x66
 	.byte	0xe
 	.long	0x45d
 	.byte	0x4
@@ -4661,26 +4661,26 @@ Initialize_Equals:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1e
-	.byte	0x62
+	.byte	0x67
 	.byte	0x3
 	.long	0x49d0
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x1e
-	.byte	0x65
+	.byte	0x6a
 	.byte	0xd
 	.long	0x135
 	.uleb128 0x12
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1e
-	.byte	0x6b
+	.byte	0x72
 	.byte	0x8
 	.long	0x4a85
 	.uleb128 0x13
 	.ascii "dummy\0"
 	.byte	0x1e
-	.byte	0x70
+	.byte	0x77
 	.byte	0xf
 	.long	0x49be
 	.byte	0
@@ -4688,7 +4688,7 @@ Initialize_Equals:
 	.uleb128 0x3
 	.ascii "PMC_HANDLE_UINT\0"
 	.byte	0x1e
-	.byte	0x75
+	.byte	0x7c
 	.byte	0x27
 	.long	0x4a9d
 	.uleb128 0x6
@@ -4698,34 +4698,34 @@ Initialize_Equals:
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1e
-	.byte	0x83
+	.byte	0x8a
 	.byte	0x10
 	.long	0x4b1f
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1e
-	.byte	0x85
+	.byte	0x8c
 	.byte	0xa
 	.long	0x13c
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1e
-	.byte	0x86
+	.byte	0x8d
 	.byte	0xa
 	.long	0x13c
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1e
-	.byte	0x87
+	.byte	0x8e
 	.byte	0xa
 	.long	0x13c
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1e
-	.byte	0x88
+	.byte	0x8f
 	.byte	0xa
 	.long	0x13c
 	.byte	0xc
@@ -4733,7 +4733,7 @@ Initialize_Equals:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1e
-	.byte	0x89
+	.byte	0x90
 	.byte	0x3
 	.long	0x4aa3
 	.uleb128 0x6
@@ -4966,7 +4966,7 @@ Initialize_Equals:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12b
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4e19
 	.uleb128 0x6

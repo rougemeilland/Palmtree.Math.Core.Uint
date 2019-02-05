@@ -317,7 +317,7 @@ $LN14:
 	mov	rdx, QWORD PTR x_buf_size$[rbp]
 	mov	rcx, QWORD PTR x_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR x_result$[rbp], eax
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_P
@@ -347,7 +347,7 @@ $LN7@TEST_PMC_P:
 	mov	edx, DWORD PTR y$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+520]
+	call	QWORD PTR [rax+528]
 	mov	DWORD PTR z_result$[rbp], eax
 	mov	eax, DWORD PTR desired_result_code$[rbp]
 	cmp	DWORD PTR z_result$[rbp], eax
@@ -385,7 +385,7 @@ $LN9@TEST_PMC_P:
 	lea	rdx, OFFSET FLAT:?actual_z_buf@?1??TEST_PMC_Pow_X_I@@9@9
 	mov	rcx, QWORD PTR z$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN10@TEST_PMC_P

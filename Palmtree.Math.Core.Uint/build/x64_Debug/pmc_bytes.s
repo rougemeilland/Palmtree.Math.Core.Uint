@@ -4279,26 +4279,26 @@ PMC_ToByteArray:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1f
-	.byte	0x59
+	.byte	0x5e
 	.byte	0x12
 	.long	0x4975
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1f
-	.byte	0x5a
+	.byte	0x5f
 	.byte	0x12
 	.long	0x4986
 	.uleb128 0x12
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1f
-	.byte	0x5f
+	.byte	0x64
 	.byte	0x10
 	.long	0x4a0a
 	.uleb128 0x19
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1f
-	.byte	0x61
+	.byte	0x66
 	.byte	0xe
 	.long	0x45c
 	.byte	0x4
@@ -4309,26 +4309,26 @@ PMC_ToByteArray:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1f
-	.byte	0x62
+	.byte	0x67
 	.byte	0x3
 	.long	0x49bb
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x1f
-	.byte	0x65
+	.byte	0x6a
 	.byte	0xd
 	.long	0x134
 	.uleb128 0x12
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1f
-	.byte	0x6b
+	.byte	0x72
 	.byte	0x8
 	.long	0x4a70
 	.uleb128 0x13
 	.ascii "dummy\0"
 	.byte	0x1f
-	.byte	0x70
+	.byte	0x77
 	.byte	0xf
 	.long	0x49a9
 	.byte	0
@@ -4336,7 +4336,7 @@ PMC_ToByteArray:
 	.uleb128 0x3
 	.ascii "PMC_HANDLE_UINT\0"
 	.byte	0x1f
-	.byte	0x75
+	.byte	0x7c
 	.byte	0x27
 	.long	0x4a88
 	.uleb128 0x6
@@ -4346,34 +4346,34 @@ PMC_ToByteArray:
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x83
+	.byte	0x8a
 	.byte	0x10
 	.long	0x4b0a
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x85
+	.byte	0x8c
 	.byte	0xa
 	.long	0x13b
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x86
+	.byte	0x8d
 	.byte	0xa
 	.long	0x13b
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x87
+	.byte	0x8e
 	.byte	0xa
 	.long	0x13b
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x88
+	.byte	0x8f
 	.byte	0xa
 	.long	0x13b
 	.byte	0xc
@@ -4381,7 +4381,7 @@ PMC_ToByteArray:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x89
+	.byte	0x90
 	.byte	0x3
 	.long	0x4a8e
 	.uleb128 0x6
@@ -4553,7 +4553,7 @@ PMC_ToByteArray:
 	.uleb128 0x18
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12b
+	.word	0x12d
 	.byte	0x2d
 	.long	0x4d1e
 	.uleb128 0x6

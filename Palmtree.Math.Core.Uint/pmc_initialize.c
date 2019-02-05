@@ -156,7 +156,8 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
     entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
     entry_points.Pow_X_I = PMC_Pow_X_I;
     entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
-    entry_points.GetPropertyValue_X_I = PMC_GetPropertyValue_X_I;
+    entry_points.GetNumberType_X = PMC_GetNumberType_X;
+    entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
     entry_points.Clone_X = PMC_Clone_X;
 
     initialized = 1;

@@ -546,6 +546,20 @@ PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* x, NUMBER_HEADER** op)
     return (PMC_STATUS_OK);
 }
 
+PMC_STATUS_CODE __PMC_CALL PMC_GetConstantValue_I(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o)
+{
+    switch (type)
+    {
+    case PMC_CONSTANT_ZERO:
+        *o = (PMC_HANDLE_UINT)&number_zero;
+        return (PMC_STATUS_OK);
+    case PMC_CONSTANT_ONE:
+        *o = (PMC_HANDLE_UINT)&number_one;
+        return (PMC_STATUS_OK);
+    default:
+        return (PMC_STATUS_ARGUMENT_ERROR);
+    }
+}
 
 void __PMC_CALL PMC_Dispose(PMC_HANDLE_UINT p)
 {

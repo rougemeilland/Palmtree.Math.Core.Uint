@@ -45,6 +45,7 @@ PUBLIC	_CheckNumber
 PUBLIC	_DuplicateNumber
 PUBLIC	_Initialize_Memory
 PUBLIC	_PMC_Dispose@4
+PUBLIC	_PMC_GetConstantValue_I@8
 PUBLIC	__JustMyCode_Default
 EXTRN	__imp__HeapCreate@12:PROC
 EXTRN	__imp__HeapDestroy@4:PROC
@@ -2478,12 +2479,82 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
 _TEXT	SEGMENT
+tv64 = -4						; size = 4
+_type$ = 8						; size = 4
+_o$ = 12						; size = 4
+_PMC_GetConstantValue_I@8 PROC
+
+; 550  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ecx
+	mov	DWORD PTR [ebp-4], -858993460		; ccccccccH
+	mov	ecx, OFFSET __AC713800_pmc_memory@c
+	call	@__CheckForDebuggerJustMyCode@4
+
+; 551  :     switch (type)
+
+	mov	eax, DWORD PTR _type$[ebp]
+	mov	DWORD PTR tv64[ebp], eax
+	cmp	DWORD PTR tv64[ebp], 1
+	je	SHORT $LN4@PMC_GetCon
+	cmp	DWORD PTR tv64[ebp], 2
+	je	SHORT $LN5@PMC_GetCon
+	jmp	SHORT $LN6@PMC_GetCon
+$LN4@PMC_GetCon:
+
+; 552  :     {
+; 553  :     case PMC_CONSTANT_ZERO:
+; 554  :         *o = (PMC_HANDLE_UINT)&number_zero;
+
+	mov	ecx, DWORD PTR _o$[ebp]
+	mov	DWORD PTR [ecx], OFFSET _number_zero
+
+; 555  :         return (PMC_STATUS_OK);
+
+	xor	eax, eax
+	jmp	SHORT $LN1@PMC_GetCon
+$LN5@PMC_GetCon:
+
+; 556  :     case PMC_CONSTANT_ONE:
+; 557  :         *o = (PMC_HANDLE_UINT)&number_one;
+
+	mov	edx, DWORD PTR _o$[ebp]
+	mov	DWORD PTR [edx], OFFSET _number_one
+
+; 558  :         return (PMC_STATUS_OK);
+
+	xor	eax, eax
+	jmp	SHORT $LN1@PMC_GetCon
+$LN6@PMC_GetCon:
+
+; 559  :     default:
+; 560  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+$LN1@PMC_GetCon:
+
+; 561  :     }
+; 562  : }
+
+	add	esp, 4
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	8
+_PMC_GetConstantValue_I@8 ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
+_TEXT	SEGMENT
 _result$ = -8						; size = 4
 _np$ = -4						; size = 4
 _p$ = 8							; size = 4
 _PMC_Dispose@4 PROC
 
-; 551  : {
+; 565  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2493,12 +2564,12 @@ _PMC_Dispose@4 PROC
 	mov	ecx, OFFSET __AC713800_pmc_memory@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 552  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 566  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _np$[ebp], eax
 
-; 553  :     PMC_STATUS_CODE result = CheckNumber(np);
+; 567  :     PMC_STATUS_CODE result = CheckNumber(np);
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	push	ecx
@@ -2506,17 +2577,17 @@ _PMC_Dispose@4 PROC
 	add	esp, 4
 	mov	DWORD PTR _result$[ebp], eax
 
-; 554  :     if (result != PMC_STATUS_OK)
+; 568  :     if (result != PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN2@PMC_Dispos
 
-; 555  :         return;
+; 569  :         return;
 
 	jmp	SHORT $LN1@PMC_Dispos
 $LN2@PMC_Dispos:
 
-; 556  :     DeallocateNumber(np);
+; 570  :     DeallocateNumber(np);
 
 	mov	edx, DWORD PTR _np$[ebp]
 	push	edx
@@ -2524,8 +2595,8 @@ $LN2@PMC_Dispos:
 	add	esp, 4
 $LN1@PMC_Dispos:
 
-; 557  :     return;
-; 558  : }
+; 571  :     return;
+; 572  : }
 
 	add	esp, 8
 	cmp	ebp, esp
@@ -2544,7 +2615,7 @@ _result$ = -4						; size = 4
 _feature$ = 8						; size = 4
 _Initialize_Memory PROC
 
-; 561  : {
+; 575  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2555,26 +2626,26 @@ _Initialize_Memory PROC
 	mov	ecx, OFFSET __AC713800_pmc_memory@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 562  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 576  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
 
 	mov	DWORD PTR _result$[ebp], 0
 
-; 563  : 
-; 564  :     BOOL number_zero_ok = TRUE;
+; 577  : 
+; 578  :     BOOL number_zero_ok = TRUE;
 
 	mov	DWORD PTR _number_zero_ok$[ebp], 1
 
-; 565  :     BOOL number_one_ok = TRUE;
+; 579  :     BOOL number_one_ok = TRUE;
 
 	mov	DWORD PTR _number_one_ok$[ebp], 1
 
-; 566  :     if (result == PMC_STATUS_OK)
+; 580  :     if (result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	jne	SHORT $LN2@Initialize
 
-; 567  :     {
-; 568  :         result = AttatchNumber(&number_zero, 0);
+; 581  :     {
+; 582  :         result = AttatchNumber(&number_zero, 0);
 
 	push	0
 	push	OFFSET _number_zero
@@ -2582,33 +2653,33 @@ _Initialize_Memory PROC
 	add	esp, 8
 	mov	DWORD PTR _result$[ebp], eax
 
-; 569  :         if (result == PMC_STATUS_OK)
+; 583  :         if (result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	jne	SHORT $LN2@Initialize
 
-; 570  :         {
-; 571  :             CommitNumber(&number_zero);
+; 584  :         {
+; 585  :             CommitNumber(&number_zero);
 
 	push	OFFSET _number_zero
 	call	_CommitNumber
 	add	esp, 4
 
-; 572  :             number_zero_ok = TRUE;
+; 586  :             number_zero_ok = TRUE;
 
 	mov	DWORD PTR _number_zero_ok$[ebp], 1
 $LN2@Initialize:
 
-; 573  :         }
-; 574  :     }
-; 575  : 
-; 576  :     if (result == PMC_STATUS_OK)
+; 587  :         }
+; 588  :     }
+; 589  : 
+; 590  :     if (result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	jne	SHORT $LN4@Initialize
 
-; 577  :     {
-; 578  :         result = AttatchNumber(&number_one, 1);
+; 591  :     {
+; 592  :         result = AttatchNumber(&number_one, 1);
 
 	push	1
 	push	OFFSET _number_one
@@ -2616,70 +2687,70 @@ $LN2@Initialize:
 	add	esp, 8
 	mov	DWORD PTR _result$[ebp], eax
 
-; 579  :         if (result == PMC_STATUS_OK)
+; 593  :         if (result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	jne	SHORT $LN4@Initialize
 
-; 580  :         {
-; 581  :             number_one.BLOCK[0] = 1;
+; 594  :         {
+; 595  :             number_one.BLOCK[0] = 1;
 
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _number_one+32
 	mov	DWORD PTR [edx+ecx], 1
 
-; 582  :             CommitNumber(&number_one);
+; 596  :             CommitNumber(&number_one);
 
 	push	OFFSET _number_one
 	call	_CommitNumber
 	add	esp, 4
 
-; 583  :             number_one_ok = TRUE;
+; 597  :             number_one_ok = TRUE;
 
 	mov	DWORD PTR _number_one_ok$[ebp], 1
 $LN4@Initialize:
 
-; 584  :         }
-; 585  :     }
-; 586  : 
-; 587  :     if (result != PMC_STATUS_OK)
+; 598  :         }
+; 599  :     }
+; 600  : 
+; 601  :     if (result != PMC_STATUS_OK)
 
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN6@Initialize
 
-; 588  :     {
-; 589  :         if (number_zero_ok)
+; 602  :     {
+; 603  :         if (number_zero_ok)
 
 	cmp	DWORD PTR _number_zero_ok$[ebp], 0
 	je	SHORT $LN7@Initialize
 
-; 590  :             DetatchNumber(&number_zero);
+; 604  :             DetatchNumber(&number_zero);
 
 	push	OFFSET _number_zero
 	call	_DetatchNumber
 	add	esp, 4
 $LN7@Initialize:
 
-; 591  :         if (number_one_ok)
+; 605  :         if (number_one_ok)
 
 	cmp	DWORD PTR _number_one_ok$[ebp], 0
 	je	SHORT $LN6@Initialize
 
-; 592  :             DetatchNumber(&number_one);
+; 606  :             DetatchNumber(&number_one);
 
 	push	OFFSET _number_one
 	call	_DetatchNumber
 	add	esp, 4
 $LN6@Initialize:
 
-; 593  :     }
-; 594  : 
-; 595  :     return (result);
+; 607  :     }
+; 608  : 
+; 609  :     return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 
-; 596  : }
+; 610  : }
 
 	add	esp, 12					; 0000000cH
 	cmp	ebp, esp
@@ -3862,7 +3933,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _DeallocateHeapArea PROC
 
-; 607  : {
+; 621  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3870,13 +3941,13 @@ _DeallocateHeapArea PROC
 	mov	ecx, OFFSET __AC713800_pmc_memory@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 608  :     if (hLocalHeap != NULL)
+; 622  :     if (hLocalHeap != NULL)
 
 	cmp	DWORD PTR _hLocalHeap, 0
 	je	SHORT $LN1@Deallocate
 
-; 609  :     {
-; 610  :         HeapDestroy(hLocalHeap);
+; 623  :     {
+; 624  :         HeapDestroy(hLocalHeap);
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _hLocalHeap
@@ -3885,13 +3956,13 @@ _DeallocateHeapArea PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 611  :         hLocalHeap = NULL;
+; 625  :         hLocalHeap = NULL;
 
 	mov	DWORD PTR _hLocalHeap, 0
 $LN1@Deallocate:
 
-; 612  :     }
-; 613  : }
+; 626  :     }
+; 627  : }
 
 	pop	esi
 	cmp	ebp, esp
@@ -3905,7 +3976,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _AllocateHeapArea PROC
 
-; 599  : {
+; 613  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -3913,7 +3984,7 @@ _AllocateHeapArea PROC
 	mov	ecx, OFFSET __AC713800_pmc_memory@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 600  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
+; 614  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
 
 	mov	esi, esp
 	push	0
@@ -3924,23 +3995,23 @@ _AllocateHeapArea PROC
 	call	__RTC_CheckEsp
 	mov	DWORD PTR _hLocalHeap, eax
 
-; 601  :     if (hLocalHeap == NULL)
+; 615  :     if (hLocalHeap == NULL)
 
 	cmp	DWORD PTR _hLocalHeap, 0
 	jne	SHORT $LN2@AllocateHe
 
-; 602  :         return (FALSE);
+; 616  :         return (FALSE);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@AllocateHe
 $LN2@AllocateHe:
 
-; 603  :     return (TRUE);
+; 617  :     return (TRUE);
 
 	mov	eax, 1
 $LN1@AllocateHe:
 
-; 604  : }
+; 618  : }
 
 	pop	esi
 	cmp	ebp, esp

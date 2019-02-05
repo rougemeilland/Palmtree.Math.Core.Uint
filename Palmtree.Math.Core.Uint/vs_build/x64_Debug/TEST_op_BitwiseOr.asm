@@ -727,7 +727,7 @@ $LN16:
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_B
@@ -757,7 +757,7 @@ $LN7@TEST_PMC_B:
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN8@TEST_PMC_B
@@ -787,7 +787,7 @@ $LN9@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+352]
+	call	QWORD PTR [rax+360]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN10@TEST_PMC_B
@@ -818,7 +818,7 @@ $LN11@TEST_PMC_B:
 	lea	rdx, QWORD PTR actual_w_buf$[rbp]
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN12@TEST_PMC_B
@@ -980,7 +980,7 @@ $LN13:
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_B
@@ -1010,7 +1010,7 @@ $LN6@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+344]
+	call	QWORD PTR [rax+352]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_B
@@ -1041,7 +1041,7 @@ $LN8@TEST_PMC_B:
 	lea	rdx, QWORD PTR actual_w_buf$[rbp]
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_B
@@ -1191,7 +1191,7 @@ $LN13:
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_B
@@ -1221,7 +1221,7 @@ $LN6@TEST_PMC_B:
 	mov	edx, DWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+336]
+	call	QWORD PTR [rax+344]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_B
@@ -1252,7 +1252,7 @@ $LN8@TEST_PMC_B:
 	lea	rdx, QWORD PTR actual_w_buf$[rbp]
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_B
@@ -1402,7 +1402,7 @@ $LN13:
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_B
@@ -1432,7 +1432,7 @@ $LN6@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+328]
+	call	QWORD PTR [rax+336]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_B
@@ -1463,7 +1463,7 @@ $LN8@TEST_PMC_B:
 	lea	rdx, QWORD PTR actual_w_buf$[rbp]
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_B
@@ -1613,7 +1613,7 @@ $LN13:
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+48]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_B
@@ -1643,7 +1643,7 @@ $LN6@TEST_PMC_B:
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+320]
+	call	QWORD PTR [rax+328]
 	mov	DWORD PTR w_result$[rbp], eax
 	cmp	DWORD PTR w_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_B
@@ -1674,7 +1674,7 @@ $LN8@TEST_PMC_B:
 	lea	rdx, QWORD PTR actual_w_buf$[rbp]
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+64]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_B

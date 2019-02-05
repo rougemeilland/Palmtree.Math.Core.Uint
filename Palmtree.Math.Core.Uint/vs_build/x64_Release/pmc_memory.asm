@@ -24,6 +24,7 @@ PUBLIC	CheckNumber
 PUBLIC	DuplicateNumber
 PUBLIC	Initialize_Memory
 PUBLIC	PMC_Dispose
+PUBLIC	PMC_GetConstantValue_I
 EXTRN	__imp_HeapCreate:PROC
 EXTRN	__imp_HeapDestroy:PROC
 EXTRN	__imp_HeapAlloc:PROC
@@ -2256,12 +2257,67 @@ _COPY_MEMORY_UNIT ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
+;	COMDAT PMC_GetConstantValue_I
+_TEXT	SEGMENT
+type$ = 8
+o$ = 16
+PMC_GetConstantValue_I PROC				; COMDAT
+
+; 551  :     switch (type)
+
+	sub	ecx, 1
+	je	SHORT $LN4@PMC_GetCon
+	cmp	ecx, 1
+	je	SHORT $LN5@PMC_GetCon
+
+; 558  :         return (PMC_STATUS_OK);
+; 559  :     default:
+; 560  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	mov	eax, -1
+
+; 561  :     }
+; 562  : }
+
+	ret	0
+$LN5@PMC_GetCon:
+
+; 555  :         return (PMC_STATUS_OK);
+; 556  :     case PMC_CONSTANT_ONE:
+; 557  :         *o = (PMC_HANDLE_UINT)&number_one;
+
+	lea	rax, OFFSET FLAT:number_one
+
+; 561  :     }
+; 562  : }
+
+	mov	QWORD PTR [rdx], rax
+	xor	eax, eax
+	ret	0
+$LN4@PMC_GetCon:
+
+; 552  :     {
+; 553  :     case PMC_CONSTANT_ZERO:
+; 554  :         *o = (PMC_HANDLE_UINT)&number_zero;
+
+	lea	rax, OFFSET FLAT:number_zero
+
+; 561  :     }
+; 562  : }
+
+	mov	QWORD PTR [rdx], rax
+	xor	eax, eax
+	ret	0
+PMC_GetConstantValue_I ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtpy
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
 ;	COMDAT PMC_Dispose
 _TEXT	SEGMENT
 p$ = 48
 PMC_Dispose PROC					; COMDAT
 
-; 551  : {
+; 565  : {
 
 $LN52:
 	push	rbx
@@ -2271,7 +2327,7 @@ $LN52:
 
 	cmp	DWORD PTR [rcx], 1231244656		; 49634d70H
 
-; 551  : {
+; 565  : {
 
 	mov	rbx, rcx
 
@@ -2321,13 +2377,13 @@ $LN52:
 
 	mov	rcx, QWORD PTR hLocalHeap
 
-; 552  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-; 553  :     PMC_STATUS_CODE result = CheckNumber(np);
-; 554  :     if (result != PMC_STATUS_OK)
-; 555  :         return;
-; 556  :     DeallocateNumber(np);
-; 557  :     return;
-; 558  : }
+; 566  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 567  :     PMC_STATUS_CODE result = CheckNumber(np);
+; 568  :     if (result != PMC_STATUS_OK)
+; 569  :         return;
+; 570  :     DeallocateNumber(np);
+; 571  :     return;
+; 572  : }
 
 	add	rsp, 32					; 00000020H
 	pop	rbx
@@ -2337,13 +2393,13 @@ $LN52:
 	rex_jmp	QWORD PTR __imp_HeapFree
 $LN14@PMC_Dispos:
 
-; 552  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-; 553  :     PMC_STATUS_CODE result = CheckNumber(np);
-; 554  :     if (result != PMC_STATUS_OK)
-; 555  :         return;
-; 556  :     DeallocateNumber(np);
-; 557  :     return;
-; 558  : }
+; 566  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 567  :     PMC_STATUS_CODE result = CheckNumber(np);
+; 568  :     if (result != PMC_STATUS_OK)
+; 569  :         return;
+; 570  :     DeallocateNumber(np);
+; 571  :     return;
+; 572  : }
 
 	add	rsp, 32					; 00000020H
 	pop	rbx
@@ -2357,7 +2413,7 @@ _TEXT	SEGMENT
 feature$ = 48
 Initialize_Memory PROC					; COMDAT
 
-; 561  : {
+; 575  : {
 
 $LN157:
 	mov	QWORD PTR [rsp+8], rbx
@@ -2376,16 +2432,16 @@ $LN157:
 
 	mov	QWORD PTR number_zero+40, rdi
 
-; 562  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 563  : 
-; 564  :     BOOL number_zero_ok = TRUE;
-; 565  :     BOOL number_one_ok = TRUE;
-; 566  :     if (result == PMC_STATUS_OK)
-; 567  :     {
-; 568  :         result = AttatchNumber(&number_zero, 0);
-; 569  :         if (result == PMC_STATUS_OK)
-; 570  :         {
-; 571  :             CommitNumber(&number_zero);
+; 576  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 577  : 
+; 578  :     BOOL number_zero_ok = TRUE;
+; 579  :     BOOL number_one_ok = TRUE;
+; 580  :     if (result == PMC_STATUS_OK)
+; 581  :     {
+; 582  :         result = AttatchNumber(&number_zero, 0);
+; 583  :         if (result == PMC_STATUS_OK)
+; 584  :         {
+; 585  :             CommitNumber(&number_zero);
 
 	lea	rcx, OFFSET FLAT:number_zero
 
@@ -2415,16 +2471,16 @@ $LN157:
 
 	mov	QWORD PTR number_zero+56, rdi
 
-; 562  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 563  : 
-; 564  :     BOOL number_zero_ok = TRUE;
-; 565  :     BOOL number_one_ok = TRUE;
-; 566  :     if (result == PMC_STATUS_OK)
-; 567  :     {
-; 568  :         result = AttatchNumber(&number_zero, 0);
-; 569  :         if (result == PMC_STATUS_OK)
-; 570  :         {
-; 571  :             CommitNumber(&number_zero);
+; 576  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 577  : 
+; 578  :     BOOL number_zero_ok = TRUE;
+; 579  :     BOOL number_one_ok = TRUE;
+; 580  :     if (result == PMC_STATUS_OK)
+; 581  :     {
+; 582  :         result = AttatchNumber(&number_zero, 0);
+; 583  :         if (result == PMC_STATUS_OK)
+; 584  :         {
+; 585  :             CommitNumber(&number_zero);
 
 	call	CommitNumber
 
@@ -2525,45 +2581,45 @@ $LN154@Initialize:
 	mov	ebx, -5
 $LN64@Initialize:
 
-; 572  :             number_zero_ok = TRUE;
-; 573  :         }
-; 574  :     }
-; 575  : 
-; 576  :     if (result == PMC_STATUS_OK)
-; 577  :     {
-; 578  :         result = AttatchNumber(&number_one, 1);
-; 579  :         if (result == PMC_STATUS_OK)
+; 586  :             number_zero_ok = TRUE;
+; 587  :         }
+; 588  :     }
+; 589  : 
+; 590  :     if (result == PMC_STATUS_OK)
+; 591  :     {
+; 592  :         result = AttatchNumber(&number_one, 1);
+; 593  :         if (result == PMC_STATUS_OK)
 
 	test	ebx, ebx
 	jne	SHORT $LN5@Initialize
 
-; 580  :         {
-; 581  :             number_one.BLOCK[0] = 1;
+; 594  :         {
+; 595  :             number_one.BLOCK[0] = 1;
 
 	mov	QWORD PTR [rcx], 1
 
-; 582  :             CommitNumber(&number_one);
+; 596  :             CommitNumber(&number_one);
 
 	lea	rcx, OFFSET FLAT:number_one
 	call	CommitNumber
 
-; 583  :             number_one_ok = TRUE;
-; 584  :         }
-; 585  :     }
-; 586  : 
-; 587  :     if (result != PMC_STATUS_OK)
-; 588  :     {
-; 589  :         if (number_zero_ok)
-; 590  :             DetatchNumber(&number_zero);
-; 591  :         if (number_one_ok)
-; 592  :             DetatchNumber(&number_one);
-; 593  :     }
-; 594  : 
-; 595  :     return (result);
+; 597  :             number_one_ok = TRUE;
+; 598  :         }
+; 599  :     }
+; 600  : 
+; 601  :     if (result != PMC_STATUS_OK)
+; 602  :     {
+; 603  :         if (number_zero_ok)
+; 604  :             DetatchNumber(&number_zero);
+; 605  :         if (number_one_ok)
+; 606  :             DetatchNumber(&number_one);
+; 607  :     }
+; 608  : 
+; 609  :     return (result);
 
 	mov	eax, edi
 
-; 596  : }
+; 610  : }
 
 	mov	rbx, QWORD PTR [rsp+48]
 	add	rsp, 32					; 00000020H
@@ -2595,7 +2651,7 @@ $LN120@Initialize:
 	call	CleanUpNumber
 $LN155@Initialize:
 
-; 596  : }
+; 610  : }
 
 	mov	eax, ebx
 	mov	rbx, QWORD PTR [rsp+48]
@@ -3550,29 +3606,29 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 DeallocateHeapArea PROC					; COMDAT
 
-; 607  : {
+; 621  : {
 
 $LN5:
 	sub	rsp, 40					; 00000028H
 
-; 608  :     if (hLocalHeap != NULL)
+; 622  :     if (hLocalHeap != NULL)
 
 	mov	rcx, QWORD PTR hLocalHeap
 	test	rcx, rcx
 	je	SHORT $LN2@Deallocate
 
-; 609  :     {
-; 610  :         HeapDestroy(hLocalHeap);
+; 623  :     {
+; 624  :         HeapDestroy(hLocalHeap);
 
 	call	QWORD PTR __imp_HeapDestroy
 
-; 611  :         hLocalHeap = NULL;
+; 625  :         hLocalHeap = NULL;
 
 	mov	QWORD PTR hLocalHeap, 0
 $LN2@Deallocate:
 
-; 612  :     }
-; 613  : }
+; 626  :     }
+; 627  : }
 
 	add	rsp, 40					; 00000028H
 	ret	0
@@ -3584,19 +3640,19 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 AllocateHeapArea PROC					; COMDAT
 
-; 599  : {
+; 613  : {
 
 $LN5:
 	sub	rsp, 40					; 00000028H
 
-; 600  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
+; 614  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
 
 	xor	r8d, r8d
 	mov	edx, 4096				; 00001000H
 	xor	ecx, ecx
 	call	QWORD PTR __imp_HeapCreate
 
-; 601  :     if (hLocalHeap == NULL)
+; 615  :     if (hLocalHeap == NULL)
 
 	xor	ecx, ecx
 	mov	QWORD PTR hLocalHeap, rax
@@ -3604,9 +3660,9 @@ $LN5:
 	setne	cl
 	mov	eax, ecx
 
-; 602  :         return (FALSE);
-; 603  :     return (TRUE);
-; 604  : }
+; 616  :         return (FALSE);
+; 617  :     return (TRUE);
+; 618  : }
 
 	add	rsp, 40					; 00000028H
 	ret	0

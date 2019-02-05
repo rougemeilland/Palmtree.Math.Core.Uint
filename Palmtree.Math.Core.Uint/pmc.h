@@ -54,10 +54,15 @@ extern "C" {
 #define PMC_STATUS_BAD_BUFFER (-257)
 #define PMC_STATUS_INTERNAL_BORROW (-258)
 
-#define PMC_PROPERTY_IS_EVEN            (1)
-#define PMC_PROPERTY_IS_ONE             (2)
-#define PMC_PROPERTY_IS_POWER_OF_TWO    (3)
-#define PMC_PROPERTY_IS_ZERO            (4)
+#define PMC_NUMBER_TYPE_IS_ZERO           (0x0001)
+#define PMC_NUMBER_TYPE_IS_ONE            (0x0002)
+#define PMC_NUMBER_TYPE_IS_MINUS_ONE      (0x0004)
+#define PMC_NUMBER_TYPE_IS_EVEN           (0x0008)
+#define PMC_NUMBER_TYPE_IS_POWER_OF_TWO   (0x0010)
+
+#define PMC_CONSTANT_ZERO       (1)
+#define PMC_CONSTANT_ONE        (2)
+#define PMC_CONSTANT_MINUS_ONE  (3)
 
 #define PMC_NUMBER_STYLE_NONE                   (0x0000)    // スタイル要素 (先行する空白、後続の空白、桁区切り記号、小数点の記号など) を解析対象の文字列に含めることができないことを示す。
 #define PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE    (0x0001)    // 先行する空白文字を解析対象の文字列に使用できることを示す。有効な空白文字の Unicode 値は、U+0009、U+000A、U+000B、U+000C、U+000D、および U+0020 である。
@@ -100,7 +105,9 @@ typedef struct __tag_PMC_CONFIGURATION_INFO
 
 typedef int PMC_STATUS_CODE;
 
-typedef int PMC_PROPERTY_CODE;
+typedef int PMC_NUMBER_TYPE_CODE;
+
+typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
@@ -167,8 +174,11 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     // デストラクタ
     void  (__PMC_CALL * Dispose)(PMC_HANDLE_UINT p);
 
-    // プロパティ値取得
-    PMC_STATUS_CODE (__PMC_CALL * GetPropertyValue_X_I)(PMC_HANDLE_UINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    // 数値に関する詳細を取得
+    PMC_STATUS_CODE (__PMC_CALL * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+    // 定数値を取得
+    PMC_STATUS_CODE (__PMC_CALL * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
     // バイト操作
     PMC_STATUS_CODE (__PMC_CALL * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
@@ -281,7 +291,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     unsigned PROCESSOR_FEATURE_ABM : 1;     // 実行中のプロセッサの実装命令を示すフラグ。ABMをサポートしているなら1、そうではないのなら0。
 
     // 統計情報関連
-    void (__PMC_CALL * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);// 与えられた領域に現在まで採取されている統計情報を複写する。
+    void (__PMC_CALL * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);// 与えられた領域に現在まで採取されている統計情報を複写する。
 
     // コンストラクタ(32bit整数により初期化)
     PMC_STATUS_CODE (__PMC_CALL * From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
@@ -290,10 +300,13 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE (__PMC_CALL * From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
 
     // デストラクタ
-    void  (__PMC_CALL * PMC_Dispose)(PMC_HANDLE_SINT p);
+    void  (__PMC_CALL * Dispose)(PMC_HANDLE_SINT p);
 
-    // プロパティ値取得
-    PMC_STATUS_CODE (__PMC_CALL * GetPropertyValue_X_I)(PMC_HANDLE_SINT x, PMC_PROPERTY_CODE function_code, _INT32_T* o);
+    // 数値に関する詳細を取得
+    PMC_STATUS_CODE (__PMC_CALL * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+
+    // 定数値を取得
+    PMC_STATUS_CODE (__PMC_CALL * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
     // バイト操作
     PMC_STATUS_CODE (__PMC_CALL * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);

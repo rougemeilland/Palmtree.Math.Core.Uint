@@ -213,7 +213,7 @@
     <ClCompile Include="TEST_op_Equals.c" />
     <ClCompile Include="TEST_op_ExclusiveOr.c" />
     <ClCompile Include="TEST_op_From_To.c" />
-    <ClCompile Include="TEST_op_GetPropertyValue.c" />
+    <ClCompile Include="TEST_op_GetNumberType.c" />
     <ClCompile Include="TEST_op_GreatestCommonDivisor.c" />
     <ClCompile Include="TEST_op_ModPow.c" />
     <ClCompile Include="TEST_op_Multiply.c" />

@@ -1,89 +1,53 @@
 	.file	"pmc_getpropertyvalue.c"
 	.text
 	.p2align 4,,15
-	.globl	PMC_GetPropertyValue_X_I
-	.def	PMC_GetPropertyValue_X_I;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_GetPropertyValue_X_I
-PMC_GetPropertyValue_X_I:
-	pushq	%rdi
-	.seh_pushreg	%rdi
+	.globl	PMC_GetNumberType_X
+	.def	PMC_GetNumberType_X;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_GetNumberType_X
+PMC_GetNumberType_X:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$40, %rsp
+	.seh_stackalloc	40
 	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rsi
-	movl	%edx, %ebx
-	movq	%r8, %rdi
-	je	.L8
 	testq	%rcx, %rcx
-	je	.L8
+	movq	%rcx, %rbx
+	movq	%rdx, %rsi
+	je	.L6
+	testq	%rdx, %rdx
+	je	.L6
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L1
-	cmpl	$2, %ebx
-	je	.L3
-	jle	.L10
-	cmpl	$3, %ebx
-	je	.L6
-	cmpl	$4, %ebx
-	jne	.L8
-	movzbl	40(%rsi), %edx
-	shrb	%dl
-	andl	$1, %edx
-	movl	%edx, (%rdi)
+	movzbl	40(%rbx), %r8d
+	movl	%r8d, %ecx
+	shrb	%cl
+	movl	%ecx, %r9d
+	andl	$1, %r9d
+	movl	%r9d, %ecx
+	orl	$2, %ecx
+	testb	$4, %r8b
+	cmove	%r9d, %ecx
+	movl	%ecx, %edx
+	orl	$8, %edx
+	testb	$8, %r8b
+	cmovne	%edx, %ecx
+	movl	%ecx, %edx
+	orl	$16, %edx
+	andl	$16, %r8d
+	cmovne	%edx, %ecx
+	movl	%ecx, (%rsi)
 .L1:
-	addq	$32, %rsp
+	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L10:
-	cmpl	$1, %ebx
-	jne	.L8
-	movzbl	40(%rsi), %edx
-	shrb	$3, %dl
-	andl	$1, %edx
-	movl	%edx, (%rdi)
-	addq	$32, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L8:
-	movl	$-1, %eax
-	addq	$32, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
 	ret
 	.p2align 4,,10
 .L6:
-	movzbl	40(%rsi), %edx
-	shrb	$4, %dl
-	andl	$1, %edx
-	movl	%edx, (%rdi)
-	addq	$32, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L3:
-	movzbl	40(%rsi), %edx
-	shrb	$2, %dl
-	andl	$1, %edx
-	movl	%edx, (%rdi)
-	addq	$32, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
+	movl	$-1, %eax
+	jmp	.L1
 	.seh_endproc
 	.p2align 4,,15
 	.globl	Initialize_GetPropertyValue
