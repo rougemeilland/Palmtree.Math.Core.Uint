@@ -18,6 +18,7 @@
     <cflag on="Release">-O2</cflag>
   </cflags>
   <ldflags>
+    <ldflag>-shared</ldflag>
     <ldflag>-lkernel32</ldflag>
     <ldflag>-luser32</ldflag>
     <ldflag>-mwindows</ldflag>
@@ -25,4 +26,9 @@
     <ldflag on="x86">-Wl,-e_DllMain@12</ldflag>
     <ldflag on="x64">-Wl,-eDllMain</ldflag>
   </ldflags>
+  <test>
+    <commandlines>
+      <commandline>..\..\dist\{platform}_{config}\Palmtree.Math.Core.Uint.Launcher.exe</commandline>
+    </commandlines>
+  </test>
 </setting>
