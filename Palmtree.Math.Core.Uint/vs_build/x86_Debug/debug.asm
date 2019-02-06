@@ -60,10 +60,10 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG94985 DB	0c6H, '0', 0b9H, '0', 0c8H, '0', 08bH, 095H, 0cbH, 'Y', 0aH
+$SG94987 DB	0c6H, '0', 0b9H, '0', 0c8H, '0', 08bH, 095H, 0cbH, 'Y', 0aH
 	DB	00H, 00H, 00H
 	ORG $+2
-$SG94990 DB	0c6H, '0', 0b9H, '0', 0c8H, '0', 08cH, '[', 086H, 'N', 02H
+$SG94992 DB	0c6H, '0', 0b9H, '0', 0c8H, '0', 08cH, '[', 086H, 'N', 02H
 	DB	'0', 05H, 098H, 0eeH, 'vpe=', 00H, '%', 00H, 'd', 00H, ',', 00H
 	DB	' ', 00H, 'O', 00H, 'K', 00H, 05H, 098H, 0eeH, 'vpe=', 00H, '%'
 	DB	00H, 'd', 00H, ',', 00H, ' ', 00H, 'N', 00H, 'G', 00H, 05H, 098H
@@ -71,22 +71,22 @@ $SG94990 DB	0c6H, '0', 0b9H, '0', 0c8H, '0', 08cH, '[', 086H, 'N', 02H
 	DB	'K', 00H, 087H, 's=', 00H, '%', 00H, 'd', 00H, '%', 00H, '%', 00H
 	DB	',', 00H, ' ', 00H, 'N', 00H, 'G', 00H, 087H, 's=', 00H, '%', 00H
 	DB	'd', 00H, '%', 00H, '%', 00H, 0aH, 00H, 00H, 00H
-$SG95008 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'U', 00H, 'I', 00H
+$SG95010 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'U', 00H, 'I', 00H
 	DB	'N', 00H, 'T', 00H, '_', 00H, 'I', 00H, 'n', 00H, 'i', 00H, 't'
 	DB	00H, 'i', 00H, 'a', 00H, 'l', 00H, 'i', 00H, 'z', 00H, 'e', 00H
 	DB	' ', 00H, 'f', 00H, 'a', 00H, 'i', 00H, 'l', 00H, 'e', 00H, 'd'
 	DB	00H, 00H, 00H
 	ORG $+2
-$SG95009 DB	'x', 00H, '8', 00H, '6', 00H, 00H, 00H
-$SG95010 DB	'M', 00H, 'S', 00H, 'C', 00H, 00H, 00H
-$SG95011 DB	'P', 00H, 'L', 00H, 'A', 00H, 'T', 00H, 'F', 00H, 'O', 00H
+$SG95011 DB	'x', 00H, '8', 00H, '6', 00H, 00H, 00H
+$SG95012 DB	'M', 00H, 'S', 00H, 'C', 00H, 00H, 00H
+$SG95013 DB	'P', 00H, 'L', 00H, 'A', 00H, 'T', 00H, 'F', 00H, 'O', 00H
 	DB	'R', 00H, 'M', 00H, ':', 00H, ' ', 00H, '%', 00H, 's', 00H, 0aH
 	DB	00H, 00H, 00H
-$SG95012 DB	'C', 00H, 'O', 00H, 'M', 00H, 'P', 00H, 'I', 00H, 'L', 00H
+$SG95014 DB	'C', 00H, 'O', 00H, 'M', 00H, 'P', 00H, 'I', 00H, 'L', 00H
 	DB	'E', 00H, 'R', 00H, ':', 00H, ' ', 00H, '%', 00H, 's', 00H, 0aH
 	DB	00H, 00H, 00H
 	ORG $+4
-$SG95013 DB	'C', 00H, 'P', 00H, 'U', 00H, '-', 00H, 'I', 00H, 'N', 00H
+$SG95015 DB	'C', 00H, 'P', 00H, 'U', 00H, '-', 00H, 'I', 00H, 'N', 00H
 	DB	'F', 00H, 'O', 00H, ':', 00H, ' ', 00H, 'P', 00H, 'O', 00H, 'P'
 	DB	00H, 'C', 00H, 'N', 00H, 'T', 00H, '=', 00H, '%', 00H, 'd', 00H
 	DB	',', 00H, ' ', 00H, 'A', 00H, 'D', 00H, 'X', 00H, '=', 00H, '%'
@@ -96,16 +96,16 @@ $SG95013 DB	'C', 00H, 'P', 00H, 'U', 00H, '-', 00H, 'I', 00H, 'N', 00H
 	DB	',', 00H, ' ', 00H, 'A', 00H, 'B', 00H, 'M', 00H, '=', 00H, '%'
 	DB	00H, 'd', 00H, 0aH, 00H, 00H, 00H
 	ORG $+2
-$SG95025 DB	'***NG***', 00H
+$SG95027 DB	'***NG***', 00H
 	ORG $+3
-$SG95026 DB	0c6H, '0', 0b9H, '0', 0c8H, '0 ', 00H, 'N', 00H, 'o', 00H
+$SG95028 DB	0c6H, '0', 0b9H, '0', 0c8H, '0 ', 00H, 'N', 00H, 'o', 00H
 	DB	'.', 00H, '%', 00H, 'd', 00H, ':', 00H, ' ', 00H, '%', 00H, 's'
 	DB	00H, ' ', 00H, '=', 00H, '>', 00H, ' ', 00H, '%', 00H, 's', 00H
 	DB	' ', 00H, '(', 00H, '%', 00H, 's', 00H, ')', 00H, 0aH, 00H, 00H
 	DB	00H
-$SG95061 DB	',', 00H, ' ', 00H, 00H, 00H
+$SG95063 DB	',', 00H, ' ', 00H, 00H, 00H
 	ORG $+2
-$SG95062 DB	'0', 00H, 'x', 00H, '%', 00H, '0', 00H, '2', 00H, 'x', 00H
+$SG95064 DB	'0', 00H, 'x', 00H, '%', 00H, '0', 00H, '2', 00H, 'x', 00H
 	DB	00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
@@ -203,7 +203,7 @@ $LN4@DumpBinary:
 ; 148  :                 (*__DEBUG_LOG)(L", ");
 
 	mov	esi, esp
-	push	OFFSET $SG95061
+	push	OFFSET $SG95063
 	call	DWORD PTR ___DEBUG_LOG
 	add	esp, 4
 	cmp	esi, esp
@@ -216,7 +216,7 @@ $LN8@DumpBinary:
 	movzx	eax, BYTE PTR [edx]
 	mov	esi, esp
 	push	eax
-	push	OFFSET $SG95062
+	push	OFFSET $SG95064
 	call	DWORD PTR ___DEBUG_LOG
 	add	esp, 8
 	cmp	esi, esp
@@ -305,7 +305,7 @@ _DoDebug@4 PROC
 ; 73   :          env->log(L"PMC_UINT_Initialize failed");
 
 	mov	esi, esp
-	push	OFFSET $SG95008
+	push	OFFSET $SG95010
 	mov	edx, DWORD PTR _env$[ebp]
 	mov	eax, DWORD PTR [edx]
 	call	eax
@@ -322,7 +322,7 @@ $LN2@DoDebug:
 ; 76   : #ifdef _M_IX86
 ; 77   :     wchar_t* platform = L"x86";
 
-	mov	DWORD PTR _platform$[ebp], OFFSET $SG95009
+	mov	DWORD PTR _platform$[ebp], OFFSET $SG95011
 
 ; 78   : #elif defined(_M_IX64)
 ; 79   :     wchar_t* platform = L"x64";
@@ -332,7 +332,7 @@ $LN2@DoDebug:
 ; 83   : #ifdef _MSC_VER
 ; 84   :     wchar_t* compiler = L"MSC";
 
-	mov	DWORD PTR _compiler$[ebp], OFFSET $SG95010
+	mov	DWORD PTR _compiler$[ebp], OFFSET $SG95012
 
 ; 85   : #elif defined(__GNUC__)
 ; 86   :     wchar_t* compiler = L"GNUC";
@@ -345,7 +345,7 @@ $LN2@DoDebug:
 	mov	esi, esp
 	mov	ecx, DWORD PTR _platform$[ebp]
 	push	ecx
-	push	OFFSET $SG95011
+	push	OFFSET $SG95013
 	mov	edx, DWORD PTR _env$[ebp]
 	mov	eax, DWORD PTR [edx]
 	call	eax
@@ -358,7 +358,7 @@ $LN2@DoDebug:
 	mov	esi, esp
 	mov	ecx, DWORD PTR _compiler$[ebp]
 	push	ecx
-	push	OFFSET $SG95012
+	push	OFFSET $SG95014
 	mov	edx, DWORD PTR _env$[ebp]
 	mov	eax, DWORD PTR [edx]
 	call	eax
@@ -393,7 +393,7 @@ $LN2@DoDebug:
 	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	push	ecx
-	push	OFFSET $SG95013
+	push	OFFSET $SG95015
 	mov	edx, DWORD PTR _env$[ebp]
 	mov	eax, DWORD PTR [edx]
 	call	eax
@@ -539,7 +539,7 @@ _TEST_End PROC
 	push	edx
 	mov	eax, DWORD PTR _test_total_count
 	push	eax
-	push	OFFSET $SG94990
+	push	OFFSET $SG94992
 	mov	ecx, DWORD PTR _env$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	call	edx
@@ -586,7 +586,7 @@ _TEST_Start PROC
 ; 42   :     env->log(L"テスト開始\n");
 
 	mov	esi, esp
-	push	OFFSET $SG94985
+	push	OFFSET $SG94987
 	mov	eax, DWORD PTR _env$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	call	ecx
@@ -732,13 +732,13 @@ $LN2@TEST_Asser:
 	mov	esi, esp
 	mov	ecx, DWORD PTR _reason$[ebp]
 	push	ecx
-	push	OFFSET $SG95025
+	push	OFFSET $SG95027
 	mov	edx, DWORD PTR _test_name$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _test_total_count
 	add	eax, 1
 	push	eax
-	push	OFFSET $SG95026
+	push	OFFSET $SG95028
 	mov	ecx, DWORD PTR _env$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	call	edx

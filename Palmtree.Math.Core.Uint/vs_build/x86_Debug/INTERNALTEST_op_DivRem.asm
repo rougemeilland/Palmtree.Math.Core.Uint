@@ -49,40 +49,40 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG96200 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
+$SG96202 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
 	DB	'_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n0', 085H, 'Q', 0b9H, '['
 	DB	'L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
-	ORG $+2
-$SG96201 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
-	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
-	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
-	ORG $+2
-$SG96202 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
-	DB	'_', 00H, 'q', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
-	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
 $SG96203 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
 $SG96204 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
-	DB	'_', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
+	DB	'_', 00H, 'q', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
 $SG96205 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96206 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
-	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG96206 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+	DB	'_', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
+	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
 $SG96207 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96208 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+$SG96208 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
 	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+	ORG $+2
 $SG96209 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
+	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
+	ORG $+2
+$SG96210 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG96211 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 _DATA	ENDS
@@ -524,13 +524,13 @@ $LN7@INTERNALTE:
 $LN11@INTERNALTE:
 	mov	DWORD PTR tv211[ebp], 0
 $LN12@INTERNALTE:
-	push	OFFSET $SG96200
+	push	OFFSET $SG96202
 	mov	edx, DWORD PTR tv211[ebp]
 	push	edx
 	push	1
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG96201
+	push	OFFSET $SG96203
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -554,13 +554,13 @@ $LN12@INTERNALTE:
 $LN13@INTERNALTE:
 	mov	DWORD PTR tv224[ebp], 0
 $LN14@INTERNALTE:
-	push	OFFSET $SG96202
+	push	OFFSET $SG96204
 	mov	ecx, DWORD PTR tv224[ebp]
 	push	ecx
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG96203
+	push	OFFSET $SG96205
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -584,13 +584,13 @@ $LN14@INTERNALTE:
 $LN15@INTERNALTE:
 	mov	DWORD PTR tv237[ebp], 0
 $LN16@INTERNALTE:
-	push	OFFSET $SG96204
+	push	OFFSET $SG96206
 	mov	eax, DWORD PTR tv237[ebp]
 	push	eax
 	push	3
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG96205
+	push	OFFSET $SG96207
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -618,13 +618,13 @@ $LN16@INTERNALTE:
 $LN17@INTERNALTE:
 	mov	DWORD PTR tv252[ebp], 0
 $LN18@INTERNALTE:
-	push	OFFSET $SG96206
+	push	OFFSET $SG96208
 	mov	ecx, DWORD PTR tv252[ebp]
 	push	ecx
 	push	4
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG96207
+	push	OFFSET $SG96209
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -652,13 +652,13 @@ $LN18@INTERNALTE:
 $LN19@INTERNALTE:
 	mov	DWORD PTR tv267[ebp], 0
 $LN20@INTERNALTE:
-	push	OFFSET $SG96208
+	push	OFFSET $SG96210
 	mov	edx, DWORD PTR tv267[ebp]
 	push	edx
 	push	5
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG96209
+	push	OFFSET $SG96211
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax

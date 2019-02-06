@@ -306,7 +306,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE (__PMC_CALL * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
     // 定数値を取得
-    PMC_STATUS_CODE (__PMC_CALL * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
+    PMC_STATUS_CODE (__PMC_CALL * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
 
     // バイト操作
     PMC_STATUS_CODE (__PMC_CALL * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);

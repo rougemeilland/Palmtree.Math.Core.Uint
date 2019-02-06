@@ -103,7 +103,7 @@ int main(int argc, char** argv)
     (*proc)(&debug_env);
     printf("***ok\n");
 #ifdef _MSC_VER
-    getchar();
+    //getchar();
 #endif
     return (0);
 }

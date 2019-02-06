@@ -88710,7 +88710,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     unsigned PROCESSOR_FEATURE_ABM : 1;
 
 
-    void ( * PMC_GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
+    void ( * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
 
 
     PMC_STATUS_CODE ( * From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
@@ -88719,13 +88719,13 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
 
 
-    void ( * PMC_Dispose)(PMC_HANDLE_SINT p);
+    void ( * Dispose)(PMC_HANDLE_SINT p);
 
 
-    PMC_STATUS_CODE( * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+    PMC_STATUS_CODE ( * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
 
-    PMC_HANDLE_UINT( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type);
+    PMC_STATUS_CODE ( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
 
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);

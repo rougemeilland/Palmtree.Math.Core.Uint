@@ -28,6 +28,7 @@
   </ldflags>
   <test>
     <commandlines>
+      <commandline>..\..\vs_dist\{platform}_{config}\Palmtree.Math.Core.Uint.Launcher.exe</commandline>
       <commandline>..\..\dist\{platform}_{config}\Palmtree.Math.Core.Uint.Launcher.exe</commandline>
     </commandlines>
   </test>

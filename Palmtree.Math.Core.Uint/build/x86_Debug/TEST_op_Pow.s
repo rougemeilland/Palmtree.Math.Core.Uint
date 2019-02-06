@@ -194,7 +194,7 @@ LVL1:
 	leal	-32(%ebp), %ecx
 	movl	%ecx, 12(%esp)
 	movl	$65536, 8(%esp)
-	movl	$_actual_z_buf.61612, 4(%esp)
+	movl	$_actual_z_buf.61613, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL2:
@@ -224,7 +224,7 @@ LVL2:
 	movl	36(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
-	movl	$_actual_z_buf.61612, (%esp)
+	movl	$_actual_z_buf.61613, (%esp)
 	call	__EQUALS_MEMORY
 	.loc 2 46 9
 	testl	%eax, %eax
@@ -283,7 +283,7 @@ L11:
 	ret
 	.cfi_endproc
 LFE72:
-.lcomm _actual_z_buf.61612,65536,32
+.lcomm _actual_z_buf.61613,65536,32
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5424,7 +5424,7 @@ Ldebug_info0:
 	.long	0x590a
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_z_buf.61612
+	.long	_actual_z_buf.61613
 	.uleb128 0x1e
 	.ascii "actual_z_buf_size\0"
 	.byte	0x2

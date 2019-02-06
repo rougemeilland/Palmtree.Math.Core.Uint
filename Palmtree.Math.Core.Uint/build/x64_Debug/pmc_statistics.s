@@ -4019,34 +4019,34 @@ PMC_GetStatisticsInfo:
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
-	.byte	0x6b
+	.byte	0x8a
 	.byte	0x10
 	.long	0x4c93
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
-	.byte	0x6d
+	.byte	0x8c
 	.byte	0xa
 	.long	0x12c
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1d
-	.byte	0x6e
+	.byte	0x8d
 	.byte	0xa
 	.long	0x12c
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1d
-	.byte	0x6f
+	.byte	0x8e
 	.byte	0xa
 	.long	0x12c
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1d
-	.byte	0x70
+	.byte	0x8f
 	.byte	0xa
 	.long	0x12c
 	.byte	0xc
@@ -4054,7 +4054,7 @@ PMC_GetStatisticsInfo:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1d
-	.byte	0x71
+	.byte	0x90
 	.byte	0x3
 	.long	0x4c17
 	.uleb128 0x6
