@@ -158,7 +158,7 @@ TEST_PMC_ToStringN:
 	movl	%eax, 32(%rsp)
 	movl	%edx, %r9d
 	movl	$8192, %r8d
-	leaq	actual_str_buffer.84642(%rip), %rdx
+	leaq	actual_str_buffer.84462(%rip), %rdx
 	call	*%r10
 .LVL6:
 	movl	%eax, -8(%rbp)
@@ -181,7 +181,7 @@ TEST_PMC_ToStringN:
 	.loc 1 47 72
 	movq	120(%rbp), %rax
 	movq	%rax, %rdx
-	leaq	actual_str_buffer.84642(%rip), %rcx
+	leaq	actual_str_buffer.84462(%rip), %rcx
 	movq	__imp_lstrcmpW(%rip), %rax
 	call	*%rax
 .LVL7:
@@ -227,7 +227,7 @@ TEST_PMC_ToStringN:
 	.cfi_endproc
 .LFE4274:
 	.seh_endproc
-.lcomm actual_str_buffer.84642,8192,32
+.lcomm actual_str_buffer.84462,8192,32
 .Letext0:
 	.file 2 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -5384,7 +5384,7 @@ TEST_PMC_ToStringN:
 	.long	0x59b1
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_str_buffer.84642
+	.quad	actual_str_buffer.84462
 	.uleb128 0x20
 	.ascii "result\0"
 	.byte	0x1

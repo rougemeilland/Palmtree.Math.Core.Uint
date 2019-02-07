@@ -222,9 +222,9 @@ TEST_PMC_ParseX:
 	movq	64(%rax), %rax
 	.loc 2 49 83
 	movq	-16(%rbp), %rcx
-	leaq	actual_buf_size.84639(%rip), %r9
+	leaq	actual_buf_size.84459(%rip), %r9
 	movl	$256, %r8d
-	leaq	actual_buf.84638(%rip), %rdx
+	leaq	actual_buf.84458(%rip), %rdx
 	call	*%rax
 .LVL6:
 	movl	%eax, -8(%rbp)
@@ -245,13 +245,13 @@ TEST_PMC_ParseX:
 	movq	32(%rbp), %rcx
 	call	TEST_Assert
 	.loc 2 50 73
-	movq	actual_buf_size.84639(%rip), %rax
+	movq	actual_buf_size.84459(%rip), %rax
 	movq	88(%rbp), %rcx
 	movq	80(%rbp), %rdx
 	movq	%rcx, %r9
 	movq	%rdx, %r8
 	movq	%rax, %rdx
-	leaq	actual_buf.84638(%rip), %rcx
+	leaq	actual_buf.84458(%rip), %rcx
 	call	_EQUALS_MEMORY
 	.loc 2 50 9
 	testl	%eax, %eax
@@ -296,8 +296,8 @@ TEST_PMC_ParseX:
 	.cfi_endproc
 .LFE4274:
 	.seh_endproc
-.lcomm actual_buf.84638,256,32
-.lcomm actual_buf_size.84639,8,8
+.lcomm actual_buf.84458,256,32
+.lcomm actual_buf_size.84459,8,8
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -5424,7 +5424,7 @@ TEST_PMC_ParseX:
 	.long	0x1edd
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf.84638
+	.quad	actual_buf.84458
 	.uleb128 0x20
 	.ascii "actual_buf_size\0"
 	.byte	0x2
@@ -5433,7 +5433,7 @@ TEST_PMC_ParseX:
 	.long	0xcf
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf_size.84639
+	.quad	actual_buf_size.84459
 	.uleb128 0x20
 	.ascii "result\0"
 	.byte	0x2

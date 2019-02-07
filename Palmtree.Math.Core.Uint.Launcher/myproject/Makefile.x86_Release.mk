@@ -10,9 +10,9 @@ OBJS = ../build/x86_Release/main.o
 
 ../../dist/x86_Release/Palmtree.Math.Core.Uint.Launcher.exe: $(OBJS)
 	mkdir -p ../../dist/x86_Release
-	gcc -o ../../dist/x86_Release/Palmtree.Math.Core.Uint.Launcher.exe $(OBJS)  -Wl,-Map=../build/x86_Release/Palmtree.Math.Core.Uint.Launcher.map
+	gcc -o ../../dist/x86_Release/Palmtree.Math.Core.Uint.Launcher.exe $(OBJS)  -Wl,-Map=../build/x86_Release/Palmtree.Math.Core.Uint.Launcher.map 
 
 ../build/x86_Release/main.o: ../main.c  ../mymakefile.xml
 	mkdir -p ../build/x86_Release
-	gcc -c -save-temps=obj -Werror -D_M_IX86 -O2 -o ../build/x86_Release/main.o ../main.c
+	gcc -c -save-temps=obj -Werror -D_M_IX86 -O2  -o ../build/x86_Release/main.o ../main.c
 

@@ -1,6 +1,6 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c5a4062 (Wed Feb  6 11:03:14 2019)
+ Timestamp is 5c5c30da (Thu Feb  7 22:21:30 2019)
 
  Preferred load address is 0000000180000000
 
@@ -128,8 +128,8 @@
  0001:000075c0       Initialize_From            00000001800085c0 f   pmc_from.obj
  0001:000075d0       PMC_From_I                 00000001800085d0 f   pmc_from.obj
  0001:00007650       PMC_From_L                 0000000180008650 f   pmc_from.obj
- 0001:000076d0       Initialize_GetPropertyValue 00000001800086d0 f   pmc_getpropertyvalue.obj
- 0001:000076e0       PMC_GetNumberType_X        00000001800086e0 f   pmc_getpropertyvalue.obj
+ 0001:000076d0       Initialize_GetPropertyValue 00000001800086d0 f   pmc_getnumbertype.obj
+ 0001:000076e0       PMC_GetNumberType_X        00000001800086e0 f   pmc_getnumbertype.obj
  0001:00007860       Initialize_GreatestCommonDivisor 0000000180008860 f   pmc_greatestcommondivisor.obj
  0001:00007870       PMC_GreatestCommonDivisor_I_X 0000000180008870 f   pmc_greatestcommondivisor.obj
  0001:000078d0       PMC_GreatestCommonDivisor_L_X 00000001800088d0 f   pmc_greatestcommondivisor.obj
@@ -607,7 +607,7 @@
  0002:00000ca8       $unwind$From_L_Imp         0000000180014ca8     pmc_from.obj
  0002:00000cb4       $unwind$PMC_From_I         0000000180014cb4     pmc_from.obj
  0002:00000cc0       $unwind$PMC_From_L         0000000180014cc0     pmc_from.obj
- 0002:00000ccc       $unwind$PMC_GetNumberType_X 0000000180014ccc     pmc_getpropertyvalue.obj
+ 0002:00000ccc       $unwind$PMC_GetNumberType_X 0000000180014ccc     pmc_getnumbertype.obj
  0002:00000cd8       $unwind$PMC_GreatestCommonDivisor_I_X 0000000180014cd8     pmc_greatestcommondivisor.obj
  0002:00000ce8       $unwind$PMC_GreatestCommonDivisor_L_X 0000000180014ce8     pmc_greatestcommondivisor.obj
  0002:00000cf8       $unwind$PMC_GreatestCommonDivisor_X_I 0000000180014cf8     pmc_greatestcommondivisor.obj
@@ -871,7 +871,7 @@
  0004:000004bc       $pdata$From_L_Imp          00000001800174bc     pmc_from.obj
  0004:000004c8       $pdata$PMC_From_I          00000001800174c8     pmc_from.obj
  0004:000004d4       $pdata$PMC_From_L          00000001800174d4     pmc_from.obj
- 0004:000004e0       $pdata$PMC_GetNumberType_X 00000001800174e0     pmc_getpropertyvalue.obj
+ 0004:000004e0       $pdata$PMC_GetNumberType_X 00000001800174e0     pmc_getnumbertype.obj
  0004:000004ec       $pdata$PMC_GreatestCommonDivisor_I_X 00000001800174ec     pmc_greatestcommondivisor.obj
  0004:000004f8       $pdata$PMC_GreatestCommonDivisor_L_X 00000001800174f8     pmc_greatestcommondivisor.obj
  0004:00000504       $pdata$PMC_GreatestCommonDivisor_X_I 0000000180017504     pmc_greatestcommondivisor.obj

@@ -11997,7 +11997,7 @@ Initialize_Shift:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
-	.byte	0x2e
+	.byte	0x33
 	.byte	0x13
 	.long	0x49b4
 	.uleb128 0x4
@@ -12005,7 +12005,7 @@ Initialize_Shift:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE_DIV\0"
 	.byte	0x21
-	.byte	0x38
+	.byte	0x3d
 	.byte	0x15
 	.long	0x4c23
 	.uleb128 0x4

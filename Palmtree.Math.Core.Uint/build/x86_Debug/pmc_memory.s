@@ -2358,7 +2358,7 @@ LFE4259:
 	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
 _DuplicateNumber:
 LFB4260:
-	.loc 4 527 1
+	.loc 4 526 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2366,40 +2366,40 @@ LFB4260:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 4 528 9
+	.loc 4 527 9
 	movl	8(%ebp), %eax
 	movzbl	24(%eax), %eax
 	andl	$1, %eax
-	.loc 4 528 8
+	.loc 4 527 8
 	testb	%al, %al
 	je	L93
-	.loc 4 530 13
+	.loc 4 529 13
 	movl	12(%ebp), %eax
 	movl	8(%ebp), %edx
 	movl	%edx, (%eax)
-	.loc 4 531 16
+	.loc 4 530 16
 	movl	$0, %eax
 	jmp	L97
 L93:
-	.loc 4 533 9
+	.loc 4 532 9
 	movl	8(%ebp), %eax
 	movzbl	24(%eax), %eax
 	andl	$2, %eax
-	.loc 4 533 8
+	.loc 4 532 8
 	testb	%al, %al
 	je	L95
-	.loc 4 535 13
+	.loc 4 534 13
 	movl	12(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 4 536 16
+	.loc 4 535 16
 	movl	$0, %eax
 	jmp	L97
 L95:
-	.loc 4 538 17
+	.loc 4 537 17
 	movl	8(%ebp), %eax
 	movl	12(%eax), %eax
 	movl	%eax, -12(%ebp)
-	.loc 4 541 19
+	.loc 4 540 19
 	movl	$0, 8(%esp)
 	movl	-12(%ebp), %eax
 	movl	%eax, 4(%esp)
@@ -2407,42 +2407,42 @@ L95:
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	movl	%eax, -16(%ebp)
-	.loc 4 541 8
+	.loc 4 540 8
 	cmpl	$0, -16(%ebp)
 	je	L96
-	.loc 4 542 16
+	.loc 4 541 16
 	movl	-16(%ebp), %eax
 	jmp	L97
 L96:
-	.loc 4 543 5
+	.loc 4 542 5
 	movl	$32, 4(%esp)
 	movl	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__DIVIDE_CEILING_UNIT
 	movl	%eax, %ecx
-	.loc 4 543 34
+	.loc 4 542 34
 	movl	8(%ebp), %eax
 	movl	32(%eax), %edx
-	.loc 4 543 24
+	.loc 4 542 24
 	movl	-20(%ebp), %eax
-	.loc 4 543 5
+	.loc 4 542 5
 	movl	32(%eax), %eax
 	movl	%ecx, 8(%esp)
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__COPY_MEMORY_UNIT
-	.loc 4 544 5
+	.loc 4 543 5
 	movl	-20(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
-	.loc 4 545 9
+	.loc 4 544 9
 	movl	-20(%ebp), %edx
 	movl	12(%ebp), %eax
 	movl	%edx, (%eax)
-	.loc 4 546 12
+	.loc 4 545 12
 	movl	$0, %eax
 L97:
-	.loc 4 547 1 discriminator 1
+	.loc 4 546 1 discriminator 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -2453,7 +2453,7 @@ LFE4260:
 	.def	_PMC_GetConstantValue_I@8;	.scl	2;	.type	32;	.endef
 _PMC_GetConstantValue_I@8:
 LFB4261:
-	.loc 4 550 1
+	.loc 4 549 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2466,24 +2466,24 @@ LFB4261:
 	je	L100
 	jmp	L103
 L99:
-	.loc 4 554 12
+	.loc 4 553 12
 	movl	12(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 4 555 16
+	.loc 4 554 16
 	movl	$0, %eax
 	jmp	L102
 L100:
-	.loc 4 557 12
+	.loc 4 556 12
 	movl	12(%ebp), %eax
 	movl	$_number_one, (%eax)
-	.loc 4 558 16
+	.loc 4 557 16
 	movl	$0, %eax
 	jmp	L102
 L103:
-	.loc 4 560 16
+	.loc 4 559 16
 	movl	$-1, %eax
 L102:
-	.loc 4 562 1
+	.loc 4 561 1
 	popl	%ebp
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -2494,7 +2494,7 @@ LFE4261:
 	.def	_PMC_Dispose@4;	.scl	2;	.type	32;	.endef
 _PMC_Dispose@4:
 LFB4262:
-	.loc 4 565 1
+	.loc 4 564 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2502,29 +2502,29 @@ LFB4262:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 4 566 20
+	.loc 4 565 20
 	movl	8(%ebp), %eax
 	movl	%eax, -12(%ebp)
-	.loc 4 567 30
+	.loc 4 566 30
 	movl	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckNumber
 	movl	%eax, -16(%ebp)
-	.loc 4 568 8
+	.loc 4 567 8
 	cmpl	$0, -16(%ebp)
 	jne	L107
-	.loc 4 570 5
+	.loc 4 569 5
 	movl	-12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	.loc 4 571 5
+	.loc 4 570 5
 	nop
 	jmp	L104
 L107:
-	.loc 4 569 9
+	.loc 4 568 9
 	nop
 L104:
-	.loc 4 572 1
+	.loc 4 571 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -2535,7 +2535,7 @@ LFE4262:
 	.def	_Initialize_Memory;	.scl	2;	.type	32;	.endef
 _Initialize_Memory:
 LFB4263:
-	.loc 4 575 1
+	.loc 4 574 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2543,70 +2543,70 @@ LFB4263:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 4 576 21
+	.loc 4 575 21
 	movl	$0, -12(%ebp)
-	.loc 4 578 10
+	.loc 4 577 10
 	movl	$1, -16(%ebp)
-	.loc 4 579 10
+	.loc 4 578 10
 	movl	$1, -20(%ebp)
-	.loc 4 580 8
+	.loc 4 579 8
 	cmpl	$0, -12(%ebp)
 	jne	L109
-	.loc 4 582 18
+	.loc 4 581 18
 	movl	$0, 4(%esp)
 	movl	$_number_zero, (%esp)
 	call	_AttatchNumber
 	movl	%eax, -12(%ebp)
-	.loc 4 583 12
+	.loc 4 582 12
 	cmpl	$0, -12(%ebp)
 	jne	L109
-	.loc 4 585 13
+	.loc 4 584 13
 	movl	$_number_zero, (%esp)
 	call	_CommitNumber
-	.loc 4 586 28
+	.loc 4 585 28
 	movl	$1, -16(%ebp)
 L109:
-	.loc 4 590 8
+	.loc 4 589 8
 	cmpl	$0, -12(%ebp)
 	jne	L110
-	.loc 4 592 18
+	.loc 4 591 18
 	movl	$1, 4(%esp)
 	movl	$_number_one, (%esp)
 	call	_AttatchNumber
 	movl	%eax, -12(%ebp)
-	.loc 4 593 12
+	.loc 4 592 12
 	cmpl	$0, -12(%ebp)
 	jne	L110
-	.loc 4 595 23
+	.loc 4 594 23
 	movl	_number_one+32, %eax
-	.loc 4 595 33
+	.loc 4 594 33
 	movl	$1, (%eax)
-	.loc 4 596 13
+	.loc 4 595 13
 	movl	$_number_one, (%esp)
 	call	_CommitNumber
-	.loc 4 597 27
+	.loc 4 596 27
 	movl	$1, -20(%ebp)
 L110:
-	.loc 4 601 8
+	.loc 4 600 8
 	cmpl	$0, -12(%ebp)
 	je	L111
-	.loc 4 603 12
+	.loc 4 602 12
 	cmpl	$0, -16(%ebp)
 	je	L112
-	.loc 4 604 13
+	.loc 4 603 13
 	movl	$_number_zero, (%esp)
 	call	_DetatchNumber
 L112:
-	.loc 4 605 12
+	.loc 4 604 12
 	cmpl	$0, -20(%ebp)
 	je	L111
-	.loc 4 606 13
+	.loc 4 605 13
 	movl	$_number_one, (%esp)
 	call	_DetatchNumber
 L111:
-	.loc 4 609 12
+	.loc 4 608 12
 	movl	-12(%ebp), %eax
-	.loc 4 610 1
+	.loc 4 609 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -2617,7 +2617,7 @@ LFE4263:
 	.def	_AllocateHeapArea;	.scl	2;	.type	32;	.endef
 _AllocateHeapArea:
 LFB4264:
-	.loc 4 613 1
+	.loc 4 612 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2625,7 +2625,7 @@ LFB4264:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$24, %esp
-	.loc 4 614 18
+	.loc 4 613 18
 	movl	$0, 8(%esp)
 	movl	$4096, 4(%esp)
 	movl	$0, (%esp)
@@ -2633,21 +2633,21 @@ LFB4264:
 	call	*%eax
 LVL5:
 	subl	$12, %esp
-	.loc 4 614 16
+	.loc 4 613 16
 	movl	%eax, _hLocalHeap
-	.loc 4 615 20
+	.loc 4 614 20
 	movl	_hLocalHeap, %eax
-	.loc 4 615 8
+	.loc 4 614 8
 	testl	%eax, %eax
 	jne	L115
-	.loc 4 616 16
+	.loc 4 615 16
 	movl	$0, %eax
 	jmp	L116
 L115:
-	.loc 4 617 12
+	.loc 4 616 12
 	movl	$1, %eax
 L116:
-	.loc 4 618 1
+	.loc 4 617 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -2658,7 +2658,7 @@ LFE4264:
 	.def	_DeallocateHeapArea;	.scl	2;	.type	32;	.endef
 _DeallocateHeapArea:
 LFB4265:
-	.loc 4 621 1
+	.loc 4 620 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2666,22 +2666,22 @@ LFB4265:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$24, %esp
-	.loc 4 622 20
+	.loc 4 621 20
 	movl	_hLocalHeap, %eax
-	.loc 4 622 8
+	.loc 4 621 8
 	testl	%eax, %eax
 	je	L119
-	.loc 4 624 9
+	.loc 4 623 9
 	movl	_hLocalHeap, %eax
 	movl	%eax, (%esp)
 	movl	__imp__HeapDestroy@4, %eax
 	call	*%eax
 LVL6:
 	subl	$4, %esp
-	.loc 4 625 20
+	.loc 4 624 20
 	movl	$0, _hLocalHeap
 L119:
-	.loc 4 627 1
+	.loc 4 626 1
 	nop
 	leave
 	.cfi_restore 5
@@ -6888,7 +6888,7 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x23
-	.byte	0x2c
+	.byte	0x31
 	.byte	0x13
 	.long	0x4c81
 	.uleb128 0x4
@@ -7084,7 +7084,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "DeallocateHeapArea\0"
 	.byte	0x4
-	.word	0x26c
+	.word	0x26b
 	.byte	0x6
 	.long	LFB4265
 	.long	LFE4265-LFB4265
@@ -7098,7 +7098,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "AllocateHeapArea\0"
 	.byte	0x4
-	.word	0x264
+	.word	0x263
 	.byte	0x6
 	.long	0x5bb
 	.long	LFB4264
@@ -7113,7 +7113,7 @@ Ldebug_info0:
 	.uleb128 0x22
 	.ascii "Initialize_Memory\0"
 	.byte	0x4
-	.word	0x23e
+	.word	0x23d
 	.byte	0x11
 	.long	0x4d01
 	.long	LFB4263
@@ -7124,7 +7124,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "feature\0"
 	.byte	0x4
-	.word	0x23e
+	.word	0x23d
 	.byte	0x37
 	.long	0x5227
 	.uleb128 0x2
@@ -7133,7 +7133,7 @@ Ldebug_info0:
 	.uleb128 0x24
 	.secrel32	LASF1
 	.byte	0x4
-	.word	0x240
+	.word	0x23f
 	.byte	0x15
 	.long	0x4d01
 	.uleb128 0x2
@@ -7142,7 +7142,7 @@ Ldebug_info0:
 	.uleb128 0x25
 	.ascii "number_zero_ok\0"
 	.byte	0x4
-	.word	0x242
+	.word	0x241
 	.byte	0xa
 	.long	0x5bb
 	.uleb128 0x2
@@ -7151,7 +7151,7 @@ Ldebug_info0:
 	.uleb128 0x25
 	.ascii "number_one_ok\0"
 	.byte	0x4
-	.word	0x243
+	.word	0x242
 	.byte	0xa
 	.long	0x5bb
 	.uleb128 0x2
@@ -7164,7 +7164,7 @@ Ldebug_info0:
 	.uleb128 0x26
 	.ascii "PMC_Dispose\0"
 	.byte	0x4
-	.word	0x234
+	.word	0x233
 	.byte	0x23
 	.ascii "PMC_Dispose@4\0"
 	.long	LFB4262
@@ -7175,7 +7175,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "p\0"
 	.byte	0x4
-	.word	0x234
+	.word	0x233
 	.byte	0x3f
 	.long	0x4d68
 	.uleb128 0x2
@@ -7184,7 +7184,7 @@ Ldebug_info0:
 	.uleb128 0x25
 	.ascii "np\0"
 	.byte	0x4
-	.word	0x236
+	.word	0x235
 	.byte	0x14
 	.long	0x5288
 	.uleb128 0x2
@@ -7193,7 +7193,7 @@ Ldebug_info0:
 	.uleb128 0x24
 	.secrel32	LASF1
 	.byte	0x4
-	.word	0x237
+	.word	0x236
 	.byte	0x15
 	.long	0x4d01
 	.uleb128 0x2
@@ -7206,7 +7206,7 @@ Ldebug_info0:
 	.uleb128 0x27
 	.ascii "PMC_GetConstantValue_I\0"
 	.byte	0x4
-	.word	0x225
+	.word	0x224
 	.byte	0x2e
 	.ascii "PMC_GetConstantValue_I@8\0"
 	.long	0x4d01
@@ -7218,7 +7218,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "type\0"
 	.byte	0x4
-	.word	0x225
+	.word	0x224
 	.byte	0x5d
 	.long	0x4d19
 	.uleb128 0x2
@@ -7227,7 +7227,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "o\0"
 	.byte	0x4
-	.word	0x225
+	.word	0x224
 	.byte	0x74
 	.long	0x4e1e
 	.uleb128 0x2
@@ -7237,7 +7237,7 @@ Ldebug_info0:
 	.uleb128 0x22
 	.ascii "DuplicateNumber\0"
 	.byte	0x4
-	.word	0x20e
+	.word	0x20d
 	.byte	0x11
 	.long	0x4d01
 	.long	LFB4260
@@ -7248,7 +7248,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "x\0"
 	.byte	0x4
-	.word	0x20e
+	.word	0x20d
 	.byte	0x30
 	.long	0x5288
 	.uleb128 0x2
@@ -7257,7 +7257,7 @@ Ldebug_info0:
 	.uleb128 0x23
 	.ascii "op\0"
 	.byte	0x4
-	.word	0x20e
+	.word	0x20d
 	.byte	0x43
 	.long	0x5370
 	.uleb128 0x2
@@ -7266,7 +7266,7 @@ Ldebug_info0:
 	.uleb128 0x25
 	.ascii "x_bit_count\0"
 	.byte	0x4
-	.word	0x21a
+	.word	0x219
 	.byte	0x11
 	.long	0x4f16
 	.uleb128 0x2
@@ -7275,7 +7275,7 @@ Ldebug_info0:
 	.uleb128 0x24
 	.secrel32	LASF1
 	.byte	0x4
-	.word	0x21b
+	.word	0x21a
 	.byte	0x15
 	.long	0x4d01
 	.uleb128 0x2
@@ -7284,7 +7284,7 @@ Ldebug_info0:
 	.uleb128 0x25
 	.ascii "o\0"
 	.byte	0x4
-	.word	0x21c
+	.word	0x21b
 	.byte	0x14
 	.long	0x5288
 	.uleb128 0x2

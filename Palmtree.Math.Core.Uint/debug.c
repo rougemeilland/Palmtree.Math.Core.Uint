@@ -107,12 +107,12 @@ void TEST_Assert(PMC_DEBUG_ENVIRONMENT *env, const wchar_t* test_name, BOOL cond
 {
     if (condition)
     {
-        //env->log(L"テスト No.%d: %s => %s\n", test_total_count + 1, test_name, "Ok");
+        //env->log(L"テスト No.%d: %s => %s\n", test_total_count + 1, test_name, L"Ok");
         ++test_ok_count;
     }
     else
     {
-        env->log(L"テスト No.%d: %s => %s (%s)\n", test_total_count + 1, test_name, "***NG***", reason);
+        env->log(L"テスト No.%d: %s => %s (%s)\n", test_total_count + 1, test_name, L"***NG***", reason);
     }
     ++test_total_count;
 }

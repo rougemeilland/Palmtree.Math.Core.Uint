@@ -109,7 +109,7 @@ LOAD ../build/x64_Release/pmc_divrem.o
 LOAD ../build/x64_Release/pmc_equals.o
 LOAD ../build/x64_Release/pmc_exclusiveor.o
 LOAD ../build/x64_Release/pmc_from.o
-LOAD ../build/x64_Release/pmc_getpropertyvalue.o
+LOAD ../build/x64_Release/pmc_getnumbertype.o
 LOAD ../build/x64_Release/pmc_greatestcommondivisor.o
 LOAD ../build/x64_Release/pmc_initialize.o
 LOAD ../build/x64_Release/pmc_memory.o
@@ -226,7 +226,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
                 0x00000000634884a0                PMC_From_I
                 0x00000000634884e0                PMC_From_L
                 0x0000000063488520                Initialize_From
- .text          0x0000000063488530       0x80 ../build/x64_Release/pmc_getpropertyvalue.o
+ .text          0x0000000063488530       0x80 ../build/x64_Release/pmc_getnumbertype.o
                 0x0000000063488530                PMC_GetNumberType_X
                 0x00000000634885a0                Initialize_GetPropertyValue
  .text          0x00000000634885b0      0x950 ../build/x64_Release/pmc_greatestcommondivisor.o
@@ -382,7 +382,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_equals.o
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_exclusiveor.o
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_from.o
- .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_getpropertyvalue.o
+ .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_getnumbertype.o
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_greatestcommondivisor.o
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_initialize.o
  .data          0x0000000063492000        0x0 ../build/x64_Release/pmc_memory.o
@@ -662,7 +662,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .rdata$zzz     0x0000000063493890       0x40 ../build/x64_Release/pmc_equals.o
  .rdata$zzz     0x00000000634938d0       0x40 ../build/x64_Release/pmc_exclusiveor.o
  .rdata$zzz     0x0000000063493910       0x40 ../build/x64_Release/pmc_from.o
- .rdata$zzz     0x0000000063493950       0x40 ../build/x64_Release/pmc_getpropertyvalue.o
+ .rdata$zzz     0x0000000063493950       0x40 ../build/x64_Release/pmc_getnumbertype.o
  .rdata$zzz     0x0000000063493990       0x40 ../build/x64_Release/pmc_greatestcommondivisor.o
  .rdata$zzz     0x00000000634939d0       0x40 ../build/x64_Release/pmc_initialize.o
  .rdata$zzz     0x0000000063493a10       0x40 ../build/x64_Release/pmc_memory.o
@@ -724,7 +724,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .pdata         0x000000006349527c       0x6c ../build/x64_Release/pmc_equals.o
  .pdata         0x00000000634952e8       0x60 ../build/x64_Release/pmc_exclusiveor.o
  .pdata         0x0000000063495348       0x3c ../build/x64_Release/pmc_from.o
- .pdata         0x0000000063495384       0x18 ../build/x64_Release/pmc_getpropertyvalue.o
+ .pdata         0x0000000063495384       0x18 ../build/x64_Release/pmc_getnumbertype.o
  .pdata         0x000000006349539c       0x6c ../build/x64_Release/pmc_greatestcommondivisor.o
  .pdata         0x0000000063495408        0xc ../build/x64_Release/pmc_initialize.o
  .pdata         0x0000000063495414       0xe4 ../build/x64_Release/pmc_memory.o
@@ -753,7 +753,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .xdata         0x00000000634962a0       0x4c ../build/x64_Release/pmc_equals.o
  .xdata         0x00000000634962ec       0x68 ../build/x64_Release/pmc_exclusiveor.o
  .xdata         0x0000000063496354       0x2c ../build/x64_Release/pmc_from.o
- .xdata         0x0000000063496380       0x10 ../build/x64_Release/pmc_getpropertyvalue.o
+ .xdata         0x0000000063496380       0x10 ../build/x64_Release/pmc_getnumbertype.o
  .xdata         0x0000000063496390       0x8c ../build/x64_Release/pmc_greatestcommondivisor.o
  .xdata         0x000000006349641c        0xc ../build/x64_Release/pmc_initialize.o
  .xdata         0x0000000063496428       0xa0 ../build/x64_Release/pmc_memory.o
@@ -785,7 +785,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_equals.o
  .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_exclusiveor.o
  .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_from.o
- .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_getpropertyvalue.o
+ .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_getnumbertype.o
  .bss           0x0000000063497020        0x0 ../build/x64_Release/pmc_greatestcommondivisor.o
  .bss           0x0000000063497020      0x240 ../build/x64_Release/pmc_initialize.o
  .bss           0x0000000063497260        0x0 ../build/x64_Release/pmc_memory.o

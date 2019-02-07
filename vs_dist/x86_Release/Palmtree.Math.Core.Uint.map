@@ -1,6 +1,6 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c5a4070 (Wed Feb  6 11:03:28 2019)
+ Timestamp is 5c5c30db (Thu Feb  7 22:21:31 2019)
 
  Preferred load address is 10000000
 
@@ -72,7 +72,7 @@
  0001:00000400       _Initialize_ModPow         10001400 f   pmc_modpow.obj
  0001:00000400       _Initialize_GreatestCommonDivisor 10001400 f   pmc_greatestcommondivisor.obj
  0001:00000400       _Initialize_Equals         10001400 f   pmc_equals.obj
- 0001:00000400       _Initialize_GetPropertyValue 10001400 f   pmc_getpropertyvalue.obj
+ 0001:00000400       _Initialize_GetPropertyValue 10001400 f   pmc_getnumbertype.obj
  0001:00000400       _Initialize_Pow            10001400 f   pmc_pow.obj
  0001:00000400       _Initialize_Shift          10001400 f   pmc_shift.obj
  0001:00000410       _CheckNumber               10001410 f   pmc_memory.obj
@@ -131,7 +131,7 @@
  0001:00006510       _From_L_Imp                10007510 f   pmc_from.obj
  0001:000065a0       _PMC_From_I@8              100075a0 f   pmc_from.obj
  0001:00006610       _PMC_From_L@12             10007610 f   pmc_from.obj
- 0001:000066c0       _PMC_GetNumberType_X@8     100076c0 f   pmc_getpropertyvalue.obj
+ 0001:000066c0       _PMC_GetNumberType_X@8     100076c0 f   pmc_getnumbertype.obj
  0001:000067c0       _PMC_GreatestCommonDivisor_I_X@12 100077c0 f   pmc_greatestcommondivisor.obj
  0001:00006800       _PMC_GreatestCommonDivisor_L_X@16 10007800 f   pmc_greatestcommondivisor.obj
  0001:00006840       _PMC_GreatestCommonDivisor_X_I@12 10007840 f   pmc_greatestcommondivisor.obj

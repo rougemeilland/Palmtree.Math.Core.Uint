@@ -2049,12 +2049,12 @@ _type$ = 8						; size = 4
 _o$ = 12						; size = 4
 _PMC_GetConstantValue_I@8 PROC				; COMDAT
 
-; 550  : {
+; 549  : {
 
 	push	ebp
 	mov	ebp, esp
 
-; 551  :     switch (type)
+; 550  :     switch (type)
 
 	mov	eax, DWORD PTR _type$[ebp]
 	sub	eax, 1
@@ -2062,43 +2062,43 @@ _PMC_GetConstantValue_I@8 PROC				; COMDAT
 	sub	eax, 1
 	je	SHORT $LN5@PMC_GetCon
 
-; 558  :         return (PMC_STATUS_OK);
-; 559  :     default:
-; 560  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 557  :         return (PMC_STATUS_OK);
+; 558  :     default:
+; 559  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 
-; 561  :     }
-; 562  : }
+; 560  :     }
+; 561  : }
 
 	pop	ebp
 	ret	8
 $LN5@PMC_GetCon:
 
-; 555  :         return (PMC_STATUS_OK);
-; 556  :     case PMC_CONSTANT_ONE:
-; 557  :         *o = (PMC_HANDLE_UINT)&number_one;
+; 554  :         return (PMC_STATUS_OK);
+; 555  :     case PMC_CONSTANT_ONE:
+; 556  :         *o = (PMC_HANDLE_UINT)&number_one;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_one
 
-; 561  :     }
-; 562  : }
+; 560  :     }
+; 561  : }
 
 	xor	eax, eax
 	pop	ebp
 	ret	8
 $LN4@PMC_GetCon:
 
-; 552  :     {
-; 553  :     case PMC_CONSTANT_ZERO:
-; 554  :         *o = (PMC_HANDLE_UINT)&number_zero;
+; 551  :     {
+; 552  :     case PMC_CONSTANT_ZERO:
+; 553  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 561  :     }
-; 562  : }
+; 560  :     }
+; 561  : }
 
 	xor	eax, eax
 	pop	ebp
@@ -2116,7 +2116,7 @@ _TEXT	SEGMENT
 _p$ = 8							; size = 4
 _PMC_Dispose@4 PROC					; COMDAT
 
-; 565  : {
+; 564  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -2242,13 +2242,13 @@ $LN22@PMC_Dispos:
 $LN14@PMC_Dispos:
 	pop	esi
 
-; 566  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
-; 567  :     PMC_STATUS_CODE result = CheckNumber(np);
-; 568  :     if (result != PMC_STATUS_OK)
-; 569  :         return;
-; 570  :     DeallocateNumber(np);
-; 571  :     return;
-; 572  : }
+; 565  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 566  :     PMC_STATUS_CODE result = CheckNumber(np);
+; 567  :     if (result != PMC_STATUS_OK)
+; 568  :         return;
+; 569  :     DeallocateNumber(np);
+; 570  :     return;
+; 571  : }
 
 	pop	ebp
 	ret	4
@@ -2269,20 +2269,20 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_Memory PROC					; COMDAT
 
-; 575  : {
+; 574  : {
 
 	push	esi
 
-; 576  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 577  : 
-; 578  :     BOOL number_zero_ok = TRUE;
-; 579  :     BOOL number_one_ok = TRUE;
-; 580  :     if (result == PMC_STATUS_OK)
-; 581  :     {
-; 582  :         result = AttatchNumber(&number_zero, 0);
-; 583  :         if (result == PMC_STATUS_OK)
-; 584  :         {
-; 585  :             CommitNumber(&number_zero);
+; 575  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 576  : 
+; 577  :     BOOL number_zero_ok = TRUE;
+; 578  :     BOOL number_one_ok = TRUE;
+; 579  :     if (result == PMC_STATUS_OK)
+; 580  :     {
+; 581  :         result = AttatchNumber(&number_zero, 0);
+; 582  :         if (result == PMC_STATUS_OK)
+; 583  :         {
+; 584  :             CommitNumber(&number_zero);
 
 	push	OFFSET _number_zero
 
@@ -2323,16 +2323,16 @@ _Initialize_Memory PROC					; COMDAT
 
 	mov	DWORD PTR _number_zero+24, 1
 
-; 576  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
-; 577  : 
-; 578  :     BOOL number_zero_ok = TRUE;
-; 579  :     BOOL number_one_ok = TRUE;
-; 580  :     if (result == PMC_STATUS_OK)
-; 581  :     {
-; 582  :         result = AttatchNumber(&number_zero, 0);
-; 583  :         if (result == PMC_STATUS_OK)
-; 584  :         {
-; 585  :             CommitNumber(&number_zero);
+; 575  :     PMC_STATUS_CODE result = PMC_STATUS_OK;
+; 576  : 
+; 577  :     BOOL number_zero_ok = TRUE;
+; 578  :     BOOL number_one_ok = TRUE;
+; 579  :     if (result == PMC_STATUS_OK)
+; 580  :     {
+; 581  :         result = AttatchNumber(&number_zero, 0);
+; 582  :         if (result == PMC_STATUS_OK)
+; 583  :         {
+; 584  :             CommitNumber(&number_zero);
 
 	call	_CommitNumber
 	add	esp, 4
@@ -2432,45 +2432,45 @@ $LN122@Initialize:
 	mov	esi, -5					; fffffffbH
 $LN52@Initialize:
 
-; 586  :             number_zero_ok = TRUE;
-; 587  :         }
-; 588  :     }
-; 589  : 
-; 590  :     if (result == PMC_STATUS_OK)
-; 591  :     {
-; 592  :         result = AttatchNumber(&number_one, 1);
-; 593  :         if (result == PMC_STATUS_OK)
+; 585  :             number_zero_ok = TRUE;
+; 586  :         }
+; 587  :     }
+; 588  : 
+; 589  :     if (result == PMC_STATUS_OK)
+; 590  :     {
+; 591  :         result = AttatchNumber(&number_one, 1);
+; 592  :         if (result == PMC_STATUS_OK)
 
 	test	esi, esi
 	jne	SHORT $LN5@Initialize
 
-; 594  :         {
-; 595  :             number_one.BLOCK[0] = 1;
-; 596  :             CommitNumber(&number_one);
+; 593  :         {
+; 594  :             number_one.BLOCK[0] = 1;
+; 595  :             CommitNumber(&number_one);
 
 	push	OFFSET _number_one
 	mov	DWORD PTR [ecx], 1
 	call	_CommitNumber
 	add	esp, 4
 
-; 597  :             number_one_ok = TRUE;
-; 598  :         }
-; 599  :     }
-; 600  : 
-; 601  :     if (result != PMC_STATUS_OK)
-; 602  :     {
-; 603  :         if (number_zero_ok)
-; 604  :             DetatchNumber(&number_zero);
-; 605  :         if (number_one_ok)
-; 606  :             DetatchNumber(&number_one);
-; 607  :     }
-; 608  : 
-; 609  :     return (result);
+; 596  :             number_one_ok = TRUE;
+; 597  :         }
+; 598  :     }
+; 599  : 
+; 600  :     if (result != PMC_STATUS_OK)
+; 601  :     {
+; 602  :         if (number_zero_ok)
+; 603  :             DetatchNumber(&number_zero);
+; 604  :         if (number_one_ok)
+; 605  :             DetatchNumber(&number_one);
+; 606  :     }
+; 607  : 
+; 608  :     return (result);
 
 	xor	eax, eax
 	pop	esi
 
-; 610  : }
+; 609  : }
 
 	ret	0
 $LN5@Initialize:
@@ -2593,24 +2593,24 @@ $LN118@Initialize:
 $LN123@Initialize:
 	pop	edi
 
-; 597  :             number_one_ok = TRUE;
-; 598  :         }
-; 599  :     }
-; 600  : 
-; 601  :     if (result != PMC_STATUS_OK)
-; 602  :     {
-; 603  :         if (number_zero_ok)
-; 604  :             DetatchNumber(&number_zero);
-; 605  :         if (number_one_ok)
-; 606  :             DetatchNumber(&number_one);
-; 607  :     }
-; 608  : 
-; 609  :     return (result);
+; 596  :             number_one_ok = TRUE;
+; 597  :         }
+; 598  :     }
+; 599  : 
+; 600  :     if (result != PMC_STATUS_OK)
+; 601  :     {
+; 602  :         if (number_zero_ok)
+; 603  :             DetatchNumber(&number_zero);
+; 604  :         if (number_one_ok)
+; 605  :             DetatchNumber(&number_one);
+; 606  :     }
+; 607  : 
+; 608  :     return (result);
 
 	mov	eax, esi
 	pop	esi
 
-; 610  : }
+; 609  : }
 
 	ret	0
 _Initialize_Memory ENDP
@@ -2625,54 +2625,54 @@ _x$ = 8							; size = 4
 _op$ = 12						; size = 4
 _DuplicateNumber PROC					; COMDAT
 
-; 527  : {
+; 526  : {
 
 	push	ebp
 	mov	ebp, esp
 	push	esi
 
-; 528  :     if (x->IS_STATIC)
+; 527  :     if (x->IS_STATIC)
 
 	mov	esi, DWORD PTR _x$[ebp]
 	mov	eax, DWORD PTR [esi+24]
 	test	al, 1
 	je	SHORT $LN2@DuplicateN
 
-; 529  :     {
-; 530  :         *op = x;
+; 528  :     {
+; 529  :         *op = x;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	mov	DWORD PTR [eax], esi
 
-; 531  :         return (PMC_STATUS_OK);
+; 530  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 	pop	esi
 
-; 547  : }
+; 546  : }
 
 	pop	ebp
 	ret	0
 $LN2@DuplicateN:
 
-; 532  :     }
-; 533  :     if (x->IS_ZERO)
+; 531  :     }
+; 532  :     if (x->IS_ZERO)
 
 	test	al, 2
 	je	SHORT $LN3@DuplicateN
 
-; 534  :     {
-; 535  :         *op = &number_zero;
+; 533  :     {
+; 534  :         *op = &number_zero;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	pop	esi
 	mov	DWORD PTR [eax], OFFSET _number_zero
 
-; 536  :         return (PMC_STATUS_OK);
+; 535  :         return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 547  : }
+; 546  : }
 
 	pop	ebp
 	ret	0
@@ -2680,8 +2680,8 @@ $LN3@DuplicateN:
 	push	ebx
 	push	edi
 
-; 537  :     }
-; 538  :     __UNIT_TYPE x_bit_count = x->UNIT_BIT_COUNT;
+; 536  :     }
+; 537  :     __UNIT_TYPE x_bit_count = x->UNIT_BIT_COUNT;
 
 	mov	edi, DWORD PTR [esi+12]
 
@@ -2705,7 +2705,7 @@ $LN3@DuplicateN:
 	pop	ebx
 	pop	esi
 
-; 547  : }
+; 546  : }
 
 	pop	ebp
 	ret	0
@@ -2748,18 +2748,18 @@ $LN7@DuplicateN:
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
 
-; 544  :     CommitNumber(o);
+; 543  :     CommitNumber(o);
 
 	push	ebx
 	call	_CommitNumber
 
-; 545  :     *op = o;
+; 544  :     *op = o;
 
 	mov	eax, DWORD PTR _op$[ebp]
 	add	esp, 4
 	mov	DWORD PTR [eax], ebx
 
-; 546  :     return (PMC_STATUS_OK);
+; 545  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN15@DuplicateN:
@@ -2767,7 +2767,7 @@ $LN15@DuplicateN:
 	pop	ebx
 	pop	esi
 
-; 547  : }
+; 546  : }
 
 	pop	ebp
 	ret	0
@@ -3727,25 +3727,25 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _DeallocateHeapArea PROC				; COMDAT
 
-; 622  :     if (hLocalHeap != NULL)
+; 621  :     if (hLocalHeap != NULL)
 
 	mov	eax, DWORD PTR _hLocalHeap
 	test	eax, eax
 	je	SHORT $LN2@Deallocate
 
-; 623  :     {
-; 624  :         HeapDestroy(hLocalHeap);
+; 622  :     {
+; 623  :         HeapDestroy(hLocalHeap);
 
 	push	eax
 	call	DWORD PTR __imp__HeapDestroy@4
 
-; 625  :         hLocalHeap = NULL;
+; 624  :         hLocalHeap = NULL;
 
 	mov	DWORD PTR _hLocalHeap, 0
 $LN2@Deallocate:
 
-; 626  :     }
-; 627  : }
+; 625  :     }
+; 626  : }
 
 	ret	0
 _DeallocateHeapArea ENDP
@@ -3756,14 +3756,14 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _AllocateHeapArea PROC					; COMDAT
 
-; 614  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
+; 613  :     hLocalHeap = HeapCreate(0, 0x1000, 0);
 
 	push	0
 	push	4096					; 00001000H
 	push	0
 	call	DWORD PTR __imp__HeapCreate@12
 
-; 615  :     if (hLocalHeap == NULL)
+; 614  :     if (hLocalHeap == NULL)
 
 	xor	ecx, ecx
 	mov	DWORD PTR _hLocalHeap, eax
@@ -3771,9 +3771,9 @@ _AllocateHeapArea PROC					; COMDAT
 	setne	cl
 	mov	eax, ecx
 
-; 616  :         return (FALSE);
-; 617  :     return (TRUE);
-; 618  : }
+; 615  :         return (FALSE);
+; 616  :     return (TRUE);
+; 617  : }
 
 	ret	0
 _AllocateHeapArea ENDP

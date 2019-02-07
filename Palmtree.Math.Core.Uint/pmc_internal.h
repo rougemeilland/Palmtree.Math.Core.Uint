@@ -31,11 +31,16 @@
 #ifndef __PMC_INTERNAL_H
 #define __PMC_INTERNAL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #pragma region マクロの定義
 #define countof(x)  (sizeof(x)/sizeof(*(x)))
 
 #define PMC_SIGNATURE (((_UINT32_T)'I' << 24) | ((_UINT32_T)'c' << 16) | ((_UINT32_T)'M' << 8) | (_UINT32_T)'p')
 #define PMC_UINT_SIGNATURE (((_UINT32_T)'T' << 24) | ((_UINT32_T)'n' << 16) | ((_UINT32_T)'i' << 8) | (_UINT32_T)'U')
+#define PMC_SINT_SIGNATURE (((_UINT32_T)'t' << 24) | ((_UINT32_T)'N' << 16) | ((_UINT32_T)'I' << 8) | (_UINT32_T)'s')
 #pragma endregion
 
 
@@ -60,6 +65,10 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 #define __UNIT_TYPE_BIT_COUNT (sizeof(__UNIT_TYPE) * 8)
 #pragma endregion
 
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __PMC_INTERNAL_H */
 

@@ -4086,7 +4086,7 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x1f
-	.byte	0x2c
+	.byte	0x31
 	.byte	0x13
 	.long	0x4971
 	.uleb128 0x10

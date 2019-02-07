@@ -84,19 +84,31 @@ int main(int argc, char** argv)
         return (1);
     }
     void(__stdcall *proc)(PMC_DEBUG_ENVIRONMENT *);
+    char* actual_symbol = DLL_FUNC_SYMBOL_1;
     proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_1);
     if (proc == NULL)
+    {
+        char* actual_symbol = DLL_FUNC_SYMBOL_2;
         proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_2);
-    if (proc == NULL)
-        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_3);
-    if (proc == NULL)
-        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_4);
+    }
     if (proc == NULL)
     {
+        char* actual_symbol = DLL_FUNC_SYMBOL_3;
+        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_3);
+    }
+    if (proc == NULL)
+    {
+        char* actual_symbol = DLL_FUNC_SYMBOL_4;
+        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_4);
+    }
+    if (proc == NULL)
+    {
+        char* actual_symbol = NULL;
         fprintf(stderr, "***error: GetProcAddress(\"%s\"/\"%s\"/\"%s\"/\"%s\")\n", DLL_FUNC_SYMBOL_1, DLL_FUNC_SYMBOL_2, DLL_FUNC_SYMBOL_3, DLL_FUNC_SYMBOL_4);
         getchar();
         return (1);
     }
+    printf("***symbol resolved: %s\n", actual_symbol);
     PMC_DEBUG_ENVIRONMENT debug_env;
     debug_env.log = wprintf;
     debug_env.pause = pause_console;

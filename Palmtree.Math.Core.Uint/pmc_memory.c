@@ -522,7 +522,6 @@ PMC_STATUS_CODE CheckNumber(NUMBER_HEADER* p)
     return (PMC_STATUS_OK);
 }
 
-
 PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* x, NUMBER_HEADER** op)
 {
     if (x->IS_STATIC)

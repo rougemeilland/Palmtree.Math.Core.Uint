@@ -283,12 +283,8 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 typedef struct __tag_PMC_SINT_ENTRY_POINTS
 {
-    // 実行中のプロセッサの実装命令に関する情報
-    unsigned PROCESSOR_FEATURE_POPCNT : 1;  // 実行中のプロセッサの実装命令を示すフラグ。POPCNTをサポートしているなら1、そうではないのなら0。
-    unsigned PROCESSOR_FEATURE_ADX : 1;     // 実行中のプロセッサの実装命令を示すフラグ。ADXをサポートしているなら1、そうではないのなら0。
-    unsigned PROCESSOR_FEATURE_BMI1 : 1;    // 実行中のプロセッサの実装命令を示すフラグ。BMI1をサポートしているなら1、そうではないのなら0。
-    unsigned PROCESSOR_FEATURE_BMI2 : 1;    // 実行中のプロセッサの実装命令を示すフラグ。BMI2をサポートしているなら1、そうではないのなら0。
-    unsigned PROCESSOR_FEATURE_ABM : 1;     // 実行中のプロセッサの実装命令を示すフラグ。ABMをサポートしているなら1、そうではないのなら0。
+    // 符号なし整数演算のエントリポイント
+    PMC_UINT_ENTRY_POINTS uint;
 
     // 統計情報関連
     void (__PMC_CALL * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);// 与えられた領域に現在まで採取されている統計情報を複写する。
@@ -303,7 +299,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     void  (__PMC_CALL * Dispose)(PMC_HANDLE_SINT p);
 
     // 数値に関する詳細を取得
-    PMC_STATUS_CODE (__PMC_CALL * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
+    PMC_STATUS_CODE (__PMC_CALL * GetNumberType_X)(PMC_HANDLE_SINT x, PMC_NUMBER_TYPE_CODE* o);
 
     // 定数値を取得
     PMC_STATUS_CODE (__PMC_CALL * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
@@ -319,26 +315,34 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE (__PMC_CALL * To_X_I)(PMC_HANDLE_SINT p, _INT32_T* o);
     PMC_STATUS_CODE (__PMC_CALL * To_X_L)(PMC_HANDLE_SINT p, _INT64_T* o);
 
+    // 符号反転演算子
+    PMC_STATUS_CODE (__PMC_CALL * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
+
+    /*
     // 文字列化
     PMC_STATUS_CODE (__PMC_CALL * ToString)(PMC_HANDLE_SINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
     // 文字列の解析
     PMC_STATUS_CODE (__PMC_CALL * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_SINT* o);
-
+    */
     // Add 演算子
     PMC_STATUS_CODE (__PMC_CALL * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Add_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Add_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * Add_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Add_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
 
     // Subtruct 演算子
     PMC_STATUS_CODE (__PMC_CALL * Subtruct_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Subtruct_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * Subtruct_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Subtruct_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
+    PMC_STATUS_CODE (__PMC_CALL * Subtruct_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-
+    /*
     // Multiply 演算子
     PMC_STATUS_CODE (__PMC_CALL * Multiply_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__PMC_CALL * Multiply_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -406,7 +410,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
     // べき剰余の計算
     PMC_STATUS_CODE (__PMC_CALL * ModPow_X_X_X)(PMC_HANDLE_SINT v, PMC_HANDLE_SINT e, PMC_HANDLE_SINT m, PMC_HANDLE_SINT* r);
-
+    */
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 

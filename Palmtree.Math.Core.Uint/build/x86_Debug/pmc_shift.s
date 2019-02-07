@@ -11630,7 +11630,7 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
-	.byte	0x2c
+	.byte	0x31
 	.byte	0x13
 	.long	0x4989
 	.uleb128 0x4
@@ -11638,7 +11638,7 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE_DIV\0"
 	.byte	0x21
-	.byte	0x38
+	.byte	0x3d
 	.byte	0x15
 	.long	0x4bf8
 	.uleb128 0x4

@@ -43,7 +43,7 @@ PUBLIC	??_C@_17CLPOHKCA@?$AAM?$AAS?$AAC@		; `string'
 PUBLIC	??_C@_1BM@IMGEAKDJ@?$AAP?$AAL?$AAA?$AAT?$AAF?$AAO?$AAR?$AAM?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?6@ ; `string'
 PUBLIC	??_C@_1BM@DNPJODOF@?$AAC?$AAO?$AAM?$AAP?$AAI?$AAL?$AAE?$AAR?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?6@ ; `string'
 PUBLIC	??_C@_1GO@EJNKEMEB@?$AAC?$AAP?$AAU?$AA?9?$AAI?$AAN?$AAF?$AAO?$AA?3?$AA?5?$AAP?$AAO?$AAP?$AAC?$AAN@ ; `string'
-PUBLIC	??_C@_08EHONFECB@?$CK?$CK?$CKNG?$CK?$CK?$CK@	; `string'
+PUBLIC	??_C@_1BC@IPMCEBLM@?$AA?$CK?$AA?$CK?$AA?$CK?$AAN?$AAG?$AA?$CK?$AA?$CK?$AA?$CK@ ; `string'
 PUBLIC	??_C@_1DE@HJPKPLII@?$PP?F?$PP?$LJ?$PP?H?$AA?5?$AAN?$AAo?$AA?4?$AA?$CF?$AAd?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?5?$AA?$DN@ ; `string'
 PUBLIC	??_C@_15JOGBDECP@?$AA?0?$AA?5@			; `string'
 PUBLIC	??_C@_1O@GMFEIALK@?$AA0?$AAx?$AA?$CF?$AA0?$AA2?$AAx@ ; `string'
@@ -131,9 +131,11 @@ CONST	SEGMENT
 	DB	'=', 00H, '>', 00H, ' ', 00H, '%', 00H, 's', 00H, ' ', 00H, '('
 	DB	00H, '%', 00H, 's', 00H, ')', 00H, 0aH, 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_08EHONFECB@?$CK?$CK?$CKNG?$CK?$CK?$CK@
+;	COMDAT ??_C@_1BC@IPMCEBLM@?$AA?$CK?$AA?$CK?$AA?$CK?$AAN?$AAG?$AA?$CK?$AA?$CK?$AA?$CK@
 CONST	SEGMENT
-??_C@_08EHONFECB@?$CK?$CK?$CKNG?$CK?$CK?$CK@ DB '***NG***', 00H ; `string'
+??_C@_1BC@IPMCEBLM@?$AA?$CK?$AA?$CK?$AA?$CK?$AAN?$AAG?$AA?$CK?$AA?$CK?$AA?$CK@ DB '*'
+	DB	00H, '*', 00H, '*', 00H, 'N', 00H, 'G', 00H, '*', 00H, '*', 00H
+	DB	'*', 00H, 00H, 00H				; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_1GO@EJNKEMEB@?$AAC?$AAP?$AAU?$AA?9?$AAI?$AAN?$AAF?$AAO?$AA?3?$AA?5?$AAP?$AAO?$AAP?$AAC?$AAN@
 CONST	SEGMENT
@@ -859,7 +861,7 @@ $LN5:
 	je	SHORT $LN2@TEST_Asser
 
 ; 109  :     {
-; 110  :         //env->log(L"テスト No.%d: %s => %s\n", test_total_count + 1, test_name, "Ok");
+; 110  :         //env->log(L"テスト No.%d: %s => %s\n", test_total_count + 1, test_name, L"Ok");
 ; 111  :         ++test_ok_count;
 
 	mov	eax, DWORD PTR test_ok_count
@@ -873,13 +875,13 @@ $LN2@TEST_Asser:
 
 ; 113  :     else
 ; 114  :     {
-; 115  :         env->log(L"テスト No.%d: %s => %s (%s)\n", test_total_count + 1, test_name, "***NG***", reason);
+; 115  :         env->log(L"テスト No.%d: %s => %s (%s)\n", test_total_count + 1, test_name, L"***NG***", reason);
 
 	mov	eax, DWORD PTR test_total_count
 	inc	eax
 	mov	rcx, QWORD PTR reason$[rbp]
 	mov	QWORD PTR [rsp+32], rcx
-	lea	r9, OFFSET FLAT:??_C@_08EHONFECB@?$CK?$CK?$CKNG?$CK?$CK?$CK@
+	lea	r9, OFFSET FLAT:??_C@_1BC@IPMCEBLM@?$AA?$CK?$AA?$CK?$AA?$CK?$AAN?$AAG?$AA?$CK?$AA?$CK?$AA?$CK@
 	mov	r8, QWORD PTR test_name$[rbp]
 	mov	edx, eax
 	lea	rcx, OFFSET FLAT:??_C@_1DE@HJPKPLII@?$PP?F?$PP?$LJ?$PP?H?$AA?5?$AAN?$AAo?$AA?4?$AA?$CF?$AAd?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?5?$AA?$DN@

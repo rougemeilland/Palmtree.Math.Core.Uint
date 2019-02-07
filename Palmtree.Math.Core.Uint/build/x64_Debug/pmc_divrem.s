@@ -11817,7 +11817,7 @@ Initialize_DivRem:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x25
-	.byte	0x2e
+	.byte	0x33
 	.byte	0x13
 	.long	0x4c9f
 	.uleb128 0x4
@@ -11825,7 +11825,7 @@ Initialize_DivRem:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE_DIV\0"
 	.byte	0x25
-	.byte	0x38
+	.byte	0x3d
 	.byte	0x15
 	.long	0x4f1a
 	.uleb128 0x4

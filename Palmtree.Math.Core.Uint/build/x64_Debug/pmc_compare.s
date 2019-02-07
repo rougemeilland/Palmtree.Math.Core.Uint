@@ -4914,7 +4914,7 @@ Initialize_Compare:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x20
-	.byte	0x2e
+	.byte	0x33
 	.byte	0x13
 	.long	0x49bf
 	.uleb128 0x12
