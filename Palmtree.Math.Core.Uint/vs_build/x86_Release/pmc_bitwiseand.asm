@@ -466,18 +466,18 @@ _x$ = 8							; size = 4
 _y$ = 12						; size = 4
 __MINIMUM_UNIT PROC					; COMDAT
 
-; 201  :     {
+; 202  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	mov	eax, DWORD PTR _y$[ebp]
 	cmp	DWORD PTR _x$[ebp], eax
 	cmovbe	eax, DWORD PTR _x$[ebp]
 
-; 203  :     }
+; 204  :     }
 
 	pop	ebp
 	ret	0
@@ -491,12 +491,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 186  :     {
+; 187  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -504,7 +504,7 @@ __DIVIDE_CEILING_UNIT PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 188  :     }
+; 189  :     }
 
 	pop	ebp
 	ret	0
@@ -518,22 +518,22 @@ _value$ = 8						; size = 8
 _result_high$ = 16					; size = 4
 __FROMDWORDTOWORD PROC					; COMDAT
 
-; 175  :     {
+; 176  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	eax, DWORD PTR _result_high$[ebp]
 	mov	ecx, DWORD PTR _value$[ebp+4]
 	mov	DWORD PTR [eax], ecx
 
-; 177  :         return ((_UINT32_T)value);
+; 178  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 
-; 178  :     }
+; 179  :     }
 
 	pop	ebp
 	ret	0
@@ -547,18 +547,18 @@ _value_high$ = 8					; size = 4
 _value_low$ = 12					; size = 4
 __FROMWORDTODWORD PROC					; COMDAT
 
-; 170  :     {
+; 171  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR _value_high$[ebp]
 	xor	eax, eax
 	or	eax, DWORD PTR _value_low$[ebp]
 
-; 172  :     }
+; 173  :     }
 
 	pop	ebp
 	ret	0
@@ -658,7 +658,7 @@ _PMC_BitwiseAnd_X_X@12 PROC				; COMDAT
 	lea	eax, DWORD PTR _nw_light_check_code$1[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	DWORD PTR [esi+12], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -668,7 +668,7 @@ _PMC_BitwiseAnd_X_X@12 PROC				; COMDAT
 	push	eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmovbe	ecx, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -680,7 +680,7 @@ _PMC_BitwiseAnd_X_X@12 PROC				; COMDAT
 	push	eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	mov	DWORD PTR _w_bit_count$1$[ebp], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -693,7 +693,7 @@ _PMC_BitwiseAnd_X_X@12 PROC				; COMDAT
 	jne	SHORT $LN1@PMC_Bitwis
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _w_bit_count$1$[ebp]
 	add	eax, 31					; 0000001fH
@@ -904,7 +904,7 @@ $LN8@PMC_Bitwis:
 	and	ecx, DWORD PTR [eax]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, edx
@@ -930,7 +930,7 @@ $LN13@PMC_Bitwis:
 	xor	edx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -940,7 +940,7 @@ $LN13@PMC_Bitwis:
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -1203,7 +1203,7 @@ $LN8@PMC_Bitwis:
 	and	ecx, DWORD PTR [eax]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 	or	eax, edx
@@ -1229,7 +1229,7 @@ $LN13@PMC_Bitwis:
 	xor	edx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -1239,7 +1239,7 @@ $LN13@PMC_Bitwis:
 	mov	DWORD PTR [edi], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	or	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c

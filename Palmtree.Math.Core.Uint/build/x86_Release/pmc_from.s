@@ -20,7 +20,7 @@ LFB5492:
 	testl	%ebx, %ebx
 	je	L2
 /APP
- # 596 "../pmc_inline_func.h" 1
+ # 597 "../pmc_inline_func.h" 1
 	bsrl %ebx, %eax
  # 0 "" 2
 /NO_APP
@@ -77,7 +77,7 @@ LFB5493:
 	testl	%esi, %esi
 	je	L11
 /APP
- # 596 "../pmc_inline_func.h" 1
+ # 597 "../pmc_inline_func.h" 1
 	bsrl %esi, %eax
  # 0 "" 2
 /NO_APP
@@ -114,7 +114,7 @@ L9:
 L10:
 	.cfi_restore_state
 /APP
- # 596 "../pmc_inline_func.h" 1
+ # 597 "../pmc_inline_func.h" 1
 	bsrl %edi, %eax
  # 0 "" 2
 /NO_APP

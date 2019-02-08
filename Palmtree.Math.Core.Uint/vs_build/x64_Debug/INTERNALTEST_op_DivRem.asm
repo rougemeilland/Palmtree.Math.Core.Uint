@@ -845,7 +845,7 @@ s$ = 232
 count$ = 240
 _COPY_MEMORY_BYTE PROC					; COMDAT
 
-; 42   :     {
+; 43   :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -863,14 +863,14 @@ _COPY_MEMORY_BYTE PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR d$[rbp]
 	mov	rsi, QWORD PTR s$[rbp]
 	mov	rcx, QWORD PTR count$[rbp]
 	rep movsb
 
-; 44   :     }
+; 45   :     }
 
 	lea	rsp, QWORD PTR [rbp+192]
 	pop	rdi

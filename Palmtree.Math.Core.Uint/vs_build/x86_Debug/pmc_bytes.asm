@@ -145,7 +145,7 @@ _pos$ = -8						; size = 4
 _x$ = 8							; size = 1
 __LZCNT_ALT_8 PROC
 
-; 574  :     {
+; 575  :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -156,39 +156,39 @@ __LZCNT_ALT_8 PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 575  :         if (x == 0)
+; 576  :         if (x == 0)
 
 	movzx	eax, BYTE PTR _x$[ebp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 576  :             return (sizeof(x) * 8);
+; 577  :             return (sizeof(x) * 8);
 
 	mov	eax, 8
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 577  :         _UINT32_T pos;
-; 578  : #ifdef _MSC_VER
-; 579  :         _BitScanReverse(&pos, x);
+; 578  :         _UINT32_T pos;
+; 579  : #ifdef _MSC_VER
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	ecx, BYTE PTR _x$[ebp]
 	bsr	edx, ecx
 	mov	DWORD PTR _pos$[ebp], edx
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	eax, DWORD PTR _pos$[ebp]
 	movzx	eax, al
 $LN1@LZCNT_ALT_:
 
-; 586  :     }
+; 587  :     }
 
 	push	edx
 	mov	ecx, ebp
@@ -224,14 +224,14 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_SIZE PROC
 
-; 191  :     {
+; 192  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _v$[ebp]
 	mov	ecx, DWORD PTR _u$[ebp]
@@ -239,7 +239,7 @@ __DIVIDE_CEILING_SIZE PROC
 	xor	edx, edx
 	div	DWORD PTR _v$[ebp]
 
-; 193  :     }
+; 194  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -255,7 +255,7 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_BYTE PROC
 
-; 42   :     {
+; 43   :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -264,14 +264,14 @@ __COPY_MEMORY_BYTE PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	mov	esi, DWORD PTR _s$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep movsb
 
-; 44   :     }
+; 45   :     }
 
 	pop	edi
 	pop	esi
@@ -347,10 +347,10 @@ $LN3@PMC_ToByte:
 	mov	eax, DWORD PTR [edx+24]
 	shr	eax, 1
 	and	eax, 1
-	je	SHORT $LN16@PMC_ToByte
+	je	SHORT $LN17@PMC_ToByte
 	mov	DWORD PTR tv76[ebp], 0
-	jmp	SHORT $LN17@PMC_ToByte
-$LN16@PMC_ToByte:
+	jmp	SHORT $LN18@PMC_ToByte
+$LN17@PMC_ToByte:
 	push	8
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
@@ -358,7 +358,7 @@ $LN16@PMC_ToByte:
 	call	__DIVIDE_CEILING_SIZE
 	add	esp, 8
 	mov	DWORD PTR tv76[ebp], eax
-$LN17@PMC_ToByte:
+$LN18@PMC_ToByte:
 	mov	eax, DWORD PTR tv76[ebp]
 	mov	DWORD PTR _expected_abs_buffer_size$[ebp], eax
 
@@ -397,7 +397,7 @@ $LN5@PMC_ToByte:
 	mov	eax, DWORD PTR [edx+24]
 	shr	eax, 1
 	and	eax, 1
-	je	SHORT $LN7@PMC_ToByte
+	je	SHORT $LN8@PMC_ToByte
 
 ; 158  :                 buffer[0] = 0x00;
 
@@ -405,22 +405,26 @@ $LN5@PMC_ToByte:
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _buffer$[ebp]
 	mov	BYTE PTR [eax+edx], 0
-	jmp	SHORT $LN6@PMC_ToByte
-$LN7@PMC_ToByte:
+	jmp	SHORT $LN9@PMC_ToByte
+$LN8@PMC_ToByte:
 
 ; 159  :             else
 ; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	$LN1@PMC_ToByte
-$LN6@PMC_ToByte:
+$LN9@PMC_ToByte:
 
 ; 161  :         }
-; 162  :         if (p_sign > 0)
+
+	jmp	$LN4@PMC_ToByte
+$LN6@PMC_ToByte:
+
+; 162  :         else if (p_sign > 0)
 
 	movsx	ecx, BYTE PTR _p_sign$[ebp]
 	test	ecx, ecx
-	jle	SHORT $LN9@PMC_ToByte
+	jle	SHORT $LN10@PMC_ToByte
 
 ; 163  :         {
 ; 164  :             if (np->IS_ZERO)
@@ -429,14 +433,14 @@ $LN6@PMC_ToByte:
 	mov	eax, DWORD PTR [edx+24]
 	shr	eax, 1
 	and	eax, 1
-	je	SHORT $LN11@PMC_ToByte
+	je	SHORT $LN12@PMC_ToByte
 
 ; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_ToByte
-	jmp	SHORT $LN12@PMC_ToByte
-$LN11@PMC_ToByte:
+	jmp	SHORT $LN13@PMC_ToByte
+$LN12@PMC_ToByte:
 
 ; 166  :             else
 ; 167  :             {
@@ -459,13 +463,13 @@ $LN11@PMC_ToByte:
 	push	ecx
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
-$LN12@PMC_ToByte:
+$LN13@PMC_ToByte:
 
 ; 170  :             }
 ; 171  :         }
 
 	jmp	SHORT $LN4@PMC_ToByte
-$LN9@PMC_ToByte:
+$LN10@PMC_ToByte:
 
 ; 172  :         else
 ; 173  :         {
@@ -475,23 +479,23 @@ $LN9@PMC_ToByte:
 	mov	eax, DWORD PTR [edx+24]
 	shr	eax, 1
 	and	eax, 1
-	je	SHORT $LN13@PMC_ToByte
+	je	SHORT $LN14@PMC_ToByte
 
 ; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffff00H
 	jmp	SHORT $LN1@PMC_ToByte
 	jmp	SHORT $LN4@PMC_ToByte
-$LN13@PMC_ToByte:
+$LN14@PMC_ToByte:
 
 ; 176  :             else
 ; 177  :             {
-; 178  :                 buffer[0] = 0x01;
+; 178  :                 buffer[0] = 0x03;
 
 	mov	ecx, 1
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _buffer$[ebp]
-	mov	BYTE PTR [eax+edx], 1
+	mov	BYTE PTR [eax+edx], 3
 
 ; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
 

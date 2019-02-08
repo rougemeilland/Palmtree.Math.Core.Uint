@@ -55,8 +55,8 @@ $pdata$PMC_FromByteArrayForSINT DD imagerel $LN19
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_ToByteArrayForSINT DD imagerel $LN18
-	DD	imagerel $LN18+496
+$pdata$PMC_ToByteArrayForSINT DD imagerel $LN19
+	DD	imagerel $LN19+501
 	DD	imagerel $unwind$PMC_ToByteArrayForSINT
 pdata	ENDS
 ;	COMDAT pdata
@@ -295,7 +295,7 @@ pos$ = 4
 x$ = 256
 _LZCNT_ALT_8 PROC					; COMDAT
 
-; 574  :     {
+; 575  :     {
 
 	mov	BYTE PTR [rsp+8], cl
 	push	rbp
@@ -310,32 +310,32 @@ _LZCNT_ALT_8 PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 575  :         if (x == 0)
+; 576  :         if (x == 0)
 
 	movzx	eax, BYTE PTR x$[rbp]
 	test	eax, eax
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 576  :             return (sizeof(x) * 8);
+; 577  :             return (sizeof(x) * 8);
 
 	mov	eax, 8
 	jmp	SHORT $LN1@LZCNT_ALT_
 $LN2@LZCNT_ALT_:
 
-; 577  :         _UINT32_T pos;
-; 578  : #ifdef _MSC_VER
-; 579  :         _BitScanReverse(&pos, x);
+; 578  :         _UINT32_T pos;
+; 579  : #ifdef _MSC_VER
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, BYTE PTR x$[rbp]
 	bsr	eax, eax
 	mov	DWORD PTR pos$[rbp], eax
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, DWORD PTR pos$[rbp]
 	mov	ecx, 7
@@ -344,7 +344,7 @@ $LN2@LZCNT_ALT_:
 	movzx	eax, al
 $LN1@LZCNT_ALT_:
 
-; 586  :     }
+; 587  :     }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -365,7 +365,7 @@ u$ = 224
 v$ = 232
 _DIVIDE_CEILING_SIZE PROC				; COMDAT
 
-; 191  :     {
+; 192  :     {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -381,7 +381,7 @@ _DIVIDE_CEILING_SIZE PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	rax, QWORD PTR u$[rbp]
 	mov	rcx, QWORD PTR v$[rbp]
@@ -389,7 +389,7 @@ _DIVIDE_CEILING_SIZE PROC				; COMDAT
 	xor	edx, edx
 	div	QWORD PTR v$[rbp]
 
-; 193  :     }
+; 194  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -406,7 +406,7 @@ s$ = 232
 count$ = 240
 _COPY_MEMORY_BYTE PROC					; COMDAT
 
-; 42   :     {
+; 43   :     {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -424,14 +424,14 @@ _COPY_MEMORY_BYTE PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR d$[rbp]
 	mov	rsi, QWORD PTR s$[rbp]
 	mov	rcx, QWORD PTR count$[rbp]
 	rep movsb
 
-; 44   :     }
+; 45   :     }
 
 	lea	rsp, QWORD PTR [rbp+192]
 	pop	rdi
@@ -457,7 +457,7 @@ PMC_ToByteArrayForSINT PROC				; COMDAT
 
 ; 143  : {
 
-$LN18:
+$LN19:
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -512,16 +512,16 @@ $LN3@PMC_ToByte:
 	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $LN16@PMC_ToByte
+	je	SHORT $LN17@PMC_ToByte
 	mov	QWORD PTR tv76[rbp], 0
-	jmp	SHORT $LN17@PMC_ToByte
-$LN16@PMC_ToByte:
+	jmp	SHORT $LN18@PMC_ToByte
+$LN17@PMC_ToByte:
 	mov	edx, 8
 	mov	rax, QWORD PTR np$[rbp]
 	mov	rcx, QWORD PTR [rax+16]
 	call	_DIVIDE_CEILING_SIZE
 	mov	QWORD PTR tv76[rbp], rax
-$LN17@PMC_ToByte:
+$LN18@PMC_ToByte:
 	mov	rax, QWORD PTR tv76[rbp]
 	mov	QWORD PTR expected_abs_buffer_size$[rbp], rax
 
@@ -561,7 +561,7 @@ $LN5@PMC_ToByte:
 	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $LN7@PMC_ToByte
+	je	SHORT $LN8@PMC_ToByte
 
 ; 158  :                 buffer[0] = 0x00;
 
@@ -569,23 +569,26 @@ $LN5@PMC_ToByte:
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR buffer$[rbp]
 	mov	BYTE PTR [rcx+rax], 0
-	jmp	SHORT $LN8@PMC_ToByte
-$LN7@PMC_ToByte:
+	jmp	SHORT $LN9@PMC_ToByte
+$LN8@PMC_ToByte:
 
 ; 159  :             else
 ; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_ToByte
-$LN8@PMC_ToByte:
-$LN6@PMC_ToByte:
+$LN9@PMC_ToByte:
 
 ; 161  :         }
-; 162  :         if (p_sign > 0)
+
+	jmp	$LN7@PMC_ToByte
+$LN6@PMC_ToByte:
+
+; 162  :         else if (p_sign > 0)
 
 	movsx	eax, BYTE PTR p_sign$[rbp]
 	test	eax, eax
-	jle	SHORT $LN9@PMC_ToByte
+	jle	SHORT $LN10@PMC_ToByte
 
 ; 163  :         {
 ; 164  :             if (np->IS_ZERO)
@@ -595,14 +598,14 @@ $LN6@PMC_ToByte:
 	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $LN11@PMC_ToByte
+	je	SHORT $LN12@PMC_ToByte
 
 ; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	$LN1@PMC_ToByte
-	jmp	SHORT $LN12@PMC_ToByte
-$LN11@PMC_ToByte:
+	jmp	SHORT $LN13@PMC_ToByte
+$LN12@PMC_ToByte:
 
 ; 166  :             else
 ; 167  :             {
@@ -622,13 +625,13 @@ $LN11@PMC_ToByte:
 	mov	rdx, QWORD PTR [rcx+56]
 	mov	rcx, rax
 	call	_COPY_MEMORY_BYTE
-$LN12@PMC_ToByte:
+$LN13@PMC_ToByte:
 
 ; 170  :             }
 ; 171  :         }
 
-	jmp	SHORT $LN10@PMC_ToByte
-$LN9@PMC_ToByte:
+	jmp	SHORT $LN11@PMC_ToByte
+$LN10@PMC_ToByte:
 
 ; 172  :         else
 ; 173  :         {
@@ -639,23 +642,23 @@ $LN9@PMC_ToByte:
 	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
-	je	SHORT $LN13@PMC_ToByte
+	je	SHORT $LN14@PMC_ToByte
 
 ; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
 	jmp	SHORT $LN1@PMC_ToByte
-	jmp	SHORT $LN14@PMC_ToByte
-$LN13@PMC_ToByte:
+	jmp	SHORT $LN15@PMC_ToByte
+$LN14@PMC_ToByte:
 
 ; 176  :             else
 ; 177  :             {
-; 178  :                 buffer[0] = 0x01;
+; 178  :                 buffer[0] = 0x03;
 
 	mov	eax, 1
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR buffer$[rbp]
-	mov	BYTE PTR [rcx+rax], 1
+	mov	BYTE PTR [rcx+rax], 3
 
 ; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
 
@@ -666,8 +669,9 @@ $LN13@PMC_ToByte:
 	mov	rdx, QWORD PTR [rcx+56]
 	mov	rcx, rax
 	call	_COPY_MEMORY_BYTE
-$LN14@PMC_ToByte:
-$LN10@PMC_ToByte:
+$LN15@PMC_ToByte:
+$LN11@PMC_ToByte:
+$LN7@PMC_ToByte:
 $LN4@PMC_ToByte:
 
 ; 180  :             }

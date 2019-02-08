@@ -387,7 +387,7 @@ d$ = 224
 count$ = 232
 _ZERO_MEMORY_BYTE PROC					; COMDAT
 
-; 87   :     {
+; 88   :     {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -403,14 +403,14 @@ _ZERO_MEMORY_BYTE PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__8CA3E54E_pmc_inline_func@h
 	call	__CheckForDebuggerJustMyCode
 
-; 88   :         __stosb(d, 0, count);
+; 89   :         __stosb(d, 0, count);
 
 	mov	rdi, QWORD PTR d$[rbp]
 	xor	eax, eax
 	mov	rcx, QWORD PTR count$[rbp]
 	rep stosb
 
-; 89   :     }
+; 90   :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

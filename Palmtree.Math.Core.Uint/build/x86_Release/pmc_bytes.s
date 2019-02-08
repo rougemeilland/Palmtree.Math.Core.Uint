@@ -91,7 +91,7 @@ L5:
 	movl	$7, %ecx
 	sall	$3, %esi
 /APP
- # 581 "../pmc_inline_func.h" 1
+ # 582 "../pmc_inline_func.h" 1
 	bsrl %eax, %eax
  # 0 "" 2
 /NO_APP
@@ -225,7 +225,7 @@ L32:
 	movl	$7, %ecx
 	sall	$3, %eax
 /APP
- # 581 "../pmc_inline_func.h" 1
+ # 582 "../pmc_inline_func.h" 1
 	bsrl %edx, %edx
  # 0 "" 2
 /NO_APP
@@ -288,54 +288,37 @@ LFB5495:
 	movl	68(%esp), %ebx
 	movl	64(%esp), %esi
 	testl	%ebx, %ebx
-	je	L60
+	je	L58
 	movl	%ebx, (%esp)
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L52
 	movzbl	24(%ebx), %ecx
-	movl	$0, 24(%esp)
-	movl	%ecx, %edx
-	andl	$2, %edx
-	movb	%dl, 31(%esp)
+	xorl	%edx, %edx
+	andl	$2, %ecx
+	movb	%cl, 31(%esp)
 	jne	L54
 	movl	12(%ebx), %edi
 	leal	7(%edi), %edx
 	shrl	$3, %edx
-	movl	%edx, 24(%esp)
 L54:
-	movl	72(%esp), %edx
-	testl	%edx, %edx
+	movl	72(%esp), %ecx
+	testl	%ecx, %ecx
 	je	L55
 	movl	12(%ebx), %edi
 	leal	8(%edi), %ebp
 	movl	76(%esp), %edi
 	sall	$3, %edi
 	cmpl	%edi, %ebp
-	ja	L62
-	movl	%esi, %edx
-	testb	%dl, %dl
+	ja	L60
+	movl	%esi, %ecx
+	testb	%cl, %cl
 	jne	L56
 	cmpb	$0, 31(%esp)
-	je	L59
+	je	L63
 	movl	72(%esp), %esi
 	movb	$0, (%esi)
-	movzbl	24(%ebx), %ecx
-L58:
-	andl	$2, %ecx
-	jne	L59
-	movl	72(%esp), %esi
-	movl	24(%esp), %ecx
-	movb	$1, (%esi)
-	leal	1(%esi), %edi
-	movl	32(%ebx), %esi
-/APP
- # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsb
- # 0 "" 2
-/NO_APP
 L55:
-	movl	24(%esp), %edx
 	movl	80(%esp), %ecx
 	addl	$1, %edx
 	movl	%edx, (%ecx)
@@ -359,11 +342,11 @@ L52:
 	.p2align 4,,10
 L56:
 	.cfi_restore_state
-	jle	L58
+	jle	L57
 	cmpb	$0, 31(%esp)
-	jne	L59
+	jne	L63
 	movl	72(%esp), %esi
-	movl	24(%esp), %ecx
+	movl	%edx, %ecx
 	movb	$1, (%esi)
 	leal	1(%esi), %edi
 	movl	32(%ebx), %esi
@@ -373,14 +356,29 @@ L56:
  # 0 "" 2
 /NO_APP
 	jmp	L55
-L59:
-	movl	$-256, %eax
-	jmp	L52
-L60:
+	.p2align 4,,10
+L57:
+	cmpb	$0, 31(%esp)
+	jne	L63
+	movl	72(%esp), %esi
+	movl	%edx, %ecx
+	movb	$3, (%esi)
+	leal	1(%esi), %edi
+	movl	32(%ebx), %esi
+/APP
+ # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+	rep movsb
+ # 0 "" 2
+/NO_APP
+	jmp	L55
+L58:
 	movl	$-1, %eax
 	jmp	L52
-L62:
+L60:
 	movl	$-4, %eax
+	jmp	L52
+L63:
+	movl	$-256, %eax
 	jmp	L52
 	.cfi_endproc
 LFE5495:
@@ -407,35 +405,35 @@ LFB5496:
 	movl	48(%esp), %ebx
 	movl	52(%esp), %edi
 	testl	%ebx, %ebx
-	je	L72
+	je	L73
 	movl	%ebx, (%esp)
 	call	_CheckNumber
 	testl	%eax, %eax
-	jne	L67
+	jne	L68
 	movzbl	24(%ebx), %ecx
 	xorl	%edx, %edx
 	andl	$2, %ecx
-	jne	L69
+	jne	L70
 	movl	12(%ebx), %esi
 	leal	7(%esi), %edx
 	shrl	$3, %edx
-L69:
+L70:
 	testl	%edi, %edi
-	je	L70
+	je	L71
 	movl	12(%ebx), %esi
 	leal	8(%esi), %ebp
 	movl	56(%esp), %esi
 	sall	$3, %esi
 	cmpl	%esi, %ebp
-	ja	L74
+	ja	L75
 	testb	%cl, %cl
-	je	L71
+	je	L72
 	movb	$0, (%edi)
-L70:
+L71:
 	movl	60(%esp), %ecx
 	addl	$1, %edx
 	movl	%edx, (%ecx)
-L67:
+L68:
 	addl	$28, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -453,7 +451,7 @@ L67:
 	.cfi_def_cfa_offset 4
 	ret	$16
 	.p2align 4,,10
-L71:
+L72:
 	.cfi_restore_state
 	movb	$1, (%edi)
 	movl	%edx, %ecx
@@ -464,13 +462,13 @@ L71:
 	rep movsb
  # 0 "" 2
 /NO_APP
-	jmp	L70
-L72:
+	jmp	L71
+L73:
 	movl	$-1, %eax
-	jmp	L67
-L74:
+	jmp	L68
+L75:
 	movl	$-4, %eax
-	jmp	L67
+	jmp	L68
 	.cfi_endproc
 LFE5496:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"

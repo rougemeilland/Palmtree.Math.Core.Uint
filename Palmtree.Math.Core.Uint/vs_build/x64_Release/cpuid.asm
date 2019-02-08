@@ -144,18 +144,18 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_BYTE PROC					; COMDAT
 
-; 87   :     {
+; 88   :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 88   :         __stosb(d, 0, count);
+; 89   :         __stosb(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosb
 
-; 89   :     }
+; 90   :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -186,7 +186,7 @@ $LN23:
 	xor	ecx, ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 88   :         __stosb(d, 0, count);
+; 89   :         __stosb(d, 0, count);
 
 	mov	rdi, r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\cpuid.c
@@ -197,7 +197,7 @@ $LN23:
 	mov	r9d, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 88   :         __stosb(d, 0, count);
+; 89   :         __stosb(d, 0, count);
 
 	mov	ecx, 4
 	xor	eax, eax

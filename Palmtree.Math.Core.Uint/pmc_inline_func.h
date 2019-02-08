@@ -23,15 +23,16 @@
  */
 
 
+#ifndef PMC_INLINE_FUNC_H
+#define PMC_INLINE_FUNC_H
+
+
 #include <windows.h>
 #ifdef __GNUC__
 #include <intrin.h>
 #endif
 #include "pmc_internal.h"
 
-
-#ifndef PMC_INLINE_FUNC_H
-#define PMC_INLINE_FUNC_H
 
 #ifdef __cplusplus
 extern "C" {

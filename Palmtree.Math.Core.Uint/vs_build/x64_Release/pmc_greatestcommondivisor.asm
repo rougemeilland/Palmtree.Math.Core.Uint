@@ -345,11 +345,11 @@ $LN2@PMC_Greate:
 $LN7@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 637  :         _BitScanReverse64(&pos, x);
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rax, rbp
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -359,7 +359,7 @@ $LN7@PMC_Greate:
 	lea	r8, QWORD PTR work_u_buf_code$2[rsp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -372,7 +372,7 @@ $LN7@PMC_Greate:
 	sub	r13, rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	QWORD PTR [rdi+16], r13
 	cmovae	r13, QWORD PTR [rdi+16]
@@ -484,7 +484,7 @@ $LN35@PMC_Greate:
 	mov	rsi, QWORD PTR [rdi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 717  :         _BitScanForward64(&pos, x);
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, rbp
 	mov	QWORD PTR [rsp+168], r12
@@ -495,7 +495,7 @@ $LN35@PMC_Greate:
 	movsxd	r12, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	r8, r12
 	mov	rax, r12
@@ -519,7 +519,7 @@ $LN35@PMC_Greate:
 $LN36@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, r14
 	rep movsq
@@ -536,7 +536,7 @@ $LN88@PMC_Greate:
 	shr	rbp, cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	r8, QWORD PTR [r13+63]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -552,7 +552,7 @@ $LN88@PMC_Greate:
 	mov	rcx, r14
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	r8, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -797,11 +797,11 @@ $LN2@PMC_Greate:
 $LN7@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 594  :         _BitScanReverse(&pos, x);
+; 595  :         _BitScanReverse(&pos, x);
 
 	bsr	eax, edi
 
-; 600  :         return (sizeof(x) * 8 - 1 - pos);
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 31
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -811,7 +811,7 @@ $LN7@PMC_Greate:
 	lea	r8, QWORD PTR work_u_buf_code$3[rsp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 600  :         return (sizeof(x) * 8 - 1 - pos);
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -824,7 +824,7 @@ $LN7@PMC_Greate:
 	sub	r15, rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	QWORD PTR [rsi+16], r15
 	cmovae	r15, QWORD PTR [rsi+16]
@@ -936,30 +936,30 @@ $LN12@PMC_Greate:
 	mov	QWORD PTR [rsp+152], r13
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 703  :         if (x == 0)
+; 704  :         if (x == 0)
 
 	test	edi, edi
 	jne	SHORT $LN26@PMC_Greate
 
-; 704  :             return (sizeof(x) * 8);
+; 705  :             return (sizeof(x) * 8);
 
 	lea	eax, QWORD PTR [rdi+64]
 	jmp	SHORT $LN25@PMC_Greate
 $LN26@PMC_Greate:
 
-; 705  : #ifdef _M_IX86
-; 706  :         _UINT32_T pos;
-; 707  : #ifdef _MSC_VER
-; 708  :         _BitScanForward(&pos, x);
-; 709  : #elif defined(__GNUC__)
-; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 711  : #else
-; 712  : #error unknown compiler
-; 713  : #endif
-; 714  : #elif defined(_M_X64)
-; 715  : #ifdef _MSC_VER
-; 716  :         _UINT32_T pos;
-; 717  :         _BitScanForward64(&pos, x);
+; 706  : #ifdef _M_IX86
+; 707  :         _UINT32_T pos;
+; 708  : #ifdef _MSC_VER
+; 709  :         _BitScanForward(&pos, x);
+; 710  : #elif defined(__GNUC__)
+; 711  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 712  : #else
+; 713  : #error unknown compiler
+; 714  : #endif
+; 715  : #elif defined(_M_X64)
+; 716  : #ifdef _MSC_VER
+; 717  :         _UINT32_T pos;
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, r12
 $LN25@PMC_Greate:
@@ -972,7 +972,7 @@ $LN25@PMC_Greate:
 	movsxd	r13, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	r8, r13
 	mov	rdi, r13
@@ -996,7 +996,7 @@ $LN25@PMC_Greate:
 $LN13@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, rbp
 	rep movsq
@@ -1014,7 +1014,7 @@ $LN30@PMC_Greate:
 	shr	r12, cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	r8, QWORD PTR [r15+63]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -1030,7 +1030,7 @@ $LN30@PMC_Greate:
 	mov	rcx, rbp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	r8, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -1285,7 +1285,7 @@ $LN19@GreatestCo:
 	mov	rbp, QWORD PTR [rsp+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rcx, rbx
 	mov	rdi, r14
@@ -1311,57 +1311,57 @@ _TEXT	SEGMENT
 x$ = 8
 _TZCNT_ALT_UNIT PROC					; COMDAT
 
-; 703  :         if (x == 0)
+; 704  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@TZCNT_ALT_
 
-; 704  :             return (sizeof(x) * 8);
+; 705  :             return (sizeof(x) * 8);
 
 	lea	eax, QWORD PTR [rcx+64]
 
-; 718  : #elif defined(__GNUC__)
-; 719  :         _UINT64_T pos;
-; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 721  : #else
-; 722  : #error unknown compiler
-; 723  : #endif
-; 724  : #else
-; 725  : #error unknown platform
-; 726  : #endif
-; 727  :         return (pos);
-; 728  :     }
+; 719  : #elif defined(__GNUC__)
+; 720  :         _UINT64_T pos;
+; 721  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 722  : #else
+; 723  : #error unknown compiler
+; 724  : #endif
+; 725  : #else
+; 726  : #error unknown platform
+; 727  : #endif
+; 728  :         return (pos);
+; 729  :     }
 
 	ret	0
 $LN2@TZCNT_ALT_:
 
-; 705  : #ifdef _M_IX86
-; 706  :         _UINT32_T pos;
-; 707  : #ifdef _MSC_VER
-; 708  :         _BitScanForward(&pos, x);
-; 709  : #elif defined(__GNUC__)
-; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 711  : #else
-; 712  : #error unknown compiler
-; 713  : #endif
-; 714  : #elif defined(_M_X64)
-; 715  : #ifdef _MSC_VER
-; 716  :         _UINT32_T pos;
-; 717  :         _BitScanForward64(&pos, x);
+; 706  : #ifdef _M_IX86
+; 707  :         _UINT32_T pos;
+; 708  : #ifdef _MSC_VER
+; 709  :         _BitScanForward(&pos, x);
+; 710  : #elif defined(__GNUC__)
+; 711  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 712  : #else
+; 713  : #error unknown compiler
+; 714  : #endif
+; 715  : #elif defined(_M_X64)
+; 716  : #ifdef _MSC_VER
+; 717  :         _UINT32_T pos;
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, rcx
 
-; 718  : #elif defined(__GNUC__)
-; 719  :         _UINT64_T pos;
-; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 721  : #else
-; 722  : #error unknown compiler
-; 723  : #endif
-; 724  : #else
-; 725  : #error unknown platform
-; 726  : #endif
-; 727  :         return (pos);
-; 728  :     }
+; 719  : #elif defined(__GNUC__)
+; 720  :         _UINT64_T pos;
+; 721  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 722  : #else
+; 723  : #error unknown compiler
+; 724  : #endif
+; 725  : #else
+; 726  : #error unknown platform
+; 727  : #endif
+; 728  :         return (pos);
+; 729  :     }
 
 	ret	0
 _TZCNT_ALT_UNIT ENDP
@@ -1373,51 +1373,51 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 625  : #ifdef _M_IX86
-; 626  :         _UINT32_T pos;
-; 627  : #ifdef _MSC_VER
-; 628  :         _BitScanReverse(&pos, x);
-; 629  : #elif defined(__GNUC__)
-; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 631  : #else
-; 632  : #error unknown compiler
-; 633  : #endif
-; 634  : #elif defined(_M_X64)
-; 635  : #ifdef _MSC_VER
-; 636  :         _UINT32_T pos;
-; 637  :         _BitScanReverse64(&pos, x);
+; 626  : #ifdef _M_IX86
+; 627  :         _UINT32_T pos;
+; 628  : #ifdef _MSC_VER
+; 629  :         _BitScanReverse(&pos, x);
+; 630  : #elif defined(__GNUC__)
+; 631  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 632  : #else
+; 633  : #error unknown compiler
+; 634  : #endif
+; 635  : #elif defined(_M_X64)
+; 636  : #ifdef _MSC_VER
+; 637  :         _UINT32_T pos;
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rcx, rcx
 
-; 638  : #elif defined(__GNUC__)
-; 639  :         _UINT64_T pos;
-; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 641  : #else
-; 642  : #error unknown compiler
-; 643  : #endif
-; 644  : #else
-; 645  : #error unknown platform
-; 646  : #endif
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 639  : #elif defined(__GNUC__)
+; 640  :         _UINT64_T pos;
+; 641  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 642  : #else
+; 643  : #error unknown compiler
+; 644  : #endif
+; 645  : #else
+; 646  : #error unknown platform
+; 647  : #endif
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 63					; 0000003fH
 	sub	eax, ecx
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 _LZCNT_ALT_UNIT ENDP
@@ -1429,37 +1429,37 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_32 PROC					; COMDAT
 
-; 590  :         if (x == 0)
+; 591  :         if (x == 0)
 
 	test	ecx, ecx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 591  :             return (sizeof(x) * 8);
+; 592  :             return (sizeof(x) * 8);
 
 	mov	eax, 32					; 00000020H
 
-; 601  :     }
+; 602  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 592  :         _UINT32_T pos;
-; 593  : #ifdef _MSC_VER
-; 594  :         _BitScanReverse(&pos, x);
+; 593  :         _UINT32_T pos;
+; 594  : #ifdef _MSC_VER
+; 595  :         _BitScanReverse(&pos, x);
 
 	bsr	ecx, ecx
 
-; 595  : #elif defined(__GNUC__)
-; 596  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 597  : #else
-; 598  : #error unknown compiler
-; 599  : #endif
-; 600  :         return (sizeof(x) * 8 - 1 - pos);
+; 596  : #elif defined(__GNUC__)
+; 597  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 598  : #else
+; 599  : #error unknown compiler
+; 600  : #endif
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 31
 	sub	eax, ecx
 
-; 601  :     }
+; 602  :     }
 
 	ret	0
 _LZCNT_ALT_32 ENDP
@@ -1472,13 +1472,13 @@ x$ = 8
 y$ = 16
 _MINIMUM_UNIT PROC					; COMDAT
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	rcx, rdx
 	cmovbe	rdx, rcx
 	mov	rax, rdx
 
-; 203  :     }
+; 204  :     }
 
 	ret	0
 _MINIMUM_UNIT ENDP
@@ -1491,13 +1491,13 @@ x$ = 8
 y$ = 16
 _MAXIMUM_UNIT PROC					; COMDAT
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	rcx, rdx
 	cmovae	rdx, rcx
 	mov	rax, rdx
 
-; 198  :     }
+; 199  :     }
 
 	ret	0
 _MAXIMUM_UNIT ENDP
@@ -1510,7 +1510,7 @@ u$ = 8
 v$ = 16
 _DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rax, QWORD PTR [rdx-1]
 	mov	r8, rdx
@@ -1518,7 +1518,7 @@ _DIVIDE_CEILING_UNIT PROC				; COMDAT
 	xor	edx, edx
 	div	r8
 
-; 188  :     }
+; 189  :     }
 
 	ret	0
 _DIVIDE_CEILING_UNIT ENDP
@@ -1531,17 +1531,17 @@ value$ = 8
 result_high$ = 16
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, rcx
 	shr	rax, 32					; 00000020H
 	mov	DWORD PTR [rdx], eax
 
-; 177  :         return ((_UINT32_T)value);
+; 178  :         return ((_UINT32_T)value);
 
 	mov	eax, ecx
 
-; 178  :     }
+; 179  :     }
 
 	ret	0
 _FROMDWORDTOWORD ENDP
@@ -1555,25 +1555,25 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsq
 
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -1759,7 +1759,7 @@ $LN12@PMC_Greate:
 	lea	r8, QWORD PTR work_u_buf_code$4[rbp-96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	QWORD PTR [rdi+16], r13
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -1769,7 +1769,7 @@ $LN12@PMC_Greate:
 	lea	rdx, QWORD PTR work_u_buf_words$6[rbp-96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmovae	r13, QWORD PTR [rdi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -1864,7 +1864,7 @@ $LN17@PMC_Greate:
 	mov	rsi, QWORD PTR [rdi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	r8, rax
 	mov	rcx, rax
@@ -1875,7 +1875,7 @@ $LN17@PMC_Greate:
 	mov	QWORD PTR v_tzcnt$1$[rbp-96], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmovbe	rcx, r8
 	mov	QWORD PTR k$1$[rbp-96], rcx
@@ -1902,7 +1902,7 @@ $LN17@PMC_Greate:
 $LN18@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, r15
 	rep movsq
@@ -1928,7 +1928,7 @@ $LN31@PMC_Greate:
 $LN20@PMC_Greate:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, r14
 	rep movsq
@@ -1941,7 +1941,7 @@ $LN33@PMC_Greate:
 	lea	rax, QWORD PTR w_buf_count$3[rbp-96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	r8, QWORD PTR [r13+63]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
@@ -1951,7 +1951,7 @@ $LN33@PMC_Greate:
 	mov	QWORD PTR [rsp+32], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	r8, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c

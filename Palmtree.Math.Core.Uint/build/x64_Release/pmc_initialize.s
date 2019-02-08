@@ -288,6 +288,8 @@ PMC_UINT_Initialize:
 	.def	Initialize_ModPow;	.scl	2;	.type	32;	.endef
 	.def	Initialize_GetPropertyValue;	.scl	2;	.type	32;	.endef
 	.def	Initialize_Clone;	.scl	2;	.type	32;	.endef
+	.section .drectve
+	.ascii " -export:\"PMC_UINT_Initialize\""
 	.section	.rdata$.refptr.PMC_Clone_X, "dr"
 	.globl	.refptr.PMC_Clone_X
 	.linkonce	discard

@@ -117,7 +117,7 @@ _ToStringX PROC						; COMDAT
 	jb	SHORT $LN23@ToStringX
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	edx, DWORD PTR _buffer$[ebp]
 	mov	eax, 48					; 00000030H
@@ -144,7 +144,7 @@ _ToStringX PROC						; COMDAT
 $LN4@ToStringX:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	ebx, DWORD PTR [esi+12]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -154,7 +154,7 @@ $LN4@ToStringX:
 	mov	ecx, DWORD PTR _width$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	add	ebx, 3
 	shr	ebx, 2
@@ -198,7 +198,7 @@ $LN10@ToStringX:
 	je	SHORT $LN17@ToStringX
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	eax, 48					; 00000030H
 	mov	edi, edx
@@ -392,7 +392,7 @@ _ToStringX_1WORD PROC					; COMDAT
 	lea	ecx, DWORD PTR [eax*4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -411,7 +411,7 @@ $LN3@ToStringX_:
 	je	$LN4@ToStringX_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -421,7 +421,7 @@ $LN3@ToStringX_:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -438,7 +438,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -454,7 +454,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -470,7 +470,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -486,7 +486,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -502,7 +502,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -518,7 +518,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -534,7 +534,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -550,7 +550,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -566,7 +566,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -582,7 +582,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -598,7 +598,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -614,7 +614,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -630,7 +630,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -646,7 +646,7 @@ $LN3@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -675,7 +675,7 @@ $LN4@ToStringX_:
 	je	$LN5@ToStringX_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -685,7 +685,7 @@ $LN4@ToStringX_:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -702,7 +702,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -718,7 +718,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -734,7 +734,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -750,7 +750,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -766,7 +766,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -782,7 +782,7 @@ $LN4@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -811,7 +811,7 @@ $LN5@ToStringX_:
 	je	SHORT $LN6@ToStringX_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -821,7 +821,7 @@ $LN5@ToStringX_:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -838,7 +838,7 @@ $LN5@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -854,7 +854,7 @@ $LN5@ToStringX_:
 	and	eax, 15					; 0000000fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -883,7 +883,7 @@ $LN6@ToStringX_:
 	je	SHORT $LN7@ToStringX_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -893,7 +893,7 @@ $LN6@ToStringX_:
 	mov	eax, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -923,7 +923,7 @@ $LN7@ToStringX_:
 	je	SHORT $LN74@ToStringX_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 476  :         return (_rotl(x, count));
+; 477  :         return (_rotl(x, count));
 
 	rol	edx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -1081,7 +1081,7 @@ $LN10@ToStringDN:
 	call	DWORD PTR __imp__lstrlenW@4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	esi, DWORD PTR _width$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -1092,7 +1092,7 @@ $LN10@ToStringDN:
 	mov	edx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	ecx, esi
 	mov	eax, 48					; 00000030H
@@ -1103,7 +1103,7 @@ $LN10@ToStringDN:
 	lea	edi, DWORD PTR [edi+edx*2]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	rep stosw
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -1148,7 +1148,7 @@ $LN8@ToStringDN:
 	jb	$LN64@ToStringDN
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	edx, DWORD PTR _buffer$[ebp]
 	mov	eax, 48					; 00000030H
@@ -1303,7 +1303,7 @@ $LN49@ToStringDN:
 $LN33@ToStringDN:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	esi, DWORD PTR _x_buf$1$[ebp]
 	mov	edi, ebx
@@ -1315,7 +1315,7 @@ $LN33@ToStringDN:
 	mov	edx, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -1335,7 +1335,7 @@ $LN33@ToStringDN:
 $LL28@ToStringDN:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, eax
 	mov	ecx, esi
@@ -1911,11 +1911,11 @@ $LN20@PrintDecim:
 $LL4@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	esi, DWORD PTR [eax]
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -1930,7 +1930,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [ebx+ebx*4]
 	add	ecx, ecx
@@ -1945,7 +1945,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -1960,7 +1960,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [edi+edi*4]
 	add	ecx, ecx
@@ -1975,7 +1975,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -1990,7 +1990,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [esi+esi*4]
 	add	ecx, ecx
@@ -2005,7 +2005,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2020,7 +2020,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [edi+edi*4]
 	add	ecx, ecx
@@ -2035,7 +2035,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2050,7 +2050,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [ebx+ebx*4]
 	add	ecx, ecx
@@ -2065,14 +2065,14 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 335  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2089,7 +2089,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	sub	ebx, ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2102,7 +2102,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2117,7 +2117,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [edi+edi*4]
 	add	ecx, ecx
@@ -2132,14 +2132,14 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 335  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2154,7 +2154,7 @@ $LL4@PrintDecim:
 	lea	eax, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	lea	ecx, DWORD PTR [esi+esi*4]
 	add	ecx, ecx
@@ -2176,7 +2176,7 @@ $LL4@PrintDecim:
 	add	esp, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 312  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2204,18 +2204,18 @@ $LN5@PrintDecim:
 $LL199@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 384  :             return ((_UINT32_T)(t / v));
+; 385  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	10					; 0000000aH
 	push	0
 	push	esi
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edi, esi
 
-; 384  :             return ((_UINT32_T)(t / v));
+; 385  :             return ((_UINT32_T)(t / v));
 
 	call	__aulldiv
 	mov	esi, eax
@@ -2233,7 +2233,7 @@ $LL199@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 312  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2360,7 +2360,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	push	esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	mov	esi, DWORD PTR _x$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2370,7 +2370,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2384,7 +2384,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	mov	ebx, DWORD PTR _state$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	mov	edi, eax
 	lea	ecx, DWORD PTR [edi+edi*4]
@@ -2400,7 +2400,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2421,7 +2421,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2442,7 +2442,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2463,7 +2463,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2484,14 +2484,14 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 335  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 5
 	mov	eax, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [eax], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2512,7 +2512,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2533,14 +2533,14 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 335  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 2
 	mov	eax, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [eax], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 383  :             *r = (_UINT32_T)(t % v);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	0
 	push	10					; 0000000aH
@@ -2567,7 +2567,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 312  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 	pop	edi
@@ -2606,18 +2606,18 @@ _ToStringDN_LEADING_1WORD PROC				; COMDAT
 $LL4@ToStringDN:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 384  :             return ((_UINT32_T)(t / v));
+; 385  :             return ((_UINT32_T)(t / v));
 
 	push	0
 	push	10					; 0000000aH
 	push	0
 	push	esi
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edi, esi
 
-; 384  :             return ((_UINT32_T)(t / v));
+; 385  :             return ((_UINT32_T)(t / v));
 
 	call	__aulldiv
 	mov	esi, eax
@@ -2634,7 +2634,7 @@ $LL4@ToStringDN:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 312  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3098,7 +3098,7 @@ $LN30@ConvertCar:
 $LN7@ConvertCar:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	esi, DWORD PTR _x_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3108,7 +3108,7 @@ $LN7@ConvertCar:
 	mov	edx, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _x_buf_size$[ebp]
 	push	edi
@@ -3120,7 +3120,7 @@ $LN7@ConvertCar:
 	mov	DWORD PTR _u_ptr$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3139,7 +3139,7 @@ $LN7@ConvertCar:
 $LL2@ConvertCar:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, eax
 	mov	ecx, esi
@@ -3262,24 +3262,24 @@ _x$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ROTATE_L_UNIT PROC					; COMDAT
 
-; 474  :     {
+; 475  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 475  : #ifdef _M_IX86
-; 476  :         return (_rotl(x, count));
+; 476  : #ifdef _M_IX86
+; 477  :         return (_rotl(x, count));
 
 	mov	eax, DWORD PTR _x$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rol	eax, cl
 
-; 477  : #elif defined(_M_X64)
-; 478  :         return (_rotl64(x, count));
-; 479  : #else
-; 480  : #error unknown platform
-; 481  : #endif
-; 482  :     }
+; 478  : #elif defined(_M_X64)
+; 479  :         return (_rotl64(x, count));
+; 480  : #else
+; 481  : #error unknown platform
+; 482  : #endif
+; 483  :     }
 
 	pop	ebp
 	ret	0
@@ -3297,28 +3297,28 @@ _v$ = 16						; size = 4
 _r$ = 20						; size = 4
 __DIVREM_UNIT PROC					; COMDAT
 
-; 377  :     {
+; 378  :     {
 
 	push	ebp
 	mov	ebp, esp
 	sub	esp, 8
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, DWORD PTR _u_high$[ebp]
 	xor	ecx, ecx
 	or	ecx, DWORD PTR _u_low$[ebp]
 
-; 377  :     {
+; 378  :     {
 
 	push	ebx
 
-; 378  : #ifdef _MSC_VER
-; 379  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 380  :         {
-; 381  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
-; 382  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
-; 383  :             *r = (_UINT32_T)(t % v);
+; 379  : #ifdef _MSC_VER
+; 380  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 381  :         {
+; 382  :             // 64bit/32bitの除算を行う組み込み関数は実装されていない。
+; 383  :             _UINT64_T t = _FROMWORDTODWORD(u_high, u_low);
+; 384  :             *r = (_UINT32_T)(t % v);
 
 	push	ebx
 	push	0
@@ -3331,44 +3331,44 @@ __DIVREM_UNIT PROC					; COMDAT
 	mov	DWORD PTR tv70[ebp+4], edx
 	mov	edx, DWORD PTR _r$[ebp]
 
-; 384  :             return ((_UINT32_T)(t / v));
+; 385  :             return ((_UINT32_T)(t / v));
 
 	pop	ebx
 	mov	DWORD PTR [edx], ecx
 
-; 385  :         }
-; 386  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 387  :         {
-; 388  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
-; 389  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
-; 390  :             // ・128bit 整数のデータ型が用意されていない。
-; 391  :             // ・x64 ではインラインアセンブラがサポートされていない。
-; 392  :             *r = 0;
-; 393  :             return (0);
-; 394  :         }
-; 395  :         else
-; 396  :         {
-; 397  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 398  :             *r = 0;
-; 399  :             return (0);
-; 400  :         }
-; 401  : #elif defined(__GNUC__)
-; 402  :         __UNIT_TYPE q;
-; 403  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
-; 404  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 405  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
-; 406  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
-; 407  :         else
-; 408  :         {
-; 409  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
-; 410  :             *r = 0;
-; 411  :             q = 0;
-; 412  :         }
-; 413  :         return (q);
-; 414  : #else
-; 415  : #error unknown compiler
-; 416  : #endif
-; 417  :     }
+; 386  :         }
+; 387  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 388  :         {
+; 389  :             // 以下の理由のため、MSVCでは 128bit/64bit の除算を実装できない。運用で回避すること。
+; 390  :             // ・(x64 に限らず) 除算の組み込み関数が用意されていない。
+; 391  :             // ・128bit 整数のデータ型が用意されていない。
+; 392  :             // ・x64 ではインラインアセンブラがサポートされていない。
+; 393  :             *r = 0;
+; 394  :             return (0);
+; 395  :         }
+; 396  :         else
+; 397  :         {
+; 398  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 399  :             *r = 0;
+; 400  :             return (0);
+; 401  :         }
+; 402  : #elif defined(__GNUC__)
+; 403  :         __UNIT_TYPE q;
+; 404  :         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+; 405  :             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 406  :         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+; 407  :             __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+; 408  :         else
+; 409  :         {
+; 410  :             // 未知のプラットフォームの場合はとりあえず適当なものを返す。
+; 411  :             *r = 0;
+; 412  :             q = 0;
+; 413  :         }
+; 414  :         return (q);
+; 415  : #else
+; 416  : #error unknown compiler
+; 417  : #endif
+; 418  :     }
 
 	mov	esp, ebp
 	pop	ebp
@@ -3383,12 +3383,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 186  :     {
+; 187  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -3396,7 +3396,7 @@ __DIVIDE_CEILING_UNIT PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 188  :     }
+; 189  :     }
 
 	pop	ebp
 	ret	0
@@ -3410,18 +3410,18 @@ _value_high$ = 8					; size = 4
 _value_low$ = 12					; size = 4
 __FROMWORDTODWORD PROC					; COMDAT
 
-; 170  :     {
+; 171  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR _value_high$[ebp]
 	xor	eax, eax
 	or	eax, DWORD PTR _value_low$[ebp]
 
-; 172  :     }
+; 173  :     }
 
 	pop	ebp
 	ret	0
@@ -3436,12 +3436,12 @@ _x$ = 12						; size = 2
 _count$ = 16						; size = 4
 __FILL_MEMORY_16 PROC					; COMDAT
 
-; 142  :     {
+; 143  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	ax, WORD PTR _x$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
@@ -3450,7 +3450,7 @@ __FILL_MEMORY_16 PROC					; COMDAT
 	rep stosw
 	pop	edi
 
-; 144  :     }
+; 145  :     }
 
 	pop	ebp
 	ret	0
@@ -3464,13 +3464,13 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 120  :     {
+; 121  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 121  : #ifdef _M_IX86
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 122  : #ifdef _M_IX86
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	eax, eax
@@ -3479,18 +3479,18 @@ __ZERO_MEMORY_UNIT_DIV PROC				; COMDAT
 	rep stosd
 	pop	edi
 
-; 123  : #elif defined(_M_X64)
-; 124  : #ifdef _MSC_VER
-; 125  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
-; 126  : #elif defined(__GNUC__)
-; 127  :         __stosq(d, 0, count);
-; 128  : #else
-; 129  : #error unknown compiler
-; 130  : #endif
-; 131  : #else
-; 132  : #error unknown platform
-; 133  : #endif
-; 134  :     }
+; 124  : #elif defined(_M_X64)
+; 125  : #ifdef _MSC_VER
+; 126  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 127  : #elif defined(__GNUC__)
+; 128  :         __stosq(d, 0, count);
+; 129  : #else
+; 130  : #error unknown compiler
+; 131  : #endif
+; 132  : #else
+; 133  : #error unknown platform
+; 134  : #endif
+; 135  :     }
 
 	pop	ebp
 	ret	0
@@ -3505,13 +3505,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 70   :     {
+; 71   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 71   : #ifdef _M_IX86
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 72   : #ifdef _M_IX86
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -3522,18 +3522,18 @@ __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 	pop	edi
 	pop	esi
 
-; 73   : #elif defined(_M_X64)
-; 74   : #ifdef _MSC_VER
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 76   : #elif defined(__GNUC__)
-; 77   :         __movsq(d, s, count);
-; 78   : #else
-; 79   : #error unknown compiler
-; 80   : #endif
-; 81   : #else
-; 82   : #error unknown platform
-; 83   : #endif
-; 84   :     }
+; 74   : #elif defined(_M_X64)
+; 75   : #ifdef _MSC_VER
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 77   : #elif defined(__GNUC__)
+; 78   :         __movsq(d, s, count);
+; 79   : #else
+; 80   : #error unknown compiler
+; 81   : #endif
+; 82   : #else
+; 83   : #error unknown platform
+; 84   : #endif
+; 85   :     }
 
 	pop	ebp
 	ret	0
@@ -3546,18 +3546,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC					; COMDAT
 
-; 340  :     {
+; 341  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 341  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 342  :     }
+; 343  :     }
 
 	pop	ebp
 	ret	0
@@ -3570,18 +3570,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC					; COMDAT
 
-; 334  :     {
+; 335  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 335  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 336  :     }
+; 337  :     }
 
 	pop	ebp
 	ret	0
@@ -3593,11 +3593,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC				; COMDAT
 
-; 318  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 319  :     }
+; 320  :     }
 
 	ret	0
 _IncrementDIV64Counter ENDP
@@ -3608,11 +3608,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC				; COMDAT
 
-; 312  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 313  :     }
+; 314  :     }
 
 	ret	0
 _IncrementDIV32Counter ENDP

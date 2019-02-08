@@ -565,13 +565,13 @@ x$ = 8
 y$ = 16
 _MINIMUM_UNIT PROC					; COMDAT
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	rcx, rdx
 	cmovbe	rdx, rcx
 	mov	rax, rdx
 
-; 203  :     }
+; 204  :     }
 
 	ret	0
 _MINIMUM_UNIT ENDP
@@ -584,7 +584,7 @@ u$ = 8
 v$ = 16
 _DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rax, QWORD PTR [rdx-1]
 	mov	r8, rdx
@@ -592,7 +592,7 @@ _DIVIDE_CEILING_UNIT PROC				; COMDAT
 	xor	edx, edx
 	div	r8
 
-; 188  :     }
+; 189  :     }
 
 	ret	0
 _DIVIDE_CEILING_UNIT ENDP
@@ -605,17 +605,17 @@ value$ = 8
 result_high$ = 16
 _FROMDWORDTOWORD PROC					; COMDAT
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	rax, rcx
 	shr	rax, 32					; 00000020H
 	mov	DWORD PTR [rdx], eax
 
-; 177  :         return ((_UINT32_T)value);
+; 178  :         return ((_UINT32_T)value);
 
 	mov	eax, ecx
 
-; 178  :     }
+; 179  :     }
 
 	ret	0
 _FROMDWORDTOWORD ENDP
@@ -628,14 +628,14 @@ value_high$ = 8
 value_low$ = 16
 _FROMWORDTODWORD PROC					; COMDAT
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	eax, ecx
 	shl	rax, 32					; 00000020H
 	mov	ecx, edx
 	or	rax, rcx
 
-; 172  :     }
+; 173  :     }
 
 	ret	0
 _FROMWORDTODWORD ENDP
@@ -731,7 +731,7 @@ $LN23:
 	lea	r8, QWORD PTR nw_light_check_code$1[rsp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmp	QWORD PTR [rdi+16], rbp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -741,7 +741,7 @@ $LN23:
 	lea	rcx, QWORD PTR nw$[rsp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 202  :         return (x <= y ? x : y);
+; 203  :         return (x <= y ? x : y);
 
 	cmovbe	rbp, QWORD PTR [rdi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -758,7 +758,7 @@ $LN23:
 	mov	r8, QWORD PTR nw$[rsp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	r9, QWORD PTR [rbp+63]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
@@ -769,7 +769,7 @@ $LN23:
 	mov	rcx, QWORD PTR [rdi+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	r9, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c

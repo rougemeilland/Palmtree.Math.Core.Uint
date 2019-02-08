@@ -5834,62 +5834,62 @@ PMC_UINT_Initialize:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x20
-	.byte	0x33
+	.byte	0x34
 	.byte	0x13
 	.long	0x4c8c
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x21
-	.byte	0x26
+	.byte	0x27
 	.byte	0x14
 	.long	0x5c81
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x21
-	.byte	0x28
+	.byte	0x29
 	.byte	0x13
 	.long	0x4c7a
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x21
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x13
 	.long	0x4c7a
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x21
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x15
 	.long	0x5b30
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x21
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x15
 	.long	0x5b30
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x21
-	.byte	0x2c
+	.byte	0x2d
 	.byte	0x15
 	.long	0x5b30
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x21
-	.byte	0x2d
+	.byte	0x2e
 	.byte	0x15
 	.long	0x5b30
 	.byte	0x20
 	.uleb128 0x1c
 	.ascii "IS_STATIC\0"
 	.byte	0x21
-	.byte	0x2e
+	.byte	0x2f
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5899,7 +5899,7 @@ PMC_UINT_Initialize:
 	.uleb128 0x1c
 	.ascii "IS_ZERO\0"
 	.byte	0x21
-	.byte	0x2f
+	.byte	0x30
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5909,7 +5909,7 @@ PMC_UINT_Initialize:
 	.uleb128 0x1c
 	.ascii "IS_ONE\0"
 	.byte	0x21
-	.byte	0x30
+	.byte	0x31
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5919,7 +5919,7 @@ PMC_UINT_Initialize:
 	.uleb128 0x1c
 	.ascii "IS_EVEN\0"
 	.byte	0x21
-	.byte	0x31
+	.byte	0x32
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5929,7 +5929,7 @@ PMC_UINT_Initialize:
 	.uleb128 0x1c
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x21
-	.byte	0x32
+	.byte	0x33
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5939,14 +5939,14 @@ PMC_UINT_Initialize:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x21
-	.byte	0x34
+	.byte	0x35
 	.byte	0x10
 	.long	0xcf
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x21
-	.byte	0x38
+	.byte	0x39
 	.byte	0x16
 	.long	0x5c81
 	.byte	0x38
@@ -5957,31 +5957,31 @@ PMC_UINT_Initialize:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x21
-	.byte	0x39
+	.byte	0x3a
 	.byte	0x7
 	.long	0x5b44
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x21
-	.byte	0x3f
+	.byte	0x40
 	.byte	0x23
 	.long	0x4ced
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x21
-	.byte	0x42
+	.byte	0x43
 	.byte	0x1a
 	.long	0x5c87
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x21
-	.byte	0x45
+	.byte	0x46
 	.byte	0x1a
 	.long	0x5c87
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x21
-	.byte	0x48
+	.byte	0x49
 	.byte	0x20
 	.long	0x4e48
 	.uleb128 0x20
@@ -5994,7 +5994,7 @@ PMC_UINT_Initialize:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12f
+	.word	0x130
 	.byte	0x2d
 	.long	0x5d1c
 	.uleb128 0x6
@@ -6030,7 +6030,7 @@ PMC_UINT_Initialize:
 	.ascii "PMC_UINT_Initialize\0"
 	.byte	0x1
 	.byte	0x28
-	.byte	0x19
+	.byte	0x33
 	.long	0x5ddb
 	.quad	.LFB4318
 	.quad	.LFE4318-.LFB4318
@@ -6041,7 +6041,7 @@ PMC_UINT_Initialize:
 	.ascii "config\0"
 	.byte	0x1
 	.byte	0x28
-	.byte	0x45
+	.byte	0x5f
 	.long	0x5de1
 	.uleb128 0x2
 	.byte	0x91
@@ -6665,6 +6665,8 @@ PMC_UINT_Initialize:
 	.def	Initialize_ModPow;	.scl	2;	.type	32;	.endef
 	.def	Initialize_GetPropertyValue;	.scl	2;	.type	32;	.endef
 	.def	Initialize_Clone;	.scl	2;	.type	32;	.endef
+	.section .drectve
+	.ascii " -export:\"PMC_UINT_Initialize\""
 	.section	.rdata$.refptr.PMC_Clone_X, "dr"
 	.globl	.refptr.PMC_Clone_X
 	.linkonce	discard

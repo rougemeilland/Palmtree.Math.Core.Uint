@@ -33,9 +33,21 @@ $pdata$PMC_FromByteArrayForSINT DD imagerel $LN23
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_ToByteArrayForSINT DD imagerel $LN27
-	DD	imagerel $LN27+204
+$pdata$PMC_ToByteArrayForSINT DD imagerel $LN30
+	DD	imagerel $LN30+62
 	DD	imagerel $unwind$PMC_ToByteArrayForSINT
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$0$PMC_ToByteArrayForSINT DD imagerel $LN30+62
+	DD	imagerel $LN30+195
+	DD	imagerel $chain$0$PMC_ToByteArrayForSINT
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$1$PMC_ToByteArrayForSINT DD imagerel $LN30+195
+	DD	imagerel $LN30+217
+	DD	imagerel $chain$1$PMC_ToByteArrayForSINT
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -51,11 +63,26 @@ $unwind$_COPY_MEMORY_BYTE DD 040a01H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_ToByteArrayForSINT DD 081401H
-	DD	086414H
-	DD	075414H
-	DD	063414H
-	DD	070103214H
+$chain$1$PMC_ToByteArrayForSINT DD 021H
+	DD	imagerel $LN30
+	DD	imagerel $LN30+62
+	DD	imagerel $unwind$PMC_ToByteArrayForSINT
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$chain$0$PMC_ToByteArrayForSINT DD 020521H
+	DD	067405H
+	DD	imagerel $LN30
+	DD	imagerel $LN30+62
+	DD	imagerel $unwind$PMC_ToByteArrayForSINT
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$PMC_ToByteArrayForSINT DD 081501H
+	DD	096415H
+	DD	085415H
+	DD	073415H
+	DD	0e0113215H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -127,17 +154,17 @@ $LN3@CountActua:
 $LN10@CountActua:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 579  :         _BitScanReverse(&pos, x);
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, al
 	bsr	ecx, eax
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	al, cl
@@ -161,39 +188,39 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_8 PROC					; COMDAT
 
-; 575  :         if (x == 0)
+; 576  :         if (x == 0)
 
 	test	cl, cl
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 576  :             return (sizeof(x) * 8);
+; 577  :             return (sizeof(x) * 8);
 
 	mov	eax, 8
 
-; 586  :     }
+; 587  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 577  :         _UINT32_T pos;
-; 578  : #ifdef _MSC_VER
-; 579  :         _BitScanReverse(&pos, x);
+; 578  :         _UINT32_T pos;
+; 579  : #ifdef _MSC_VER
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, cl
 	bsr	ecx, eax
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	eax, 7
 	sub	al, cl
 	movzx	eax, al
 
-; 586  :     }
+; 587  :     }
 
 	ret	0
 _LZCNT_ALT_8 ENDP
@@ -206,7 +233,7 @@ u$ = 8
 v$ = 16
 _DIVIDE_CEILING_SIZE PROC				; COMDAT
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	lea	rax, QWORD PTR [rdx-1]
 	mov	r8, rdx
@@ -214,7 +241,7 @@ _DIVIDE_CEILING_SIZE PROC				; COMDAT
 	xor	edx, edx
 	div	r8
 
-; 193  :     }
+; 194  :     }
 
 	ret	0
 _DIVIDE_CEILING_SIZE ENDP
@@ -228,19 +255,19 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_BYTE PROC					; COMDAT
 
-; 42   :     {
+; 43   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsb
 
-; 44   :     }
+; 45   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -262,16 +289,16 @@ PMC_ToByteArrayForSINT PROC				; COMDAT
 
 ; 143  : {
 
-$LN27:
-	mov	QWORD PTR [rsp+8], rbx
-	mov	QWORD PTR [rsp+16], rbp
-	mov	QWORD PTR [rsp+24], rsi
-	push	rdi
+$LN30:
+	mov	QWORD PTR [rsp+16], rbx
+	mov	QWORD PTR [rsp+24], rbp
+	mov	QWORD PTR [rsp+32], rsi
+	push	r14
 	sub	rsp, 32					; 00000020H
-	mov	rbp, r9
-	mov	rdi, r8
-	mov	rsi, rdx
-	movzx	ebx, cl
+	mov	r14, r9
+	mov	rsi, r8
+	mov	rbx, rdx
+	movzx	ebp, cl
 
 ; 144  :     if (p == NULL)
 
@@ -288,41 +315,41 @@ $LN2@PMC_ToByte:
 ; 147  :     PMC_STATUS_CODE result;
 ; 148  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
-	mov	rcx, rsi
+	mov	rcx, rbx
 	call	CheckNumber
 	test	eax, eax
-	jne	SHORT $LN1@PMC_ToByte
+	jne	$LN1@PMC_ToByte
 
 ; 149  :         return (result);
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
-	mov	r9d, DWORD PTR [rsi+40]
-	mov	r8d, r9d
-	and	r8d, 2
-	je	SHORT $LN16@PMC_ToByte
+	mov	QWORD PTR [rsp+48], rdi
+	mov	edi, DWORD PTR [rbx+40]
+	and	edi, 2
+	je	SHORT $LN17@PMC_ToByte
 	xor	edx, edx
-	jmp	SHORT $LN17@PMC_ToByte
-$LN16@PMC_ToByte:
+	jmp	SHORT $LN18@PMC_ToByte
+$LN17@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rbx+16]
 	add	rdx, 7
 	shr	rdx, 3
-$LN17@PMC_ToByte:
+$LN18@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
 ; 151  :     if (buffer != NULL)
 
-	test	rdi, rdi
-	je	SHORT $LN22@PMC_ToByte
+	test	rsi, rsi
+	je	SHORT $LN23@PMC_ToByte
 
 ; 152  :     {
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
-	mov	rcx, QWORD PTR [rsi+16]
-	lea	rax, QWORD PTR [rbp*8]
+	mov	rcx, QWORD PTR [rbx+16]
+	lea	rax, QWORD PTR [r14*8]
 	add	rcx, 8
 	cmp	rcx, rax
 	jbe	SHORT $LN5@PMC_ToByte
@@ -330,76 +357,87 @@ $LN17@PMC_ToByte:
 ; 154  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
 	mov	eax, -4
-	jmp	SHORT $LN1@PMC_ToByte
+	jmp	SHORT $LN26@PMC_ToByte
 $LN5@PMC_ToByte:
 
 ; 155  :         if (p_sign == 0)
 
-	test	bl, bl
-	jne	SHORT $LN25@PMC_ToByte
+	test	bpl, bpl
+	jne	SHORT $LN27@PMC_ToByte
 
 ; 156  :         {
 ; 157  :             if (np->IS_ZERO)
 
-	test	r8d, r8d
-	je	SHORT $LN24@PMC_ToByte
+	test	edi, edi
+	je	SHORT $LN25@PMC_ToByte
 
 ; 158  :                 buffer[0] = 0x00;
 
-	mov	BYTE PTR [rdi], bl
-	mov	r9d, DWORD PTR [rsi+40]
-$LN9@PMC_ToByte:
+	mov	BYTE PTR [rsi], bpl
+
+; 159  :             else
+; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
+; 161  :         }
+
+	jmp	SHORT $LN23@PMC_ToByte
+$LN27@PMC_ToByte:
+
+; 162  :         else if (p_sign > 0)
+
+	jle	SHORT $LN10@PMC_ToByte
+
+; 163  :         {
+; 164  :             if (np->IS_ZERO)
+
+	test	edi, edi
+	jne	SHORT $LN25@PMC_ToByte
 
 ; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
 ; 166  :             else
 ; 167  :             {
 ; 168  :                 buffer[0] = 0x01;
+
+	mov	BYTE PTR [rsi], 1
+
 ; 169  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
 ; 170  :             }
 ; 171  :         }
+
+	jmp	SHORT $LN28@PMC_ToByte
+$LN10@PMC_ToByte:
+
 ; 172  :         else
 ; 173  :         {
 ; 174  :             if (np->IS_ZERO)
 
-	test	r9b, 2
-	je	SHORT $LN13@PMC_ToByte
-$LN24@PMC_ToByte:
+	test	edi, edi
+	je	SHORT $LN14@PMC_ToByte
+$LN25@PMC_ToByte:
 
 ; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
 	mov	eax, -256				; ffffffffffffff00H
-	jmp	SHORT $LN1@PMC_ToByte
-$LN25@PMC_ToByte:
-
-; 159  :             else
-; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
-; 161  :         }
-; 162  :         if (p_sign > 0)
-
-	jle	SHORT $LN9@PMC_ToByte
-
-; 163  :         {
-; 164  :             if (np->IS_ZERO)
-
-	test	r8d, r8d
-	jne	SHORT $LN24@PMC_ToByte
-$LN13@PMC_ToByte:
+	jmp	SHORT $LN26@PMC_ToByte
+$LN14@PMC_ToByte:
 
 ; 176  :             else
 ; 177  :             {
-; 178  :                 buffer[0] = 0x01;
+; 178  :                 buffer[0] = 0x03;
+
+	mov	BYTE PTR [rsi], 3
+$LN28@PMC_ToByte:
+
 ; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
 ; 180  :             }
 ; 181  :         }
 ; 182  :     }
 ; 183  :     *count = expected_abs_buffer_size + 1;
 
-	mov	BYTE PTR [rdi], 1
+	lea	rdi, QWORD PTR [rsi+1]
 	mov	rcx, rdx
-	mov	rsi, QWORD PTR [rsi+56]
-	inc	rdi
+	mov	rsi, QWORD PTR [rbx+56]
 	rep movsb
-$LN22@PMC_ToByte:
+$LN23@PMC_ToByte:
 	mov	rax, QWORD PTR count$[rsp]
 	lea	rcx, QWORD PTR [rdx+1]
 	mov	QWORD PTR [rax], rcx
@@ -407,15 +445,17 @@ $LN22@PMC_ToByte:
 ; 184  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
+$LN26@PMC_ToByte:
+	mov	rdi, QWORD PTR [rsp+48]
 $LN1@PMC_ToByte:
 
 ; 185  : }
 
-	mov	rbx, QWORD PTR [rsp+48]
-	mov	rbp, QWORD PTR [rsp+56]
-	mov	rsi, QWORD PTR [rsp+64]
+	mov	rbx, QWORD PTR [rsp+56]
+	mov	rbp, QWORD PTR [rsp+64]
+	mov	rsi, QWORD PTR [rsp+72]
 	add	rsp, 32					; 00000020H
-	pop	rdi
+	pop	r14
 	ret	0
 PMC_ToByteArrayForSINT ENDP
 _TEXT	ENDS
@@ -572,19 +612,19 @@ $LN12@PMC_FromBy:
 	jne	SHORT $LN1@PMC_FromBy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	lea	rcx, QWORD PTR [rdi+7]
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR p$1[rsp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	shr	rcx, 3
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR [rdi+56]
 	rep movsb
@@ -680,7 +720,7 @@ $LN2@PMC_ToByte:
 $LN9@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	rdx, QWORD PTR [rsi+16]
 	add	rdx, 7
@@ -726,7 +766,7 @@ $LN6@PMC_ToByte:
 	mov	BYTE PTR [rdi], 1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rcx, rdx
 	mov	rsi, QWORD PTR [rsi+56]
@@ -737,7 +777,7 @@ $LN6@PMC_ToByte:
 	inc	rdi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	rep movsb
 $LN13@PMC_ToByte:
@@ -906,19 +946,19 @@ $LN11@PMC_FromBy:
 	jne	SHORT $LN1@PMC_FromBy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	lea	rcx, QWORD PTR [rdi+7]
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR p$1[rsp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	shr	rcx, 3
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	rdi, QWORD PTR [rdi+56]
 	rep movsb

@@ -436,7 +436,7 @@ _BuildBinaryFromHexString PROC				; COMDAT
 	call	DWORD PTR __imp__lstrlenW@4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	ecx, DWORD PTR _out_buf$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -446,7 +446,7 @@ _BuildBinaryFromHexString PROC				; COMDAT
 	mov	esi, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	sub	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -460,7 +460,7 @@ _BuildBinaryFromHexString PROC				; COMDAT
 	mov	edi, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	eax, DWORD PTR [esi+7]
 	shr	eax, 3
@@ -472,7 +472,7 @@ _BuildBinaryFromHexString PROC				; COMDAT
 	mov	DWORD PTR _r$1$[ebp], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	eax, DWORD PTR [ecx+eax*4]
 	mov	DWORD PTR _out_ptr$1$[ebp], eax
@@ -1730,7 +1730,7 @@ $LN21@TryParseDN:
 	push	ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	lea	ecx, DWORD PTR [eax+8]
 	mov	eax, 954437177				; 38e38e39H
@@ -2122,7 +2122,7 @@ $LN50@TryParseDN:
 	push	DWORD PTR _work_buf_words$2[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR _out_buf$1$[ebp]
 	mov	ecx, ebx
@@ -2133,7 +2133,7 @@ $LN50@TryParseDN:
 	push	DWORD PTR _work_buf$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -2359,7 +2359,7 @@ $LN3@ConvertCar:
 	jne	SHORT $LN13@ConvertCar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	eax, DWORD PTR _work_buf$1$[ebp]
 	mov	ecx, ebx
@@ -2370,7 +2370,7 @@ $LN3@ConvertCar:
 	push	DWORD PTR _work_buf_words$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR _out_buf$[ebp]
 	mov	esi, eax
@@ -2465,613 +2465,613 @@ _MultiplyAndAdd_using_ADCX_MULX PROC			; COMDAT
 $LL2@MultiplyAn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+4]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+8]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+12]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+16]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+20]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+24]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+28]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+32]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+32], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+36]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+36], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+40]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+40], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+44]
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 	mov	DWORD PTR [ecx+44], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+48]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+48], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+52]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+52], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+56]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+56], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+60]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+60], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+64]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+64], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+68]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+68], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+72]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+72], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+76]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+76], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+80]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+80], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+84]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+84], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+88]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+88], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+92]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+92], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+96]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+96], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+100]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+100], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+104]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+104], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+108]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+108], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+112]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+112], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+116]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+116], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+120]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+120], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+124]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	adcx	edi, eax
@@ -3082,7 +3082,7 @@ $LL2@MultiplyAn:
 	sub	ecx, -128				; ffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3114,309 +3114,309 @@ $LN3@MultiplyAn:
 	je	$LN509@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+4]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+8]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+12]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+16]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+20]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+24]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+28]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+32]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+32], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+36]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+36], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+40]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+40], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+44]
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 	mov	DWORD PTR [ecx+44], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+48]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+48], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+52]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+52], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+56]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+56], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+60]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	adcx	edi, eax
@@ -3427,7 +3427,7 @@ $LN3@MultiplyAn:
 	add	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3440,163 +3440,163 @@ $LN509@MultiplyAn:
 	je	$LN593@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+4]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+8]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+12]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+16]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+20]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+24]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+28]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	adcx	edi, eax
@@ -3607,7 +3607,7 @@ $LN509@MultiplyAn:
 	add	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3620,87 +3620,87 @@ $LN593@MultiplyAn:
 	je	SHORT $LN637@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+4]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 	mov	eax, 0
 	adcx	edi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+8]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+12]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	adcx	edi, eax
@@ -3711,7 +3711,7 @@ $LN593@MultiplyAn:
 	add	ecx, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3724,49 +3724,49 @@ $LN637@MultiplyAn:
 	je	SHORT $LN661@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 	mov	eax, 0
 	adcx	esi, eax
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+4]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	eax, 0
 	adcx	edi, eax
@@ -3777,7 +3777,7 @@ $LN637@MultiplyAn:
 	add	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [eax], edx
@@ -3790,12 +3790,12 @@ $LN661@MultiplyAn:
 	je	SHORT $LN675@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, edi
 	mov	edi, edx
@@ -3809,7 +3809,7 @@ $LN661@MultiplyAn:
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 324  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN675@MultiplyAn:
@@ -3920,767 +3920,767 @@ _MultiplyAndAdd_using_ADC_MUL PROC			; COMDAT
 $LL2@MultiplyAn:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+4]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+8]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+12]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+16]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+20]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+24]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+28]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+32]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+32], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+36]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+36], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+40]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+40], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+44]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+44], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+48]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+48], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+52]
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+56]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+56], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+60]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+60], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+64]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+64], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+68]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+68], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+72]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+72], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+76]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+76], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+80]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+80], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+84]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+84], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+88]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+88], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+92]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+92], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+96]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+96], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+100]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+100], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+104]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+104], eax
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx+108]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+108], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+112]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+112], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+116]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+116], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+120]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+120], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+124]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -4690,7 +4690,7 @@ $LL2@MultiplyAn:
 	sub	ecx, -128				; ffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -4721,389 +4721,389 @@ $LN3@MultiplyAn:
 	je	$LN509@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+4]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+8]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+12]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+16]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+20]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+24]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+28]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+32]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+32], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+36]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+36], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+40]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+40], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+44]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+44], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+48]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+48], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+52]
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 	mov	DWORD PTR [ecx+52], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+56]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+56], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+60]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -5113,7 +5113,7 @@ $LN3@MultiplyAn:
 	add	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 $LN509@MultiplyAn:
@@ -5125,203 +5125,203 @@ $LN509@MultiplyAn:
 	je	$LN593@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+4]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+8]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+12]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+16]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+16], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+20]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+20], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+24]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+24], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+28]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -5331,7 +5331,7 @@ $LN509@MultiplyAn:
 	add	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 $LN593@MultiplyAn:
@@ -5343,107 +5343,107 @@ $LN593@MultiplyAn:
 	je	SHORT $LN637@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+4]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+8]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+8], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+12]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -5453,7 +5453,7 @@ $LN593@MultiplyAn:
 	add	ecx, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 $LN637@MultiplyAn:
@@ -5465,59 +5465,59 @@ $LN637@MultiplyAn:
 	je	SHORT $LN661@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	esi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx], eax
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	esi, 0
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mul	DWORD PTR [ecx+4]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, esi
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	edi, edx
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
@@ -5527,7 +5527,7 @@ $LN637@MultiplyAn:
 	add	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [eax], edx
 $LN661@MultiplyAn:
@@ -5539,12 +5539,12 @@ $LN661@MultiplyAn:
 	je	SHORT $LN675@MultiplyAn
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR [ecx]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, edi
 	mov	edi, edx
@@ -5557,7 +5557,7 @@ $LN661@MultiplyAn:
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 324  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN675@MultiplyAn:
@@ -5613,16 +5613,16 @@ _MultiplyAndAdd1Word_using_ADCX_MULX PROC		; COMDAT
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	ecx, DWORD PTR _w_buf$[ebp]
 
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR _u$[ebp]
 
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	add	eax, DWORD PTR _k$[ebp]
 	mov	DWORD PTR [ecx], eax
@@ -5653,16 +5653,16 @@ _MultiplyAndAdd1Word_using_ADC_MUL PROC			; COMDAT
 	mov	ebp, esp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	ecx, DWORD PTR _w_buf$[ebp]
 
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, 1000000000				; 3b9aca00H
 	mul	DWORD PTR _u$[ebp]
 
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	add	eax, DWORD PTR _k$[ebp]
 	mov	DWORD PTR [ecx], eax
@@ -7456,44 +7456,44 @@ _v$ = 12						; size = 4
 _w_hi$ = 16						; size = 4
 __MULTIPLYX_UNIT PROC					; COMDAT
 
-; 328  :     {
+; 329  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 329  : #ifdef _MSC_VER
-; 330  : #ifdef _M_IX86
-; 331  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 330  : #ifdef _MSC_VER
+; 331  : #ifdef _M_IX86
+; 332  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mul	DWORD PTR _v$[ebp]
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	ecx, DWORD PTR _w_hi$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 332  : #elif defined(_M_X64)
-; 333  :         return (_mulx_u64(u, v, w_hi));
-; 334  : #else
-; 335  : #error unknown platform
-; 336  : #endif
-; 337  : #elif defined(__GNUC__)
-; 338  : #ifdef _M_IX86
-; 339  :         _UINT32_T w_lo;
-; 340  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 341  :         return (w_lo);
-; 342  : #elif defined(_M_X64)
-; 343  :         _UINT64_T w_lo;
-; 344  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
-; 345  :         return (w_lo);
-; 346  : #else
-; 347  : #error unknown platform
-; 348  : #endif
-; 349  : #else
-; 350  : #error unknown compiler
-; 351  : #endif
-; 352  :     }
+; 333  : #elif defined(_M_X64)
+; 334  :         return (_mulx_u64(u, v, w_hi));
+; 335  : #else
+; 336  : #error unknown platform
+; 337  : #endif
+; 338  : #elif defined(__GNUC__)
+; 339  : #ifdef _M_IX86
+; 340  :         _UINT32_T w_lo;
+; 341  :         __asm__("mulxl %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 342  :         return (w_lo);
+; 343  : #elif defined(_M_X64)
+; 344  :         _UINT64_T w_lo;
+; 345  :         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+; 346  :         return (w_lo);
+; 347  : #else
+; 348  : #error unknown platform
+; 349  : #endif
+; 350  : #else
+; 351  : #error unknown compiler
+; 352  : #endif
+; 353  :     }
 
 	pop	ebp
 	ret	0
@@ -7508,36 +7508,36 @@ _v$ = 12						; size = 4
 _w_hi$ = 16						; size = 4
 __MULTIPLY_UNIT PROC					; COMDAT
 
-; 290  :     {
+; 291  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 291  : #ifdef _M_IX86
-; 292  : #ifdef _MSC_VER
-; 293  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
+; 292  : #ifdef _M_IX86
+; 293  : #ifdef _MSC_VER
+; 294  :         return (_FROMDWORDTOWORD((_UINT64_T)u * v, w_hi));
 
 	mov	eax, DWORD PTR _u$[ebp]
 	mul	DWORD PTR _v$[ebp]
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	ecx, DWORD PTR _w_hi$[ebp]
 	mov	DWORD PTR [ecx], edx
 
-; 294  : #elif defined(__GNUC__)
-; 295  :         _UINT32_T w_lo;
-; 296  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
-; 297  :         return (w_lo);
-; 298  : #else
-; 299  : #error unknown compiler
-; 300  : #endif
-; 301  : #elif defined(_M_X64)
-; 302  :         return (_umul128(u, v, w_hi));
-; 303  : #else
-; 304  : #error unknown platform
-; 305  : #endif
-; 306  :     }
+; 295  : #elif defined(__GNUC__)
+; 296  :         _UINT32_T w_lo;
+; 297  :         __asm__("mull %3": "=a"(w_lo), "=d"(*w_hi) : "0"(u), "rm"(v));
+; 298  :         return (w_lo);
+; 299  : #else
+; 300  : #error unknown compiler
+; 301  : #endif
+; 302  : #elif defined(_M_X64)
+; 303  :         return (_umul128(u, v, w_hi));
+; 304  : #else
+; 305  : #error unknown platform
+; 306  : #endif
+; 307  :     }
 
 	pop	ebp
 	ret	0
@@ -7553,13 +7553,13 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADDX_UNIT PROC					; COMDAT
 
-; 234  :     {
+; 235  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 235  : #ifdef _M_IX86
-; 236  :         return (_addcarryx_u32(carry, u, v, w));
+; 236  : #ifdef _M_IX86
+; 237  :         return (_addcarryx_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _carry$[ebp]
 	mov	edx, DWORD PTR _w$[ebp]
@@ -7569,12 +7569,12 @@ __ADDX_UNIT PROC					; COMDAT
 	setb	al
 	mov	DWORD PTR [edx], ecx
 
-; 237  : #elif defined(_M_X64)
-; 238  :         return (_addcarryx_u64(carry, u, v, w));
-; 239  : #else
-; 240  : #error unknown platform
-; 241  : #endif
-; 242  :     }
+; 238  : #elif defined(_M_X64)
+; 239  :         return (_addcarryx_u64(carry, u, v, w));
+; 240  : #else
+; 241  : #error unknown platform
+; 242  : #endif
+; 243  :     }
 
 	pop	ebp
 	ret	0
@@ -7590,13 +7590,13 @@ _v$ = 16						; size = 4
 _w$ = 20						; size = 4
 __ADD_UNIT PROC						; COMDAT
 
-; 206  :     {
+; 207  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 207  : #ifdef _M_IX86
-; 208  :         return (_addcarry_u32(carry, u, v, w));
+; 208  : #ifdef _M_IX86
+; 209  :         return (_addcarry_u32(carry, u, v, w));
 
 	mov	al, BYTE PTR _carry$[ebp]
 	mov	edx, DWORD PTR _w$[ebp]
@@ -7606,12 +7606,12 @@ __ADD_UNIT PROC						; COMDAT
 	setb	al
 	mov	DWORD PTR [edx], ecx
 
-; 209  : #elif defined(_M_X64)
-; 210  :         return (_addcarry_u64(carry, u, v, w));
-; 211  : #else
-; 212  : #error unknown platform
-; 213  : #endif
-; 214  :     }
+; 210  : #elif defined(_M_X64)
+; 211  :         return (_addcarry_u64(carry, u, v, w));
+; 212  : #else
+; 213  : #error unknown platform
+; 214  : #endif
+; 215  :     }
 
 	pop	ebp
 	ret	0
@@ -7625,12 +7625,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_SIZE PROC				; COMDAT
 
-; 191  :     {
+; 192  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -7638,7 +7638,7 @@ __DIVIDE_CEILING_SIZE PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 193  :     }
+; 194  :     }
 
 	pop	ebp
 	ret	0
@@ -7652,12 +7652,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 186  :     {
+; 187  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -7665,7 +7665,7 @@ __DIVIDE_CEILING_UNIT PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 188  :     }
+; 189  :     }
 
 	pop	ebp
 	ret	0
@@ -7679,22 +7679,22 @@ _value$ = 8						; size = 8
 _result_high$ = 16					; size = 4
 __FROMDWORDTOWORD PROC					; COMDAT
 
-; 175  :     {
+; 176  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 176  :         *result_high = (_UINT32_T)(value >> 32);
+; 177  :         *result_high = (_UINT32_T)(value >> 32);
 
 	mov	eax, DWORD PTR _result_high$[ebp]
 	mov	ecx, DWORD PTR _value$[ebp+4]
 	mov	DWORD PTR [eax], ecx
 
-; 177  :         return ((_UINT32_T)value);
+; 178  :         return ((_UINT32_T)value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 
-; 178  :     }
+; 179  :     }
 
 	pop	ebp
 	ret	0
@@ -7709,13 +7709,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -7726,12 +7726,12 @@ __COPY_MEMORY_UNIT PROC					; COMDAT
 	pop	edi
 	pop	esi
 
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	pop	ebp
 	ret	0
@@ -7744,18 +7744,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC				; COMDAT
 
-; 352  :     {
+; 353  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 353  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 354  :     }
+; 355  :     }
 
 	pop	ebp
 	ret	0
@@ -7768,18 +7768,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC				; COMDAT
 
-; 346  :     {
+; 347  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 347  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 348  :     }
+; 349  :     }
 
 	pop	ebp
 	ret	0
@@ -7791,11 +7791,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC				; COMDAT
 
-; 330  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 331  :     }
+; 332  :     }
 
 	ret	0
 _IncrementMULTI64Counter ENDP
@@ -7806,11 +7806,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC				; COMDAT
 
-; 324  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 325  :     }
+; 326  :     }
 
 	ret	0
 _IncrementMULTI32Counter ENDP

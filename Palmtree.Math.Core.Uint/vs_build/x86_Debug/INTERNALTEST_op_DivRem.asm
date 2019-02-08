@@ -865,7 +865,7 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_BYTE PROC
 
-; 42   :     {
+; 43   :     {
 
 	push	ebp
 	mov	ebp, esp
@@ -874,14 +874,14 @@ __COPY_MEMORY_BYTE PROC
 	mov	ecx, OFFSET __8CA3E54E_pmc_inline_func@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR _d$[ebp]
 	mov	esi, DWORD PTR _s$[ebp]
 	mov	ecx, DWORD PTR _count$[ebp]
 	rep movsb
 
-; 44   :     }
+; 45   :     }
 
 	pop	edi
 	pop	esi

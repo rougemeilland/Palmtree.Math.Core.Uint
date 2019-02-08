@@ -30,13 +30,13 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 120  :     {
+; 121  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 121  : #ifdef _M_IX86
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 122  : #ifdef _M_IX86
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	eax, eax
@@ -45,18 +45,18 @@ __ZERO_MEMORY_UNIT_DIV PROC				; COMDAT
 	rep stosd
 	pop	edi
 
-; 123  : #elif defined(_M_X64)
-; 124  : #ifdef _MSC_VER
-; 125  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
-; 126  : #elif defined(__GNUC__)
-; 127  :         __stosq(d, 0, count);
-; 128  : #else
-; 129  : #error unknown compiler
-; 130  : #endif
-; 131  : #else
-; 132  : #error unknown platform
-; 133  : #endif
-; 134  :     }
+; 124  : #elif defined(_M_X64)
+; 125  : #ifdef _MSC_VER
+; 126  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 127  : #elif defined(__GNUC__)
+; 128  :         __stosq(d, 0, count);
+; 129  : #else
+; 130  : #error unknown compiler
+; 131  : #endif
+; 132  : #else
+; 133  : #error unknown platform
+; 134  : #endif
+; 135  :     }
 
 	pop	ebp
 	ret	0
@@ -70,13 +70,13 @@ _d$ = 8							; size = 4
 _count$ = 12						; size = 4
 __ZERO_MEMORY_UNIT PROC					; COMDAT
 
-; 109  :     {
+; 110  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 110  : #ifdef _M_IX86
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 111  : #ifdef _M_IX86
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	xor	eax, eax
@@ -85,12 +85,12 @@ __ZERO_MEMORY_UNIT PROC					; COMDAT
 	rep stosd
 	pop	edi
 
-; 112  : #elif defined(_M_X64)
-; 113  :         __stosq(d, 0, count);
-; 114  : #else
-; 115  : #error unknown platform
-; 116  : #endif
-; 117  :     }
+; 113  : #elif defined(_M_X64)
+; 114  :         __stosq(d, 0, count);
+; 115  : #else
+; 116  : #error unknown platform
+; 117  : #endif
+; 118  :     }
 
 	pop	ebp
 	ret	0
@@ -105,13 +105,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 70   :     {
+; 71   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 71   : #ifdef _M_IX86
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 72   : #ifdef _M_IX86
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -122,18 +122,18 @@ __COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 	pop	edi
 	pop	esi
 
-; 73   : #elif defined(_M_X64)
-; 74   : #ifdef _MSC_VER
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 76   : #elif defined(__GNUC__)
-; 77   :         __movsq(d, s, count);
-; 78   : #else
-; 79   : #error unknown compiler
-; 80   : #endif
-; 81   : #else
-; 82   : #error unknown platform
-; 83   : #endif
-; 84   :     }
+; 74   : #elif defined(_M_X64)
+; 75   : #ifdef _MSC_VER
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 77   : #elif defined(__GNUC__)
+; 78   :         __movsq(d, s, count);
+; 79   : #else
+; 80   : #error unknown compiler
+; 81   : #endif
+; 82   : #else
+; 83   : #error unknown platform
+; 84   : #endif
+; 85   :     }
 
 	pop	ebp
 	ret	0
@@ -148,13 +148,13 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -165,12 +165,12 @@ __COPY_MEMORY_UNIT PROC					; COMDAT
 	pop	edi
 	pop	esi
 
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	pop	ebp
 	ret	0
@@ -644,7 +644,7 @@ _LeftShift_Imp PROC					; COMDAT
 	mov	eax, DWORD PTR _o$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	esi, DWORD PTR _p$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -654,7 +654,7 @@ _LeftShift_Imp PROC					; COMDAT
 	lea	edi, DWORD PTR [eax+edx*4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -664,7 +664,7 @@ _LeftShift_Imp PROC					; COMDAT
 	je	$LN19@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, eax
 	mov	ecx, edx
@@ -1570,7 +1570,7 @@ $LN12@LeftShift_:
 	je	SHORT $LN19@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, DWORD PTR _o$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1580,7 +1580,7 @@ $LN12@LeftShift_:
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _n_word_count$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1652,7 +1652,7 @@ _LeftShift_Imp_DIV PROC					; COMDAT
 	mov	eax, DWORD PTR _o$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	esi, DWORD PTR _p$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1662,7 +1662,7 @@ _LeftShift_Imp_DIV PROC					; COMDAT
 	lea	edi, DWORD PTR [eax+edx*4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1672,7 +1672,7 @@ _LeftShift_Imp_DIV PROC					; COMDAT
 	je	$LN19@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, eax
 	mov	ecx, edx
@@ -2578,7 +2578,7 @@ $LN12@LeftShift_:
 	je	SHORT $LN19@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	edi, DWORD PTR _o$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -2588,7 +2588,7 @@ $LN12@LeftShift_:
 	xor	eax, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	mov	ecx, DWORD PTR _n_word_count$1$[ebp]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -2669,7 +2669,7 @@ _RightShift_Imp PROC					; COMDAT
 	cmp	DWORD PTR _padding_zero$[ebp], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, ebx
 	mov	esi, edx
@@ -3211,7 +3211,7 @@ _RightShift_Imp_DIV PROC				; COMDAT
 	cmp	DWORD PTR _padding_zero$[ebp], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, ebx
 	mov	esi, edx

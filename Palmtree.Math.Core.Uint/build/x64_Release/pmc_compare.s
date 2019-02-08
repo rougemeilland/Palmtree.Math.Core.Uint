@@ -18,7 +18,7 @@ PMC_Compare_X_I_Imp:
 	je	.L6
 	movl	$31, %eax
 /APP
- # 596 "../pmc_inline_func.h" 1
+ # 597 "../pmc_inline_func.h" 1
 	bsrl %edx, %r9d
  # 0 "" 2
 /NO_APP
@@ -60,7 +60,7 @@ PMC_Compare_X_L_Imp:
 	je	.L14
 	movl	$63, %eax
 /APP
- # 640 "../pmc_inline_func.h" 1
+ # 641 "../pmc_inline_func.h" 1
 	bsrq %rdx, %r9
  # 0 "" 2
 /NO_APP

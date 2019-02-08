@@ -288,30 +288,30 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 120  :     {
+; 121  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 	mov	rdi, rcx
 
-; 121  : #ifdef _M_IX86
-; 122  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
-; 123  : #elif defined(_M_X64)
-; 124  : #ifdef _MSC_VER
-; 125  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 122  : #ifdef _M_IX86
+; 123  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 124  : #elif defined(_M_X64)
+; 125  : #ifdef _MSC_VER
+; 126  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
 
 	xor	eax, eax
 	mov	ecx, edx
 	rep stosd
 
-; 126  : #elif defined(__GNUC__)
-; 127  :         __stosq(d, 0, count);
-; 128  : #else
-; 129  : #error unknown compiler
-; 130  : #endif
-; 131  : #else
-; 132  : #error unknown platform
-; 133  : #endif
-; 134  :     }
+; 127  : #elif defined(__GNUC__)
+; 128  :         __stosq(d, 0, count);
+; 129  : #else
+; 130  : #error unknown compiler
+; 131  : #endif
+; 132  : #else
+; 133  : #error unknown platform
+; 134  : #endif
+; 135  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -325,24 +325,24 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_UNIT PROC					; COMDAT
 
-; 109  :     {
+; 110  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 110  : #ifdef _M_IX86
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
-; 112  : #elif defined(_M_X64)
-; 113  :         __stosq(d, 0, count);
+; 111  : #ifdef _M_IX86
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 113  : #elif defined(_M_X64)
+; 114  :         __stosq(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosq
 
-; 114  : #else
-; 115  : #error unknown platform
-; 116  : #endif
-; 117  :     }
+; 115  : #else
+; 116  : #error unknown platform
+; 117  : #endif
+; 118  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -357,31 +357,31 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_UNIT_DIV PROC				; COMDAT
 
-; 70   :     {
+; 71   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 	mov	rdi, rcx
 
-; 71   : #ifdef _M_IX86
-; 72   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 73   : #elif defined(_M_X64)
-; 74   : #ifdef _MSC_VER
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 72   : #ifdef _M_IX86
+; 73   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 74   : #elif defined(_M_X64)
+; 75   : #ifdef _MSC_VER
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	rsi, rdx
 	mov	ecx, r8d
 	rep movsd
 
-; 76   : #elif defined(__GNUC__)
-; 77   :         __movsq(d, s, count);
-; 78   : #else
-; 79   : #error unknown compiler
-; 80   : #endif
-; 81   : #else
-; 82   : #error unknown platform
-; 83   : #endif
-; 84   :     }
+; 77   : #elif defined(__GNUC__)
+; 78   :         __movsq(d, s, count);
+; 79   : #else
+; 80   : #error unknown compiler
+; 81   : #endif
+; 82   : #else
+; 83   : #error unknown platform
+; 84   : #endif
+; 85   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -397,25 +397,25 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsq
 
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -881,7 +881,7 @@ $LN28:
 	jne	SHORT $LN4@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rsi, rcx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -891,7 +891,7 @@ $LN28:
 	lea	rdi, QWORD PTR [r9+rbx*8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rcx, rdx
 	rep movsq
@@ -1818,7 +1818,7 @@ $LN28:
 	jne	SHORT $LN4@LeftShift_
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	ecx, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -1828,7 +1828,7 @@ $LN28:
 	lea	rdi, QWORD PTR [r9+rbx*4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	rsi, rax
 	rep movsd
@@ -2759,7 +2759,7 @@ $LN115:
 	jne	SHORT $LN4@RightShift
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, r9
 	mov	rsi, rax
@@ -3585,7 +3585,7 @@ $LN109:
 	mov	ecx, r11d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	rdi, r9
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -3595,7 +3595,7 @@ $LN109:
 	sub	ecx, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	rsi, rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c
@@ -3605,7 +3605,7 @@ $LN109:
 	cmp	DWORD PTR padding_zero$[rsp], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 75   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 76   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_shift.c

@@ -72,17 +72,17 @@ $LN3@CountActua:
 $LN10@CountActua:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 579  :         _BitScanReverse(&pos, x);
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, cl
 	bsr	ecx, eax
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	al, 7
 	sub	al, cl
@@ -107,46 +107,46 @@ _TEXT	SEGMENT
 _x$ = 8							; size = 1
 __LZCNT_ALT_8 PROC					; COMDAT
 
-; 574  :     {
+; 575  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 575  :         if (x == 0)
+; 576  :         if (x == 0)
 
 	mov	al, BYTE PTR _x$[ebp]
 	test	al, al
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 576  :             return (sizeof(x) * 8);
+; 577  :             return (sizeof(x) * 8);
 
 	mov	eax, 8
 
-; 586  :     }
+; 587  :     }
 
 	pop	ebp
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 577  :         _UINT32_T pos;
-; 578  : #ifdef _MSC_VER
-; 579  :         _BitScanReverse(&pos, x);
+; 578  :         _UINT32_T pos;
+; 579  : #ifdef _MSC_VER
+; 580  :         _BitScanReverse(&pos, x);
 
 	movzx	eax, al
 	bsr	ecx, eax
 
-; 580  : #elif defined(__GNUC__)
-; 581  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
-; 582  : #else
-; 583  : #error unknown compiler
-; 584  : #endif
-; 585  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+; 581  : #elif defined(__GNUC__)
+; 582  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+; 583  : #else
+; 584  : #error unknown compiler
+; 585  : #endif
+; 586  :         return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
 
 	mov	al, 7
 	sub	al, cl
 	movzx	eax, al
 
-; 586  :     }
+; 587  :     }
 
 	pop	ebp
 	ret	0
@@ -160,12 +160,12 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 __DIVIDE_CEILING_SIZE PROC				; COMDAT
 
-; 191  :     {
+; 192  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	eax, DWORD PTR _u$[ebp]
 	xor	edx, edx
@@ -173,7 +173,7 @@ __DIVIDE_CEILING_SIZE PROC				; COMDAT
 	add	eax, DWORD PTR _v$[ebp]
 	div	DWORD PTR _v$[ebp]
 
-; 193  :     }
+; 194  :     }
 
 	pop	ebp
 	ret	0
@@ -188,12 +188,12 @@ _s$ = 12						; size = 4
 _count$ = 16						; size = 4
 __COPY_MEMORY_BYTE PROC					; COMDAT
 
-; 42   :     {
+; 43   :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	push	esi
@@ -204,7 +204,7 @@ __COPY_MEMORY_BYTE PROC					; COMDAT
 	pop	edi
 	pop	esi
 
-; 44   :     }
+; 45   :     }
 
 	pop	ebp
 	ret	0
@@ -254,34 +254,34 @@ $LN2@PMC_ToByte:
 	call	_CheckNumber
 	add	esp, 4
 	test	eax, eax
-	jne	SHORT $LN1@PMC_ToByte
+	jne	$LN1@PMC_ToByte
 
 ; 149  :         return (result);
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
-	push	ebx
-	mov	ebx, DWORD PTR [esi+24]
-	and	ebx, 2
-	je	SHORT $LN16@PMC_ToByte
+	push	edi
+	mov	edi, DWORD PTR [esi+24]
+	and	edi, 2
+	je	SHORT $LN17@PMC_ToByte
 	xor	edx, edx
-	jmp	SHORT $LN17@PMC_ToByte
-$LN16@PMC_ToByte:
+	jmp	SHORT $LN18@PMC_ToByte
+$LN17@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	edx, DWORD PTR [esi+12]
 	add	edx, 7
 	shr	edx, 3
-$LN17@PMC_ToByte:
-	push	edi
+$LN18@PMC_ToByte:
+	push	ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
 ; 151  :     if (buffer != NULL)
 
-	mov	edi, DWORD PTR _buffer$[ebp]
-	test	edi, edi
-	je	SHORT $LN22@PMC_ToByte
+	mov	ebx, DWORD PTR _buffer$[ebp]
+	test	ebx, ebx
+	je	SHORT $LN23@PMC_ToByte
 
 ; 152  :     {
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
@@ -295,8 +295,8 @@ $LN17@PMC_ToByte:
 
 ; 154  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
-	pop	edi
 	pop	ebx
+	pop	edi
 	mov	eax, -4					; fffffffcH
 	pop	esi
 
@@ -315,36 +315,29 @@ $LN5@PMC_ToByte:
 ; 156  :         {
 ; 157  :             if (np->IS_ZERO)
 
-	test	ebx, ebx
-	je	SHORT $LN24@PMC_ToByte
+	test	edi, edi
+	je	SHORT $LN25@PMC_ToByte
 
 ; 158  :                 buffer[0] = 0x00;
 
-	mov	BYTE PTR [edi], al
-$LN25@PMC_ToByte:
+	mov	BYTE PTR [ebx], al
 
-; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
-; 166  :             else
-; 167  :             {
-; 168  :                 buffer[0] = 0x01;
-; 169  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
-; 170  :             }
-; 171  :         }
-; 172  :         else
-; 173  :         {
-; 174  :             if (np->IS_ZERO)
+; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+; 180  :             }
+; 181  :         }
+; 182  :     }
+; 183  :     *count = expected_abs_buffer_size + 1;
 
-	mov	eax, DWORD PTR [esi+24]
-	test	al, 2
-	je	SHORT $LN13@PMC_ToByte
-$LN24@PMC_ToByte:
-	pop	edi
+	lea	ecx, DWORD PTR [edx+1]
+	mov	eax, DWORD PTR _count$[ebp]
 	pop	ebx
-
-; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
-
-	mov	eax, -256				; ffffff00H
+	pop	edi
 	pop	esi
+	mov	DWORD PTR [eax], ecx
+
+; 184  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
 
 ; 185  : }
 
@@ -355,36 +348,73 @@ $LN28@PMC_ToByte:
 ; 159  :             else
 ; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
 ; 161  :         }
-; 162  :         if (p_sign > 0)
+; 162  :         else if (p_sign > 0)
 
-	jle	SHORT $LN25@PMC_ToByte
+	jle	SHORT $LN10@PMC_ToByte
 
 ; 163  :         {
 ; 164  :             if (np->IS_ZERO)
 
-	test	ebx, ebx
-	jne	SHORT $LN24@PMC_ToByte
-$LN13@PMC_ToByte:
+	test	edi, edi
+	jne	SHORT $LN25@PMC_ToByte
+
+; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
+; 166  :             else
+; 167  :             {
+; 168  :                 buffer[0] = 0x01;
+
+	mov	BYTE PTR [ebx], 1
+
+; 169  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+; 170  :             }
+; 171  :         }
+
+	jmp	SHORT $LN29@PMC_ToByte
+$LN10@PMC_ToByte:
+
+; 172  :         else
+; 173  :         {
+; 174  :             if (np->IS_ZERO)
+
+	test	edi, edi
+	je	SHORT $LN14@PMC_ToByte
+$LN25@PMC_ToByte:
+	pop	ebx
+	pop	edi
+
+; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffff00H
+	pop	esi
+
+; 185  : }
+
+	pop	ebp
+	ret	20					; 00000014H
+$LN14@PMC_ToByte:
 
 ; 176  :             else
 ; 177  :             {
-; 178  :                 buffer[0] = 0x01;
+; 178  :                 buffer[0] = 0x03;
+
+	mov	BYTE PTR [ebx], 3
+$LN29@PMC_ToByte:
+
 ; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
 ; 180  :             }
 ; 181  :         }
 ; 182  :     }
 ; 183  :     *count = expected_abs_buffer_size + 1;
 
-	mov	BYTE PTR [edi], 1
-	mov	ecx, edx
 	mov	esi, DWORD PTR [esi+32]
-	inc	edi
+	lea	edi, DWORD PTR [ebx+1]
+	mov	ecx, edx
 	rep movsb
-$LN22@PMC_ToByte:
+$LN23@PMC_ToByte:
 	mov	eax, DWORD PTR _count$[ebp]
 	lea	ecx, DWORD PTR [edx+1]
-	pop	edi
 	pop	ebx
+	pop	edi
 	mov	DWORD PTR [eax], ecx
 
 ; 184  :     return (PMC_STATUS_OK);
@@ -567,24 +597,24 @@ $LN12@PMC_FromBy:
 	jne	SHORT $LN1@PMC_FromBy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR _p$1[ebp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	ecx, DWORD PTR _bit_count$1$[ebp]
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	esi, DWORD PTR tv193[ebp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	add	ecx, 7
 	shr	ecx, 3
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR [edi+32]
 	rep movsb
@@ -677,7 +707,7 @@ $LN2@PMC_ToByte:
 $LN9@PMC_ToByte:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	mov	edx, DWORD PTR [esi+12]
 	add	edx, 7
@@ -752,7 +782,7 @@ $LN6@PMC_ToByte:
 	lea	edi, DWORD PTR [ebx+1]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	esi, DWORD PTR [esi+32]
 	mov	ecx, edx
@@ -928,23 +958,23 @@ $LN11@PMC_FromBy:
 	push	edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR _p$1[ebp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	lea	ecx, DWORD PTR [esi+7]
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	esi, DWORD PTR tv188[ebp]
 
-; 192  :         return ((u + v - 1) / v);
+; 193  :         return ((u + v - 1) / v);
 
 	shr	ecx, 3
 
-; 43   :         __movsb(d, s, count);
+; 44   :         __movsb(d, s, count);
 
 	mov	edi, DWORD PTR [edi+32]
 	rep movsb

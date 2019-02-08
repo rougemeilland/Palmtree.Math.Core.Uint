@@ -23,12 +23,13 @@
  */
 
 
+#ifndef PMC_UINT_INTERNAL_H
+#define PMC_UINT_INTERNAL_H
+
+
 #include <windows.h>
 #include "pmc_internal.h"
 
-
-#ifndef PMC_UINT_INTERNAL_H
-#define PMC_UINT_INTERNAL_H
 
 #ifdef __cplusplus
 extern "C" {

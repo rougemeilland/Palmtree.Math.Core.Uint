@@ -402,7 +402,7 @@ $LN3@GetTrailin:
 $LN10@GetTrailin:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 717  :         _BitScanForward64(&pos, x);
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -491,12 +491,12 @@ $LN11@GetEffecti:
 	mov	rcx, QWORD PTR [rax]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN8@GetEffecti
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -514,11 +514,11 @@ $LN11@GetEffecti:
 $LN8@GetEffecti:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 637  :         _BitScanReverse64(&pos, x);
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rax, rcx
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -528,7 +528,7 @@ $LN8@GetEffecti:
 	shl	rdx, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -591,7 +591,7 @@ CleanUpNumber PROC					; COMDAT
 	mov	QWORD PTR [rsp+48], rdi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 163  :         __stosq(d, x, count);
+; 164  :         __stosq(d, x, count);
 
 	mov	rdi, r8
 	mov	rax, -3689348814741910324		; ccccccccccccccccH
@@ -651,7 +651,7 @@ InitializeNumber PROC					; COMDAT
 	mov	rcx, QWORD PTR hLocalHeap
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rdi, QWORD PTR [rdx+63]
 	shr	rdi, 6
@@ -1116,7 +1116,7 @@ CalculateCheckCode PROC					; COMDAT
 $LL2@CalculateC:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1126,7 +1126,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1136,7 +1136,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1146,7 +1146,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1156,7 +1156,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1166,7 +1166,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1176,7 +1176,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1186,7 +1186,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1196,7 +1196,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1206,7 +1206,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1216,7 +1216,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1226,7 +1226,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1236,7 +1236,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1246,7 +1246,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1256,7 +1256,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1266,7 +1266,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1276,7 +1276,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1286,7 +1286,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+128]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1296,7 +1296,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+136]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1306,7 +1306,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+144]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1316,7 +1316,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+152]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1326,7 +1326,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+160]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1336,7 +1336,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+168]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1346,7 +1346,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+176]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1356,7 +1356,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+184]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1366,7 +1366,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+192]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1376,7 +1376,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+200]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1386,7 +1386,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+208]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1396,7 +1396,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+216]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1406,7 +1406,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+224]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1416,7 +1416,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+232]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1426,7 +1426,7 @@ $LL2@CalculateC:
 	xor	rax, QWORD PTR [rcx+240]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1453,7 +1453,7 @@ $LN3@CalculateC:
 	je	$LN4@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1463,7 +1463,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1473,7 +1473,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1483,7 +1483,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1493,7 +1493,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1503,7 +1503,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1513,7 +1513,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1523,7 +1523,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1533,7 +1533,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1543,7 +1543,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1553,7 +1553,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+72]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1563,7 +1563,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+80]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1573,7 +1573,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+88]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1583,7 +1583,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+96]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1593,7 +1593,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+104]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1603,7 +1603,7 @@ $LN3@CalculateC:
 	xor	rax, QWORD PTR [rcx+112]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1625,7 +1625,7 @@ $LN4@CalculateC:
 	je	SHORT $LN5@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1635,7 +1635,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1645,7 +1645,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1655,7 +1655,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1665,7 +1665,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1675,7 +1675,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+32]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1685,7 +1685,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+40]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1695,7 +1695,7 @@ $LN4@CalculateC:
 	xor	rax, QWORD PTR [rcx+48]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1717,7 +1717,7 @@ $LN5@CalculateC:
 	je	SHORT $LN6@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1727,7 +1727,7 @@ $LN5@CalculateC:
 	xor	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1737,7 +1737,7 @@ $LN5@CalculateC:
 	xor	rax, QWORD PTR [rcx+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1747,7 +1747,7 @@ $LN5@CalculateC:
 	xor	rax, QWORD PTR [rcx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1769,7 +1769,7 @@ $LN6@CalculateC:
 	je	SHORT $LN7@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1779,7 +1779,7 @@ $LN6@CalculateC:
 	xor	rax, QWORD PTR [rcx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1801,7 +1801,7 @@ $LN7@CalculateC:
 	je	SHORT $LN140@CalculateC
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 478  :         return (_rotl64(x, count));
+; 479  :         return (_rotl64(x, count));
 
 	rol	rax, 3
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -1825,57 +1825,57 @@ _TEXT	SEGMENT
 x$ = 8
 _TZCNT_ALT_UNIT PROC					; COMDAT
 
-; 703  :         if (x == 0)
+; 704  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@TZCNT_ALT_
 
-; 704  :             return (sizeof(x) * 8);
+; 705  :             return (sizeof(x) * 8);
 
 	lea	eax, QWORD PTR [rcx+64]
 
-; 718  : #elif defined(__GNUC__)
-; 719  :         _UINT64_T pos;
-; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 721  : #else
-; 722  : #error unknown compiler
-; 723  : #endif
-; 724  : #else
-; 725  : #error unknown platform
-; 726  : #endif
-; 727  :         return (pos);
-; 728  :     }
+; 719  : #elif defined(__GNUC__)
+; 720  :         _UINT64_T pos;
+; 721  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 722  : #else
+; 723  : #error unknown compiler
+; 724  : #endif
+; 725  : #else
+; 726  : #error unknown platform
+; 727  : #endif
+; 728  :         return (pos);
+; 729  :     }
 
 	ret	0
 $LN2@TZCNT_ALT_:
 
-; 705  : #ifdef _M_IX86
-; 706  :         _UINT32_T pos;
-; 707  : #ifdef _MSC_VER
-; 708  :         _BitScanForward(&pos, x);
-; 709  : #elif defined(__GNUC__)
-; 710  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
-; 711  : #else
-; 712  : #error unknown compiler
-; 713  : #endif
-; 714  : #elif defined(_M_X64)
-; 715  : #ifdef _MSC_VER
-; 716  :         _UINT32_T pos;
-; 717  :         _BitScanForward64(&pos, x);
+; 706  : #ifdef _M_IX86
+; 707  :         _UINT32_T pos;
+; 708  : #ifdef _MSC_VER
+; 709  :         _BitScanForward(&pos, x);
+; 710  : #elif defined(__GNUC__)
+; 711  :         __asm__("bsfl %1, %0" : "=r"(pos) : "rm"(x));
+; 712  : #else
+; 713  : #error unknown compiler
+; 714  : #endif
+; 715  : #elif defined(_M_X64)
+; 716  : #ifdef _MSC_VER
+; 717  :         _UINT32_T pos;
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, rcx
 
-; 718  : #elif defined(__GNUC__)
-; 719  :         _UINT64_T pos;
-; 720  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
-; 721  : #else
-; 722  : #error unknown compiler
-; 723  : #endif
-; 724  : #else
-; 725  : #error unknown platform
-; 726  : #endif
-; 727  :         return (pos);
-; 728  :     }
+; 719  : #elif defined(__GNUC__)
+; 720  :         _UINT64_T pos;
+; 721  :         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+; 722  : #else
+; 723  : #error unknown compiler
+; 724  : #endif
+; 725  : #else
+; 726  : #error unknown platform
+; 727  : #endif
+; 728  :         return (pos);
+; 729  :     }
 
 	ret	0
 _TZCNT_ALT_UNIT ENDP
@@ -1887,51 +1887,51 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 625  : #ifdef _M_IX86
-; 626  :         _UINT32_T pos;
-; 627  : #ifdef _MSC_VER
-; 628  :         _BitScanReverse(&pos, x);
-; 629  : #elif defined(__GNUC__)
-; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 631  : #else
-; 632  : #error unknown compiler
-; 633  : #endif
-; 634  : #elif defined(_M_X64)
-; 635  : #ifdef _MSC_VER
-; 636  :         _UINT32_T pos;
-; 637  :         _BitScanReverse64(&pos, x);
+; 626  : #ifdef _M_IX86
+; 627  :         _UINT32_T pos;
+; 628  : #ifdef _MSC_VER
+; 629  :         _BitScanReverse(&pos, x);
+; 630  : #elif defined(__GNUC__)
+; 631  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 632  : #else
+; 633  : #error unknown compiler
+; 634  : #endif
+; 635  : #elif defined(_M_X64)
+; 636  : #ifdef _MSC_VER
+; 637  :         _UINT32_T pos;
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rcx, rcx
 
-; 638  : #elif defined(__GNUC__)
-; 639  :         _UINT64_T pos;
-; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 641  : #else
-; 642  : #error unknown compiler
-; 643  : #endif
-; 644  : #else
-; 645  : #error unknown platform
-; 646  : #endif
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 639  : #elif defined(__GNUC__)
+; 640  :         _UINT64_T pos;
+; 641  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 642  : #else
+; 643  : #error unknown compiler
+; 644  : #endif
+; 645  : #else
+; 646  : #error unknown platform
+; 647  : #endif
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 63					; 0000003fH
 	sub	eax, ecx
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 _LZCNT_ALT_UNIT ENDP
@@ -1944,22 +1944,22 @@ x$ = 8
 count$ = 16
 _ROTATE_L_UNIT PROC					; COMDAT
 
-; 474  :     {
+; 475  :     {
 
 	mov	rax, rcx
 
-; 475  : #ifdef _M_IX86
-; 476  :         return (_rotl(x, count));
-; 477  : #elif defined(_M_X64)
-; 478  :         return (_rotl64(x, count));
+; 476  : #ifdef _M_IX86
+; 477  :         return (_rotl(x, count));
+; 478  : #elif defined(_M_X64)
+; 479  :         return (_rotl64(x, count));
 
 	mov	ecx, edx
 	rol	rax, cl
 
-; 479  : #else
-; 480  : #error unknown platform
-; 481  : #endif
-; 482  :     }
+; 480  : #else
+; 481  : #error unknown platform
+; 482  : #endif
+; 483  :     }
 
 	ret	0
 _ROTATE_L_UNIT ENDP
@@ -1972,7 +1972,7 @@ u$ = 8
 v$ = 16
 _DIVIDE_CEILING_UNIT PROC				; COMDAT
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rax, QWORD PTR [rdx-1]
 	mov	r8, rdx
@@ -1980,7 +1980,7 @@ _DIVIDE_CEILING_UNIT PROC				; COMDAT
 	xor	edx, edx
 	div	r8
 
-; 188  :     }
+; 189  :     }
 
 	ret	0
 _DIVIDE_CEILING_UNIT ENDP
@@ -1994,24 +1994,24 @@ x$ = 16
 count$ = 24
 _FILL_MEMORY_UNIT PROC					; COMDAT
 
-; 159  :     {
+; 160  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 160  : #ifdef _M_IX86
-; 161  :         __stosd((unsigned long*)d, x, (unsigned long)count);
-; 162  : #elif defined(_M_X64)
-; 163  :         __stosq(d, x, count);
+; 161  : #ifdef _M_IX86
+; 162  :         __stosd((unsigned long*)d, x, (unsigned long)count);
+; 163  : #elif defined(_M_X64)
+; 164  :         __stosq(d, x, count);
 
 	mov	rdi, rcx
 	mov	rax, rdx
 	mov	rcx, r8
 	rep stosq
 
-; 164  : #else
-; 165  : #error unknown platform
-; 166  : #endif
-; 167  :     }
+; 165  : #else
+; 166  : #error unknown platform
+; 167  : #endif
+; 168  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2026,18 +2026,18 @@ x$ = 16
 count$ = 24
 _FILL_MEMORY_64 PROC					; COMDAT
 
-; 153  :     {
+; 154  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 154  :         __stosq(d, x, count);
+; 155  :         __stosq(d, x, count);
 
 	mov	rdi, rcx
 	mov	rax, rdx
 	mov	rcx, r8
 	rep stosq
 
-; 155  :     }
+; 156  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2052,18 +2052,18 @@ x$ = 16
 count$ = 24
 _FILL_MEMORY_32 PROC					; COMDAT
 
-; 147  :     {
+; 148  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 148  :         __stosd((unsigned long*)d, x, count);
+; 149  :         __stosd((unsigned long*)d, x, count);
 
 	mov	rdi, rcx
 	mov	eax, edx
 	mov	rcx, r8
 	rep stosd
 
-; 149  :     }
+; 150  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2078,18 +2078,18 @@ x$ = 16
 count$ = 24
 _FILL_MEMORY_16 PROC					; COMDAT
 
-; 142  :     {
+; 143  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 143  :         __stosw(d, x, count);
+; 144  :         __stosw(d, x, count);
 
 	mov	rdi, rcx
 	movzx	eax, dx
 	mov	rcx, r8
 	rep stosw
 
-; 144  :     }
+; 145  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2104,18 +2104,18 @@ x$ = 16
 count$ = 24
 _FILL_MEMORY_BYTE PROC					; COMDAT
 
-; 137  :     {
+; 138  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 138  :         __stosb(d, x, count);
+; 139  :         __stosb(d, x, count);
 
 	mov	rdi, rcx
 	movzx	eax, dl
 	mov	rcx, r8
 	rep stosb
 
-; 139  :     }
+; 140  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2129,18 +2129,18 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_64 PROC					; COMDAT
 
-; 103  :     {
+; 104  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 104  :         __stosq(d, 0, count);
+; 105  :         __stosq(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosq
 
-; 105  :     }
+; 106  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2154,18 +2154,18 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_32 PROC					; COMDAT
 
-; 97   :     {
+; 98   :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 98   :         __stosd((unsigned long*)d, 0, count);
+; 99   :         __stosd((unsigned long*)d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosd
 
-; 99   :     }
+; 100  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2179,18 +2179,18 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_16 PROC					; COMDAT
 
-; 92   :     {
+; 93   :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 93   :         __stosw(d, 0, count);
+; 94   :         __stosw(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosw
 
-; 94   :     }
+; 95   :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2204,18 +2204,18 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_BYTE PROC					; COMDAT
 
-; 87   :     {
+; 88   :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 88   :         __stosb(d, 0, count);
+; 89   :         __stosb(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosb
 
-; 89   :     }
+; 90   :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2230,25 +2230,25 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsq
 
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]
@@ -2773,20 +2773,20 @@ $LN7@DuplicateN:
 	and	DWORD PTR [rbx+40], -2			; fffffffeH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rcx, QWORD PTR [rdi+63]
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, QWORD PTR [rbx+56]
 	mov	rsi, QWORD PTR [rsi+56]
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	rcx, 6
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	rep movsq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -2988,12 +2988,12 @@ $LN29@CommitNumb:
 	mov	rcx, QWORD PTR [rax]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN17@CommitNumb
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -3007,11 +3007,11 @@ $LN29@CommitNumb:
 $LN17@CommitNumb:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 637  :         _BitScanReverse64(&pos, x);
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rax, rcx
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -3021,7 +3021,7 @@ $LN17@CommitNumb:
 	shl	r9, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	sub	ecx, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -3164,7 +3164,7 @@ $LN19@CommitNumb:
 $LN30@CommitNumb:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 717  :         _BitScanForward64(&pos, x);
+; 718  :         _BitScanForward64(&pos, x);
 
 	bsf	rax, r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -3449,7 +3449,7 @@ $LN9:
 	mov	QWORD PTR [rsp+32], rdi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 163  :         __stosq(d, x, count);
+; 164  :         __stosq(d, x, count);
 
 	mov	rdi, r8
 	mov	rax, -3689348814741910324		; ccccccccccccccccH
@@ -3504,7 +3504,7 @@ $LN8:
 	sub	rsp, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	lea	rbx, QWORD PTR [rcx+63]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c
@@ -3519,7 +3519,7 @@ $LN8:
 	mov	rsi, rdx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 187  :         return ((u + v - 1) / v);
+; 188  :         return ((u + v - 1) / v);
 
 	shr	rbx, 6
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_memory.c

@@ -7,7 +7,7 @@
 _FROMWORDTODWORD:
 .LFB4334:
 	.file 1 "../pmc_inline_func.h"
-	.loc 1 170 5
+	.loc 1 171 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -19,15 +19,15 @@ _FROMWORDTODWORD:
 	.seh_endprologue
 	movl	%ecx, 16(%rbp)
 	movl	%edx, 24(%rbp)
-	.loc 1 171 18
+	.loc 1 172 18
 	movl	16(%rbp), %eax
-	.loc 1 171 40
+	.loc 1 172 40
 	salq	$32, %rax
 	movq	%rax, %rdx
-	.loc 1 171 47
+	.loc 1 172 47
 	movl	24(%rbp), %eax
 	orq	%rdx, %rax
-	.loc 1 172 5
+	.loc 1 173 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -4249,62 +4249,62 @@ Initialize_To:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x20
-	.byte	0x33
+	.byte	0x34
 	.byte	0x13
 	.long	0x4999
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x21
-	.byte	0x26
+	.byte	0x27
 	.byte	0x14
 	.long	0x4d5f
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x21
-	.byte	0x28
+	.byte	0x29
 	.byte	0x13
 	.long	0x4987
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x21
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x13
 	.long	0x4987
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x21
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x15
 	.long	0x4c0e
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x21
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x15
 	.long	0x4c0e
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x21
-	.byte	0x2c
+	.byte	0x2d
 	.byte	0x15
 	.long	0x4c0e
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x21
-	.byte	0x2d
+	.byte	0x2e
 	.byte	0x15
 	.long	0x4c0e
 	.byte	0x20
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
 	.byte	0x21
-	.byte	0x2e
+	.byte	0x2f
 	.byte	0x12
 	.long	0x459
 	.byte	0x4
@@ -4314,7 +4314,7 @@ Initialize_To:
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x21
-	.byte	0x2f
+	.byte	0x30
 	.byte	0x12
 	.long	0x459
 	.byte	0x4
@@ -4324,7 +4324,7 @@ Initialize_To:
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
 	.byte	0x21
-	.byte	0x30
+	.byte	0x31
 	.byte	0x12
 	.long	0x459
 	.byte	0x4
@@ -4334,7 +4334,7 @@ Initialize_To:
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
 	.byte	0x21
-	.byte	0x31
+	.byte	0x32
 	.byte	0x12
 	.long	0x459
 	.byte	0x4
@@ -4344,7 +4344,7 @@ Initialize_To:
 	.uleb128 0x18
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x21
-	.byte	0x32
+	.byte	0x33
 	.byte	0x12
 	.long	0x459
 	.byte	0x4
@@ -4354,14 +4354,14 @@ Initialize_To:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x21
-	.byte	0x34
+	.byte	0x35
 	.byte	0x10
 	.long	0xc7
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x21
-	.byte	0x38
+	.byte	0x39
 	.byte	0x16
 	.long	0x4d5f
 	.byte	0x38
@@ -4372,31 +4372,31 @@ Initialize_To:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x21
-	.byte	0x39
+	.byte	0x3a
 	.byte	0x7
 	.long	0x4c22
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x21
-	.byte	0x3f
+	.byte	0x40
 	.byte	0x23
 	.long	0x49fa
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x21
-	.byte	0x42
+	.byte	0x43
 	.byte	0x1a
 	.long	0x4d65
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x21
-	.byte	0x45
+	.byte	0x46
 	.byte	0x1a
 	.long	0x4d65
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x21
-	.byte	0x48
+	.byte	0x49
 	.byte	0x20
 	.long	0x4afa
 	.uleb128 0x19
@@ -4409,7 +4409,7 @@ Initialize_To:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12f
+	.word	0x130
 	.byte	0x2d
 	.long	0x4dfa
 	.uleb128 0x6
@@ -4541,7 +4541,7 @@ Initialize_To:
 	.uleb128 0x1f
 	.ascii "_FROMWORDTODWORD\0"
 	.byte	0x1
-	.byte	0xa9
+	.byte	0xaa
 	.byte	0x1f
 	.long	0x4999
 	.quad	.LFB4334
@@ -4551,7 +4551,7 @@ Initialize_To:
 	.uleb128 0x1c
 	.ascii "value_high\0"
 	.byte	0x1
-	.byte	0xa9
+	.byte	0xaa
 	.byte	0x3a
 	.long	0x4987
 	.uleb128 0x2
@@ -4560,7 +4560,7 @@ Initialize_To:
 	.uleb128 0x1c
 	.ascii "value_low\0"
 	.byte	0x1
-	.byte	0xa9
+	.byte	0xaa
 	.byte	0x50
 	.long	0x4987
 	.uleb128 0x2

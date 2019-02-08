@@ -21,18 +21,18 @@ _value_high$ = 8					; size = 4
 _value_low$ = 12					; size = 4
 __FROMWORDTODWORD PROC					; COMDAT
 
-; 170  :     {
+; 171  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR _value_high$[ebp]
 	xor	eax, eax
 	or	eax, DWORD PTR _value_low$[ebp]
 
-; 172  :     }
+; 173  :     }
 
 	pop	ebp
 	ret	0
@@ -146,7 +146,7 @@ $LN5@PMC_To_X_L:
 $LN6@PMC_To_X_L:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 171  :         return (((_UINT64_T)value_high << 32) | value_low);
+; 172  :         return (((_UINT64_T)value_high << 32) | value_low);
 
 	mov	edx, DWORD PTR [eax+4]
 	xor	ecx, ecx

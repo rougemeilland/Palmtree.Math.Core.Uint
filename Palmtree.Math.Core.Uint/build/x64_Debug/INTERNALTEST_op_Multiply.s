@@ -7,7 +7,7 @@
 _COPY_MEMORY_BYTE:
 .LFB4318:
 	.file 1 "../pmc_inline_func.h"
-	.loc 1 42 5
+	.loc 1 43 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -60,7 +60,7 @@ _COPY_MEMORY_BYTE:
 	movq	%rax, -24(%rbp)
 .LBE5:
 .LBE4:
-	.loc 1 44 5
+	.loc 1 45 5
 	nop
 	addq	$32, %rsp
 	popq	%rsi
@@ -78,7 +78,7 @@ _COPY_MEMORY_BYTE:
 	.seh_proc	_DIVIDE_CEILING_SIZE
 _DIVIDE_CEILING_SIZE:
 .LFB4338:
-	.loc 1 191 5
+	.loc 1 192 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -90,16 +90,16 @@ _DIVIDE_CEILING_SIZE:
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
-	.loc 1 192 20
+	.loc 1 193 20
 	movq	16(%rbp), %rdx
 	movq	24(%rbp), %rax
 	addq	%rdx, %rax
-	.loc 1 192 24
+	.loc 1 193 24
 	subq	$1, %rax
-	.loc 1 192 29
+	.loc 1 193 29
 	movl	$0, %edx
 	divq	24(%rbp)
-	.loc 1 193 5
+	.loc 1 194 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -5447,62 +5447,62 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
-	.byte	0x33
+	.byte	0x34
 	.byte	0x13
 	.long	0x49e0
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x22
-	.byte	0x26
+	.byte	0x27
 	.byte	0x14
 	.long	0x59a7
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x22
-	.byte	0x28
+	.byte	0x29
 	.byte	0x13
 	.long	0x49ce
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x22
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x13
 	.long	0x49ce
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x22
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x15
 	.long	0x5856
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x22
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x15
 	.long	0x5856
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x22
-	.byte	0x2c
+	.byte	0x2d
 	.byte	0x15
 	.long	0x5856
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
-	.byte	0x2d
+	.byte	0x2e
 	.byte	0x15
 	.long	0x5856
 	.byte	0x20
 	.uleb128 0x1a
 	.ascii "IS_STATIC\0"
 	.byte	0x22
-	.byte	0x2e
+	.byte	0x2f
 	.byte	0x12
 	.long	0x46b
 	.byte	0x4
@@ -5512,7 +5512,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x1a
 	.ascii "IS_ZERO\0"
 	.byte	0x22
-	.byte	0x2f
+	.byte	0x30
 	.byte	0x12
 	.long	0x46b
 	.byte	0x4
@@ -5522,7 +5522,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x1a
 	.ascii "IS_ONE\0"
 	.byte	0x22
-	.byte	0x30
+	.byte	0x31
 	.byte	0x12
 	.long	0x46b
 	.byte	0x4
@@ -5532,7 +5532,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x1a
 	.ascii "IS_EVEN\0"
 	.byte	0x22
-	.byte	0x31
+	.byte	0x32
 	.byte	0x12
 	.long	0x46b
 	.byte	0x4
@@ -5542,7 +5542,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x1a
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x22
-	.byte	0x32
+	.byte	0x33
 	.byte	0x12
 	.long	0x46b
 	.byte	0x4
@@ -5552,14 +5552,14 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x22
-	.byte	0x34
+	.byte	0x35
 	.byte	0x10
 	.long	0xd9
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x22
-	.byte	0x38
+	.byte	0x39
 	.byte	0x16
 	.long	0x59a7
 	.byte	0x38
@@ -5570,31 +5570,31 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
-	.byte	0x39
+	.byte	0x3a
 	.byte	0x7
 	.long	0x586a
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x22
-	.byte	0x3f
+	.byte	0x40
 	.byte	0x23
 	.long	0x4a41
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x22
-	.byte	0x42
+	.byte	0x43
 	.byte	0x1a
 	.long	0x59ad
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x22
-	.byte	0x45
+	.byte	0x46
 	.byte	0x1a
 	.long	0x59ad
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x22
-	.byte	0x48
+	.byte	0x49
 	.byte	0x20
 	.long	0x4b9c
 	.uleb128 0x1d
@@ -5607,7 +5607,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x19
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x12f
+	.word	0x130
 	.byte	0x2d
 	.long	0x5a42
 	.uleb128 0x6
@@ -5889,7 +5889,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x22
 	.ascii "_DIVIDE_CEILING_SIZE\0"
 	.byte	0x1
-	.byte	0xbe
+	.byte	0xbf
 	.byte	0x1c
 	.long	0xd9
 	.quad	.LFB4338
@@ -5900,7 +5900,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x20
 	.ascii "u\0"
 	.byte	0x1
-	.byte	0xbe
+	.byte	0xbf
 	.byte	0x38
 	.long	0xd9
 	.uleb128 0x2
@@ -5909,7 +5909,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x20
 	.ascii "v\0"
 	.byte	0x1
-	.byte	0xbe
+	.byte	0xbf
 	.byte	0x42
 	.long	0xd9
 	.uleb128 0x2
@@ -5919,7 +5919,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x23
 	.ascii "_COPY_MEMORY_BYTE\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x19
 	.quad	.LFB4318
 	.quad	.LFE4318-.LFB4318
@@ -5929,7 +5929,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x20
 	.ascii "d\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x31
 	.long	0x5f1
 	.uleb128 0x2
@@ -5938,7 +5938,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x20
 	.ascii "s\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x40
 	.long	0x60a
 	.uleb128 0x2
@@ -5947,7 +5947,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x20
 	.ascii "count\0"
 	.byte	0x1
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x4a
 	.long	0xd9
 	.uleb128 0x2
@@ -5958,7 +5958,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x9
 	.uleb128 0x25
 	.long	0x5e0f

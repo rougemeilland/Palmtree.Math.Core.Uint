@@ -159,7 +159,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p
             else
                 return (PMC_STATUS_INTERNAL_ERROR);
         }
-        if (p_sign > 0)
+        else if (p_sign > 0)
         {
             if (np->IS_ZERO)
                 return (PMC_STATUS_INTERNAL_ERROR);
@@ -175,7 +175,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p
                 return (PMC_STATUS_INTERNAL_ERROR);
             else
             {
-                buffer[0] = 0x01;
+                buffer[0] = 0x03;
                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
             }
         }

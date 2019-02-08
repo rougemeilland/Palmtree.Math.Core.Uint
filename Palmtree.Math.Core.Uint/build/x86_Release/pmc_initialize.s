@@ -287,3 +287,5 @@ LFE5441:
 	.def	_PMC_GetNumberType_X@8;	.scl	2;	.type	32;	.endef
 	.def	_PMC_GetConstantValue_I@8;	.scl	2;	.type	32;	.endef
 	.def	_PMC_Clone_X@8;	.scl	2;	.type	32;	.endef
+	.section .drectve
+	.ascii " -export:\"PMC_UINT_Initialize@4\""

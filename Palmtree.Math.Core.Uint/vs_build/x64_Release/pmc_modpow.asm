@@ -621,7 +621,7 @@ $LN13@ModulePowe:
 	lea	rcx, QWORD PTR [rdx+rdx]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	QWORD PTR [rbx+16], rcx
 	cmovae	rcx, QWORD PTR [rbx+16]
@@ -939,7 +939,7 @@ $LN118@ModulePowe:
 $LN18@ModulePowe:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, QWORD PTR v_2_buf$1$[rbp-185]
 	rep movsq
@@ -969,49 +969,49 @@ $LN19@ModulePowe:
 	mov	rcx, QWORD PTR [rax+r8*8-8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN58@ModulePowe
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	ecx, 64					; 00000040H
 	jmp	SHORT $LN57@ModulePowe
 $LN58@ModulePowe:
 
-; 625  : #ifdef _M_IX86
-; 626  :         _UINT32_T pos;
-; 627  : #ifdef _MSC_VER
-; 628  :         _BitScanReverse(&pos, x);
-; 629  : #elif defined(__GNUC__)
-; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 631  : #else
-; 632  : #error unknown compiler
-; 633  : #endif
-; 634  : #elif defined(_M_X64)
-; 635  : #ifdef _MSC_VER
-; 636  :         _UINT32_T pos;
-; 637  :         _BitScanReverse64(&pos, x);
+; 626  : #ifdef _M_IX86
+; 627  :         _UINT32_T pos;
+; 628  : #ifdef _MSC_VER
+; 629  :         _BitScanReverse(&pos, x);
+; 630  : #elif defined(__GNUC__)
+; 631  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 632  : #else
+; 633  : #error unknown compiler
+; 634  : #endif
+; 635  : #elif defined(_M_X64)
+; 636  : #ifdef _MSC_VER
+; 637  :         _UINT32_T pos;
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rax, rcx
 
-; 638  : #elif defined(__GNUC__)
-; 639  :         _UINT64_T pos;
-; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 641  : #else
-; 642  : #error unknown compiler
-; 643  : #endif
-; 644  : #else
-; 645  : #error unknown platform
-; 646  : #endif
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 639  : #elif defined(__GNUC__)
+; 640  :         _UINT64_T pos;
+; 641  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 642  : #else
+; 643  : #error unknown compiler
+; 644  : #endif
+; 645  : #else
+; 646  : #error unknown platform
+; 647  : #endif
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	ecx, 63					; 0000003fH
 	sub	ecx, eax
 $LN57@ModulePowe:
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, r12
 	mov	rsi, rbx
@@ -1028,7 +1028,7 @@ $LN57@ModulePowe:
 	shr	r13, cl
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rcx, r14
 	rep movsq
@@ -1083,7 +1083,7 @@ $LL4@ModulePowe:
 	je	$LN5@ModulePowe
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	rcx, QWORD PTR work_1_buf_words$[rbp-185]
 	xor	eax, eax
@@ -1095,7 +1095,7 @@ $LL4@ModulePowe:
 	mov	QWORD PTR [rsp+32], r12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	rep stosq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
@@ -1166,7 +1166,7 @@ $LL4@ModulePowe:
 	jb	$LN7@ModulePowe
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	rcx, QWORD PTR work_v_buf_words$[rbp-185]
 	xor	eax, eax
@@ -1178,7 +1178,7 @@ $LL4@ModulePowe:
 	mov	r9, r14
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	r12, QWORD PTR q_buf$1$[rbp-185]
 	mov	rdi, rdx
@@ -1189,7 +1189,7 @@ $LL4@ModulePowe:
 	mov	r8, QWORD PTR m_buf$1$[rbp-185]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	rep stosq
 	mov	rcx, QWORD PTR q_buf_words$[rbp-185]
@@ -1204,7 +1204,7 @@ $LL4@ModulePowe:
 	mov	QWORD PTR [rsp+48], r15
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	rep stosq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
@@ -1356,7 +1356,7 @@ $LN7@ModulePowe:
 	je	$LN9@ModulePowe
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	rcx, QWORD PTR work_1_buf_words$[rbp-185]
 	xor	eax, eax
@@ -1367,7 +1367,7 @@ $LN7@ModulePowe:
 	mov	r8, QWORD PTR v_2_buf$1$[rbp-185]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	rdi, r12
 	rep stosq
@@ -1446,7 +1446,7 @@ $LN7@ModulePowe:
 	jb	$LN123@ModulePowe
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	rcx, QWORD PTR work_v_buf_words$[rbp-185]
 	xor	eax, eax
@@ -1458,7 +1458,7 @@ $LN7@ModulePowe:
 	mov	r9, r14
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	mov	r12, QWORD PTR q_buf$1$[rbp-185]
 	mov	rdi, rdx
@@ -1469,7 +1469,7 @@ $LN7@ModulePowe:
 	mov	r8, QWORD PTR m_buf$1$[rbp-185]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	rep stosq
 	mov	rcx, QWORD PTR q_buf_words$[rbp-185]
@@ -1484,7 +1484,7 @@ $LN7@ModulePowe:
 	mov	QWORD PTR [rsp+48], r15
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 113  :         __stosq(d, 0, count);
+; 114  :         __stosq(d, 0, count);
 
 	rep stosq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
@@ -1585,7 +1585,7 @@ $LN9@ModulePowe:
 $LN5@ModulePowe:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	r14, QWORD PTR r$[rbp-185]
 	mov	rcx, rbx
@@ -1814,7 +1814,7 @@ $LN7@Remainder:
 	mov	QWORD PTR [r15], 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, QWORD PTR [r14]
 	mov	rcx, QWORD PTR [rbx+8]
@@ -1825,7 +1825,7 @@ $LN7@Remainder:
 	mov	QWORD PTR [rsp+144], rsi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
-; 63   :         __movsq(d, s, count);
+; 64   :         __movsq(d, s, count);
 
 	mov	rsi, QWORD PTR [rbx+56]
 	mov	rdi, QWORD PTR [rdi+56]
@@ -1997,51 +1997,51 @@ _TEXT	SEGMENT
 x$ = 8
 _LZCNT_ALT_UNIT PROC					; COMDAT
 
-; 623  :         if (x == 0)
+; 624  :         if (x == 0)
 
 	test	rcx, rcx
 	jne	SHORT $LN2@LZCNT_ALT_
 
-; 624  :             return (sizeof(x) * 8);
+; 625  :             return (sizeof(x) * 8);
 
 	mov	eax, 64					; 00000040H
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 $LN2@LZCNT_ALT_:
 
-; 625  : #ifdef _M_IX86
-; 626  :         _UINT32_T pos;
-; 627  : #ifdef _MSC_VER
-; 628  :         _BitScanReverse(&pos, x);
-; 629  : #elif defined(__GNUC__)
-; 630  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 631  : #else
-; 632  : #error unknown compiler
-; 633  : #endif
-; 634  : #elif defined(_M_X64)
-; 635  : #ifdef _MSC_VER
-; 636  :         _UINT32_T pos;
-; 637  :         _BitScanReverse64(&pos, x);
+; 626  : #ifdef _M_IX86
+; 627  :         _UINT32_T pos;
+; 628  : #ifdef _MSC_VER
+; 629  :         _BitScanReverse(&pos, x);
+; 630  : #elif defined(__GNUC__)
+; 631  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 632  : #else
+; 633  : #error unknown compiler
+; 634  : #endif
+; 635  : #elif defined(_M_X64)
+; 636  : #ifdef _MSC_VER
+; 637  :         _UINT32_T pos;
+; 638  :         _BitScanReverse64(&pos, x);
 
 	bsr	rcx, rcx
 
-; 638  : #elif defined(__GNUC__)
-; 639  :         _UINT64_T pos;
-; 640  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
-; 641  : #else
-; 642  : #error unknown compiler
-; 643  : #endif
-; 644  : #else
-; 645  : #error unknown platform
-; 646  : #endif
-; 647  :         return (sizeof(x) * 8 - 1 - pos);
+; 639  : #elif defined(__GNUC__)
+; 640  :         _UINT64_T pos;
+; 641  :         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+; 642  : #else
+; 643  : #error unknown compiler
+; 644  : #endif
+; 645  : #else
+; 646  : #error unknown platform
+; 647  : #endif
+; 648  :         return (sizeof(x) * 8 - 1 - pos);
 
 	mov	eax, 63					; 0000003fH
 	sub	eax, ecx
 
-; 648  :     }
+; 649  :     }
 
 	ret	0
 _LZCNT_ALT_UNIT ENDP
@@ -2054,13 +2054,13 @@ x$ = 8
 y$ = 16
 _MAXIMUM_UNIT PROC					; COMDAT
 
-; 197  :         return (x >= y ? x : y);
+; 198  :         return (x >= y ? x : y);
 
 	cmp	rcx, rdx
 	cmovae	rdx, rcx
 	mov	rax, rdx
 
-; 198  :     }
+; 199  :     }
 
 	ret	0
 _MAXIMUM_UNIT ENDP
@@ -2073,24 +2073,24 @@ d$ = 8
 count$ = 16
 _ZERO_MEMORY_UNIT PROC					; COMDAT
 
-; 109  :     {
+; 110  :     {
 
 	mov	QWORD PTR [rsp+8], rdi
 
-; 110  : #ifdef _M_IX86
-; 111  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
-; 112  : #elif defined(_M_X64)
-; 113  :         __stosq(d, 0, count);
+; 111  : #ifdef _M_IX86
+; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
+; 113  : #elif defined(_M_X64)
+; 114  :         __stosq(d, 0, count);
 
 	mov	rdi, rcx
 	xor	eax, eax
 	mov	rcx, rdx
 	rep stosq
 
-; 114  : #else
-; 115  : #error unknown platform
-; 116  : #endif
-; 117  :     }
+; 115  : #else
+; 116  : #error unknown platform
+; 117  : #endif
+; 118  :     }
 
 	mov	rdi, QWORD PTR [rsp+8]
 	ret	0
@@ -2105,25 +2105,25 @@ s$ = 16
 count$ = 24
 _COPY_MEMORY_UNIT PROC					; COMDAT
 
-; 59   :     {
+; 60   :     {
 
 	mov	QWORD PTR [rsp+8], rsi
 	mov	QWORD PTR [rsp+16], rdi
 
-; 60   : #ifdef _M_IX86
-; 61   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
-; 62   : #elif defined(_M_X64)
-; 63   :         __movsq(d, s, count);
+; 61   : #ifdef _M_IX86
+; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+; 63   : #elif defined(_M_X64)
+; 64   :         __movsq(d, s, count);
 
 	mov	rdi, rcx
 	mov	rsi, rdx
 	mov	rcx, r8
 	rep movsq
 
-; 64   : #else
-; 65   : #error unknown platform
-; 66   : #endif
-; 67   :     }
+; 65   : #else
+; 66   : #error unknown platform
+; 67   : #endif
+; 68   :     }
 
 	mov	rsi, QWORD PTR [rsp+8]
 	mov	rdi, QWORD PTR [rsp+16]

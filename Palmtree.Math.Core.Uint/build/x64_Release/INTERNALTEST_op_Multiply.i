@@ -100624,9 +100624,9 @@ typedef struct _MODEMSETTINGS {
 # 131 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/windows.h" 2 3
 # 27 "../INTERNALTEST_op_Multiply.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 27 "../pmc_uint_internal.h"
+# 31 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 27 "../pmc_internal.h"
+# 31 "../pmc_internal.h"
 # 1 "../pmc.h" 1
 # 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
@@ -100957,10 +100957,10 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
- PMC_SINT_ENTRY_POINTS* PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
+__attribute__((dllexport)) PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
+__attribute__((dllexport)) PMC_SINT_ENTRY_POINTS* PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 28 "../pmc_internal.h" 2
+# 32 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
 # 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
@@ -100982,8 +100982,13 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 29 "../pmc_internal.h" 2
-# 38 "../pmc_internal.h"
+# 33 "../pmc_internal.h" 2
+
+
+
+
+
+
 #pragma region マクロの定義
 
 
@@ -100998,15 +101003,20 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
 
 typedef _UINT64_T __UNIT_TYPE;
-# 61 "../pmc_internal.h"
+# 62 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 28 "../pmc_uint_internal.h" 2
-# 37 "../pmc_uint_internal.h"
+# 32 "../pmc_uint_internal.h" 2
+
+
+
+
+
+
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -101338,17 +101348,17 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 376 "../pmc_uint_internal.h"
+# 377 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 390 "../pmc_uint_internal.h"
+# 391 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../INTERNALTEST_op_Multiply.c" 2
 # 1 "../pmc_inline_func.h" 1
-# 28 "../pmc_inline_func.h"
+# 32 "../pmc_inline_func.h"
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 1 3
 # 38 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/intrin.h" 3
 # 1 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/setjmp.h" 1 3
@@ -102307,13 +102317,10 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     char _InterlockedXor8_np(char *,char);
     short _InterlockedXor16_np(short *,short);
     __extension__ long long _InterlockedXor64_np(long long *,long long);
-# 29 "../pmc_inline_func.h" 2
-
-# 1 "../pmc_internal.h" 1
-# 31 "../pmc_inline_func.h" 2
-# 41 "../pmc_inline_func.h"
+# 33 "../pmc_inline_func.h" 2
+# 42 "../pmc_inline_func.h"
     
-# 41 "../pmc_inline_func.h"
+# 42 "../pmc_inline_func.h"
    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
     {
         __movsb(d, s, count);
@@ -102564,7 +102571,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 302 "../pmc_inline_func.h"
+# 303 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102573,7 +102580,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 318 "../pmc_inline_func.h"
+# 319 "../pmc_inline_func.h"
         return (_umul128(u, v, w_hi));
 
 
@@ -102585,7 +102592,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
     {
-# 343 "../pmc_inline_func.h"
+# 344 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102599,7 +102606,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
     {
-# 364 "../pmc_inline_func.h"
+# 365 "../pmc_inline_func.h"
         _UINT64_T w_lo;
         __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
         return (w_lo);
@@ -102614,7 +102621,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
     {
-# 402 "../pmc_inline_func.h"
+# 403 "../pmc_inline_func.h"
         __UNIT_TYPE q;
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
@@ -102635,7 +102642,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
     {
-# 446 "../pmc_inline_func.h"
+# 447 "../pmc_inline_func.h"
         if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
             __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
         else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
@@ -102669,9 +102676,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 478 "../pmc_inline_func.h" 3
+# 479 "../pmc_inline_func.h" 3
                __rolq
-# 478 "../pmc_inline_func.h"
+# 479 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102684,9 +102691,9 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
 
         return (
-# 489 "../pmc_inline_func.h" 3
+# 490 "../pmc_inline_func.h" 3
                __rorq
-# 489 "../pmc_inline_func.h"
+# 490 "../pmc_inline_func.h"
                       (x, count));
 
 
@@ -102750,7 +102757,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
     __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
     {
-# 564 "../pmc_inline_func.h"
+# 565 "../pmc_inline_func.h"
         return (_lzcnt_u64(value));
 
 
@@ -102812,7 +102819,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 639 "../pmc_inline_func.h"
+# 640 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102828,7 +102835,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 668 "../pmc_inline_func.h"
+# 669 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
 
@@ -102866,7 +102873,7 @@ void __writemsr(unsigned long msr, unsigned long long Value)
     {
         if (x == 0)
             return (sizeof(x) * 8);
-# 719 "../pmc_inline_func.h"
+# 720 "../pmc_inline_func.h"
         _UINT64_T pos;
         __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
 

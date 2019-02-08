@@ -23,6 +23,7 @@
     <ldflag>-luser32</ldflag>
     <ldflag>-mwindows</ldflag>
     <ldflag>-nostdlib</ldflag>
+    <ldflag>-Wl,--enable-stdcall-fixup</ldflag>
     <ldflag on="x86">-Wl,-e_DllMain@12</ldflag>
     <ldflag on="x64">-Wl,-eDllMain</ldflag>
   </ldflags>

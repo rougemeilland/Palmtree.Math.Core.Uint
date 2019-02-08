@@ -7,7 +7,7 @@
 _DIVIDE_CEILING_UNIT:
 .LFB4337:
 	.file 1 "../pmc_inline_func.h"
-	.loc 1 186 5
+	.loc 1 187 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -19,16 +19,16 @@ _DIVIDE_CEILING_UNIT:
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
-	.loc 1 187 20
+	.loc 1 188 20
 	movq	16(%rbp), %rdx
 	movq	24(%rbp), %rax
 	addq	%rdx, %rax
-	.loc 1 187 24
+	.loc 1 188 24
 	subq	$1, %rax
-	.loc 1 187 29
+	.loc 1 188 29
 	movl	$0, %edx
 	divq	24(%rbp)
-	.loc 1 188 5
+	.loc 1 189 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -40,7 +40,7 @@ _DIVIDE_CEILING_UNIT:
 	.seh_proc	_MINIMUM_UNIT
 _MINIMUM_UNIT:
 .LFB4340:
-	.loc 1 201 5
+	.loc 1 202 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -52,11 +52,11 @@ _MINIMUM_UNIT:
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
 	movq	%rdx, 24(%rbp)
-	.loc 1 202 28
+	.loc 1 203 28
 	movq	24(%rbp), %rax
 	cmpq	%rax, 16(%rbp)
 	cmovbe	16(%rbp), %rax
-	.loc 1 203 5
+	.loc 1 204 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -5700,62 +5700,62 @@ Initialize_BitwiseAnd:
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x20
-	.byte	0x33
+	.byte	0x34
 	.byte	0x13
 	.long	0x49a1
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x40
 	.byte	0x21
-	.byte	0x26
+	.byte	0x27
 	.byte	0x14
 	.long	0x4d6d
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
 	.byte	0x21
-	.byte	0x28
+	.byte	0x29
 	.byte	0x13
 	.long	0x498f
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x21
-	.byte	0x29
+	.byte	0x2a
 	.byte	0x13
 	.long	0x498f
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x21
-	.byte	0x2a
+	.byte	0x2b
 	.byte	0x15
 	.long	0x4c1c
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x21
-	.byte	0x2b
+	.byte	0x2c
 	.byte	0x15
 	.long	0x4c1c
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x21
-	.byte	0x2c
+	.byte	0x2d
 	.byte	0x15
 	.long	0x4c1c
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x21
-	.byte	0x2d
+	.byte	0x2e
 	.byte	0x15
 	.long	0x4c1c
 	.byte	0x20
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
 	.byte	0x21
-	.byte	0x2e
+	.byte	0x2f
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5765,7 +5765,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x21
-	.byte	0x2f
+	.byte	0x30
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5775,7 +5775,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
 	.byte	0x21
-	.byte	0x30
+	.byte	0x31
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5785,7 +5785,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
 	.byte	0x21
-	.byte	0x31
+	.byte	0x32
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5795,7 +5795,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x18
 	.ascii "IS_POWER_OF_TWO\0"
 	.byte	0x21
-	.byte	0x32
+	.byte	0x33
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -5805,14 +5805,14 @@ Initialize_BitwiseAnd:
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x21
-	.byte	0x34
+	.byte	0x35
 	.byte	0x10
 	.long	0xcf
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x21
-	.byte	0x38
+	.byte	0x39
 	.byte	0x16
 	.long	0x4d6d
 	.byte	0x38
@@ -5823,31 +5823,31 @@ Initialize_BitwiseAnd:
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x21
-	.byte	0x39
+	.byte	0x3a
 	.byte	0x7
 	.long	0x4c30
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x21
-	.byte	0x3f
+	.byte	0x40
 	.byte	0x23
 	.long	0x4a02
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x21
-	.byte	0x42
+	.byte	0x43
 	.byte	0x1a
 	.long	0x4d73
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x21
-	.byte	0x45
+	.byte	0x46
 	.byte	0x1a
 	.long	0x4d73
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x21
-	.byte	0x48
+	.byte	0x49
 	.byte	0x20
 	.long	0x4b02
 	.uleb128 0x19
@@ -5860,7 +5860,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12f
+	.word	0x130
 	.byte	0x2d
 	.long	0x4e08
 	.uleb128 0x6
@@ -6356,7 +6356,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x29
 	.ascii "_MINIMUM_UNIT\0"
 	.byte	0x1
-	.byte	0xc8
+	.byte	0xc9
 	.byte	0x21
 	.long	0x4c1c
 	.quad	.LFB4340
@@ -6367,7 +6367,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x24
 	.ascii "x\0"
 	.byte	0x1
-	.byte	0xc8
+	.byte	0xc9
 	.byte	0x3b
 	.long	0x4c1c
 	.uleb128 0x2
@@ -6376,7 +6376,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x24
 	.ascii "y\0"
 	.byte	0x1
-	.byte	0xc8
+	.byte	0xc9
 	.byte	0x4a
 	.long	0x4c1c
 	.uleb128 0x2
@@ -6386,7 +6386,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x2a
 	.ascii "_DIVIDE_CEILING_UNIT\0"
 	.byte	0x1
-	.byte	0xb9
+	.byte	0xba
 	.byte	0x21
 	.long	0x4c1c
 	.quad	.LFB4337
@@ -6396,7 +6396,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x24
 	.ascii "u\0"
 	.byte	0x1
-	.byte	0xb9
+	.byte	0xba
 	.byte	0x42
 	.long	0x4c1c
 	.uleb128 0x2
@@ -6405,7 +6405,7 @@ Initialize_BitwiseAnd:
 	.uleb128 0x24
 	.ascii "v\0"
 	.byte	0x1
-	.byte	0xb9
+	.byte	0xba
 	.byte	0x51
 	.long	0x4c1c
 	.uleb128 0x2

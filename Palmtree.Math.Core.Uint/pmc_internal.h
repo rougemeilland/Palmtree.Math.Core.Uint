@@ -23,13 +23,14 @@
  */
 
 
+#ifndef __PMC_INTERNAL_H
+#define __PMC_INTERNAL_H
+
+
 #include <windows.h>
 #include "pmc.h"
 #include "pmc_cpuid.h"
 
-
-#ifndef __PMC_INTERNAL_H
-#define __PMC_INTERNAL_H
 
 #ifdef __cplusplus
 extern "C" {

@@ -48707,9 +48707,9 @@ typedef struct _MODEMSETTINGS {
 # 131 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/windows.h" 2 3
 # 27 "../dllmain.c" 2
 # 1 "../pmc_uint_internal.h" 1
-# 27 "../pmc_uint_internal.h"
+# 31 "../pmc_uint_internal.h"
 # 1 "../pmc_internal.h" 1
-# 27 "../pmc_internal.h"
+# 31 "../pmc_internal.h"
 # 1 "../pmc.h" 1
 # 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
@@ -49047,10 +49047,10 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
 #pragma region 宣言
- PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
- PMC_SINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
+__attribute__((dllexport)) PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
+__attribute__((dllexport)) PMC_SINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 28 "../pmc_internal.h" 2
+# 32 "../pmc_internal.h" 2
 # 1 "../pmc_cpuid.h" 1
 # 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
@@ -49072,8 +49072,13 @@ typedef struct _tag_PROCESSOR_FEATURES
 } PROCESSOR_FEATURES;
 
 extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
-# 29 "../pmc_internal.h" 2
-# 38 "../pmc_internal.h"
+# 33 "../pmc_internal.h" 2
+
+
+
+
+
+
 #pragma region マクロの定義
 
 
@@ -49086,15 +49091,20 @@ extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 #pragma region 型の定義
 
 typedef _UINT32_T __UNIT_TYPE;
-# 61 "../pmc_internal.h"
+# 62 "../pmc_internal.h"
 typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 
 
 #pragma endregion
-# 28 "../pmc_uint_internal.h" 2
-# 37 "../pmc_uint_internal.h"
+# 32 "../pmc_uint_internal.h" 2
+
+
+
+
+
+
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
@@ -49426,12 +49436,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 376 "../pmc_uint_internal.h"
+# 377 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 390 "../pmc_uint_internal.h"
+# 391 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../dllmain.c" 2

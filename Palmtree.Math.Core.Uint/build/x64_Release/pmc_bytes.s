@@ -78,7 +78,7 @@ PMC_FromByteArrayForSINT:
 	movl	$7, %ecx
 	salq	$3, %rdx
 /APP
- # 581 "../pmc_inline_func.h" 1
+ # 582 "../pmc_inline_func.h" 1
 	bsrl %eax, %eax
  # 0 "" 2
 /NO_APP
@@ -192,7 +192,7 @@ PMC_FromByteArray:
 	movl	$7, %ecx
 	salq	$3, %rdx
 /APP
- # 581 "../pmc_inline_func.h" 1
+ # 582 "../pmc_inline_func.h" 1
 	bsrl %eax, %eax
  # 0 "" 2
 /NO_APP
@@ -250,15 +250,14 @@ PMC_ToByteArrayForSINT:
 	movq	%rdx, %rbx
 	movq	%r8, %rdi
 	movq	%r9, %rsi
-	je	.L58
+	je	.L56
 	movq	%rdx, %rcx
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L50
 	movzbl	40(%rbx), %ecx
 	xorl	%edx, %edx
-	movl	%ecx, %r9d
-	andl	$2, %r9d
+	andl	$2, %ecx
 	jne	.L52
 	movq	16(%rbx), %rdx
 	addq	$7, %rdx
@@ -270,26 +269,12 @@ PMC_ToByteArrayForSINT:
 	salq	$3, %rsi
 	leaq	8(%r10), %r8
 	cmpq	%rsi, %r8
-	ja	.L60
+	ja	.L58
 	testb	%bpl, %bpl
 	jne	.L54
-	testb	%r9b, %r9b
-	je	.L57
+	testb	%cl, %cl
+	je	.L61
 	movb	$0, (%rdi)
-	movzbl	40(%rbx), %ecx
-.L56:
-	andl	$2, %ecx
-	jne	.L57
-.L64:
-	movb	$1, (%rdi)
-	movq	%rdx, %rcx
-	addq	$1, %rdi
-	movq	56(%rbx), %rsi
-/APP
- # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsb
- # 0 "" 2
-/NO_APP
 .L53:
 	movq	112(%rsp), %rcx
 	addq	$1, %rdx
@@ -303,17 +288,41 @@ PMC_ToByteArrayForSINT:
 	ret
 	.p2align 4,,10
 .L54:
-	jle	.L56
-	testb	%r9b, %r9b
-	je	.L64
-.L57:
-	movl	$-256, %eax
-	jmp	.L50
-.L58:
+	jle	.L55
+	testb	%cl, %cl
+	jne	.L61
+	movb	$1, (%rdi)
+	movq	%rdx, %rcx
+	addq	$1, %rdi
+	movq	56(%rbx), %rsi
+/APP
+ # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+	rep movsb
+ # 0 "" 2
+/NO_APP
+	jmp	.L53
+	.p2align 4,,10
+.L55:
+	testb	%cl, %cl
+	jne	.L61
+	movb	$3, (%rdi)
+	movq	%rdx, %rcx
+	addq	$1, %rdi
+	movq	56(%rbx), %rsi
+/APP
+ # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+	rep movsb
+ # 0 "" 2
+/NO_APP
+	jmp	.L53
+.L56:
 	movl	$-1, %eax
 	jmp	.L50
-.L60:
+.L58:
 	movl	$-4, %eax
+	jmp	.L50
+.L61:
+	movl	$-256, %eax
 	jmp	.L50
 	.seh_endproc
 	.p2align 4,,15
