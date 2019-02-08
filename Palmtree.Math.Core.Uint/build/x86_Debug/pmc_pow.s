@@ -155,7 +155,7 @@ L5:
 LFE4234:
 	.def	_Pow_Imp;	.scl	3;	.type	32;	.endef
 _Pow_Imp:
-LFB4242:
+LFB4244:
 	.file 3 "../pmc_pow.c"
 	.loc 3 32 1
 	.cfi_startproc
@@ -326,10 +326,10 @@ L8:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	_PMC_Pow_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Pow_X_I_Imp:
-LFB4243:
+LFB4245:
 	.loc 3 77 1
 	.cfi_startproc
 	pushl	%ebp
@@ -575,11 +575,11 @@ L17:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.globl	_PMC_Pow_X_I@12
 	.def	_PMC_Pow_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Pow_X_I@12:
-LFB4244:
+LFB4246:
 	.loc 3 176 1
 	.cfi_startproc
 	pushl	%ebp
@@ -652,11 +652,11 @@ L32:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.globl	_Initialize_Pow
 	.def	_Initialize_Pow;	.scl	2;	.type	32;	.endef
 _Initialize_Pow:
-LFB4245:
+LFB4247:
 	.loc 3 199 1
 	.cfi_startproc
 	.loc 3 200 12
@@ -664,7 +664,7 @@ LFB4245:
 	.loc 3 201 1
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 Letext0:
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 6 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -4823,8 +4823,8 @@ Ldebug_info0:
 	.byte	0xc6
 	.byte	0x11
 	.long	0x49fa
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e19
@@ -4848,8 +4848,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Pow_X_I@12\0"
 	.long	0x49fa
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e8a
@@ -4896,8 +4896,8 @@ Ldebug_info0:
 	.byte	0x4c
 	.byte	0x18
 	.long	0x49fa
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4fc5
@@ -5034,8 +5034,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0xd
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x50fb

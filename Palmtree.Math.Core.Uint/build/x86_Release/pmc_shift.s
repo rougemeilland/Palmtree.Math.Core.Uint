@@ -4,7 +4,7 @@
 	.globl	_RightShift_Imp_DIV
 	.def	_RightShift_Imp_DIV;	.scl	2;	.type	32;	.endef
 _RightShift_Imp_DIV:
-LFB5491:
+LFB5493:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -728,21 +728,21 @@ L13:
 	movl	60(%esp), %ebx
 	jmp	L5
 	.cfi_endproc
-LFE5491:
+LFE5493:
 	.p2align 4,,15
 	.globl	_RightShift_Imp
 	.def	_RightShift_Imp;	.scl	2;	.type	32;	.endef
 _RightShift_Imp:
-LFB5498:
+LFB5500:
 	.cfi_startproc
 	jmp	_RightShift_Imp_DIV
 	.cfi_endproc
-LFE5498:
+LFE5500:
 	.p2align 4,,15
 	.globl	_LeftShift_Imp_DIV
 	.def	_LeftShift_Imp_DIV;	.scl	2;	.type	32;	.endef
 _LeftShift_Imp_DIV:
-LFB5493:
+LFB5495:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1488,21 +1488,21 @@ L50:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5493:
+LFE5495:
 	.p2align 4,,15
 	.globl	_LeftShift_Imp
 	.def	_LeftShift_Imp;	.scl	2;	.type	32;	.endef
 _LeftShift_Imp:
-LFB5500:
+LFB5502:
 	.cfi_startproc
 	jmp	_LeftShift_Imp_DIV
 	.cfi_endproc
-LFE5500:
+LFE5502:
 	.p2align 4,,15
 	.globl	_PMC_RightShift_X_I@12
 	.def	_PMC_RightShift_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_RightShift_X_I@12:
-LFB5494:
+LFB5496:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1598,12 +1598,12 @@ L85:
 	movl	$-1, %eax
 	jmp	L79
 	.cfi_endproc
-LFE5494:
+LFE5496:
 	.p2align 4,,15
 	.globl	_PMC_LeftShift_X_I@12
 	.def	_PMC_LeftShift_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_LeftShift_X_I@12:
-LFB5495:
+LFB5497:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1706,17 +1706,17 @@ L94:
 	movl	$-1, %eax
 	jmp	L89
 	.cfi_endproc
-LFE5495:
+LFE5497:
 	.p2align 4,,15
 	.globl	_Initialize_Shift
 	.def	_Initialize_Shift;	.scl	2;	.type	32;	.endef
 _Initialize_Shift:
-LFB5496:
+LFB5498:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5496:
+LFE5498:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef

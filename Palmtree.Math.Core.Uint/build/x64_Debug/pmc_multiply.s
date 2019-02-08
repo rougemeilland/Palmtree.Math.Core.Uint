@@ -411,7 +411,7 @@ _LZCNT_ALT_UNIT:
 	.def	Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
 	.seh_proc	Multiply_X_X_Imp
 Multiply_X_X_Imp:
-.LFB4373:
+.LFB4375:
 	.file 5 "../pmc_multiply.c"
 	.loc 5 36 1
 	.cfi_startproc
@@ -447,12 +447,12 @@ Multiply_X_X_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.def	_MULTIPLY_DIGIT_UNIT;	.scl	3;	.type	32;	.endef
 	.seh_proc	_MULTIPLY_DIGIT_UNIT
 _MULTIPLY_DIGIT_UNIT:
-.LFB4374:
+.LFB4376:
 	.loc 5 41 1
 	.cfi_startproc
 	pushq	%rbp
@@ -540,12 +540,12 @@ _MULTIPLY_DIGIT_UNIT:
 	.cfi_def_cfa 7, -40
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.def	_MULTIPLYX_DIGIT_UNIT;	.scl	3;	.type	32;	.endef
 	.seh_proc	_MULTIPLYX_DIGIT_UNIT
 _MULTIPLYX_DIGIT_UNIT:
-.LFB4375:
+.LFB4377:
 	.loc 5 53 1
 	.cfi_startproc
 	pushq	%rbp
@@ -633,12 +633,12 @@ _MULTIPLYX_DIGIT_UNIT:
 	.cfi_def_cfa 7, -40
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.def	Multiply_WORD_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_WORD_using_MUL_ADC
 Multiply_WORD_using_MUL_ADC:
-.LFB4376:
+.LFB4378:
 	.loc 5 65 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1507,12 +1507,12 @@ Multiply_WORD_using_MUL_ADC:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.def	Multiply_WORD_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_WORD_using_MULX_ADCX
 Multiply_WORD_using_MULX_ADCX:
-.LFB4377:
+.LFB4379:
 	.loc 5 212 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2381,12 +2381,12 @@ Multiply_WORD_using_MULX_ADCX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 	.def	Multiply_X_1W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_1W_using_MUL_ADC
 Multiply_X_1W_using_MUL_ADC:
-.LFB4378:
+.LFB4380:
 	.loc 5 360 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2420,12 +2420,12 @@ Multiply_X_1W_using_MUL_ADC:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4378:
+.LFE4380:
 	.seh_endproc
 	.def	Multiply_X_1W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_1W_using_MULX_ADCX
 Multiply_X_1W_using_MULX_ADCX:
-.LFB4379:
+.LFB4381:
 	.loc 5 365 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2459,12 +2459,12 @@ Multiply_X_1W_using_MULX_ADCX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4379:
+.LFE4381:
 	.seh_endproc
 	.def	Multiply_X_2W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_2W_using_MUL_ADC
 Multiply_X_2W_using_MUL_ADC:
-.LFB4380:
+.LFB4382:
 	.loc 5 370 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2508,12 +2508,12 @@ Multiply_X_2W_using_MUL_ADC:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4380:
+.LFE4382:
 	.seh_endproc
 	.def	Multiply_X_2W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_2W_using_MULX_ADCX
 Multiply_X_2W_using_MULX_ADCX:
-.LFB4381:
+.LFB4383:
 	.loc 5 376 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2557,12 +2557,12 @@ Multiply_X_2W_using_MULX_ADCX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4381:
+.LFE4383:
 	.seh_endproc
 	.def	Multiply_X_X_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_X_using_MUL_ADC
 Multiply_X_X_using_MUL_ADC:
-.LFB4382:
+.LFB4384:
 	.loc 5 382 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2641,12 +2641,12 @@ Multiply_X_X_using_MUL_ADC:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4382:
+.LFE4384:
 	.seh_endproc
 	.def	Multiply_X_X_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 	.seh_proc	Multiply_X_X_using_MULX_ADCX
 Multiply_X_X_using_MULX_ADCX:
-.LFB4383:
+.LFB4385:
 	.loc 5 407 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2725,12 +2725,12 @@ Multiply_X_X_using_MULX_ADCX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4383:
+.LFE4385:
 	.seh_endproc
 	.def	PMC_Multiply_X_I_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_X_I_Imp
 PMC_Multiply_X_I_Imp:
-.LFB4384:
+.LFB4386:
 	.loc 5 432 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2896,13 +2896,13 @@ PMC_Multiply_X_I_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4384:
+.LFE4386:
 	.seh_endproc
 	.globl	PMC_Multiply_I_X
 	.def	PMC_Multiply_I_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_I_X
 PMC_Multiply_I_X:
-.LFB4385:
+.LFB4387:
 	.loc 5 500 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2982,13 +2982,13 @@ PMC_Multiply_I_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4385:
+.LFE4387:
 	.seh_endproc
 	.globl	PMC_Multiply_X_I
 	.def	PMC_Multiply_X_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_X_I
 PMC_Multiply_X_I:
-.LFB4386:
+.LFB4388:
 	.loc 5 523 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3067,12 +3067,12 @@ PMC_Multiply_X_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4386:
+.LFE4388:
 	.seh_endproc
 	.def	PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_X_L_Imp
 PMC_Multiply_X_L_Imp:
-.LFB4387:
+.LFB4389:
 	.loc 5 546 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3238,13 +3238,13 @@ PMC_Multiply_X_L_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4387:
+.LFE4389:
 	.seh_endproc
 	.globl	PMC_Multiply_L_X
 	.def	PMC_Multiply_L_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_L_X
 PMC_Multiply_L_X:
-.LFB4388:
+.LFB4390:
 	.loc 5 652 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3324,13 +3324,13 @@ PMC_Multiply_L_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4388:
+.LFE4390:
 	.seh_endproc
 	.globl	PMC_Multiply_X_L
 	.def	PMC_Multiply_X_L;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_X_L
 PMC_Multiply_X_L:
-.LFB4389:
+.LFB4391:
 	.loc 5 675 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3409,13 +3409,13 @@ PMC_Multiply_X_L:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4389:
+.LFE4391:
 	.seh_endproc
 	.globl	PMC_Multiply_X_X
 	.def	PMC_Multiply_X_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Multiply_X_X
 PMC_Multiply_X_X:
-.LFB4390:
+.LFB4392:
 	.loc 5 698 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3663,13 +3663,13 @@ PMC_Multiply_X_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4390:
+.LFE4392:
 	.seh_endproc
 	.globl	Initialize_Multiply
 	.def	Initialize_Multiply;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_Multiply
 Initialize_Multiply:
-.LFB4391:
+.LFB4393:
 	.loc 5 785 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3723,7 +3723,7 @@ Initialize_Multiply:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4391:
+.LFE4393:
 	.seh_endproc
 .Letext0:
 	.file 6 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -8160,8 +8160,8 @@ Initialize_Multiply:
 	.word	0x310
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4391
-	.quad	.LFE4391-.LFB4391
+	.quad	.LFB4393
+	.quad	.LFE4393-.LFB4393
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x521a
@@ -8184,8 +8184,8 @@ Initialize_Multiply:
 	.word	0x2b9
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4390
-	.quad	.LFE4390-.LFB4390
+	.quad	.LFB4392
+	.quad	.LFE4392-.LFB4392
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x530c
@@ -8302,8 +8302,8 @@ Initialize_Multiply:
 	.word	0x2a2
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4389
-	.quad	.LFE4389-.LFB4389
+	.quad	.LFB4391
+	.quad	.LFE4391-.LFB4391
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x537d
@@ -8350,8 +8350,8 @@ Initialize_Multiply:
 	.word	0x28b
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4388
-	.quad	.LFE4388-.LFB4388
+	.quad	.LFB4390
+	.quad	.LFE4390-.LFB4390
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53e8
@@ -8398,8 +8398,8 @@ Initialize_Multiply:
 	.word	0x221
 	.byte	0x18
 	.long	0x4d0f
-	.quad	.LFB4387
-	.quad	.LFE4387-.LFB4387
+	.quad	.LFB4389
+	.quad	.LFE4389-.LFB4389
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x552f
@@ -8551,8 +8551,8 @@ Initialize_Multiply:
 	.word	0x20a
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4386
-	.quad	.LFE4386-.LFB4386
+	.quad	.LFB4388
+	.quad	.LFE4388-.LFB4388
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x55a0
@@ -8599,8 +8599,8 @@ Initialize_Multiply:
 	.word	0x1f3
 	.byte	0x11
 	.long	0x4d0f
-	.quad	.LFB4385
-	.quad	.LFE4385-.LFB4385
+	.quad	.LFB4387
+	.quad	.LFE4387-.LFB4387
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x560b
@@ -8647,8 +8647,8 @@ Initialize_Multiply:
 	.word	0x1af
 	.byte	0x18
 	.long	0x4d0f
-	.quad	.LFB4384
-	.quad	.LFE4384-.LFB4384
+	.quad	.LFB4386
+	.quad	.LFE4386-.LFB4386
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56cc
@@ -8734,8 +8734,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x196
 	.byte	0x16
-	.quad	.LFB4383
-	.quad	.LFE4383-.LFB4383
+	.quad	.LFB4385
+	.quad	.LFE4385-.LFB4385
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x57bc
@@ -8839,8 +8839,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x17d
 	.byte	0x16
-	.quad	.LFB4382
-	.quad	.LFE4382-.LFB4382
+	.quad	.LFB4384
+	.quad	.LFE4384-.LFB4384
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x58aa
@@ -8944,8 +8944,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x177
 	.byte	0x16
-	.quad	.LFB4381
-	.quad	.LFE4381-.LFB4381
+	.quad	.LFB4383
+	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5936
@@ -9000,8 +9000,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x171
 	.byte	0x16
-	.quad	.LFB4380
-	.quad	.LFE4380-.LFB4380
+	.quad	.LFB4382
+	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x59c0
@@ -9056,8 +9056,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x16c
 	.byte	0x16
-	.quad	.LFB4379
-	.quad	.LFE4379-.LFB4379
+	.quad	.LFB4381
+	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a38
@@ -9103,8 +9103,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.word	0x167
 	.byte	0x16
-	.quad	.LFB4378
-	.quad	.LFE4378-.LFB4378
+	.quad	.LFB4380
+	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5aae
@@ -9151,8 +9151,8 @@ Initialize_Multiply:
 	.byte	0xd3
 	.byte	0x21
 	.long	0x4d0f
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b41
@@ -9217,8 +9217,8 @@ Initialize_Multiply:
 	.byte	0x40
 	.byte	0x21
 	.long	0x4d0f
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5bd2
@@ -9283,8 +9283,8 @@ Initialize_Multiply:
 	.byte	0x34
 	.byte	0x1d
 	.long	0x4efe
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5c5d
@@ -9349,8 +9349,8 @@ Initialize_Multiply:
 	.byte	0x28
 	.byte	0x1d
 	.long	0x4efe
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5ce7
@@ -9414,8 +9414,8 @@ Initialize_Multiply:
 	.byte	0x5
 	.byte	0x23
 	.byte	0x6
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5d58

@@ -54,7 +54,7 @@ LFE4206:
 	.globl	_PMC_To_X_I@8
 	.def	_PMC_To_X_I@8;	.scl	2;	.type	32;	.endef
 _PMC_To_X_I@8:
-LFB4242:
+LFB4244:
 	.file 2 "../pmc_to.c"
 	.loc 2 32 1
 	.cfi_startproc
@@ -119,11 +119,11 @@ L5:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.globl	_PMC_To_X_L@8
 	.def	_PMC_To_X_L@8;	.scl	2;	.type	32;	.endef
 _PMC_To_X_L@8:
-LFB4243:
+LFB4245:
 	.loc 2 52 1
 	.cfi_startproc
 	pushl	%ebp
@@ -230,11 +230,11 @@ L11:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.globl	_Initialize_To
 	.def	_Initialize_To;	.scl	2;	.type	32;	.endef
 _Initialize_To:
-LFB4244:
+LFB4246:
 	.loc 2 86 1
 	.cfi_startproc
 	.loc 2 87 12
@@ -242,7 +242,7 @@ LFB4244:
 	.loc 2 88 1
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -4409,8 +4409,8 @@ Ldebug_info0:
 	.byte	0x55
 	.byte	0x11
 	.long	0x4a11
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e30
@@ -4434,8 +4434,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_To_X_L@8\0"
 	.long	0x4a11
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e9f
@@ -4486,8 +4486,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_To_X_I@8\0"
 	.long	0x4a11
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f0e

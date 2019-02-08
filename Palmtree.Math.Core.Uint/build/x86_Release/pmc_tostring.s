@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_OutputOneChar;	.scl	3;	.type	32;	.endef
 _OutputOneChar:
-LFB5494:
+LFB5496:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -84,11 +84,11 @@ L8:
 	movl	%eax, 36(%ebx)
 	jmp	L1
 	.cfi_endproc
-LFE5494:
+LFE5496:
 	.p2align 4,,15
 	.def	_ToStringDN;	.scl	3;	.type	32;	.endef
 _ToStringDN:
-LFB5499:
+LFB5501:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -690,11 +690,11 @@ L72:
 	call	_DeallocateBlock
 	jmp	L17
 	.cfi_endproc
-LFE5499:
+LFE5501:
 	.p2align 4,,15
 	.def	_ToStringX.isra.2;	.scl	3;	.type	32;	.endef
 _ToStringX.isra.2:
-LFB5506:
+LFB5508:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1071,12 +1071,12 @@ L94:
 	movl	$-4, %eax
 	jmp	L76
 	.cfi_endproc
-LFE5506:
+LFE5508:
 	.p2align 4,,15
 	.globl	_PMC_ToString@24
 	.def	_PMC_ToString@24;	.scl	2;	.type	32;	.endef
 _PMC_ToString@24:
-LFB5502:
+LFB5504:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1270,7 +1270,7 @@ L131:
 	movl	$-1, %eax
 	jmp	L120
 	.cfi_endproc
-LFE5502:
+LFE5504:
 	.section .rdata,"dr"
 	.align 2
 LC0:
@@ -1291,7 +1291,7 @@ LC4:
 	.globl	_Initialize_ToString
 	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
 _Initialize_ToString:
-LFB5503:
+LFB5505:
 	.cfi_startproc
 	pushl	%ebx
 	.cfi_def_cfa_offset 8
@@ -1338,7 +1338,7 @@ LFB5503:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5503:
+LFE5505:
 .lcomm _default_number_format_option,40,32
 	.data
 	.align 32

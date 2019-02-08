@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_PMC_ExclusiveOr_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_ExclusiveOr_X_L_Imp:
-LFB5496:
+LFB5498:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -211,11 +211,11 @@ L24:
 	movl	%ecx, 4(%eax)
 	jmp	L14
 	.cfi_endproc
-LFE5496:
+LFE5498:
 	.p2align 4,,15
 	.def	_PMC_ExclusiveOr_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_ExclusiveOr_X_I_Imp:
-LFB5493:
+LFB5495:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -360,12 +360,12 @@ L27:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5493:
+LFE5495:
 	.p2align 4,,15
 	.globl	_PMC_ExclusiveOr_I_X@12
 	.def	_PMC_ExclusiveOr_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_ExclusiveOr_I_X@12:
-LFB5494:
+LFB5496:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -406,12 +406,12 @@ L40:
 	movl	$-1, %eax
 	jmp	L38
 	.cfi_endproc
-LFE5494:
+LFE5496:
 	.p2align 4,,15
 	.globl	_PMC_ExclusiveOr_X_I@12
 	.def	_PMC_ExclusiveOr_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_ExclusiveOr_X_I@12:
-LFB5495:
+LFB5497:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -452,12 +452,12 @@ L44:
 	movl	$-1, %eax
 	jmp	L42
 	.cfi_endproc
-LFE5495:
+LFE5497:
 	.p2align 4,,15
 	.globl	_PMC_ExclusiveOr_L_X@16
 	.def	_PMC_ExclusiveOr_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_ExclusiveOr_L_X@16:
-LFB5497:
+LFB5499:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -503,12 +503,12 @@ L48:
 	movl	$-1, %eax
 	jmp	L46
 	.cfi_endproc
-LFE5497:
+LFE5499:
 	.p2align 4,,15
 	.globl	_PMC_ExclusiveOr_X_L@16
 	.def	_PMC_ExclusiveOr_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_ExclusiveOr_X_L@16:
-LFB5498:
+LFB5500:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -554,12 +554,12 @@ L52:
 	movl	$-1, %eax
 	jmp	L50
 	.cfi_endproc
-LFE5498:
+LFE5500:
 	.p2align 4,,15
 	.globl	_PMC_ExclusiveOr_X_X@12
 	.def	_PMC_ExclusiveOr_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_ExclusiveOr_X_X@12:
-LFB5499:
+LFB5501:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -990,17 +990,17 @@ L70:
 	movl	$-1, %ebx
 	jmp	L54
 	.cfi_endproc
-LFE5499:
+LFE5501:
 	.p2align 4,,15
 	.globl	_Initialize_ExclusiveOr
 	.def	_Initialize_ExclusiveOr;	.scl	2;	.type	32;	.endef
 _Initialize_ExclusiveOr:
-LFB5500:
+LFB5502:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5500:
+LFE5502:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
 	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef

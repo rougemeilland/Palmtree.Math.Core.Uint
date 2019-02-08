@@ -49,40 +49,40 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG95889 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
+$SG95907 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
 	DB	'_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n0', 085H, 'Q', 0b9H, '['
 	DB	'L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG95890 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG95908 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95891 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+$SG95909 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
 	DB	'_', 00H, 'q', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG95892 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG95910 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95893 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+$SG95911 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
 	DB	'_', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG95894 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG95912 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95895 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+$SG95913 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
 	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG95896 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG95914 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG95897 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+$SG95915 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
 	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
-$SG95898 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG95916 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 _DATA	ENDS
@@ -184,31 +184,25 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\internaltest_op_divrem.c
 _TEXT	SEGMENT
-tv267 = -236						; size = 4
-tv252 = -232						; size = 4
-tv237 = -228						; size = 4
-tv224 = -224						; size = 4
-tv211 = -220						; size = 4
-tv141 = -216						; size = 4
-_actual_r$ = -212					; size = 4
-_actual_r_count$ = -208					; size = 4
-_actual_q$ = -204					; size = 4
-_actual_q_count$ = -200					; size = 4
-_actual_r_buf$ = -196					; size = 4
-_actual_r_buf_code$ = -188				; size = 4
-_actual_r_buf_words$ = -176				; size = 4
-_actual_q_buf$ = -168					; size = 4
-_actual_q_buf_code$ = -160				; size = 4
-_actual_q_buf_words$ = -148				; size = 4
-_work_v_buf$ = -140					; size = 4
-_work_v_buf_code$ = -132				; size = 4
-_work_v_buf_words$ = -120				; size = 4
-_desired_r_buf$ = -112					; size = 4
-_desired_r_buf_code$ = -104				; size = 4
-_desired_r_buf_words$ = -92				; size = 4
-_desired_q_buf$ = -84					; size = 4
-_desired_q_buf_code$ = -76				; size = 4
-_desired_q_buf_words$ = -64				; size = 4
+tv227 = -180						; size = 4
+tv210 = -176						; size = 4
+tv193 = -172						; size = 4
+tv180 = -168						; size = 4
+tv167 = -164						; size = 4
+tv131 = -160						; size = 4
+_actual_r$ = -156					; size = 4
+_actual_r_count$ = -152					; size = 4
+_actual_q$ = -148					; size = 4
+_actual_q_count$ = -144					; size = 4
+_actual_r_buf$ = -140					; size = 4
+_actual_r_buf_code$ = -132				; size = 4
+_actual_r_buf_words$ = -120				; size = 4
+_actual_q_buf$ = -112					; size = 4
+_actual_q_buf_code$ = -104				; size = 4
+_actual_q_buf_words$ = -92				; size = 4
+_work_v_buf$ = -84					; size = 4
+_work_v_buf_code$ = -76					; size = 4
+_work_v_buf_words$ = -64				; size = 4
 _v_buf$ = -56						; size = 4
 _v_buf_code$ = -48					; size = 4
 _v_buf_words$ = -36					; size = 4
@@ -232,10 +226,10 @@ _INTERNALTEST_DivRem_X_X PROC
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 236				; 000000ecH
+	sub	esp, 180				; 000000b4H
 	push	edi
-	lea	edi, DWORD PTR [ebp-236]
-	mov	ecx, 59					; 0000003bH
+	lea	edi, DWORD PTR [ebp-180]
+	mov	ecx, 45					; 0000002dH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	ecx, OFFSET __21A27739_internaltest_op_divrem@c
@@ -243,324 +237,224 @@ _INTERNALTEST_DivRem_X_X PROC
 
 ; 35   :     __UNIT_TYPE u_buf_words;
 ; 36   :     __UNIT_TYPE u_buf_code;
-; 37   :     __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8, &u_buf_words, &u_buf_code);
+; 37   :     __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8 - 8, &u_buf_words, &u_buf_code);
 
 	lea	eax, DWORD PTR _u_buf_code$[ebp]
 	push	eax
 	lea	ecx, DWORD PTR _u_buf_words$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u_count$[ebp]
-	shl	edx, 3
-	push	edx
+	lea	eax, DWORD PTR [edx*8-8]
+	push	eax
 	call	_AllocateBlock
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _u_buf$[ebp], eax
 
-; 38   :     _COPY_MEMORY_BYTE(u_buf, u, u_count);
+; 38   :     _COPY_MEMORY_BYTE(u_buf, u + 1, u_count - 1);
 
-	mov	eax, DWORD PTR _u_count$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _u$[ebp]
+	mov	ecx, DWORD PTR _u_count$[ebp]
+	sub	ecx, 1
 	push	ecx
-	mov	edx, DWORD PTR _u_buf$[ebp]
+	mov	edx, DWORD PTR _u$[ebp]
+	add	edx, 1
 	push	edx
+	mov	eax, DWORD PTR _u_buf$[ebp]
+	push	eax
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
 
 ; 39   : 
 ; 40   :     __UNIT_TYPE v_buf_words;
 ; 41   :     __UNIT_TYPE v_buf_code;
-; 42   :     __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8, &v_buf_words, &v_buf_code);
+; 42   :     __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8 - 8, &v_buf_words, &v_buf_code);
 
-	lea	eax, DWORD PTR _v_buf_code$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _v_buf_words$[ebp]
+	lea	ecx, DWORD PTR _v_buf_code$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _v_count$[ebp]
-	shl	edx, 3
+	lea	edx, DWORD PTR _v_buf_words$[ebp]
 	push	edx
+	mov	eax, DWORD PTR _v_count$[ebp]
+	lea	ecx, DWORD PTR [eax*8-8]
+	push	ecx
 	call	_AllocateBlock
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _v_buf$[ebp], eax
 
-; 43   :     _COPY_MEMORY_BYTE(v_buf, v, v_count);
+; 43   :     _COPY_MEMORY_BYTE(v_buf, v + 1, v_count - 1);
 
-	mov	eax, DWORD PTR _v_count$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _v$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _v_buf$[ebp]
+	mov	edx, DWORD PTR _v_count$[ebp]
+	sub	edx, 1
 	push	edx
+	mov	eax, DWORD PTR _v$[ebp]
+	add	eax, 1
+	push	eax
+	mov	ecx, DWORD PTR _v_buf$[ebp]
+	push	ecx
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
 
 ; 44   : 
-; 45   :     __UNIT_TYPE desired_q_buf_words;
-; 46   :     __UNIT_TYPE desired_q_buf_code;
-; 47   :     __UNIT_TYPE* desired_q_buf = AllocateBlock(desired_q_count * 8, &desired_q_buf_words, &desired_q_buf_code);
+; 45   :     __UNIT_TYPE work_v_buf_words;
+; 46   :     __UNIT_TYPE work_v_buf_code;
+; 47   :     __UNIT_TYPE* work_v_buf = AllocateBlock(v_count * 8, &work_v_buf_words, &work_v_buf_code);
 
-	lea	eax, DWORD PTR _desired_q_buf_code$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _desired_q_buf_words$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _desired_q_count$[ebp]
-	shl	edx, 3
+	lea	edx, DWORD PTR _work_v_buf_code$[ebp]
 	push	edx
-	call	_AllocateBlock
-	add	esp, 12					; 0000000cH
-	mov	DWORD PTR _desired_q_buf$[ebp], eax
-
-; 48   :     _COPY_MEMORY_BYTE(desired_q_buf, desired_q, desired_q_count);
-
-	mov	eax, DWORD PTR _desired_q_count$[ebp]
+	lea	eax, DWORD PTR _work_v_buf_words$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _desired_q$[ebp]
+	mov	ecx, DWORD PTR _v_count$[ebp]
+	shl	ecx, 3
 	push	ecx
-	mov	edx, DWORD PTR _desired_q_buf$[ebp]
-	push	edx
-	call	__COPY_MEMORY_BYTE
-	add	esp, 12					; 0000000cH
-
-; 49   : 
-; 50   :     __UNIT_TYPE desired_r_buf_words;
-; 51   :     __UNIT_TYPE desired_r_buf_code;
-; 52   :     __UNIT_TYPE* desired_r_buf = AllocateBlock(desired_r_count * 8, &desired_r_buf_words, &desired_r_buf_code);
-
-	lea	eax, DWORD PTR _desired_r_buf_code$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _desired_r_buf_words$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _desired_r_count$[ebp]
-	shl	edx, 3
-	push	edx
-	call	_AllocateBlock
-	add	esp, 12					; 0000000cH
-	mov	DWORD PTR _desired_r_buf$[ebp], eax
-
-; 53   :     _COPY_MEMORY_BYTE(desired_r_buf, desired_r, desired_r_count);
-
-	mov	eax, DWORD PTR _desired_r_count$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _desired_r$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _desired_r_buf$[ebp]
-	push	edx
-	call	__COPY_MEMORY_BYTE
-	add	esp, 12					; 0000000cH
-
-; 54   : 
-; 55   :     __UNIT_TYPE work_v_buf_words;
-; 56   :     __UNIT_TYPE work_v_buf_code;
-; 57   :     __UNIT_TYPE* work_v_buf = AllocateBlock(v_count * 8, &work_v_buf_words, &work_v_buf_code);
-
-	lea	eax, DWORD PTR _work_v_buf_code$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _work_v_buf_words$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _v_count$[ebp]
-	shl	edx, 3
-	push	edx
 	call	_AllocateBlock
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _work_v_buf$[ebp], eax
 
-; 58   : 
-; 59   :     __UNIT_TYPE actual_q_buf_words;
-; 60   :     __UNIT_TYPE actual_q_buf_code;
-; 61   :     __UNIT_TYPE* actual_q_buf = AllocateBlock(u_count > v_count ? (u_count - v_count + 1) * 8 + __UNIT_TYPE_BIT_COUNT : __UNIT_TYPE_BIT_COUNT, &actual_q_buf_words, &actual_q_buf_code);
+; 48   : 
+; 49   :     __UNIT_TYPE actual_q_buf_words;
+; 50   :     __UNIT_TYPE actual_q_buf_code;
+; 51   :     __UNIT_TYPE* actual_q_buf = AllocateBlock(u_count > v_count ? (u_count - v_count + 1) * 8 + __UNIT_TYPE_BIT_COUNT : __UNIT_TYPE_BIT_COUNT, &actual_q_buf_words, &actual_q_buf_code);
 
+	mov	edx, DWORD PTR _u_count$[ebp]
+	cmp	edx, DWORD PTR _v_count$[ebp]
+	jbe	SHORT $LN7@INTERNALTE
 	mov	eax, DWORD PTR _u_count$[ebp]
-	cmp	eax, DWORD PTR _v_count$[ebp]
-	jbe	SHORT $LN9@INTERNALTE
-	mov	ecx, DWORD PTR _u_count$[ebp]
-	sub	ecx, DWORD PTR _v_count$[ebp]
-	lea	edx, DWORD PTR [ecx*8+40]
-	mov	DWORD PTR tv141[ebp], edx
-	jmp	SHORT $LN10@INTERNALTE
-$LN9@INTERNALTE:
-	mov	DWORD PTR tv141[ebp], 32		; 00000020H
-$LN10@INTERNALTE:
-	lea	eax, DWORD PTR _actual_q_buf_code$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _actual_q_buf_words$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR tv141[ebp]
+	sub	eax, DWORD PTR _v_count$[ebp]
+	lea	ecx, DWORD PTR [eax*8+40]
+	mov	DWORD PTR tv131[ebp], ecx
+	jmp	SHORT $LN8@INTERNALTE
+$LN7@INTERNALTE:
+	mov	DWORD PTR tv131[ebp], 32		; 00000020H
+$LN8@INTERNALTE:
+	lea	edx, DWORD PTR _actual_q_buf_code$[ebp]
 	push	edx
+	lea	eax, DWORD PTR _actual_q_buf_words$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR tv131[ebp]
+	push	ecx
 	call	_AllocateBlock
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _actual_q_buf$[ebp], eax
 
-; 62   : 
-; 63   :     __UNIT_TYPE actual_r_buf_words;
-; 64   :     __UNIT_TYPE actual_r_buf_code;
-; 65   :     __UNIT_TYPE* actual_r_buf = AllocateBlock(u_count * 8 + __UNIT_TYPE_BIT_COUNT, &actual_r_buf_words, &actual_r_buf_code);
+; 52   : 
+; 53   :     __UNIT_TYPE actual_r_buf_words;
+; 54   :     __UNIT_TYPE actual_r_buf_code;
+; 55   :     __UNIT_TYPE* actual_r_buf = AllocateBlock(u_count * 8 + __UNIT_TYPE_BIT_COUNT, &actual_r_buf_words, &actual_r_buf_code);
 
-	lea	eax, DWORD PTR _actual_r_buf_code$[ebp]
+	lea	edx, DWORD PTR _actual_r_buf_code$[ebp]
+	push	edx
+	lea	eax, DWORD PTR _actual_r_buf_words$[ebp]
 	push	eax
-	lea	ecx, DWORD PTR _actual_r_buf_words$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _u_count$[ebp]
-	lea	eax, DWORD PTR [edx*8+32]
-	push	eax
+	mov	ecx, DWORD PTR _u_count$[ebp]
+	lea	edx, DWORD PTR [ecx*8+32]
+	push	edx
 	call	_AllocateBlock
 	add	esp, 12					; 0000000cH
 	mov	DWORD PTR _actual_r_buf$[ebp], eax
 
-; 66   : 
-; 67   :     DivRem_X_X(u_buf, u_buf_words, v_buf, v_buf_words, work_v_buf, actual_q_buf, actual_r_buf);
+; 56   : 
+; 57   :     DivRem_X_X(u_buf, u_buf_words, v_buf, v_buf_words, work_v_buf, actual_q_buf, actual_r_buf);
 
-	mov	ecx, DWORD PTR _actual_r_buf$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _actual_q_buf$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _work_v_buf$[ebp]
+	mov	eax, DWORD PTR _actual_r_buf$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _v_buf_words$[ebp]
+	mov	ecx, DWORD PTR _actual_q_buf$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _v_buf$[ebp]
+	mov	edx, DWORD PTR _work_v_buf$[ebp]
 	push	edx
-	mov	eax, DWORD PTR _u_buf_words$[ebp]
+	mov	eax, DWORD PTR _v_buf_words$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _u_buf$[ebp]
+	mov	ecx, DWORD PTR _v_buf$[ebp]
 	push	ecx
+	mov	edx, DWORD PTR _u_buf_words$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _u_buf$[ebp]
+	push	eax
 	call	_DivRem_X_X
 	add	esp, 28					; 0000001cH
 
-; 68   : 
-; 69   :     size_t actual_q_count = actual_q_buf_words * __UNIT_TYPE_BYTE_COUNT;
+; 58   : 
+; 59   :     size_t actual_q_count = actual_q_buf_words * __UNIT_TYPE_BYTE_COUNT;
 
-	mov	edx, DWORD PTR _actual_q_buf_words$[ebp]
-	shl	edx, 2
-	mov	DWORD PTR _actual_q_count$[ebp], edx
+	mov	ecx, DWORD PTR _actual_q_buf_words$[ebp]
+	shl	ecx, 2
+	mov	DWORD PTR _actual_q_count$[ebp], ecx
 
-; 70   :     unsigned char* actual_q = (unsigned char*)actual_q_buf;
+; 60   :     unsigned char* actual_q = (unsigned char*)actual_q_buf;
 
-	mov	eax, DWORD PTR _actual_q_buf$[ebp]
-	mov	DWORD PTR _actual_q$[ebp], eax
+	mov	edx, DWORD PTR _actual_q_buf$[ebp]
+	mov	DWORD PTR _actual_q$[ebp], edx
 $LN2@INTERNALTE:
 
-; 71   :     while (actual_q_count > 0 && actual_q[actual_q_count - 1] == 0)
+; 61   :     while (actual_q_count > 0 && actual_q[actual_q_count - 1] == 0)
 
 	cmp	DWORD PTR _actual_q_count$[ebp], 0
 	jbe	SHORT $LN3@INTERNALTE
-	mov	ecx, DWORD PTR _actual_q$[ebp]
-	add	ecx, DWORD PTR _actual_q_count$[ebp]
-	movzx	edx, BYTE PTR [ecx-1]
-	test	edx, edx
+	mov	eax, DWORD PTR _actual_q$[ebp]
+	add	eax, DWORD PTR _actual_q_count$[ebp]
+	movzx	ecx, BYTE PTR [eax-1]
+	test	ecx, ecx
 	jne	SHORT $LN3@INTERNALTE
 
-; 72   :         --actual_q_count;
+; 62   :         --actual_q_count;
 
-	mov	eax, DWORD PTR _actual_q_count$[ebp]
-	sub	eax, 1
-	mov	DWORD PTR _actual_q_count$[ebp], eax
+	mov	edx, DWORD PTR _actual_q_count$[ebp]
+	sub	edx, 1
+	mov	DWORD PTR _actual_q_count$[ebp], edx
 	jmp	SHORT $LN2@INTERNALTE
 $LN3@INTERNALTE:
 
-; 73   :     if (actual_q_count == 0)
+; 63   : 
+; 64   :     size_t actual_r_count = actual_r_buf_words * __UNIT_TYPE_BYTE_COUNT;
 
-	cmp	DWORD PTR _actual_q_count$[ebp], 0
-	jne	SHORT $LN6@INTERNALTE
+	mov	eax, DWORD PTR _actual_r_buf_words$[ebp]
+	shl	eax, 2
+	mov	DWORD PTR _actual_r_count$[ebp], eax
 
-; 74   :         actual_q_count = 1;
+; 65   :     unsigned char* actual_r = (unsigned char*)actual_r_buf;
 
-	mov	DWORD PTR _actual_q_count$[ebp], 1
-$LN6@INTERNALTE:
-
-; 75   : 
-; 76   :     size_t actual_r_count = actual_r_buf_words * __UNIT_TYPE_BYTE_COUNT;
-
-	mov	ecx, DWORD PTR _actual_r_buf_words$[ebp]
-	shl	ecx, 2
-	mov	DWORD PTR _actual_r_count$[ebp], ecx
-
-; 77   :     unsigned char* actual_r = (unsigned char*)actual_r_buf;
-
-	mov	edx, DWORD PTR _actual_r_buf$[ebp]
-	mov	DWORD PTR _actual_r$[ebp], edx
+	mov	ecx, DWORD PTR _actual_r_buf$[ebp]
+	mov	DWORD PTR _actual_r$[ebp], ecx
 $LN4@INTERNALTE:
 
-; 78   :     while (actual_r_count > 0 && actual_r[actual_r_count - 1] == 0)
+; 66   :     while (actual_r_count > 0 && actual_r[actual_r_count - 1] == 0)
 
 	cmp	DWORD PTR _actual_r_count$[ebp], 0
 	jbe	SHORT $LN5@INTERNALTE
-	mov	eax, DWORD PTR _actual_r$[ebp]
-	add	eax, DWORD PTR _actual_r_count$[ebp]
-	movzx	ecx, BYTE PTR [eax-1]
-	test	ecx, ecx
+	mov	edx, DWORD PTR _actual_r$[ebp]
+	add	edx, DWORD PTR _actual_r_count$[ebp]
+	movzx	eax, BYTE PTR [edx-1]
+	test	eax, eax
 	jne	SHORT $LN5@INTERNALTE
 
-; 79   :         --actual_r_count;
+; 67   :         --actual_r_count;
 
-	mov	edx, DWORD PTR _actual_r_count$[ebp]
-	sub	edx, 1
-	mov	DWORD PTR _actual_r_count$[ebp], edx
+	mov	ecx, DWORD PTR _actual_r_count$[ebp]
+	sub	ecx, 1
+	mov	DWORD PTR _actual_r_count$[ebp], ecx
 	jmp	SHORT $LN4@INTERNALTE
 $LN5@INTERNALTE:
 
-; 80   :     if (actual_r_count == 0)
+; 68   : 
+; 69   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 1), CheckBlockLight(work_v_buf, work_v_buf_code) == PMC_STATUS_OK, L"work_v_bufの内容が破損している");
 
-	cmp	DWORD PTR _actual_r_count$[ebp], 0
-	jne	SHORT $LN7@INTERNALTE
-
-; 81   :         actual_r_count = 1;
-
-	mov	DWORD PTR _actual_r_count$[ebp], 1
-$LN7@INTERNALTE:
-
-; 82   : 
-; 83   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 1), CheckBlockLight(work_v_buf, work_v_buf_code) == PMC_STATUS_OK, L"work_v_bufの内容が破損している");
-
-	mov	eax, DWORD PTR _work_v_buf_code$[ebp]
+	mov	edx, DWORD PTR _work_v_buf_code$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _work_v_buf$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _work_v_buf$[ebp]
-	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $LN11@INTERNALTE
-	mov	DWORD PTR tv211[ebp], 1
-	jmp	SHORT $LN12@INTERNALTE
-$LN11@INTERNALTE:
-	mov	DWORD PTR tv211[ebp], 0
-$LN12@INTERNALTE:
-	push	OFFSET $SG95889
-	mov	edx, DWORD PTR tv211[ebp]
-	push	edx
+	jne	SHORT $LN9@INTERNALTE
+	mov	DWORD PTR tv167[ebp], 1
+	jmp	SHORT $LN10@INTERNALTE
+$LN9@INTERNALTE:
+	mov	DWORD PTR tv167[ebp], 0
+$LN10@INTERNALTE:
+	push	OFFSET $SG95907
+	mov	ecx, DWORD PTR tv167[ebp]
+	push	ecx
 	push	1
-	mov	eax, DWORD PTR _no$[ebp]
-	push	eax
-	push	OFFSET $SG95890
-	call	_FormatTestLabel
-	add	esp, 12					; 0000000cH
-	push	eax
-	mov	ecx, DWORD PTR _env$[ebp]
-	push	ecx
-	call	_TEST_Assert
-	add	esp, 16					; 00000010H
-
-; 84   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 2), CheckBlockLight(actual_q_buf, actual_q_buf_code) == PMC_STATUS_OK, L"actual_q_bufの内容が破損している");
-
-	mov	edx, DWORD PTR _actual_q_buf_code$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _actual_q_buf$[ebp]
-	push	eax
-	call	_CheckBlockLight
-	add	esp, 8
-	test	eax, eax
-	jne	SHORT $LN13@INTERNALTE
-	mov	DWORD PTR tv224[ebp], 1
-	jmp	SHORT $LN14@INTERNALTE
-$LN13@INTERNALTE:
-	mov	DWORD PTR tv224[ebp], 0
-$LN14@INTERNALTE:
-	push	OFFSET $SG95891
-	mov	ecx, DWORD PTR tv224[ebp]
-	push	ecx
-	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG95892
+	push	OFFSET $SG95908
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -569,28 +463,28 @@ $LN14@INTERNALTE:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 85   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 3), CheckBlockLight(actual_r_buf, actual_r_buf_code) == PMC_STATUS_OK, L"actual_r_bufの内容が破損している");
+; 70   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 2), CheckBlockLight(actual_q_buf, actual_q_buf_code) == PMC_STATUS_OK, L"actual_q_bufの内容が破損している");
 
-	mov	ecx, DWORD PTR _actual_r_buf_code$[ebp]
+	mov	ecx, DWORD PTR _actual_q_buf_code$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _actual_r_buf$[ebp]
+	mov	edx, DWORD PTR _actual_q_buf$[ebp]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
-	jne	SHORT $LN15@INTERNALTE
-	mov	DWORD PTR tv237[ebp], 1
-	jmp	SHORT $LN16@INTERNALTE
-$LN15@INTERNALTE:
-	mov	DWORD PTR tv237[ebp], 0
-$LN16@INTERNALTE:
-	push	OFFSET $SG95893
-	mov	eax, DWORD PTR tv237[ebp]
+	jne	SHORT $LN11@INTERNALTE
+	mov	DWORD PTR tv180[ebp], 1
+	jmp	SHORT $LN12@INTERNALTE
+$LN11@INTERNALTE:
+	mov	DWORD PTR tv180[ebp], 0
+$LN12@INTERNALTE:
+	push	OFFSET $SG95909
+	mov	eax, DWORD PTR tv180[ebp]
 	push	eax
-	push	3
+	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG95894
+	push	OFFSET $SG95910
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -599,66 +493,28 @@ $LN16@INTERNALTE:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 86   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_q, actual_q_count, desired_q, desired_q_count) == 0, L"商のデータの内容が一致しない");
+; 71   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 3), CheckBlockLight(actual_r_buf, actual_r_buf_code) == PMC_STATUS_OK, L"actual_r_bufの内容が破損している");
 
-	mov	eax, DWORD PTR _desired_q_count$[ebp]
+	mov	eax, DWORD PTR _actual_r_buf_code$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _desired_q$[ebp]
+	mov	ecx, DWORD PTR _actual_r_buf$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _actual_q_count$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _actual_q$[ebp]
-	push	eax
-	call	__EQUALS_MEMORY
-	add	esp, 16					; 00000010H
+	call	_CheckBlockLight
+	add	esp, 8
 	test	eax, eax
-	jne	SHORT $LN17@INTERNALTE
-	mov	DWORD PTR tv252[ebp], 1
-	jmp	SHORT $LN18@INTERNALTE
-$LN17@INTERNALTE:
-	mov	DWORD PTR tv252[ebp], 0
-$LN18@INTERNALTE:
-	push	OFFSET $SG95895
-	mov	ecx, DWORD PTR tv252[ebp]
-	push	ecx
-	push	4
-	mov	edx, DWORD PTR _no$[ebp]
+	jne	SHORT $LN13@INTERNALTE
+	mov	DWORD PTR tv193[ebp], 1
+	jmp	SHORT $LN14@INTERNALTE
+$LN13@INTERNALTE:
+	mov	DWORD PTR tv193[ebp], 0
+$LN14@INTERNALTE:
+	push	OFFSET $SG95911
+	mov	edx, DWORD PTR tv193[ebp]
 	push	edx
-	push	OFFSET $SG95896
-	call	_FormatTestLabel
-	add	esp, 12					; 0000000cH
-	push	eax
-	mov	eax, DWORD PTR _env$[ebp]
-	push	eax
-	call	_TEST_Assert
-	add	esp, 16					; 00000010H
-
-; 87   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r, actual_r_count, desired_r, desired_r_count) == 0, L"剰余のデータの内容が一致しない");
-
-	mov	ecx, DWORD PTR _desired_r_count$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _desired_r$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _actual_r_count$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _actual_r$[ebp]
-	push	ecx
-	call	__EQUALS_MEMORY
-	add	esp, 16					; 00000010H
-	test	eax, eax
-	jne	SHORT $LN19@INTERNALTE
-	mov	DWORD PTR tv267[ebp], 1
-	jmp	SHORT $LN20@INTERNALTE
-$LN19@INTERNALTE:
-	mov	DWORD PTR tv267[ebp], 0
-$LN20@INTERNALTE:
-	push	OFFSET $SG95897
-	mov	edx, DWORD PTR tv267[ebp]
-	push	edx
-	push	5
+	push	3
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG95898
+	push	OFFSET $SG95912
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -667,254 +523,182 @@ $LN20@INTERNALTE:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 88   : 
-; 89   :     DeallocateBlock(actual_r_buf, actual_r_buf_words);
+; 72   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_q, actual_q_count, desired_q + 1, desired_q_count - 1) == 0, L"商のデータの内容が一致しない");
 
-	mov	edx, DWORD PTR _actual_r_buf_words$[ebp]
+	mov	edx, DWORD PTR _desired_q_count$[ebp]
+	sub	edx, 1
 	push	edx
-	mov	eax, DWORD PTR _actual_r_buf$[ebp]
+	mov	eax, DWORD PTR _desired_q$[ebp]
+	add	eax, 1
 	push	eax
-	call	_DeallocateBlock
-	add	esp, 8
-
-; 90   :     DeallocateBlock(actual_q_buf, actual_q_buf_words);
-
-	mov	ecx, DWORD PTR _actual_q_buf_words$[ebp]
+	mov	ecx, DWORD PTR _actual_q_count$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _actual_q_buf$[ebp]
+	mov	edx, DWORD PTR _actual_q$[ebp]
+	push	edx
+	call	__EQUALS_MEMORY
+	add	esp, 16					; 00000010H
+	test	eax, eax
+	jne	SHORT $LN15@INTERNALTE
+	mov	DWORD PTR tv210[ebp], 1
+	jmp	SHORT $LN16@INTERNALTE
+$LN15@INTERNALTE:
+	mov	DWORD PTR tv210[ebp], 0
+$LN16@INTERNALTE:
+	push	OFFSET $SG95913
+	mov	eax, DWORD PTR tv210[ebp]
+	push	eax
+	push	4
+	mov	ecx, DWORD PTR _no$[ebp]
+	push	ecx
+	push	OFFSET $SG95914
+	call	_FormatTestLabel
+	add	esp, 12					; 0000000cH
+	push	eax
+	mov	edx, DWORD PTR _env$[ebp]
+	push	edx
+	call	_TEST_Assert
+	add	esp, 16					; 00000010H
+
+; 73   :     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r, actual_r_count, desired_r + 1, desired_r_count - 1) == 0, L"剰余のデータの内容が一致しない");
+
+	mov	eax, DWORD PTR _desired_r_count$[ebp]
+	sub	eax, 1
+	push	eax
+	mov	ecx, DWORD PTR _desired_r$[ebp]
+	add	ecx, 1
+	push	ecx
+	mov	edx, DWORD PTR _actual_r_count$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _actual_r$[ebp]
+	push	eax
+	call	__EQUALS_MEMORY
+	add	esp, 16					; 00000010H
+	test	eax, eax
+	jne	SHORT $LN17@INTERNALTE
+	mov	DWORD PTR tv227[ebp], 1
+	jmp	SHORT $LN18@INTERNALTE
+$LN17@INTERNALTE:
+	mov	DWORD PTR tv227[ebp], 0
+$LN18@INTERNALTE:
+	push	OFFSET $SG95915
+	mov	ecx, DWORD PTR tv227[ebp]
+	push	ecx
+	push	5
+	mov	edx, DWORD PTR _no$[ebp]
+	push	edx
+	push	OFFSET $SG95916
+	call	_FormatTestLabel
+	add	esp, 12					; 0000000cH
+	push	eax
+	mov	eax, DWORD PTR _env$[ebp]
+	push	eax
+	call	_TEST_Assert
+	add	esp, 16					; 00000010H
+
+; 74   : 
+; 75   :     DeallocateBlock(actual_r_buf, actual_r_buf_words);
+
+	mov	ecx, DWORD PTR _actual_r_buf_words$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _actual_r_buf$[ebp]
 	push	edx
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 91   :     DeallocateBlock(work_v_buf, work_v_buf_words);
+; 76   :     DeallocateBlock(actual_q_buf, actual_q_buf_words);
 
-	mov	eax, DWORD PTR _work_v_buf_words$[ebp]
+	mov	eax, DWORD PTR _actual_q_buf_words$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _work_v_buf$[ebp]
+	mov	ecx, DWORD PTR _actual_q_buf$[ebp]
 	push	ecx
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 92   :     DeallocateBlock(desired_r_buf, desired_r_buf_words);
+; 77   :     DeallocateBlock(work_v_buf, work_v_buf_words);
 
-	mov	edx, DWORD PTR _desired_r_buf_words$[ebp]
+	mov	edx, DWORD PTR _work_v_buf_words$[ebp]
 	push	edx
-	mov	eax, DWORD PTR _desired_r_buf$[ebp]
+	mov	eax, DWORD PTR _work_v_buf$[ebp]
 	push	eax
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 93   :     DeallocateBlock(desired_q_buf, desired_q_buf_words);
+; 78   :     DeallocateBlock(v_buf, v_buf_words);
 
-	mov	ecx, DWORD PTR _desired_q_buf_words$[ebp]
+	mov	ecx, DWORD PTR _v_buf_words$[ebp]
 	push	ecx
-	mov	edx, DWORD PTR _desired_q_buf$[ebp]
+	mov	edx, DWORD PTR _v_buf$[ebp]
 	push	edx
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 94   :     DeallocateBlock(v_buf, v_buf_words);
+; 79   :     DeallocateBlock(u_buf, u_buf_words);
 
-	mov	eax, DWORD PTR _v_buf_words$[ebp]
+	mov	eax, DWORD PTR _u_buf_words$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _v_buf$[ebp]
+	mov	ecx, DWORD PTR _u_buf$[ebp]
 	push	ecx
 	call	_DeallocateBlock
 	add	esp, 8
 
-; 95   :     DeallocateBlock(u_buf, u_buf_words);
-
-	mov	edx, DWORD PTR _u_buf_words$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _u_buf$[ebp]
-	push	eax
-	call	_DeallocateBlock
-	add	esp, 8
-
-; 96   : }
+; 80   : }
 
 	push	edx
 	mov	ecx, ebp
 	push	eax
-	lea	edx, DWORD PTR $LN36@INTERNALTE
+	lea	edx, DWORD PTR $LN30@INTERNALTE
 	call	@_RTC_CheckStackVars@8
 	pop	eax
 	pop	edx
 	pop	edi
-	add	esp, 236				; 000000ecH
+	add	esp, 180				; 000000b4H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	2
-$LN36@INTERNALTE:
-	DD	14					; 0000000eH
-	DD	$LN35@INTERNALTE
-$LN35@INTERNALTE:
+	npad	1
+$LN30@INTERNALTE:
+	DD	10					; 0000000aH
+	DD	$LN29@INTERNALTE
+$LN29@INTERNALTE:
 	DD	-8					; fffffff8H
 	DD	4
-	DD	$LN21@INTERNALTE
+	DD	$LN19@INTERNALTE
 	DD	-20					; ffffffecH
 	DD	4
-	DD	$LN22@INTERNALTE
+	DD	$LN20@INTERNALTE
 	DD	-36					; ffffffdcH
 	DD	4
-	DD	$LN23@INTERNALTE
+	DD	$LN21@INTERNALTE
 	DD	-48					; ffffffd0H
 	DD	4
-	DD	$LN24@INTERNALTE
+	DD	$LN22@INTERNALTE
 	DD	-64					; ffffffc0H
 	DD	4
-	DD	$LN25@INTERNALTE
+	DD	$LN23@INTERNALTE
 	DD	-76					; ffffffb4H
 	DD	4
-	DD	$LN26@INTERNALTE
+	DD	$LN24@INTERNALTE
 	DD	-92					; ffffffa4H
 	DD	4
-	DD	$LN27@INTERNALTE
+	DD	$LN25@INTERNALTE
 	DD	-104					; ffffff98H
 	DD	4
-	DD	$LN28@INTERNALTE
+	DD	$LN26@INTERNALTE
 	DD	-120					; ffffff88H
 	DD	4
-	DD	$LN29@INTERNALTE
+	DD	$LN27@INTERNALTE
 	DD	-132					; ffffff7cH
 	DD	4
-	DD	$LN30@INTERNALTE
-	DD	-148					; ffffff6cH
-	DD	4
-	DD	$LN31@INTERNALTE
-	DD	-160					; ffffff60H
-	DD	4
-	DD	$LN32@INTERNALTE
-	DD	-176					; ffffff50H
-	DD	4
-	DD	$LN33@INTERNALTE
-	DD	-188					; ffffff44H
-	DD	4
-	DD	$LN34@INTERNALTE
-$LN34@INTERNALTE:
-	DB	97					; 00000061H
-	DB	99					; 00000063H
-	DB	116					; 00000074H
-	DB	117					; 00000075H
-	DB	97					; 00000061H
-	DB	108					; 0000006cH
-	DB	95					; 0000005fH
-	DB	114					; 00000072H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	111					; 0000006fH
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	0
-$LN33@INTERNALTE:
-	DB	97					; 00000061H
-	DB	99					; 00000063H
-	DB	116					; 00000074H
-	DB	117					; 00000075H
-	DB	97					; 00000061H
-	DB	108					; 0000006cH
-	DB	95					; 0000005fH
-	DB	114					; 00000072H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	119					; 00000077H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	100					; 00000064H
-	DB	115					; 00000073H
-	DB	0
-$LN32@INTERNALTE:
-	DB	97					; 00000061H
-	DB	99					; 00000063H
-	DB	116					; 00000074H
-	DB	117					; 00000075H
-	DB	97					; 00000061H
-	DB	108					; 0000006cH
-	DB	95					; 0000005fH
-	DB	113					; 00000071H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	111					; 0000006fH
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	0
-$LN31@INTERNALTE:
-	DB	97					; 00000061H
-	DB	99					; 00000063H
-	DB	116					; 00000074H
-	DB	117					; 00000075H
-	DB	97					; 00000061H
-	DB	108					; 0000006cH
-	DB	95					; 0000005fH
-	DB	113					; 00000071H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	119					; 00000077H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	100					; 00000064H
-	DB	115					; 00000073H
-	DB	0
-$LN30@INTERNALTE:
-	DB	119					; 00000077H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	107					; 0000006bH
-	DB	95					; 0000005fH
-	DB	118					; 00000076H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	99					; 00000063H
-	DB	111					; 0000006fH
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	0
-$LN29@INTERNALTE:
-	DB	119					; 00000077H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	107					; 0000006bH
-	DB	95					; 0000005fH
-	DB	118					; 00000076H
-	DB	95					; 0000005fH
-	DB	98					; 00000062H
-	DB	117					; 00000075H
-	DB	102					; 00000066H
-	DB	95					; 0000005fH
-	DB	119					; 00000077H
-	DB	111					; 0000006fH
-	DB	114					; 00000072H
-	DB	100					; 00000064H
-	DB	115					; 00000073H
-	DB	0
+	DD	$LN28@INTERNALTE
 $LN28@INTERNALTE:
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	115					; 00000073H
-	DB	105					; 00000069H
-	DB	114					; 00000072H
-	DB	101					; 00000065H
-	DB	100					; 00000064H
+	DB	97					; 00000061H
+	DB	99					; 00000063H
+	DB	116					; 00000074H
+	DB	117					; 00000075H
+	DB	97					; 00000061H
+	DB	108					; 0000006cH
 	DB	95					; 0000005fH
 	DB	114					; 00000072H
 	DB	95					; 0000005fH
@@ -928,13 +712,12 @@ $LN28@INTERNALTE:
 	DB	101					; 00000065H
 	DB	0
 $LN27@INTERNALTE:
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	115					; 00000073H
-	DB	105					; 00000069H
-	DB	114					; 00000072H
-	DB	101					; 00000065H
-	DB	100					; 00000064H
+	DB	97					; 00000061H
+	DB	99					; 00000063H
+	DB	116					; 00000074H
+	DB	117					; 00000075H
+	DB	97					; 00000061H
+	DB	108					; 0000006cH
 	DB	95					; 0000005fH
 	DB	114					; 00000072H
 	DB	95					; 0000005fH
@@ -949,13 +732,12 @@ $LN27@INTERNALTE:
 	DB	115					; 00000073H
 	DB	0
 $LN26@INTERNALTE:
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	115					; 00000073H
-	DB	105					; 00000069H
-	DB	114					; 00000072H
-	DB	101					; 00000065H
-	DB	100					; 00000064H
+	DB	97					; 00000061H
+	DB	99					; 00000063H
+	DB	116					; 00000074H
+	DB	117					; 00000075H
+	DB	97					; 00000061H
+	DB	108					; 0000006cH
 	DB	95					; 0000005fH
 	DB	113					; 00000071H
 	DB	95					; 0000005fH
@@ -969,13 +751,12 @@ $LN26@INTERNALTE:
 	DB	101					; 00000065H
 	DB	0
 $LN25@INTERNALTE:
-	DB	100					; 00000064H
-	DB	101					; 00000065H
-	DB	115					; 00000073H
-	DB	105					; 00000069H
-	DB	114					; 00000072H
-	DB	101					; 00000065H
-	DB	100					; 00000064H
+	DB	97					; 00000061H
+	DB	99					; 00000063H
+	DB	116					; 00000074H
+	DB	117					; 00000075H
+	DB	97					; 00000061H
+	DB	108					; 0000006cH
 	DB	95					; 0000005fH
 	DB	113					; 00000071H
 	DB	95					; 0000005fH
@@ -990,6 +771,11 @@ $LN25@INTERNALTE:
 	DB	115					; 00000073H
 	DB	0
 $LN24@INTERNALTE:
+	DB	119					; 00000077H
+	DB	111					; 0000006fH
+	DB	114					; 00000072H
+	DB	107					; 0000006bH
+	DB	95					; 0000005fH
 	DB	118					; 00000076H
 	DB	95					; 0000005fH
 	DB	98					; 00000062H
@@ -1002,6 +788,11 @@ $LN24@INTERNALTE:
 	DB	101					; 00000065H
 	DB	0
 $LN23@INTERNALTE:
+	DB	119					; 00000077H
+	DB	111					; 0000006fH
+	DB	114					; 00000072H
+	DB	107					; 0000006bH
+	DB	95					; 0000005fH
 	DB	118					; 00000076H
 	DB	95					; 0000005fH
 	DB	98					; 00000062H
@@ -1015,7 +806,7 @@ $LN23@INTERNALTE:
 	DB	115					; 00000073H
 	DB	0
 $LN22@INTERNALTE:
-	DB	117					; 00000075H
+	DB	118					; 00000076H
 	DB	95					; 0000005fH
 	DB	98					; 00000062H
 	DB	117					; 00000075H
@@ -1027,6 +818,31 @@ $LN22@INTERNALTE:
 	DB	101					; 00000065H
 	DB	0
 $LN21@INTERNALTE:
+	DB	118					; 00000076H
+	DB	95					; 0000005fH
+	DB	98					; 00000062H
+	DB	117					; 00000075H
+	DB	102					; 00000066H
+	DB	95					; 0000005fH
+	DB	119					; 00000077H
+	DB	111					; 0000006fH
+	DB	114					; 00000072H
+	DB	100					; 00000064H
+	DB	115					; 00000073H
+	DB	0
+$LN20@INTERNALTE:
+	DB	117					; 00000075H
+	DB	95					; 0000005fH
+	DB	98					; 00000062H
+	DB	117					; 00000075H
+	DB	102					; 00000066H
+	DB	95					; 0000005fH
+	DB	99					; 00000063H
+	DB	111					; 0000006fH
+	DB	100					; 00000064H
+	DB	101					; 00000065H
+	DB	0
+$LN19@INTERNALTE:
 	DB	117					; 00000075H
 	DB	95					; 0000005fH
 	DB	98					; 00000062H

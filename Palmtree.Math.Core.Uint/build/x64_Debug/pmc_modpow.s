@@ -211,7 +211,7 @@ _LZCNT_ALT_UNIT:
 	.def	Compare_Easy;	.scl	3;	.type	32;	.endef
 	.seh_proc	Compare_Easy
 Compare_Easy:
-.LFB4375:
+.LFB4377:
 	.file 3 "../pmc_modpow.c"
 	.loc 3 81 1
 	.cfi_startproc
@@ -260,12 +260,12 @@ Compare_Easy:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.def	SwapPointer;	.scl	3;	.type	32;	.endef
 	.seh_proc	SwapPointer
 SwapPointer:
-.LFB4376:
+.LFB4378:
 	.loc 3 91 1
 	.cfi_startproc
 	pushq	%rbp
@@ -302,12 +302,12 @@ SwapPointer:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.def	Remainder;	.scl	3;	.type	32;	.endef
 	.seh_proc	Remainder
 Remainder:
-.LFB4377:
+.LFB4379:
 	.loc 3 98 1
 	.cfi_startproc
 	pushq	%rbp
@@ -537,12 +537,12 @@ Remainder:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 	.def	ModulePower;	.scl	3;	.type	32;	.endef
 	.seh_proc	ModulePower
 ModulePower:
-.LFB4378:
+.LFB4380:
 	.loc 3 155 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1564,12 +1564,12 @@ ModulePower:
 	.cfi_def_cfa 7, -312
 	ret
 	.cfi_endproc
-.LFE4378:
+.LFE4380:
 	.seh_endproc
 	.def	PMC_ModPow_X_X_X_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_ModPow_X_X_X_Imp
 PMC_ModPow_X_X_X_Imp:
-.LFB4379:
+.LFB4381:
 	.loc 3 500 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1733,13 +1733,13 @@ PMC_ModPow_X_X_X_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4379:
+.LFE4381:
 	.seh_endproc
 	.globl	PMC_ModPow_X_X_X
 	.def	PMC_ModPow_X_X_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_ModPow_X_X_X
 PMC_ModPow_X_X_X:
-.LFB4380:
+.LFB4382:
 	.loc 3 595 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1859,13 +1859,13 @@ PMC_ModPow_X_X_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4380:
+.LFE4382:
 	.seh_endproc
 	.globl	Initialize_ModPow
 	.def	Initialize_ModPow;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_ModPow
 Initialize_ModPow:
-.LFB4381:
+.LFB4383:
 	.loc 3 621 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1885,7 +1885,7 @@ Initialize_ModPow:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4381:
+.LFE4383:
 	.seh_endproc
 .Letext0:
 	.file 4 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -6053,8 +6053,8 @@ Initialize_ModPow:
 	.word	0x26c
 	.byte	0x11
 	.long	0x4a28
-	.quad	.LFB4381
-	.quad	.LFE4381-.LFB4381
+	.quad	.LFB4383
+	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e54
@@ -6077,8 +6077,8 @@ Initialize_ModPow:
 	.word	0x252
 	.byte	0x11
 	.long	0x4a28
-	.quad	.LFB4380
-	.quad	.LFE4380-.LFB4380
+	.quad	.LFB4382
+	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4ed3
@@ -6134,8 +6134,8 @@ Initialize_ModPow:
 	.word	0x1f3
 	.byte	0x18
 	.long	0x4a28
-	.quad	.LFB4379
-	.quad	.LFE4379-.LFB4379
+	.quad	.LFB4381
+	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f50
@@ -6197,8 +6197,8 @@ Initialize_ModPow:
 	.byte	0x9a
 	.byte	0x18
 	.long	0x4a28
-	.quad	.LFB4378
-	.quad	.LFE4378-.LFB4378
+	.quad	.LFB4380
+	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5284
@@ -6542,8 +6542,8 @@ Initialize_ModPow:
 	.byte	0x61
 	.byte	0x18
 	.long	0x4a28
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5362
@@ -6656,8 +6656,8 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x16
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53b0
@@ -6698,8 +6698,8 @@ Initialize_ModPow:
 	.byte	0x50
 	.byte	0xc
 	.long	0x13a
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5422

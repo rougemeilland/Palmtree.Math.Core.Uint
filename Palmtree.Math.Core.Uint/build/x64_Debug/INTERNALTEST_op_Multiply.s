@@ -110,7 +110,7 @@ _DIVIDE_CEILING_SIZE:
 	.def	_EQUALS_MEMORY;	.scl	3;	.type	32;	.endef
 	.seh_proc	_EQUALS_MEMORY
 _EQUALS_MEMORY:
-.LFB4373:
+.LFB4375:
 	.file 3 "../pmc_uint_debug.h"
 	.loc 3 147 1
 	.cfi_startproc
@@ -166,7 +166,7 @@ _EQUALS_MEMORY:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 8
@@ -187,7 +187,7 @@ _EQUALS_MEMORY:
 	.def	INTERNALTEST_Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
 	.seh_proc	INTERNALTEST_Multiply_X_X_Imp
 INTERNALTEST_Multiply_X_X_Imp:
-.LFB4374:
+.LFB4376:
 	.file 4 "../INTERNALTEST_op_Multiply.c"
 	.loc 4 34 1
 	.cfi_startproc
@@ -199,206 +199,193 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.seh_pushreg	%rbx
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
-	subq	$168, %rsp
-	.seh_stackalloc	168
-	.cfi_def_cfa_offset 192
+	subq	$152, %rsp
+	.seh_stackalloc	152
+	.cfi_def_cfa_offset 176
 	leaq	128(%rsp), %rbp
 	.seh_setframe	%rbp, 128
-	.cfi_def_cfa 6, 64
+	.cfi_def_cfa 6, 48
 	.seh_endprologue
-	movq	%rcx, 64(%rbp)
-	movq	%rdx, 72(%rbp)
-	movl	%r8d, 80(%rbp)
-	movq	%r9, 88(%rbp)
+	movq	%rcx, 48(%rbp)
+	movq	%rdx, 56(%rbp)
+	movl	%r8d, 64(%rbp)
+	movq	%r9, 72(%rbp)
+	.loc 4 37 48
+	movq	80(%rbp), %rax
+	salq	$3, %rax
 	.loc 4 37 26
-	movq	96(%rbp), %rax
-	leaq	0(,%rax,8), %rcx
-	leaq	-32(%rbp), %rdx
-	leaq	-24(%rbp), %rax
-	movq	%rdx, %r8
-	movq	%rax, %rdx
-	call	AllocateBlock
-	movq	%rax, 16(%rbp)
-	.loc 4 38 5
-	movq	96(%rbp), %rcx
-	movq	88(%rbp), %rdx
-	movq	16(%rbp), %rax
-	movq	%rcx, %r8
-	movq	%rax, %rcx
-	call	_COPY_MEMORY_BYTE
-	.loc 4 42 26
-	movq	112(%rbp), %rax
-	leaq	0(,%rax,8), %rcx
-	leaq	-48(%rbp), %rdx
-	leaq	-40(%rbp), %rax
-	movq	%rdx, %r8
-	movq	%rax, %rdx
-	call	AllocateBlock
-	movq	%rax, 8(%rbp)
-	.loc 4 43 5
-	movq	112(%rbp), %rcx
-	movq	104(%rbp), %rdx
-	movq	8(%rbp), %rax
-	movq	%rcx, %r8
-	movq	%rax, %rcx
-	call	_COPY_MEMORY_BYTE
-	.loc 4 47 34
-	movq	128(%rbp), %rax
-	leaq	0(,%rax,8), %rcx
-	leaq	-64(%rbp), %rdx
-	leaq	-56(%rbp), %rax
+	leaq	-8(%rax), %rcx
+	leaq	-40(%rbp), %rdx
+	leaq	-32(%rbp), %rax
 	movq	%rdx, %r8
 	movq	%rax, %rdx
 	call	AllocateBlock
 	movq	%rax, 0(%rbp)
-	.loc 4 48 5
-	movq	128(%rbp), %rcx
-	movq	120(%rbp), %rdx
+	.loc 4 38 5
+	movq	80(%rbp), %rax
+	leaq	-1(%rax), %rcx
+	.loc 4 38 32
+	movq	72(%rbp), %rax
+	leaq	1(%rax), %rdx
+	.loc 4 38 5
 	movq	0(%rbp), %rax
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	_COPY_MEMORY_BYTE
-	.loc 4 52 48
+	.loc 4 42 48
 	movq	96(%rbp), %rax
-	movl	$8, %edx
-	movq	%rax, %rcx
-	call	_DIVIDE_CEILING_SIZE
-	movq	%rax, %rbx
-	.loc 4 52 103
-	movq	112(%rbp), %rax
-	movl	$8, %edx
-	movq	%rax, %rcx
-	call	_DIVIDE_CEILING_SIZE
-	.loc 4 52 101
-	addq	%rbx, %rax
-	.loc 4 52 33
-	salq	$6, %rax
-	movq	%rax, %rcx
-	leaq	-80(%rbp), %rdx
-	leaq	-72(%rbp), %rax
+	salq	$3, %rax
+	.loc 4 42 26
+	leaq	-8(%rax), %rcx
+	leaq	-56(%rbp), %rdx
+	leaq	-48(%rbp), %rax
 	movq	%rdx, %r8
 	movq	%rax, %rdx
 	call	AllocateBlock
 	movq	%rax, -8(%rbp)
-	.loc 4 54 5
-	movq	-40(%rbp), %r9
-	movq	-24(%rbp), %rdx
-	movq	8(%rbp), %r8
-	movq	16(%rbp), %rax
-	movq	-8(%rbp), %rcx
+	.loc 4 43 5
+	movq	96(%rbp), %rax
+	leaq	-1(%rax), %rcx
+	.loc 4 43 32
+	movq	88(%rbp), %rax
+	leaq	1(%rax), %rdx
+	.loc 4 43 5
+	movq	-8(%rbp), %rax
+	movq	%rcx, %r8
+	movq	%rax, %rcx
+	call	_COPY_MEMORY_BYTE
+	.loc 4 47 48
+	movq	80(%rbp), %rax
+	movl	$8, %edx
+	movq	%rax, %rcx
+	call	_DIVIDE_CEILING_SIZE
+	movq	%rax, %rbx
+	.loc 4 47 103
+	movq	96(%rbp), %rax
+	movl	$8, %edx
+	movq	%rax, %rcx
+	call	_DIVIDE_CEILING_SIZE
+	.loc 4 47 101
+	addq	%rbx, %rax
+	.loc 4 47 33
+	salq	$6, %rax
+	movq	%rax, %rcx
+	leaq	-72(%rbp), %rdx
+	leaq	-64(%rbp), %rax
+	movq	%rdx, %r8
+	movq	%rax, %rdx
+	call	AllocateBlock
+	movq	%rax, -16(%rbp)
+	.loc 4 49 5
+	movq	-48(%rbp), %r9
+	movq	-32(%rbp), %rdx
+	movq	-8(%rbp), %r8
+	movq	0(%rbp), %rax
+	movq	-16(%rbp), %rcx
 	movq	%rcx, 32(%rsp)
 	movq	%rax, %rcx
 	call	Multiply_X_X_Imp
-	.loc 4 56 48
-	movq	-72(%rbp), %rax
-	.loc 4 56 12
+	.loc 4 51 48
+	movq	-64(%rbp), %rax
+	.loc 4 51 12
 	salq	$3, %rax
-	movq	%rax, 24(%rbp)
-	.loc 4 57 20
-	movq	-8(%rbp), %rax
-	movq	%rax, -16(%rbp)
-	.loc 4 58 11
+	movq	%rax, 8(%rbp)
+	.loc 4 52 20
+	movq	-16(%rbp), %rax
+	movq	%rax, -24(%rbp)
+	.loc 4 53 11
 	jmp	.L11
 .L13:
-	.loc 4 59 9
-	subq	$1, 24(%rbp)
+	.loc 4 54 9
+	subq	$1, 8(%rbp)
 .L11:
-	.loc 4 58 11
-	cmpq	$0, 24(%rbp)
+	.loc 4 53 11
+	cmpq	$0, 8(%rbp)
 	je	.L12
-	.loc 4 58 42 discriminator 1
-	movq	24(%rbp), %rax
+	.loc 4 53 42 discriminator 1
+	movq	8(%rbp), %rax
 	leaq	-1(%rax), %rdx
-	movq	-16(%rbp), %rax
+	movq	-24(%rbp), %rax
 	addq	%rdx, %rax
 	movzbl	(%rax), %eax
-	.loc 4 58 31 discriminator 1
+	.loc 4 53 31 discriminator 1
 	testb	%al, %al
 	je	.L13
 .L12:
-	.loc 4 60 8
-	cmpq	$0, 24(%rbp)
-	jne	.L14
-	.loc 4 61 24
-	movq	$1, 24(%rbp)
-.L14:
-	.loc 4 63 75
-	movq	-80(%rbp), %rdx
-	movq	-8(%rbp), %rax
+	.loc 4 56 75
+	movq	-72(%rbp), %rdx
+	movq	-16(%rbp), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
-	.loc 4 63 5
+	.loc 4 56 5
 	testl	%eax, %eax
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 4 63 22
-	movl	80(%rbp), %eax
+	.loc 4 56 22
+	movl	64(%rbp), %eax
 	movl	$1, %r8d
 	movl	%eax, %edx
 	leaq	.LC0(%rip), %rcx
 	call	FormatTestLabel
-	.loc 4 63 5
+	.loc 4 56 5
 	leaq	.LC1(%rip), %r9
 	movl	%ebx, %r8d
 	movq	%rax, %rdx
-	movq	64(%rbp), %rcx
+	movq	48(%rbp), %rcx
 	call	TEST_Assert
-	.loc 4 64 75
-	movq	128(%rbp), %r8
-	movq	120(%rbp), %rcx
-	movq	24(%rbp), %rdx
-	movq	-16(%rbp), %rax
+	.loc 4 57 75
+	movq	112(%rbp), %rax
+	leaq	-1(%rax), %r8
+	movq	104(%rbp), %rax
+	leaq	1(%rax), %rcx
+	movq	8(%rbp), %rdx
+	movq	-24(%rbp), %rax
 	movq	%r8, %r9
 	movq	%rcx, %r8
 	movq	%rax, %rcx
 	call	_EQUALS_MEMORY
-	.loc 4 64 5
+	.loc 4 57 5
 	testl	%eax, %eax
 	sete	%al
 	movzbl	%al, %ebx
-	.loc 4 64 22
-	movl	80(%rbp), %eax
+	.loc 4 57 22
+	movl	64(%rbp), %eax
 	movl	$2, %r8d
 	movl	%eax, %edx
 	leaq	.LC0(%rip), %rcx
 	call	FormatTestLabel
-	.loc 4 64 5
+	.loc 4 57 5
 	leaq	.LC2(%rip), %r9
 	movl	%ebx, %r8d
 	movq	%rax, %rdx
-	movq	64(%rbp), %rcx
+	movq	48(%rbp), %rcx
 	call	TEST_Assert
-	.loc 4 66 5
-	movq	-72(%rbp), %rdx
+	.loc 4 59 5
+	movq	-64(%rbp), %rdx
+	movq	-16(%rbp), %rax
+	movq	%rax, %rcx
+	call	DeallocateBlock
+	.loc 4 60 5
+	movq	-48(%rbp), %rdx
 	movq	-8(%rbp), %rax
 	movq	%rax, %rcx
 	call	DeallocateBlock
-	.loc 4 67 5
-	movq	-56(%rbp), %rdx
+	.loc 4 61 5
+	movq	-32(%rbp), %rdx
 	movq	0(%rbp), %rax
 	movq	%rax, %rcx
 	call	DeallocateBlock
-	.loc 4 68 5
-	movq	-40(%rbp), %rdx
-	movq	8(%rbp), %rax
-	movq	%rax, %rcx
-	call	DeallocateBlock
-	.loc 4 69 5
-	movq	-24(%rbp), %rdx
-	movq	16(%rbp), %rax
-	movq	%rax, %rcx
-	call	DeallocateBlock
-	.loc 4 70 1
+	.loc 4 62 1
 	nop
-	addq	$168, %rsp
+	addq	$152, %rsp
 	popq	%rbx
 	.cfi_restore 3
 	popq	%rbp
 	.cfi_restore 6
-	.cfi_def_cfa 7, -152
+	.cfi_def_cfa 7, -136
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 .Letext0:
 	.file 5 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -433,7 +420,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x5dec
+	.long	0x5d93
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5613,17 +5600,17 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x4
 	.byte	0x21
 	.byte	0x6
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5c51
+	.long	0x5bf8
 	.uleb128 0x20
 	.ascii "env\0"
 	.byte	0x4
 	.byte	0x21
 	.byte	0x3b
-	.long	0x5c51
+	.long	0x5bf8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -5632,7 +5619,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x4
 	.byte	0x21
 	.byte	0x57
-	.long	0x5c57
+	.long	0x5bfe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -5707,7 +5694,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -88
+	.sleb128 -80
 	.uleb128 0x21
 	.ascii "u_buf_code\0"
 	.byte	0x4
@@ -5716,7 +5703,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -96
+	.sleb128 -88
 	.uleb128 0x21
 	.ascii "u_buf\0"
 	.byte	0x4
@@ -5734,7 +5721,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -104
+	.sleb128 -96
 	.uleb128 0x21
 	.ascii "v_buf_code\0"
 	.byte	0x4
@@ -5743,7 +5730,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -112
+	.sleb128 -104
 	.uleb128 0x21
 	.ascii "v_buf\0"
 	.byte	0x4
@@ -5754,25 +5741,25 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x21
-	.ascii "desired_w_buf_words\0"
+	.ascii "actual_w_buf_words\0"
 	.byte	0x4
 	.byte	0x2d
 	.byte	0x11
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -120
+	.sleb128 -112
 	.uleb128 0x21
-	.ascii "desired_w_buf_code\0"
+	.ascii "actual_w_buf_code\0"
 	.byte	0x4
 	.byte	0x2e
 	.byte	0x11
 	.long	0x57cd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -128
+	.sleb128 -120
 	.uleb128 0x21
-	.ascii "desired_w_buf\0"
+	.ascii "actual_w_buf\0"
 	.byte	0x4
 	.byte	0x2f
 	.byte	0x12
@@ -5781,36 +5768,9 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x21
-	.ascii "actual_w_buf_words\0"
-	.byte	0x4
-	.byte	0x32
-	.byte	0x11
-	.long	0x57cd
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -136
-	.uleb128 0x21
-	.ascii "actual_w_buf_code\0"
-	.byte	0x4
-	.byte	0x33
-	.byte	0x11
-	.long	0x57cd
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -144
-	.uleb128 0x21
-	.ascii "actual_w_buf\0"
-	.byte	0x4
-	.byte	0x34
-	.byte	0x12
-	.long	0x591e
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -72
-	.uleb128 0x21
 	.ascii "actual_w_count\0"
 	.byte	0x4
-	.byte	0x38
+	.byte	0x33
 	.byte	0xc
 	.long	0xd9
 	.uleb128 0x2
@@ -5819,12 +5779,12 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.uleb128 0x21
 	.ascii "actual_w\0"
 	.byte	0x4
-	.byte	0x39
+	.byte	0x34
 	.byte	0x14
 	.long	0x766
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -80
+	.sleb128 -72
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
@@ -5838,11 +5798,11 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x92
 	.byte	0x15
 	.long	0x143
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5cd5
+	.long	0x5c7c
 	.uleb128 0x20
 	.ascii "buffer1\0"
 	.byte	0x3
@@ -5890,7 +5850,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.quad	.LFE4338-.LFB4338
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5d23
+	.long	0x5cca
 	.uleb128 0x20
 	.ascii "u\0"
 	.byte	0x1
@@ -5919,7 +5879,7 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.quad	.LFE4318-.LFB4318
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5dac
+	.long	0x5d53
 	.uleb128 0x20
 	.ascii "d\0"
 	.byte	0x1
@@ -5948,24 +5908,24 @@ INTERNALTEST_Multiply_X_X_Imp:
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x24
-	.long	0x5dac
+	.long	0x5d53
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
 	.byte	0x2b
 	.byte	0x9
 	.uleb128 0x25
-	.long	0x5ddf
+	.long	0x5d86
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x25
-	.long	0x5dcf
+	.long	0x5d76
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x25
-	.long	0x5dba
+	.long	0x5d61
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40

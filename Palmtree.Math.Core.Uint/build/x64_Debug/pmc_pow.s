@@ -181,7 +181,7 @@ _LZCNT_ALT_32:
 	.def	Pow_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	Pow_Imp
 Pow_Imp:
-.LFB4373:
+.LFB4375:
 	.file 3 "../pmc_pow.c"
 	.loc 3 32 1
 	.cfi_startproc
@@ -351,12 +351,12 @@ Pow_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.def	PMC_Pow_X_I_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_Pow_X_I_Imp
 PMC_Pow_X_I_Imp:
-.LFB4374:
+.LFB4376:
 	.loc 3 77 1
 	.cfi_startproc
 	pushq	%rbp
@@ -599,13 +599,13 @@ PMC_Pow_X_I_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.globl	PMC_Pow_X_I
 	.def	PMC_Pow_X_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Pow_X_I
 PMC_Pow_X_I:
-.LFB4375:
+.LFB4377:
 	.loc 3 176 1
 	.cfi_startproc
 	pushq	%rbp
@@ -684,13 +684,13 @@ PMC_Pow_X_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.globl	Initialize_Pow
 	.def	Initialize_Pow;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_Pow
 Initialize_Pow:
-.LFB4376:
+.LFB4378:
 	.loc 3 199 1
 	.cfi_startproc
 	pushq	%rbp
@@ -710,7 +710,7 @@ Initialize_Pow:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 .Letext0:
 	.file 5 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -4878,8 +4878,8 @@ Initialize_Pow:
 	.byte	0xc6
 	.byte	0x11
 	.long	0x4a25
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e4c
@@ -4902,8 +4902,8 @@ Initialize_Pow:
 	.byte	0xaf
 	.byte	0x11
 	.long	0x4a25
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4eb6
@@ -4950,8 +4950,8 @@ Initialize_Pow:
 	.byte	0x4c
 	.byte	0x18
 	.long	0x4a25
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5005
@@ -5088,8 +5088,8 @@ Initialize_Pow:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0xd
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5156

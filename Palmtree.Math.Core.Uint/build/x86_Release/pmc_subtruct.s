@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_Subtruct_X_1W.isra.0;	.scl	3;	.type	32;	.endef
 _Subtruct_X_1W.isra.0:
-LFB5540:
+LFB5542:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -82,12 +82,12 @@ L9:
 	movl	$-258, %eax
 	jmp	L1
 	.cfi_endproc
-LFE5540:
+LFE5542:
 	.p2align 4,,15
 	.globl	_Subtruct_Imp
 	.def	_Subtruct_Imp;	.scl	2;	.type	32;	.endef
 _Subtruct_Imp:
-LFB5533:
+LFB5535:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -467,12 +467,12 @@ L41:
 	movl	$-258, %eax
 	jmp	L25
 	.cfi_endproc
-LFE5533:
+LFE5535:
 	.p2align 4,,15
 	.globl	_PMC_Subtruct_I_X@12
 	.def	_PMC_Subtruct_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Subtruct_I_X@12:
-LFB5534:
+LFB5536:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -557,12 +557,12 @@ L82:
 	movl	$-1, %eax
 	jmp	L77
 	.cfi_endproc
-LFE5534:
+LFE5536:
 	.p2align 4,,15
 	.globl	_PMC_Subtruct_X_I@12
 	.def	_PMC_Subtruct_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Subtruct_X_I@12:
-LFB5535:
+LFB5537:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -722,12 +722,12 @@ L96:
 	movl	$-1, %esi
 	jmp	L86
 	.cfi_endproc
-LFE5535:
+LFE5537:
 	.p2align 4,,15
 	.globl	_PMC_Subtruct_L_X@16
 	.def	_PMC_Subtruct_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_Subtruct_L_X@16:
-LFB5536:
+LFB5538:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -874,12 +874,12 @@ L124:
 	movl	$-2, %eax
 	jmp	L110
 	.cfi_endproc
-LFE5536:
+LFE5538:
 	.p2align 4,,15
 	.globl	_PMC_Subtruct_X_L@16
 	.def	_PMC_Subtruct_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_Subtruct_X_L@16:
-LFB5537:
+LFB5539:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1141,12 +1141,12 @@ L141:
 	call	_DeallocateNumber
 	jmp	L181
 	.cfi_endproc
-LFE5537:
+LFE5539:
 	.p2align 4,,15
 	.globl	_PMC_Subtruct_X_X@12
 	.def	_PMC_Subtruct_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Subtruct_X_X@12:
-LFB5538:
+LFB5540:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1306,17 +1306,17 @@ L195:
 	movl	$-1, %ebx
 	jmp	L187
 	.cfi_endproc
-LFE5538:
+LFE5540:
 	.p2align 4,,15
 	.globl	_Initialize_Subtruct
 	.def	_Initialize_Subtruct;	.scl	2;	.type	32;	.endef
 _Initialize_Subtruct:
-LFB5539:
+LFB5541:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5539:
+LFE5541:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef

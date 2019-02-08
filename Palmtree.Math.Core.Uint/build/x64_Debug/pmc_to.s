@@ -39,7 +39,7 @@ _FROMWORDTODWORD:
 	.def	PMC_To_X_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_To_X_I
 PMC_To_X_I:
-.LFB4373:
+.LFB4375:
 	.file 2 "../pmc_to.c"
 	.loc 2 32 1
 	.cfi_startproc
@@ -113,13 +113,13 @@ PMC_To_X_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.globl	PMC_To_X_L
 	.def	PMC_To_X_L;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_To_X_L
 PMC_To_X_L:
-.LFB4374:
+.LFB4376:
 	.loc 2 52 1
 	.cfi_startproc
 	pushq	%rbp
@@ -231,13 +231,13 @@ PMC_To_X_L:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.globl	Initialize_To
 	.def	Initialize_To;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_To
 Initialize_To:
-.LFB4375:
+.LFB4377:
 	.loc 2 86 1
 	.cfi_startproc
 	pushq	%rbp
@@ -257,7 +257,7 @@ Initialize_To:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -4421,8 +4421,8 @@ Initialize_To:
 	.byte	0x55
 	.byte	0x11
 	.long	0x4a19
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e40
@@ -4445,8 +4445,8 @@ Initialize_To:
 	.byte	0x33
 	.byte	0x11
 	.long	0x4a19
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4eaa
@@ -4496,8 +4496,8 @@ Initialize_To:
 	.byte	0x1f
 	.byte	0x11
 	.long	0x4a19
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f14

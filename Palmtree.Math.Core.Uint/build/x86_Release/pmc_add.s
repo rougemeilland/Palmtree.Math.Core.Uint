@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_DoCarry;	.scl	3;	.type	32;	.endef
 _DoCarry:
-LFB5530:
+LFB5532:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -100,11 +100,11 @@ L11:
 	movl	$-256, %eax
 	jmp	L1
 	.cfi_endproc
-LFE5530:
+LFE5532:
 	.p2align 4,,15
 	.def	_Add_Imp_using_ADC;	.scl	3;	.type	32;	.endef
 _Add_Imp_using_ADC:
-LFB5533:
+LFB5535:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -488,11 +488,11 @@ L37:
 	xorl	%eax, %eax
 	jmp	L30
 	.cfi_endproc
-LFE5533:
+LFE5535:
 	.p2align 4,,15
 	.def	_Add_Imp_using_ADCX;	.scl	3;	.type	32;	.endef
 _Add_Imp_using_ADCX:
-LFB5534:
+LFB5536:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -876,11 +876,11 @@ L66:
 	xorl	%eax, %eax
 	jmp	L59
 	.cfi_endproc
-LFE5534:
+LFE5536:
 	.p2align 4,,15
 	.def	_PMC_Add_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Add_X_I_Imp:
-LFB5535:
+LFB5537:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1029,11 +1029,11 @@ L94:
 	movl	28(%esp), %eax
 	jmp	L86
 	.cfi_endproc
-LFE5535:
+LFE5537:
 	.p2align 4,,15
 	.def	_PMC_Add_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Add_X_L_Imp:
-LFB5538:
+LFB5540:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1260,12 +1260,12 @@ L120:
 	movl	20(%esp), %eax
 	jmp	L95
 	.cfi_endproc
-LFE5538:
+LFE5540:
 	.p2align 4,,15
 	.globl	_PMC_Add_I_X@12
 	.def	_PMC_Add_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Add_I_X@12:
-LFB5536:
+LFB5538:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1306,12 +1306,12 @@ L123:
 	movl	$-1, %eax
 	jmp	L121
 	.cfi_endproc
-LFE5536:
+LFE5538:
 	.p2align 4,,15
 	.globl	_PMC_Add_X_I@12
 	.def	_PMC_Add_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Add_X_I@12:
-LFB5537:
+LFB5539:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1352,12 +1352,12 @@ L127:
 	movl	$-1, %eax
 	jmp	L125
 	.cfi_endproc
-LFE5537:
+LFE5539:
 	.p2align 4,,15
 	.globl	_PMC_Add_L_X@16
 	.def	_PMC_Add_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_Add_L_X@16:
-LFB5539:
+LFB5541:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1403,12 +1403,12 @@ L131:
 	movl	$-1, %eax
 	jmp	L129
 	.cfi_endproc
-LFE5539:
+LFE5541:
 	.p2align 4,,15
 	.globl	_PMC_Add_X_L@16
 	.def	_PMC_Add_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_Add_X_L@16:
-LFB5540:
+LFB5542:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1454,12 +1454,12 @@ L135:
 	movl	$-1, %eax
 	jmp	L133
 	.cfi_endproc
-LFE5540:
+LFE5542:
 	.p2align 4,,15
 	.globl	_PMC_Add_X_X@12
 	.def	_PMC_Add_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Add_X_X@12:
-LFB5541:
+LFB5543:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1622,12 +1622,12 @@ L145:
 	movl	$-1, %ebx
 	jmp	L137
 	.cfi_endproc
-LFE5541:
+LFE5543:
 	.p2align 4,,15
 	.globl	_Initialize_Add
 	.def	_Initialize_Add;	.scl	2;	.type	32;	.endef
 _Initialize_Add:
-LFB5542:
+LFB5544:
 	.cfi_startproc
 	movl	4(%esp), %eax
 	movl	$_Add_Imp_using_ADC, %edx
@@ -1638,7 +1638,7 @@ LFB5542:
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5542:
+LFE5544:
 .lcomm _fp_Add_Imp,4,4
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef

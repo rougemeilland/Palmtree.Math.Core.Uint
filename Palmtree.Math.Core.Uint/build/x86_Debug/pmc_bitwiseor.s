@@ -164,7 +164,7 @@ L8:
 LFE4234:
 	.def	_BitwiseOr_X_1W;	.scl	3;	.type	32;	.endef
 _BitwiseOr_X_1W:
-LFB4242:
+LFB4244:
 	.file 3 "../pmc_bitwiseor.c"
 	.loc 3 33 1
 	.cfi_startproc
@@ -219,10 +219,10 @@ L12:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	_BitwiseOr_X_2W;	.scl	3;	.type	32;	.endef
 _BitwiseOr_X_2W:
-LFB4243:
+LFB4245:
 	.loc 3 45 1
 	.cfi_startproc
 	pushl	%ebp
@@ -319,10 +319,10 @@ L17:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.def	_BitwiseOr_X_X;	.scl	3;	.type	32;	.endef
 _BitwiseOr_X_X:
-LFB4244:
+LFB4246:
 	.loc 3 66 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1358,10 +1358,10 @@ L25:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.def	_PMC_BitwiseOr_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_BitwiseOr_X_I_Imp:
-LFB4245:
+LFB4247:
 	.loc 3 181 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1504,11 +1504,11 @@ L30:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.globl	_PMC_BitwiseOr_I_X@12
 	.def	_PMC_BitwiseOr_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_BitwiseOr_I_X@12:
-LFB4246:
+LFB4248:
 	.loc 3 222 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1581,11 +1581,11 @@ L37:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.globl	_PMC_BitwiseOr_X_I@12
 	.def	_PMC_BitwiseOr_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_BitwiseOr_X_I@12:
-LFB4247:
+LFB4249:
 	.loc 3 245 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1658,10 +1658,10 @@ L44:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.def	_PMC_BitwiseOr_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_BitwiseOr_X_L_Imp:
-LFB4248:
+LFB4250:
 	.loc 3 268 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1920,11 +1920,11 @@ L53:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.globl	_PMC_BitwiseOr_L_X@16
 	.def	_PMC_BitwiseOr_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_BitwiseOr_L_X@16:
-LFB4249:
+LFB4251:
 	.loc 3 346 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2003,11 +2003,11 @@ L66:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.globl	_PMC_BitwiseOr_X_L@16
 	.def	_PMC_BitwiseOr_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_BitwiseOr_X_L@16:
-LFB4250:
+LFB4252:
 	.loc 3 369 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2086,11 +2086,11 @@ L73:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4250:
+LFE4252:
 	.globl	_PMC_BitwiseOr_X_X@12
 	.def	_PMC_BitwiseOr_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_BitwiseOr_X_X@12:
-LFB4251:
+LFB4253:
 	.loc 3 392 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2321,11 +2321,11 @@ L93:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4251:
+LFE4253:
 	.globl	_Initialize_BitwiseOr
 	.def	_Initialize_BitwiseOr;	.scl	2;	.type	32;	.endef
 _Initialize_BitwiseOr:
-LFB4252:
+LFB4254:
 	.loc 3 445 1
 	.cfi_startproc
 	.loc 3 446 12
@@ -2333,7 +2333,7 @@ LFB4252:
 	.loc 3 447 1
 	ret
 	.cfi_endproc
-LFE4252:
+LFE4254:
 Letext0:
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -6507,8 +6507,8 @@ Ldebug_info0:
 	.word	0x1bc
 	.byte	0x11
 	.long	0x4a23
-	.long	LFB4252
-	.long	LFE4252-LFB4252
+	.long	LFB4254
+	.long	LFE4254-LFB4254
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e50
@@ -6532,8 +6532,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_BitwiseOr_X_X@12\0"
 	.long	0x4a23
-	.long	LFB4251
-	.long	LFE4251-LFB4251
+	.long	LFB4253
+	.long	LFE4253-LFB4253
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f5e
@@ -6664,8 +6664,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_BitwiseOr_X_L@16\0"
 	.long	0x4a23
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4fdd
@@ -6713,8 +6713,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_BitwiseOr_L_X@16\0"
 	.long	0x4a23
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5056
@@ -6761,8 +6761,8 @@ Ldebug_info0:
 	.word	0x10b
 	.byte	0x18
 	.long	0x4a23
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51ad
@@ -6934,8 +6934,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_BitwiseOr_X_I@12\0"
 	.long	0x4a23
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5227
@@ -6983,8 +6983,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_BitwiseOr_I_X@12\0"
 	.long	0x4a23
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x529b
@@ -7031,8 +7031,8 @@ Ldebug_info0:
 	.byte	0xb4
 	.byte	0x18
 	.long	0x4a23
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x534e
@@ -7118,8 +7118,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x41
 	.byte	0xd
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53f1
@@ -7201,8 +7201,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x2c
 	.byte	0xd
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x545c
@@ -7257,8 +7257,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x20
 	.byte	0xd
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x54b4

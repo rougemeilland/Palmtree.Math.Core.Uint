@@ -102920,6 +102920,46 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
         return (x);
     }
+
+
+    __inline static _UINT32_T GET_ABS_32(_INT32_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT32_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT32_T)u == 0x80000000U ? 0x80000000U : (_UINT32_T)-u);
+        }
+}
+
+
+    __inline static _UINT64_T GET_ABS_64(_INT64_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT64_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT64_T)u == 0x8000000000000000UL ? 0x8000000000000000UL : (_UINT64_T)-u);
+        }
+    }
 # 29 "../pmc_pow.c" 2
 
 

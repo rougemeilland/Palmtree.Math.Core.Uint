@@ -89799,6 +89799,46 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 
         return (x);
     }
+
+
+    __inline static _UINT32_T GET_ABS_32(_INT32_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT32_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT32_T)u == 0x80000000U ? 0x80000000U : (_UINT32_T)-u);
+        }
+}
+
+
+    __inline static _UINT64_T GET_ABS_64(_INT64_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT64_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT64_T)u == 0x8000000000000000UL ? 0x8000000000000000UL : (_UINT64_T)-u);
+        }
+    }
 # 29 "../INTERNALTEST_op_Multiply.c" 2
 # 1 "../pmc_uint_debug.h" 1
 # 34 "../pmc_uint_debug.h"
@@ -90214,18 +90254,13 @@ void INTERNALTEST_Multiply_X_X_Imp(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_PO
 {
     __UNIT_TYPE u_buf_words;
     __UNIT_TYPE u_buf_code;
-    __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8, &u_buf_words, &u_buf_code);
-    _COPY_MEMORY_BYTE(u_buf, u, u_count);
+    __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8 - 8, &u_buf_words, &u_buf_code);
+    _COPY_MEMORY_BYTE(u_buf, u + 1, u_count - 1);
 
     __UNIT_TYPE v_buf_words;
     __UNIT_TYPE v_buf_code;
-    __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8, &v_buf_words, &v_buf_code);
-    _COPY_MEMORY_BYTE(v_buf, v, v_count);
-
-    __UNIT_TYPE desired_w_buf_words;
-    __UNIT_TYPE desired_w_buf_code;
-    __UNIT_TYPE* desired_w_buf = AllocateBlock(desired_w_count * 8, &desired_w_buf_words, &desired_w_buf_code);
-    _COPY_MEMORY_BYTE(desired_w_buf, desired_w, desired_w_count);
+    __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8 - 8, &v_buf_words, &v_buf_code);
+    _COPY_MEMORY_BYTE(v_buf, v + 1, v_count - 1);
 
     __UNIT_TYPE actual_w_buf_words;
     __UNIT_TYPE actual_w_buf_code;
@@ -90237,14 +90272,11 @@ void INTERNALTEST_Multiply_X_X_Imp(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_PO
     unsigned char* actual_w = (unsigned char*)actual_w_buf;
     while (actual_w_count > 0 && actual_w[actual_w_count - 1] == 0)
         --actual_w_count;
-    if (actual_w_count == 0)
-        actual_w_count = 1;
 
     TEST_Assert(env, FormatTestLabel(L"Multiply_X_X_Imp (%d.%d)", no, 1), CheckBlockLight(actual_w_buf, actual_w_buf_code) == (0), L"actual_w_bufの内容が破損している");
-    TEST_Assert(env, FormatTestLabel(L"Multiply_X_X_Imp (%d.%d)", no, 2), _EQUALS_MEMORY(actual_w, actual_w_count, desired_w, desired_w_count) == 0, L"データの内容が一致しない");
+    TEST_Assert(env, FormatTestLabel(L"Multiply_X_X_Imp (%d.%d)", no, 2), _EQUALS_MEMORY(actual_w, actual_w_count, desired_w + 1, desired_w_count - 1) == 0, L"データの内容が一致しない");
 
     DeallocateBlock(actual_w_buf, actual_w_buf_words);
-    DeallocateBlock(desired_w_buf, desired_w_buf_words);
     DeallocateBlock(v_buf, v_buf_words);
     DeallocateBlock(u_buf, u_buf_words);
 }

@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_SubtructOneLine;	.scl	3;	.type	32;	.endef
 _SubtructOneLine:
-LFB5540:
+LFB5542:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1439,11 +1439,11 @@ L14:
 	xorl	%edi, %edi
 	jmp	L2
 	.cfi_endproc
-LFE5540:
+LFE5542:
 	.p2align 4,,15
 	.def	_SubtructOneLineX;	.scl	3;	.type	32;	.endef
 _SubtructOneLineX:
-LFB5541:
+LFB5543:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2867,11 +2867,11 @@ L63:
 	xorl	%esi, %esi
 	jmp	L51
 	.cfi_endproc
-LFE5541:
+LFE5543:
 	.p2align 4,,15
 	.def	_DivRem_X_X_using_ADX_MULX;	.scl	3;	.type	32;	.endef
 _DivRem_X_X_using_ADX_MULX:
-LFB5546:
+LFB5548:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -3488,11 +3488,11 @@ L124:
 	movl	%ecx, 88(%esp)
 	jmp	L99
 	.cfi_endproc
-LFE5546:
+LFE5548:
 	.p2align 4,,15
 	.def	_DivRem_X_X_using_ADC_MUL;	.scl	3;	.type	32;	.endef
 _DivRem_X_X_using_ADC_MUL:
-LFB5545:
+LFB5547:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4106,12 +4106,12 @@ L187:
 	movl	%ecx, 88(%esp)
 	jmp	L162
 	.cfi_endproc
-LFE5545:
+LFE5547:
 	.p2align 4,,15
 	.globl	_DivRem_X_1W
 	.def	_DivRem_X_1W;	.scl	2;	.type	32;	.endef
 _DivRem_X_1W:
-LFB5531:
+LFB5533:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4689,12 +4689,12 @@ L232:
 	xorl	%edx, %edx
 	jmp	L225
 	.cfi_endproc
-LFE5531:
+LFE5533:
 	.p2align 4,,15
 	.globl	_DivRem_X_X
 	.def	_DivRem_X_X;	.scl	2;	.type	32;	.endef
 _DivRem_X_X:
-LFB5530:
+LFB5532:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -4810,12 +4810,12 @@ L263:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5530:
+LFE5532:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_I_X@16
 	.def	_PMC_DivRem_I_X@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_I_X@16:
-LFB5547:
+LFB5549:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4950,12 +4950,12 @@ L270:
 	movl	$-3, %ecx
 	jmp	L264
 	.cfi_endproc
-LFE5547:
+LFE5549:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_X_I@16
 	.def	_PMC_DivRem_X_I@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_X_I@16:
-LFB5548:
+LFB5550:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5106,12 +5106,12 @@ L282:
 	movl	$-3, %esi
 	jmp	L273
 	.cfi_endproc
-LFE5548:
+LFE5550:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_L_X@20
 	.def	_PMC_DivRem_L_X@20;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_L_X@20:
-LFB5549:
+LFB5551:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5338,12 +5338,12 @@ L301:
 	movl	$-3, %esi
 	jmp	L291
 	.cfi_endproc
-LFE5549:
+LFE5551:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_X_L@20
 	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_X_L@20:
-LFB5550:
+LFB5552:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5614,12 +5614,12 @@ L324:
 	movl	$-3, %esi
 	jmp	L308
 	.cfi_endproc
-LFE5550:
+LFE5552:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_X_X@16
 	.def	_PMC_DivRem_X_X@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_X_X@16:
-LFB5551:
+LFB5553:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5923,12 +5923,12 @@ L386:
 	movl	%eax, %edi
 	jmp	L340
 	.cfi_endproc
-LFE5551:
+LFE5553:
 	.p2align 4,,15
 	.globl	_Initialize_DivRem
 	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
 _Initialize_DivRem:
-LFB5552:
+LFB5554:
 	.cfi_startproc
 	movl	4(%esp), %eax
 	movl	$_DivRem_X_X_using_ADC_MUL, %edx
@@ -5941,7 +5941,7 @@ LFB5552:
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5552:
+LFE5554:
 .lcomm _fp_DivRem_X_X,4,4
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_RightShift_Imp_DIV;	.scl	2;	.type	32;	.endef

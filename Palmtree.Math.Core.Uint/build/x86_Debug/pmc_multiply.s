@@ -316,7 +316,7 @@ LFE4234:
 	.globl	_Multiply_X_X_Imp
 	.def	_Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
 _Multiply_X_X_Imp:
-LFB4242:
+LFB4244:
 	.file 5 "../pmc_multiply.c"
 	.loc 5 36 1
 	.cfi_startproc
@@ -347,10 +347,10 @@ LVL0:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	__MULTIPLY_DIGIT_UNIT;	.scl	3;	.type	32;	.endef
 __MULTIPLY_DIGIT_UNIT:
-LFB4243:
+LFB4245:
 	.loc 5 41 1
 	.cfi_startproc
 	pushl	%ebp
@@ -429,10 +429,10 @@ LFB4243:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.def	__MULTIPLYX_DIGIT_UNIT;	.scl	3;	.type	32;	.endef
 __MULTIPLYX_DIGIT_UNIT:
-LFB4244:
+LFB4246:
 	.loc 5 53 1
 	.cfi_startproc
 	pushl	%ebp
@@ -511,10 +511,10 @@ LFB4244:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.def	_Multiply_WORD_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_WORD_using_MUL_ADC:
-LFB4245:
+LFB4247:
 	.loc 5 65 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1437,10 +1437,10 @@ L33:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.def	_Multiply_WORD_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_WORD_using_MULX_ADCX:
-LFB4246:
+LFB4248:
 	.loc 5 212 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2363,10 +2363,10 @@ L43:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.def	_Multiply_X_1W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_1W_using_MUL_ADC:
-LFB4247:
+LFB4249:
 	.loc 5 360 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2392,10 +2392,10 @@ LFB4247:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.def	_Multiply_X_1W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_1W_using_MULX_ADCX:
-LFB4248:
+LFB4250:
 	.loc 5 365 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2421,10 +2421,10 @@ LFB4248:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.def	_Multiply_X_2W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_2W_using_MUL_ADC:
-LFB4249:
+LFB4251:
 	.loc 5 370 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2461,10 +2461,10 @@ LFB4249:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.def	_Multiply_X_2W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_2W_using_MULX_ADCX:
-LFB4250:
+LFB4252:
 	.loc 5 376 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2501,10 +2501,10 @@ LFB4250:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4250:
+LFE4252:
 	.def	_Multiply_X_X_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_X_using_MUL_ADC:
-LFB4251:
+LFB4253:
 	.loc 5 382 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2575,10 +2575,10 @@ L51:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4251:
+LFE4253:
 	.def	_Multiply_X_X_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_X_using_MULX_ADCX:
-LFB4252:
+LFB4254:
 	.loc 5 407 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2649,10 +2649,10 @@ L54:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4252:
+LFE4254:
 	.def	_PMC_Multiply_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Multiply_X_I_Imp:
-LFB4253:
+LFB4255:
 	.loc 5 432 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2819,11 +2819,11 @@ L60:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4253:
+LFE4255:
 	.globl	_PMC_Multiply_I_X@12
 	.def	_PMC_Multiply_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_I_X@12:
-LFB4254:
+LFB4256:
 	.loc 5 500 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2896,11 +2896,11 @@ L68:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4254:
+LFE4256:
 	.globl	_PMC_Multiply_X_I@12
 	.def	_PMC_Multiply_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_I@12:
-LFB4255:
+LFB4257:
 	.loc 5 523 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2973,10 +2973,10 @@ L75:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4255:
+LFE4257:
 	.def	_PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Multiply_X_L_Imp:
-LFB4256:
+LFB4258:
 	.loc 5 546 1
 	.cfi_startproc
 	pushl	%ebp
@@ -3265,11 +3265,11 @@ L85:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4256:
+LFE4258:
 	.globl	_PMC_Multiply_L_X@16
 	.def	_PMC_Multiply_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_L_X@16:
-LFB4257:
+LFB4259:
 	.loc 5 652 1
 	.cfi_startproc
 	pushl	%ebp
@@ -3348,11 +3348,11 @@ L99:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4257:
+LFE4259:
 	.globl	_PMC_Multiply_X_L@16
 	.def	_PMC_Multiply_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_L@16:
-LFB4258:
+LFB4260:
 	.loc 5 675 1
 	.cfi_startproc
 	pushl	%ebp
@@ -3431,11 +3431,11 @@ L106:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4258:
+LFE4260:
 	.globl	_PMC_Multiply_X_X@12
 	.def	_PMC_Multiply_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_X@12:
-LFB4259:
+LFB4261:
 	.loc 5 698 1
 	.cfi_startproc
 	pushl	%ebp
@@ -3692,11 +3692,11 @@ L131:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4259:
+LFE4261:
 	.globl	_Initialize_Multiply
 	.def	_Initialize_Multiply;	.scl	2;	.type	32;	.endef
 _Initialize_Multiply:
-LFB4260:
+LFB4262:
 	.loc 5 785 1
 	.cfi_startproc
 	pushl	%ebp
@@ -3740,7 +3740,7 @@ L134:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4260:
+LFE4262:
 Letext0:
 	.file 6 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 7 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -8173,8 +8173,8 @@ Ldebug_info0:
 	.word	0x310
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4260
-	.long	LFE4260-LFB4260
+	.long	LFB4262
+	.long	LFE4262-LFB4262
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51ee
@@ -8198,8 +8198,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Multiply_X_X@12\0"
 	.long	0x4d01
-	.long	LFB4259
-	.long	LFE4259-LFB4259
+	.long	LFB4261
+	.long	LFE4261-LFB4261
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x52e2
@@ -8317,8 +8317,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Multiply_X_L@16\0"
 	.long	0x4d01
-	.long	LFB4258
-	.long	LFE4258-LFB4258
+	.long	LFB4260
+	.long	LFE4260-LFB4260
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x535f
@@ -8366,8 +8366,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Multiply_L_X@16\0"
 	.long	0x4d01
-	.long	LFB4257
-	.long	LFE4257-LFB4257
+	.long	LFB4259
+	.long	LFE4259-LFB4259
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53d6
@@ -8414,8 +8414,8 @@ Ldebug_info0:
 	.word	0x221
 	.byte	0x18
 	.long	0x4d01
-	.long	LFB4256
-	.long	LFE4256-LFB4256
+	.long	LFB4258
+	.long	LFE4258-LFB4258
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x552c
@@ -8587,8 +8587,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Multiply_X_I@12\0"
 	.long	0x4d01
-	.long	LFB4255
-	.long	LFE4255-LFB4255
+	.long	LFB4257
+	.long	LFE4257-LFB4257
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x55a9
@@ -8636,8 +8636,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Multiply_I_X@12\0"
 	.long	0x4d01
-	.long	LFB4254
-	.long	LFE4254-LFB4254
+	.long	LFB4256
+	.long	LFE4256-LFB4256
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5620
@@ -8684,8 +8684,8 @@ Ldebug_info0:
 	.word	0x1af
 	.byte	0x18
 	.long	0x4d01
-	.long	LFB4253
-	.long	LFE4253-LFB4253
+	.long	LFB4255
+	.long	LFE4255-LFB4255
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56d1
@@ -8771,8 +8771,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x196
 	.byte	0x16
-	.long	LFB4252
-	.long	LFE4252-LFB4252
+	.long	LFB4254
+	.long	LFE4254-LFB4254
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x57b1
@@ -8876,8 +8876,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x17d
 	.byte	0x16
-	.long	LFB4251
-	.long	LFE4251-LFB4251
+	.long	LFB4253
+	.long	LFE4253-LFB4253
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x588f
@@ -8981,8 +8981,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x177
 	.byte	0x16
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5913
@@ -9037,8 +9037,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x171
 	.byte	0x16
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5995
@@ -9093,8 +9093,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x16c
 	.byte	0x16
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a05
@@ -9140,8 +9140,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x167
 	.byte	0x16
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a73
@@ -9188,8 +9188,8 @@ Ldebug_info0:
 	.byte	0xd3
 	.byte	0x21
 	.long	0x4d01
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5afe
@@ -9254,8 +9254,8 @@ Ldebug_info0:
 	.byte	0x40
 	.byte	0x21
 	.long	0x4d01
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b87
@@ -9320,8 +9320,8 @@ Ldebug_info0:
 	.byte	0x34
 	.byte	0x1d
 	.long	0x4ef6
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5c0a
@@ -9386,8 +9386,8 @@ Ldebug_info0:
 	.byte	0x28
 	.byte	0x1d
 	.long	0x4ef6
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5c8c
@@ -9451,8 +9451,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0x23
 	.byte	0x6
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5cf5

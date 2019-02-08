@@ -97,7 +97,7 @@ _LZCNT_ALT_UNIT:
 	.def	From_I_Imp;	.scl	2;	.type	32;	.endef
 	.seh_proc	From_I_Imp
 From_I_Imp:
-.LFB4373:
+.LFB4375:
 	.file 2 "../pmc_from.c"
 	.loc 2 32 1
 	.cfi_startproc
@@ -155,13 +155,13 @@ From_I_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.globl	From_L_Imp
 	.def	From_L_Imp;	.scl	2;	.type	32;	.endef
 	.seh_proc	From_L_Imp
 From_L_Imp:
-.LFB4374:
+.LFB4376:
 	.loc 2 42 1
 	.cfi_startproc
 	pushq	%rbp
@@ -224,13 +224,13 @@ From_L_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.globl	PMC_From_I
 	.def	PMC_From_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_From_I
 PMC_From_I:
-.LFB4375:
+.LFB4377:
 	.loc 2 84 1
 	.cfi_startproc
 	pushq	%rbp
@@ -297,13 +297,13 @@ PMC_From_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.globl	PMC_From_L
 	.def	PMC_From_L;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_From_L
 PMC_From_L:
-.LFB4376:
+.LFB4378:
 	.loc 2 105 1
 	.cfi_startproc
 	pushq	%rbp
@@ -368,13 +368,13 @@ PMC_From_L:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.globl	Initialize_From
 	.def	Initialize_From;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_From
 Initialize_From:
-.LFB4377:
+.LFB4379:
 	.loc 2 129 1
 	.cfi_startproc
 	pushq	%rbp
@@ -394,7 +394,7 @@ Initialize_From:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -4555,8 +4555,8 @@ Initialize_From:
 	.byte	0x80
 	.byte	0x11
 	.long	0x4a1b
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e3e
@@ -4579,8 +4579,8 @@ Initialize_From:
 	.byte	0x68
 	.byte	0x11
 	.long	0x4a1b
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4ea4
@@ -4630,8 +4630,8 @@ Initialize_From:
 	.byte	0x53
 	.byte	0x11
 	.long	0x4a1b
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f1c
@@ -4682,8 +4682,8 @@ Initialize_From:
 	.byte	0x29
 	.byte	0x11
 	.long	0x4a1b
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4fd0
@@ -4769,8 +4769,8 @@ Initialize_From:
 	.byte	0x1f
 	.byte	0x11
 	.long	0x4a1b
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5029

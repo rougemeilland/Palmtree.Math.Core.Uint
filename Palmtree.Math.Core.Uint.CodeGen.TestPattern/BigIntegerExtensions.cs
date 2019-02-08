@@ -24,6 +24,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
@@ -33,10 +34,17 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
     {
         public static string Dump(this BigInteger x)
         {
-            var array = x.ToByteArray();
-            while (array.Length > 1 && array.Last() == 0)
-                array = array.Take(array.Length - 1).ToArray();
-            return ("{ " + string.Join(", ", array.Select(n => string.Format("0x{0:x02}", n))) + " }");
+            var sign = x.Sign > 0 ? (byte)0x01 : x.Sign == 0 ? (byte)0x00 : (byte)0x03;
+            var abs = BigInteger.Abs(x);
+            var digits = new List<byte>();
+            digits.Add(sign);
+            while (abs > 0)
+            {
+                var digit = abs & 0xff;
+                digits.Add((byte)digit);
+                abs = abs >> 8;
+            }
+            return ("{ " + string.Join(", ", digits.Select(n => string.Format("0x{0:x02}", n))) + " }");
         }
 
         public static string ToImmediateHex32String(this BigInteger x)

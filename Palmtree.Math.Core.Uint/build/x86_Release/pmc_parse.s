@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_ParseAsIntegerPartNumberSequence;	.scl	3;	.type	32;	.endef
 _ParseAsIntegerPartNumberSequence:
-LFB5494:
+LFB5496:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -113,11 +113,11 @@ L12:
 	movl	%ebx, (%eax)
 	jmp	L2
 	.cfi_endproc
-LFE5494:
+LFE5496:
 	.p2align 4,,15
 	.def	_ParseAsFractionPartNumberSequence;	.scl	3;	.type	32;	.endef
 _ParseAsFractionPartNumberSequence:
-LFB5495:
+LFB5497:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -163,11 +163,11 @@ L42:
 	movl	%edx, (%eax)
 	jmp	L33
 	.cfi_endproc
-LFE5495:
+LFE5497:
 	.p2align 4,,15
 	.def	_InitializeParserState;	.scl	3;	.type	32;	.endef
 _InitializeParserState:
-LFB5491:
+LFB5493:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -285,11 +285,11 @@ L48:
 	movl	$1, 68(%ebx)
 	jmp	L46
 	.cfi_endproc
-LFE5491:
+LFE5493:
 	.p2align 4,,15
 	.def	_MultiplyAndAdd_using_ADC_MUL;	.scl	3;	.type	32;	.endef
 _MultiplyAndAdd_using_ADC_MUL:
-LFB5503:
+LFB5505:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1268,11 +1268,11 @@ L58:
 	movl	40(%esp), %ecx
 	jmp	L50
 	.cfi_endproc
-LFE5503:
+LFE5505:
 	.p2align 4,,15
 	.def	_MultiplyAndAdd_using_ADCX_MULX;	.scl	3;	.type	32;	.endef
 _MultiplyAndAdd_using_ADCX_MULX:
-LFB5504:
+LFB5506:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2087,12 +2087,12 @@ L93:
 	movl	44(%esp), %eax
 	jmp	L85
 	.cfi_endproc
-LFE5504:
+LFE5506:
 	.p2align 4,,15
 	.globl	_PMC_TryParse@16
 	.def	_PMC_TryParse@16;	.scl	2;	.type	32;	.endef
 _PMC_TryParse@16:
-LFB5512:
+LFB5514:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4045,7 +4045,7 @@ L277:
 	movl	$-5, %eax
 	jmp	L282
 	.cfi_endproc
-LFE5512:
+LFE5514:
 	.section .rdata,"dr"
 	.align 2
 LC0:
@@ -4066,7 +4066,7 @@ LC4:
 	.globl	_Initialize_Parse
 	.def	_Initialize_Parse;	.scl	2;	.type	32;	.endef
 _Initialize_Parse:
-LFB5513:
+LFB5515:
 	.cfi_startproc
 	pushl	%ebx
 	.cfi_def_cfa_offset 8
@@ -4121,7 +4121,7 @@ LFB5513:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5513:
+LFE5515:
 .lcomm _fp_MultiplyAndAdd,4,4
 .lcomm _default_number_format_option,40,32
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"

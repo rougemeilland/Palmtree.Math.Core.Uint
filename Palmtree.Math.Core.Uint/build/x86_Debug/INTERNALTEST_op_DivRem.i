@@ -88483,6 +88483,46 @@ _wrpkru (unsigned int __key)
 # 774 "../pmc_inline_func.h"
         return (x);
     }
+
+
+    __inline static _UINT32_T GET_ABS_32(_INT32_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT32_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT32_T)u == 0x80000000U ? 0x80000000U : (_UINT32_T)-u);
+        }
+}
+
+
+    __inline static _UINT64_T GET_ABS_64(_INT64_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT64_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT64_T)u == 0x8000000000000000UL ? 0x8000000000000000UL : (_UINT64_T)-u);
+        }
+    }
 # 29 "../INTERNALTEST_op_DivRem.c" 2
 # 1 "../pmc_uint_debug.h" 1
 # 34 "../pmc_uint_debug.h"
@@ -88898,23 +88938,13 @@ void INTERNALTEST_DivRem_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* 
 {
     __UNIT_TYPE u_buf_words;
     __UNIT_TYPE u_buf_code;
-    __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8, &u_buf_words, &u_buf_code);
-    _COPY_MEMORY_BYTE(u_buf, u, u_count);
+    __UNIT_TYPE* u_buf = AllocateBlock(u_count * 8 - 8, &u_buf_words, &u_buf_code);
+    _COPY_MEMORY_BYTE(u_buf, u + 1, u_count - 1);
 
     __UNIT_TYPE v_buf_words;
     __UNIT_TYPE v_buf_code;
-    __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8, &v_buf_words, &v_buf_code);
-    _COPY_MEMORY_BYTE(v_buf, v, v_count);
-
-    __UNIT_TYPE desired_q_buf_words;
-    __UNIT_TYPE desired_q_buf_code;
-    __UNIT_TYPE* desired_q_buf = AllocateBlock(desired_q_count * 8, &desired_q_buf_words, &desired_q_buf_code);
-    _COPY_MEMORY_BYTE(desired_q_buf, desired_q, desired_q_count);
-
-    __UNIT_TYPE desired_r_buf_words;
-    __UNIT_TYPE desired_r_buf_code;
-    __UNIT_TYPE* desired_r_buf = AllocateBlock(desired_r_count * 8, &desired_r_buf_words, &desired_r_buf_code);
-    _COPY_MEMORY_BYTE(desired_r_buf, desired_r, desired_r_count);
+    __UNIT_TYPE* v_buf = AllocateBlock(v_count * 8 - 8, &v_buf_words, &v_buf_code);
+    _COPY_MEMORY_BYTE(v_buf, v + 1, v_count - 1);
 
     __UNIT_TYPE work_v_buf_words;
     __UNIT_TYPE work_v_buf_code;
@@ -88934,27 +88964,21 @@ void INTERNALTEST_DivRem_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* 
     unsigned char* actual_q = (unsigned char*)actual_q_buf;
     while (actual_q_count > 0 && actual_q[actual_q_count - 1] == 0)
         --actual_q_count;
-    if (actual_q_count == 0)
-        actual_q_count = 1;
 
     size_t actual_r_count = actual_r_buf_words * (sizeof(__UNIT_TYPE));
     unsigned char* actual_r = (unsigned char*)actual_r_buf;
     while (actual_r_count > 0 && actual_r[actual_r_count - 1] == 0)
         --actual_r_count;
-    if (actual_r_count == 0)
-        actual_r_count = 1;
 
     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 1), CheckBlockLight(work_v_buf, work_v_buf_code) == (0), L"work_v_bufの内容が破損している");
     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 2), CheckBlockLight(actual_q_buf, actual_q_buf_code) == (0), L"actual_q_bufの内容が破損している");
     TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 3), CheckBlockLight(actual_r_buf, actual_r_buf_code) == (0), L"actual_r_bufの内容が破損している");
-    TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_q, actual_q_count, desired_q, desired_q_count) == 0, L"商のデータの内容が一致しない");
-    TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r, actual_r_count, desired_r, desired_r_count) == 0, L"剰余のデータの内容が一致しない");
+    TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 4), _EQUALS_MEMORY(actual_q, actual_q_count, desired_q + 1, desired_q_count - 1) == 0, L"商のデータの内容が一致しない");
+    TEST_Assert(env, FormatTestLabel(L"DivRem_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r, actual_r_count, desired_r + 1, desired_r_count - 1) == 0, L"剰余のデータの内容が一致しない");
 
     DeallocateBlock(actual_r_buf, actual_r_buf_words);
     DeallocateBlock(actual_q_buf, actual_q_buf_words);
     DeallocateBlock(work_v_buf, work_v_buf_words);
-    DeallocateBlock(desired_r_buf, desired_r_buf_words);
-    DeallocateBlock(desired_q_buf, desired_q_buf_words);
     DeallocateBlock(v_buf, v_buf_words);
     DeallocateBlock(u_buf, u_buf_words);
 }

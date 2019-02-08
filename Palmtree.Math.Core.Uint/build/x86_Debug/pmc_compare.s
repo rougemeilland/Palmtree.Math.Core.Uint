@@ -82,7 +82,7 @@ LFE4234:
 	.globl	_Compare_Imp
 	.def	_Compare_Imp;	.scl	2;	.type	32;	.endef
 _Compare_Imp:
-LFB4242:
+LFB4244:
 	.file 2 "../pmc_compare.c"
 	.loc 2 32 1
 	.cfi_startproc
@@ -146,10 +146,10 @@ L9:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	_PMC_Compare_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Compare_X_I_Imp:
-LFB4243:
+LFB4245:
 	.loc 2 54 1
 	.cfi_startproc
 	pushl	%ebp
@@ -271,11 +271,11 @@ LBE6:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.globl	_PMC_Compare_I_X@12
 	.def	_PMC_Compare_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Compare_I_X@12:
-LFB4244:
+LFB4246:
 	.loc 2 104 1
 	.cfi_startproc
 	pushl	%ebp
@@ -334,11 +334,11 @@ L27:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.globl	_PMC_Compare_X_I@12
 	.def	_PMC_Compare_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Compare_X_I@12:
-LFB4245:
+LFB4247:
 	.loc 2 124 1
 	.cfi_startproc
 	pushl	%ebp
@@ -394,10 +394,10 @@ L33:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.def	_PMC_Compare_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Compare_X_L_Imp:
-LFB4246:
+LFB4248:
 	.loc 2 144 1
 	.cfi_startproc
 	pushl	%ebp
@@ -699,11 +699,11 @@ LBE30:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.globl	_PMC_Compare_L_X@16
 	.def	_PMC_Compare_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_Compare_L_X@16:
-LFB4247:
+LFB4249:
 	.loc 2 262 1
 	.cfi_startproc
 	pushl	%ebp
@@ -768,11 +768,11 @@ L59:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.globl	_PMC_Compare_X_L@16
 	.def	_PMC_Compare_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_Compare_X_L@16:
-LFB4248:
+LFB4250:
 	.loc 2 282 1
 	.cfi_startproc
 	pushl	%ebp
@@ -834,11 +834,11 @@ L65:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.globl	_PMC_Compare_X_X@12
 	.def	_PMC_Compare_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Compare_X_X@12:
-LFB4249:
+LFB4251:
 	.loc 2 302 1
 	.cfi_startproc
 	pushl	%ebp
@@ -989,11 +989,11 @@ L68:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.globl	_Initialize_Compare
 	.def	_Initialize_Compare;	.scl	2;	.type	32;	.endef
 _Initialize_Compare:
-LFB4250:
+LFB4252:
 	.loc 2 348 1
 	.cfi_startproc
 	.loc 2 349 12
@@ -1001,7 +1001,7 @@ LFB4250:
 	.loc 2 350 1
 	ret
 	.cfi_endproc
-LFE4250:
+LFE4252:
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5180,8 +5180,8 @@ Ldebug_info0:
 	.word	0x15b
 	.byte	0x11
 	.long	0x4a37
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e5d
@@ -5205,8 +5205,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Compare_X_X@12\0"
 	.long	0x4a37
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f20
@@ -5297,8 +5297,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Compare_X_L@16\0"
 	.long	0x4a37
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4fab
@@ -5355,8 +5355,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Compare_L_X@16\0"
 	.long	0x4a37
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5030
@@ -5411,8 +5411,8 @@ Ldebug_info0:
 	.byte	0x2
 	.byte	0x8f
 	.byte	0xd
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x50ff
@@ -5521,8 +5521,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Compare_X_I@12\0"
 	.long	0x4a37
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x517e
@@ -5579,8 +5579,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_Compare_I_X@12\0"
 	.long	0x4a37
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51fd
@@ -5635,8 +5635,8 @@ Ldebug_info0:
 	.byte	0x2
 	.byte	0x35
 	.byte	0xd
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x526f
@@ -5695,8 +5695,8 @@ Ldebug_info0:
 	.byte	0x1f
 	.byte	0xa
 	.long	0x4994
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x52bd

@@ -368,7 +368,7 @@ _hexadecimal_upper_digits:
 	.text
 	.def	_ConvertCardinalNumber;	.scl	3;	.type	32;	.endef
 _ConvertCardinalNumber:
-LFB4242:
+LFB4244:
 	.file 5 "../pmc_tostring.c"
 	.loc 5 52 1
 	.cfi_startproc
@@ -557,10 +557,10 @@ L27:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	_InitializeOutputState;	.scl	3;	.type	32;	.endef
 _InitializeOutputState:
-LFB4243:
+LFB4245:
 	.loc 5 95 1
 	.cfi_startproc
 	pushl	%ebp
@@ -714,10 +714,10 @@ L31:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.def	_OutputDecimalSeparator;	.scl	3;	.type	32;	.endef
 _OutputDecimalSeparator:
-LFB4244:
+LFB4246:
 	.loc 5 127 1
 	.cfi_startproc
 	pushl	%ebp
@@ -757,10 +757,10 @@ LVL2:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.def	_OutputUngroupedOneChar;	.scl	3;	.type	32;	.endef
 _OutputUngroupedOneChar:
-LFB4245:
+LFB4247:
 	.loc 5 133 1
 	.cfi_startproc
 	pushl	%ebp
@@ -789,10 +789,10 @@ LFB4245:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.def	_OutputOneChar;	.scl	3;	.type	32;	.endef
 _OutputOneChar:
-LFB4246:
+LFB4248:
 	.loc 5 139 1
 	.cfi_startproc
 	pushl	%ebp
@@ -939,10 +939,10 @@ L41:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.def	_ToStringDN_LEADING_1WORD;	.scl	3;	.type	32;	.endef
 _ToStringDN_LEADING_1WORD:
-LFB4247:
+LFB4249:
 	.loc 5 180 1
 	.cfi_startproc
 	pushl	%ebp
@@ -979,10 +979,10 @@ L43:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.def	_ToStringDN_1WORD;	.scl	3;	.type	32;	.endef
 _ToStringDN_1WORD:
-LFB4248:
+LFB4250:
 	.loc 5 197 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1132,10 +1132,10 @@ LFB4248:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.def	_PrintDecimal;	.scl	3;	.type	32;	.endef
 _PrintDecimal:
-LFB4249:
+LFB4251:
 	.loc 5 257 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1284,10 +1284,10 @@ LBE28:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.def	_ToStringDN_Finalize;	.scl	3;	.type	32;	.endef
 _ToStringDN_Finalize:
-LFB4250:
+LFB4252:
 	.loc 5 299 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1341,10 +1341,10 @@ L55:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4250:
+LFE4252:
 	.def	_ToStringDN;	.scl	3;	.type	32;	.endef
 _ToStringDN:
-LFB4251:
+LFB4253:
 	.loc 5 312 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1663,10 +1663,10 @@ L65:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4251:
+LFE4253:
 	.def	_ToStringX_1WORD;	.scl	3;	.type	32;	.endef
 _ToStringX_1WORD:
-LFB4252:
+LFB4254:
 	.loc 5 405 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2350,10 +2350,10 @@ L80:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4252:
+LFE4254:
 	.def	_ToStringX;	.scl	3;	.type	32;	.endef
 _ToStringX:
-LFB4253:
+LFB4255:
 	.loc 5 473 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2546,11 +2546,11 @@ L86:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4253:
+LFE4255:
 	.globl	_PMC_ToString@24
 	.def	_PMC_ToString@24;	.scl	2;	.type	32;	.endef
 _PMC_ToString@24:
-LFB4254:
+LFB4256:
 	.loc 5 526 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2752,7 +2752,7 @@ L98:
 	.cfi_def_cfa 4, 4
 	ret	$24
 	.cfi_endproc
-LFE4254:
+LFE4256:
 	.section .rdata,"dr"
 	.align 2
 LC0:
@@ -2772,7 +2772,7 @@ LC4:
 	.globl	_Initialize_ToString
 	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
 _Initialize_ToString:
-LFB4255:
+LFB4257:
 	.loc 5 555 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2826,7 +2826,7 @@ LVL10:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4255:
+LFE4257:
 Letext0:
 	.file 6 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 7 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -7395,8 +7395,8 @@ Ldebug_info0:
 	.word	0x22a
 	.byte	0x11
 	.long	0x4d0c
-	.long	LFB4255
-	.long	LFE4255-LFB4255
+	.long	LFB4257
+	.long	LFE4257-LFB4257
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5438
@@ -7435,8 +7435,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_ToString@24\0"
 	.long	0x4d0c
-	.long	LFB4254
-	.long	LFE4254-LFB4254
+	.long	LFB4256
+	.long	LFE4256-LFB4256
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x54f0
@@ -7522,8 +7522,8 @@ Ldebug_info0:
 	.word	0x1d8
 	.byte	0x18
 	.long	0x4d0c
-	.long	LFB4253
-	.long	LFE4253-LFB4253
+	.long	LFB4255
+	.long	LFE4255-LFB4255
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5645
@@ -7664,8 +7664,8 @@ Ldebug_info0:
 	.word	0x194
 	.byte	0x1a
 	.long	0x439
-	.long	LFB4252
-	.long	LFE4252-LFB4252
+	.long	LFB4254
+	.long	LFE4254-LFB4254
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56c6
@@ -7721,8 +7721,8 @@ Ldebug_info0:
 	.word	0x137
 	.byte	0x18
 	.long	0x4d0c
-	.long	LFB4251
-	.long	LFE4251-LFB4251
+	.long	LFB4253
+	.long	LFE4253-LFB4253
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5893
@@ -7912,8 +7912,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x12a
 	.byte	0xd
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5938
@@ -7986,8 +7986,8 @@ Ldebug_info0:
 	.byte	0x5
 	.word	0x100
 	.byte	0xd
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a3b
@@ -8114,8 +8114,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0xc4
 	.byte	0xd
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a88
@@ -8155,8 +8155,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0xb3
 	.byte	0xd
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5ae3
@@ -8193,8 +8193,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0x8a
 	.byte	0xd
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b29
@@ -8225,8 +8225,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0x84
 	.byte	0xd
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b6f
@@ -8254,8 +8254,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0x7e
 	.byte	0xd
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5bb1
@@ -8277,8 +8277,8 @@ Ldebug_info0:
 	.byte	0x5
 	.byte	0x5e
 	.byte	0xd
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5c4a
@@ -8349,8 +8349,8 @@ Ldebug_info0:
 	.byte	0x33
 	.byte	0x18
 	.long	0x4d0c
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5e06

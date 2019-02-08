@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_Multiply_WORD_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_WORD_using_MUL_ADC:
-LFB5493:
+LFB5495:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1139,11 +1139,11 @@ L10:
 	xorl	%ebp, %ebp
 	jmp	L2
 	.cfi_endproc
-LFE5493:
+LFE5495:
 	.p2align 4,,15
 	.def	_Multiply_X_1W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_1W_using_MUL_ADC:
-LFB5495:
+LFB5497:
 	.cfi_startproc
 	movl	16(%esp), %edx
 	movl	4(%esp), %eax
@@ -1152,11 +1152,11 @@ LFB5495:
 	movl	8(%esp), %edx
 	jmp	_Multiply_WORD_using_MUL_ADC
 	.cfi_endproc
-LFE5495:
+LFE5497:
 	.p2align 4,,15
 	.def	_Multiply_X_2W_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_2W_using_MUL_ADC:
-LFB5497:
+LFB5499:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1202,11 +1202,11 @@ LFB5497:
 	.cfi_def_cfa_offset 4
 	jmp	_Multiply_WORD_using_MUL_ADC
 	.cfi_endproc
-LFE5497:
+LFE5499:
 	.p2align 4,,15
 	.def	_Multiply_X_X_using_MUL_ADC;	.scl	3;	.type	32;	.endef
 _Multiply_X_X_using_MUL_ADC:
-LFB5499:
+LFB5501:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1261,11 +1261,11 @@ L42:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5499:
+LFE5501:
 	.p2align 4,,15
 	.def	_Multiply_WORD_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_WORD_using_MULX_ADCX:
-LFB5494:
+LFB5496:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2324,11 +2324,11 @@ L55:
 	xorl	%esi, %esi
 	jmp	L47
 	.cfi_endproc
-LFE5494:
+LFE5496:
 	.p2align 4,,15
 	.def	_Multiply_X_1W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_1W_using_MULX_ADCX:
-LFB5496:
+LFB5498:
 	.cfi_startproc
 	movl	16(%esp), %edx
 	movl	4(%esp), %eax
@@ -2337,11 +2337,11 @@ LFB5496:
 	movl	8(%esp), %edx
 	jmp	_Multiply_WORD_using_MULX_ADCX
 	.cfi_endproc
-LFE5496:
+LFE5498:
 	.p2align 4,,15
 	.def	_Multiply_X_2W_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_2W_using_MULX_ADCX:
-LFB5498:
+LFB5500:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2387,11 +2387,11 @@ LFB5498:
 	.cfi_def_cfa_offset 4
 	jmp	_Multiply_WORD_using_MULX_ADCX
 	.cfi_endproc
-LFE5498:
+LFE5500:
 	.p2align 4,,15
 	.def	_Multiply_X_X_using_MULX_ADCX;	.scl	3;	.type	32;	.endef
 _Multiply_X_X_using_MULX_ADCX:
-LFB5500:
+LFB5502:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2446,11 +2446,11 @@ L86:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5500:
+LFE5502:
 	.p2align 4,,15
 	.def	_PMC_Multiply_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Multiply_X_I_Imp:
-LFB5501:
+LFB5503:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -2548,11 +2548,11 @@ L105:
 	call	_DuplicateNumber
 	jmp	L90
 	.cfi_endproc
-LFE5501:
+LFE5503:
 	.p2align 4,,15
 	.def	_PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Multiply_X_L_Imp:
-LFB5504:
+LFB5506:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2696,21 +2696,21 @@ L129:
 	call	_DuplicateNumber
 	jmp	L106
 	.cfi_endproc
-LFE5504:
+LFE5506:
 	.p2align 4,,15
 	.globl	_Multiply_X_X_Imp
 	.def	_Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
 _Multiply_X_X_Imp:
-LFB5490:
+LFB5492:
 	.cfi_startproc
 	jmp	*_fp_Multiply_X_X
 	.cfi_endproc
-LFE5490:
+LFE5492:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_I_X@12
 	.def	_PMC_Multiply_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_I_X@12:
-LFB5502:
+LFB5504:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2751,12 +2751,12 @@ L133:
 	movl	$-1, %eax
 	jmp	L131
 	.cfi_endproc
-LFE5502:
+LFE5504:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_X_I@12
 	.def	_PMC_Multiply_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_I@12:
-LFB5503:
+LFB5505:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2797,12 +2797,12 @@ L137:
 	movl	$-1, %eax
 	jmp	L135
 	.cfi_endproc
-LFE5503:
+LFE5505:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_L_X@16
 	.def	_PMC_Multiply_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_L_X@16:
-LFB5505:
+LFB5507:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2848,12 +2848,12 @@ L141:
 	movl	$-1, %eax
 	jmp	L139
 	.cfi_endproc
-LFE5505:
+LFE5507:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_X_L@16
 	.def	_PMC_Multiply_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_L@16:
-LFB5506:
+LFB5508:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2899,12 +2899,12 @@ L145:
 	movl	$-1, %eax
 	jmp	L143
 	.cfi_endproc
-LFE5506:
+LFE5508:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_X_X@12
 	.def	_PMC_Multiply_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_Multiply_X_X@12:
-LFB5507:
+LFB5509:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -3070,12 +3070,12 @@ L156:
 	movl	$-1, %ebx
 	jmp	L147
 	.cfi_endproc
-LFE5507:
+LFE5509:
 	.p2align 4,,15
 	.globl	_Initialize_Multiply
 	.def	_Initialize_Multiply;	.scl	2;	.type	32;	.endef
 _Initialize_Multiply:
-LFB5508:
+LFB5510:
 	.cfi_startproc
 	movl	4(%esp), %eax
 	movzbl	(%eax), %eax
@@ -3095,7 +3095,7 @@ L168:
 	movl	$_Multiply_X_X_using_MULX_ADCX, _fp_Multiply_X_X
 	ret
 	.cfi_endproc
-LFE5508:
+LFE5510:
 .lcomm _fp_Multiply_X_X,4,4
 .lcomm _fp_Multiply_X_2W,4,4
 .lcomm _fp_Multiply_X_1W,4,4

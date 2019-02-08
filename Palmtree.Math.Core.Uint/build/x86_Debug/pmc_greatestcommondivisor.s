@@ -246,7 +246,7 @@ L15:
 LFE4239:
 	.def	_GreatestCommonDivisor_Imp;	.scl	3;	.type	32;	.endef
 _GreatestCommonDivisor_Imp:
-LFB4282:
+LFB4284:
 	.file 3 "../pmc_greatestcommondivisor.c"
 	.loc 3 32 1
 	.cfi_startproc
@@ -392,10 +392,10 @@ L27:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4282:
+LFE4284:
 	.def	_PMC_GreatestCommonDivisor_X_I_Imp;	.scl	3;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_X_I_Imp:
-LFB4283:
+LFB4285:
 	.loc 3 73 1
 	.cfi_startproc
 	pushl	%ebp
@@ -726,11 +726,11 @@ L31:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4283:
+LFE4285:
 	.globl	_PMC_GreatestCommonDivisor_I_X@12
 	.def	_PMC_GreatestCommonDivisor_I_X@12;	.scl	2;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_I_X@12:
-LFB4284:
+LFB4286:
 	.loc 3 169 1
 	.cfi_startproc
 	pushl	%ebp
@@ -803,11 +803,11 @@ L46:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4284:
+LFE4286:
 	.globl	_PMC_GreatestCommonDivisor_X_I@12
 	.def	_PMC_GreatestCommonDivisor_X_I@12;	.scl	2;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_X_I@12:
-LFB4285:
+LFB4287:
 	.loc 3 192 1
 	.cfi_startproc
 	pushl	%ebp
@@ -880,10 +880,10 @@ L53:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4285:
+LFE4287:
 	.def	_PMC_GreatestCommonDivisor_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_X_L_Imp:
-LFB4286:
+LFB4288:
 	.loc 3 215 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1546,11 +1546,11 @@ L61:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4286:
+LFE4288:
 	.globl	_PMC_GreatestCommonDivisor_L_X@16
 	.def	_PMC_GreatestCommonDivisor_L_X@16;	.scl	2;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_L_X@16:
-LFB4287:
+LFB4289:
 	.loc 3 435 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1629,11 +1629,11 @@ L92:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4287:
+LFE4289:
 	.globl	_PMC_GreatestCommonDivisor_X_L@16
 	.def	_PMC_GreatestCommonDivisor_X_L@16;	.scl	2;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_X_L@16:
-LFB4288:
+LFB4290:
 	.loc 3 458 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1712,11 +1712,11 @@ L99:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4288:
+LFE4290:
 	.globl	_PMC_GreatestCommonDivisor_X_X@12
 	.def	_PMC_GreatestCommonDivisor_X_X@12;	.scl	2;	.type	32;	.endef
 _PMC_GreatestCommonDivisor_X_X@12:
-LFB4289:
+LFB4291:
 	.loc 3 481 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2145,11 +2145,11 @@ L130:
 	.cfi_def_cfa 4, 4
 	ret	$12
 	.cfi_endproc
-LFE4289:
+LFE4291:
 	.globl	_Initialize_GreatestCommonDivisor
 	.def	_Initialize_GreatestCommonDivisor;	.scl	2;	.type	32;	.endef
 _Initialize_GreatestCommonDivisor:
-LFB4290:
+LFB4292:
 	.loc 3 600 1
 	.cfi_startproc
 	.loc 3 601 12
@@ -2157,7 +2157,7 @@ LFB4290:
 	.loc 3 602 1
 	ret
 	.cfi_endproc
-LFE4290:
+LFE4292:
 Letext0:
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -6331,8 +6331,8 @@ Ldebug_info0:
 	.word	0x257
 	.byte	0x11
 	.long	0x4a2f
-	.long	LFB4290
-	.long	LFE4290-LFB4290
+	.long	LFB4292
+	.long	LFE4292-LFB4292
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e68
@@ -6356,8 +6356,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GreatestCommonDivisor_X_X@12\0"
 	.long	0x4a2f
-	.long	LFB4289
-	.long	LFE4289-LFB4289
+	.long	LFB4291
+	.long	LFE4291-LFB4291
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x501a
@@ -6565,8 +6565,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GreatestCommonDivisor_X_L@16\0"
 	.long	0x4a2f
-	.long	LFB4288
-	.long	LFE4288-LFB4288
+	.long	LFB4290
+	.long	LFE4290-LFB4290
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x50b1
@@ -6614,8 +6614,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GreatestCommonDivisor_L_X@16\0"
 	.long	0x4a2f
-	.long	LFB4287
-	.long	LFE4287-LFB4287
+	.long	LFB4289
+	.long	LFE4289-LFB4289
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5142
@@ -6662,8 +6662,8 @@ Ldebug_info0:
 	.byte	0xd6
 	.byte	0x18
 	.long	0x4a2f
-	.long	LFB4286
-	.long	LFE4286-LFB4286
+	.long	LFB4288
+	.long	LFE4288-LFB4288
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x546e
@@ -7075,8 +7075,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GreatestCommonDivisor_X_I@12\0"
 	.long	0x4a2f
-	.long	LFB4285
-	.long	LFE4285-LFB4285
+	.long	LFB4287
+	.long	LFE4287-LFB4287
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5500
@@ -7124,8 +7124,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GreatestCommonDivisor_I_X@12\0"
 	.long	0x4a2f
-	.long	LFB4284
-	.long	LFE4284-LFB4284
+	.long	LFB4286
+	.long	LFE4286-LFB4286
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x558c
@@ -7172,8 +7172,8 @@ Ldebug_info0:
 	.byte	0x48
 	.byte	0x18
 	.long	0x4a2f
-	.long	LFB4283
-	.long	LFE4283-LFB4283
+	.long	LFB4285
+	.long	LFE4285-LFB4285
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56d8
@@ -7349,8 +7349,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0xd
-	.long	LFB4282
-	.long	LFE4282-LFB4282
+	.long	LFB4284
+	.long	LFE4284-LFB4284
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x57a8

@@ -176,7 +176,7 @@ L7:
 LFE4235:
 	.def	_Compare_Easy;	.scl	3;	.type	32;	.endef
 _Compare_Easy:
-LFB4244:
+LFB4246:
 	.file 3 "../pmc_modpow.c"
 	.loc 3 81 1
 	.cfi_startproc
@@ -217,10 +217,10 @@ L10:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.def	_SwapPointer;	.scl	3;	.type	32;	.endef
 _SwapPointer:
-LFB4245:
+LFB4247:
 	.loc 3 91 1
 	.cfi_startproc
 	pushl	%ebp
@@ -250,10 +250,10 @@ LFB4245:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.def	_Remainder;	.scl	3;	.type	32;	.endef
 _Remainder:
-LFB4246:
+LFB4248:
 	.loc 3 98 1
 	.cfi_startproc
 	pushl	%ebp
@@ -500,10 +500,10 @@ L16:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.def	_ModulePower;	.scl	3;	.type	32;	.endef
 _ModulePower:
-LFB4247:
+LFB4249:
 	.loc 3 155 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1603,10 +1603,10 @@ L70:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.def	_PMC_ModPow_X_X_X_Imp;	.scl	3;	.type	32;	.endef
 _PMC_ModPow_X_X_X_Imp:
-LFB4248:
+LFB4250:
 	.loc 3 500 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1758,11 +1758,11 @@ L74:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.globl	_PMC_ModPow_X_X_X@16
 	.def	_PMC_ModPow_X_X_X@16;	.scl	2;	.type	32;	.endef
 _PMC_ModPow_X_X_X@16:
-LFB4249:
+LFB4251:
 	.loc 3 595 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1875,11 +1875,11 @@ L87:
 	.cfi_def_cfa 4, 4
 	ret	$16
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.globl	_Initialize_ModPow
 	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
 _Initialize_ModPow:
-LFB4250:
+LFB4252:
 	.loc 3 621 1
 	.cfi_startproc
 	.loc 3 622 12
@@ -1887,7 +1887,7 @@ LFB4250:
 	.loc 3 623 1
 	ret
 	.cfi_endproc
-LFE4250:
+LFE4252:
 Letext0:
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -6046,8 +6046,8 @@ Ldebug_info0:
 	.word	0x26c
 	.byte	0x11
 	.long	0x49fd
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e21
@@ -6071,8 +6071,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_ModPow_X_X_X@16\0"
 	.long	0x49fd
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4eac
@@ -6128,8 +6128,8 @@ Ldebug_info0:
 	.word	0x1f3
 	.byte	0x18
 	.long	0x49fd
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f21
@@ -6191,8 +6191,8 @@ Ldebug_info0:
 	.byte	0x9a
 	.byte	0x18
 	.long	0x49fd
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5247
@@ -6536,8 +6536,8 @@ Ldebug_info0:
 	.byte	0x61
 	.byte	0x18
 	.long	0x49fd
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5313
@@ -6650,8 +6650,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x16
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5359
@@ -6692,8 +6692,8 @@ Ldebug_info0:
 	.byte	0x50
 	.byte	0xc
 	.long	0xe2
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53c3

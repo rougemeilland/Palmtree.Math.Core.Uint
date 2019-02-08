@@ -58,7 +58,7 @@ LBE8:
 LFE4197:
 	.def	_cpuid;	.scl	3;	.type	32;	.endef
 _cpuid:
-LFB4242:
+LFB4244:
 	.file 3 "../cpuid.c"
 	.loc 3 33 1
 	.cfi_startproc
@@ -143,10 +143,10 @@ LBE10:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.def	_cpuidex;	.scl	3;	.type	32;	.endef
 _cpuidex:
-LFB4243:
+LFB4245:
 	.loc 3 43 1
 	.cfi_startproc
 	pushl	%ebp
@@ -234,11 +234,11 @@ LBE12:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.globl	_GetCPUInfo
 	.def	_GetCPUInfo;	.scl	2;	.type	32;	.endef
 _GetCPUInfo:
-LFB4244:
+LFB4246:
 	.loc 3 53 1
 	.cfi_startproc
 	pushl	%ebp
@@ -408,7 +408,7 @@ L8:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 Letext0:
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/stdlib.h"
@@ -4528,8 +4528,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x34
 	.byte	0x6
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e22
@@ -4614,8 +4614,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x2a
 	.byte	0x16
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4ed9
@@ -4718,8 +4718,8 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x20
 	.byte	0x16
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f7f

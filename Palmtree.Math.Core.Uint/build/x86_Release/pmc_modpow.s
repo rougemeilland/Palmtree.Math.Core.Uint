@@ -4,7 +4,7 @@
 	.globl	_PMC_ModPow_X_X_X@16
 	.def	_PMC_ModPow_X_X_X@16;	.scl	2;	.type	32;	.endef
 _PMC_ModPow_X_X_X@16:
-LFB5497:
+LFB5499:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -836,17 +836,17 @@ L50:
 	movl	40(%esp), %ebx
 	jmp	L39
 	.cfi_endproc
-LFE5497:
+LFE5499:
 	.p2align 4,,15
 	.globl	_Initialize_ModPow
 	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
 _Initialize_ModPow:
-LFB5498:
+LFB5500:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5498:
+LFE5500:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
 	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef

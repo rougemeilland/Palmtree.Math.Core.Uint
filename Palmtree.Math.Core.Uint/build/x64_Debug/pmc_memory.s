@@ -342,7 +342,7 @@ _TZCNT_ALT_UNIT:
 	.def	CalculateCheckCode;	.scl	3;	.type	32;	.endef
 	.seh_proc	CalculateCheckCode
 CalculateCheckCode:
-.LFB4373:
+.LFB4375:
 	.file 4 "../pmc_memory.c"
 	.loc 4 53 1
 	.cfi_startproc
@@ -1241,13 +1241,13 @@ CalculateCheckCode:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.globl	AllocateBlock
 	.def	AllocateBlock;	.scl	2;	.type	32;	.endef
 	.seh_proc	AllocateBlock
 AllocateBlock:
-.LFB4374:
+.LFB4376:
 	.loc 4 156 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1372,13 +1372,13 @@ AllocateBlock:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.globl	DeallocateBlock
 	.def	DeallocateBlock;	.scl	2;	.type	32;	.endef
 	.seh_proc	DeallocateBlock
 DeallocateBlock:
-.LFB4375:
+.LFB4377:
 	.loc 4 198 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1435,12 +1435,12 @@ DeallocateBlock:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.def	CommitBlock;	.scl	3;	.type	32;	.endef
 	.seh_proc	CommitBlock
 CommitBlock:
-.LFB4376:
+.LFB4378:
 	.loc 4 218 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1490,12 +1490,12 @@ CommitBlock:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.def	CheckBlock;	.scl	3;	.type	32;	.endef
 	.seh_proc	CheckBlock
 CheckBlock:
-.LFB4377:
+.LFB4379:
 	.loc 4 234 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1556,13 +1556,13 @@ CheckBlock:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 	.globl	CheckBlockLight
 	.def	CheckBlockLight;	.scl	2;	.type	32;	.endef
 	.seh_proc	CheckBlockLight
 CheckBlockLight:
-.LFB4378:
+.LFB4380:
 	.loc 4 253 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1627,12 +1627,12 @@ CheckBlockLight:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4378:
+.LFE4380:
 	.seh_endproc
 	.def	ClearNumberHeader;	.scl	3;	.type	32;	.endef
 	.seh_proc	ClearNumberHeader
 ClearNumberHeader:
-.LFB4379:
+.LFB4381:
 	.loc 4 271 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1697,12 +1697,12 @@ ClearNumberHeader:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4379:
+.LFE4381:
 	.seh_endproc
 	.def	FillNumberHeader;	.scl	3;	.type	32;	.endef
 	.seh_proc	FillNumberHeader
 FillNumberHeader:
-.LFB4380:
+.LFB4382:
 	.loc 4 317 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1768,12 +1768,12 @@ FillNumberHeader:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4380:
+.LFE4382:
 	.seh_endproc
 	.def	InitializeNumber;	.scl	3;	.type	32;	.endef
 	.seh_proc	InitializeNumber
 InitializeNumber:
-.LFB4381:
+.LFB4383:
 	.loc 4 363 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1861,12 +1861,12 @@ InitializeNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4381:
+.LFE4383:
 	.seh_endproc
 	.def	CleanUpNumber;	.scl	3;	.type	32;	.endef
 	.seh_proc	CleanUpNumber
 CleanUpNumber:
-.LFB4382:
+.LFB4384:
 	.loc 4 391 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1905,13 +1905,13 @@ CleanUpNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4382:
+.LFE4384:
 	.seh_endproc
 	.globl	AttatchNumber
 	.def	AttatchNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	AttatchNumber
 AttatchNumber:
-.LFB4383:
+.LFB4385:
 	.loc 4 400 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1955,13 +1955,13 @@ AttatchNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4383:
+.LFE4385:
 	.seh_endproc
 	.globl	AllocateNumber
 	.def	AllocateNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	AllocateNumber
 AllocateNumber:
-.LFB4384:
+.LFB4386:
 	.loc 4 409 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2028,13 +2028,13 @@ AllocateNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4384:
+.LFE4386:
 	.seh_endproc
 	.globl	DetatchNumber
 	.def	DetatchNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	DetatchNumber
 DetatchNumber:
-.LFB4385:
+.LFB4387:
 	.loc 4 422 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2073,13 +2073,13 @@ DetatchNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4385:
+.LFE4387:
 	.seh_endproc
 	.globl	DeallocateNumber
 	.def	DeallocateNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	DeallocateNumber
 DeallocateNumber:
-.LFB4386:
+.LFB4388:
 	.loc 4 429 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2129,12 +2129,12 @@ DeallocateNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4386:
+.LFE4388:
 	.seh_endproc
 	.def	GetEffectiveBitLength;	.scl	3;	.type	32;	.endef
 	.seh_proc	GetEffectiveBitLength
 GetEffectiveBitLength:
-.LFB4387:
+.LFB4389:
 	.loc 4 438 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2220,12 +2220,12 @@ GetEffectiveBitLength:
 	.cfi_def_cfa 7, -24
 	ret
 	.cfi_endproc
-.LFE4387:
+.LFE4389:
 	.seh_endproc
 	.def	GetTrailingZeroBitCount;	.scl	3;	.type	32;	.endef
 	.seh_proc	GetTrailingZeroBitCount
 GetTrailingZeroBitCount:
-.LFB4388:
+.LFB4390:
 	.loc 4 460 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2282,13 +2282,13 @@ GetTrailingZeroBitCount:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4388:
+.LFE4390:
 	.seh_endproc
 	.globl	CommitNumber
 	.def	CommitNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	CommitNumber
 CommitNumber:
-.LFB4389:
+.LFB4391:
 	.loc 4 475 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2489,13 +2489,13 @@ CommitNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4389:
+.LFE4391:
 	.seh_endproc
 	.globl	CheckNumber
 	.def	CheckNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	CheckNumber
 CheckNumber:
-.LFB4390:
+.LFB4392:
 	.loc 4 508 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2576,13 +2576,13 @@ CheckNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4390:
+.LFE4392:
 	.seh_endproc
 	.globl	DuplicateNumber
 	.def	DuplicateNumber;	.scl	2;	.type	32;	.endef
 	.seh_proc	DuplicateNumber
 DuplicateNumber:
-.LFB4391:
+.LFB4393:
 	.loc 4 526 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2679,13 +2679,13 @@ DuplicateNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4391:
+.LFE4393:
 	.seh_endproc
 	.globl	PMC_GetConstantValue_I
 	.def	PMC_GetConstantValue_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_GetConstantValue_I
 PMC_GetConstantValue_I:
-.LFB4392:
+.LFB4394:
 	.loc 4 549 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2729,13 +2729,13 @@ PMC_GetConstantValue_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4392:
+.LFE4394:
 	.seh_endproc
 	.globl	PMC_Dispose
 	.def	PMC_Dispose;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Dispose
 PMC_Dispose:
-.LFB4393:
+.LFB4395:
 	.loc 4 564 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2778,13 +2778,13 @@ PMC_Dispose:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4393:
+.LFE4395:
 	.seh_endproc
 	.globl	Initialize_Memory
 	.def	Initialize_Memory;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_Memory
 Initialize_Memory:
-.LFB4394:
+.LFB4396:
 	.loc 4 574 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2875,13 +2875,13 @@ Initialize_Memory:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4394:
+.LFE4396:
 	.seh_endproc
 	.globl	AllocateHeapArea
 	.def	AllocateHeapArea;	.scl	2;	.type	32;	.endef
 	.seh_proc	AllocateHeapArea
 AllocateHeapArea:
-.LFB4395:
+.LFB4397:
 	.loc 4 612 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2925,13 +2925,13 @@ AllocateHeapArea:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4395:
+.LFE4397:
 	.seh_endproc
 	.globl	DeallocateHeapArea
 	.def	DeallocateHeapArea;	.scl	2;	.type	32;	.endef
 	.seh_proc	DeallocateHeapArea
 DeallocateHeapArea:
-.LFB4396:
+.LFB4398:
 	.loc 4 620 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2969,7 +2969,7 @@ DeallocateHeapArea:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4396:
+.LFE4398:
 	.seh_endproc
 .Letext0:
 	.file 5 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -7379,8 +7379,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x26b
 	.byte	0x6
-	.quad	.LFB4396
-	.quad	.LFE4396-.LFB4396
+	.quad	.LFB4398
+	.quad	.LFE4398-.LFB4398
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51bb
@@ -7394,8 +7394,8 @@ DeallocateHeapArea:
 	.word	0x263
 	.byte	0x6
 	.long	0x5ea
-	.quad	.LFB4395
-	.quad	.LFE4395-.LFB4395
+	.quad	.LFB4397
+	.quad	.LFE4397-.LFB4397
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51f9
@@ -7409,8 +7409,8 @@ DeallocateHeapArea:
 	.word	0x23d
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4394
-	.quad	.LFE4394-.LFB4394
+	.quad	.LFB4396
+	.quad	.LFE4396-.LFB4396
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5284
@@ -7459,8 +7459,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x233
 	.byte	0x6
-	.quad	.LFB4393
-	.quad	.LFE4393-.LFB4393
+	.quad	.LFB4395
+	.quad	.LFE4395-.LFB4395
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x52df
@@ -7501,8 +7501,8 @@ DeallocateHeapArea:
 	.word	0x224
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4392
-	.quad	.LFE4392-.LFB4392
+	.quad	.LFB4394
+	.quad	.LFE4394-.LFB4394
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x533b
@@ -7531,8 +7531,8 @@ DeallocateHeapArea:
 	.word	0x20d
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4391
-	.quad	.LFE4391-.LFB4391
+	.quad	.LFB4393
+	.quad	.LFE4393-.LFB4393
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53be
@@ -7591,8 +7591,8 @@ DeallocateHeapArea:
 	.word	0x1fb
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4390
-	.quad	.LFE4390-.LFB4390
+	.quad	.LFB4392
+	.quad	.LFE4392-.LFB4392
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x543e
@@ -7633,8 +7633,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x1da
 	.byte	0x6
-	.quad	.LFB4389
-	.quad	.LFE4389-.LFB4389
+	.quad	.LFB4391
+	.quad	.LFE4391-.LFB4391
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5475
@@ -7654,8 +7654,8 @@ DeallocateHeapArea:
 	.word	0x1cb
 	.byte	0x14
 	.long	0x4f47
-	.quad	.LFB4388
-	.quad	.LFE4388-.LFB4388
+	.quad	.LFB4390
+	.quad	.LFE4390-.LFB4390
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x54db
@@ -7693,8 +7693,8 @@ DeallocateHeapArea:
 	.word	0x1b5
 	.byte	0x14
 	.long	0x4f47
-	.quad	.LFB4387
-	.quad	.LFE4387-.LFB4387
+	.quad	.LFB4389
+	.quad	.LFE4389-.LFB4389
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5550
@@ -7731,8 +7731,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x1ac
 	.byte	0x6
-	.quad	.LFB4386
-	.quad	.LFE4386-.LFB4386
+	.quad	.LFB4388
+	.quad	.LFE4388-.LFB4388
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5598
@@ -7754,8 +7754,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x1a5
 	.byte	0x6
-	.quad	.LFB4385
-	.quad	.LFE4385-.LFB4385
+	.quad	.LFB4387
+	.quad	.LFE4387-.LFB4387
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x55d0
@@ -7775,8 +7775,8 @@ DeallocateHeapArea:
 	.word	0x198
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4384
-	.quad	.LFE4384-.LFB4384
+	.quad	.LFB4386
+	.quad	.LFE4386-.LFB4386
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5659
@@ -7835,8 +7835,8 @@ DeallocateHeapArea:
 	.word	0x18f
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4383
-	.quad	.LFE4383-.LFB4383
+	.quad	.LFB4385
+	.quad	.LFE4385-.LFB4385
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56b5
@@ -7873,8 +7873,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x186
 	.byte	0xd
-	.quad	.LFB4382
-	.quad	.LFE4382-.LFB4382
+	.quad	.LFB4384
+	.quad	.LFE4384-.LFB4384
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56ed
@@ -7894,8 +7894,8 @@ DeallocateHeapArea:
 	.word	0x16a
 	.byte	0x18
 	.long	0x4d2c
-	.quad	.LFB4381
-	.quad	.LFE4381-.LFB4381
+	.quad	.LFB4383
+	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5780
@@ -7954,8 +7954,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x13c
 	.byte	0x16
-	.quad	.LFB4380
-	.quad	.LFE4380-.LFB4380
+	.quad	.LFB4382
+	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x57f0
@@ -7996,8 +7996,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.word	0x10e
 	.byte	0x16
-	.quad	.LFB4379
-	.quad	.LFE4379-.LFB4379
+	.quad	.LFB4381
+	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5861
@@ -8039,8 +8039,8 @@ DeallocateHeapArea:
 	.byte	0xfc
 	.byte	0x11
 	.long	0x4d2c
-	.quad	.LFB4378
-	.quad	.LFE4378-.LFB4378
+	.quad	.LFB4380
+	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x58df
@@ -8096,8 +8096,8 @@ DeallocateHeapArea:
 	.byte	0xe9
 	.byte	0x18
 	.long	0x4d2c
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5945
@@ -8143,8 +8143,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.byte	0xd9
 	.byte	0xd
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x59ac
@@ -8185,8 +8185,8 @@ DeallocateHeapArea:
 	.byte	0x4
 	.byte	0xc5
 	.byte	0x6
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a2a
@@ -8231,8 +8231,8 @@ DeallocateHeapArea:
 	.byte	0x9b
 	.byte	0xe
 	.long	0x509d
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b2a
@@ -8339,8 +8339,8 @@ DeallocateHeapArea:
 	.byte	0x34
 	.byte	0x14
 	.long	0x4f47
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5b97

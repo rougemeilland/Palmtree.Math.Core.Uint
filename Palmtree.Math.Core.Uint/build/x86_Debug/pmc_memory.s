@@ -257,7 +257,7 @@ LFE4239:
 	.comm	_number_one, 36, 5
 	.def	_CalculateCheckCode;	.scl	3;	.type	32;	.endef
 _CalculateCheckCode:
-LFB4242:
+LFB4244:
 	.file 4 "../pmc_memory.c"
 	.loc 4 53 1
 	.cfi_startproc
@@ -1148,11 +1148,11 @@ L21:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4242:
+LFE4244:
 	.globl	_AllocateBlock
 	.def	_AllocateBlock;	.scl	2;	.type	32;	.endef
 _AllocateBlock:
-LFB4243:
+LFB4245:
 	.loc 4 156 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1264,11 +1264,11 @@ L25:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4243:
+LFE4245:
 	.globl	_DeallocateBlock
 	.def	_DeallocateBlock;	.scl	2;	.type	32;	.endef
 _DeallocateBlock:
-LFB4244:
+LFB4246:
 	.loc 4 198 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1318,10 +1318,10 @@ LBE14:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4244:
+LFE4246:
 	.def	_CommitBlock;	.scl	3;	.type	32;	.endef
 _CommitBlock:
-LFB4245:
+LFB4247:
 	.loc 4 218 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1366,10 +1366,10 @@ LBE15:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4245:
+LFE4247:
 	.def	_CheckBlock;	.scl	3;	.type	32;	.endef
 _CheckBlock:
-LFB4246:
+LFB4248:
 	.loc 4 234 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1425,11 +1425,11 @@ L37:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4246:
+LFE4248:
 	.globl	_CheckBlockLight
 	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef
 _CheckBlockLight:
-LFB4247:
+LFB4249:
 	.loc 4 253 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1487,10 +1487,10 @@ L41:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4247:
+LFE4249:
 	.def	_ClearNumberHeader;	.scl	3;	.type	32;	.endef
 _ClearNumberHeader:
-LFB4248:
+LFB4250:
 	.loc 4 271 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1554,10 +1554,10 @@ LBE16:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4248:
+LFE4250:
 	.def	_FillNumberHeader;	.scl	3;	.type	32;	.endef
 _FillNumberHeader:
-LFB4249:
+LFB4251:
 	.loc 4 317 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1621,10 +1621,10 @@ LBE17:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4249:
+LFE4251:
 	.def	_InitializeNumber;	.scl	3;	.type	32;	.endef
 _InitializeNumber:
-LFB4250:
+LFB4252:
 	.loc 4 363 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1707,10 +1707,10 @@ L48:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4250:
+LFE4252:
 	.def	_CleanUpNumber;	.scl	3;	.type	32;	.endef
 _CleanUpNumber:
-LFB4251:
+LFB4253:
 	.loc 4 391 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1744,11 +1744,11 @@ L52:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4251:
+LFE4253:
 	.globl	_AttatchNumber
 	.def	_AttatchNumber;	.scl	2;	.type	32;	.endef
 _AttatchNumber:
-LFB4252:
+LFB4254:
 	.loc 4 400 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1786,11 +1786,11 @@ L55:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4252:
+LFE4254:
 	.globl	_AllocateNumber
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
 _AllocateNumber:
-LFB4253:
+LFB4255:
 	.loc 4 409 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1850,11 +1850,11 @@ L58:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4253:
+LFE4255:
 	.globl	_DetatchNumber
 	.def	_DetatchNumber;	.scl	2;	.type	32;	.endef
 _DetatchNumber:
-LFB4254:
+LFB4256:
 	.loc 4 422 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1888,11 +1888,11 @@ L60:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4254:
+LFE4256:
 	.globl	_DeallocateNumber
 	.def	_DeallocateNumber;	.scl	2;	.type	32;	.endef
 _DeallocateNumber:
-LFB4255:
+LFB4257:
 	.loc 4 429 1
 	.cfi_startproc
 	pushl	%ebp
@@ -1939,10 +1939,10 @@ L65:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4255:
+LFE4257:
 	.def	_GetEffectiveBitLength;	.scl	3;	.type	32;	.endef
 _GetEffectiveBitLength:
-LFB4256:
+LFB4258:
 	.loc 4 438 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2017,10 +2017,10 @@ L72:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4256:
+LFE4258:
 	.def	_GetTrailingZeroBitCount;	.scl	3;	.type	32;	.endef
 _GetTrailingZeroBitCount:
-LFB4257:
+LFB4259:
 	.loc 4 460 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2070,11 +2070,11 @@ L79:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4257:
+LFE4259:
 	.globl	_CommitNumber
 	.def	_CommitNumber;	.scl	2;	.type	32;	.endef
 _CommitNumber:
-LFB4258:
+LFB4260:
 	.loc 4 475 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2273,11 +2273,11 @@ L85:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4258:
+LFE4260:
 	.globl	_CheckNumber
 	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
 _CheckNumber:
-LFB4259:
+LFB4261:
 	.loc 4 508 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2353,11 +2353,11 @@ L89:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4259:
+LFE4261:
 	.globl	_DuplicateNumber
 	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
 _DuplicateNumber:
-LFB4260:
+LFB4262:
 	.loc 4 526 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2448,11 +2448,11 @@ L97:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4260:
+LFE4262:
 	.globl	_PMC_GetConstantValue_I@8
 	.def	_PMC_GetConstantValue_I@8;	.scl	2;	.type	32;	.endef
 _PMC_GetConstantValue_I@8:
-LFB4261:
+LFB4263:
 	.loc 4 549 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2489,11 +2489,11 @@ L102:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.cfi_endproc
-LFE4261:
+LFE4263:
 	.globl	_PMC_Dispose@4
 	.def	_PMC_Dispose@4;	.scl	2;	.type	32;	.endef
 _PMC_Dispose@4:
-LFB4262:
+LFB4264:
 	.loc 4 564 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2530,11 +2530,11 @@ L104:
 	.cfi_def_cfa 4, 4
 	ret	$4
 	.cfi_endproc
-LFE4262:
+LFE4264:
 	.globl	_Initialize_Memory
 	.def	_Initialize_Memory;	.scl	2;	.type	32;	.endef
 _Initialize_Memory:
-LFB4263:
+LFB4265:
 	.loc 4 574 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2612,11 +2612,11 @@ L111:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4263:
+LFE4265:
 	.globl	_AllocateHeapArea
 	.def	_AllocateHeapArea;	.scl	2;	.type	32;	.endef
 _AllocateHeapArea:
-LFB4264:
+LFB4266:
 	.loc 4 612 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2653,11 +2653,11 @@ L116:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4264:
+LFE4266:
 	.globl	_DeallocateHeapArea
 	.def	_DeallocateHeapArea;	.scl	2;	.type	32;	.endef
 _DeallocateHeapArea:
-LFB4265:
+LFB4267:
 	.loc 4 620 1
 	.cfi_startproc
 	pushl	%ebp
@@ -2688,7 +2688,7 @@ L119:
 	.cfi_def_cfa 4, 4
 	ret
 	.cfi_endproc
-LFE4265:
+LFE4267:
 Letext0:
 	.file 5 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 6 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -7086,8 +7086,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x26b
 	.byte	0x6
-	.long	LFB4265
-	.long	LFE4265-LFB4265
+	.long	LFB4267
+	.long	LFE4267-LFB4267
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5172
@@ -7101,8 +7101,8 @@ Ldebug_info0:
 	.word	0x263
 	.byte	0x6
 	.long	0x5bb
-	.long	LFB4264
-	.long	LFE4264-LFB4264
+	.long	LFB4266
+	.long	LFE4266-LFB4266
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51a4
@@ -7116,8 +7116,8 @@ Ldebug_info0:
 	.word	0x23d
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4263
-	.long	LFE4263-LFB4263
+	.long	LFB4265
+	.long	LFE4265-LFB4265
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5227
@@ -7167,8 +7167,8 @@ Ldebug_info0:
 	.word	0x233
 	.byte	0x23
 	.ascii "PMC_Dispose@4\0"
-	.long	LFB4262
-	.long	LFE4262-LFB4262
+	.long	LFB4264
+	.long	LFE4264-LFB4264
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5288
@@ -7210,8 +7210,8 @@ Ldebug_info0:
 	.byte	0x2e
 	.ascii "PMC_GetConstantValue_I@8\0"
 	.long	0x4d01
-	.long	LFB4261
-	.long	LFE4261-LFB4261
+	.long	LFB4263
+	.long	LFE4263-LFB4263
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x52f5
@@ -7240,8 +7240,8 @@ Ldebug_info0:
 	.word	0x20d
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4260
-	.long	LFE4260-LFB4260
+	.long	LFB4262
+	.long	LFE4262-LFB4262
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5370
@@ -7300,8 +7300,8 @@ Ldebug_info0:
 	.word	0x1fb
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4259
-	.long	LFE4259-LFB4259
+	.long	LFB4261
+	.long	LFE4261-LFB4261
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x53e0
@@ -7342,8 +7342,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x1da
 	.byte	0x6
-	.long	LFB4258
-	.long	LFE4258-LFB4258
+	.long	LFB4260
+	.long	LFE4260-LFB4260
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x540f
@@ -7363,8 +7363,8 @@ Ldebug_info0:
 	.word	0x1cb
 	.byte	0x14
 	.long	0x4f16
-	.long	LFB4257
-	.long	LFE4257-LFB4257
+	.long	LFB4259
+	.long	LFE4259-LFB4259
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x546d
@@ -7402,8 +7402,8 @@ Ldebug_info0:
 	.word	0x1b5
 	.byte	0x14
 	.long	0x4f16
-	.long	LFB4256
-	.long	LFE4256-LFB4256
+	.long	LFB4258
+	.long	LFE4258-LFB4258
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x54da
@@ -7440,8 +7440,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x1ac
 	.byte	0x6
-	.long	LFB4255
-	.long	LFE4255-LFB4255
+	.long	LFB4257
+	.long	LFE4257-LFB4257
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5516
@@ -7463,8 +7463,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x1a5
 	.byte	0x6
-	.long	LFB4254
-	.long	LFE4254-LFB4254
+	.long	LFB4256
+	.long	LFE4256-LFB4256
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5546
@@ -7484,8 +7484,8 @@ Ldebug_info0:
 	.word	0x198
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4253
-	.long	LFE4253-LFB4253
+	.long	LFB4255
+	.long	LFE4255-LFB4255
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x55c3
@@ -7544,8 +7544,8 @@ Ldebug_info0:
 	.word	0x18f
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4252
-	.long	LFE4252-LFB4252
+	.long	LFB4254
+	.long	LFE4254-LFB4254
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5617
@@ -7582,8 +7582,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x186
 	.byte	0xd
-	.long	LFB4251
-	.long	LFE4251-LFB4251
+	.long	LFB4253
+	.long	LFE4253-LFB4253
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5647
@@ -7603,8 +7603,8 @@ Ldebug_info0:
 	.word	0x16a
 	.byte	0x18
 	.long	0x4d01
-	.long	LFB4250
-	.long	LFE4250-LFB4250
+	.long	LFB4252
+	.long	LFE4252-LFB4252
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x56ca
@@ -7663,8 +7663,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x13c
 	.byte	0x16
-	.long	LFB4249
-	.long	LFE4249-LFB4249
+	.long	LFB4251
+	.long	LFE4251-LFB4251
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5717
@@ -7696,8 +7696,8 @@ Ldebug_info0:
 	.byte	0x4
 	.word	0x10e
 	.byte	0x16
-	.long	LFB4248
-	.long	LFE4248-LFB4248
+	.long	LFB4250
+	.long	LFE4250-LFB4250
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5765
@@ -7730,8 +7730,8 @@ Ldebug_info0:
 	.byte	0xfc
 	.byte	0x11
 	.long	0x4d01
-	.long	LFB4247
-	.long	LFE4247-LFB4247
+	.long	LFB4249
+	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x57db
@@ -7787,8 +7787,8 @@ Ldebug_info0:
 	.byte	0xe9
 	.byte	0x18
 	.long	0x4d01
-	.long	LFB4246
-	.long	LFE4246-LFB4246
+	.long	LFB4248
+	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5839
@@ -7834,8 +7834,8 @@ Ldebug_info0:
 	.byte	0x4
 	.byte	0xd9
 	.byte	0xd
-	.long	LFB4245
-	.long	LFE4245-LFB4245
+	.long	LFB4247
+	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5890
@@ -7876,8 +7876,8 @@ Ldebug_info0:
 	.byte	0x4
 	.byte	0xc5
 	.byte	0x6
-	.long	LFB4244
-	.long	LFE4244-LFB4244
+	.long	LFB4246
+	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x58fa
@@ -7922,8 +7922,8 @@ Ldebug_info0:
 	.byte	0x9b
 	.byte	0xe
 	.long	0x506c
-	.long	LFB4243
-	.long	LFE4243-LFB4243
+	.long	LFB4245
+	.long	LFE4245-LFB4245
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x59d9
@@ -8021,8 +8021,8 @@ Ldebug_info0:
 	.byte	0x34
 	.byte	0x14
 	.long	0x4f16
-	.long	LFB4242
-	.long	LFE4242-LFB4242
+	.long	LFB4244
+	.long	LFE4244-LFB4244
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a3e

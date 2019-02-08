@@ -97,7 +97,7 @@ _LZCNT_ALT_UNIT:
 	.def	Compare_Imp;	.scl	2;	.type	32;	.endef
 	.seh_proc	Compare_Imp
 Compare_Imp:
-.LFB4373:
+.LFB4375:
 	.file 2 "../pmc_compare.c"
 	.loc 2 32 1
 	.cfi_startproc
@@ -167,12 +167,12 @@ Compare_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.def	PMC_Compare_X_I_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_Compare_X_I_Imp
 PMC_Compare_X_I_Imp:
-.LFB4374:
+.LFB4376:
 	.loc 2 54 1
 	.cfi_startproc
 	pushq	%rbp
@@ -307,13 +307,13 @@ PMC_Compare_X_I_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.globl	PMC_Compare_I_X
 	.def	PMC_Compare_I_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Compare_I_X
 PMC_Compare_I_X:
-.LFB4375:
+.LFB4377:
 	.loc 2 104 1
 	.cfi_startproc
 	pushq	%rbp
@@ -379,13 +379,13 @@ PMC_Compare_I_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.globl	PMC_Compare_X_I
 	.def	PMC_Compare_X_I;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Compare_X_I
 PMC_Compare_X_I:
-.LFB4376:
+.LFB4378:
 	.loc 2 124 1
 	.cfi_startproc
 	pushq	%rbp
@@ -447,12 +447,12 @@ PMC_Compare_X_I:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.def	PMC_Compare_X_L_Imp;	.scl	3;	.type	32;	.endef
 	.seh_proc	PMC_Compare_X_L_Imp
 PMC_Compare_X_L_Imp:
-.LFB4377:
+.LFB4379:
 	.loc 2 144 1
 	.cfi_startproc
 	pushq	%rbp
@@ -583,13 +583,13 @@ PMC_Compare_X_L_Imp:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 	.globl	PMC_Compare_L_X
 	.def	PMC_Compare_L_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Compare_L_X
 PMC_Compare_L_X:
-.LFB4378:
+.LFB4380:
 	.loc 2 262 1
 	.cfi_startproc
 	pushq	%rbp
@@ -655,13 +655,13 @@ PMC_Compare_L_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4378:
+.LFE4380:
 	.seh_endproc
 	.globl	PMC_Compare_X_L
 	.def	PMC_Compare_X_L;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Compare_X_L
 PMC_Compare_X_L:
-.LFB4379:
+.LFB4381:
 	.loc 2 282 1
 	.cfi_startproc
 	pushq	%rbp
@@ -723,13 +723,13 @@ PMC_Compare_X_L:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4379:
+.LFE4381:
 	.seh_endproc
 	.globl	PMC_Compare_X_X
 	.def	PMC_Compare_X_X;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_Compare_X_X
 PMC_Compare_X_X:
-.LFB4380:
+.LFB4382:
 	.loc 2 302 1
 	.cfi_startproc
 	pushq	%rbp
@@ -887,13 +887,13 @@ PMC_Compare_X_X:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4380:
+.LFE4382:
 	.seh_endproc
 	.globl	Initialize_Compare
 	.def	Initialize_Compare;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_Compare
 Initialize_Compare:
-.LFB4381:
+.LFB4383:
 	.loc 2 348 1
 	.cfi_startproc
 	pushq	%rbp
@@ -913,7 +913,7 @@ Initialize_Compare:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4381:
+.LFE4383:
 	.seh_endproc
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -5086,8 +5086,8 @@ Initialize_Compare:
 	.word	0x15b
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4381
-	.quad	.LFE4381-.LFB4381
+	.quad	.LFB4383
+	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4e67
@@ -5110,8 +5110,8 @@ Initialize_Compare:
 	.word	0x12d
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4380
-	.quad	.LFE4380-.LFB4380
+	.quad	.LFB4382
+	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4f27
@@ -5201,8 +5201,8 @@ Initialize_Compare:
 	.word	0x119
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4379
-	.quad	.LFE4379-.LFB4379
+	.quad	.LFB4381
+	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x4fa7
@@ -5258,8 +5258,8 @@ Initialize_Compare:
 	.word	0x105
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4378
-	.quad	.LFE4378-.LFB4378
+	.quad	.LFB4380
+	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5021
@@ -5314,8 +5314,8 @@ Initialize_Compare:
 	.byte	0x2
 	.byte	0x8f
 	.byte	0xd
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x50e7
@@ -5412,8 +5412,8 @@ Initialize_Compare:
 	.byte	0x7b
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x515b
@@ -5469,8 +5469,8 @@ Initialize_Compare:
 	.byte	0x67
 	.byte	0x11
 	.long	0x4a3f
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x51cf
@@ -5525,8 +5525,8 @@ Initialize_Compare:
 	.byte	0x2
 	.byte	0x35
 	.byte	0xd
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5249
@@ -5585,8 +5585,8 @@ Initialize_Compare:
 	.byte	0x1f
 	.byte	0xa
 	.long	0x499c
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x529f

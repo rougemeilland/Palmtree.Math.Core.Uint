@@ -47,20 +47,39 @@ PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count
     PMC_STATUS_CODE result;
     if (buffer == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
+    if (count < 1)
+        return (PMC_STATUS_ARGUMENT_ERROR);
     if (o == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
-    __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer, count);
-    if (bit_count == 0)
-        *o = (PMC_HANDLE_UINT)&number_zero;
-    else
+    unsigned char header = buffer[0];
+    unsigned char sign = header & 0x03;
+    unsigned char header_reserved = header & 0xfc;
+    if (header_reserved != 0)
+        return (PMC_STATUS_ARGUMENT_ERROR);
+    if (sign == 0)
     {
-        NUMBER_HEADER* p;
-        if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
-            return (result);
-        _COPY_MEMORY_BYTE(p->BLOCK, buffer, _DIVIDE_CEILING_SIZE(bit_count, 8));
-        CommitNumber(p);
-        *o = (PMC_HANDLE_UINT)p;
+        if (count != 1)
+            return (PMC_STATUS_ARGUMENT_ERROR);
+        *o = (PMC_HANDLE_UINT)&number_zero;
     }
+    else if (sign == 1)
+    {
+        __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
+        if (bit_count == 0)
+            *o = (PMC_HANDLE_UINT)&number_zero;
+        else
+        {
+            NUMBER_HEADER* p;
+            if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
+                return (result);
+            _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
+            CommitNumber(p);
+            *o = (PMC_HANDLE_UINT)p;
+        }
+    }
+    else
+        return (PMC_STATUS_ARGUMENT_ERROR);
+
 #ifdef _DEBUG
     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
         return (result);
@@ -76,15 +95,18 @@ PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buf
     PMC_STATUS_CODE result;
     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
         return (result);
-    size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
+    size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8) + 1;
     if (buffer != NULL)
     {
-        if (np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+        if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
             return (PMC_STATUS_INSUFFICIENT_BUFFER);
         if (np->IS_ZERO)
             buffer[0] = 0;
         else
-            _COPY_MEMORY_BYTE(buffer, np->BLOCK, expected_buffer_size);
+        {
+            buffer[0] = 1;
+            _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_buffer_size - 1);
+        }
     }
     *count = expected_buffer_size;
     return (PMC_STATUS_OK);

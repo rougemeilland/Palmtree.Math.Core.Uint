@@ -455,7 +455,7 @@ _MULTIPLYX_UNIT:
 	.def	StartsWith;	.scl	3;	.type	32;	.endef
 	.seh_proc	StartsWith
 StartsWith:
-.LFB4373:
+.LFB4375:
 	.file 5 "../pmc_parse.c"
 	.loc 5 55 1
 	.cfi_startproc
@@ -505,12 +505,12 @@ StartsWith:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4373:
+.LFE4375:
 	.seh_endproc
 	.def	InitializeParserState;	.scl	3;	.type	32;	.endef
 	.seh_proc	InitializeParserState
 InitializeParserState:
-.LFB4374:
+.LFB4376:
 	.loc 5 67 1
 	.cfi_startproc
 	pushq	%rbp
@@ -676,12 +676,12 @@ InitializeParserState:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4374:
+.LFE4376:
 	.seh_endproc
 	.def	FinalizeParserState;	.scl	3;	.type	32;	.endef
 	.seh_proc	FinalizeParserState
 FinalizeParserState:
-.LFB4375:
+.LFB4377:
 	.loc 5 95 1
 	.cfi_startproc
 	pushq	%rbp
@@ -719,12 +719,12 @@ FinalizeParserState:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4375:
+.LFE4377:
 	.seh_endproc
 	.def	SkipSpace;	.scl	3;	.type	32;	.endef
 	.seh_proc	SkipSpace
 SkipSpace:
-.LFB4376:
+.LFB4378:
 	.loc 5 103 1
 	.cfi_startproc
 	pushq	%rbp
@@ -769,12 +769,12 @@ SkipSpace:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4376:
+.LFE4378:
 	.seh_endproc
 	.def	ParseAsIntegerPartNumberSequence;	.scl	3;	.type	32;	.endef
 	.seh_proc	ParseAsIntegerPartNumberSequence
 ParseAsIntegerPartNumberSequence:
-.LFB4377:
+.LFB4379:
 	.loc 5 124 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1007,12 +1007,12 @@ ParseAsIntegerPartNumberSequence:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4377:
+.LFE4379:
 	.seh_endproc
 	.def	ParseAsFractionPartNumberSequence;	.scl	3;	.type	32;	.endef
 	.seh_proc	ParseAsFractionPartNumberSequence
 ParseAsFractionPartNumberSequence:
-.LFB4378:
+.LFB4380:
 	.loc 5 155 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1170,12 +1170,12 @@ ParseAsFractionPartNumberSequence:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4378:
+.LFE4380:
 	.seh_endproc
 	.def	ParseAsDecimalNumberString;	.scl	3;	.type	32;	.endef
 	.seh_proc	ParseAsDecimalNumberString
 ParseAsDecimalNumberString:
-.LFB4379:
+.LFB4381:
 	.loc 5 183 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1703,12 +1703,12 @@ ParseAsDecimalNumberString:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4379:
+.LFE4381:
 	.seh_endproc
 	.def	ParseAsHexNumberString;	.scl	3;	.type	32;	.endef
 	.seh_proc	ParseAsHexNumberString
 ParseAsHexNumberString:
-.LFB4380:
+.LFB4382:
 	.loc 5 280 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1788,12 +1788,12 @@ ParseAsHexNumberString:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4380:
+.LFE4382:
 	.seh_endproc
 	.def	BuildLeading1WordFromDecimalString;	.scl	3;	.type	32;	.endef
 	.seh_proc	BuildLeading1WordFromDecimalString
 BuildLeading1WordFromDecimalString:
-.LFB4381:
+.LFB4383:
 	.loc 5 295 1
 	.cfi_startproc
 	pushq	%rbp
@@ -1848,12 +1848,12 @@ BuildLeading1WordFromDecimalString:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4381:
+.LFE4383:
 	.seh_endproc
 	.def	Build1WordFromDecimalString;	.scl	3;	.type	32;	.endef
 	.seh_proc	Build1WordFromDecimalString
 Build1WordFromDecimalString:
-.LFB4382:
+.LFB4384:
 	.loc 5 306 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2248,12 +2248,12 @@ Build1WordFromDecimalString:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4382:
+.LFE4384:
 	.seh_endproc
 	.def	BuildBinaryFromDecimalString;	.scl	3;	.type	32;	.endef
 	.seh_proc	BuildBinaryFromDecimalString
 BuildBinaryFromDecimalString:
-.LFB4383:
+.LFB4385:
 	.loc 5 343 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2368,12 +2368,12 @@ BuildBinaryFromDecimalString:
 	.cfi_def_cfa 7, -56
 	ret
 	.cfi_endproc
-.LFE4383:
+.LFE4385:
 	.seh_endproc
 	.def	MultiplyAndAdd1Word_using_ADC_MUL;	.scl	3;	.type	32;	.endef
 	.seh_proc	MultiplyAndAdd1Word_using_ADC_MUL
 MultiplyAndAdd1Word_using_ADC_MUL:
-.LFB4384:
+.LFB4386:
 	.loc 5 371 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2434,12 +2434,12 @@ MultiplyAndAdd1Word_using_ADC_MUL:
 	.cfi_def_cfa 7, -56
 	ret
 	.cfi_endproc
-.LFE4384:
+.LFE4386:
 	.seh_endproc
 	.def	MultiplyAndAdd1Word_using_ADCX_MULX;	.scl	3;	.type	32;	.endef
 	.seh_proc	MultiplyAndAdd1Word_using_ADCX_MULX
 MultiplyAndAdd1Word_using_ADCX_MULX:
-.LFB4385:
+.LFB4387:
 	.loc 5 386 1
 	.cfi_startproc
 	pushq	%rbp
@@ -2500,12 +2500,12 @@ MultiplyAndAdd1Word_using_ADCX_MULX:
 	.cfi_def_cfa 7, -56
 	ret
 	.cfi_endproc
-.LFE4385:
+.LFE4387:
 	.seh_endproc
 	.def	MultiplyAndAdd_using_ADC_MUL;	.scl	3;	.type	32;	.endef
 	.seh_proc	MultiplyAndAdd_using_ADC_MUL
 MultiplyAndAdd_using_ADC_MUL:
-.LFB4386:
+.LFB4388:
 	.loc 5 401 1
 	.cfi_startproc
 	pushq	%rbp
@@ -3409,12 +3409,12 @@ MultiplyAndAdd_using_ADC_MUL:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4386:
+.LFE4388:
 	.seh_endproc
 	.def	MultiplyAndAdd_using_ADCX_MULX;	.scl	3;	.type	32;	.endef
 	.seh_proc	MultiplyAndAdd_using_ADCX_MULX
 MultiplyAndAdd_using_ADCX_MULX:
-.LFB4387:
+.LFB4389:
 	.loc 5 544 1
 	.cfi_startproc
 	pushq	%rbp
@@ -4318,12 +4318,12 @@ MultiplyAndAdd_using_ADCX_MULX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4387:
+.LFE4389:
 	.seh_endproc
 	.def	ConvertCardinalNumber;	.scl	3;	.type	32;	.endef
 	.seh_proc	ConvertCardinalNumber
 ConvertCardinalNumber:
-.LFB4388:
+.LFB4390:
 	.loc 5 687 1
 	.cfi_startproc
 	pushq	%rbp
@@ -4432,12 +4432,12 @@ ConvertCardinalNumber:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4388:
+.LFE4390:
 	.seh_endproc
 	.def	TryParseDN;	.scl	3;	.type	32;	.endef
 	.seh_proc	TryParseDN
 TryParseDN:
-.LFB4389:
+.LFB4391:
 	.loc 5 715 1
 	.cfi_startproc
 	pushq	%rbp
@@ -4915,12 +4915,12 @@ TryParseDN:
 	.cfi_def_cfa 7, -200
 	ret
 	.cfi_endproc
-.LFE4389:
+.LFE4391:
 	.seh_endproc
 	.def	Parse1DigitFromHexChar;	.scl	3;	.type	32;	.endef
 	.seh_proc	Parse1DigitFromHexChar
 Parse1DigitFromHexChar:
-.LFB4390:
+.LFB4392:
 	.loc 5 859 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5030,12 +5030,12 @@ Parse1DigitFromHexChar:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4390:
+.LFE4392:
 	.seh_endproc
 	.def	BuildLeading1WordFromHexString;	.scl	3;	.type	32;	.endef
 	.seh_proc	BuildLeading1WordFromHexString
 BuildLeading1WordFromHexString:
-.LFB4391:
+.LFB4393:
 	.loc 5 893 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5106,12 +5106,12 @@ BuildLeading1WordFromHexString:
 	.cfi_def_cfa 7, -40
 	ret
 	.cfi_endproc
-.LFE4391:
+.LFE4393:
 	.seh_endproc
 	.def	Build1WordFromHexString;	.scl	3;	.type	32;	.endef
 	.seh_proc	Build1WordFromHexString
 Build1WordFromHexString:
-.LFB4392:
+.LFB4394:
 	.loc 5 907 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5424,12 +5424,12 @@ Build1WordFromHexString:
 	.cfi_def_cfa 7, -40
 	ret
 	.cfi_endproc
-.LFE4392:
+.LFE4394:
 	.seh_endproc
 	.def	BuildBinaryFromHexString;	.scl	3;	.type	32;	.endef
 	.seh_proc	BuildBinaryFromHexString
 BuildBinaryFromHexString:
-.LFB4393:
+.LFB4395:
 	.loc 5 940 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5546,12 +5546,12 @@ BuildBinaryFromHexString:
 	.cfi_def_cfa 7, -56
 	ret
 	.cfi_endproc
-.LFE4393:
+.LFE4395:
 	.seh_endproc
 	.def	TryParseX;	.scl	3;	.type	32;	.endef
 	.seh_proc	TryParseX
 TryParseX:
-.LFB4394:
+.LFB4396:
 	.loc 5 961 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5712,13 +5712,13 @@ TryParseX:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4394:
+.LFE4396:
 	.seh_endproc
 	.globl	PMC_TryParse
 	.def	PMC_TryParse;	.scl	2;	.type	32;	.endef
 	.seh_proc	PMC_TryParse
 PMC_TryParse:
-.LFB4395:
+.LFB4397:
 	.loc 5 993 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5841,7 +5841,7 @@ PMC_TryParse:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4395:
+.LFE4397:
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 2
@@ -5863,7 +5863,7 @@ PMC_TryParse:
 	.def	Initialize_Parse;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_Parse
 Initialize_Parse:
-.LFB4396:
+.LFB4398:
 	.loc 5 1028 1
 	.cfi_startproc
 	pushq	%rbp
@@ -5940,7 +5940,7 @@ Initialize_Parse:
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE4396:
+.LFE4398:
 	.seh_endproc
 .Letext0:
 	.file 6 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
@@ -10532,8 +10532,8 @@ Initialize_Parse:
 	.word	0x403
 	.byte	0x11
 	.long	0x4d11
-	.quad	.LFB4396
-	.quad	.LFE4396-.LFB4396
+	.quad	.LFB4398
+	.quad	.LFE4398-.LFB4398
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x54c2
@@ -10571,8 +10571,8 @@ Initialize_Parse:
 	.word	0x3e0
 	.byte	0x11
 	.long	0x4d11
-	.quad	.LFB4395
-	.quad	.LFE4395-.LFB4395
+	.quad	.LFB4397
+	.quad	.LFE4397-.LFB4397
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5575
@@ -10653,8 +10653,8 @@ Initialize_Parse:
 	.word	0x3c0
 	.byte	0x18
 	.long	0x4d11
-	.quad	.LFB4394
-	.quad	.LFE4394-.LFB4394
+	.quad	.LFB4396
+	.quad	.LFE4396-.LFB4396
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x568d
@@ -10781,8 +10781,8 @@ Initialize_Parse:
 	.byte	0x5
 	.word	0x3ab
 	.byte	0xd
-	.quad	.LFB4393
-	.quad	.LFE4393-.LFB4393
+	.quad	.LFB4395
+	.quad	.LFE4395-.LFB4395
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5747
@@ -10859,8 +10859,8 @@ Initialize_Parse:
 	.word	0x38a
 	.byte	0x14
 	.long	0x5017
-	.quad	.LFB4392
-	.quad	.LFE4392-.LFB4392
+	.quad	.LFB4394
+	.quad	.LFE4394-.LFB4394
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x579d
@@ -10889,8 +10889,8 @@ Initialize_Parse:
 	.word	0x37c
 	.byte	0x14
 	.long	0x5017
-	.quad	.LFB4391
-	.quad	.LFE4391-.LFB4391
+	.quad	.LFB4393
+	.quad	.LFE4393-.LFB4393
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x580a
@@ -10928,8 +10928,8 @@ Initialize_Parse:
 	.word	0x35a
 	.byte	0x12
 	.long	0x4c7f
-	.quad	.LFB4390
-	.quad	.LFE4390-.LFB4390
+	.quad	.LFB4392
+	.quad	.LFE4392-.LFB4392
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x584f
@@ -10949,8 +10949,8 @@ Initialize_Parse:
 	.word	0x2ca
 	.byte	0x18
 	.long	0x4d11
-	.quad	.LFB4389
-	.quad	.LFE4389-.LFB4389
+	.quad	.LFB4391
+	.quad	.LFE4391-.LFB4391
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5a9f
@@ -11191,8 +11191,8 @@ Initialize_Parse:
 	.word	0x2ae
 	.byte	0x18
 	.long	0x4d11
-	.quad	.LFB4388
-	.quad	.LFE4388-.LFB4388
+	.quad	.LFB4390
+	.quad	.LFE4390-.LFB4390
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5bab
@@ -11288,8 +11288,8 @@ Initialize_Parse:
 	.word	0x21f
 	.byte	0x15
 	.long	0x516d
-	.quad	.LFB4387
-	.quad	.LFE4387-.LFB4387
+	.quad	.LFB4389
+	.quad	.LFE4389-.LFB4389
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5c3c
@@ -11345,8 +11345,8 @@ Initialize_Parse:
 	.word	0x190
 	.byte	0x15
 	.long	0x516d
-	.quad	.LFB4386
-	.quad	.LFE4386-.LFB4386
+	.quad	.LFB4388
+	.quad	.LFE4388-.LFB4388
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5ccb
@@ -11402,8 +11402,8 @@ Initialize_Parse:
 	.word	0x181
 	.byte	0x1d
 	.long	0x5017
-	.quad	.LFB4385
-	.quad	.LFE4385-.LFB4385
+	.quad	.LFB4387
+	.quad	.LFE4387-.LFB4387
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5d6f
@@ -11468,8 +11468,8 @@ Initialize_Parse:
 	.word	0x172
 	.byte	0x1d
 	.long	0x5017
-	.quad	.LFB4384
-	.quad	.LFE4384-.LFB4384
+	.quad	.LFB4386
+	.quad	.LFE4386-.LFB4386
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5e11
@@ -11533,8 +11533,8 @@ Initialize_Parse:
 	.byte	0x5
 	.word	0x156
 	.byte	0xd
-	.quad	.LFB4383
-	.quad	.LFE4383-.LFB4383
+	.quad	.LFB4385
+	.quad	.LFE4385-.LFB4385
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5ee3
@@ -11620,8 +11620,8 @@ Initialize_Parse:
 	.word	0x131
 	.byte	0x14
 	.long	0x5017
-	.quad	.LFB4382
-	.quad	.LFE4382-.LFB4382
+	.quad	.LFB4384
+	.quad	.LFE4384-.LFB4384
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5f3d
@@ -11650,8 +11650,8 @@ Initialize_Parse:
 	.word	0x126
 	.byte	0x14
 	.long	0x5017
-	.quad	.LFB4381
-	.quad	.LFE4381-.LFB4381
+	.quad	.LFB4383
+	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x5fae
@@ -11689,8 +11689,8 @@ Initialize_Parse:
 	.word	0x117
 	.byte	0xc
 	.long	0x139
-	.quad	.LFB4380
-	.quad	.LFE4380-.LFB4380
+	.quad	.LFB4382
+	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x6036
@@ -11746,8 +11746,8 @@ Initialize_Parse:
 	.byte	0xb6
 	.byte	0xc
 	.long	0x139
-	.quad	.LFB4379
-	.quad	.LFE4379-.LFB4379
+	.quad	.LFB4381
+	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x60db
@@ -11820,8 +11820,8 @@ Initialize_Parse:
 	.byte	0x5
 	.byte	0x9a
 	.byte	0xd
-	.quad	.LFB4378
-	.quad	.LFE4378-.LFB4378
+	.quad	.LFB4380
+	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x6127
@@ -11843,8 +11843,8 @@ Initialize_Parse:
 	.byte	0x5
 	.byte	0x7b
 	.byte	0xd
-	.quad	.LFB4377
-	.quad	.LFE4377-.LFB4377
+	.quad	.LFB4379
+	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x6178
@@ -11863,8 +11863,8 @@ Initialize_Parse:
 	.byte	0x5
 	.byte	0x66
 	.byte	0xd
-	.quad	.LFB4376
-	.quad	.LFE4376-.LFB4376
+	.quad	.LFB4378
+	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x61ac
@@ -11883,8 +11883,8 @@ Initialize_Parse:
 	.byte	0x5
 	.byte	0x5e
 	.byte	0xd
-	.quad	.LFB4375
-	.quad	.LFE4375-.LFB4375
+	.quad	.LFB4377
+	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x61ea
@@ -11903,8 +11903,8 @@ Initialize_Parse:
 	.byte	0x5
 	.byte	0x42
 	.byte	0xd
-	.quad	.LFB4374
-	.quad	.LFE4374-.LFB4374
+	.quad	.LFB4376
+	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x62dd
@@ -11993,8 +11993,8 @@ Initialize_Parse:
 	.byte	0x36
 	.byte	0xc
 	.long	0x139
-	.quad	.LFB4373
-	.quad	.LFE4373-.LFB4373
+	.quad	.LFB4375
+	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x6321

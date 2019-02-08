@@ -88483,6 +88483,46 @@ _wrpkru (unsigned int __key)
 # 774 "../pmc_inline_func.h"
         return (x);
     }
+
+
+    __inline static _UINT32_T GET_ABS_32(_INT32_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT32_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT32_T)u == 0x80000000U ? 0x80000000U : (_UINT32_T)-u);
+        }
+}
+
+
+    __inline static _UINT64_T GET_ABS_64(_INT64_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT64_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT64_T)u == 0x8000000000000000UL ? 0x8000000000000000UL : (_UINT64_T)-u);
+        }
+    }
 # 29 "../pmc_bytes.c" 2
 
 
@@ -88509,28 +88549,47 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArray(unsigned char* bu
 # 48 "../pmc_bytes.c"
                      )
         return ((-1));
+    if (count < 1)
+        return ((-1));
     if (o == 
-# 50 "../pmc_bytes.c" 3 4
+# 52 "../pmc_bytes.c" 3 4
             ((void *)0)
-# 50 "../pmc_bytes.c"
+# 52 "../pmc_bytes.c"
                 )
         return ((-1));
-    __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer, count);
-    if (bit_count == 0)
-        *o = (PMC_HANDLE_UINT)&number_zero;
-    else
+    unsigned char header = buffer[0];
+    unsigned char sign = header & 0x03;
+    unsigned char header_reserved = header & 0xfc;
+    if (header_reserved != 0)
+        return ((-1));
+    if (sign == 0)
     {
-        NUMBER_HEADER* p;
-        if ((result = AllocateNumber(&p, bit_count, 
-# 58 "../pmc_bytes.c" 3 4
-                                                   ((void *)0)
-# 58 "../pmc_bytes.c"
-                                                       )) != (0))
-            return (result);
-        _COPY_MEMORY_BYTE(p->BLOCK, buffer, _DIVIDE_CEILING_SIZE(bit_count, 8));
-        CommitNumber(p);
-        *o = (PMC_HANDLE_UINT)p;
+        if (count != 1)
+            return ((-1));
+        *o = (PMC_HANDLE_UINT)&number_zero;
     }
+    else if (sign == 1)
+    {
+        __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
+        if (bit_count == 0)
+            *o = (PMC_HANDLE_UINT)&number_zero;
+        else
+        {
+            NUMBER_HEADER* p;
+            if ((result = AllocateNumber(&p, bit_count, 
+# 73 "../pmc_bytes.c" 3 4
+                                                       ((void *)0)
+# 73 "../pmc_bytes.c"
+                                                           )) != (0))
+                return (result);
+            _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
+            CommitNumber(p);
+            *o = (PMC_HANDLE_UINT)p;
+        }
+    }
+    else
+        return ((-1));
+
 
     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != (0))
         return (result);
@@ -88541,28 +88600,31 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArray(unsigned char* bu
 PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count)
 {
     if (p == 
-# 73 "../pmc_bytes.c" 3 4
+# 92 "../pmc_bytes.c" 3 4
             ((void *)0)
-# 73 "../pmc_bytes.c"
+# 92 "../pmc_bytes.c"
                 )
         return ((-1));
     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
     PMC_STATUS_CODE result;
     if ((result = CheckNumber(np)) != (0))
         return (result);
-    size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
+    size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8) + 1;
     if (buffer != 
-# 80 "../pmc_bytes.c" 3 4
+# 99 "../pmc_bytes.c" 3 4
                  ((void *)0)
-# 80 "../pmc_bytes.c"
+# 99 "../pmc_bytes.c"
                      )
     {
-        if (np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+        if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
             return ((-4));
         if (np->IS_ZERO)
             buffer[0] = 0;
         else
-            _COPY_MEMORY_BYTE(buffer, np->BLOCK, expected_buffer_size);
+        {
+            buffer[0] = 1;
+            _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_buffer_size - 1);
+        }
     }
     *count = expected_buffer_size;
     return ((0));
