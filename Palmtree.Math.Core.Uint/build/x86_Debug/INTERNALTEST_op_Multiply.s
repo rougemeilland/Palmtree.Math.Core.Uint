@@ -94,48 +94,48 @@ LFE4210:
 __EQUALS_MEMORY:
 LFB4244:
 	.file 3 "../pmc_uint_debug.h"
-	.loc 3 147 1
+	.loc 3 153 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
-	.loc 3 148 8
+	.loc 3 154 8
 	movl	12(%ebp), %eax
 	cmpl	20(%ebp), %eax
 	je	L7
-	.loc 3 149 16
+	.loc 3 155 16
 	movl	$-1, %eax
 	jmp	L6
 L9:
-	.loc 3 152 13
+	.loc 3 158 13
 	movl	8(%ebp), %eax
 	movzbl	(%eax), %edx
-	.loc 3 152 25
+	.loc 3 158 25
 	movl	16(%ebp), %eax
 	movzbl	(%eax), %eax
-	.loc 3 152 12
+	.loc 3 158 12
 	cmpb	%al, %dl
 	je	L8
-	.loc 3 153 20
+	.loc 3 159 20
 	movl	$-1, %eax
 	jmp	L6
 L8:
-	.loc 3 154 9
+	.loc 3 160 9
 	addl	$1, 8(%ebp)
-	.loc 3 155 9
+	.loc 3 161 9
 	addl	$1, 16(%ebp)
-	.loc 3 156 9
+	.loc 3 162 9
 	subl	$1, 12(%ebp)
 L7:
-	.loc 3 150 11
+	.loc 3 156 11
 	cmpl	$0, 12(%ebp)
 	jne	L9
-	.loc 3 158 12
+	.loc 3 164 12
 	movl	$0, %eax
 L6:
-	.loc 3 159 1
+	.loc 3 165 1
 	popl	%ebp
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -5585,7 +5585,7 @@ Ldebug_info0:
 	.uleb128 0x16
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x5a1a
 	.uleb128 0x6
@@ -5819,7 +5819,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.ascii "_EQUALS_MEMORY\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x15
 	.long	0xf0
 	.long	LFB4244
@@ -5830,7 +5830,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.ascii "buffer1\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x33
 	.long	0x737
 	.uleb128 0x2
@@ -5839,7 +5839,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.ascii "count1\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x43
 	.long	0xd1
 	.uleb128 0x2
@@ -5848,7 +5848,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.ascii "buffer2\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x5a
 	.long	0x737
 	.uleb128 0x2
@@ -5857,7 +5857,7 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.ascii "count2\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x6a
 	.long	0xd1
 	.uleb128 0x2

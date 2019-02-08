@@ -117,27 +117,6 @@ LBE8:
 	ret
 	.cfi_endproc
 LFE4200:
-	.def	__MAXIMUM_UNIT;	.scl	3;	.type	32;	.endef
-__MAXIMUM_UNIT:
-LFB4211:
-	.loc 1 197 5
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	movl	%esp, %ebp
-	.cfi_def_cfa_register 5
-	.loc 1 198 28
-	movl	12(%ebp), %eax
-	cmpl	%eax, 8(%ebp)
-	cmovnb	8(%ebp), %eax
-	.loc 1 199 5
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret
-	.cfi_endproc
-LFE4211:
 	.def	__LZCNT_ALT_UNIT;	.scl	3;	.type	32;	.endef
 __LZCNT_ALT_UNIT:
 LFB4235:
@@ -151,11 +130,11 @@ LFB4235:
 	subl	$16, %esp
 	.loc 1 624 12
 	cmpl	$0, 8(%ebp)
-	jne	L6
+	jne	L4
 	.loc 1 625 20
 	movl	$32, %eax
-	jmp	L7
-L6:
+	jmp	L5
+L4:
 	.loc 1 631 9
 /APP
  # 631 "../pmc_inline_func.h" 1
@@ -166,7 +145,7 @@ L6:
 	.loc 1 648 35
 	movl	$31, %eax
 	subl	-4(%ebp), %eax
-L7:
+L5:
 	.loc 1 649 5
 	leave
 	.cfi_restore 5
@@ -189,19 +168,19 @@ LFB4246:
 	.loc 3 82 8
 	movl	12(%ebp), %eax
 	cmpl	20(%ebp), %eax
-	jbe	L9
+	jbe	L7
 	.loc 3 83 16
 	movl	$1, %eax
-	jmp	L10
-L9:
+	jmp	L8
+L7:
 	.loc 3 84 13
 	movl	12(%ebp), %eax
 	cmpl	20(%ebp), %eax
-	jnb	L11
+	jnb	L9
 	.loc 3 85 16
 	movl	$-1, %eax
-	jmp	L10
-L11:
+	jmp	L8
+L9:
 	.loc 3 87 17
 	movl	12(%ebp), %eax
 	movl	%eax, 8(%esp)
@@ -210,7 +189,7 @@ L11:
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_Compare_Imp
-L10:
+L8:
 	.loc 3 88 1
 	leave
 	.cfi_restore 5
@@ -274,7 +253,7 @@ LFB4248:
 	movl	12(%eax), %eax
 	.loc 3 101 8
 	cmpl	%eax, %edx
-	jnb	L14
+	jnb	L12
 	.loc 3 103 23
 	movl	16(%ebp), %eax
 	movl	%eax, 4(%esp)
@@ -284,124 +263,84 @@ LFB4248:
 	movl	%eax, -12(%ebp)
 	.loc 3 103 12
 	cmpl	$0, -12(%ebp)
-	je	L15
+	je	L13
 	.loc 3 104 20
 	movl	-12(%ebp), %eax
-	jmp	L16
-L14:
+	jmp	L14
+L12:
 LBB10:
 	.loc 3 110 35
 	movl	12(%ebp), %eax
 	movl	12(%eax), %eax
-	leal	-24(%ebp), %edx
+	leal	-20(%ebp), %edx
 	movl	%edx, 8(%esp)
-	leal	-28(%ebp), %edx
+	leal	-24(%ebp), %edx
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, -16(%ebp)
 	.loc 3 111 12
 	cmpl	$0, -16(%ebp)
-	jne	L17
-	.loc 3 113 20
+	jne	L15
+	.loc 3 112 20
 	movl	$-5, %eax
-	jmp	L16
-L17:
-	.loc 3 117 45
-	movl	8(%ebp), %eax
-	movl	12(%eax), %edx
-	.loc 3 117 65
-	movl	12(%ebp), %eax
-	movl	12(%eax), %eax
-	.loc 3 117 62
-	subl	%eax, %edx
-	movl	%edx, %eax
-	.loc 3 117 30
-	leal	33(%eax), %edx
-	leal	-32(%ebp), %eax
-	movl	%eax, 8(%esp)
-	leal	-36(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	%edx, (%esp)
-	call	_AllocateBlock
-	movl	%eax, -20(%ebp)
-	.loc 3 118 12
-	cmpl	$0, -20(%ebp)
-	jne	L19
-	.loc 3 120 13
-	movl	-28(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-16(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 121 20
-	movl	$-5, %eax
-	jmp	L16
-L19:
-	.loc 3 124 42
+	jmp	L14
+L15:
+	.loc 3 114 42
 	movl	8(%ebp), %eax
 	movl	12(%eax), %eax
-	.loc 3 124 23
+	.loc 3 114 23
 	leal	32(%eax), %edx
-	leal	-40(%ebp), %eax
+	leal	-28(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	%edx, 4(%esp)
 	movl	16(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	movl	%eax, -12(%ebp)
-	.loc 3 124 12
+	.loc 3 114 12
 	cmpl	$0, -12(%ebp)
-	je	L20
-	.loc 3 126 13
-	movl	-36(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-20(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 127 13
-	movl	-28(%ebp), %eax
+	je	L17
+	.loc 3 116 13
+	movl	-24(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 128 20
+	.loc 3 117 20
 	movl	$-5, %eax
-	jmp	L16
-L20:
-	.loc 3 131 14
+	jmp	L14
+L17:
+	.loc 3 120 14
 	movl	8(%ebp), %eax
 	movl	8(%eax), %edx
-	.loc 3 131 35
+	.loc 3 120 35
 	movl	12(%ebp), %eax
 	movl	8(%eax), %eax
-	.loc 3 131 12
+	.loc 3 120 12
 	cmpl	%eax, %edx
-	jnb	L21
-	.loc 3 133 22
-	movl	-20(%ebp), %eax
-	movl	$0, (%eax)
-	.loc 3 134 13
+	jnb	L18
+	.loc 3 121 13
 	movl	8(%ebp), %eax
 	movl	8(%eax), %ecx
-	.loc 3 134 45
+	.loc 3 121 45
 	movl	8(%ebp), %eax
 	movl	32(%eax), %edx
-	.loc 3 134 32
+	.loc 3 121 32
 	movl	16(%ebp), %eax
 	movl	(%eax), %eax
-	.loc 3 134 13
+	.loc 3 121 13
 	movl	32(%eax), %eax
 	movl	%ecx, 8(%esp)
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__COPY_MEMORY_UNIT
-	jmp	L22
-L21:
-	.loc 3 138 104
+	jmp	L19
+L18:
+	.loc 3 124 102
 	movl	16(%ebp), %eax
 	movl	(%eax), %eax
-	.loc 3 138 13
+	.loc 3 124 13
 	movl	32(%eax), %esi
 	movl	12(%ebp), %eax
 	movl	8(%eax), %ebx
@@ -412,8 +351,7 @@ L21:
 	movl	8(%ebp), %eax
 	movl	32(%eax), %eax
 	movl	%esi, 24(%esp)
-	movl	-20(%ebp), %esi
-	movl	%esi, 20(%esp)
+	movl	$0, 20(%esp)
 	movl	-16(%ebp), %esi
 	movl	%esi, 16(%esp)
 	movl	%ebx, 12(%esp)
@@ -421,75 +359,55 @@ L21:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_DivRem_X_X
-	.loc 3 139 27
-	movl	-24(%ebp), %eax
+	.loc 3 125 27
+	movl	-20(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, -12(%ebp)
-	.loc 3 139 16
+	.loc 3 125 16
 	cmpl	$0, -12(%ebp)
-	je	L23
-	.loc 3 140 24
+	je	L20
+	.loc 3 126 24
 	movl	-12(%ebp), %eax
-	jmp	L16
-L23:
-	.loc 3 141 27
-	movl	-32(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-20(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	movl	%eax, -12(%ebp)
-	.loc 3 141 16
-	cmpl	$0, -12(%ebp)
-	je	L24
-	.loc 3 142 24
-	movl	-12(%ebp), %eax
-	jmp	L16
-L24:
-	.loc 3 143 27
-	movl	-40(%ebp), %edx
-	.loc 3 143 44
+	jmp	L14
+L20:
+	.loc 3 127 27
+	movl	-28(%ebp), %edx
+	.loc 3 127 44
 	movl	16(%ebp), %eax
 	movl	(%eax), %eax
-	.loc 3 143 27
+	.loc 3 127 27
 	movl	32(%eax), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, -12(%ebp)
-	.loc 3 143 16
+	.loc 3 127 16
 	cmpl	$0, -12(%ebp)
-	je	L22
-	.loc 3 144 24
+	je	L19
+	.loc 3 128 24
 	movl	-12(%ebp), %eax
-	jmp	L16
-L22:
-	.loc 3 147 9
-	movl	-36(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-20(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 148 9
-	movl	-28(%ebp), %eax
+	jmp	L14
+L19:
+	.loc 3 131 9
+	movl	-24(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-16(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 149 9
+	.loc 3 132 9
 	movl	16(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
-L15:
+L13:
 LBE10:
-	.loc 3 151 12
+	.loc 3 134 12
 	movl	$0, %eax
-L16:
-	.loc 3 152 1
+L14:
+	.loc 3 135 1
 	addl	$64, %esp
 	popl	%ebx
 	.cfi_restore 3
@@ -504,257 +422,191 @@ LFE4248:
 	.def	_ModulePower;	.scl	3;	.type	32;	.endef
 _ModulePower:
 LFB4249:
-	.loc 3 155 1
+	.loc 3 138 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
-	subl	$184, %esp
-	.loc 3 160 18
+	subl	$168, %esp
+	.loc 3 143 18
 	movl	16(%ebp), %eax
 	movl	32(%eax), %eax
 	movl	%eax, -28(%ebp)
-	.loc 3 161 17
+	.loc 3 144 17
 	movl	16(%ebp), %eax
 	movl	8(%eax), %eax
 	movl	%eax, -32(%ebp)
-	.loc 3 165 34
+	.loc 3 148 34
 	movl	8(%ebp), %eax
 	movl	8(%eax), %eax
-	.loc 3 165 80
+	.loc 3 148 80
 	addl	$1, %eax
-	.loc 3 165 17
+	.loc 3 148 17
 	sall	$5, %eax
 	movl	%eax, -36(%ebp)
-	.loc 3 168 28
-	leal	-92(%ebp), %eax
+	.loc 3 151 28
+	leal	-84(%ebp), %eax
 	movl	%eax, 8(%esp)
-	leal	-96(%ebp), %eax
+	leal	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-36(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, -40(%ebp)
-	.loc 3 169 8
+	.loc 3 152 8
 	cmpl	$0, -40(%ebp)
-	jne	L26
-	.loc 3 171 16
+	jne	L22
+	.loc 3 154 16
 	movl	$-5, %eax
-	jmp	L70
-L26:
-	.loc 3 174 48
+	jmp	L62
+L22:
+	.loc 3 157 48
 	movl	-32(%ebp), %eax
 	sall	$6, %eax
-	.loc 3 174 17
+	.loc 3 157 17
 	addl	$32, %eax
 	movl	%eax, -44(%ebp)
-	.loc 3 177 31
-	leal	-100(%ebp), %eax
+	.loc 3 160 31
+	leal	-92(%ebp), %eax
 	movl	%eax, 8(%esp)
-	leal	-104(%ebp), %eax
+	leal	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-44(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, -48(%ebp)
-	.loc 3 178 8
+	.loc 3 161 8
 	cmpl	$0, -48(%ebp)
-	jne	L28
-	.loc 3 180 9
-	movl	-96(%ebp), %eax
+	jne	L24
+	.loc 3 163 9
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 181 16
+	.loc 3 164 16
 	movl	$-5, %eax
-	jmp	L70
-L28:
-	.loc 3 184 48
+	jmp	L62
+L24:
+	.loc 3 167 48
 	movl	-32(%ebp), %eax
 	sall	$6, %eax
-	.loc 3 184 17
+	.loc 3 167 17
 	addl	$32, %eax
 	movl	%eax, -52(%ebp)
-	.loc 3 187 31
-	leal	-108(%ebp), %eax
+	.loc 3 170 31
+	leal	-100(%ebp), %eax
 	movl	%eax, 8(%esp)
-	leal	-112(%ebp), %eax
+	leal	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-52(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, -56(%ebp)
-	.loc 3 188 8
+	.loc 3 171 8
 	cmpl	$0, -56(%ebp)
-	jne	L29
-	.loc 3 190 9
-	movl	-104(%ebp), %eax
+	jne	L25
+	.loc 3 173 9
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 191 9
-	movl	-96(%ebp), %eax
+	.loc 3 174 9
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 192 16
+	.loc 3 175 16
 	movl	$-5, %eax
-	jmp	L70
-L29:
-	.loc 3 195 17
+	jmp	L62
+L25:
+	.loc 3 178 17
 	movl	-32(%ebp), %eax
 	sall	$5, %eax
 	movl	%eax, -60(%ebp)
-	.loc 3 198 31
-	leal	-116(%ebp), %eax
+	.loc 3 181 31
+	leal	-108(%ebp), %eax
 	movl	%eax, 8(%esp)
-	leal	-120(%ebp), %eax
+	leal	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-60(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, -64(%ebp)
-	.loc 3 199 8
+	.loc 3 182 8
 	cmpl	$0, -64(%ebp)
-	jne	L30
-	.loc 3 201 9
-	movl	-112(%ebp), %eax
+	jne	L26
+	.loc 3 184 9
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 202 9
-	movl	-104(%ebp), %eax
+	.loc 3 185 9
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 203 9
-	movl	-96(%ebp), %eax
+	.loc 3 186 9
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 204 16
+	.loc 3 187 16
 	movl	$-5, %eax
-	jmp	L70
-L30:
-	.loc 3 207 69
+	jmp	L62
+L26:
+	.loc 3 190 17
 	movl	16(%ebp), %eax
 	movl	12(%eax), %eax
-	.loc 3 207 35
-	leal	(%eax,%eax), %edx
-	movl	8(%ebp), %eax
-	movl	12(%eax), %eax
-	movl	%edx, 4(%esp)
-	movl	%eax, (%esp)
-	call	__MAXIMUM_UNIT
-	movl	%eax, %edx
-	.loc 3 207 94
-	movl	16(%ebp), %eax
-	movl	12(%eax), %eax
-	.loc 3 207 91
-	subl	%eax, %edx
-	movl	%edx, %eax
-	.loc 3 207 17
-	addl	$33, %eax
 	movl	%eax, -68(%ebp)
-	.loc 3 210 26
-	leal	-124(%ebp), %eax
+	.loc 3 192 19
+	leal	-116(%ebp), %eax
 	movl	%eax, 8(%esp)
-	leal	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
 	movl	-68(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateBlock
-	movl	%eax, -72(%ebp)
-	.loc 3 211 8
-	cmpl	$0, -72(%ebp)
-	jne	L31
-	.loc 3 213 9
-	movl	-120(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-64(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 214 9
-	movl	-112(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-56(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 215 9
-	movl	-104(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-48(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 216 9
-	movl	-96(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-40(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 217 16
-	movl	$-5, %eax
-	jmp	L70
-L31:
-	.loc 3 220 17
-	movl	16(%ebp), %eax
-	movl	12(%eax), %eax
-	movl	%eax, -76(%ebp)
-	.loc 3 222 19
-	leal	-132(%ebp), %eax
-	movl	%eax, 8(%esp)
-	movl	-76(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	20(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateNumber
-	movl	%eax, -80(%ebp)
-	.loc 3 222 8
-	cmpl	$0, -80(%ebp)
-	je	L32
-	.loc 3 224 9
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 225 9
-	movl	-120(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 192 8
+	cmpl	$0, -72(%ebp)
+	je	L27
+	.loc 3 194 9
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 226 9
-	movl	-112(%ebp), %eax
+	.loc 3 195 9
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 227 9
-	movl	-104(%ebp), %eax
+	.loc 3 196 9
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 228 9
-	movl	-96(%ebp), %eax
+	.loc 3 197 9
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 229 16
+	.loc 3 198 16
 	movl	$-5, %eax
-	jmp	L70
-L32:
-	.loc 3 233 15
+	jmp	L62
+L27:
+	.loc 3 202 15
 	movl	8(%ebp), %eax
 	movl	8(%eax), %edx
 	movl	8(%ebp), %eax
@@ -766,64 +618,57 @@ L32:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_Compare_Easy
-	movl	%eax, -84(%ebp)
-	.loc 3 234 8
-	cmpl	$0, -84(%ebp)
-	jne	L33
-	.loc 3 240 9
+	movl	%eax, -76(%ebp)
+	.loc 3 203 8
+	cmpl	$0, -76(%ebp)
+	jne	L28
+	.loc 3 209 9
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	.loc 3 241 9
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 242 9
-	movl	-120(%ebp), %eax
+	.loc 3 210 9
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 243 9
-	movl	-112(%ebp), %eax
+	.loc 3 211 9
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 244 9
-	movl	-104(%ebp), %eax
+	.loc 3 212 9
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 245 9
-	movl	-96(%ebp), %eax
+	.loc 3 213 9
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 246 12
+	.loc 3 214 12
 	movl	20(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 3 250 16
+	.loc 3 218 16
 	movl	$0, %eax
-	jmp	L70
-L33:
-	.loc 3 252 13
-	cmpl	$0, -84(%ebp)
-	jle	L34
-	.loc 3 258 9
+	jmp	L62
+L28:
+	.loc 3 220 13
+	cmpl	$0, -76(%ebp)
+	jle	L29
+	.loc 3 226 9
 	movl	8(%ebp), %eax
 	movl	8(%eax), %edx
 	movl	8(%ebp), %eax
 	movl	32(%eax), %eax
 	movl	-40(%ebp), %ecx
 	movl	%ecx, 24(%esp)
-	movl	-72(%ebp), %ecx
-	movl	%ecx, 20(%esp)
+	movl	$0, 20(%esp)
 	movl	-64(%ebp), %ecx
 	movl	%ecx, 16(%esp)
 	movl	-32(%ebp), %ecx
@@ -833,155 +678,135 @@ L33:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_DivRem_X_X
-	.loc 3 259 23
-	movl	-116(%ebp), %eax
+	.loc 3 227 23
+	movl	-108(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 259 12
-	cmpl	$0, -80(%ebp)
-	je	L35
-	.loc 3 260 20
-	movl	-80(%ebp), %eax
-	jmp	L70
-L35:
-	.loc 3 261 23
-	movl	-124(%ebp), %eax
-	movl	%eax, 4(%esp)
+	movl	%eax, -72(%ebp)
+	.loc 3 227 12
+	cmpl	$0, -72(%ebp)
+	je	L30
+	.loc 3 228 20
 	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 261 12
-	cmpl	$0, -80(%ebp)
-	je	L36
-	.loc 3 262 20
-	movl	-80(%ebp), %eax
-	jmp	L70
-L36:
-	.loc 3 263 23
-	movl	-92(%ebp), %eax
+	jmp	L62
+L30:
+	.loc 3 229 23
+	movl	-84(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 263 12
-	cmpl	$0, -80(%ebp)
-	je	L37
-	.loc 3 264 20
-	movl	-80(%ebp), %eax
-	jmp	L70
-L37:
-	.loc 3 265 17
+	movl	%eax, -72(%ebp)
+	.loc 3 229 12
+	cmpl	$0, -72(%ebp)
+	je	L31
+	.loc 3 230 20
+	movl	-72(%ebp), %eax
+	jmp	L62
+L31:
+	.loc 3 231 17
 	movl	-32(%ebp), %eax
 	movl	%eax, -12(%ebp)
-	.loc 3 266 15
-	jmp	L38
-L40:
-	.loc 3 267 13
+	.loc 3 232 15
+	jmp	L32
+L34:
+	.loc 3 233 13
 	subl	$1, -12(%ebp)
-L38:
-	.loc 3 266 15
+L32:
+	.loc 3 232 15
 	cmpl	$0, -12(%ebp)
-	je	L39
-	.loc 3 266 38 discriminator 1
+	je	L33
+	.loc 3 232 38 discriminator 1
 	movl	-12(%ebp), %eax
 	addl	$1073741823, %eax
 	leal	0(,%eax,4), %edx
 	movl	-40(%ebp), %eax
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 266 28 discriminator 1
+	.loc 3 232 28 discriminator 1
 	testl	%eax, %eax
-	je	L40
-L39:
-	.loc 3 269 12
+	je	L34
+L33:
+	.loc 3 235 12
 	cmpl	$0, -12(%ebp)
-	jne	L41
-	.loc 3 272 13
+	jne	L35
+	.loc 3 238 13
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	.loc 3 273 13
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 274 13
-	movl	-120(%ebp), %eax
+	.loc 3 239 13
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 275 13
-	movl	-112(%ebp), %eax
+	.loc 3 240 13
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 276 13
-	movl	-104(%ebp), %eax
+	.loc 3 241 13
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 277 13
-	movl	-96(%ebp), %eax
+	.loc 3 242 13
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 278 16
+	.loc 3 243 16
 	movl	20(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 3 282 20
+	.loc 3 247 20
 	movl	$0, %eax
-	jmp	L70
-L34:
-	.loc 3 289 9
+	jmp	L62
+L29:
+	.loc 3 254 9
 	movl	8(%ebp), %eax
 	movl	8(%eax), %edx
-	.loc 3 289 37
+	.loc 3 254 37
 	movl	8(%ebp), %eax
 	movl	32(%eax), %eax
-	.loc 3 289 9
+	.loc 3 254 9
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__COPY_MEMORY_UNIT
-	.loc 3 290 17
+	.loc 3 255 17
 	movl	8(%ebp), %eax
 	movl	8(%eax), %eax
 	movl	%eax, -12(%ebp)
-L41:
-	.loc 3 297 17
+L35:
+	.loc 3 262 17
 	movl	12(%ebp), %eax
 	movl	8(%eax), %eax
 	movl	%eax, -16(%ebp)
-	.loc 3 298 17
+	.loc 3 263 17
 	movl	$-2147483648, -20(%ebp)
-	.loc 3 299 41
+	.loc 3 264 41
 	movl	12(%ebp), %eax
 	movl	32(%eax), %eax
-	.loc 3 299 48
+	.loc 3 264 48
 	movl	-16(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
-	.loc 3 299 24
+	.loc 3 264 24
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	__LZCNT_ALT_UNIT
-	.loc 3 299 12
+	.loc 3 264 12
 	movl	%eax, %ecx
 	shrl	%cl, -20(%ebp)
-	.loc 3 302 5
+	.loc 3 267 5
 	movl	-32(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	-40(%ebp), %eax
@@ -989,63 +814,63 @@ L41:
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__COPY_MEMORY_UNIT
-	.loc 3 305 20
+	.loc 3 270 20
 	movl	12(%ebp), %eax
 	movl	32(%eax), %eax
-	.loc 3 305 27
+	.loc 3 270 27
 	movl	-16(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 305 17
+	.loc 3 270 17
 	andl	-20(%ebp), %eax
-	.loc 3 305 8
+	.loc 3 270 8
 	testl	%eax, %eax
-	jne	L42
-	.loc 3 306 9
+	jne	L36
+	.loc 3 271 9
 	movl	$0, %eax
-	.loc 3 306 20
+	.loc 3 271 20
 	movl	$0, (%eax)
-L42:
-	.loc 3 309 18
+L36:
+	.loc 3 274 18
 	movl	-48(%ebp), %eax
-	movl	%eax, -136(%ebp)
-	.loc 3 310 18
+	movl	%eax, -120(%ebp)
+	.loc 3 275 18
 	movl	-40(%ebp), %eax
-	movl	%eax, -88(%ebp)
-	.loc 3 311 18
+	movl	%eax, -80(%ebp)
+	.loc 3 276 18
 	movl	-56(%ebp), %eax
-	movl	%eax, -140(%ebp)
-	.loc 3 312 17
+	movl	%eax, -124(%ebp)
+	.loc 3 277 17
 	movl	-12(%ebp), %eax
 	movl	%eax, -24(%ebp)
-	.loc 3 314 11
-	jmp	L43
-L68:
-	.loc 3 323 16
+	.loc 3 279 11
+	jmp	L37
+L60:
+	.loc 3 288 16
 	shrl	-20(%ebp)
-	.loc 3 324 12
+	.loc 3 289 12
 	cmpl	$0, -20(%ebp)
-	jne	L44
-	.loc 3 326 20
+	jne	L38
+	.loc 3 291 20
 	movl	$-2147483648, -20(%ebp)
-	.loc 3 327 13
+	.loc 3 292 13
 	subl	$1, -16(%ebp)
-L44:
-	.loc 3 330 12
+L38:
+	.loc 3 295 12
 	cmpl	$0, -16(%ebp)
-	je	L71
-	.loc 3 344 9
-	movl	-104(%ebp), %edx
-	movl	-140(%ebp), %eax
+	je	L63
+	.loc 3 309 9
+	movl	-96(%ebp), %edx
+	movl	-124(%ebp), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 345 9
-	movl	-140(%ebp), %ecx
-	movl	-136(%ebp), %edx
-	movl	-136(%ebp), %eax
+	.loc 3 310 9
+	movl	-124(%ebp), %ecx
+	movl	-120(%ebp), %edx
+	movl	-120(%ebp), %eax
 	movl	%ecx, 16(%esp)
 	movl	-24(%ebp), %ecx
 	movl	%ecx, 12(%esp)
@@ -1054,83 +879,76 @@ L44:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_Multiply_X_X_Imp
-	.loc 3 346 23
-	movl	-100(%ebp), %eax
+	.loc 3 311 23
+	movl	-92(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 346 12
-	cmpl	$0, -80(%ebp)
-	je	L47
-	.loc 3 347 20
-	movl	-80(%ebp), %eax
-	jmp	L70
-L47:
-	.loc 3 348 23
-	movl	-108(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 311 12
+	cmpl	$0, -72(%ebp)
+	je	L41
+	.loc 3 312 20
+	movl	-72(%ebp), %eax
+	jmp	L62
+L41:
+	.loc 3 313 23
+	movl	-100(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 348 12
-	cmpl	$0, -80(%ebp)
-	je	L48
-	.loc 3 349 20
-	movl	-80(%ebp), %eax
-	jmp	L70
-L48:
-	.loc 3 350 9
-	leal	-140(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 313 12
+	cmpl	$0, -72(%ebp)
+	je	L42
+	.loc 3 314 20
+	movl	-72(%ebp), %eax
+	jmp	L62
+L42:
+	.loc 3 315 9
+	leal	-124(%ebp), %eax
 	movl	%eax, 4(%esp)
-	leal	-136(%ebp), %eax
+	leal	-120(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_SwapPointer
-	.loc 3 351 17
+	.loc 3 316 17
 	sall	-24(%ebp)
-	.loc 3 352 18
-	movl	-136(%ebp), %eax
+	.loc 3 317 18
+	movl	-120(%ebp), %eax
 	movl	-24(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 352 12
+	.loc 3 317 12
 	testl	%eax, %eax
-	jne	L49
-	.loc 3 353 13
+	jne	L43
+	.loc 3 318 13
 	subl	$1, -24(%ebp)
-L49:
-	.loc 3 364 12
+L43:
+	.loc 3 329 12
 	movl	-24(%ebp), %eax
 	cmpl	-32(%ebp), %eax
-	jb	L50
-	.loc 3 366 13
-	movl	-120(%ebp), %eax
+	jb	L44
+	.loc 3 331 13
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 367 13
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	__ZERO_MEMORY_UNIT
-	.loc 3 368 13
-	movl	-104(%ebp), %edx
-	movl	-140(%ebp), %eax
+	.loc 3 332 13
+	movl	-96(%ebp), %edx
+	movl	-124(%ebp), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 369 13
-	movl	-140(%ebp), %edx
-	movl	-136(%ebp), %eax
+	.loc 3 333 13
+	movl	-124(%ebp), %edx
+	movl	-120(%ebp), %eax
 	movl	%edx, 24(%esp)
-	movl	-72(%ebp), %edx
-	movl	%edx, 20(%esp)
+	movl	$0, 20(%esp)
 	movl	-64(%ebp), %edx
 	movl	%edx, 16(%esp)
 	movl	-32(%ebp), %edx
@@ -1141,246 +959,219 @@ L49:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_DivRem_X_X
-	.loc 3 370 27
-	movl	-116(%ebp), %eax
+	.loc 3 334 27
+	movl	-108(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 370 16
-	cmpl	$0, -80(%ebp)
-	je	L51
-	.loc 3 371 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L51:
-	.loc 3 372 27
-	movl	-124(%ebp), %eax
-	movl	%eax, 4(%esp)
+	movl	%eax, -72(%ebp)
+	.loc 3 334 16
+	cmpl	$0, -72(%ebp)
+	je	L45
+	.loc 3 335 24
 	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 372 16
-	cmpl	$0, -80(%ebp)
-	je	L52
-	.loc 3 373 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L52:
-	.loc 3 374 27
-	movl	-100(%ebp), %eax
+	jmp	L62
+L45:
+	.loc 3 336 27
+	movl	-92(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 374 16
-	cmpl	$0, -80(%ebp)
-	je	L53
-	.loc 3 375 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L53:
-	.loc 3 376 27
-	movl	-108(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 336 16
+	cmpl	$0, -72(%ebp)
+	je	L46
+	.loc 3 337 24
+	movl	-72(%ebp), %eax
+	jmp	L62
+L46:
+	.loc 3 338 27
+	movl	-100(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 376 16
-	cmpl	$0, -80(%ebp)
-	je	L54
-	.loc 3 377 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L54:
-	.loc 3 378 13
-	leal	-140(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 338 16
+	cmpl	$0, -72(%ebp)
+	je	L47
+	.loc 3 339 24
+	movl	-72(%ebp), %eax
+	jmp	L62
+L47:
+	.loc 3 340 13
+	leal	-124(%ebp), %eax
 	movl	%eax, 4(%esp)
-	leal	-136(%ebp), %eax
+	leal	-120(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_SwapPointer
-	.loc 3 379 21
+	.loc 3 341 21
 	movl	-32(%ebp), %eax
 	movl	%eax, -24(%ebp)
-	.loc 3 380 19
-	jmp	L55
-L57:
-	.loc 3 381 17
+	.loc 3 342 19
+	jmp	L48
+L50:
+	.loc 3 343 17
 	subl	$1, -24(%ebp)
-L55:
-	.loc 3 380 19
+L48:
+	.loc 3 342 19
 	cmpl	$0, -24(%ebp)
-	je	L56
-	.loc 3 380 40 discriminator 1
-	movl	-136(%ebp), %eax
+	je	L49
+	.loc 3 342 40 discriminator 1
+	movl	-120(%ebp), %eax
 	movl	-24(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 380 32 discriminator 1
+	.loc 3 342 32 discriminator 1
 	testl	%eax, %eax
-	je	L57
-L56:
-	.loc 3 383 16
+	je	L50
+L49:
+	.loc 3 345 16
 	cmpl	$0, -24(%ebp)
-	jne	L50
-	.loc 3 386 17
+	jne	L44
+	.loc 3 348 17
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	.loc 3 387 17
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 388 17
-	movl	-120(%ebp), %eax
+	.loc 3 349 17
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 389 17
-	movl	-112(%ebp), %eax
+	.loc 3 350 17
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 390 17
-	movl	-104(%ebp), %eax
+	.loc 3 351 17
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 391 17
-	movl	-96(%ebp), %eax
+	.loc 3 352 17
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 392 20
+	.loc 3 353 20
 	movl	20(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 3 396 24
+	.loc 3 357 24
 	movl	$0, %eax
-	jmp	L70
-L50:
-	.loc 3 410 23
+	jmp	L62
+L44:
+	.loc 3 371 23
 	movl	12(%ebp), %eax
 	movl	32(%eax), %eax
-	.loc 3 410 30
+	.loc 3 371 30
 	movl	-16(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 410 20
+	.loc 3 371 20
 	andl	-20(%ebp), %eax
-	.loc 3 410 12
+	.loc 3 371 12
 	testl	%eax, %eax
-	je	L43
-	.loc 3 421 13
-	movl	-104(%ebp), %edx
-	movl	-140(%ebp), %eax
+	je	L37
+	.loc 3 382 13
+	movl	-96(%ebp), %edx
+	movl	-124(%ebp), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 422 13
-	movl	-140(%ebp), %edx
-	movl	-136(%ebp), %eax
+	.loc 3 383 13
+	movl	-124(%ebp), %edx
+	movl	-120(%ebp), %eax
 	movl	%edx, 16(%esp)
 	movl	-12(%ebp), %edx
 	movl	%edx, 12(%esp)
-	movl	-88(%ebp), %edx
+	movl	-80(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	-24(%ebp), %edx
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_Multiply_X_X_Imp
-	.loc 3 423 27
-	movl	-100(%ebp), %eax
+	.loc 3 384 27
+	movl	-92(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 423 16
-	cmpl	$0, -80(%ebp)
-	je	L58
-	.loc 3 424 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L58:
-	.loc 3 425 27
-	movl	-108(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 384 16
+	cmpl	$0, -72(%ebp)
+	je	L51
+	.loc 3 385 24
+	movl	-72(%ebp), %eax
+	jmp	L62
+L51:
+	.loc 3 386 27
+	movl	-100(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 425 16
-	cmpl	$0, -80(%ebp)
-	je	L59
-	.loc 3 426 24
-	movl	-80(%ebp), %eax
-	jmp	L70
-L59:
-	.loc 3 427 13
-	leal	-140(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 386 16
+	cmpl	$0, -72(%ebp)
+	je	L52
+	.loc 3 387 24
+	movl	-72(%ebp), %eax
+	jmp	L62
+L52:
+	.loc 3 388 13
+	leal	-124(%ebp), %eax
 	movl	%eax, 4(%esp)
-	leal	-136(%ebp), %eax
+	leal	-120(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_SwapPointer
-	.loc 3 428 21
+	.loc 3 389 21
 	movl	-12(%ebp), %eax
 	addl	%eax, -24(%ebp)
-	.loc 3 429 22
-	movl	-136(%ebp), %eax
+	.loc 3 390 22
+	movl	-120(%ebp), %eax
 	movl	-24(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 429 16
+	.loc 3 390 16
 	testl	%eax, %eax
-	jne	L60
-	.loc 3 430 17
+	jne	L53
+	.loc 3 391 17
 	subl	$1, -24(%ebp)
-L60:
-	.loc 3 442 16
+L53:
+	.loc 3 403 16
 	movl	-24(%ebp), %eax
 	cmpl	-32(%ebp), %eax
-	jb	L43
-	.loc 3 444 17
-	movl	-120(%ebp), %eax
+	jb	L37
+	.loc 3 405 17
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 445 17
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	__ZERO_MEMORY_UNIT
-	.loc 3 446 17
-	movl	-104(%ebp), %edx
-	movl	-140(%ebp), %eax
+	.loc 3 406 17
+	movl	-96(%ebp), %edx
+	movl	-124(%ebp), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__ZERO_MEMORY_UNIT
-	.loc 3 447 17
-	movl	-140(%ebp), %edx
-	movl	-136(%ebp), %eax
+	.loc 3 407 17
+	movl	-124(%ebp), %edx
+	movl	-120(%ebp), %eax
 	movl	%edx, 24(%esp)
-	movl	-72(%ebp), %edx
-	movl	%edx, 20(%esp)
+	movl	$0, 20(%esp)
 	movl	-64(%ebp), %edx
 	movl	%edx, 16(%esp)
 	movl	-32(%ebp), %edx
@@ -1391,213 +1182,187 @@ L60:
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_DivRem_X_X
-	.loc 3 448 31
-	movl	-116(%ebp), %eax
+	.loc 3 408 31
+	movl	-108(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 448 20
-	cmpl	$0, -80(%ebp)
-	je	L61
-	.loc 3 449 28
-	movl	-80(%ebp), %eax
-	jmp	L70
-L61:
-	.loc 3 450 31
-	movl	-124(%ebp), %eax
-	movl	%eax, 4(%esp)
+	movl	%eax, -72(%ebp)
+	.loc 3 408 20
+	cmpl	$0, -72(%ebp)
+	je	L54
+	.loc 3 409 28
 	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 450 20
-	cmpl	$0, -80(%ebp)
-	je	L62
-	.loc 3 451 28
-	movl	-80(%ebp), %eax
-	jmp	L70
-L62:
-	.loc 3 452 31
-	movl	-100(%ebp), %eax
+	jmp	L62
+L54:
+	.loc 3 410 31
+	movl	-92(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 452 20
-	cmpl	$0, -80(%ebp)
-	je	L63
-	.loc 3 453 28
-	movl	-80(%ebp), %eax
-	jmp	L70
-L63:
-	.loc 3 454 31
-	movl	-108(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 410 20
+	cmpl	$0, -72(%ebp)
+	je	L55
+	.loc 3 411 28
+	movl	-72(%ebp), %eax
+	jmp	L62
+L55:
+	.loc 3 412 31
+	movl	-100(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 454 20
-	cmpl	$0, -80(%ebp)
-	je	L64
-	.loc 3 455 28
-	movl	-80(%ebp), %eax
-	jmp	L70
-L64:
-	.loc 3 456 17
-	leal	-140(%ebp), %eax
+	movl	%eax, -72(%ebp)
+	.loc 3 412 20
+	cmpl	$0, -72(%ebp)
+	je	L56
+	.loc 3 413 28
+	movl	-72(%ebp), %eax
+	jmp	L62
+L56:
+	.loc 3 414 17
+	leal	-124(%ebp), %eax
 	movl	%eax, 4(%esp)
-	leal	-136(%ebp), %eax
+	leal	-120(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_SwapPointer
-	.loc 3 457 25
+	.loc 3 415 25
 	movl	-32(%ebp), %eax
 	movl	%eax, -24(%ebp)
-	.loc 3 458 23
-	jmp	L65
-L67:
-	.loc 3 459 21
+	.loc 3 416 23
+	jmp	L57
+L59:
+	.loc 3 417 21
 	subl	$1, -24(%ebp)
-L65:
-	.loc 3 458 23
+L57:
+	.loc 3 416 23
 	cmpl	$0, -24(%ebp)
-	je	L66
-	.loc 3 458 44 discriminator 1
-	movl	-136(%ebp), %eax
+	je	L58
+	.loc 3 416 44 discriminator 1
+	movl	-120(%ebp), %eax
 	movl	-24(%ebp), %edx
 	addl	$1073741823, %edx
 	sall	$2, %edx
 	addl	%edx, %eax
 	movl	(%eax), %eax
-	.loc 3 458 36 discriminator 1
+	.loc 3 416 36 discriminator 1
 	testl	%eax, %eax
-	je	L67
-L66:
-	.loc 3 461 20
+	je	L59
+L58:
+	.loc 3 419 20
 	cmpl	$0, -24(%ebp)
-	jne	L43
-	.loc 3 464 21
+	jne	L37
+	.loc 3 422 21
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	.loc 3 465 21
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 466 21
-	movl	-120(%ebp), %eax
+	.loc 3 423 21
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 467 21
-	movl	-112(%ebp), %eax
+	.loc 3 424 21
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 468 21
-	movl	-104(%ebp), %eax
+	.loc 3 425 21
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 469 21
-	movl	-96(%ebp), %eax
+	.loc 3 426 21
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 470 24
+	.loc 3 427 24
 	movl	20(%ebp), %eax
 	movl	$_number_zero, (%eax)
-	.loc 3 474 28
+	.loc 3 431 28
 	movl	$0, %eax
-	jmp	L70
-L43:
-	.loc 3 314 11
+	jmp	L62
+L37:
+	.loc 3 279 11
 	cmpl	$0, -16(%ebp)
-	jne	L68
-	jmp	L46
-L71:
-	.loc 3 331 13
+	jne	L60
+	jmp	L40
+L63:
+	.loc 3 296 13
 	nop
-L46:
-	.loc 3 484 5
-	movl	-136(%ebp), %edx
-	.loc 3 484 24
+L40:
+	.loc 3 441 5
+	movl	-120(%ebp), %edx
+	.loc 3 441 24
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
-	.loc 3 484 5
+	.loc 3 441 5
 	movl	32(%eax), %eax
 	movl	-24(%ebp), %ecx
 	movl	%ecx, 8(%esp)
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	__COPY_MEMORY_UNIT
-	.loc 3 485 19
-	movl	-132(%ebp), %edx
-	.loc 3 485 36
+	.loc 3 442 19
+	movl	-116(%ebp), %edx
+	.loc 3 442 36
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
-	.loc 3 485 19
+	.loc 3 442 19
 	movl	32(%eax), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
-	movl	%eax, -80(%ebp)
-	.loc 3 485 8
-	cmpl	$0, -80(%ebp)
-	je	L69
-	.loc 3 486 16
-	movl	-80(%ebp), %eax
-	jmp	L70
-L69:
-	.loc 3 487 5
+	movl	%eax, -72(%ebp)
+	.loc 3 442 8
+	cmpl	$0, -72(%ebp)
+	je	L61
+	.loc 3 443 16
+	movl	-72(%ebp), %eax
+	jmp	L62
+L61:
+	.loc 3 444 5
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
-	.loc 3 488 5
-	movl	-128(%ebp), %eax
-	movl	%eax, 4(%esp)
-	movl	-72(%ebp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	.loc 3 489 5
-	movl	-120(%ebp), %eax
+	.loc 3 445 5
+	movl	-112(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-64(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 490 5
-	movl	-112(%ebp), %eax
+	.loc 3 446 5
+	movl	-104(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-56(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 491 5
-	movl	-104(%ebp), %eax
+	.loc 3 447 5
+	movl	-96(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-48(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 492 5
-	movl	-96(%ebp), %eax
+	.loc 3 448 5
+	movl	-88(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	-40(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	.loc 3 496 12
+	.loc 3 452 12
 	movl	$0, %eax
-L70:
-	.loc 3 497 1 discriminator 1
+L62:
+	.loc 3 453 1 discriminator 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -1607,7 +1372,7 @@ LFE4249:
 	.def	_PMC_ModPow_X_X_X_Imp;	.scl	3;	.type	32;	.endef
 _PMC_ModPow_X_X_X_Imp:
 LFB4250:
-	.loc 3 500 1
+	.loc 3 456 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1615,107 +1380,107 @@ LFB4250:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 3 503 9
+	.loc 3 459 9
 	movl	16(%ebp), %eax
 	movzbl	24(%eax), %eax
 	andl	$2, %eax
-	.loc 3 503 8
+	.loc 3 459 8
+	testb	%al, %al
+	je	L65
+	.loc 3 464 16
+	movl	$-3, %eax
+	jmp	L66
+L65:
+	.loc 3 466 14
+	movl	16(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$4, %eax
+	.loc 3 466 13
+	testb	%al, %al
+	je	L67
+	.loc 3 469 13
+	movl	8(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$2, %eax
+	.loc 3 469 12
+	testb	%al, %al
+	je	L68
+	.loc 3 472 17
+	movl	12(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$2, %eax
+	.loc 3 472 16
+	testb	%al, %al
+	je	L69
+	.loc 3 477 24
+	movl	$-1, %eax
+	jmp	L66
+L69:
+	.loc 3 484 20
+	movl	20(%ebp), %eax
+	movl	$_number_zero, (%eax)
+	jmp	L71
+L68:
+	.loc 3 492 16
+	movl	20(%ebp), %eax
+	movl	$_number_zero, (%eax)
+	jmp	L71
+L67:
+	.loc 3 498 13
+	movl	8(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$2, %eax
+	.loc 3 498 12
+	testb	%al, %al
+	je	L72
+	.loc 3 501 17
+	movl	12(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$2, %eax
+	.loc 3 501 16
 	testb	%al, %al
 	je	L73
-	.loc 3 508 16
-	movl	$-3, %eax
-	jmp	L74
+	.loc 3 506 24
+	movl	$-1, %eax
+	jmp	L66
 L73:
-	.loc 3 510 14
-	movl	16(%ebp), %eax
+	.loc 3 512 20
+	movl	20(%ebp), %eax
+	movl	$_number_zero, (%eax)
+	jmp	L71
+L72:
+	.loc 3 515 18
+	movl	8(%ebp), %eax
 	movzbl	24(%eax), %eax
 	andl	$4, %eax
-	.loc 3 510 13
+	.loc 3 515 17
+	testb	%al, %al
+	je	L74
+	.loc 3 520 16
+	movl	20(%ebp), %eax
+	movl	$_number_one, (%eax)
+	jmp	L71
+L74:
+	.loc 3 525 17
+	movl	12(%ebp), %eax
+	movzbl	24(%eax), %eax
+	andl	$2, %eax
+	.loc 3 525 16
 	testb	%al, %al
 	je	L75
-	.loc 3 513 13
-	movl	8(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$2, %eax
-	.loc 3 513 12
-	testb	%al, %al
-	je	L76
-	.loc 3 516 17
-	movl	12(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$2, %eax
-	.loc 3 516 16
-	testb	%al, %al
-	je	L77
-	.loc 3 521 24
-	movl	$-1, %eax
-	jmp	L74
-L77:
 	.loc 3 528 20
 	movl	20(%ebp), %eax
-	movl	$_number_zero, (%eax)
-	jmp	L79
-L76:
-	.loc 3 536 16
-	movl	20(%ebp), %eax
-	movl	$_number_zero, (%eax)
-	jmp	L79
+	movl	$_number_one, (%eax)
+	jmp	L71
 L75:
-	.loc 3 542 13
-	movl	8(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$2, %eax
-	.loc 3 542 12
-	testb	%al, %al
-	je	L80
-	.loc 3 545 17
-	movl	12(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$2, %eax
-	.loc 3 545 16
-	testb	%al, %al
-	je	L81
-	.loc 3 550 24
-	movl	$-1, %eax
-	jmp	L74
-L81:
-	.loc 3 556 20
-	movl	20(%ebp), %eax
-	movl	$_number_zero, (%eax)
-	jmp	L79
-L80:
-	.loc 3 559 18
-	movl	8(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$4, %eax
-	.loc 3 559 17
-	testb	%al, %al
-	je	L82
-	.loc 3 564 16
-	movl	20(%ebp), %eax
-	movl	$_number_one, (%eax)
-	jmp	L79
-L82:
-	.loc 3 569 17
-	movl	12(%ebp), %eax
-	movzbl	24(%eax), %eax
-	andl	$2, %eax
-	.loc 3 569 16
-	testb	%al, %al
-	je	L83
-	.loc 3 572 20
-	movl	20(%ebp), %eax
-	movl	$_number_one, (%eax)
-	jmp	L79
-L83:
-	.loc 3 574 22
+	.loc 3 530 22
 	movl	12(%ebp), %eax
 	movzbl	24(%eax), %eax
 	andl	$4, %eax
-	.loc 3 574 21
+	.loc 3 530 21
 	testb	%al, %al
-	je	L84
-	.loc 3 579 31
+	je	L76
+	.loc 3 535 31
 	movl	20(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	16(%ebp), %eax
@@ -1724,14 +1489,14 @@ L83:
 	movl	%eax, (%esp)
 	call	_Remainder
 	movl	%eax, -12(%ebp)
-	.loc 3 579 20
+	.loc 3 535 20
 	cmpl	$0, -12(%ebp)
-	je	L79
-	.loc 3 580 28
+	je	L71
+	.loc 3 536 28
 	movl	-12(%ebp), %eax
-	jmp	L74
-L84:
-	.loc 3 586 31
+	jmp	L66
+L76:
+	.loc 3 542 31
 	movl	20(%ebp), %eax
 	movl	%eax, 12(%esp)
 	movl	16(%ebp), %eax
@@ -1742,17 +1507,17 @@ L84:
 	movl	%eax, (%esp)
 	call	_ModulePower
 	movl	%eax, -12(%ebp)
-	.loc 3 586 20
+	.loc 3 542 20
 	cmpl	$0, -12(%ebp)
-	je	L79
-	.loc 3 587 28
+	je	L71
+	.loc 3 543 28
 	movl	-12(%ebp), %eax
-	jmp	L74
-L79:
-	.loc 3 591 12
+	jmp	L66
+L71:
+	.loc 3 547 12
 	movl	$0, %eax
-L74:
-	.loc 3 592 1
+L66:
+	.loc 3 548 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -1763,7 +1528,7 @@ LFE4250:
 	.def	_PMC_ModPow_X_X_X@16;	.scl	2;	.type	32;	.endef
 _PMC_ModPow_X_X_X@16:
 LFB4251:
-	.loc 3 595 1
+	.loc 3 551 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1771,71 +1536,71 @@ LFB4251:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$40, %esp
-	.loc 3 596 8
+	.loc 3 552 8
 	cmpl	$0, 8(%ebp)
-	jne	L86
-	.loc 3 597 16
+	jne	L78
+	.loc 3 553 16
 	movl	$-1, %eax
-	jmp	L87
-L86:
-	.loc 3 598 8
+	jmp	L79
+L78:
+	.loc 3 554 8
 	cmpl	$0, 12(%ebp)
-	jne	L88
-	.loc 3 599 16
+	jne	L80
+	.loc 3 555 16
 	movl	$-1, %eax
-	jmp	L87
-L88:
-	.loc 3 600 8
+	jmp	L79
+L80:
+	.loc 3 556 8
 	cmpl	$0, 16(%ebp)
-	jne	L89
-	.loc 3 601 16
+	jne	L81
+	.loc 3 557 16
 	movl	$-1, %eax
-	jmp	L87
-L89:
-	.loc 3 602 8
+	jmp	L79
+L81:
+	.loc 3 558 8
 	cmpl	$0, 20(%ebp)
-	jne	L90
-	.loc 3 603 16
+	jne	L82
+	.loc 3 559 16
 	movl	$-1, %eax
-	jmp	L87
-L90:
-	.loc 3 605 19
+	jmp	L79
+L82:
+	.loc 3 561 19
 	movl	8(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckNumber
 	movl	%eax, -12(%ebp)
-	.loc 3 605 8
+	.loc 3 561 8
 	cmpl	$0, -12(%ebp)
-	je	L91
-	.loc 3 606 16
+	je	L83
+	.loc 3 562 16
 	movl	-12(%ebp), %eax
-	jmp	L87
-L91:
-	.loc 3 607 19
+	jmp	L79
+L83:
+	.loc 3 563 19
 	movl	12(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckNumber
 	movl	%eax, -12(%ebp)
-	.loc 3 607 8
+	.loc 3 563 8
 	cmpl	$0, -12(%ebp)
-	je	L92
-	.loc 3 608 16
+	je	L84
+	.loc 3 564 16
 	movl	-12(%ebp), %eax
-	jmp	L87
-L92:
-	.loc 3 609 19
+	jmp	L79
+L84:
+	.loc 3 565 19
 	movl	16(%ebp), %eax
 	movl	%eax, (%esp)
 	call	_CheckNumber
 	movl	%eax, -12(%ebp)
-	.loc 3 609 8
+	.loc 3 565 8
 	cmpl	$0, -12(%ebp)
-	je	L93
-	.loc 3 610 16
+	je	L85
+	.loc 3 566 16
 	movl	-12(%ebp), %eax
-	jmp	L87
-L93:
-	.loc 3 611 19
+	jmp	L79
+L85:
+	.loc 3 567 19
 	movl	20(%ebp), %eax
 	movl	%eax, 12(%esp)
 	movl	16(%ebp), %eax
@@ -1846,30 +1611,30 @@ L93:
 	movl	%eax, (%esp)
 	call	_PMC_ModPow_X_X_X_Imp
 	movl	%eax, -12(%ebp)
-	.loc 3 611 8
+	.loc 3 567 8
 	cmpl	$0, -12(%ebp)
-	je	L94
-	.loc 3 612 16
+	je	L86
+	.loc 3 568 16
 	movl	-12(%ebp), %eax
-	jmp	L87
-L94:
-	.loc 3 614 19
+	jmp	L79
+L86:
+	.loc 3 570 19
 	movl	20(%ebp), %eax
 	movl	(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckNumber
 	movl	%eax, -12(%ebp)
-	.loc 3 614 8
+	.loc 3 570 8
 	cmpl	$0, -12(%ebp)
-	je	L95
-	.loc 3 615 16
+	je	L87
+	.loc 3 571 16
 	movl	-12(%ebp), %eax
-	jmp	L87
-L95:
-	.loc 3 617 12
-	movl	$0, %eax
+	jmp	L79
 L87:
-	.loc 3 618 1
+	.loc 3 573 12
+	movl	$0, %eax
+L79:
+	.loc 3 574 1
 	leave
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -1880,11 +1645,11 @@ LFE4251:
 	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
 _Initialize_ModPow:
 LFB4252:
-	.loc 3 621 1
+	.loc 3 577 1
 	.cfi_startproc
-	.loc 3 622 12
+	.loc 3 578 12
 	movl	$0, %eax
-	.loc 3 623 1
+	.loc 3 579 1
 	ret
 	.cfi_endproc
 LFE4252:
@@ -1922,7 +1687,7 @@ Letext0:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 Ldebug_info0:
-	.long	0x55b7
+	.long	0x54fb
 	.word	0x4
 	.secrel32	Ldebug_abbrev0
 	.byte	0x4
@@ -6034,7 +5799,7 @@ Ldebug_info0:
 	.uleb128 0x15
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x4ddd
 	.uleb128 0x6
@@ -6043,7 +5808,7 @@ Ldebug_info0:
 	.uleb128 0x19
 	.ascii "Initialize_ModPow\0"
 	.byte	0x3
-	.word	0x26c
+	.word	0x240
 	.byte	0x11
 	.long	0x49fd
 	.long	LFB4252
@@ -6054,7 +5819,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "feature\0"
 	.byte	0x3
-	.word	0x26c
+	.word	0x240
 	.byte	0x37
 	.long	0x4e21
 	.uleb128 0x2
@@ -6067,7 +5832,7 @@ Ldebug_info0:
 	.uleb128 0x1b
 	.ascii "PMC_ModPow_X_X_X\0"
 	.byte	0x3
-	.word	0x252
+	.word	0x226
 	.byte	0x2e
 	.ascii "PMC_ModPow_X_X_X@16\0"
 	.long	0x49fd
@@ -6079,7 +5844,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x252
+	.word	0x226
 	.byte	0x4f
 	.long	0x4a44
 	.uleb128 0x2
@@ -6088,7 +5853,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "e\0"
 	.byte	0x3
-	.word	0x252
+	.word	0x226
 	.byte	0x62
 	.long	0x4a44
 	.uleb128 0x2
@@ -6097,7 +5862,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "m\0"
 	.byte	0x3
-	.word	0x252
+	.word	0x226
 	.byte	0x75
 	.long	0x4a44
 	.uleb128 0x2
@@ -6106,7 +5871,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "r\0"
 	.byte	0x3
-	.word	0x252
+	.word	0x226
 	.byte	0x89
 	.long	0x4afa
 	.uleb128 0x2
@@ -6115,7 +5880,7 @@ Ldebug_info0:
 	.uleb128 0x1c
 	.secrel32	LASF1
 	.byte	0x3
-	.word	0x25c
+	.word	0x230
 	.byte	0x15
 	.long	0x49fd
 	.uleb128 0x2
@@ -6125,7 +5890,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "PMC_ModPow_X_X_X_Imp\0"
 	.byte	0x3
-	.word	0x1f3
+	.word	0x1c7
 	.byte	0x18
 	.long	0x49fd
 	.long	LFB4250
@@ -6136,7 +5901,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "v\0"
 	.byte	0x3
-	.word	0x1f3
+	.word	0x1c7
 	.byte	0x3c
 	.long	0x4f21
 	.uleb128 0x2
@@ -6145,7 +5910,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "e\0"
 	.byte	0x3
-	.word	0x1f3
+	.word	0x1c7
 	.byte	0x4e
 	.long	0x4f21
 	.uleb128 0x2
@@ -6154,7 +5919,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "m\0"
 	.byte	0x3
-	.word	0x1f3
+	.word	0x1c7
 	.byte	0x60
 	.long	0x4f21
 	.uleb128 0x2
@@ -6163,7 +5928,7 @@ Ldebug_info0:
 	.uleb128 0x1a
 	.ascii "r\0"
 	.byte	0x3
-	.word	0x1f3
+	.word	0x1c7
 	.byte	0x73
 	.long	0x4f27
 	.uleb128 0x2
@@ -6172,7 +5937,7 @@ Ldebug_info0:
 	.uleb128 0x1c
 	.secrel32	LASF1
 	.byte	0x3
-	.word	0x1f5
+	.word	0x1c9
 	.byte	0x15
 	.long	0x49fd
 	.uleb128 0x2
@@ -6188,18 +5953,18 @@ Ldebug_info0:
 	.uleb128 0x1e
 	.ascii "ModulePower\0"
 	.byte	0x3
-	.byte	0x9a
+	.byte	0x89
 	.byte	0x18
 	.long	0x49fd
 	.long	LFB4249
 	.long	LFE4249-LFB4249
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5247
+	.long	0x51f9
 	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
-	.byte	0x9a
+	.byte	0x89
 	.byte	0x33
 	.long	0x4f21
 	.uleb128 0x2
@@ -6208,7 +5973,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "e\0"
 	.byte	0x3
-	.byte	0x9a
+	.byte	0x89
 	.byte	0x45
 	.long	0x4f21
 	.uleb128 0x2
@@ -6217,7 +5982,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "m\0"
 	.byte	0x3
-	.byte	0x9a
+	.byte	0x89
 	.byte	0x57
 	.long	0x4f21
 	.uleb128 0x2
@@ -6226,7 +5991,7 @@ Ldebug_info0:
 	.uleb128 0x1f
 	.ascii "r\0"
 	.byte	0x3
-	.byte	0x9a
+	.byte	0x89
 	.byte	0x6a
 	.long	0x4f27
 	.uleb128 0x2
@@ -6235,16 +6000,16 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF1
 	.byte	0x3
-	.byte	0x9f
+	.byte	0x8e
 	.byte	0x15
 	.long	0x49fd
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -88
+	.sleb128 -80
 	.uleb128 0x21
 	.ascii "m_buf\0"
 	.byte	0x3
-	.byte	0xa0
+	.byte	0x8f
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x2
@@ -6253,7 +6018,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "m_count\0"
 	.byte	0x3
-	.byte	0xa1
+	.byte	0x90
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6262,7 +6027,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "v_2_bit_count\0"
 	.byte	0x3
-	.byte	0xa5
+	.byte	0x94
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6271,25 +6036,25 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "v_2_buf_code\0"
 	.byte	0x3
-	.byte	0xa6
+	.byte	0x95
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -100
+	.sleb128 -92
 	.uleb128 0x21
 	.ascii "v_2_buf_words\0"
 	.byte	0x3
-	.byte	0xa7
+	.byte	0x96
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -104
+	.sleb128 -96
 	.uleb128 0x21
 	.ascii "v_2_buf\0"
 	.byte	0x3
-	.byte	0xa8
+	.byte	0x97
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x2
@@ -6298,7 +6063,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "work_1_bit_count\0"
 	.byte	0x3
-	.byte	0xae
+	.byte	0x9d
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6307,25 +6072,25 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "work_1_buf_code\0"
 	.byte	0x3
-	.byte	0xaf
+	.byte	0x9e
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -108
+	.sleb128 -100
 	.uleb128 0x21
 	.ascii "work_1_buf_words\0"
 	.byte	0x3
-	.byte	0xb0
+	.byte	0x9f
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -112
+	.sleb128 -104
 	.uleb128 0x21
 	.ascii "work_1_buf\0"
 	.byte	0x3
-	.byte	0xb1
+	.byte	0xa0
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x2
@@ -6334,7 +6099,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "work_2_bit_count\0"
 	.byte	0x3
-	.byte	0xb8
+	.byte	0xa7
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6343,25 +6108,25 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "work_2_buf_code\0"
 	.byte	0x3
-	.byte	0xb9
+	.byte	0xa8
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -116
+	.sleb128 -108
 	.uleb128 0x21
 	.ascii "work_2_buf_words\0"
 	.byte	0x3
-	.byte	0xba
+	.byte	0xa9
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -120
+	.sleb128 -112
 	.uleb128 0x21
 	.ascii "work_2_buf\0"
 	.byte	0x3
-	.byte	0xbb
+	.byte	0xaa
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x2
@@ -6370,7 +6135,7 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "work_v_bit_count\0"
 	.byte	0x3
-	.byte	0xc3
+	.byte	0xb2
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
@@ -6379,34 +6144,34 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF2
 	.byte	0x3
-	.byte	0xc4
+	.byte	0xb3
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -124
+	.sleb128 -116
 	.uleb128 0x20
 	.secrel32	LASF3
 	.byte	0x3
-	.byte	0xc5
+	.byte	0xb4
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -128
+	.sleb128 -120
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x3
-	.byte	0xc6
+	.byte	0xb5
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.uleb128 0x21
-	.ascii "q_buf_bit_count\0"
+	.ascii "r_bit_count\0"
 	.byte	0x3
-	.byte	0xcf
+	.byte	0xbe
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
@@ -6415,52 +6180,16 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF5
 	.byte	0x3
-	.byte	0xd0
+	.byte	0xbf
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -132
-	.uleb128 0x20
-	.secrel32	LASF6
-	.byte	0x3
-	.byte	0xd1
-	.byte	0x11
-	.long	0x4bec
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -136
-	.uleb128 0x21
-	.ascii "q_buf\0"
-	.byte	0x3
-	.byte	0xd2
-	.byte	0x12
-	.long	0x4d42
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -80
-	.uleb128 0x21
-	.ascii "r_bit_count\0"
-	.byte	0x3
-	.byte	0xdc
-	.byte	0x11
-	.long	0x4bec
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -84
-	.uleb128 0x20
-	.secrel32	LASF7
-	.byte	0x3
-	.byte	0xdd
-	.byte	0x11
-	.long	0x4bec
-	.uleb128 0x3
-	.byte	0x91
-	.sleb128 -140
+	.sleb128 -124
 	.uleb128 0x21
 	.ascii "v_count\0"
 	.byte	0x3
-	.byte	0xe8
+	.byte	0xc9
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6469,16 +6198,16 @@ Ldebug_info0:
 	.uleb128 0x21
 	.ascii "cmp\0"
 	.byte	0x3
-	.byte	0xe9
+	.byte	0xca
 	.byte	0x9
 	.long	0xe2
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -92
+	.sleb128 -84
 	.uleb128 0x22
 	.ascii "e_count\0"
 	.byte	0x3
-	.word	0x129
+	.word	0x106
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6487,7 +6216,7 @@ Ldebug_info0:
 	.uleb128 0x22
 	.ascii "e_mask\0"
 	.byte	0x3
-	.word	0x12a
+	.word	0x107
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6496,34 +6225,34 @@ Ldebug_info0:
 	.uleb128 0x22
 	.ascii "u_ptr\0"
 	.byte	0x3
-	.word	0x135
+	.word	0x112
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -144
+	.sleb128 -128
 	.uleb128 0x22
 	.ascii "v_ptr\0"
 	.byte	0x3
-	.word	0x136
+	.word	0x113
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -96
+	.sleb128 -88
 	.uleb128 0x22
 	.ascii "w_ptr\0"
 	.byte	0x3
-	.word	0x137
+	.word	0x114
 	.byte	0x12
 	.long	0x4d42
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -148
+	.sleb128 -132
 	.uleb128 0x22
 	.ascii "u_count\0"
 	.byte	0x3
-	.word	0x138
+	.word	0x115
 	.byte	0x11
 	.long	0x4bec
 	.uleb128 0x2
@@ -6540,7 +6269,7 @@ Ldebug_info0:
 	.long	LFE4248-LFB4248
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5313
+	.long	0x5296
 	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
@@ -6588,7 +6317,7 @@ Ldebug_info0:
 	.long	0x4bec
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -32
+	.sleb128 -28
 	.uleb128 0x20
 	.secrel32	LASF3
 	.byte	0x3
@@ -6597,7 +6326,7 @@ Ldebug_info0:
 	.long	0x4bec
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -36
+	.sleb128 -32
 	.uleb128 0x20
 	.secrel32	LASF4
 	.byte	0x3
@@ -6610,39 +6339,12 @@ Ldebug_info0:
 	.uleb128 0x20
 	.secrel32	LASF5
 	.byte	0x3
-	.byte	0x73
+	.byte	0x71
 	.byte	0x15
 	.long	0x4bec
 	.uleb128 0x2
 	.byte	0x91
-	.sleb128 -40
-	.uleb128 0x20
-	.secrel32	LASF6
-	.byte	0x3
-	.byte	0x74
-	.byte	0x15
-	.long	0x4bec
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -44
-	.uleb128 0x21
-	.ascii "q_buf\0"
-	.byte	0x3
-	.byte	0x75
-	.byte	0x16
-	.long	0x4d42
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -28
-	.uleb128 0x20
-	.secrel32	LASF7
-	.byte	0x3
-	.byte	0x7b
-	.byte	0x15
-	.long	0x4bec
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 -48
+	.sleb128 -36
 	.byte	0
 	.byte	0
 	.uleb128 0x24
@@ -6654,13 +6356,13 @@ Ldebug_info0:
 	.long	LFE4247-LFB4247
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5359
+	.long	0x52dc
 	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x30
-	.long	0x5359
+	.long	0x52dc
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6669,7 +6371,7 @@ Ldebug_info0:
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x41
-	.long	0x5359
+	.long	0x52dc
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
@@ -6696,7 +6398,7 @@ Ldebug_info0:
 	.long	LFE4246-LFB4246
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x53c3
+	.long	0x5346
 	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
@@ -6744,7 +6446,7 @@ Ldebug_info0:
 	.long	LFE4235-LFB4235
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5409
+	.long	0x538c
 	.uleb128 0x1a
 	.ascii "x\0"
 	.byte	0x1
@@ -6764,36 +6466,6 @@ Ldebug_info0:
 	.byte	0x91
 	.sleb128 -12
 	.byte	0
-	.uleb128 0x26
-	.ascii "_MAXIMUM_UNIT\0"
-	.byte	0x1
-	.byte	0xc4
-	.byte	0x21
-	.long	0x4bec
-	.long	LFB4211
-	.long	LFE4211-LFB4211
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x5448
-	.uleb128 0x1f
-	.ascii "x\0"
-	.byte	0x1
-	.byte	0xc4
-	.byte	0x3b
-	.long	0x4bec
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 0
-	.uleb128 0x1f
-	.ascii "y\0"
-	.byte	0x1
-	.byte	0xc4
-	.byte	0x4a
-	.long	0x4bec
-	.uleb128 0x2
-	.byte	0x91
-	.sleb128 4
-	.byte	0
 	.uleb128 0x24
 	.ascii "_ZERO_MEMORY_UNIT\0"
 	.byte	0x1
@@ -6803,7 +6475,7 @@ Ldebug_info0:
 	.long	LFE4200-LFB4200
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x54b4
+	.long	0x53f8
 	.uleb128 0x1f
 	.ascii "d\0"
 	.byte	0x1
@@ -6822,25 +6494,25 @@ Ldebug_info0:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
-	.uleb128 0x27
-	.long	0x5580
+	.uleb128 0x26
+	.long	0x54c4
 	.long	LBB8
 	.long	LBE8-LBB8
 	.byte	0x1
 	.byte	0x70
 	.byte	0x9
-	.uleb128 0x28
-	.long	0x55aa
+	.uleb128 0x27
+	.long	0x54ee
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -28
-	.uleb128 0x28
-	.long	0x559c
+	.uleb128 0x27
+	.long	0x54e0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x28
-	.long	0x558e
+	.uleb128 0x27
+	.long	0x54d2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
@@ -6855,7 +6527,7 @@ Ldebug_info0:
 	.long	LFE4195-LFB4195
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x552d
+	.long	0x5471
 	.uleb128 0x1f
 	.ascii "d\0"
 	.byte	0x1
@@ -6870,7 +6542,7 @@ Ldebug_info0:
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x4f
-	.long	0x552d
+	.long	0x5471
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 4
@@ -6883,25 +6555,25 @@ Ldebug_info0:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x27
-	.long	0x5533
+	.uleb128 0x26
+	.long	0x5477
 	.long	LBB6
 	.long	LBE6-LBB6
 	.byte	0x1
 	.byte	0x3e
 	.byte	0x9
-	.uleb128 0x28
-	.long	0x556a
+	.uleb128 0x27
+	.long	0x54ae
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x28
-	.long	0x555a
+	.uleb128 0x27
+	.long	0x549e
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -28
-	.uleb128 0x28
-	.long	0x5545
+	.uleb128 0x27
+	.long	0x5489
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -6910,26 +6582,26 @@ Ldebug_info0:
 	.uleb128 0x6
 	.byte	0x4
 	.long	0x4c00
-	.uleb128 0x29
+	.uleb128 0x28
 	.ascii "__movsd\0"
 	.byte	0x2
 	.word	0x6ed
 	.byte	0x6
 	.byte	0x3
-	.long	0x557a
-	.uleb128 0x2a
+	.long	0x54be
+	.uleb128 0x29
 	.ascii "Destination\0"
 	.byte	0x2
 	.word	0x6ed
 	.byte	0x1d
 	.long	0x741
-	.uleb128 0x2a
+	.uleb128 0x29
 	.ascii "Source\0"
 	.byte	0x2
 	.word	0x6ed
 	.byte	0x3f
-	.long	0x557a
-	.uleb128 0x2a
+	.long	0x54be
+	.uleb128 0x29
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x6ed
@@ -6939,25 +6611,25 @@ Ldebug_info0:
 	.uleb128 0x6
 	.byte	0x4
 	.long	0x463
-	.uleb128 0x2b
+	.uleb128 0x2a
 	.ascii "__stosd\0"
 	.byte	0x2
 	.word	0x5b7
 	.byte	0x6
 	.byte	0x3
-	.uleb128 0x2a
+	.uleb128 0x29
 	.ascii "Dest\0"
 	.byte	0x2
 	.word	0x5b7
 	.byte	0x1d
 	.long	0x741
-	.uleb128 0x2a
+	.uleb128 0x29
 	.ascii "Data\0"
 	.byte	0x2
 	.word	0x5b7
 	.byte	0x31
 	.long	0x44e
-	.uleb128 0x2a
+	.uleb128 0x29
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x5b7
@@ -7553,33 +7225,6 @@ Ldebug_abbrev0:
 	.byte	0
 	.byte	0
 	.uleb128 0x26
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x6
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2117
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x27
 	.uleb128 0x1d
 	.byte	0x1
 	.uleb128 0x31
@@ -7596,7 +7241,7 @@ Ldebug_abbrev0:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x27
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x31
@@ -7605,7 +7250,7 @@ Ldebug_abbrev0:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x28
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -7626,7 +7271,7 @@ Ldebug_abbrev0:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x29
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -7641,7 +7286,7 @@ Ldebug_abbrev0:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2b
+	.uleb128 0x2a
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -7680,15 +7325,11 @@ LASF2:
 	.ascii "work_v_buf_code\0"
 LASF4:
 	.ascii "work_v_buf\0"
-LASF6:
-	.ascii "q_buf_words\0"
-LASF5:
-	.ascii "q_buf_code\0"
 LASF1:
 	.ascii "result\0"
 LASF3:
 	.ascii "work_v_buf_words\0"
-LASF7:
+LASF5:
 	.ascii "r_check_code\0"
 LASF0:
 	.ascii "refcount\0"
@@ -7696,8 +7337,8 @@ LASF0:
 	.def	_Compare_Imp;	.scl	2;	.type	32;	.endef
 	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
 	.def	_AllocateBlock;	.scl	2;	.type	32;	.endef
-	.def	_DeallocateBlock;	.scl	2;	.type	32;	.endef
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
+	.def	_DeallocateBlock;	.scl	2;	.type	32;	.endef
 	.def	_DivRem_X_X;	.scl	2;	.type	32;	.endef
 	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef
 	.def	_CommitNumber;	.scl	2;	.type	32;	.endef

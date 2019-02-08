@@ -101127,6 +101127,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
 
 
+    extern __UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v);
+
+
     extern void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __UNIT_TYPE v_count, __UNIT_TYPE* work_v_buf, __UNIT_TYPE* q_buf, __UNIT_TYPE* r_buf);
 
 
@@ -101357,12 +101360,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 377 "../pmc_uint_internal.h"
+# 380 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 391 "../pmc_uint_internal.h"
+# 394 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../pmc_divrem.c" 2
@@ -105258,7 +105261,12 @@ void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __U
         {
             __UNIT_TYPE_DIV r;
             __UNIT_TYPE_DIV q = _DIVREM_UNIT(0, u_buf_2[0], v_buf_2[0], &r);
-            q_buf[0] = q;
+            if (q_buf != 
+# 57 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 57 "../pmc_divrem.c"
+                            )
+                q_buf[0] = q;
             r_buf[0] = r;
 
             if (sizeof(r) == sizeof(_UINT64_T))
@@ -105269,21 +105277,184 @@ void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __U
         }
         else
         {
-            __UNIT_TYPE_DIV r;
-            DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
-            r_buf[0] = r;
+            if (q_buf != 
+# 69 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 69 "../pmc_divrem.c"
+                            )
+            {
+                __UNIT_TYPE_DIV r;
+                DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
+                r_buf[0] = r;
+            }
+            else
+                r_buf[0] = Rem_X_1W(u_buf_2, u_count_2, v_buf_2[0]);
         }
     }
     else
     {
         if (u_count_2 < v_count_2)
         {
-            q_buf[0] = 0;
+            if (q_buf != 
+# 83 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 83 "../pmc_divrem.c"
+                            )
+                q_buf[0] = 0;
             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
         }
         else
             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
     }
+}
+
+__UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v)
+{
+
+    __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
+    __UNIT_TYPE u_count = u_buf_len;
+    __UNIT_TYPE_DIV dummy_q;
+    if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+    {
+        while (*up == 0)
+        {
+            --up;
+            --u_count;
+        }
+    }
+    __UNIT_TYPE_DIV r = 0;
+    __UNIT_TYPE count = u_count >> 5;
+    while (count != 0)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-16], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-17], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-18], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-19], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-20], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-21], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-22], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-23], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-24], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-25], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-26], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-27], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-28], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-29], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-30], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-31], v, &dummy_q);
+        up -= 32;
+        --count;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(32);
+        else
+            AddToDIV32Counter(32);
+
+    }
+
+    if (u_count & 0x10)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &dummy_q);
+        up -= 16;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(16);
+        else
+            AddToDIV32Counter(16);
+
+    }
+
+    if (u_count & 0x8)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        up -= 8;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(8);
+        else
+            AddToDIV32Counter(8);
+
+    }
+
+    if (u_count & 0x4)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        up -= 4;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(4);
+        else
+            AddToDIV32Counter(4);
+
+    }
+
+    if (u_count & 0x2)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        up -= 2;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(2);
+        else
+            AddToDIV32Counter(2);
+
+    }
+
+    if (u_count & 0x1)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        up -= 1;
+
+        if (sizeof(r) == sizeof(_UINT64_T))
+            IncrementDIV64Counter();
+        else
+            IncrementDIV32Counter();
+
+    }
+
+    return (r);
 }
 
 void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf)
@@ -105476,21 +105647,21 @@ __inline static BOOL CheckQ_(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE
 
     if (rh_hi > 0)
         return (
-# 274 "../pmc_divrem.c" 3
+# 430 "../pmc_divrem.c" 3
                0
-# 274 "../pmc_divrem.c"
+# 430 "../pmc_divrem.c"
                     );
     else if (lh_mi > rh_mi)
         return (
-# 276 "../pmc_divrem.c" 3
+# 432 "../pmc_divrem.c" 3
                1
-# 276 "../pmc_divrem.c"
+# 432 "../pmc_divrem.c"
                    );
     else if (lh_mi < rh_mi)
         return (
-# 278 "../pmc_divrem.c" 3
+# 434 "../pmc_divrem.c" 3
                0
-# 278 "../pmc_divrem.c"
+# 434 "../pmc_divrem.c"
                     );
     else
         return (lh_lo > rh_lo);
@@ -105498,7 +105669,7 @@ __inline static BOOL CheckQ_(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE
 
 __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYPE_DIV uj_1, __UNIT_TYPE_DIV uj_2, __UNIT_TYPE_DIV v1, __UNIT_TYPE_DIV v2)
 {
-# 294 "../pmc_divrem.c"
+# 450 "../pmc_divrem.c"
     __UNIT_TYPE_DIV lh_mi;
     __UNIT_TYPE_DIV lh_lo = _MULTIPLYX_UNIT_DIV(v2, q_, &lh_mi);
     __UNIT_TYPE_DIV rh_hi;
@@ -105521,9 +105692,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 315 "../pmc_divrem.c" 3
+# 471 "../pmc_divrem.c" 3
                0
-# 315 "../pmc_divrem.c"
+# 471 "../pmc_divrem.c"
                     );
     }
     else if (lh_mi > rh_mi)
@@ -105532,9 +105703,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 322 "../pmc_divrem.c" 3
+# 478 "../pmc_divrem.c" 3
                1
-# 322 "../pmc_divrem.c"
+# 478 "../pmc_divrem.c"
                    );
     }
     else if (lh_mi < rh_mi)
@@ -105543,9 +105714,9 @@ __inline static BOOL CheckQ_X(__UNIT_TYPE_DIV q_, __UNIT_TYPE_DIV uj, __UNIT_TYP
 
 
         return (
-# 329 "../pmc_divrem.c" 3
+# 485 "../pmc_divrem.c" 3
                0
-# 329 "../pmc_divrem.c"
+# 485 "../pmc_divrem.c"
                     );
     }
     else
@@ -105615,18 +105786,18 @@ static BOOL DoBorrow(char c, __UNIT_TYPE_DIV* up, __UNIT_TYPE u_count)
 
 
                 return (
-# 397 "../pmc_divrem.c" 3
+# 553 "../pmc_divrem.c" 3
                        1
-# 397 "../pmc_divrem.c"
+# 553 "../pmc_divrem.c"
                            );
             }
 
 
 
             return (
-# 402 "../pmc_divrem.c" 3
+# 558 "../pmc_divrem.c" 3
                    0
-# 402 "../pmc_divrem.c"
+# 558 "../pmc_divrem.c"
                         );
         }
         else if (c)
@@ -105644,9 +105815,9 @@ static BOOL DoBorrow(char c, __UNIT_TYPE_DIV* up, __UNIT_TYPE u_count)
 
 
             return (
-# 418 "../pmc_divrem.c" 3
+# 574 "../pmc_divrem.c" 3
                    0
-# 418 "../pmc_divrem.c"
+# 574 "../pmc_divrem.c"
                         );
         }
     }
@@ -106147,7 +106318,7 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
         while (v_buf[v_buf_len - 1] == 0)
             --v_buf_len;
     }
-# 926 "../pmc_divrem.c"
+# 1082 "../pmc_divrem.c"
     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
     if (d_factor == 0)
     {
@@ -106158,14 +106329,14 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
     else
     {
         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, 
-# 935 "../pmc_divrem.c" 3
+# 1091 "../pmc_divrem.c" 3
                                                             0
-# 935 "../pmc_divrem.c"
+# 1091 "../pmc_divrem.c"
                                                                  );
         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, 
-# 936 "../pmc_divrem.c" 3
+# 1092 "../pmc_divrem.c" 3
                                                                  0
-# 936 "../pmc_divrem.c"
+# 1092 "../pmc_divrem.c"
                                                                       );
     }
 
@@ -106184,7 +106355,12 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
         }
 
-        q_buf[q_index] = q_;
+        if (q_buf != 
+# 1110 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1110 "../pmc_divrem.c"
+                        )
+            q_buf[q_index] = q_;
         if (q_index == 0)
             break;
         --q_index;
@@ -106192,9 +106368,9 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
 
     if (d_factor > 0)
         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, 
-# 961 "../pmc_divrem.c" 3
+# 1118 "../pmc_divrem.c" 3
                                                                            0
-# 961 "../pmc_divrem.c"
+# 1118 "../pmc_divrem.c"
                                                                                 );
 }
 
@@ -106208,7 +106384,7 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
         while (v_buf[v_buf_len - 1] == 0)
             --v_buf_len;
     }
-# 988 "../pmc_divrem.c"
+# 1145 "../pmc_divrem.c"
     __UNIT_TYPE_DIV d_factor = _LZCNT_ALT_UNIT_DIV(v_buf[v_buf_len - 1]);
     if (d_factor == 0)
     {
@@ -106219,14 +106395,14 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
     else
     {
         LeftShift_Imp_DIV(u_buf, u_buf_len, d_factor, r_buf, 
-# 997 "../pmc_divrem.c" 3
+# 1154 "../pmc_divrem.c" 3
                                                             0
-# 997 "../pmc_divrem.c"
+# 1154 "../pmc_divrem.c"
                                                                  );
         LeftShift_Imp_DIV(v_buf, v_buf_len, d_factor, work_v_buf, 
-# 998 "../pmc_divrem.c" 3
+# 1155 "../pmc_divrem.c" 3
                                                                  0
-# 998 "../pmc_divrem.c"
+# 1155 "../pmc_divrem.c"
                                                                       );
     }
 
@@ -106249,7 +106425,7 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 
         if (SubtructOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index, q_))
         {
-# 1029 "../pmc_divrem.c"
+# 1186 "../pmc_divrem.c"
             --q_;
             AddOneLineX(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
 
@@ -106264,7 +106440,12 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 
         }
 
-        q_buf[q_index] = q_;
+        if (q_buf != 
+# 1200 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1200 "../pmc_divrem.c"
+                        )
+            q_buf[q_index] = q_;
 
 
 
@@ -106278,9 +106459,9 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 
     if (d_factor > 0)
         RightShift_Imp_DIV(work_u_buf, u_buf_len + 1, d_factor, work_u_buf, 
-# 1056 "../pmc_divrem.c" 3
+# 1214 "../pmc_divrem.c" 3
                                                                            0
-# 1056 "../pmc_divrem.c"
+# 1214 "../pmc_divrem.c"
                                                                                 );
 
 
@@ -106298,21 +106479,15 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UI
         return ((-256));
     }
     if (v == 
-# 1072 "../pmc_divrem.c" 3 4
+# 1230 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1072 "../pmc_divrem.c"
-                )
-        return ((-1));
-    if (q == 
-# 1074 "../pmc_divrem.c" 3 4
-            ((void *)0)
-# 1074 "../pmc_divrem.c"
+# 1230 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1076 "../pmc_divrem.c" 3 4
+# 1232 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1076 "../pmc_divrem.c"
+# 1232 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
@@ -106331,7 +106506,12 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UI
 
 
 
-        *q = 0;
+        if (q != 
+# 1250 "../pmc_divrem.c" 3 4
+                ((void *)0)
+# 1250 "../pmc_divrem.c"
+                    )
+            *q = 0;
         *r = 0;
     }
     else
@@ -106343,7 +106523,12 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UI
 
 
 
-            *q = u;
+            if (q != 
+# 1263 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1263 "../pmc_divrem.c"
+                        )
+                *q = u;
             *r = 0;
         }
         else
@@ -106358,7 +106543,12 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UI
 
 
 
-                *q = 0;
+                if (q != 
+# 1279 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1279 "../pmc_divrem.c"
+                            )
+                    *q = 0;
                 *r = u;
             }
             else
@@ -106367,7 +106557,13 @@ PMC_STATUS_CODE PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UI
 
 
                 __UNIT_TYPE_DIV temp_r;
-                *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                if (q != 
+# 1290 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1290 "../pmc_divrem.c"
+                            )
+                    *q = temp_q;
                 *r = temp_r;
 
                 if (sizeof(r) == sizeof(_UINT64_T))
@@ -106389,21 +106585,15 @@ PMC_STATUS_CODE PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* 
         return ((-256));
     }
     if (u == 
-# 1151 "../pmc_divrem.c" 3 4
+# 1312 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1151 "../pmc_divrem.c"
-                )
-        return ((-1));
-    if (q == 
-# 1153 "../pmc_divrem.c" 3 4
-            ((void *)0)
-# 1153 "../pmc_divrem.c"
+# 1312 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1155 "../pmc_divrem.c" 3 4
+# 1314 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1155 "../pmc_divrem.c"
+# 1314 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106423,7 +106613,16 @@ PMC_STATUS_CODE PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* 
 
 
 
-        nq = &number_zero;
+
+        nq = q != 
+# 1334 "../pmc_divrem.c" 3 4
+                 ((void *)0) 
+# 1334 "../pmc_divrem.c"
+                      ? &number_zero : 
+# 1334 "../pmc_divrem.c" 3 4
+                                       ((void *)0)
+# 1334 "../pmc_divrem.c"
+                                           ;
         *r = 0;
     }
     else
@@ -106435,8 +106634,21 @@ PMC_STATUS_CODE PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* 
 
 
 
-            if ((result = DuplicateNumber(nu, &nq)) != (0))
-                return (result);
+            if (q != 
+# 1346 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1346 "../pmc_divrem.c"
+                        )
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != (0))
+                    return (result);
+            }
+            else
+                nq = 
+# 1352 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1352 "../pmc_divrem.c"
+                        ;
             *r = 0;
         }
         else
@@ -106451,30 +106663,63 @@ PMC_STATUS_CODE PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* 
 
 
 
-                nq = &number_zero;
+                nq = q != 
+# 1367 "../pmc_divrem.c" 3 4
+                         ((void *)0) 
+# 1367 "../pmc_divrem.c"
+                              ? &number_zero : 
+# 1367 "../pmc_divrem.c" 3 4
+                                               ((void *)0)
+# 1367 "../pmc_divrem.c"
+                                                   ;
                 *r = (_UINT32_T)nu->BLOCK[0];
             }
             else
             {
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                    return (result);
-                __UNIT_TYPE_DIV r_buf = 0;
-                DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                    return (result);
-                CommitNumber(nq);
-                *r = (_UINT32_T)r_buf;
-                if (nq->IS_ZERO)
+                if (q != 
+# 1372 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1372 "../pmc_divrem.c"
+                            )
                 {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                        return (result);
+                    __UNIT_TYPE_DIV r_buf = 0;
+                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                        return (result);
+                    CommitNumber(nq);
+                    *r = (_UINT32_T)r_buf;
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                }
+                else
+                {
+                    __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v);
+                    nq = 
+# 1393 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1393 "../pmc_divrem.c"
+                            ;
+                    *r = (_UINT32_T)r_buf;
                 }
             }
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != 
+# 1399 "../pmc_divrem.c" 3 4
+            ((void *)0)
+# 1399 "../pmc_divrem.c"
+                )
+        *q = (PMC_HANDLE_UINT)nq;
+
+
+
 
 
 
@@ -106490,21 +106735,15 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
         return ((-256));
     }
     if (v == 
-# 1240 "../pmc_divrem.c" 3 4
+# 1418 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1240 "../pmc_divrem.c"
-                )
-        return ((-1));
-    if (q == 
-# 1242 "../pmc_divrem.c" 3 4
-            ((void *)0)
-# 1242 "../pmc_divrem.c"
+# 1418 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1244 "../pmc_divrem.c" 3 4
+# 1420 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1244 "../pmc_divrem.c"
+# 1420 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
@@ -106523,7 +106762,12 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
 
-        *q = 0;
+        if (q != 
+# 1438 "../pmc_divrem.c" 3 4
+                ((void *)0)
+# 1438 "../pmc_divrem.c"
+                    )
+            *q = 0;
         *r = 0;
     }
     else
@@ -106535,7 +106779,12 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
 
-            *q = u;
+            if (q != 
+# 1451 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1451 "../pmc_divrem.c"
+                        )
+                *q = u;
             *r = 0;
         }
         else
@@ -106558,7 +106807,12 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
 
-                        *q = 0;
+                        if (q != 
+# 1475 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1475 "../pmc_divrem.c"
+                                    )
+                            *q = 0;
                         *r = u_lo;
                     }
                     else
@@ -106567,7 +106821,13 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
                         __UNIT_TYPE_DIV temp_r;
-                        *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                        __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                        if (q != 
+# 1486 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1486 "../pmc_divrem.c"
+                                    )
+                            *q = temp_q;
                         *r = temp_r;
 
                         if (sizeof(r) == sizeof(_UINT64_T))
@@ -106587,7 +106847,12 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
 
-                        *q = 0;
+                        if (q != 
+# 1507 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1507 "../pmc_divrem.c"
+                                    )
+                            *q = 0;
                         *r = u;
                     }
                     else
@@ -106598,27 +106863,59 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
                         {
 
 
-                            __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
-                            __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
-                            __UNIT_TYPE_DIV r_buf;
+                            if (q != 
+# 1519 "../pmc_divrem.c" 3 4
+                                    ((void *)0)
+# 1519 "../pmc_divrem.c"
+                                        )
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
+                                __UNIT_TYPE_DIV r_buf;
 
-                            DivRem_X_1W(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
+                                DivRem_X_1W(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
 
-                            *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
-                            *r = r_buf;
+                                *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
+                                *r = r_buf;
+                            }
+                            else
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV r_buf = Rem_X_1W(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV)nv->BLOCK[0]);
+                                *r = r_buf;
+                            }
                         }
                         else
                         {
 
 
 
-                            __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
-                            __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
-                            __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 };
-                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
-                            (*fp_DivRem_X_X)(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
-                            *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
-                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            if (q != 
+# 1542 "../pmc_divrem.c" 3 4
+                                    ((void *)0)
+# 1542 "../pmc_divrem.c"
+                                        )
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
+                                __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 };
+                                __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                                (*fp_DivRem_X_X)(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
+                                *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
+                                *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            }
+                            else
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 };
+                                __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                                (*fp_DivRem_X_X)(u_buf, (sizeof(u_buf)/sizeof(*(u_buf))), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, 
+# 1557 "../pmc_divrem.c" 3 4
+                                                                                                                                                                                     ((void *)0)
+# 1557 "../pmc_divrem.c"
+                                                                                                                                                                                         , r_buf);
+                                *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            }
                         }
                     }
                 }
@@ -106635,7 +106932,12 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
 
-                    *q = 0;
+                    if (q != 
+# 1576 "../pmc_divrem.c" 3 4
+                            ((void *)0)
+# 1576 "../pmc_divrem.c"
+                                )
+                        *q = 0;
                     *r = u;
                 }
                 else
@@ -106644,7 +106946,13 @@ PMC_STATUS_CODE PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UI
 
 
                     __UNIT_TYPE_DIV temp_r;
-                    *q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                    __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                    if (q != 
+# 1587 "../pmc_divrem.c" 3 4
+                            ((void *)0)
+# 1587 "../pmc_divrem.c"
+                                )
+                        *q = temp_q;
                     *r = temp_r;
 
                     if (sizeof(r) == sizeof(_UINT64_T))
@@ -106668,21 +106976,15 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
         return ((-256));
     }
     if (u == 
-# 1406 "../pmc_divrem.c" 3 4
+# 1611 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1406 "../pmc_divrem.c"
-                )
-        return ((-1));
-    if (q == 
-# 1408 "../pmc_divrem.c" 3 4
-            ((void *)0)
-# 1408 "../pmc_divrem.c"
+# 1611 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1410 "../pmc_divrem.c" 3 4
+# 1613 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1410 "../pmc_divrem.c"
+# 1613 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106702,7 +107004,15 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 
 
 
-        nq = &number_zero;
+        nq = q != 
+# 1632 "../pmc_divrem.c" 3 4
+                 ((void *)0) 
+# 1632 "../pmc_divrem.c"
+                      ? &number_zero : 
+# 1632 "../pmc_divrem.c" 3 4
+                                       ((void *)0)
+# 1632 "../pmc_divrem.c"
+                                           ;
         *r = 0;
     }
     else
@@ -106714,8 +107024,21 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 
 
 
-            if ((result = DuplicateNumber(nu, &nq)) != (0))
-                return (result);
+            if (q != 
+# 1644 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1644 "../pmc_divrem.c"
+                        )
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != (0))
+                    return (result);
+            }
+            else
+                nq = 
+# 1650 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1650 "../pmc_divrem.c"
+                        ;
             *r = 0;
         }
         else
@@ -106738,25 +107061,50 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 
 
 
-                        nq = &number_zero;
+                        nq = q != 
+# 1673 "../pmc_divrem.c" 3 4
+                                 ((void *)0) 
+# 1673 "../pmc_divrem.c"
+                                      ? &number_zero : 
+# 1673 "../pmc_divrem.c" 3 4
+                                                       ((void *)0)
+# 1673 "../pmc_divrem.c"
+                                                           ;
                         *r = nu->BLOCK[0];
                     }
                     else
                     {
-                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                        __UNIT_TYPE nq_light_check_code;
-                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                            return (result);
-                        __UNIT_TYPE_DIV r_buf = 0;
-                        DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                            return (result);
-                        CommitNumber(nq);
-                        *r = r_buf;
-                        if (nq->IS_ZERO)
+                        if (q != 
+# 1678 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1678 "../pmc_divrem.c"
+                                    )
                         {
-                            DeallocateNumber(nq);
-                            nq = &number_zero;
+                            __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                            __UNIT_TYPE nq_light_check_code;
+                            if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                                return (result);
+                            __UNIT_TYPE_DIV r_buf = 0;
+                            DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                            if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                                return (result);
+                            CommitNumber(nq);
+                            *r = r_buf;
+                            if (nq->IS_ZERO)
+                            {
+                                DeallocateNumber(nq);
+                                nq = &number_zero;
+                            }
+                        }
+                        else
+                        {
+                            __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo);
+                            nq = 
+# 1699 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1699 "../pmc_divrem.c"
+                                    ;
+                            *r = r_buf;
                         }
                     }
                 }
@@ -106769,7 +107117,15 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 
 
 
-                        nq = &number_zero;
+                        nq = q != 
+# 1713 "../pmc_divrem.c" 3 4
+                                 ((void *)0) 
+# 1713 "../pmc_divrem.c"
+                                      ? &number_zero : 
+# 1713 "../pmc_divrem.c" 3 4
+                                                       ((void *)0)
+# 1713 "../pmc_divrem.c"
+                                                           ;
                         if (sizeof(v) == sizeof(__UNIT_TYPE))
                             *r = nu->BLOCK[0];
                         else
@@ -106781,37 +107137,76 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
                     }
                     else
                     {
-                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                        __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
-                        __UNIT_TYPE nq_light_check_code;
-                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                            return (result);
-                        __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
-                        __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
-                        __UNIT_TYPE r_buf_code;
-                        __UNIT_TYPE r_buf_words;
-                        __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
-                        if (r_buf == 
-# 1518 "../pmc_divrem.c" 3 4
-                                    ((void *)0)
-# 1518 "../pmc_divrem.c"
-                                        )
+                        if (q != 
+# 1725 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1725 "../pmc_divrem.c"
+                                    )
                         {
-                            DeallocateNumber(nq);
-                            return ((-5));
+                            __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                            __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
+                            __UNIT_TYPE nq_light_check_code;
+                            if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                                return (result);
+                            __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                            __UNIT_TYPE r_buf_code;
+                            __UNIT_TYPE r_buf_words;
+                            __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+                            if (r_buf == 
+# 1737 "../pmc_divrem.c" 3 4
+                                        ((void *)0)
+# 1737 "../pmc_divrem.c"
+                                            )
+                            {
+                                DeallocateNumber(nq);
+                                return ((-5));
+                            }
+                            (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
+                            if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                                return (result);
+                            if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != (0))
+                                return (result);
+                            CommitNumber(nq);
+                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
+                            if (nq->IS_ZERO)
+                            {
+                                DeallocateNumber(nq);
+                                nq = &number_zero;
+                            }
                         }
-                        (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
-                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                            return (result);
-                        if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != (0))
-                            return (result);
-                        CommitNumber(nq);
-                        *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
-                        DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
-                        if (nq->IS_ZERO)
+                        else
                         {
-                            DeallocateNumber(nq);
-                            nq = &number_zero;
+                            __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
+                            __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                            __UNIT_TYPE r_buf_code;
+                            __UNIT_TYPE r_buf_words;
+                            __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+                            if (r_buf == 
+# 1764 "../pmc_divrem.c" 3 4
+                                        ((void *)0)
+# 1764 "../pmc_divrem.c"
+                                            )
+                            {
+                                DeallocateNumber(nq);
+                                return ((-5));
+                            }
+                            (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, 
+# 1769 "../pmc_divrem.c" 3 4
+                                                                                                                                                                                                   ((void *)0)
+# 1769 "../pmc_divrem.c"
+                                                                                                                                                                                                       , r_buf);
+                            if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != (0))
+                                return (result);
+                            nq = 
+# 1772 "../pmc_divrem.c" 3 4
+                                ((void *)0)
+# 1772 "../pmc_divrem.c"
+                                    ;
+                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
                         }
                     }
                 }
@@ -106828,32 +107223,65 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 
 
 
-                    nq = &number_zero;
+                    nq = q != 
+# 1791 "../pmc_divrem.c" 3 4
+                             ((void *)0) 
+# 1791 "../pmc_divrem.c"
+                                  ? &number_zero : 
+# 1791 "../pmc_divrem.c" 3 4
+                                                   ((void *)0)
+# 1791 "../pmc_divrem.c"
+                                                       ;
                     *r = nu->BLOCK[0];
                 }
                 else
                 {
-                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                    __UNIT_TYPE nq_light_check_code;
-                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                        return (result);
-                    __UNIT_TYPE_DIV r_buf = 0;
-                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                        return (result);
-                    CommitNumber(nq);
-                    *r = r_buf;
-                    if (nq->IS_ZERO)
+                    if (q != 
+# 1796 "../pmc_divrem.c" 3 4
+                            ((void *)0)
+# 1796 "../pmc_divrem.c"
+                                )
                     {
-                        DeallocateNumber(nq);
-                        nq = &number_zero;
+                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                        __UNIT_TYPE nq_light_check_code;
+                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                            return (result);
+                        __UNIT_TYPE_DIV r_buf = 0;
+                        DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                            return (result);
+                        CommitNumber(nq);
+                        *r = r_buf;
+                        if (nq->IS_ZERO)
+                        {
+                            DeallocateNumber(nq);
+                            nq = &number_zero;
+                        }
+                    }
+                    else
+                    {
+                        __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v);
+                        nq = 
+# 1817 "../pmc_divrem.c" 3 4
+                            ((void *)0)
+# 1817 "../pmc_divrem.c"
+                                ;
+                        *r = r_buf;
                     }
                 }
             }
 
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != 
+# 1825 "../pmc_divrem.c" 3 4
+            ((void *)0)
+# 1825 "../pmc_divrem.c"
+                )
+        *q = (PMC_HANDLE_UINT)nq;
+
+
+
 
 
 
@@ -106864,27 +107292,21 @@ PMC_STATUS_CODE PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* 
 PMC_STATUS_CODE PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r)
 {
     if (u == 
-# 1586 "../pmc_divrem.c" 3 4
+# 1839 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1586 "../pmc_divrem.c"
+# 1839 "../pmc_divrem.c"
                 )
         return ((-1));
     if (v == 
-# 1588 "../pmc_divrem.c" 3 4
+# 1841 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1588 "../pmc_divrem.c"
-                )
-        return ((-1));
-    if (q == 
-# 1590 "../pmc_divrem.c" 3 4
-            ((void *)0)
-# 1590 "../pmc_divrem.c"
+# 1841 "../pmc_divrem.c"
                 )
         return ((-1));
     if (r == 
-# 1592 "../pmc_divrem.c" 3 4
+# 1843 "../pmc_divrem.c" 3 4
             ((void *)0)
-# 1592 "../pmc_divrem.c"
+# 1843 "../pmc_divrem.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -106908,7 +107330,15 @@ PMC_STATUS_CODE PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_
 
 
 
-        nq = &number_zero;
+        nq = q != 
+# 1866 "../pmc_divrem.c" 3 4
+                 ((void *)0) 
+# 1866 "../pmc_divrem.c"
+                      ? &number_zero : 
+# 1866 "../pmc_divrem.c" 3 4
+                                       ((void *)0)
+# 1866 "../pmc_divrem.c"
+                                           ;
         nr = &number_zero;
     }
     else
@@ -106920,8 +107350,21 @@ PMC_STATUS_CODE PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_
 
 
 
-            if ((result = DuplicateNumber(nu, &nq)) != (0))
-                return (result);
+            if (q != 
+# 1878 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1878 "../pmc_divrem.c"
+                        )
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != (0))
+                    return (result);
+            }
+            else
+                nq = 
+# 1884 "../pmc_divrem.c" 3 4
+                    ((void *)0)
+# 1884 "../pmc_divrem.c"
+                        ;
             nr = &number_zero;
         }
         else
@@ -106936,7 +107379,15 @@ PMC_STATUS_CODE PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_
 
 
 
-                nq = &number_zero;
+                nq = q != 
+# 1899 "../pmc_divrem.c" 3 4
+                         ((void *)0) 
+# 1899 "../pmc_divrem.c"
+                              ? &number_zero : 
+# 1899 "../pmc_divrem.c" 3 4
+                                               ((void *)0)
+# 1899 "../pmc_divrem.c"
+                                                   ;
                 if ((result = DuplicateNumber(nu, &nr)) != (0))
                     return (result);
             }
@@ -106944,93 +107395,166 @@ PMC_STATUS_CODE PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_
             {
 
 
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                    return (result);
-                __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
-                __UNIT_TYPE nr_light_check_code;
-                if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                if (q != 
+# 1907 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1907 "../pmc_divrem.c"
+                            )
                 {
-                    DeallocateNumber(nq);
-                    return (result);
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                        return (result);
+                    __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                    {
+                        DeallocateNumber(nq);
+                        return (result);
+                    }
+                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                        return (result);
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != (0))
+                        return (result);
+                    CommitNumber(nq);
+                    CommitNumber(nr);
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
-                DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                    return (result);
-                if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != (0))
-                    return (result);
-                CommitNumber(nq);
-                CommitNumber(nr);
-                if (nq->IS_ZERO)
+                else
                 {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
-                }
-                if (nr->IS_ZERO)
-                {
-                    DeallocateNumber(nr);
-                    nr = &number_zero;
+                    __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                        return (result);
+                    ((__UNIT_TYPE_DIV*)nr->BLOCK)[0] = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0]);
+                    nq = 
+# 1945 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1945 "../pmc_divrem.c"
+                            ;
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != (0))
+                        return (result);
+                    CommitNumber(nr);
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
             }
             else
             {
 
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
-                __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
-                    return (result);
-                __UNIT_TYPE nr_light_check_code;
-                if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                if (q != 
+# 1959 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 1959 "../pmc_divrem.c"
+                            )
                 {
-                    DeallocateNumber(nq);
-                    return (result);
-                }
-                __UNIT_TYPE work_v_buf_code;
-                __UNIT_TYPE work_v_buf_words;
-                __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * (sizeof(__UNIT_TYPE) * 8), &work_v_buf_words, &work_v_buf_code);
-                if (work_v_buf == 
-# 1697 "../pmc_divrem.c" 3 4
-                                 ((void *)0)
-# 1697 "../pmc_divrem.c"
-                                     )
-                {
-                    DeallocateNumber(nq);
-                    return ((-5));
-                }
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + (sizeof(__UNIT_TYPE) * 8);
+                    __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != (0))
+                        return (result);
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                    {
+                        DeallocateNumber(nq);
+                        return (result);
+                    }
+                    __UNIT_TYPE work_v_buf_code;
+                    __UNIT_TYPE work_v_buf_words;
+                    __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * (sizeof(__UNIT_TYPE) * 8), &work_v_buf_words, &work_v_buf_code);
+                    if (work_v_buf == 
+# 1975 "../pmc_divrem.c" 3 4
+                                     ((void *)0)
+# 1975 "../pmc_divrem.c"
+                                         )
+                    {
+                        DeallocateNumber(nq);
+                        return ((-5));
+                    }
 
-                (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
-                if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != (0))
-                    return (result);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                    return (result);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
-                    return (result);
-                DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
-                CommitNumber(nq);
-                CommitNumber(nr);
-                if (nq->IS_ZERO)
-                {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
+                    (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != (0))
+                        return (result);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                        return (result);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != (0))
+                        return (result);
+                    DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+                    CommitNumber(nq);
+                    CommitNumber(nr);
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
-                if (nr->IS_ZERO)
+                else
                 {
-                    DeallocateNumber(nr);
-                    nr = &number_zero;
+                    __UNIT_TYPE r_bit_count = u_bit_count + (sizeof(__UNIT_TYPE) * 8);
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != (0))
+                        return (result);
+                    __UNIT_TYPE work_v_buf_code;
+                    __UNIT_TYPE work_v_buf_words;
+                    __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * (sizeof(__UNIT_TYPE) * 8), &work_v_buf_words, &work_v_buf_code);
+                    if (work_v_buf == 
+# 2011 "../pmc_divrem.c" 3 4
+                                     ((void *)0)
+# 2011 "../pmc_divrem.c"
+                                         )
+                        return ((-5));
+
+                    (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, 
+# 2014 "../pmc_divrem.c" 3 4
+                                                                                                                                                                                                                                                    ((void *)0)
+# 2014 "../pmc_divrem.c"
+                                                                                                                                                                                                                                                        , (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    nq = 
+# 2015 "../pmc_divrem.c" 3 4
+                        ((void *)0)
+# 2015 "../pmc_divrem.c"
+                            ;
+                    if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != (0))
+                        return (result);
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != (0))
+                        return (result);
+                    DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+                    CommitNumber(nr);
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
             }
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != 
+# 2031 "../pmc_divrem.c" 3 4
+            ((void *)0)
+# 2031 "../pmc_divrem.c"
+                )
+        *q = (PMC_HANDLE_UINT)nq;
     *r = (PMC_HANDLE_UINT)nr;
-
-
-
-
-
-
+# 2043 "../pmc_divrem.c"
     return ((0));
 }
 

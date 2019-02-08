@@ -49215,6 +49215,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
 
 
+    extern __UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v);
+
+
     extern void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __UNIT_TYPE v_count, __UNIT_TYPE* work_v_buf, __UNIT_TYPE* q_buf, __UNIT_TYPE* r_buf);
 
 
@@ -49445,12 +49448,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 377 "../pmc_uint_internal.h"
+# 380 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 391 "../pmc_uint_internal.h"
+# 394 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../INTERNALTEST_op_Multiply.c" 2
@@ -101408,11 +101411,11 @@ typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 
 
 #pragma region 宣言
-# 141 "../pmc_uint_debug.h"
+# 147 "../pmc_uint_debug.h"
 #pragma endregion
 
 
 #pragma region インライン関数の定義
-# 161 "../pmc_uint_debug.h"
+# 167 "../pmc_uint_debug.h"
 #pragma endregion
 # 30 "../INTERNALTEST_op_Multiply.c" 2

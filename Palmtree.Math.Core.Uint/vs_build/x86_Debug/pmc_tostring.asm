@@ -71,12 +71,12 @@ _hexadecimal_upper_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H
 	DB	'5', 00H, '6', 00H, '7', 00H, '8', 00H, '9', 00H, 'A', 00H, 'B'
 	DB	00H, 'C', 00H, 'D', 00H, 'E', 00H, 'F', 00H, 00H, 00H
 	ORG $+2
-$SG95041 DB	',', 00H, 00H, 00H
-$SG95042 DB	'.', 00H, 00H, 00H
-$SG95043 DB	'3', 00H
+$SG95048 DB	',', 00H, 00H, 00H
+$SG95049 DB	'.', 00H, 00H, 00H
+$SG95050 DB	'3', 00H
 	ORG $+2
-$SG95044 DB	'+', 00H, 00H, 00H
-$SG95045 DB	'-', 00H, 00H, 00H
+$SG95051 DB	'+', 00H, 00H, 00H
+$SG95052 DB	'-', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -3879,20 +3879,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC
 
-; 341  :     {
+; 344  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 343  :     }
+; 346  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3906,20 +3906,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC
 
-; 335  :     {
+; 338  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 337  :     }
+; 340  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3932,18 +3932,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC
 
-; 318  :     {
+; 321  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 320  :     }
+; 323  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3956,18 +3956,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC
 
-; 312  :     {
+; 315  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 314  :     }
+; 317  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -4288,7 +4288,7 @@ _Initialize_ToString PROC
 ; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG95041
+	push	OFFSET $SG95048
 	push	OFFSET _default_number_format_option+4
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4297,7 +4297,7 @@ _Initialize_ToString PROC
 ; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG95042
+	push	OFFSET $SG95049
 	push	OFFSET _default_number_format_option+10
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4306,7 +4306,7 @@ _Initialize_ToString PROC
 ; 559  :     lstrcpy(default_number_format_option.GroupSizes, "3");
 
 	mov	esi, esp
-	push	OFFSET $SG95043
+	push	OFFSET $SG95050
 	push	OFFSET _default_number_format_option+28
 	call	DWORD PTR __imp__lstrcpyA@8
 	cmp	esi, esp
@@ -4315,7 +4315,7 @@ _Initialize_ToString PROC
 ; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG95044
+	push	OFFSET $SG95051
 	push	OFFSET _default_number_format_option+16
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4324,7 +4324,7 @@ _Initialize_ToString PROC
 ; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG95045
+	push	OFFSET $SG95052
 	push	OFFSET _default_number_format_option+22
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp

@@ -4988,7 +4988,7 @@ PMC_ToByteArray:
 	.uleb128 0x18
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x4d1e
 	.uleb128 0x6

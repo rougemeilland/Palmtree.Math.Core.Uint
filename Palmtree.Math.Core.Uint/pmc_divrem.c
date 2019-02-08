@@ -54,7 +54,8 @@ void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __U
         {
             __UNIT_TYPE_DIV r;
             __UNIT_TYPE_DIV q = _DIVREM_UNIT(0, u_buf_2[0], v_buf_2[0], &r);
-            q_buf[0] = q;
+            if (q_buf != NULL)
+                q_buf[0] = q;
             r_buf[0] = r;
 #ifdef ENABLED_PERFORMANCE_COUNTER
             if (sizeof(r) == sizeof(_UINT64_T))
@@ -65,21 +66,176 @@ void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __U
         }
         else
         {
-            __UNIT_TYPE_DIV r;
-            DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
-            r_buf[0] = r;
+            if (q_buf != NULL)
+            {
+                __UNIT_TYPE_DIV r;
+                DivRem_X_1W(u_buf_2, u_count_2, v_buf_2[0], (__UNIT_TYPE_DIV*)q_buf, &r);
+                r_buf[0] = r;
+            }
+            else
+                r_buf[0] = Rem_X_1W(u_buf_2, u_count_2, v_buf_2[0]);
         }
     }
     else
     {
         if (u_count_2 < v_count_2)
         {
-            q_buf[0] = 0;
+            if (q_buf != NULL)
+                q_buf[0] = 0;
             _COPY_MEMORY_UNIT(r_buf, u_buf, u_count);
         }
         else
             (*fp_DivRem_X_X)(u_buf_2, u_count_2, v_buf_2, v_count_2, (__UNIT_TYPE_DIV*)work_v_buf, (__UNIT_TYPE_DIV*)q_buf, (__UNIT_TYPE_DIV*)r_buf);
     }
+}
+
+__UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v)
+{
+    // u の最上位ワードは 0 でありうることに注意すること。
+    __UNIT_TYPE_DIV* up = u_buf + u_buf_len - 1;
+    __UNIT_TYPE u_count = u_buf_len;
+    __UNIT_TYPE_DIV dummy_q;
+    if (sizeof(__UNIT_TYPE) != sizeof(__UNIT_TYPE_DIV))
+    {
+        while (*up == 0)
+        {
+            --up;
+            --u_count;
+        }
+    }
+    __UNIT_TYPE_DIV r = 0;
+    __UNIT_TYPE count = u_count >> 5;
+    while (count != 0)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-16], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-17], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-18], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-19], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-20], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-21], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-22], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-23], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-24], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-25], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-26], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-27], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-28], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-29], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-30], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-31], v, &dummy_q);
+        up -= 32;
+        --count;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(32);
+        else
+            AddToDIV32Counter(32);
+#endif
+    }
+
+    if (u_count & 0x10)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-8], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-9], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-10], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-11], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-12], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-13], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-14], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-15], v, &dummy_q);
+        up -= 16;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(16);
+        else
+            AddToDIV32Counter(16);
+#endif
+    }
+
+    if (u_count & 0x8)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-4], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-5], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-6], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-7], v, &dummy_q);
+        up -= 8;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(8);
+        else
+            AddToDIV32Counter(8);
+#endif
+    }
+
+    if (u_count & 0x4)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-2], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-3], v, &dummy_q);
+        up -= 4;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(4);
+        else
+            AddToDIV32Counter(4);
+#endif
+    }
+
+    if (u_count & 0x2)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        r = _DIVREM_SINGLE_UNIT(r, up[-1], v, &dummy_q);
+        up -= 2;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            AddToDIV64Counter(2);
+        else
+            AddToDIV32Counter(2);
+#endif
+    }
+
+    if (u_count & 0x1)
+    {
+        r = _DIVREM_SINGLE_UNIT(r, up[-0], v, &dummy_q);
+        up -= 1;
+#ifdef ENABLED_PERFORMANCE_COUNTER
+        if (sizeof(r) == sizeof(_UINT64_T))
+            IncrementDIV64Counter();
+        else
+            IncrementDIV32Counter();
+#endif
+    }
+
+    return (r);
 }
 
 void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf)
@@ -951,7 +1107,8 @@ static void DivRem_X_X_using_ADC_MUL(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_l
             AddOneLine(work_u_buf, u_buf_len, work_v_buf, v_buf_len, q_index);
         }
 
-        q_buf[q_index] = q_;
+        if (q_buf != NULL)
+            q_buf[q_index] = q_;
         if (q_index == 0)
             break;
         --q_index;
@@ -1040,7 +1197,8 @@ static void DivRem_X_X_using_ADX_MULX(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_
 #endif
         }
 
-        q_buf[q_index] = q_;
+        if (q_buf != NULL)
+            q_buf[q_index] = q_;
 
 #ifdef DO_TRACE
         ReportLabel("qの現在値");
@@ -1071,8 +1229,6 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT3
     }
     if (v == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
-    if (q == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
     if (r == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
@@ -1091,7 +1247,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT3
         // u が 0 である場合
 
         // q = 0, r = 0 を返す
-        *q = 0;
+        if (q != NULL)
+            *q = 0;
         *r = 0;
     }
     else
@@ -1103,7 +1260,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT3
             // v が 1 である場合
 
             // q = u, r = 0 を返す
-            *q = u;
+            if (q != NULL)
+                *q = u;
             *r = 0;
         }
         else
@@ -1118,7 +1276,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT3
                 // 明らかに u < v である場合
 
                 // q = 0, r = u を返す。
-                *q = 0;
+                if (q != NULL)
+                    *q = 0;
                 *r = u;
             }
             else
@@ -1127,7 +1286,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _UINT3
                 
                 // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
                 __UNIT_TYPE_DIV temp_r;
-                *q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                if (q != NULL)
+                    *q = temp_q;
                 *r = temp_r;
 #ifdef ENABLED_PERFORMANCE_COUNTER
                 if (sizeof(r) == sizeof(_UINT64_T))
@@ -1150,8 +1311,6 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HA
     }
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
-    if (q == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
     if (r == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -1171,7 +1330,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HA
         // u が 0 である場合
 
         // q = 0, r = 0 を返す
-        nq = &number_zero;
+        
+        nq = q != NULL ? &number_zero : NULL;
         *r = 0;
     }
     else
@@ -1183,8 +1343,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HA
             // v が 1 である場合
 
             // q = u, r = 0 を返す
-            if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
-                return (result);
+            if (q != NULL)
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+                    return (result);
+            }
+            else
+                nq = NULL;
             *r = 0;
         }
         else
@@ -1199,33 +1364,46 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_I(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HA
                 // 明らかに u < v である場合
 
                 // q = 0, r = u を返す。
-                nq = &number_zero;
+                nq = q != NULL ? &number_zero : NULL;
                 *r = (_UINT32_T)nu->BLOCK[0];
             }
             else
             {
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                __UNIT_TYPE_DIV r_buf = 0;
-                DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                CommitNumber(nq);
-                *r = (_UINT32_T)r_buf;
-                if (nq->IS_ZERO)
+                if (q != NULL)
                 {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    __UNIT_TYPE_DIV r_buf = 0;
+                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    CommitNumber(nq);
+                    *r = (_UINT32_T)r_buf;
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                }
+                else
+                {
+                    __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v);
+                    nq = NULL;
+                    *r = (_UINT32_T)r_buf;
                 }
             }
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != NULL)
+        *q = (PMC_HANDLE_UINT)nq;
 #ifdef _DEBUG
-    if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
-        return (result);
+    if (q != NULL)
+    {
+        if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+            return (result);
+    }
 #endif
     return (PMC_STATUS_OK);
 }
@@ -1238,8 +1416,6 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
         return (PMC_STATUS_INTERNAL_ERROR);
     }
     if (v == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    if (q == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     if (r == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -1259,7 +1435,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
         // x が 0 である場合
 
         // q = 0, r = 0 を返す
-        *q = 0;
+        if (q != NULL)
+            *q = 0;
         *r = 0;
     }
     else
@@ -1271,7 +1448,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
             // v が 1 である場合
 
             // q = u, r = 0 を返す
-            *q = u;
+            if (q != NULL)
+                *q = u;
             *r = 0;
         }
         else
@@ -1294,7 +1472,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
                         // 明らかに u < v である場合
 
                         // q = 0, r = u を返す。
-                        *q = 0;
+                        if (q != NULL)
+                            *q = 0;
                         *r = u_lo;
                     }
                     else
@@ -1303,7 +1482,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
 
                         // u は 32bit で表現できるので、v も 32bit で表現できる。
                         __UNIT_TYPE_DIV temp_r;
-                        *q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                        __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                        if (q != NULL)
+                            *q = temp_q;
                         *r = temp_r;
 #ifdef ENABLED_PERFORMANCE_COUNTER
                         if (sizeof(r) == sizeof(_UINT64_T))
@@ -1323,7 +1504,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
                         // 明らかに u < v である場合
 
                         // q = 0, r = u を返す。
-                        *q = 0;
+                        if (q != NULL)
+                            *q = 0;
                         *r = u;
                     }
                     else
@@ -1334,27 +1516,47 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
                         {
                             // v が 32bit で表現できる場合
 
-                            __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
-                            __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
-                            __UNIT_TYPE_DIV r_buf;
+                            if (q != NULL)
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };
+                                __UNIT_TYPE_DIV r_buf;
 
-                            DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
+                                DivRem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0], q_buf, &r_buf);
 
-                            *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
-                            *r = r_buf;
+                                *q = _FROMWORDTODWORD(q_buf[1], q_buf[0]);
+                                *r = r_buf;
+                            }
+                            else
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV r_buf = Rem_X_1W(u_buf, countof(u_buf), (__UNIT_TYPE_DIV)nv->BLOCK[0]);
+                                *r = r_buf;
+                            }
                         }
                         else
                         {
                             // v が 32bit では表現できない場合
 
                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
-                            __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
-                            __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };// 演算結果を格納するためには u のビット数 - v のビット数 + 1 ビットだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                            __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 }; // 演算結果を格納するためには v と同じ大きさだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
-                            (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
-                            *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
-                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            if (q != NULL)
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV q_buf[] = { 0, 0, 0 };// 演算結果を格納するためには u のビット数 - v のビット数 + 1 ビットだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                                __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 }; // 演算結果を格納するためには v と同じ大きさだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                                __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                                (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, q_buf, r_buf);
+                                *q = _FROMWORDTODWORD((_UINT32_T)q_buf[1], (_UINT32_T)q_buf[0]);
+                                *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            }
+                            else
+                            {
+                                __UNIT_TYPE_DIV u_buf[] = { u_lo, u_hi };
+                                __UNIT_TYPE_DIV r_buf[] = { 0, 0, 0 }; // 演算結果を格納するためには v と同じ大きさだけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                                __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                                (*fp_DivRem_X_X)(u_buf, countof(u_buf), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, NULL, r_buf);
+                                *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            }
                         }
                     }
                 }
@@ -1371,7 +1573,8 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
                     // 明らかに u < v である場合
 
                     // q = 0, r = u を返す。
-                    *q = 0;
+                    if (q != NULL)
+                        *q = 0;
                     *r = u;
                 }
                 else
@@ -1380,7 +1583,9 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _UINT6
 
                     // u は 1 ワードで表現できるので、v も 1 ワードで表現できる。
                     __UNIT_TYPE_DIV temp_r;
-                    *q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                    __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, (__UNIT_TYPE_DIV)u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
+                    if (q != NULL)
+                        *q = temp_q;
                     *r = temp_r;
 #ifdef ENABLED_PERFORMANCE_COUNTER
                     if (sizeof(r) == sizeof(_UINT64_T))
@@ -1405,8 +1610,6 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
     }
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
-    if (q == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
     if (r == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -1426,7 +1629,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
         // x が 0 である場合
 
         // q = 0, r = 0 を返す
-        nq = &number_zero;
+        nq = q != NULL ? &number_zero : NULL;
         *r = 0;
     }
     else
@@ -1438,8 +1641,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
             // v が 1 である場合
 
             // q = u, r = 0 を返す
-            if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
-                return (result);
+            if (q != NULL)
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+                    return (result);
+            }
+            else
+                nq = NULL;
             *r = 0;
         }
         else
@@ -1462,25 +1670,34 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
                         // 明らかに u < v である場合
 
                         // q = 0, r = u を返す。
-                        nq = &number_zero;
+                        nq = q != NULL ? &number_zero : NULL;
                         *r = nu->BLOCK[0];
                     }
                     else
                     {
-                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                        __UNIT_TYPE nq_light_check_code;
-                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                            return (result);
-                        __UNIT_TYPE_DIV r_buf = 0;
-                        DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                            return (result);
-                        CommitNumber(nq);
-                        *r = r_buf;
-                        if (nq->IS_ZERO)
+                        if (q != NULL)
                         {
-                            DeallocateNumber(nq);
-                            nq = &number_zero;
+                            __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                            __UNIT_TYPE nq_light_check_code;
+                            if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                                return (result);
+                            __UNIT_TYPE_DIV r_buf = 0;
+                            DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                            if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                                return (result);
+                            CommitNumber(nq);
+                            *r = r_buf;
+                            if (nq->IS_ZERO)
+                            {
+                                DeallocateNumber(nq);
+                                nq = &number_zero;
+                            }
+                        }
+                        else
+                        {
+                            __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo);
+                            nq = NULL;
+                            *r = r_buf;
                         }
                     }
                 }
@@ -1493,7 +1710,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
                         // 明らかに u < v である場合
 
                         // q = 0, r = u を返す。
-                        nq = &number_zero;
+                        nq = q != NULL ? &number_zero : NULL;
                         if (sizeof(v) == sizeof(__UNIT_TYPE))
                             *r = nu->BLOCK[0];
                         else
@@ -1505,33 +1722,56 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
                     }
                     else
                     {
-                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                        __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                        __UNIT_TYPE nq_light_check_code;
-                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                            return (result);
-                        __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
-                        __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
-                        __UNIT_TYPE r_buf_code;
-                        __UNIT_TYPE r_buf_words;
-                        __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
-                        if (r_buf == NULL)
+                        if (q != NULL)
                         {
-                            DeallocateNumber(nq);
-                            return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+                            __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                            __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                            __UNIT_TYPE nq_light_check_code;
+                            if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                                return (result);
+                            __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                            __UNIT_TYPE r_buf_code;
+                            __UNIT_TYPE r_buf_words;
+                            __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+                            if (r_buf == NULL)
+                            {
+                                DeallocateNumber(nq);
+                                return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+                            }
+                            (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
+                            if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                                return (result);
+                            if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
+                                return (result);
+                            CommitNumber(nq);
+                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
+                            if (nq->IS_ZERO)
+                            {
+                                DeallocateNumber(nq);
+                                nq = &number_zero;
+                            }
                         }
-                        (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
-                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                            return (result);
-                        if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
-                            return (result);
-                        CommitNumber(nq);
-                        *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
-                        DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
-                        if (nq->IS_ZERO)
+                        else
                         {
-                            DeallocateNumber(nq);
-                            nq = &number_zero;
+                            __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                            __UNIT_TYPE_DIV v_buf[] = { v_lo, v_hi };
+                            __UNIT_TYPE_DIV work_v_buf[] = { 0, 0 };
+                            __UNIT_TYPE r_buf_code;
+                            __UNIT_TYPE r_buf_words;
+                            __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_bit_count, &r_buf_words, &r_buf_code);
+                            if (r_buf == NULL)
+                            {
+                                DeallocateNumber(nq);
+                                return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+                            }
+                            (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, NULL, r_buf);
+                            if ((result = CheckBlockLight((__UNIT_TYPE*)r_buf, r_buf_code)) != PMC_STATUS_OK)
+                                return (result);
+                            nq = NULL;
+                            *r = _FROMWORDTODWORD((_UINT32_T)r_buf[1], (_UINT32_T)r_buf[0]);
+                            DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
                         }
                     }
                 }
@@ -1548,35 +1788,48 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_L(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HA
                     // 明らかに u < v である場合
 
                     // q = 0, r = u を返す。
-                    nq = &number_zero;
+                    nq = q != NULL ? &number_zero : NULL;
                     *r = nu->BLOCK[0];
                 }
                 else
                 {
-                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                    __UNIT_TYPE nq_light_check_code;
-                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                        return (result);
-                    __UNIT_TYPE_DIV r_buf = 0;
-                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
-                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                        return (result);
-                    CommitNumber(nq);
-                    *r = r_buf;
-                    if (nq->IS_ZERO)
+                    if (q != NULL)
                     {
-                        DeallocateNumber(nq);
-                        nq = &number_zero;
+                        __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                        __UNIT_TYPE nq_light_check_code;
+                        if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                            return (result);
+                        __UNIT_TYPE_DIV r_buf = 0;
+                        DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v, (__UNIT_TYPE_DIV*)nq->BLOCK, &r_buf);
+                        if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                            return (result);
+                        CommitNumber(nq);
+                        *r = r_buf;
+                        if (nq->IS_ZERO)
+                        {
+                            DeallocateNumber(nq);
+                            nq = &number_zero;
+                        }
+                    }
+                    else
+                    {
+                        __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)v);
+                        nq = NULL;
+                        *r = r_buf;
                     }
                 }
             }
 
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != NULL)
+        *q = (PMC_HANDLE_UINT)nq;
 #ifdef _DEBUG
-    if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
-        return (result);
+    if (q != NULL)
+    {
+        if ((result = CheckNumber(nq)) != PMC_STATUS_OK)
+            return (result);
+    }
 #endif
     return (PMC_STATUS_OK);
 }
@@ -1586,8 +1839,6 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, 
     if (u == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     if (v == NULL)
-        return (PMC_STATUS_ARGUMENT_ERROR);
-    if (q == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
     if (r == NULL)
         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -1612,7 +1863,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, 
         // u が 0 である場合
 
         // q = 0, r = 0 を返す
-        nq = &number_zero;
+        nq = q != NULL ? &number_zero : NULL;
         nr = &number_zero;
     }
     else
@@ -1624,8 +1875,13 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, 
             // v が 1 である場合
 
             // q = u, r = 0 を返す
-            if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
-                return (result);
+            if (q != NULL)
+            {
+                if ((result = DuplicateNumber(nu, &nq)) != PMC_STATUS_OK)
+                    return (result);
+            }
+            else
+                nq = NULL;
             nr = &number_zero;
         }
         else
@@ -1640,7 +1896,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, 
                 // 明らかに u < v である場合
 
                 // q = 0, r = u を返す。
-                nq = &number_zero;
+                nq = q != NULL ? &number_zero : NULL;
                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
                     return (result);
             }
@@ -1648,86 +1904,139 @@ PMC_STATUS_CODE __PMC_CALL PMC_DivRem_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, 
             {
                 // 除数が 1 ワードで表現できる場合
 
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
-                __UNIT_TYPE nr_light_check_code;
-                if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                if (q != NULL)
                 {
-                    DeallocateNumber(nq);
-                    return (result);
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                    {
+                        DeallocateNumber(nq);
+                        return (result);
+                    }
+                    DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    CommitNumber(nq);
+                    CommitNumber(nr);
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
-                DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                CommitNumber(nq);
-                CommitNumber(nr);
-                if (nq->IS_ZERO)
+                else
                 {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
-                }
-                if (nr->IS_ZERO)
-                {
-                    DeallocateNumber(nr);
-                    nr = &number_zero;
+                    __UNIT_TYPE r_bit_count = sizeof(__UNIT_TYPE_DIV) * 8;
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    ((__UNIT_TYPE_DIV*)nr->BLOCK)[0] = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0]);
+                    nq = NULL;
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    CommitNumber(nr);
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
             }
             else
             {
                 // 除数を表現するのに 2 ワード以上必要な場合
-                __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
-                __UNIT_TYPE nq_light_check_code;
-                if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                __UNIT_TYPE nr_light_check_code;
-                if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                if (q != NULL)
                 {
-                    DeallocateNumber(nq);
-                    return (result);
-                }
-                __UNIT_TYPE work_v_buf_code;
-                __UNIT_TYPE work_v_buf_words;
-                __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
-                if (work_v_buf == NULL)
-                {
-                    DeallocateNumber(nq);
-                    return (PMC_STATUS_NOT_ENOUGH_MEMORY);
-                }
+                    __UNIT_TYPE q_bit_count = u_bit_count - v_bit_count + 1 + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには u_bit_count - v_bit_count + 1 だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                    __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                    __UNIT_TYPE nq_light_check_code;
+                    if ((result = AllocateNumber(&nq, q_bit_count, &nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                    {
+                        DeallocateNumber(nq);
+                        return (result);
+                    }
+                    __UNIT_TYPE work_v_buf_code;
+                    __UNIT_TYPE work_v_buf_words;
+                    __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
+                    if (work_v_buf == NULL)
+                    {
+                        DeallocateNumber(nq);
+                        return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+                    }
 
-                (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
-                if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
-                    return (result);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
-                    return (result);
-                DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
-                CommitNumber(nq);
-                CommitNumber(nr);
-                if (nq->IS_ZERO)
-                {
-                    DeallocateNumber(nq);
-                    nq = &number_zero;
+                    (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+                        return (result);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    if ((result = CheckBlockLight(nq->BLOCK, nq_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+                    CommitNumber(nq);
+                    CommitNumber(nr);
+                    if (nq->IS_ZERO)
+                    {
+                        DeallocateNumber(nq);
+                        nq = &number_zero;
+                    }
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
-                if (nr->IS_ZERO)
+                else
                 {
-                    DeallocateNumber(nr);
-                    nr = &number_zero;
+                    __UNIT_TYPE r_bit_count = u_bit_count + __UNIT_TYPE_BIT_COUNT; // 演算結果を格納するためには v_bit_count だけあれば十分であるが、除算の作業用バッファも兼ねているので余分にとっている。
+                    __UNIT_TYPE nr_light_check_code;
+                    if ((result = AllocateNumber(&nr, r_bit_count, &nr_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    __UNIT_TYPE work_v_buf_code;
+                    __UNIT_TYPE work_v_buf_words;
+                    __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
+                    if (work_v_buf == NULL)
+                        return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+
+                    (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, NULL, (__UNIT_TYPE_DIV*)nr->BLOCK);
+                    nq = NULL;
+                    if ((result = CheckBlockLight((__UNIT_TYPE*)work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
+                        return (result);
+                    if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
+                        return (result);
+                    DeallocateBlock((__UNIT_TYPE*)work_v_buf, work_v_buf_words);
+                    CommitNumber(nr);
+                    if (nr->IS_ZERO)
+                    {
+                        DeallocateNumber(nr);
+                        nr = &number_zero;
+                    }
                 }
             }
         }
     }
-    *q = (PMC_HANDLE_UINT)nq;
+    if (q != NULL)
+        *q = (PMC_HANDLE_UINT)nq;
     *r = (PMC_HANDLE_UINT)nr;
 #ifdef _DEBUG
-    if ((result = CheckNumber((NUMBER_HEADER*)*q)) != PMC_STATUS_OK)
-        return (result);
+    if (q != NULL)
+    {
+        if ((result = CheckNumber((NUMBER_HEADER*)*q)) != PMC_STATUS_OK)
+            return (result);
+    }
     if ((result = CheckNumber((NUMBER_HEADER*)*r)) != PMC_STATUS_OK)
         return (result);
 #endif

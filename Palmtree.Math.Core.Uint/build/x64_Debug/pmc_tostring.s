@@ -7,7 +7,7 @@
 IncrementDIV64Counter:
 .LFB4274:
 	.file 1 "../pmc_uint_internal.h"
-	.loc 1 318 5
+	.loc 1 321 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -31,7 +31,7 @@ IncrementDIV64Counter:
 	lock xaddl	%edx, (%rax)
 .LBE15:
 .LBE14:
-	.loc 1 320 5
+	.loc 1 323 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -45,7 +45,7 @@ IncrementDIV64Counter:
 	.seh_proc	AddToDIV64Counter
 AddToDIV64Counter:
 .LFB4278:
-	.loc 1 341 5
+	.loc 1 344 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -71,7 +71,7 @@ AddToDIV64Counter:
 	lock xaddl	%edx, (%rax)
 .LBE17:
 .LBE16:
-	.loc 1 343 5
+	.loc 1 346 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -7541,7 +7541,7 @@ Initialize_ToString:
 	.uleb128 0x18
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x1
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x5222
 	.uleb128 0x7
@@ -9133,7 +9133,7 @@ Initialize_ToString:
 	.uleb128 0x2b
 	.ascii "AddToDIV64Counter\0"
 	.byte	0x1
-	.word	0x154
+	.word	0x157
 	.byte	0x1a
 	.quad	.LFB4278
 	.quad	.LFE4278-.LFB4278
@@ -9143,7 +9143,7 @@ Initialize_ToString:
 	.uleb128 0x22
 	.ascii "value\0"
 	.byte	0x1
-	.word	0x154
+	.word	0x157
 	.byte	0x35
 	.long	0x4c82
 	.uleb128 0x2
@@ -9154,7 +9154,7 @@ Initialize_ToString:
 	.quad	.LBB16
 	.quad	.LBE16-.LBB16
 	.byte	0x1
-	.word	0x156
+	.word	0x159
 	.byte	0x9
 	.uleb128 0x35
 	.long	0x637e
@@ -9171,7 +9171,7 @@ Initialize_ToString:
 	.uleb128 0x2b
 	.ascii "IncrementDIV64Counter\0"
 	.byte	0x1
-	.word	0x13d
+	.word	0x140
 	.byte	0x1a
 	.quad	.LFB4274
 	.quad	.LFE4274-.LFB4274
@@ -9183,7 +9183,7 @@ Initialize_ToString:
 	.quad	.LBB14
 	.quad	.LBE14-.LBB14
 	.byte	0x1
-	.word	0x13f
+	.word	0x142
 	.byte	0x9
 	.uleb128 0x35
 	.long	0x6331

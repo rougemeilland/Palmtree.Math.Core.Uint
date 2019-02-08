@@ -3,7 +3,7 @@
 	.p2align 4,,15
 	.def	_SubtructOneLine;	.scl	3;	.type	32;	.endef
 _SubtructOneLine:
-LFB5542:
+LFB5543:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1439,11 +1439,11 @@ L14:
 	xorl	%edi, %edi
 	jmp	L2
 	.cfi_endproc
-LFE5542:
+LFE5543:
 	.p2align 4,,15
 	.def	_SubtructOneLineX;	.scl	3;	.type	32;	.endef
 _SubtructOneLineX:
-LFB5543:
+LFB5544:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2867,11 +2867,11 @@ L63:
 	xorl	%esi, %esi
 	jmp	L51
 	.cfi_endproc
-LFE5543:
+LFE5544:
 	.p2align 4,,15
 	.def	_DivRem_X_X_using_ADX_MULX;	.scl	3;	.type	32;	.endef
 _DivRem_X_X_using_ADX_MULX:
-LFB5548:
+LFB5549:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2897,7 +2897,7 @@ LFB5548:
 	movl	168(%esp), %eax
 	addl	%ebx, %eax
 	testl	%edx, %edx
-	je	L123
+	je	L124
 	movl	$31, %ecx
 /APP
  # 660 "../pmc_inline_func.h" 1
@@ -2906,7 +2906,7 @@ LFB5548:
 /NO_APP
 	subl	%edx, %ecx
 	movl	%ecx, %edx
-	jne	L124
+	jne	L125
 	movl	168(%esp), %edi
 	movl	144(%esp), %esi
 	movl	148(%esp), %ecx
@@ -2960,20 +2960,25 @@ L100:
 	movl	156(%esp), %eax
 	andl	$8, %eax
 	movl	%eax, 76(%esp)
-	jmp	L121
+	jmp	L122
 	.p2align 4,,10
 L111:
-	movl	164(%esp), %ebx
-	movl	36(%esp), %eax
-	subl	$4, 32(%esp)
-	movl	32(%esp), %ecx
-	movl	%ebp, (%ebx,%eax,4)
-	testl	%eax, %eax
+	movl	164(%esp), %edx
+	testl	%edx, %edx
 	je	L120
-	subl	$1, %eax
-	movl	(%ecx), %ebx
-	movl	%eax, 36(%esp)
-L121:
+	movl	164(%esp), %eax
+	movl	36(%esp), %ebx
+	movl	%ebp, (%eax,%ebx,4)
+L120:
+	movl	36(%esp), %ecx
+	subl	$4, 32(%esp)
+	movl	32(%esp), %eax
+	testl	%ecx, %ecx
+	je	L121
+	subl	$1, %ecx
+	movl	(%eax), %ebx
+	movl	%ecx, 36(%esp)
+L122:
 	movl	32(%esp), %eax
 	movl	$-1, %ebp
 	movl	-4(%eax), %edi
@@ -3055,16 +3060,16 @@ L105:
 	sbbl	%edi, %ebx
 	movl	%ebx, 104(%esp)
 	lock addl	$2, _statistics_info+4
-	movl	104(%esp), %ebx
-	testl	%ebx, %ebx
-	jne	L126
+	movl	104(%esp), %esi
+	testl	%esi, %esi
+	jne	L127
 	movl	44(%esp), %esi
 	cmpl	108(%esp), %esi
 	ja	L109
-	jb	L126
+	jb	L127
 	movl	52(%esp), %edi
 	cmpl	%edi, 48(%esp)
-	jnb	L126
+	jnb	L127
 L109:
 	subl	$2, %ebp
 L103:
@@ -3087,7 +3092,7 @@ L103:
 	movl	%eax, 44(%esp)
 	addl	%eax, %esi
 	testl	%ebx, %ebx
-	je	L127
+	je	L128
 	movl	%ebp, 48(%esp)
 	movl	160(%esp), %edi
 	xorl	%eax, %eax
@@ -3209,13 +3214,13 @@ L113:
 	addl	84(%esp), %esi
 	movl	%ebx, 40(%esp)
 L112:
-	movl	72(%esp), %ecx
-	testl	%ecx, %ecx
-	jne	L158
+	movl	72(%esp), %ebx
+	testl	%ebx, %ebx
+	jne	L162
 L114:
-	movl	76(%esp), %edx
-	testl	%edx, %edx
-	jne	L159
+	movl	76(%esp), %ecx
+	testl	%ecx, %ecx
+	jne	L163
 L115:
 	testb	$4, 156(%esp)
 	je	L116
@@ -3265,9 +3270,9 @@ L116:
 L117:
 	testb	$1, 156(%esp)
 	je	L118
-	movl	40(%esp), %edi
+	movl	40(%esp), %ecx
 	addb	$-1, %al
-	movl	(%edi), %edx
+	movl	(%ecx), %edx
 	movl	%edx, %eax
 	adcl	(%esi), %eax
 	movl	%eax, (%esi)
@@ -3295,14 +3300,14 @@ L119:
 	jne	L119
 	jmp	L111
 	.p2align 4,,10
-L126:
+L127:
 	movl	%eax, %ebp
 	jmp	L103
 	.p2align 4,,10
-L120:
+L121:
 	movl	88(%esp), %eax
 	testl	%eax, %eax
-	jne	L160
+	jne	L164
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -3320,7 +3325,7 @@ L120:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L159:
+L163:
 	.cfi_restore_state
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
@@ -3359,7 +3364,7 @@ L159:
 	addl	$32, 40(%esp)
 	jmp	L115
 	.p2align 4,,10
-L158:
+L162:
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
@@ -3421,13 +3426,13 @@ L158:
 	addl	$64, 40(%esp)
 	jmp	L114
 	.p2align 4,,10
-L127:
+L128:
 	movl	160(%esp), %eax
 	movl	%eax, 40(%esp)
 	xorl	%eax, %eax
 	jmp	L112
 	.p2align 4,,10
-L160:
+L164:
 	movl	168(%esp), %eax
 	movl	$0, 16(%esp)
 	movl	%eax, 12(%esp)
@@ -3455,7 +3460,7 @@ L160:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L123:
+L124:
 	.cfi_restore_state
 	movl	$32, 88(%esp)
 L99:
@@ -3484,15 +3489,15 @@ L99:
 	movl	%eax, %edx
 	jmp	L100
 	.p2align 4,,10
-L124:
+L125:
 	movl	%ecx, 88(%esp)
 	jmp	L99
 	.cfi_endproc
-LFE5548:
+LFE5549:
 	.p2align 4,,15
 	.def	_DivRem_X_X_using_ADC_MUL;	.scl	3;	.type	32;	.endef
 _DivRem_X_X_using_ADC_MUL:
-LFB5547:
+LFB5548:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -3518,7 +3523,7 @@ LFB5547:
 	movl	168(%esp), %eax
 	addl	%ebx, %eax
 	testl	%edx, %edx
-	je	L186
+	je	L191
 	movl	$31, %ecx
 /APP
  # 660 "../pmc_inline_func.h" 1
@@ -3527,7 +3532,7 @@ LFB5547:
 /NO_APP
 	subl	%edx, %ecx
 	movl	%ecx, %edx
-	jne	L187
+	jne	L192
 	movl	168(%esp), %edi
 	movl	144(%esp), %esi
 	movl	148(%esp), %ecx
@@ -3546,7 +3551,7 @@ LFB5547:
 /NO_APP
 	movl	$0, (%eax)
 	movl	$0, 88(%esp)
-L163:
+L167:
 	movl	148(%esp), %ecx
 	movl	148(%esp), %eax
 	subl	156(%esp), %eax
@@ -3581,20 +3586,25 @@ L163:
 	movl	156(%esp), %eax
 	andl	$8, %eax
 	movl	%eax, 76(%esp)
-	jmp	L184
+	jmp	L189
 	.p2align 4,,10
-L174:
-	movl	164(%esp), %ebx
-	movl	36(%esp), %eax
+L178:
+	movl	164(%esp), %edx
+	testl	%edx, %edx
+	je	L187
+	movl	164(%esp), %eax
+	movl	36(%esp), %ebx
+	movl	%ebp, (%eax,%ebx,4)
+L187:
+	movl	36(%esp), %edi
 	subl	$4, 32(%esp)
-	movl	32(%esp), %edi
-	movl	%ebp, (%ebx,%eax,4)
-	testl	%eax, %eax
-	je	L183
-	subl	$1, %eax
-	movl	(%edi), %ebx
-	movl	%eax, 36(%esp)
-L184:
+	movl	32(%esp), %eax
+	testl	%edi, %edi
+	je	L188
+	subl	$1, %edi
+	movl	(%eax), %ebx
+	movl	%edi, 36(%esp)
+L189:
 	movl	32(%esp), %eax
 	movl	$-1, %ebp
 	movl	-4(%eax), %edi
@@ -3606,7 +3616,7 @@ L184:
 	movl	(%eax), %eax
 	movl	%eax, 40(%esp)
 	cmpl	%ebx, %ecx
-	je	L164
+	je	L168
 	movl	%edi, %eax
 	movl	%ebx, %edx
 /APP
@@ -3616,7 +3626,7 @@ L184:
 /NO_APP
 	movl	%eax, %ebp
 	lock addl	$1, _statistics_info+12
-L164:
+L168:
 	movl	%edi, %esi
 	movl	40(%esp), %eax
 /APP
@@ -3640,17 +3650,17 @@ L164:
 	sbbl	%edx, %eax
 	movl	%eax, 104(%esp)
 	lock addl	$2, _statistics_info+4
-	movl	104(%esp), %esi
-	testl	%esi, %esi
-	jne	L166
+	movl	104(%esp), %eax
+	testl	%eax, %eax
+	jne	L170
 	movl	44(%esp), %edx
 	cmpl	108(%esp), %edx
-	ja	L168
-	jb	L166
+	ja	L172
+	jb	L170
 	movl	52(%esp), %esi
 	cmpl	%esi, 48(%esp)
-	jnb	L166
-L168:
+	jnb	L170
+L172:
 	leal	-1(%ebp), %esi
 	movl	40(%esp), %eax
 /APP
@@ -3673,19 +3683,19 @@ L168:
 	sbbl	%edx, %ebx
 	movl	%ebx, 104(%esp)
 	lock addl	$2, _statistics_info+4
-	movl	104(%esp), %ebx
-	testl	%ebx, %ebx
-	jne	L189
+	movl	104(%esp), %edi
+	testl	%edi, %edi
+	jne	L194
 	movl	40(%esp), %eax
 	cmpl	108(%esp), %eax
-	ja	L172
-	jb	L189
+	ja	L176
+	jb	L194
 	movl	44(%esp), %ebx
 	cmpl	%ebx, 48(%esp)
-	jnb	L189
-L172:
+	jnb	L194
+L176:
 	subl	$2, %ebp
-L166:
+L170:
 	movl	36(%esp), %eax
 	movl	%ebp, 8(%esp)
 	movl	160(%esp), %ecx
@@ -3696,7 +3706,7 @@ L166:
 	movl	168(%esp), %eax
 	call	_SubtructOneLine
 	testl	%eax, %eax
-	je	L174
+	je	L178
 	movl	36(%esp), %eax
 	movl	168(%esp), %esi
 	subl	$1, %ebp
@@ -3705,13 +3715,13 @@ L166:
 	movl	%eax, 44(%esp)
 	addl	%eax, %esi
 	testl	%ecx, %ecx
-	je	L190
+	je	L195
 	movl	%ebp, 48(%esp)
 	movl	160(%esp), %edi
 	xorl	%eax, %eax
 	movl	%ecx, 40(%esp)
 	.p2align 4,,10
-L176:
+L180:
 	movl	%esi, %edx
 	movl	%edi, %ebx
 	movl	%esi, %ebp
@@ -3820,23 +3830,23 @@ L176:
 	subl	$-128, %esi
 	subl	$-128, %edi
 	subl	$1, 40(%esp)
-	jne	L176
+	jne	L180
 	movl	80(%esp), %edi
 	movl	48(%esp), %ebp
 	movl	44(%esp), %esi
 	addl	84(%esp), %esi
 	movl	%edi, 40(%esp)
-L175:
-	movl	72(%esp), %ecx
+L179:
+	movl	72(%esp), %ebx
+	testl	%ebx, %ebx
+	jne	L229
+L181:
+	movl	76(%esp), %ecx
 	testl	%ecx, %ecx
-	jne	L221
-L177:
-	movl	76(%esp), %edx
-	testl	%edx, %edx
-	jne	L222
-L178:
+	jne	L230
+L182:
 	testb	$4, 156(%esp)
-	je	L179
+	je	L183
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
@@ -3860,9 +3870,9 @@ L178:
 /NO_APP
 	addl	$16, 40(%esp)
 	addl	$16, %esi
-L179:
+L183:
 	testb	$2, 156(%esp)
-	je	L180
+	je	L184
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
@@ -3880,27 +3890,27 @@ L179:
 /NO_APP
 	addl	$8, 40(%esp)
 	addl	$8, %esi
-L180:
+L184:
 	testb	$1, 156(%esp)
-	je	L181
-	movl	40(%esp), %edi
+	je	L185
+	movl	40(%esp), %ecx
 	addb	$-1, %al
-	movl	(%edi), %edx
+	movl	(%ecx), %edx
 	movl	%edx, %eax
 	adcl	(%esi), %eax
 	movl	%eax, (%esi)
 	setc	%al
 	addl	$4, %esi
-L181:
+L185:
 	movl	68(%esp), %ecx
 	subl	%esi, %ecx
 	sarl	$2, %ecx
-	je	L174
+	je	L178
 	testb	%al, %al
-	je	L174
+	je	L178
 	xorl	%ebx, %ebx
 	.p2align 4,,10
-L182:
+L186:
 	movl	(%esi), %edx
 	addb	$-1, %al
 	adcl	%ebx, %edx
@@ -3910,17 +3920,17 @@ L182:
 	subl	$1, %ecx
 	setne	%dl
 	testb	%al, %dl
-	jne	L182
-	jmp	L174
+	jne	L186
+	jmp	L178
 	.p2align 4,,10
-L189:
+L194:
 	movl	%esi, %ebp
-	jmp	L166
+	jmp	L170
 	.p2align 4,,10
-L183:
+L188:
 	movl	88(%esp), %eax
 	testl	%eax, %eax
-	jne	L223
+	jne	L231
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -3938,7 +3948,7 @@ L183:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L222:
+L230:
 	.cfi_restore_state
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
@@ -3975,9 +3985,9 @@ L222:
 /NO_APP
 	addl	$32, %esi
 	addl	$32, 40(%esp)
-	jmp	L178
+	jmp	L182
 	.p2align 4,,10
-L221:
+L229:
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
@@ -4037,15 +4047,15 @@ L221:
 /NO_APP
 	addl	$64, %esi
 	addl	$64, 40(%esp)
-	jmp	L177
+	jmp	L181
 	.p2align 4,,10
-L190:
+L195:
 	movl	160(%esp), %eax
 	movl	%eax, 40(%esp)
 	xorl	%eax, %eax
-	jmp	L175
+	jmp	L179
 	.p2align 4,,10
-L223:
+L231:
 	movl	168(%esp), %eax
 	movl	$0, 16(%esp)
 	movl	%eax, 12(%esp)
@@ -4073,10 +4083,10 @@ L223:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L186:
+L191:
 	.cfi_restore_state
 	movl	$32, 88(%esp)
-L162:
+L166:
 	movl	%eax, 32(%esp)
 	movl	168(%esp), %eax
 	movl	88(%esp), %edi
@@ -4100,18 +4110,516 @@ L162:
 	movl	32(%esp), %eax
 	movl	(%eax), %eax
 	movl	%eax, %edx
-	jmp	L163
+	jmp	L167
 	.p2align 4,,10
-L187:
+L192:
 	movl	%ecx, 88(%esp)
-	jmp	L162
+	jmp	L166
 	.cfi_endproc
-LFE5547:
+LFE5548:
+	.p2align 4,,15
+	.globl	_Rem_X_1W
+	.def	_Rem_X_1W;	.scl	2;	.type	32;	.endef
+_Rem_X_1W:
+LFB5533:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	subl	$4, %esp
+	.cfi_def_cfa_offset 24
+	movl	28(%esp), %ebp
+	movl	32(%esp), %ecx
+	movl	%ebp, %esi
+	leal	-4(,%ebp,4), %edi
+	addl	24(%esp), %edi
+	shrl	$5, %esi
+	movl	%esi, (%esp)
+	je	L240
+	movl	%edi, %ebx
+	xorl	%edx, %edx
+	.p2align 4,,10
+L234:
+	movl	(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-4(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-8(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-12(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-16(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-20(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-24(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-28(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-32(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-36(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-40(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-44(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-48(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-52(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-56(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-60(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-64(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-68(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-72(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-76(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-80(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-84(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-88(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-92(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-96(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-100(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-104(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-108(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-112(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-116(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-120(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	-124(%ebx), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	addl	$-128, %ebx
+	subl	$1, %esi
+	lock addl	$32, _statistics_info+12
+	testl	%esi, %esi
+	jne	L234
+	movl	(%esp), %eax
+	sall	$7, %eax
+	subl	%eax, %edi
+L233:
+	testl	$16, %ebp
+	jne	L258
+	testl	$8, %ebp
+	jne	L259
+L236:
+	testl	$4, %ebp
+	jne	L260
+L237:
+	testl	$2, %ebp
+	jne	L261
+L238:
+	andl	$1, %ebp
+	jne	L262
+L232:
+	addl	$4, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%edx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret
+	.p2align 4,,10
+L258:
+	.cfi_restore_state
+	movl	(%edi), %eax
+	subl	$64, %edi
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	60(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	56(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	52(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	48(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	44(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	40(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	36(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	32(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	28(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	24(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	20(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	16(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	12(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	8(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	4(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	lock addl	$16, _statistics_info+12
+	testl	$8, %ebp
+	je	L236
+L259:
+	movl	(%edi), %eax
+	subl	$32, %edi
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	28(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	24(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	20(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	16(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	12(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	8(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	4(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	lock addl	$8, _statistics_info+12
+	testl	$4, %ebp
+	je	L237
+L260:
+	movl	(%edi), %eax
+	subl	$16, %edi
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	12(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	8(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	4(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	lock addl	$4, _statistics_info+12
+	testl	$2, %ebp
+	je	L238
+L261:
+	movl	(%edi), %eax
+	subl	$8, %edi
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	movl	4(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	lock addl	$2, _statistics_info+12
+	andl	$1, %ebp
+	je	L232
+L262:
+	movl	(%edi), %eax
+/APP
+ # 448 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	lock addl	$1, _statistics_info+12
+	addl	$4, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%edx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret
+	.p2align 4,,10
+L240:
+	.cfi_restore_state
+	xorl	%edx, %edx
+	jmp	L233
+	.cfi_endproc
+LFE5533:
 	.p2align 4,,15
 	.globl	_DivRem_X_1W
 	.def	_DivRem_X_1W;	.scl	2;	.type	32;	.endef
 _DivRem_X_1W:
-LFB5533:
+LFB5534:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4137,12 +4645,12 @@ LFB5533:
 	shrl	$5, %edi
 	movl	%eax, (%esp)
 	movl	%edi, 4(%esp)
-	je	L232
+	je	L271
 	movl	%eax, %esi
 	movl	%ebp, %ebx
 	xorl	%edx, %edx
 	.p2align 4,,10
-L226:
+L265:
 	movl	(%ebx), %eax
 /APP
  # 448 "../pmc_inline_func.h" 1
@@ -4372,27 +4880,27 @@ L226:
 	addl	$-128, %esi
 	lock addl	$32, _statistics_info+12
 	testl	%edi, %edi
-	jne	L226
+	jne	L265
 	movl	4(%esp), %eax
 	sall	$7, %eax
 	negl	%eax
 	addl	%eax, (%esp)
 	addl	%eax, %ebp
-L225:
+L264:
 	testb	$16, 32(%esp)
-	jne	L250
+	jne	L289
 	testb	$8, 32(%esp)
-	jne	L251
-L228:
+	jne	L290
+L267:
 	testb	$4, 32(%esp)
-	jne	L252
-L229:
+	jne	L291
+L268:
 	testb	$2, 32(%esp)
-	jne	L253
-L230:
+	jne	L292
+L269:
 	testb	$1, 32(%esp)
-	jne	L254
-L231:
+	jne	L293
+L270:
 	movl	44(%esp), %eax
 	movl	%edx, (%eax)
 	addl	$8, %esp
@@ -4412,7 +4920,7 @@ L231:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L250:
+L289:
 	.cfi_restore_state
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
@@ -4532,8 +5040,8 @@ L250:
 	movl	%edi, (%esp)
 	lock addl	$16, _statistics_info+12
 	testb	$8, 32(%esp)
-	je	L228
-L251:
+	je	L267
+L290:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$32, %ebp
@@ -4596,8 +5104,8 @@ L251:
 	movl	%edi, (%esp)
 	lock addl	$8, _statistics_info+12
 	testb	$4, 32(%esp)
-	je	L229
-L252:
+	je	L268
+L291:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$16, %ebp
@@ -4632,8 +5140,8 @@ L252:
 	movl	%edi, (%esp)
 	lock addl	$4, _statistics_info+12
 	testb	$2, 32(%esp)
-	je	L230
-L253:
+	je	L269
+L292:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$8, %ebp
@@ -4654,8 +5162,8 @@ L253:
 	movl	%edi, (%esp)
 	lock addl	$2, _statistics_info+12
 	testb	$1, 32(%esp)
-	je	L231
-L254:
+	je	L270
+L293:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 /APP
@@ -4684,12 +5192,12 @@ L254:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L232:
+L271:
 	.cfi_restore_state
 	xorl	%edx, %edx
-	jmp	L225
+	jmp	L264
 	.cfi_endproc
-LFE5533:
+LFE5534:
 	.p2align 4,,15
 	.globl	_DivRem_X_X
 	.def	_DivRem_X_X;	.scl	2;	.type	32;	.endef
@@ -4706,40 +5214,17 @@ LFB5532:
 	.cfi_def_cfa_offset 64
 	movl	76(%esp), %eax
 	movl	68(%esp), %ecx
+	movl	84(%esp), %esi
 	cmpl	$1, %eax
-	je	L261
+	je	L309
 	cmpl	%eax, %ecx
-	jb	L262
-	movl	84(%esp), %edx
-	movl	88(%esp), %edi
-	movl	%eax, 12(%esp)
-	movl	72(%esp), %eax
-	movl	%ecx, 4(%esp)
-	movl	%edx, 20(%esp)
-	movl	80(%esp), %edx
-	movl	%eax, 8(%esp)
-	movl	64(%esp), %eax
-	movl	%edi, 24(%esp)
-	movl	%edx, 16(%esp)
-	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	addl	$52, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret
-	.p2align 4,,10
-L262:
-	.cfi_restore_state
-	movl	84(%esp), %eax
+	jnb	L300
+	testl	%esi, %esi
+	je	L301
+	movl	$0, (%esi)
+L301:
 	movl	88(%esp), %edi
 	movl	64(%esp), %esi
-	movl	$0, (%eax)
 /APP
  # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsd
@@ -4756,20 +5241,47 @@ L262:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L261:
+L300:
+	.cfi_restore_state
+	movl	88(%esp), %edx
+	movl	%eax, 12(%esp)
+	movl	72(%esp), %eax
+	movl	%esi, 20(%esp)
+	movl	%edx, 24(%esp)
+	movl	80(%esp), %edx
+	movl	%eax, 8(%esp)
+	movl	64(%esp), %eax
+	movl	%edx, 16(%esp)
+	movl	%ecx, 4(%esp)
+	movl	%eax, (%esp)
+	call	*_fp_DivRem_X_X
+L294:
+	addl	$52, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 12
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 8
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 4
+	ret
+	.p2align 4,,10
+L309:
 	.cfi_restore_state
 	movl	72(%esp), %eax
-	movl	(%eax), %esi
+	movl	(%eax), %edi
 	cmpl	$1, %ecx
-	je	L263
+	je	L310
+	testl	%esi, %esi
+	je	L299
 	leal	44(%esp), %eax
-	movl	%esi, 8(%esp)
+	movl	%esi, 12(%esp)
 	movl	%eax, 16(%esp)
-	movl	84(%esp), %eax
-	movl	%ecx, 4(%esp)
-	movl	%eax, 12(%esp)
 	movl	64(%esp), %eax
+	movl	%edi, 8(%esp)
 	movl	%eax, (%esp)
+	movl	%ecx, 4(%esp)
 	call	_DivRem_X_1W
 	movl	88(%esp), %edi
 	movl	44(%esp), %eax
@@ -4785,18 +5297,30 @@ L261:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L263:
+L299:
 	.cfi_restore_state
+	movl	64(%esp), %eax
+	movl	%edi, 8(%esp)
+	movl	%ecx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_Rem_X_1W
+	movl	88(%esp), %edi
+	movl	%eax, (%edi)
+	jmp	L294
+	.p2align 4,,10
+L310:
 	movl	64(%esp), %eax
 	xorl	%edx, %edx
 	movl	(%eax), %eax
 /APP
  # 405 "../pmc_inline_func.h" 1
-	divl %esi
+	divl %edi
  # 0 "" 2
 /NO_APP
-	movl	84(%esp), %esi
+	testl	%esi, %esi
+	je	L297
 	movl	%eax, (%esi)
+L297:
 	movl	88(%esp), %eax
 	movl	%edx, (%eax)
 	lock addl	$1, _statistics_info+12
@@ -4815,7 +5339,7 @@ LFE5532:
 	.globl	_PMC_DivRem_I_X@16
 	.def	_PMC_DivRem_I_X@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_I_X@16:
-LFB5549:
+LFB5550:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4831,31 +5355,30 @@ LFB5549:
 	.cfi_offset 3, -20
 	subl	$28, %esp
 	.cfi_def_cfa_offset 48
-	movl	56(%esp), %edi
-	movl	60(%esp), %esi
-	movl	48(%esp), %ebp
 	movl	52(%esp), %ebx
-	testl	%edi, %edi
-	sete	%dl
-	testl	%esi, %esi
-	sete	%al
-	orb	%al, %dl
-	jne	L269
+	movl	48(%esp), %edi
+	movl	56(%esp), %ebp
+	movl	60(%esp), %esi
 	testl	%ebx, %ebx
-	je	L269
+	je	L319
+	testl	%esi, %esi
+	je	L319
 	movl	%ebx, (%esp)
 	call	_CheckNumber
 	movl	%eax, %ecx
 	testl	%eax, %eax
-	jne	L264
+	jne	L311
 	movzbl	24(%ebx), %eax
 	testb	$2, %al
-	jne	L270
+	jne	L320
+	testl	%edi, %edi
+	jne	L313
 	testl	%ebp, %ebp
-	jne	L266
-	movl	$0, (%edi)
+	je	L314
+	movl	$0, 0(%ebp)
+L314:
 	movl	$0, (%esi)
-L264:
+L311:
 	addl	$28, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -4874,88 +5397,61 @@ L264:
 	.cfi_def_cfa_offset 4
 	ret	$16
 	.p2align 4,,10
-L266:
+L313:
 	.cfi_restore_state
 	testb	$4, %al
-	jne	L272
+	jne	L334
 /APP
  # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %eax
+	bsrl %edi, %eax
  # 0 "" 2
 /NO_APP
 	addl	$1, %eax
 	cmpl	12(%ebx), %eax
-	jnb	L268
-	movl	$0, (%edi)
-	movl	%ecx, %eax
-	movl	%ebp, (%esi)
-	addl	$28, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
+	jnb	L316
+	testl	%ebp, %ebp
+	je	L317
+	movl	$0, 0(%ebp)
+L317:
+	movl	%edi, (%esi)
+	jmp	L311
 	.p2align 4,,10
-L272:
-	.cfi_restore_state
-	movl	%ebp, (%edi)
-	movl	%ecx, %eax
-	movl	$0, (%esi)
-	addl	$28, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
+L334:
+	testl	%ebp, %ebp
+	je	L314
+	movl	%edi, 0(%ebp)
+	jmp	L314
 	.p2align 4,,10
-L268:
-	.cfi_restore_state
+L316:
 	movl	32(%ebx), %ebx
-	movl	%ebp, %eax
+	movl	%edi, %eax
 	movl	%ecx, %edx
 /APP
  # 405 "../pmc_inline_func.h" 1
 	divl (%ebx)
  # 0 "" 2
 /NO_APP
-	movl	%eax, (%edi)
+	testl	%ebp, %ebp
+	je	L318
+	movl	%eax, 0(%ebp)
+L318:
 	movl	%edx, (%esi)
 	lock addl	$1, _statistics_info+12
-	jmp	L264
+	jmp	L311
 	.p2align 4,,10
-L269:
+L319:
 	movl	$-1, %ecx
-	jmp	L264
-L270:
+	jmp	L311
+L320:
 	movl	$-3, %ecx
-	jmp	L264
+	jmp	L311
 	.cfi_endproc
-LFE5549:
+LFE5550:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_X_I@16
 	.def	_PMC_DivRem_X_I@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_X_I@16:
-LFB5550:
+LFB5551:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4971,45 +5467,35 @@ LFB5550:
 	.cfi_offset 3, -20
 	subl	$60, %esp
 	.cfi_def_cfa_offset 80
+	movl	80(%esp), %ebx
 	movl	88(%esp), %edi
 	movl	92(%esp), %ebp
-	movl	80(%esp), %ebx
-	testl	%edi, %edi
-	sete	%dl
-	testl	%ebp, %ebp
-	sete	%al
-	orb	%al, %dl
-	jne	L281
 	testl	%ebx, %ebx
-	je	L281
+	je	L349
+	testl	%ebp, %ebp
+	je	L349
 	movl	%ebx, (%esp)
 	call	_CheckNumber
 	movl	%eax, %esi
 	testl	%eax, %eax
-	jne	L273
+	jne	L335
 	movl	84(%esp), %eax
 	testl	%eax, %eax
-	je	L282
+	je	L350
 	testb	$2, 24(%ebx)
-	jne	L288
-	cmpl	$1, 84(%esp)
-	je	L289
-	movl	12(%ebx), %edx
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl 84(%esp), %eax
- # 0 "" 2
-/NO_APP
-	leal	1(%eax), %ecx
-	cmpl	%ecx, %edx
-	jnb	L278
-	movl	32(%ebx), %eax
-	movl	(%eax), %eax
-	movl	%eax, 0(%ebp)
+	je	L337
+	testl	%edi, %edi
 	movl	$_number_zero, %eax
-L276:
+	movl	$0, 0(%ebp)
+	cmove	%esi, %eax
+	movl	%eax, 36(%esp)
+L339:
+	testl	%edi, %edi
+	je	L335
+	movl	36(%esp), %eax
+L348:
 	movl	%eax, (%edi)
-L273:
+L335:
 	addl	$60, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -5028,14 +5514,21 @@ L273:
 	.cfi_def_cfa_offset 4
 	ret	$16
 	.p2align 4,,10
-L288:
+L337:
 	.cfi_restore_state
-	movl	$_number_zero, %eax
-	movl	$0, 0(%ebp)
-	movl	%eax, (%edi)
-	jmp	L273
-	.p2align 4,,10
-L278:
+	cmpl	$1, 84(%esp)
+	je	L361
+	movl	12(%ebx), %edx
+/APP
+ # 597 "../pmc_inline_func.h" 1
+	bsrl 84(%esp), %eax
+ # 0 "" 2
+/NO_APP
+	leal	1(%eax), %ecx
+	cmpl	%ecx, %edx
+	jb	L362
+	testl	%edi, %edi
+	je	L345
 	notl	%eax
 	leal	40(%esp), %ecx
 	leal	33(%edx,%eax), %eax
@@ -5045,24 +5538,39 @@ L278:
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	je	L290
-L283:
+	je	L363
+L352:
 	movl	%eax, %esi
-	jmp	L273
+	jmp	L335
 	.p2align 4,,10
-L289:
+L362:
+	testl	%edi, %edi
+	movl	$_number_zero, %eax
+	cmove	%esi, %eax
+	movl	%eax, 36(%esp)
+	movl	32(%ebx), %eax
+	movl	(%eax), %eax
+	movl	%eax, 0(%ebp)
+	jmp	L339
+	.p2align 4,,10
+L361:
+	testl	%edi, %edi
+	je	L341
 	leal	36(%esp), %eax
 	movl	%ebx, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DuplicateNumber
 	testl	%eax, %eax
-	jne	L283
-	movl	36(%esp), %eax
+	jne	L352
+L342:
 	movl	$0, 0(%ebp)
-	movl	%eax, (%edi)
-	jmp	L273
+	jmp	L339
 	.p2align 4,,10
-L290:
+L341:
+	movl	$0, 36(%esp)
+	jmp	L342
+	.p2align 4,,10
+L363:
 	leal	44(%esp), %eax
 	movl	$0, 44(%esp)
 	movl	%eax, 16(%esp)
@@ -5084,7 +5592,7 @@ L290:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L283
+	jne	L352
 	movl	36(%esp), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
@@ -5092,257 +5600,37 @@ L290:
 	movl	%eax, 0(%ebp)
 	movl	36(%esp), %eax
 	testb	$2, 24(%eax)
-	je	L276
+	je	L348
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$_number_zero, %eax
 	movl	%eax, (%edi)
-	jmp	L273
+	jmp	L335
 	.p2align 4,,10
-L281:
+L345:
+	movl	84(%esp), %eax
+	movl	%eax, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	_Rem_X_1W
+	movl	%eax, 0(%ebp)
+	jmp	L335
+	.p2align 4,,10
+L349:
 	movl	$-1, %esi
-	jmp	L273
-L282:
+	jmp	L335
+L350:
 	movl	$-3, %esi
-	jmp	L273
+	jmp	L335
 	.cfi_endproc
-LFE5550:
+LFE5551:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_L_X@20
 	.def	_PMC_DivRem_L_X@20;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_L_X@20:
-LFB5551:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$92, %esp
-	.cfi_def_cfa_offset 112
-	movl	124(%esp), %eax
-	movl	128(%esp), %ecx
-	movl	112(%esp), %edi
-	movl	116(%esp), %ebp
-	testl	%eax, %eax
-	movl	120(%esp), %ebx
-	sete	%dl
-	testl	%ecx, %ecx
-	sete	%al
-	orb	%al, %dl
-	jne	L300
-	testl	%ebx, %ebx
-	je	L300
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L291
-	movzbl	24(%ebx), %eax
-	testb	$2, %al
-	jne	L301
-	movl	%ebp, %ecx
-	orl	%edi, %ecx
-	jne	L293
-	movl	124(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-	movl	128(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-L291:
-	addl	$92, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$20
-	.p2align 4,,10
-L293:
-	.cfi_restore_state
-	testb	$4, %al
-	jne	L305
-	movl	12(%ebx), %edx
-	testl	%ebp, %ebp
-	jne	L295
-	xorl	%eax, %eax
-	testl	%edi, %edi
-	je	L296
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %eax
- # 0 "" 2
-/NO_APP
-	addl	$1, %eax
-L296:
-	cmpl	%edx, %eax
-	jnb	L297
-	movl	124(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-	movl	128(%esp), %eax
-	movl	%edi, (%eax)
-	movl	$0, 4(%eax)
-	jmp	L291
-	.p2align 4,,10
-L305:
-	movl	124(%esp), %eax
-	movl	%edi, (%eax)
-	movl	%ebp, 4(%eax)
-	movl	128(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-	addl	$92, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$20
-	.p2align 4,,10
-L295:
-	.cfi_restore_state
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %eax
- # 0 "" 2
-/NO_APP
-	addl	$33, %eax
-	cmpl	%edx, %eax
-	jb	L306
-	movl	32(%ebx), %eax
-	cmpl	$32, %edx
-	jbe	L307
-	leal	68(%esp), %edx
-	movl	%edi, 40(%esp)
-	movl	%edx, 24(%esp)
-	leal	56(%esp), %edx
-	movl	%edx, 20(%esp)
-	leal	48(%esp), %edx
-	movl	%edx, 16(%esp)
-	movl	8(%ebx), %edx
-	movl	%eax, 8(%esp)
-	leal	40(%esp), %eax
-	andl	$1073741823, %edx
-	movl	%eax, (%esp)
-	movl	%edx, 12(%esp)
-	movl	%ebp, 44(%esp)
-	movl	$0, 56(%esp)
-	movl	$0, 60(%esp)
-	movl	$0, 64(%esp)
-	movl	$0, 68(%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	movl	$0, 48(%esp)
-	movl	$0, 52(%esp)
-	movl	$2, 4(%esp)
-	call	*_fp_DivRem_X_X
-	movl	124(%esp), %ecx
-	movl	56(%esp), %eax
-	movl	60(%esp), %edx
-	movl	%eax, (%ecx)
-	movl	68(%esp), %eax
-	movl	%edx, 4(%ecx)
-	movl	128(%esp), %ecx
-	movl	72(%esp), %edx
-	movl	%eax, (%ecx)
-	movl	%edx, 4(%ecx)
-	jmp	L291
-	.p2align 4,,10
-L306:
-	movl	124(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-	movl	128(%esp), %eax
-	movl	%edi, (%eax)
-	movl	%ebp, 4(%eax)
-	jmp	L291
-	.p2align 4,,10
-L297:
-	movl	32(%ebx), %ecx
-	movl	%edi, %eax
-	xorl	%edx, %edx
-/APP
- # 405 "../pmc_inline_func.h" 1
-	divl (%ecx)
- # 0 "" 2
-/NO_APP
-	movl	124(%esp), %ecx
-	movl	%eax, (%ecx)
-	movl	128(%esp), %eax
-	movl	$0, 4(%ecx)
-	movl	%edx, (%eax)
-	movl	$0, 4(%eax)
-	lock addl	$1, _statistics_info+12
-	jmp	L291
-	.p2align 4,,10
-L300:
-	movl	$-1, %esi
-	jmp	L291
-	.p2align 4,,10
-L307:
-	leal	48(%esp), %edx
-	movl	%edi, 56(%esp)
-	movl	%edx, 16(%esp)
-	leal	68(%esp), %edx
-	movl	%edx, 12(%esp)
-	movl	%ebp, 60(%esp)
-	movl	$0, 68(%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	movl	(%eax), %eax
-	movl	$2, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	56(%esp), %eax
-	movl	%eax, (%esp)
-	call	_DivRem_X_1W
-	movl	124(%esp), %ecx
-	movl	68(%esp), %eax
-	movl	72(%esp), %edx
-	movl	%eax, (%ecx)
-	movl	128(%esp), %eax
-	movl	%edx, 4(%ecx)
-	movl	48(%esp), %ecx
-	movl	$0, 4(%eax)
-	movl	%ecx, (%eax)
-	jmp	L291
-L301:
-	movl	$-3, %esi
-	jmp	L291
-	.cfi_endproc
-LFE5551:
-	.p2align 4,,15
-	.globl	_PMC_DivRem_X_L@20
-	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_X_L@20:
 LFB5552:
 	.cfi_startproc
 	pushl	%ebp
@@ -5357,39 +5645,311 @@ LFB5552:
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
+	subl	$108, %esp
+	.cfi_def_cfa_offset 128
+	movl	136(%esp), %ebx
+	movl	128(%esp), %edi
+	movl	132(%esp), %ebp
+	movl	144(%esp), %esi
+	testl	%ebx, %ebx
+	je	L379
+	testl	%esi, %esi
+	je	L379
+	movl	%ebx, (%esp)
+	call	_CheckNumber
+	movl	%eax, %ecx
+	testl	%eax, %eax
+	jne	L364
+	movzbl	24(%ebx), %eax
+	testb	$2, %al
+	jne	L380
+	movl	%ebp, %edx
+	orl	%edi, %edx
+	jne	L366
+	movl	140(%esp), %eax
+	testl	%eax, %eax
+	je	L367
+	movl	140(%esp), %eax
+	movl	$0, (%eax)
+	movl	$0, 4(%eax)
+L367:
+	movl	$0, (%esi)
+	movl	$0, 4(%esi)
+L364:
+	addl	$108, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%ecx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$20
+	.p2align 4,,10
+L366:
+	.cfi_restore_state
+	testb	$4, %al
+	jne	L400
+	movl	12(%ebx), %edx
+	testl	%ebp, %ebp
+	jne	L369
+	xorl	%eax, %eax
+	testl	%edi, %edi
+	je	L370
+/APP
+ # 597 "../pmc_inline_func.h" 1
+	bsrl %edi, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$1, %eax
+L370:
+	cmpl	%eax, %edx
+	jbe	L371
+	movl	140(%esp), %ebp
+	testl	%ebp, %ebp
+	je	L372
+	movl	140(%esp), %eax
+	movl	$0, (%eax)
+	movl	$0, 4(%eax)
+L372:
+	movl	%edi, (%esi)
+	movl	$0, 4(%esi)
+	jmp	L364
+	.p2align 4,,10
+L400:
+	movl	140(%esp), %eax
+	testl	%eax, %eax
+	je	L367
+	movl	140(%esp), %eax
+	movl	%edi, (%eax)
+	movl	%ebp, 4(%eax)
+	jmp	L367
+	.p2align 4,,10
+L369:
+/APP
+ # 597 "../pmc_inline_func.h" 1
+	bsrl %ebp, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$33, %eax
+	cmpl	%edx, %eax
+	jnb	L374
+	movl	140(%esp), %ebx
+	testl	%ebx, %ebx
+	je	L375
+	movl	140(%esp), %eax
+	movl	$0, (%eax)
+	movl	$0, 4(%eax)
+L375:
+	movl	%edi, (%esi)
+	movl	%ebp, 4(%esi)
+	jmp	L364
+	.p2align 4,,10
+L374:
+	movl	32(%ebx), %eax
+	cmpl	$32, %edx
+	ja	L376
+	movl	140(%esp), %edx
+	movl	%ecx, 40(%esp)
+	testl	%edx, %edx
+	je	L377
+	leal	64(%esp), %edx
+	movl	%edi, 72(%esp)
+	movl	%edx, 16(%esp)
+	leal	84(%esp), %edx
+	movl	%edx, 12(%esp)
+	movl	%ebp, 76(%esp)
+	movl	$0, 84(%esp)
+	movl	$0, 88(%esp)
+	movl	$0, 92(%esp)
+	movl	(%eax), %eax
+	movl	$2, 4(%esp)
+	movl	%eax, 8(%esp)
+	leal	72(%esp), %eax
+	movl	%eax, (%esp)
+	call	_DivRem_X_1W
+	movl	84(%esp), %eax
+	movl	140(%esp), %edi
+	movl	88(%esp), %edx
+	movl	40(%esp), %ecx
+	movl	%eax, (%edi)
+	movl	64(%esp), %eax
+	movl	%edx, 4(%edi)
+	movl	%eax, (%esi)
+	movl	$0, 4(%esi)
+	jmp	L364
+	.p2align 4,,10
+L371:
+	movl	%edi, %eax
+	movl	140(%esp), %edi
+	movl	32(%ebx), %ebx
+	xorl	%edx, %edx
+/APP
+ # 405 "../pmc_inline_func.h" 1
+	divl (%ebx)
+ # 0 "" 2
+/NO_APP
+	testl	%edi, %edi
+	je	L373
+	movl	140(%esp), %edi
+	movl	%eax, (%edi)
+	movl	$0, 4(%edi)
+L373:
+	movl	%edx, (%esi)
+	movl	$0, 4(%esi)
+	lock addl	$1, _statistics_info+12
+	jmp	L364
+	.p2align 4,,10
+L376:
+	movl	_fp_DivRem_X_X, %edx
+	movl	%ecx, 44(%esp)
+	movl	%edx, 40(%esp)
+	movl	8(%ebx), %edx
+	movl	140(%esp), %ebx
+	andl	$1073741823, %edx
+	testl	%ebx, %ebx
+	je	L378
+	leal	84(%esp), %ebx
+	movl	%eax, 8(%esp)
+	leal	56(%esp), %eax
+	movl	%ebx, 24(%esp)
+	leal	72(%esp), %ebx
+	movl	%ebx, 20(%esp)
+	leal	64(%esp), %ebx
+	movl	%edi, 56(%esp)
+	movl	%edx, 12(%esp)
+	movl	40(%esp), %edx
+	movl	%eax, (%esp)
+	movl	%ebp, 60(%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	movl	$0, 80(%esp)
+	movl	$0, 84(%esp)
+	movl	$0, 88(%esp)
+	movl	$0, 92(%esp)
+	movl	$0, 64(%esp)
+	movl	$0, 68(%esp)
+	movl	%ebx, 16(%esp)
+	movl	$2, 4(%esp)
+	call	*%edx
+	movl	140(%esp), %edi
+	movl	72(%esp), %eax
+	movl	76(%esp), %edx
+	movl	%eax, (%edi)
+	movl	%edx, 4(%edi)
+L399:
+	movl	84(%esp), %eax
+	movl	88(%esp), %edx
+	movl	44(%esp), %ecx
+	movl	%eax, (%esi)
+	movl	%edx, 4(%esi)
+	jmp	L364
+	.p2align 4,,10
+L379:
+	movl	$-1, %ecx
+	jmp	L364
+L380:
+	movl	$-3, %ecx
+	jmp	L364
+L377:
+	movl	%edi, 84(%esp)
+	movl	%ebp, 88(%esp)
+	movl	(%eax), %eax
+	movl	$2, 4(%esp)
+	movl	%eax, 8(%esp)
+	leal	84(%esp), %eax
+	movl	%eax, (%esp)
+	call	_Rem_X_1W
+	movl	$0, 4(%esi)
+	movl	40(%esp), %ecx
+	movl	%eax, (%esi)
+	jmp	L364
+L378:
+	leal	84(%esp), %ebx
+	movl	%eax, 8(%esp)
+	leal	64(%esp), %eax
+	movl	%ebx, 24(%esp)
+	leal	72(%esp), %ebx
+	movl	%eax, (%esp)
+	movl	40(%esp), %eax
+	movl	%edi, 64(%esp)
+	movl	%ebp, 68(%esp)
+	movl	$0, 84(%esp)
+	movl	$0, 88(%esp)
+	movl	$0, 92(%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	movl	$0, 20(%esp)
+	movl	%ebx, 16(%esp)
+	movl	%edx, 12(%esp)
+	movl	$2, 4(%esp)
+	call	*%eax
+	jmp	L399
+	.cfi_endproc
+LFE5552:
+	.p2align 4,,15
+	.globl	_PMC_DivRem_X_L@20
+	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
+_PMC_DivRem_X_L@20:
+LFB5553:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
 	subl	$92, %esp
 	.cfi_def_cfa_offset 112
-	movl	128(%esp), %eax
-	movl	124(%esp), %edx
 	movl	112(%esp), %ebx
 	movl	116(%esp), %ebp
-	testl	%eax, %eax
 	movl	120(%esp), %edi
-	sete	%cl
-	testl	%edx, %edx
-	sete	%al
-	orb	%al, %cl
-	jne	L323
 	testl	%ebx, %ebx
-	je	L323
+	je	L426
+	movl	128(%esp), %eax
+	testl	%eax, %eax
+	je	L426
 	movl	%ebx, (%esp)
 	call	_CheckNumber
 	movl	%eax, %esi
 	testl	%eax, %eax
-	jne	L308
+	jne	L401
 	movl	%edi, %eax
 	orl	%ebp, %eax
-	je	L324
+	je	L427
 	testb	$2, 24(%ebx)
-	je	L310
+	je	L403
+	movl	124(%esp), %eax
+	testl	%eax, %eax
+	movl	$_number_zero, %eax
+	cmove	%esi, %eax
+	movl	%eax, 48(%esp)
 	movl	128(%esp), %eax
 	movl	$0, (%eax)
 	movl	$0, 4(%eax)
-	movl	$_number_zero, %eax
-L311:
+L405:
+	movl	124(%esp), %eax
+	testl	%eax, %eax
+	je	L401
+	movl	48(%esp), %eax
+L416:
 	movl	124(%esp), %edx
 	movl	%eax, (%edx)
-L308:
+L401:
 	addl	$92, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -5408,104 +5968,117 @@ L308:
 	.cfi_def_cfa_offset 4
 	ret	$20
 	.p2align 4,,10
-L310:
+L403:
 	.cfi_restore_state
 	movl	%ebp, %eax
 	xorl	$1, %eax
 	orl	%edi, %eax
-	je	L336
-	movl	12(%ebx), %ecx
+	je	L445
+	movl	12(%ebx), %eax
 	testl	%edi, %edi
-	je	L337
+	jne	L409
+	testl	%ebp, %ebp
+	je	L430
 /APP
  # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %eax
+	bsrl %ebp, %edx
  # 0 "" 2
 /NO_APP
-	leal	33(%eax), %edx
-	cmpl	%edx, %ecx
-	jnb	L318
+	leal	1(%edx), %ecx
+	cmpl	%ecx, %eax
+	jnb	L446
+	movl	124(%esp), %edi
+	movl	$_number_zero, %eax
+	movl	128(%esp), %ecx
+	testl	%edi, %edi
+	cmove	%esi, %eax
+	movl	%eax, 48(%esp)
+	movl	32(%ebx), %eax
+	movl	(%eax), %eax
+	movl	$0, 4(%ecx)
+	movl	%eax, (%ecx)
+	jmp	L405
+	.p2align 4,,10
+L409:
+/APP
+ # 597 "../pmc_inline_func.h" 1
+	bsrl %edi, %edx
+ # 0 "" 2
+/NO_APP
+	leal	33(%edx), %ecx
+	cmpl	%ecx, %eax
+	jnb	L417
+	movl	124(%esp), %edi
+	movl	$_number_zero, %eax
 	movl	32(%ebx), %edx
+	testl	%edi, %edi
+	movl	(%edx), %ecx
+	cmove	%esi, %eax
+	movl	%eax, 48(%esp)
 	xorl	%eax, %eax
 	cmpl	$1, 8(%ebx)
-	movl	(%edx), %ecx
-	jbe	L319
+	jbe	L419
 	movl	4(%edx), %eax
-L319:
+L419:
 	movl	128(%esp), %edx
-	movl	%eax, 4(%edx)
-	movl	$_number_zero, %eax
 	movl	%ecx, (%edx)
-	jmp	L311
+	movl	%eax, 4(%edx)
+	jmp	L405
 	.p2align 4,,10
-L337:
+L445:
+	movl	124(%esp), %ebp
 	testl	%ebp, %ebp
-	je	L326
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %eax
- # 0 "" 2
-/NO_APP
-	leal	1(%eax), %edx
-	cmpl	%edx, %ecx
-	jnb	L338
-	movl	32(%ebx), %eax
-	movl	128(%esp), %edx
-	movl	(%eax), %eax
-	movl	$0, 4(%edx)
-	movl	%eax, (%edx)
-	movl	$_number_zero, %eax
-	jmp	L311
-	.p2align 4,,10
-L336:
+	je	L407
 	leal	48(%esp), %eax
 	movl	%ebx, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DuplicateNumber
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
+L408:
 	movl	128(%esp), %eax
 	movl	$0, (%eax)
 	movl	$0, 4(%eax)
-	movl	48(%esp), %eax
-	jmp	L311
-L339:
+	jmp	L405
+L447:
 	movl	48(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$-5, %eax
 	.p2align 4,,10
-L325:
+L429:
 	movl	%eax, %esi
-	jmp	L308
+	jmp	L401
 	.p2align 4,,10
-L318:
-	leal	52(%esp), %edx
+L417:
+	leal	32(%eax), %ecx
 	movl	%ecx, 44(%esp)
-	movl	%edx, 8(%esp)
-	movl	%ecx, %edx
-	subl	%eax, %edx
+	movl	124(%esp), %ecx
+	testl	%ecx, %ecx
+	je	L420
+	subl	%edx, %eax
+	leal	52(%esp), %ecx
+	movl	%eax, 4(%esp)
 	leal	48(%esp), %eax
-	movl	%edx, 4(%esp)
+	movl	%ecx, 8(%esp)
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
 	leal	56(%esp), %eax
 	movl	44(%esp), %ecx
-	movl	%ebp, 64(%esp)
+	movl	%edi, 68(%esp)
 	movl	%eax, 8(%esp)
 	leal	60(%esp), %eax
 	movl	%eax, 4(%esp)
-	leal	32(%ecx), %eax
-	movl	%eax, (%esp)
-	movl	%edi, 68(%esp)
+	movl	%ecx, (%esp)
+	movl	%ebp, 64(%esp)
 	movl	$0, 72(%esp)
 	movl	$0, 76(%esp)
 	call	_AllocateBlock
-	movl	%eax, %ebp
+	movl	%eax, %edi
 	testl	%eax, %eax
-	je	L339
+	je	L447
 	movl	%eax, 24(%esp)
 	movl	48(%esp), %eax
 	movl	32(%eax), %eax
@@ -5528,46 +6101,102 @@ L318:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
 	movl	56(%esp), %eax
-	movl	%ebp, (%esp)
+	movl	%edi, (%esp)
 	movl	%eax, 4(%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
 	movl	48(%esp), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
-	movl	0(%ebp), %eax
-	movl	128(%esp), %edi
-	movl	4(%ebp), %edx
-	movl	%eax, (%edi)
+	movl	(%edi), %eax
+	movl	128(%esp), %ecx
+	movl	4(%edi), %edx
+	movl	%eax, (%ecx)
 	movl	60(%esp), %eax
-	movl	%edx, 4(%edi)
+	movl	%edx, 4(%ecx)
 	movl	%eax, 4(%esp)
-	movl	%ebp, (%esp)
+	movl	%edi, (%esp)
 	call	_DeallocateBlock
 	movl	48(%esp), %eax
 	testb	$2, 24(%eax)
-	je	L311
-L335:
+	je	L416
+L444:
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$_number_zero, %eax
-	jmp	L311
+	jmp	L416
 	.p2align 4,,10
-L326:
-	movl	$32, %eax
-L314:
-	leal	1(%ecx,%eax), %eax
-	leal	64(%esp), %edx
+L407:
+	movl	$0, 48(%esp)
+	jmp	L408
+	.p2align 4,,10
+L420:
+	leal	56(%esp), %eax
+	movl	%edi, 68(%esp)
+	movl	%eax, 8(%esp)
+	leal	60(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	44(%esp), %eax
+	movl	%ebp, 64(%esp)
+	movl	%eax, (%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	call	_AllocateBlock
+	movl	%eax, %edi
+	testl	%eax, %eax
+	je	L448
+	movl	%eax, 24(%esp)
+	leal	72(%esp), %eax
+	movl	%eax, 16(%esp)
+	leal	64(%esp), %eax
+	movl	$0, 20(%esp)
+	movl	$2, 12(%esp)
+	movl	%eax, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	*_fp_DivRem_X_X
+	movl	56(%esp), %eax
+	movl	%edi, (%esp)
+	movl	%eax, 4(%esp)
+	call	_CheckBlockLight
+	movl	%eax, %esi
+	testl	%eax, %eax
+	jne	L401
+	movl	(%edi), %eax
+	movl	128(%esp), %ecx
+	movl	$0, 48(%esp)
+	movl	4(%edi), %edx
+	movl	%eax, (%ecx)
+	movl	60(%esp), %eax
+	movl	%edx, 4(%ecx)
+	movl	%eax, 4(%esp)
+	movl	%edi, (%esp)
+	call	_DeallocateBlock
+	jmp	L401
+	.p2align 4,,10
+L446:
+	movl	$31, %ecx
+	subl	%edx, %ecx
+	movl	%ecx, %edx
+L410:
+	movl	124(%esp), %ecx
+	testl	%ecx, %ecx
+	je	L413
+	leal	1(%eax,%edx), %eax
+	leal	64(%esp), %ecx
 	movl	%eax, 4(%esp)
 	leal	48(%esp), %eax
-	movl	%edx, 8(%esp)
+	movl	%ecx, 8(%esp)
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
 	leal	72(%esp), %eax
 	movl	$0, 72(%esp)
 	movl	%eax, 16(%esp)
@@ -5588,38 +6217,55 @@ L314:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L325
+	jne	L429
 	movl	48(%esp), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	128(%esp), %eax
-	movl	72(%esp), %edi
+	movl	72(%esp), %ecx
 	movl	$0, 4(%eax)
-	movl	%edi, (%eax)
+	movl	%ecx, (%eax)
 	movl	48(%esp), %eax
 	testb	$2, 24(%eax)
-	je	L311
-	jmp	L335
+	je	L416
+	jmp	L444
 	.p2align 4,,10
-L323:
+L430:
+	movl	$32, %edx
+	jmp	L410
+	.p2align 4,,10
+L413:
+	movl	%ebp, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	_Rem_X_1W
+	movl	128(%esp), %ecx
+	movl	%eax, (%ecx)
+	movl	$0, 4(%ecx)
+	jmp	L401
+	.p2align 4,,10
+L426:
 	movl	$-1, %esi
-	jmp	L308
-	.p2align 4,,10
-L338:
-	movl	$31, %edx
-	subl	%eax, %edx
-	movl	%edx, %eax
-	jmp	L314
-L324:
+	jmp	L401
+L427:
 	movl	$-3, %esi
-	jmp	L308
+	jmp	L401
+L448:
+	movl	48(%esp), %eax
+	movl	$-5, %esi
+	movl	%eax, (%esp)
+	call	_DeallocateNumber
+	jmp	L401
 	.cfi_endproc
-LFE5552:
+LFE5553:
 	.p2align 4,,15
 	.globl	_PMC_DivRem_X_X@16
 	.def	_PMC_DivRem_X_X@16;	.scl	2;	.type	32;	.endef
 _PMC_DivRem_X_X@16:
-LFB5553:
+LFB5554:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5635,31 +6281,27 @@ LFB5553:
 	.cfi_offset 3, -20
 	subl	$92, %esp
 	.cfi_def_cfa_offset 112
-	movl	120(%esp), %eax
-	movl	124(%esp), %edx
+	movl	124(%esp), %edi
 	movl	116(%esp), %esi
 	movl	112(%esp), %ebx
-	testl	%eax, %eax
-	sete	%al
-	testl	%edx, %edx
+	testl	%edi, %edi
 	sete	%dl
-	orl	%edx, %eax
 	testl	%esi, %esi
-	sete	%dl
-	orb	%dl, %al
-	jne	L356
+	sete	%al
+	orb	%al, %dl
+	jne	L478
 	testl	%ebx, %ebx
-	je	L356
+	je	L478
 	movl	%ebx, (%esp)
 	call	_CheckNumber
-	movl	%eax, %edi
+	movl	%eax, %ebp
 	testl	%eax, %eax
-	je	L382
-L340:
+	je	L516
+L449:
 	addl	$92, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
-	movl	%edi, %eax
+	movl	%ebp, %eax
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
@@ -5674,131 +6316,39 @@ L340:
 	.cfi_def_cfa_offset 4
 	ret	$16
 	.p2align 4,,10
-L382:
+L516:
 	.cfi_restore_state
 	movl	%esi, (%esp)
 	call	_CheckNumber
-	movl	%eax, %edi
-	testl	%eax, %eax
-	jne	L340
-	movzbl	24(%esi), %eax
-	testb	$2, %al
-	jne	L357
-	testb	$2, 24(%ebx)
-	jne	L358
-	testb	$4, %al
-	jne	L383
-	movl	12(%ebx), %ebp
-	movl	12(%esi), %eax
-	cmpl	%eax, %ebp
-	jb	L384
-	movl	%ebp, %ecx
-	subl	%eax, %ecx
-	addl	$33, %ecx
-	cmpl	$32, %eax
-	jbe	L385
-	leal	64(%esp), %eax
-	movl	%ecx, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	56(%esp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L360
-	leal	68(%esp), %eax
-	addl	$32, %ebp
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
-	movl	%ebp, 4(%esp)
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L376
-	leal	72(%esp), %eax
-	movl	%eax, 8(%esp)
-	leal	76(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	8(%esi), %eax
-	sall	$5, %eax
-	movl	%eax, (%esp)
-	call	_AllocateBlock
 	movl	%eax, %ebp
 	testl	%eax, %eax
-	je	L386
-	movl	60(%esp), %eax
-	movl	32(%eax), %eax
-	movl	%eax, 24(%esp)
-	movl	56(%esp), %eax
-	movl	32(%eax), %eax
-	movl	%ebp, 16(%esp)
-	movl	%eax, 20(%esp)
-	movl	8(%esi), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 12(%esp)
-	movl	32(%esi), %eax
-	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
-	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	movl	72(%esp), %eax
-	movl	%ebp, (%esp)
-	movl	%eax, 4(%esp)
-	call	_CheckBlockLight
+	jne	L449
+	movzbl	24(%esi), %eax
+	testb	$2, %al
+	jne	L479
+	testb	$2, 24(%ebx)
+	je	L451
+	movl	120(%esp), %eax
 	testl	%eax, %eax
-	jne	L360
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	56(%esp), %eax
-	movl	32(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L360
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	56(%esp), %eax
-	movl	32(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L360
-	movl	76(%esp), %eax
-	movl	%ebp, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DeallocateBlock
-L380:
-	movl	56(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	60(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	56(%esp), %eax
-	testb	$2, 24(%eax)
-	jne	L387
-L354:
-	movl	60(%esp), %eax
-	testb	$2, 24(%eax)
-	jne	L388
-L355:
-	movl	56(%esp), %ecx
-	jmp	L342
-	.p2align 4,,10
-L358:
 	movl	$_number_zero, %eax
-	movl	%eax, %ecx
-L342:
+	cmove	%ebp, %eax
+	movl	%eax, 56(%esp)
+L453:
+	movl	120(%esp), %edx
+	movl	$_number_zero, %eax
+	testl	%edx, %edx
+	je	L469
+L466:
+	movl	56(%esp), %ecx
 	movl	120(%esp), %esi
 	movl	%ecx, (%esi)
-	movl	124(%esp), %ecx
-	movl	%eax, (%ecx)
+L469:
+	movl	%eax, (%edi)
+L521:
 	addl	$92, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
-	movl	%edi, %eax
+	movl	%ebp, %eax
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
@@ -5813,38 +6363,43 @@ L342:
 	.cfi_def_cfa_offset 4
 	ret	$16
 	.p2align 4,,10
-L383:
+L451:
 	.cfi_restore_state
+	testb	$4, %al
+	je	L454
+	movl	120(%esp), %esi
+	testl	%esi, %esi
+	je	L455
 	leal	56(%esp), %eax
 	movl	%ebx, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DuplicateNumber
 	testl	%eax, %eax
-	jne	L360
-	movl	56(%esp), %ecx
-	movl	$_number_zero, %eax
-	jmp	L342
+	je	L453
+L485:
+	movl	%eax, %ebp
+	jmp	L449
 	.p2align 4,,10
-L376:
-	movl	56(%esp), %edx
-	movl	%eax, 44(%esp)
-	movl	%edx, (%esp)
-	call	_DeallocateNumber
-	movl	44(%esp), %eax
-	.p2align 4,,10
-L360:
-	movl	%eax, %edi
-	jmp	L340
-	.p2align 4,,10
-L385:
-	leal	72(%esp), %eax
-	movl	%ecx, 4(%esp)
-	movl	%eax, 8(%esp)
+L454:
+	movl	12(%ebx), %eax
+	movl	12(%esi), %ecx
+	cmpl	%ecx, %eax
+	jb	L517
+	cmpl	$32, %ecx
+	ja	L460
+	movl	120(%esp), %edx
+	testl	%edx, %edx
+	je	L461
+	subl	%ecx, %eax
+	leal	72(%esp), %edx
+	addl	$33, %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
 	leal	56(%esp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L360
+	jne	L485
 	leal	76(%esp), %eax
 	movl	$32, 4(%esp)
 	movl	%eax, 8(%esp)
@@ -5852,7 +6407,7 @@ L385:
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L376
+	jne	L512
 	movl	60(%esp), %eax
 	movl	32(%eax), %eax
 	movl	%eax, 16(%esp)
@@ -5875,7 +6430,7 @@ L385:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L360
+	jne	L485
 	movl	76(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
@@ -5883,52 +6438,280 @@ L385:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	je	L380
-	movl	%eax, %edi
-	jmp	L340
+	jne	L485
+L515:
+	movl	56(%esp), %eax
+	movl	%eax, (%esp)
+	call	_CommitNumber
+	movl	60(%esp), %eax
+	movl	%eax, (%esp)
+	call	_CommitNumber
+	movl	56(%esp), %eax
+	testb	$2, 24(%eax)
+	jne	L518
+L474:
+	movl	60(%esp), %eax
+	testb	$2, 24(%eax)
+	je	L466
+	movl	%eax, (%esp)
+	call	_DeallocateNumber
+	movl	$_number_zero, %eax
+	jmp	L466
 	.p2align 4,,10
-L384:
+L517:
+	movl	120(%esp), %ecx
+	testl	%ecx, %ecx
+	je	L519
 	leal	60(%esp), %eax
 	movl	%ebx, (%esp)
 	movl	%eax, 4(%esp)
 	movl	$_number_zero, 56(%esp)
 	call	_DuplicateNumber
 	testl	%eax, %eax
-	jne	L360
-	movl	56(%esp), %ecx
+	jne	L485
 	movl	60(%esp), %eax
-	jmp	L342
+	jmp	L466
 	.p2align 4,,10
-L356:
-	movl	$-1, %edi
-	jmp	L340
-L357:
-	movl	$-3, %edi
-	jmp	L340
-L388:
+L455:
+	movl	$0, 56(%esp)
+	jmp	L453
+	.p2align 4,,10
+L460:
+	leal	32(%eax), %edx
+	movl	%edx, 44(%esp)
+	movl	120(%esp), %edx
+	testl	%edx, %edx
+	je	L470
+	subl	%ecx, %eax
+	leal	64(%esp), %edx
+	addl	$33, %eax
+	movl	%edx, 8(%esp)
+	movl	%eax, 4(%esp)
+	leal	56(%esp), %eax
+	movl	%eax, (%esp)
+	call	_AllocateNumber
+	testl	%eax, %eax
+	jne	L485
+	leal	68(%esp), %eax
+	movl	44(%esp), %edx
+	movl	%eax, 8(%esp)
+	leal	60(%esp), %eax
+	movl	%edx, 4(%esp)
+	movl	%eax, (%esp)
+	call	_AllocateNumber
+	testl	%eax, %eax
+	jne	L512
+	leal	72(%esp), %eax
+	movl	%eax, 8(%esp)
+	leal	76(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	8(%esi), %eax
+	sall	$5, %eax
+	movl	%eax, (%esp)
+	call	_AllocateBlock
+	movl	%eax, 44(%esp)
+	testl	%eax, %eax
+	je	L520
+	movl	60(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, 24(%esp)
+	movl	56(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, 20(%esp)
+	movl	44(%esp), %eax
+	movl	%eax, 16(%esp)
+	movl	8(%esi), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 12(%esp)
+	movl	32(%esi), %eax
+	movl	%eax, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	*_fp_DivRem_X_X
+	movl	72(%esp), %eax
+	movl	44(%esp), %esi
+	movl	%eax, 4(%esp)
+	movl	%esi, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+	movl	64(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	56(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+	movl	64(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	56(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+	movl	76(%esp), %eax
+	movl	%esi, (%esp)
+	movl	%eax, 4(%esp)
+	call	_DeallocateBlock
+	jmp	L515
+	.p2align 4,,10
+L478:
+	movl	$-1, %ebp
+	jmp	L449
+	.p2align 4,,10
+L519:
+	leal	60(%esp), %eax
+	movl	%ebx, (%esp)
+	movl	%eax, 4(%esp)
+	movl	$0, 56(%esp)
+	call	_DuplicateNumber
+	testl	%eax, %eax
+	jne	L485
+	movl	60(%esp), %eax
+	movl	%eax, (%edi)
+	jmp	L521
+L461:
+	leal	76(%esp), %eax
+	movl	$32, 4(%esp)
+	movl	%eax, 8(%esp)
+	leal	60(%esp), %eax
+	movl	%eax, (%esp)
+	call	_AllocateNumber
+	testl	%eax, %eax
+	jne	L485
+	movl	60(%esp), %eax
+	movl	32(%eax), %edx
+	movl	32(%esi), %eax
+	movl	(%eax), %eax
+	movl	%edx, 44(%esp)
+	movl	%eax, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	_Rem_X_1W
+	movl	44(%esp), %edx
+	movl	%eax, (%edx)
+	movl	76(%esp), %eax
+	movl	$0, 56(%esp)
+	movl	%eax, 4(%esp)
+	movl	60(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+L511:
+	movl	60(%esp), %eax
+	movl	%eax, (%esp)
+	call	_CommitNumber
+	movl	60(%esp), %eax
+	testb	$2, 24(%eax)
+	je	L469
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$_number_zero, %eax
-	jmp	L355
-L387:
+	movl	%eax, (%edi)
+	jmp	L521
+L470:
+	leal	68(%esp), %eax
+	movl	%eax, 8(%esp)
+	movl	44(%esp), %eax
+	movl	%eax, 4(%esp)
+	leal	60(%esp), %eax
+	movl	%eax, (%esp)
+	call	_AllocateNumber
+	testl	%eax, %eax
+	jne	L485
+	leal	72(%esp), %eax
+	movl	%eax, 8(%esp)
+	leal	76(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	8(%esi), %eax
+	sall	$5, %eax
+	movl	%eax, (%esp)
+	call	_AllocateBlock
+	movl	%eax, %ecx
+	testl	%eax, %eax
+	je	L482
+	movl	60(%esp), %eax
+	movl	%ecx, 44(%esp)
+	movl	32(%eax), %eax
+	movl	$0, 20(%esp)
+	movl	%ecx, 16(%esp)
+	movl	%eax, 24(%esp)
+	movl	8(%esi), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 12(%esp)
+	movl	32(%esi), %eax
+	movl	%eax, 8(%esp)
+	movl	8(%ebx), %eax
+	andl	$1073741823, %eax
+	movl	%eax, 4(%esp)
+	movl	32(%ebx), %eax
+	movl	%eax, (%esp)
+	call	*_fp_DivRem_X_X
+	movl	72(%esp), %eax
+	movl	44(%esp), %esi
+	movl	$0, 56(%esp)
+	movl	%eax, 4(%esp)
+	movl	%esi, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+	movl	68(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	60(%esp), %eax
+	movl	32(%eax), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L485
+	movl	76(%esp), %eax
+	movl	%esi, (%esp)
+	movl	%eax, 4(%esp)
+	call	_DeallocateBlock
+	jmp	L511
+L512:
+	movl	56(%esp), %edx
+	movl	%eax, 44(%esp)
+	movl	%edx, (%esp)
+	call	_DeallocateNumber
+	movl	44(%esp), %eax
+	movl	%eax, %ebp
+	jmp	L449
+L479:
+	movl	$-3, %ebp
+	jmp	L449
+L518:
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$_number_zero, 56(%esp)
-	jmp	L354
-L386:
+	jmp	L474
+L482:
+	movl	$-5, %eax
+	movl	%eax, %ebp
+	jmp	L449
+L520:
 	movl	56(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	movl	$-5, %eax
-	movl	%eax, %edi
-	jmp	L340
+	movl	%eax, %ebp
+	jmp	L449
 	.cfi_endproc
-LFE5553:
+LFE5554:
 	.p2align 4,,15
 	.globl	_Initialize_DivRem
 	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
 _Initialize_DivRem:
-LFB5554:
+LFB5555:
 	.cfi_startproc
 	movl	4(%esp), %eax
 	movl	$_DivRem_X_X_using_ADC_MUL, %edx
@@ -5941,7 +6724,7 @@ LFB5554:
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5554:
+LFE5555:
 .lcomm _fp_DivRem_X_X,4,4
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_RightShift_Imp_DIV;	.scl	2;	.type	32;	.endef

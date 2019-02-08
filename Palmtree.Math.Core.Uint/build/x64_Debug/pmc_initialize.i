@@ -88931,6 +88931,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
 
 
+    extern __UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v);
+
+
     extern void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __UNIT_TYPE v_count, __UNIT_TYPE* work_v_buf, __UNIT_TYPE* q_buf, __UNIT_TYPE* r_buf);
 
 
@@ -89153,9 +89156,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 360 "../pmc_uint_internal.h" 3 4
+# 363 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 360 "../pmc_uint_internal.h"
+# 363 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -89167,9 +89170,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 370 "../pmc_uint_internal.h" 3 4
+# 373 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 370 "../pmc_uint_internal.h"
+# 373 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -89183,16 +89186,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 382 "../pmc_uint_internal.h" 3 4
+# 385 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 382 "../pmc_uint_internal.h"
+# 385 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 385 "../pmc_uint_internal.h" 3
+# 388 "../pmc_uint_internal.h" 3
                                                       long long
-# 385 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else

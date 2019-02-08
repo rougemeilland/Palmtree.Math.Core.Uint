@@ -21,8 +21,8 @@ PMC_ModPow_X_X_X:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$248, %rsp
-	.seh_stackalloc	248
+	subq	$216, %rsp
+	.seh_stackalloc	216
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%rdx, %rbx
@@ -42,10 +42,10 @@ PMC_ModPow_X_X_X:
 	call	CheckNumber
 	testl	%eax, %eax
 	movl	%eax, %r10d
-	je	.L109
+	je	.L104
 .L1:
 	movl	%r10d, %eax
-	addq	$248, %rsp
+	addq	$216, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -56,7 +56,7 @@ PMC_ModPow_X_X_X:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L109:
+.L104:
 	movq	%rbx, %rcx
 	call	CheckNumber
 	testl	%eax, %eax
@@ -69,7 +69,7 @@ PMC_ModPow_X_X_X:
 	jne	.L1
 	movzbl	40(%rsi), %eax
 	testb	$2, %al
-	jne	.L44
+	jne	.L42
 	movzbl	40(%r12), %edx
 	movl	%edx, %ecx
 	andl	$2, %ecx
@@ -114,78 +114,65 @@ PMC_ModPow_X_X_X:
 	jmp	.L1
 .L11:
 	movq	56(%rsi), %rax
-	leaq	160(%rsp), %rdx
-	leaq	152(%rsp), %r8
+	leaq	144(%rsp), %rdx
+	leaq	136(%rsp), %r8
 	movq	8(%rsi), %r14
-	movq	%rax, 128(%rsp)
+	movq	%rax, 112(%rsp)
 	movq	8(%r12), %rax
 	leaq	1(%rax), %rcx
 	salq	$6, %rcx
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, 88(%rsp)
-	je	.L103
-	leaq	176(%rsp), %rdx
+	movq	%rax, 80(%rsp)
+	je	.L99
+	leaq	160(%rsp), %rdx
 	movq	%r14, %rdi
-	leaq	168(%rsp), %r8
+	leaq	152(%rsp), %r8
 	salq	$7, %rdi
 	addq	$64, %rdi
 	movq	%rdi, %rcx
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, 72(%rsp)
-	je	.L102
-	leaq	192(%rsp), %rdx
+	movq	%rax, 64(%rsp)
+	je	.L98
+	leaq	176(%rsp), %rdx
 	movq	%rdi, %rcx
-	leaq	184(%rsp), %r8
+	leaq	168(%rsp), %r8
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, 80(%rsp)
-	je	.L105
-	leaq	208(%rsp), %rdx
+	movq	%rax, 72(%rsp)
+	je	.L101
+	leaq	192(%rsp), %rdx
 	movq	%r14, %rcx
-	leaq	200(%rsp), %r8
+	leaq	184(%rsp), %r8
 	salq	$6, %rcx
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, 96(%rsp)
-	je	.L106
-	movq	16(%rsi), %rcx
-	leaq	224(%rsp), %rdx
-	movq	16(%r12), %r8
-	leaq	(%rcx,%rcx), %rax
-	cmpq	%r8, %rax
-	cmovb	%r8, %rax
-	leaq	216(%rsp), %r8
-	subq	%rcx, %rax
-	leaq	65(%rax), %rcx
-	call	AllocateBlock
-	testq	%rax, %rax
-	movq	%rax, 104(%rsp)
-	je	.L107
+	movq	%rax, 88(%rsp)
+	je	.L102
 	movq	16(%rsi), %rdx
-	leaq	232(%rsp), %r8
+	leaq	200(%rsp), %r8
 	movq	%rbp, %rcx
 	call	AllocateNumber
 	testl	%eax, %eax
-	jne	.L110
+	jne	.L105
 	movq	8(%r12), %rdx
-	movl	%eax, 112(%rsp)
+	movl	%eax, 96(%rsp)
 	movq	56(%r12), %rcx
 	cmpq	%rdx, %r14
-	jb	.L25
-	ja	.L26
+	jb	.L23
+	ja	.L24
 	movq	%rdx, %r8
-	movq	128(%rsp), %rdx
+	movq	112(%rsp), %rdx
 	call	Compare_Imp
 	testl	%eax, %eax
-	je	.L104
+	je	.L100
 	movq	8(%r12), %rdx
 	movq	56(%r12), %rcx
-	jg	.L25
-.L26:
+	jg	.L23
+.L24:
 	movq	%rcx, %rsi
-	movq	88(%rsp), %rdi
+	movq	80(%rsp), %rdi
 	movq	%rdx, %rcx
 /APP
  # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
@@ -193,9 +180,9 @@ PMC_ModPow_X_X_X:
  # 0 "" 2
 /NO_APP
 	movq	8(%r12), %rax
-.L101:
-	movq	%rax, 112(%rsp)
-.L30:
+.L97:
+	movq	%rax, 96(%rsp)
+.L28:
 	movq	8(%rbx), %rax
 	movl	$64, %ecx
 	movq	%rax, %rdi
@@ -203,7 +190,7 @@ PMC_ModPow_X_X_X:
 	movq	56(%rbx), %rax
 	movq	-8(%rax,%rdi,8), %rax
 	testq	%rax, %rax
-	je	.L32
+	je	.L30
 	movl	$63, %ecx
 /APP
  # 641 "../pmc_inline_func.h" 1
@@ -211,11 +198,11 @@ PMC_ModPow_X_X_X:
  # 0 "" 2
 /NO_APP
 	subl	%eax, %ecx
-.L32:
+.L30:
 	movabsq	$-9223372036854775808, %r13
-	movq	72(%rsp), %rdx
+	movq	64(%rsp), %rdx
 	shrq	%cl, %r13
-	movq	88(%rsp), %rsi
+	movq	80(%rsp), %rsi
 	movq	%r14, %rcx
 	movq	%rdx, %rdi
 /APP
@@ -225,30 +212,30 @@ PMC_ModPow_X_X_X:
 /NO_APP
 	testq	%r15, %r15
 	movq	%r15, %rax
-	je	.L47
+	je	.L45
 	leaq	-8(,%r14,8), %rdi
-	movq	%rbp, 344(%rsp)
-	movq	112(%rsp), %r12
+	movq	%rbp, 312(%rsp)
+	movq	96(%rsp), %r12
 	movq	%rdx, %rsi
-	movq	%rdi, 136(%rsp)
-	movq	80(%rsp), %r15
+	movq	%rdi, 120(%rsp)
+	movq	72(%rsp), %r15
 	movq	%rax, %rbp
-	jmp	.L43
+	jmp	.L41
 	.p2align 4,,10
-.L39:
+.L37:
 	movq	%r15, %rax
 	movq	%r11, %r12
 	movq	%rsi, %r15
 	movq	%rax, %rsi
-.L43:
+.L41:
 	shrq	%r13
-	jne	.L34
+	jne	.L32
 	subq	$1, %rbp
-	je	.L84
+	je	.L82
 	movabsq	$-9223372036854775808, %r13
-.L34:
+.L32:
 	movq	%r15, %rdi
-	movq	176(%rsp), %rcx
+	movq	160(%rsp), %rcx
 	xorl	%eax, %eax
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
@@ -261,75 +248,67 @@ PMC_ModPow_X_X_X:
 	movq	%r15, 32(%rsp)
 	movq	%rsi, %rcx
 	call	Multiply_X_X_Imp
+	movq	152(%rsp), %rdx
+	movq	64(%rsp), %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L94
 	movq	168(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
-	movq	184(%rsp), %rdx
-	movq	80(%rsp), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
 	leaq	(%r12,%r12), %r11
 	salq	$4, %r12
 	addq	%r15, %r12
 	cmpq	$1, -8(%r12)
 	sbbq	$0, %r11
 	cmpq	%r11, %r14
-	jbe	.L111
-.L36:
+	jbe	.L106
+.L34:
 	movq	56(%rbx), %rax
 	testq	%r13, -8(%rax,%rbp,8)
-	je	.L39
+	je	.L37
 	movq	%rsi, %rdi
-	movq	176(%rsp), %rcx
+	movq	160(%rsp), %rcx
 	xorl	%eax, %eax
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep stosq
  # 0 "" 2
 /NO_APP
-	movq	112(%rsp), %rdi
+	movq	96(%rsp), %rdi
 	movq	%r11, %rdx
 	movq	%r15, %rcx
 	movq	%rsi, 32(%rsp)
-	movq	88(%rsp), %r8
-	movq	%r11, 120(%rsp)
+	movq	80(%rsp), %r8
+	movq	%r11, 104(%rsp)
 	movq	%rdi, %r9
 	call	Multiply_X_X_Imp
+	movq	152(%rsp), %rdx
+	movq	64(%rsp), %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L94
 	movq	168(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
-	movq	184(%rsp), %rdx
-	movq	80(%rsp), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
-	movq	120(%rsp), %r11
+	jne	.L94
+	movq	104(%rsp), %r11
 	addq	%rdi, %r11
 	cmpq	$1, -8(%rsi,%r11,8)
 	sbbq	$0, %r11
 	cmpq	%r11, %r14
-	jbe	.L112
+	jbe	.L107
 	movq	%r15, %rax
 	movq	%rsi, %r15
 	movq	%rax, %rsi
-	jmp	.L39
-.L111:
-	movq	96(%rsp), %r12
+	jmp	.L37
+.L106:
+	movq	88(%rsp), %rdx
 	xorl	%eax, %eax
-	movq	208(%rsp), %rcx
-	movq	%r12, %rdi
-/APP
- # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep stosq
- # 0 "" 2
-/NO_APP
-	movq	104(%rsp), %rdx
-	movq	224(%rsp), %rcx
+	movq	192(%rsp), %rcx
 	movq	%rdx, %rdi
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
@@ -337,226 +316,182 @@ PMC_ModPow_X_X_X:
  # 0 "" 2
 /NO_APP
 	movq	%rsi, %rdi
-	movq	176(%rsp), %rcx
+	movq	160(%rsp), %rcx
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep stosq
  # 0 "" 2
 /NO_APP
-	movq	%rdx, 40(%rsp)
-	movq	%r14, %r9
-	movq	%r15, %rcx
+	movq	112(%rsp), %r8
 	movq	%rdx, %rdi
-	movq	128(%rsp), %r8
+	movq	%rdx, 32(%rsp)
+	movq	%r14, %r9
 	movq	%r11, %rdx
+	movq	%r15, %rcx
 	movq	%rsi, 48(%rsp)
-	movq	%r12, 32(%rsp)
+	movq	$0, 40(%rsp)
 	call	DivRem_X_X
-	movq	200(%rsp), %rdx
-	movq	%r12, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
-	movq	216(%rsp), %rdx
+	movq	184(%rsp), %rdx
 	movq	%rdi, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
+	movq	152(%rsp), %rdx
+	movq	64(%rsp), %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L94
 	movq	168(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
-	movq	184(%rsp), %rdx
-	movq	80(%rsp), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
 	testq	%r14, %r14
-	je	.L92
-	movq	136(%rsp), %rdi
+	je	.L89
+	movq	120(%rsp), %rdi
 	cmpq	$0, (%rsi,%rdi)
-	jne	.L48
+	jne	.L46
 	movq	%r14, %r11
-	jmp	.L38
+	jmp	.L36
 	.p2align 4,,10
-.L114:
+.L109:
 	cmpq	$0, -8(%rsi,%r11,8)
-	jne	.L113
-.L38:
+	jne	.L108
+.L36:
 	subq	$1, %r11
-	jne	.L114
-.L92:
-	movq	344(%rsp), %rbp
+	jne	.L109
+.L89:
+	movq	312(%rsp), %rbp
 	movl	%eax, %r10d
-.L29:
-	movl	%r10d, 112(%rsp)
-.L104:
+.L27:
+	movl	%r10d, 96(%rsp)
+.L100:
 	movq	0(%rbp), %rcx
 	call	DeallocateNumber
-	movq	224(%rsp), %rdx
-	movq	104(%rsp), %rcx
-	call	DeallocateBlock
-	movq	208(%rsp), %rdx
-	movq	96(%rsp), %rcx
-	call	DeallocateBlock
 	movq	192(%rsp), %rdx
-	movq	80(%rsp), %rcx
+	movq	88(%rsp), %rcx
 	call	DeallocateBlock
 	movq	176(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	DeallocateBlock
 	movq	160(%rsp), %rdx
-	movq	88(%rsp), %rcx
+	movq	64(%rsp), %rcx
+	call	DeallocateBlock
+	movq	144(%rsp), %rdx
+	movq	80(%rsp), %rcx
 	call	DeallocateBlock
 	movq	.refptr.number_zero(%rip), %rax
-	movl	112(%rsp), %r10d
+	movl	96(%rsp), %r10d
 	movq	%rax, 0(%rbp)
 	jmp	.L1
 .L12:
-	leaq	208(%rsp), %rdx
-	leaq	200(%rsp), %r8
+	leaq	192(%rsp), %rdx
+	leaq	184(%rsp), %r8
 	call	AllocateBlock
 	movl	$-5, %r10d
 	testq	%rax, %rax
 	movq	%rax, %rbx
 	je	.L1
-	movl	$65, %ecx
-	subq	16(%rsi), %rcx
-	movl	%r10d, 72(%rsp)
-	addq	16(%r12), %rcx
-	leaq	224(%rsp), %rdx
-	leaq	216(%rsp), %r8
-	call	AllocateBlock
-	testq	%rax, %rax
-	movq	%rax, %r13
-	je	.L115
 	movq	16(%r12), %rax
-	leaq	232(%rsp), %r8
+	leaq	200(%rsp), %r8
 	movq	%rbp, %rcx
 	leaq	64(%rax), %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
 	movl	%eax, %r10d
-	jne	.L116
+	jne	.L110
 	movq	8(%r12), %rdx
 	movq	8(%rsi), %r9
 	movq	0(%rbp), %rax
 	movq	56(%r12), %rcx
 	cmpq	%r9, %rdx
 	movq	56(%rax), %rdi
-	jnb	.L16
-	movq	$0, 0(%r13)
-	movq	8(%r12), %rax
+	jnb	.L15
 	movq	%rcx, %rsi
-	movq	%rax, %rcx
+	movq	%rdx, %rcx
 /APP
  # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsq
  # 0 "" 2
 /NO_APP
-.L17:
-	movq	224(%rsp), %rdx
-	movq	%r13, %rcx
-	movl	%r10d, 72(%rsp)
-	call	DeallocateBlock
-	movq	208(%rsp), %rdx
+.L16:
+	movq	192(%rsp), %rdx
 	movq	%rbx, %rcx
+	movl	%r10d, 64(%rsp)
 	call	DeallocateBlock
 	movq	0(%rbp), %rcx
 	call	CommitNumber
-	movl	72(%rsp), %r10d
+	movl	64(%rsp), %r10d
 	jmp	.L1
-.L16:
+.L15:
 	movq	%rdi, 48(%rsp)
-	movq	%r13, 40(%rsp)
+	movq	$0, 40(%rsp)
 	movq	%rbx, 32(%rsp)
 	movq	56(%rsi), %r8
-	movl	%r10d, 72(%rsp)
+	movl	%r10d, 64(%rsp)
 	call	DivRem_X_X
-	movq	200(%rsp), %rdx
+	movq	184(%rsp), %rdx
 	movq	%rbx, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
-	movq	216(%rsp), %rdx
-	movq	%r13, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
 	movq	0(%rbp), %rax
-	movq	232(%rsp), %rdx
+	movq	200(%rsp), %rdx
 	movq	56(%rax), %rcx
 	call	CheckBlockLight
-	movl	72(%rsp), %r10d
+	movl	64(%rsp), %r10d
 	testl	%eax, %eax
-	je	.L17
-.L98:
+	je	.L16
+.L94:
 	movl	%eax, %r10d
 	jmp	.L1
-.L44:
+.L42:
 	movl	$-3, %r10d
 	jmp	.L1
-.L25:
-	movq	96(%rsp), %r15
+.L108:
+	movq	%r15, %rax
+	movq	%rsi, %r15
+	movq	%rax, %rsi
+	jmp	.L34
+.L23:
+	movq	88(%rsp), %rsi
 	movq	%r14, %r9
-	movq	88(%rsp), %rdi
-	movq	104(%rsp), %rsi
-	movq	128(%rsp), %r8
-	movq	%r15, 32(%rsp)
+	movq	$0, 40(%rsp)
+	movq	80(%rsp), %rdi
+	movq	112(%rsp), %r8
+	movq	%rsi, 32(%rsp)
 	movq	%rdi, 48(%rsp)
-	movq	%rsi, 40(%rsp)
 	call	DivRem_X_X
-	movq	200(%rsp), %rdx
-	movq	%r15, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	movl	%eax, %r10d
-	jne	.L1
-	movq	216(%rsp), %rdx
+	movq	184(%rsp), %rdx
 	movq	%rsi, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L1
-	movq	152(%rsp), %rdx
+	movq	136(%rsp), %rdx
 	movq	%rdi, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L1
 	testq	%r14, %r14
-	je	.L29
+	je	.L27
 	cmpq	$0, -8(%rdi,%r14,8)
-	jne	.L45
+	movq	%rdi, %rdx
+	jne	.L43
 	movq	%r14, %rax
-	jmp	.L31
-.L117:
-	movq	88(%rsp), %rdi
-	cmpq	$0, -8(%rdi,%rax,8)
-	jne	.L101
-.L31:
-	subq	$1, %rax
-	jne	.L117
 	jmp	.L29
-	.p2align 4,,10
-.L113:
-	movq	%r15, %rax
-	movq	%rsi, %r15
-	movq	%rax, %rsi
-	jmp	.L36
-.L112:
-	movq	96(%rsp), %r12
+.L111:
+	cmpq	$0, -8(%rdx,%rax,8)
+	jne	.L97
+.L29:
+	subq	$1, %rax
+	jne	.L111
+	jmp	.L27
+.L107:
+	movq	88(%rsp), %rdx
 	xorl	%eax, %eax
-	movq	208(%rsp), %rcx
-	movq	%r12, %rdi
-/APP
- # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep stosq
- # 0 "" 2
-/NO_APP
-	movq	104(%rsp), %rdx
-	movq	224(%rsp), %rcx
+	movq	192(%rsp), %rcx
 	movq	%rdx, %rdi
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
@@ -564,59 +499,54 @@ PMC_ModPow_X_X_X:
  # 0 "" 2
 /NO_APP
 	movq	%r15, %rdi
-	movq	176(%rsp), %rcx
+	movq	160(%rsp), %rcx
 /APP
  # 611 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep stosq
  # 0 "" 2
 /NO_APP
-	movq	%rdx, 40(%rsp)
-	movq	%r14, %r9
-	movq	%rsi, %rcx
+	movq	112(%rsp), %r8
 	movq	%rdx, %rdi
-	movq	128(%rsp), %r8
+	movq	%rdx, 32(%rsp)
+	movq	%r14, %r9
 	movq	%r11, %rdx
+	movq	%rsi, %rcx
 	movq	%r15, 48(%rsp)
-	movq	%r12, 32(%rsp)
+	movq	$0, 40(%rsp)
 	call	DivRem_X_X
-	movq	200(%rsp), %rdx
-	movq	%r12, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
-	movq	216(%rsp), %rdx
+	movq	184(%rsp), %rdx
 	movq	%rdi, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
+	movq	152(%rsp), %rdx
+	movq	64(%rsp), %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L94
 	movq	168(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L98
-	movq	184(%rsp), %rdx
-	movq	80(%rsp), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L98
+	jne	.L94
 	testq	%r14, %r14
-	je	.L92
-	movq	136(%rsp), %rdi
+	je	.L89
+	movq	120(%rsp), %rdi
 	movq	%r14, %r11
 	cmpq	$0, (%r15,%rdi)
-	je	.L42
-	jmp	.L39
+	je	.L40
+	jmp	.L37
 	.p2align 4,,10
-.L118:
+.L112:
 	cmpq	$0, -8(%r15,%r11,8)
-	jne	.L39
-.L42:
+	jne	.L37
+.L40:
 	subq	$1, %r11
-	jne	.L118
-	jmp	.L92
-.L84:
-	movq	344(%rsp), %rbp
-.L33:
+	jne	.L112
+	jmp	.L89
+.L82:
+	movq	312(%rsp), %rbp
+.L31:
 	movq	0(%rbp), %rax
 	movq	%r12, %rcx
 	movq	56(%rax), %rdi
@@ -626,83 +556,67 @@ PMC_ModPow_X_X_X:
  # 0 "" 2
 /NO_APP
 	movq	0(%rbp), %rax
-	movq	232(%rsp), %rdx
+	movq	200(%rsp), %rdx
 	movq	56(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L1
 	movq	0(%rbp), %rcx
-	movl	%eax, 112(%rsp)
+	movl	%eax, 96(%rsp)
 	call	CommitNumber
-	movq	224(%rsp), %rdx
-	movq	104(%rsp), %rcx
-	call	DeallocateBlock
-	movq	208(%rsp), %rdx
-	movq	96(%rsp), %rcx
-	call	DeallocateBlock
 	movq	192(%rsp), %rdx
-	movq	80(%rsp), %rcx
+	movq	88(%rsp), %rcx
 	call	DeallocateBlock
 	movq	176(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	DeallocateBlock
 	movq	160(%rsp), %rdx
-	movq	88(%rsp), %rcx
+	movq	64(%rsp), %rcx
 	call	DeallocateBlock
-	movl	112(%rsp), %r10d
-	jmp	.L1
-.L116:
-	movq	224(%rsp), %rdx
-	movq	%r13, %rcx
+	movq	144(%rsp), %rdx
+	movq	80(%rsp), %rcx
 	call	DeallocateBlock
-	movq	208(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DeallocateBlock
-	movl	$-5, %r10d
-	jmp	.L1
-.L115:
-	movq	208(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DeallocateBlock
-	movl	72(%rsp), %r10d
+	movl	96(%rsp), %r10d
 	jmp	.L1
 .L110:
-	movq	224(%rsp), %rdx
-	movq	104(%rsp), %rcx
-	call	DeallocateBlock
-.L107:
-	movq	208(%rsp), %rdx
-	movq	96(%rsp), %rcx
-	call	DeallocateBlock
-.L106:
 	movq	192(%rsp), %rdx
-	movq	80(%rsp), %rcx
+	movq	%rbx, %rcx
 	call	DeallocateBlock
+	movl	$-5, %r10d
+	jmp	.L1
 .L105:
+	movq	192(%rsp), %rdx
+	movq	88(%rsp), %rcx
+	call	DeallocateBlock
+.L102:
 	movq	176(%rsp), %rdx
 	movq	72(%rsp), %rcx
 	call	DeallocateBlock
-.L102:
+.L101:
 	movq	160(%rsp), %rdx
-	movq	88(%rsp), %rcx
+	movq	64(%rsp), %rcx
 	call	DeallocateBlock
-.L103:
+.L98:
+	movq	144(%rsp), %rdx
+	movq	80(%rsp), %rcx
+	call	DeallocateBlock
+.L99:
 	movl	$-5, %r10d
 	jmp	.L1
-.L48:
+.L46:
 	movq	%r15, %rax
 	movq	%r14, %r11
 	movq	%rsi, %r15
 	movq	%rax, %rsi
-	jmp	.L36
+	jmp	.L34
 .L45:
-	movq	%r14, 112(%rsp)
-	jmp	.L30
-.L47:
-	movq	112(%rsp), %r12
-	movq	72(%rsp), %rsi
-	jmp	.L33
+	movq	96(%rsp), %r12
+	movq	64(%rsp), %rsi
+	jmp	.L31
+.L43:
+	movq	%r14, 96(%rsp)
+	jmp	.L28
 	.seh_endproc
 	.p2align 4,,15
 	.globl	Initialize_ModPow

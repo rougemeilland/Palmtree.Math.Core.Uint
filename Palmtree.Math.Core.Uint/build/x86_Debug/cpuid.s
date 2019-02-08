@@ -4517,7 +4517,7 @@ Ldebug_info0:
 	.uleb128 0xf
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x4d5c
 	.uleb128 0x6

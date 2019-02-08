@@ -100978,11 +100978,11 @@ typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 
 
 #pragma region 宣言
-# 141 "../pmc_uint_debug.h"
+# 147 "../pmc_uint_debug.h"
 #pragma endregion
 
 
 #pragma region インライン関数の定義
-# 161 "../pmc_uint_debug.h"
+# 167 "../pmc_uint_debug.h"
 #pragma endregion
 # 29 "../TEST_op_Shift.c" 2

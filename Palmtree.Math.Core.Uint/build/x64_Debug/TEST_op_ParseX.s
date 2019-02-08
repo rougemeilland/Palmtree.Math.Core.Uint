@@ -7,7 +7,7 @@
 _EQUALS_MEMORY:
 .LFB4273:
 	.file 1 "../pmc_uint_debug.h"
-	.loc 1 147 1
+	.loc 1 153 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -21,41 +21,41 @@ _EQUALS_MEMORY:
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
 	movq	%r9, 40(%rbp)
-	.loc 1 148 8
+	.loc 1 154 8
 	movq	24(%rbp), %rax
 	cmpq	40(%rbp), %rax
 	je	.L4
-	.loc 1 149 16
+	.loc 1 155 16
 	movl	$-1, %eax
 	jmp	.L3
 .L6:
-	.loc 1 152 13
+	.loc 1 158 13
 	movq	16(%rbp), %rax
 	movzbl	(%rax), %edx
-	.loc 1 152 25
+	.loc 1 158 25
 	movq	32(%rbp), %rax
 	movzbl	(%rax), %eax
-	.loc 1 152 12
+	.loc 1 158 12
 	cmpb	%al, %dl
 	je	.L5
-	.loc 1 153 20
+	.loc 1 159 20
 	movl	$-1, %eax
 	jmp	.L3
 .L5:
-	.loc 1 154 9
+	.loc 1 160 9
 	addq	$1, 16(%rbp)
-	.loc 1 155 9
+	.loc 1 161 9
 	addq	$1, 32(%rbp)
-	.loc 1 156 9
+	.loc 1 162 9
 	subq	$1, 24(%rbp)
 .L4:
-	.loc 1 150 11
+	.loc 1 156 11
 	cmpq	$0, 24(%rbp)
 	jne	.L6
-	.loc 1 158 12
+	.loc 1 164 12
 	movl	$0, %eax
 .L3:
-	.loc 1 159 1
+	.loc 1 165 1
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -222,9 +222,9 @@ TEST_PMC_ParseX:
 	movq	64(%rax), %rax
 	.loc 2 49 83
 	movq	-16(%rbp), %rcx
-	leaq	actual_buf_size.84498(%rip), %r9
+	leaq	actual_buf_size.84545(%rip), %r9
 	movl	$256, %r8d
-	leaq	actual_buf.84497(%rip), %rdx
+	leaq	actual_buf.84544(%rip), %rdx
 	call	*%rax
 .LVL6:
 	movl	%eax, -8(%rbp)
@@ -245,13 +245,13 @@ TEST_PMC_ParseX:
 	movq	32(%rbp), %rcx
 	call	TEST_Assert
 	.loc 2 50 73
-	movq	actual_buf_size.84498(%rip), %rax
+	movq	actual_buf_size.84545(%rip), %rax
 	movq	88(%rbp), %rcx
 	movq	80(%rbp), %rdx
 	movq	%rcx, %r9
 	movq	%rdx, %r8
 	movq	%rax, %rdx
-	leaq	actual_buf.84497(%rip), %rcx
+	leaq	actual_buf.84544(%rip), %rcx
 	call	_EQUALS_MEMORY
 	.loc 2 50 9
 	testl	%eax, %eax
@@ -296,8 +296,8 @@ TEST_PMC_ParseX:
 	.cfi_endproc
 .LFE4274:
 	.seh_endproc
-.lcomm actual_buf.84497,256,32
-.lcomm actual_buf_size.84498,8,8
+.lcomm actual_buf.84544,256,32
+.lcomm actual_buf_size.84545,8,8
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -5470,7 +5470,7 @@ TEST_PMC_ParseX:
 	.long	0x1edd
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf.84497
+	.quad	actual_buf.84544
 	.uleb128 0x20
 	.ascii "actual_buf_size\0"
 	.byte	0x2
@@ -5479,7 +5479,7 @@ TEST_PMC_ParseX:
 	.long	0xcf
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_buf_size.84498
+	.quad	actual_buf_size.84545
 	.uleb128 0x20
 	.ascii "result\0"
 	.byte	0x2
@@ -5532,7 +5532,7 @@ TEST_PMC_ParseX:
 	.uleb128 0x22
 	.ascii "_EQUALS_MEMORY\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x15
 	.long	0x139
 	.quad	.LFB4273
@@ -5543,7 +5543,7 @@ TEST_PMC_ParseX:
 	.uleb128 0x1f
 	.ascii "buffer1\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x33
 	.long	0x755
 	.uleb128 0x2
@@ -5552,7 +5552,7 @@ TEST_PMC_ParseX:
 	.uleb128 0x1f
 	.ascii "count1\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x43
 	.long	0xcf
 	.uleb128 0x2
@@ -5561,7 +5561,7 @@ TEST_PMC_ParseX:
 	.uleb128 0x1f
 	.ascii "buffer2\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x5a
 	.long	0x755
 	.uleb128 0x2
@@ -5570,7 +5570,7 @@ TEST_PMC_ParseX:
 	.uleb128 0x1f
 	.ascii "count2\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x6a
 	.long	0xcf
 	.uleb128 0x2

@@ -109,42 +109,25 @@ static PMC_STATUS_CODE Remainder(NUMBER_HEADER* u, NUMBER_HEADER* v, NUMBER_HEAD
         __UNIT_TYPE work_v_buf_words;
         __UNIT_TYPE* work_v_buf = AllocateBlock(v->UNIT_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
         if (work_v_buf == NULL)
-        {
             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
-        }
-        __UNIT_TYPE q_buf_code;
-        __UNIT_TYPE q_buf_words;
-        __UNIT_TYPE* q_buf = AllocateBlock(u->UNIT_BIT_COUNT - v->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT, &q_buf_words, &q_buf_code);
-        if (q_buf == NULL)
-        {
-            DeallocateBlock(work_v_buf, work_v_buf_words);
-            return (PMC_STATUS_NOT_ENOUGH_MEMORY);
-        }
         __UNIT_TYPE r_check_code;
         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + __UNIT_TYPE_BIT_COUNT, &r_check_code)) != PMC_STATUS_OK)
         {
-            DeallocateBlock(q_buf, q_buf_words);
             DeallocateBlock(work_v_buf, work_v_buf_words);
             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
         }
 
         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
-        {
-            q_buf[0] = 0;
             _COPY_MEMORY_UNIT((*r)->BLOCK, u->BLOCK, u->UNIT_WORD_COUNT);
-        }
         else
         {
-            DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, q_buf, (*r)->BLOCK);
+            DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, NULL, (*r)->BLOCK);
             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
-                return (result);
-            if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
                 return (result);
             if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
                 return (result);
         }
 
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         CommitNumber(*r);
     }
@@ -204,24 +187,10 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
     }
 
-    __UNIT_TYPE q_buf_bit_count = _MAXIMUM_UNIT(v->UNIT_BIT_COUNT, m->UNIT_BIT_COUNT * 2) - m->UNIT_BIT_COUNT + 1 + __UNIT_TYPE_BIT_COUNT;
-    __UNIT_TYPE q_buf_code;
-    __UNIT_TYPE q_buf_words;
-    __UNIT_TYPE* q_buf = AllocateBlock(q_buf_bit_count, &q_buf_words, &q_buf_code);
-    if (q_buf == NULL)
-    {
-        DeallocateBlock(work_v_buf, work_v_buf_words);
-        DeallocateBlock(work_2_buf, work_2_buf_words);
-        DeallocateBlock(work_1_buf, work_1_buf_words);
-        DeallocateBlock(v_2_buf, v_2_buf_words);
-        return (PMC_STATUS_NOT_ENOUGH_MEMORY);
-    }
-
     __UNIT_TYPE r_bit_count = m->UNIT_BIT_COUNT;
     __UNIT_TYPE r_check_code;
     if ((result = AllocateNumber(r, r_bit_count, &r_check_code)) != PMC_STATUS_OK)
     {
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         DeallocateBlock(work_2_buf, work_2_buf_words);
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -238,7 +207,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         // v を何乗してもその剰余は 0 であるため、0 を返す。
 
         DeallocateNumber(*r);
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         DeallocateBlock(work_2_buf, work_2_buf_words);
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -255,10 +223,8 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
 
         // v2 を v % m に設定する。
 
-        DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, q_buf, v_2_buf);
+        DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, NULL, v_2_buf);
         if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
-            return (result);
-        if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
             return (result);
         if ((result = CheckBlockLight(v_2_buf, v_2_buf_code)) != PMC_STATUS_OK)
             return (result);
@@ -270,7 +236,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         {
             // v2 が 0 になってしまった場合はべき乗を繰り返しても 0 になることが確定なので 0 を返す
             DeallocateNumber(*r);
-            DeallocateBlock(q_buf, q_buf_words);
             DeallocateBlock(work_v_buf, work_v_buf_words);
             DeallocateBlock(work_2_buf, work_2_buf_words);
             DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -364,12 +329,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         if (u_count >= m_count)
         {
             _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
-            _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
-            DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+            DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, NULL, w_ptr);
             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
-                return (result);
-            if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
                 return (result);
             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
                 return (result);
@@ -384,7 +346,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
             {
                 // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
                 DeallocateNumber(*r);
-                DeallocateBlock(q_buf, q_buf_words);
                 DeallocateBlock(work_v_buf, work_v_buf_words);
                 DeallocateBlock(work_2_buf, work_2_buf_words);
                 DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -442,12 +403,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
             if (u_count >= m_count)
             {
                 _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
-                _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
                 _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
-                DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+                DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, NULL, w_ptr);
                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
-                    return (result);
-                if ((result = CheckBlockLight(q_buf, q_buf_code)) != PMC_STATUS_OK)
                     return (result);
                 if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != PMC_STATUS_OK)
                     return (result);
@@ -462,7 +420,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
                 {
                     // 剰余が 0 になった場合はこれ以上続行しても解が 0 以外にはならないので、処理を中断して 0 を返す
                     DeallocateNumber(*r);
-                    DeallocateBlock(q_buf, q_buf_words);
                     DeallocateBlock(work_v_buf, work_v_buf_words);
                     DeallocateBlock(work_2_buf, work_2_buf_words);
                     DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -485,7 +442,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != PMC_STATUS_OK)
         return (result);
     CommitNumber(*r);
-    DeallocateBlock(q_buf, q_buf_words);
     DeallocateBlock(work_v_buf, work_v_buf_words);
     DeallocateBlock(work_2_buf, work_2_buf_words);
     DeallocateBlock(work_1_buf, work_1_buf_words);

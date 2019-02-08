@@ -2708,7 +2708,7 @@ $LN259@PrintDecim:
 $LN260@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -2965,7 +2965,7 @@ $LN293@PrintDecim:
 $LN294@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3208,7 +3208,7 @@ $LN319@PrintDecim:
 $LN320@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3355,7 +3355,7 @@ $LN345@PrintDecim:
 $LN346@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	ebx, edi
@@ -3650,7 +3650,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3708,7 +3708,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 2
 	lock xadd DWORD PTR statistics_info+12, ecx
@@ -3750,7 +3750,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3823,7 +3823,7 @@ $LL4@ToStringDN:
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	r8d, ebx
@@ -4700,11 +4700,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV64Counter PROC					; COMDAT
 
-; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lock xadd DWORD PTR statistics_info+8, ecx
 
-; 343  :     }
+; 346  :     }
 
 	ret	0
 AddToDIV64Counter ENDP
@@ -4716,11 +4716,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV32Counter PROC					; COMDAT
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lock xadd DWORD PTR statistics_info+12, ecx
 
-; 337  :     }
+; 340  :     }
 
 	ret	0
 AddToDIV32Counter ENDP
@@ -4731,11 +4731,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 
-; 320  :     }
+; 323  :     }
 
 	ret	0
 IncrementDIV64Counter ENDP
@@ -4746,11 +4746,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 
-; 314  :     }
+; 317  :     }
 
 	ret	0
 IncrementDIV32Counter ENDP

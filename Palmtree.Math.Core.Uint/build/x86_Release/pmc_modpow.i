@@ -49215,6 +49215,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
 
 
+    extern __UNIT_TYPE_DIV Rem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v);
+
+
     extern void DivRem_X_X(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE* v_buf, __UNIT_TYPE v_count, __UNIT_TYPE* work_v_buf, __UNIT_TYPE* q_buf, __UNIT_TYPE* r_buf);
 
 
@@ -49445,12 +49448,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 377 "../pmc_uint_internal.h"
+# 380 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 391 "../pmc_uint_internal.h"
+# 394 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../pmc_modpow.c" 2
@@ -101447,46 +101450,29 @@ static PMC_STATUS_CODE Remainder(NUMBER_HEADER* u, NUMBER_HEADER* v, NUMBER_HEAD
                          ((void *)0)
 # 111 "../pmc_modpow.c"
                              )
-        {
             return ((-5));
-        }
-        __UNIT_TYPE q_buf_code;
-        __UNIT_TYPE q_buf_words;
-        __UNIT_TYPE* q_buf = AllocateBlock(u->UNIT_BIT_COUNT - v->UNIT_BIT_COUNT + 1 + (sizeof(__UNIT_TYPE) * 8), &q_buf_words, &q_buf_code);
-        if (q_buf == 
-# 118 "../pmc_modpow.c" 3 4
-                    ((void *)0)
-# 118 "../pmc_modpow.c"
-                        )
-        {
-            DeallocateBlock(work_v_buf, work_v_buf_words);
-            return ((-5));
-        }
         __UNIT_TYPE r_check_code;
         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + (sizeof(__UNIT_TYPE) * 8), &r_check_code)) != (0))
         {
-            DeallocateBlock(q_buf, q_buf_words);
             DeallocateBlock(work_v_buf, work_v_buf_words);
             return ((-5));
         }
 
         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
-        {
-            q_buf[0] = 0;
             _COPY_MEMORY_UNIT((*r)->BLOCK, u->BLOCK, u->UNIT_WORD_COUNT);
-        }
         else
         {
-            DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, q_buf, (*r)->BLOCK);
+            DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, 
+# 124 "../pmc_modpow.c" 3 4
+                                                                                              ((void *)0)
+# 124 "../pmc_modpow.c"
+                                                                                                  , (*r)->BLOCK);
             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != (0))
-                return (result);
-            if ((result = CheckBlockLight(q_buf, q_buf_code)) != (0))
                 return (result);
             if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != (0))
                 return (result);
         }
 
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         CommitNumber(*r);
     }
@@ -101509,9 +101495,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE v_2_buf_words;
     __UNIT_TYPE* v_2_buf = AllocateBlock(v_2_bit_count, &v_2_buf_words, &v_2_buf_code);
     if (v_2_buf == 
-# 169 "../pmc_modpow.c" 3 4
+# 152 "../pmc_modpow.c" 3 4
                   ((void *)0)
-# 169 "../pmc_modpow.c"
+# 152 "../pmc_modpow.c"
                       )
     {
         return ((-5));
@@ -101522,9 +101508,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_1_buf_words;
     __UNIT_TYPE* work_1_buf = AllocateBlock(work_1_bit_count, &work_1_buf_words, &work_1_buf_code);
     if (work_1_buf == 
-# 178 "../pmc_modpow.c" 3 4
+# 161 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 178 "../pmc_modpow.c"
+# 161 "../pmc_modpow.c"
                          )
     {
         DeallocateBlock(v_2_buf, v_2_buf_words);
@@ -101536,9 +101522,9 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_2_buf_words;
     __UNIT_TYPE* work_2_buf = AllocateBlock(work_2_bit_count, &work_2_buf_words, &work_2_buf_code);
     if (work_2_buf == 
-# 188 "../pmc_modpow.c" 3 4
+# 171 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 188 "../pmc_modpow.c"
+# 171 "../pmc_modpow.c"
                          )
     {
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101551,28 +101537,11 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE work_v_buf_words;
     __UNIT_TYPE* work_v_buf = AllocateBlock(work_v_bit_count, &work_v_buf_words, &work_v_buf_code);
     if (work_v_buf == 
-# 199 "../pmc_modpow.c" 3 4
+# 182 "../pmc_modpow.c" 3 4
                      ((void *)0)
-# 199 "../pmc_modpow.c"
+# 182 "../pmc_modpow.c"
                          )
     {
-        DeallocateBlock(work_2_buf, work_2_buf_words);
-        DeallocateBlock(work_1_buf, work_1_buf_words);
-        DeallocateBlock(v_2_buf, v_2_buf_words);
-        return ((-5));
-    }
-
-    __UNIT_TYPE q_buf_bit_count = _MAXIMUM_UNIT(v->UNIT_BIT_COUNT, m->UNIT_BIT_COUNT * 2) - m->UNIT_BIT_COUNT + 1 + (sizeof(__UNIT_TYPE) * 8);
-    __UNIT_TYPE q_buf_code;
-    __UNIT_TYPE q_buf_words;
-    __UNIT_TYPE* q_buf = AllocateBlock(q_buf_bit_count, &q_buf_words, &q_buf_code);
-    if (q_buf == 
-# 211 "../pmc_modpow.c" 3 4
-                ((void *)0)
-# 211 "../pmc_modpow.c"
-                    )
-    {
-        DeallocateBlock(work_v_buf, work_v_buf_words);
         DeallocateBlock(work_2_buf, work_2_buf_words);
         DeallocateBlock(work_1_buf, work_1_buf_words);
         DeallocateBlock(v_2_buf, v_2_buf_words);
@@ -101583,7 +101552,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     __UNIT_TYPE r_check_code;
     if ((result = AllocateNumber(r, r_bit_count, &r_check_code)) != (0))
     {
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         DeallocateBlock(work_2_buf, work_2_buf_words);
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101600,7 +101568,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
 
 
         DeallocateNumber(*r);
-        DeallocateBlock(q_buf, q_buf_words);
         DeallocateBlock(work_v_buf, work_v_buf_words);
         DeallocateBlock(work_2_buf, work_2_buf_words);
         DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101617,10 +101584,12 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
 
 
 
-        DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, q_buf, v_2_buf);
+        DivRem_X_X(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count, work_v_buf, 
+# 226 "../pmc_modpow.c" 3 4
+                                                                            ((void *)0)
+# 226 "../pmc_modpow.c"
+                                                                                , v_2_buf);
         if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != (0))
-            return (result);
-        if ((result = CheckBlockLight(q_buf, q_buf_code)) != (0))
             return (result);
         if ((result = CheckBlockLight(v_2_buf, v_2_buf_code)) != (0))
             return (result);
@@ -101632,7 +101601,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         {
 
             DeallocateNumber(*r);
-            DeallocateBlock(q_buf, q_buf_words);
             DeallocateBlock(work_v_buf, work_v_buf_words);
             DeallocateBlock(work_2_buf, work_2_buf_words);
             DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101691,7 +101659,7 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
 
         if (e_count <= 0)
             break;
-# 344 "../pmc_modpow.c"
+# 309 "../pmc_modpow.c"
         _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
         Multiply_X_X_Imp(u_ptr, u_count, u_ptr, u_count, w_ptr);
         if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
@@ -101702,16 +101670,17 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
         u_count *= 2;
         if (u_ptr[u_count - 1] == 0)
             --u_count;
-# 364 "../pmc_modpow.c"
+# 329 "../pmc_modpow.c"
         if (u_count >= m_count)
         {
             _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
-            _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
-            DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+            DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, 
+# 333 "../pmc_modpow.c" 3 4
+                                                                  ((void *)0)
+# 333 "../pmc_modpow.c"
+                                                                      , w_ptr);
             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != (0))
-                return (result);
-            if ((result = CheckBlockLight(q_buf, q_buf_code)) != (0))
                 return (result);
             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
                 return (result);
@@ -101726,7 +101695,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
             {
 
                 DeallocateNumber(*r);
-                DeallocateBlock(q_buf, q_buf_words);
                 DeallocateBlock(work_v_buf, work_v_buf_words);
                 DeallocateBlock(work_2_buf, work_2_buf_words);
                 DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101738,10 +101706,10 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
                 return ((0));
             }
         }
-# 410 "../pmc_modpow.c"
+# 371 "../pmc_modpow.c"
         if (e_mask & e->BLOCK[e_count - 1])
         {
-# 421 "../pmc_modpow.c"
+# 382 "../pmc_modpow.c"
             _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
             Multiply_X_X_Imp(u_ptr, u_count, v_ptr, v_count, w_ptr);
             if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
@@ -101752,16 +101720,17 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
             u_count += v_count;
             if (u_ptr[u_count - 1] == 0)
                 --u_count;
-# 442 "../pmc_modpow.c"
+# 403 "../pmc_modpow.c"
             if (u_count >= m_count)
             {
                 _ZERO_MEMORY_UNIT(work_v_buf, work_v_buf_words);
-                _ZERO_MEMORY_UNIT(q_buf, q_buf_words);
                 _ZERO_MEMORY_UNIT(w_ptr, work_1_buf_words);
-                DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, q_buf, w_ptr);
+                DivRem_X_X(u_ptr, u_count, m_buf, m_count, work_v_buf, 
+# 407 "../pmc_modpow.c" 3 4
+                                                                      ((void *)0)
+# 407 "../pmc_modpow.c"
+                                                                          , w_ptr);
                 if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != (0))
-                    return (result);
-                if ((result = CheckBlockLight(q_buf, q_buf_code)) != (0))
                     return (result);
                 if ((result = CheckBlockLight(work_1_buf, work_1_buf_code)) != (0))
                     return (result);
@@ -101776,7 +101745,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
                 {
 
                     DeallocateNumber(*r);
-                    DeallocateBlock(q_buf, q_buf_words);
                     DeallocateBlock(work_v_buf, work_v_buf_words);
                     DeallocateBlock(work_2_buf, work_2_buf_words);
                     DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101799,7 +101767,6 @@ static PMC_STATUS_CODE ModulePower(NUMBER_HEADER* v, NUMBER_HEADER* e, NUMBER_HE
     if ((result = CheckBlockLight((*r)->BLOCK, r_check_code)) != (0))
         return (result);
     CommitNumber(*r);
-    DeallocateBlock(q_buf, q_buf_words);
     DeallocateBlock(work_v_buf, work_v_buf_words);
     DeallocateBlock(work_2_buf, work_2_buf_words);
     DeallocateBlock(work_1_buf, work_1_buf_words);
@@ -101908,27 +101875,27 @@ static PMC_STATUS_CODE PMC_ModPow_X_X_X_Imp(NUMBER_HEADER* v, NUMBER_HEADER* e, 
 PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r)
 {
     if (v == 
-# 596 "../pmc_modpow.c" 3 4
+# 552 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 596 "../pmc_modpow.c"
+# 552 "../pmc_modpow.c"
                 )
         return ((-1));
     if (e == 
-# 598 "../pmc_modpow.c" 3 4
+# 554 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 598 "../pmc_modpow.c"
+# 554 "../pmc_modpow.c"
                 )
         return ((-1));
     if (m == 
-# 600 "../pmc_modpow.c" 3 4
+# 556 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 600 "../pmc_modpow.c"
+# 556 "../pmc_modpow.c"
                 )
         return ((-1));
     if (r == 
-# 602 "../pmc_modpow.c" 3 4
+# 558 "../pmc_modpow.c" 3 4
             ((void *)0)
-# 602 "../pmc_modpow.c"
+# 558 "../pmc_modpow.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;

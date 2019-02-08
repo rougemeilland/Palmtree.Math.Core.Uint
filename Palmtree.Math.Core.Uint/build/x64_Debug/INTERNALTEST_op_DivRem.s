@@ -79,7 +79,7 @@ _COPY_MEMORY_BYTE:
 _EQUALS_MEMORY:
 .LFB4375:
 	.file 3 "../pmc_uint_debug.h"
-	.loc 3 147 1
+	.loc 3 153 1
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -93,41 +93,41 @@ _EQUALS_MEMORY:
 	movq	%rdx, 24(%rbp)
 	movq	%r8, 32(%rbp)
 	movq	%r9, 40(%rbp)
-	.loc 3 148 8
+	.loc 3 154 8
 	movq	24(%rbp), %rax
 	cmpq	40(%rbp), %rax
 	je	.L5
-	.loc 3 149 16
+	.loc 3 155 16
 	movl	$-1, %eax
 	jmp	.L4
 .L7:
-	.loc 3 152 13
+	.loc 3 158 13
 	movq	16(%rbp), %rax
 	movzbl	(%rax), %edx
-	.loc 3 152 25
+	.loc 3 158 25
 	movq	32(%rbp), %rax
 	movzbl	(%rax), %eax
-	.loc 3 152 12
+	.loc 3 158 12
 	cmpb	%al, %dl
 	je	.L6
-	.loc 3 153 20
+	.loc 3 159 20
 	movl	$-1, %eax
 	jmp	.L4
 .L6:
-	.loc 3 154 9
+	.loc 3 160 9
 	addq	$1, 16(%rbp)
-	.loc 3 155 9
+	.loc 3 161 9
 	addq	$1, 32(%rbp)
-	.loc 3 156 9
+	.loc 3 162 9
 	subq	$1, 24(%rbp)
 .L5:
-	.loc 3 150 11
+	.loc 3 156 11
 	cmpq	$0, 24(%rbp)
 	jne	.L7
-	.loc 3 158 12
+	.loc 3 164 12
 	movl	$0, %eax
 .L4:
-	.loc 3 159 1
+	.loc 3 165 1
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
@@ -5718,7 +5718,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x19
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x5a40
 	.uleb128 0x6
@@ -6042,7 +6042,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x22
 	.ascii "_EQUALS_MEMORY\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x15
 	.long	0x141
 	.quad	.LFB4375
@@ -6053,7 +6053,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x20
 	.ascii "buffer1\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x33
 	.long	0x764
 	.uleb128 0x2
@@ -6062,7 +6062,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x20
 	.ascii "count1\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x43
 	.long	0xd7
 	.uleb128 0x2
@@ -6071,7 +6071,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x20
 	.ascii "buffer2\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x5a
 	.long	0x764
 	.uleb128 0x2
@@ -6080,7 +6080,7 @@ INTERNALTEST_DivRem_X_X:
 	.uleb128 0x20
 	.ascii "count2\0"
 	.byte	0x3
-	.byte	0x92
+	.byte	0x98
 	.byte	0x6a
 	.long	0xd7
 	.uleb128 0x2

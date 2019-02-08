@@ -7343,7 +7343,7 @@ DeallocateHeapArea:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x24
-	.word	0x130
+	.word	0x133
 	.byte	0x2d
 	.long	0x5138
 	.uleb128 0x6

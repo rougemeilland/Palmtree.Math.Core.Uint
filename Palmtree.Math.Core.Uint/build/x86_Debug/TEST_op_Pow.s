@@ -5,48 +5,48 @@ Ltext0:
 __EQUALS_MEMORY:
 LFB71:
 	.file 1 "../pmc_uint_debug.h"
-	.loc 1 147 1
+	.loc 1 153 1
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
-	.loc 1 148 8
+	.loc 1 154 8
 	movl	12(%ebp), %eax
 	cmpl	20(%ebp), %eax
 	je	L4
-	.loc 1 149 16
+	.loc 1 155 16
 	movl	$-1, %eax
 	jmp	L3
 L6:
-	.loc 1 152 13
+	.loc 1 158 13
 	movl	8(%ebp), %eax
 	movzbl	(%eax), %edx
-	.loc 1 152 25
+	.loc 1 158 25
 	movl	16(%ebp), %eax
 	movzbl	(%eax), %eax
-	.loc 1 152 12
+	.loc 1 158 12
 	cmpb	%al, %dl
 	je	L5
-	.loc 1 153 20
+	.loc 1 159 20
 	movl	$-1, %eax
 	jmp	L3
 L5:
-	.loc 1 154 9
+	.loc 1 160 9
 	addl	$1, 8(%ebp)
-	.loc 1 155 9
+	.loc 1 161 9
 	addl	$1, 16(%ebp)
-	.loc 1 156 9
+	.loc 1 162 9
 	subl	$1, 12(%ebp)
 L4:
-	.loc 1 150 11
+	.loc 1 156 11
 	cmpl	$0, 12(%ebp)
 	jne	L6
-	.loc 1 158 12
+	.loc 1 164 12
 	movl	$0, %eax
 L3:
-	.loc 1 159 1
+	.loc 1 165 1
 	popl	%ebp
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
@@ -194,7 +194,7 @@ LVL1:
 	leal	-32(%ebp), %ecx
 	movl	%ecx, 12(%esp)
 	movl	$65536, 8(%esp)
-	movl	$_actual_z_buf.61472, 4(%esp)
+	movl	$_actual_z_buf.61519, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL2:
@@ -224,7 +224,7 @@ LVL2:
 	movl	36(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
-	movl	$_actual_z_buf.61472, (%esp)
+	movl	$_actual_z_buf.61519, (%esp)
 	call	__EQUALS_MEMORY
 	.loc 2 46 9
 	testl	%eax, %eax
@@ -283,7 +283,7 @@ L11:
 	ret
 	.cfi_endproc
 LFE72:
-.lcomm _actual_z_buf.61472,65536,32
+.lcomm _actual_z_buf.61519,65536,32
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5470,7 +5470,7 @@ Ldebug_info0:
 	.long	0x5993
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_z_buf.61472
+	.long	_actual_z_buf.61519
 	.uleb128 0x1e
 	.ascii "actual_z_buf_size\0"
 	.byte	0x2
@@ -5524,7 +5524,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.ascii "_EQUALS_MEMORY\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x15
 	.long	0xe3
 	.long	LFB71
@@ -5534,7 +5534,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "buffer1\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x33
 	.long	0x723
 	.uleb128 0x2
@@ -5543,7 +5543,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "count1\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x43
 	.long	0xc4
 	.uleb128 0x2
@@ -5552,7 +5552,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "buffer2\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x5a
 	.long	0x723
 	.uleb128 0x2
@@ -5561,7 +5561,7 @@ Ldebug_info0:
 	.uleb128 0x1d
 	.ascii "count2\0"
 	.byte	0x1
-	.byte	0x92
+	.byte	0x98
 	.byte	0x6a
 	.long	0xc4
 	.uleb128 0x2
