@@ -161,7 +161,7 @@ LVL5:
 	movl	%ebx, 16(%esp)
 	movl	%ecx, 12(%esp)
 	movl	$8192, 8(%esp)
-	movl	$_actual_str_buffer.61442, 4(%esp)
+	movl	$_actual_str_buffer.61470, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL6:
@@ -187,7 +187,7 @@ LVL6:
 	.loc 1 47 68
 	movl	36(%ebp), %eax
 	movl	%eax, 4(%esp)
-	movl	$_actual_str_buffer.61442, (%esp)
+	movl	$_actual_str_buffer.61470, (%esp)
 	movl	__imp__lstrcmpW@8, %eax
 	call	*%eax
 LVL7:
@@ -235,7 +235,7 @@ L3:
 	ret
 	.cfi_endproc
 LFE72:
-.lcomm _actual_str_buffer.61442,8192,32
+.lcomm _actual_str_buffer.61470,8192,32
 Letext0:
 	.file 2 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5406,7 +5406,7 @@ Ldebug_info0:
 	.long	0x5985
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_str_buffer.61442
+	.long	_actual_str_buffer.61470
 	.uleb128 0x1e
 	.ascii "result\0"
 	.byte	0x1
