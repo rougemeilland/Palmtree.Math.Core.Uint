@@ -4543,7 +4543,7 @@ Initialize_From:
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x21
-	.word	0x12d
+	.word	0x12f
 	.byte	0x2d
 	.long	0x4df6
 	.uleb128 0x6

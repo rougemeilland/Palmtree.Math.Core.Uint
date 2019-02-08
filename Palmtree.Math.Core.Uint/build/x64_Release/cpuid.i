@@ -101747,6 +101747,8 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
     PMC_STATUS_CODE ( * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE( * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    PMC_STATUS_CODE( * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
 
     PMC_STATUS_CODE ( * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
@@ -101881,7 +101883,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE ( * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 329 "../pmc.h"
+# 331 "../pmc.h"
     PMC_STATUS_CODE ( * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -101898,7 +101900,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 414 "../pmc.h"
+# 416 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -102139,6 +102141,8 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
@@ -102283,12 +102287,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 374 "../pmc_uint_internal.h"
+# 376 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 388 "../pmc_uint_internal.h"
+# 390 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 29 "../cpuid.c" 2

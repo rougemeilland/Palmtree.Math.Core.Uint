@@ -219,6 +219,8 @@ extern "C" {
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 

@@ -123,7 +123,7 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
                 0x000002e0                . = SIZEOF_HEADERS
                 0x00001000                . = ALIGN (__section_alignment__)
 
-.text           0x6cf01000     0xfe00
+.text           0x6cf01000    0x10000
  *(.init)
  *(.text)
  .text          0x6cf01000       0xb0 ../build/x86_Release/cpuid.o
@@ -155,163 +155,165 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
                 0x6cf029f0                PMC_BitwiseOr_X_L@16
                 0x6cf02a50                PMC_BitwiseOr_X_X@12
                 0x6cf02e90                Initialize_BitwiseOr
- .text          0x6cf02ea0      0x190 ../build/x86_Release/pmc_bytes.o
-                0x6cf02ea0                PMC_FromByteArray@12
-                0x6cf02fa0                PMC_ToByteArray@16
- .text          0x6cf03030       0x80 ../build/x86_Release/pmc_clone.o
-                0x6cf03030                PMC_Clone_X@8
-                0x6cf030a0                Initialize_Clone
- .text          0x6cf030b0      0x470 ../build/x86_Release/pmc_compare.o
-                0x6cf031b0                Compare_Imp
-                0x6cf03220                PMC_Compare_I_X@12
-                0x6cf03280                PMC_Compare_X_I@12
-                0x6cf032d0                PMC_Compare_L_X@16
-                0x6cf03360                PMC_Compare_X_L@16
-                0x6cf033f0                PMC_Compare_X_X@12
-                0x6cf03510                Initialize_Compare
- .text          0x6cf03520     0x3b70 ../build/x86_Release/pmc_divrem.o
-                0x6cf06000                DivRem_X_1W
-                0x6cf06350                DivRem_X_X
-                0x6cf06430                PMC_DivRem_I_X@16
-                0x6cf06520                PMC_DivRem_X_I@16
-                0x6cf066b0                PMC_DivRem_L_X@20
-                0x6cf06960                PMC_DivRem_X_L@20
-                0x6cf06cc0                PMC_DivRem_X_X@16
-                0x6cf07060                Initialize_DivRem
- .text          0x6cf07090      0x3f0 ../build/x86_Release/pmc_equals.o
-                0x6cf07150                Equals_X_X
-                0x6cf07190                PMC_Equals_I_X@12
-                0x6cf071e0                PMC_Equals_X_I@12
-                0x6cf07230                PMC_Equals_L_X@16
-                0x6cf072e0                PMC_Equals_X_L@16
-                0x6cf07390                PMC_Equals_X_X@12
-                0x6cf07470                Initialize_Equals
- .text          0x6cf07480      0x880 ../build/x86_Release/pmc_exclusiveor.o
-                0x6cf07740                PMC_ExclusiveOr_I_X@12
-                0x6cf07790                PMC_ExclusiveOr_X_I@12
-                0x6cf077e0                PMC_ExclusiveOr_L_X@16
-                0x6cf07840                PMC_ExclusiveOr_X_L@16
-                0x6cf078a0                PMC_ExclusiveOr_X_X@12
-                0x6cf07cf0                Initialize_ExclusiveOr
- .text          0x6cf07d00      0x180 ../build/x86_Release/pmc_from.o
-                0x6cf07d00                From_I_Imp
-                0x6cf07d50                From_L_Imp
-                0x6cf07dd0                PMC_From_I@8
-                0x6cf07e20                PMC_From_L@12
-                0x6cf07e70                Initialize_From
- .text          0x6cf07e80       0x80 ../build/x86_Release/pmc_getnumbertype.o
-                0x6cf07e80                PMC_GetNumberType_X@8
-                0x6cf07ef0                Initialize_GetPropertyValue
- .text          0x6cf07f00      0xcd0 ../build/x86_Release/pmc_greatestcommondivisor.o
-                0x6cf08740                PMC_GreatestCommonDivisor_I_X@12
-                0x6cf08790                PMC_GreatestCommonDivisor_X_I@12
-                0x6cf087e0                PMC_GreatestCommonDivisor_L_X@16
-                0x6cf08840                PMC_GreatestCommonDivisor_X_L@16
-                0x6cf088a0                PMC_GreatestCommonDivisor_X_X@12
-                0x6cf08bc0                Initialize_GreatestCommonDivisor
- .text          0x6cf08bd0      0x420 ../build/x86_Release/pmc_initialize.o
-                0x6cf08bd0                PMC_UINT_Initialize@4
- .text          0x6cf08ff0      0x930 ../build/x86_Release/pmc_memory.o
-                0x6cf091d0                AllocateBlock
-                0x6cf092a0                DeallocateBlock
-                0x6cf093c0                CheckBlockLight
-                0x6cf093d0                AttatchNumber
-                0x6cf09450                AllocateNumber
-                0x6cf094f0                DetatchNumber
-                0x6cf09510                DeallocateNumber
-                0x6cf09530                CommitNumber
-                0x6cf09680                CheckNumber
-                0x6cf096b0                DuplicateNumber
-                0x6cf09750                PMC_GetConstantValue_I@8
-                0x6cf09790                PMC_Dispose@4
-                0x6cf097c0                Initialize_Memory
-                0x6cf098a0                AllocateHeapArea
-                0x6cf098e0                DeallocateHeapArea
- .text          0x6cf09920      0xa80 ../build/x86_Release/pmc_modpow.o
-                0x6cf09920                PMC_ModPow_X_X_X@16
-                0x6cf0a390                Initialize_ModPow
- .text          0x6cf0a3a0     0x1ad0 ../build/x86_Release/pmc_multiply.o
-                0x6cf0bb00                Multiply_X_X_Imp
-                0x6cf0bb10                PMC_Multiply_I_X@12
-                0x6cf0bb60                PMC_Multiply_X_I@12
-                0x6cf0bbb0                PMC_Multiply_L_X@16
-                0x6cf0bc10                PMC_Multiply_X_L@16
-                0x6cf0bc70                PMC_Multiply_X_X@12
-                0x6cf0be10                Initialize_Multiply
- .text          0x6cf0be70     0x2200 ../build/x86_Release/pmc_parse.o
-                0x6cf0ce50                PMC_TryParse@16
-                0x6cf0dfc0                Initialize_Parse
- .text          0x6cf0e070      0x330 ../build/x86_Release/pmc_pow.o
-                0x6cf0e070                PMC_Pow_X_I@12
-                0x6cf0e390                Initialize_Pow
- .text          0x6cf0e3a0     0x1020 ../build/x86_Release/pmc_shift.o
-                0x6cf0e3a0                RightShift_Imp_DIV
-                0x6cf0ea60                RightShift_Imp
-                0x6cf0ea70                LeftShift_Imp_DIV
-                0x6cf0f180                LeftShift_Imp
-                0x6cf0f190                PMC_RightShift_X_I@12
-                0x6cf0f2a0                PMC_LeftShift_X_I@12
-                0x6cf0f3b0                Initialize_Shift
- .text          0x6cf0f3c0       0x30 ../build/x86_Release/pmc_statistics.o
-                0x6cf0f3c0                PMC_GetStatisticsInfo@4
- .text          0x6cf0f3f0      0xb20 ../build/x86_Release/pmc_subtruct.o
-                0x6cf0f470                Subtruct_Imp
-                0x6cf0f820                PMC_Subtruct_I_X@12
-                0x6cf0f8a0                PMC_Subtruct_X_I@12
-                0x6cf0fa00                PMC_Subtruct_L_X@16
-                0x6cf0fb20                PMC_Subtruct_X_L@16
-                0x6cf0fd80                PMC_Subtruct_X_X@12
-                0x6cf0ff00                Initialize_Subtruct
- .text          0x6cf0ff10       0xe0 ../build/x86_Release/pmc_to.o
-                0x6cf0ff10                PMC_To_X_I@8
-                0x6cf0ff60                PMC_To_X_L@8
-                0x6cf0ffe0                Initialize_To
- .text          0x6cf0fff0      0xd20 ../build/x86_Release/pmc_tostring.o
-                0x6cf10b60                PMC_ToString@24
-                0x6cf10c80                Initialize_ToString
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_autogenerated.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Add.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_BitwiseAnd.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_BitwiseOr.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Clone.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Compare.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_DivRem.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Equals.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ExclusiveOr.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_From_To.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_GetNumberType.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_GreatestCommonDivisor.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ModPow.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Multiply.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ParseDN.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ParseX.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Pow.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Shift.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_Subtruct.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ToStringD.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ToStringN.o
- .text          0x6cf10d10        0x0 ../build/x86_Release/TEST_op_ToStringX.o
- .text          0x6cf10d10        0x0 C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dgzch.o)
- .text          0x6cf10d10        0x0 C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dgzct.o)
+ .text          0x6cf02ea0      0x3a0 ../build/x86_Release/pmc_bytes.o
+                0x6cf02ea0                PMC_FromByteArrayForSINT@16
+                0x6cf02fd0                PMC_FromByteArray@12
+                0x6cf030d0                PMC_ToByteArrayForSINT@20
+                0x6cf031c0                PMC_ToByteArray@16
+ .text          0x6cf03240       0x80 ../build/x86_Release/pmc_clone.o
+                0x6cf03240                PMC_Clone_X@8
+                0x6cf032b0                Initialize_Clone
+ .text          0x6cf032c0      0x470 ../build/x86_Release/pmc_compare.o
+                0x6cf033c0                Compare_Imp
+                0x6cf03430                PMC_Compare_I_X@12
+                0x6cf03490                PMC_Compare_X_I@12
+                0x6cf034e0                PMC_Compare_L_X@16
+                0x6cf03570                PMC_Compare_X_L@16
+                0x6cf03600                PMC_Compare_X_X@12
+                0x6cf03720                Initialize_Compare
+ .text          0x6cf03730     0x3b70 ../build/x86_Release/pmc_divrem.o
+                0x6cf06210                DivRem_X_1W
+                0x6cf06560                DivRem_X_X
+                0x6cf06640                PMC_DivRem_I_X@16
+                0x6cf06730                PMC_DivRem_X_I@16
+                0x6cf068c0                PMC_DivRem_L_X@20
+                0x6cf06b70                PMC_DivRem_X_L@20
+                0x6cf06ed0                PMC_DivRem_X_X@16
+                0x6cf07270                Initialize_DivRem
+ .text          0x6cf072a0      0x3f0 ../build/x86_Release/pmc_equals.o
+                0x6cf07360                Equals_X_X
+                0x6cf073a0                PMC_Equals_I_X@12
+                0x6cf073f0                PMC_Equals_X_I@12
+                0x6cf07440                PMC_Equals_L_X@16
+                0x6cf074f0                PMC_Equals_X_L@16
+                0x6cf075a0                PMC_Equals_X_X@12
+                0x6cf07680                Initialize_Equals
+ .text          0x6cf07690      0x880 ../build/x86_Release/pmc_exclusiveor.o
+                0x6cf07950                PMC_ExclusiveOr_I_X@12
+                0x6cf079a0                PMC_ExclusiveOr_X_I@12
+                0x6cf079f0                PMC_ExclusiveOr_L_X@16
+                0x6cf07a50                PMC_ExclusiveOr_X_L@16
+                0x6cf07ab0                PMC_ExclusiveOr_X_X@12
+                0x6cf07f00                Initialize_ExclusiveOr
+ .text          0x6cf07f10      0x180 ../build/x86_Release/pmc_from.o
+                0x6cf07f10                From_I_Imp
+                0x6cf07f60                From_L_Imp
+                0x6cf07fe0                PMC_From_I@8
+                0x6cf08030                PMC_From_L@12
+                0x6cf08080                Initialize_From
+ .text          0x6cf08090       0x80 ../build/x86_Release/pmc_getnumbertype.o
+                0x6cf08090                PMC_GetNumberType_X@8
+                0x6cf08100                Initialize_GetPropertyValue
+ .text          0x6cf08110      0xcd0 ../build/x86_Release/pmc_greatestcommondivisor.o
+                0x6cf08950                PMC_GreatestCommonDivisor_I_X@12
+                0x6cf089a0                PMC_GreatestCommonDivisor_X_I@12
+                0x6cf089f0                PMC_GreatestCommonDivisor_L_X@16
+                0x6cf08a50                PMC_GreatestCommonDivisor_X_L@16
+                0x6cf08ab0                PMC_GreatestCommonDivisor_X_X@12
+                0x6cf08dd0                Initialize_GreatestCommonDivisor
+ .text          0x6cf08de0      0x450 ../build/x86_Release/pmc_initialize.o
+                0x6cf08de0                PMC_UINT_Initialize@4
+ .text          0x6cf09230      0x930 ../build/x86_Release/pmc_memory.o
+                0x6cf09410                AllocateBlock
+                0x6cf094e0                DeallocateBlock
+                0x6cf09600                CheckBlockLight
+                0x6cf09610                AttatchNumber
+                0x6cf09690                AllocateNumber
+                0x6cf09730                DetatchNumber
+                0x6cf09750                DeallocateNumber
+                0x6cf09770                CommitNumber
+                0x6cf098c0                CheckNumber
+                0x6cf098f0                DuplicateNumber
+                0x6cf09990                PMC_GetConstantValue_I@8
+                0x6cf099d0                PMC_Dispose@4
+                0x6cf09a00                Initialize_Memory
+                0x6cf09ae0                AllocateHeapArea
+                0x6cf09b20                DeallocateHeapArea
+ .text          0x6cf09b60      0xa80 ../build/x86_Release/pmc_modpow.o
+                0x6cf09b60                PMC_ModPow_X_X_X@16
+                0x6cf0a5d0                Initialize_ModPow
+ .text          0x6cf0a5e0     0x1ad0 ../build/x86_Release/pmc_multiply.o
+                0x6cf0bd40                Multiply_X_X_Imp
+                0x6cf0bd50                PMC_Multiply_I_X@12
+                0x6cf0bda0                PMC_Multiply_X_I@12
+                0x6cf0bdf0                PMC_Multiply_L_X@16
+                0x6cf0be50                PMC_Multiply_X_L@16
+                0x6cf0beb0                PMC_Multiply_X_X@12
+                0x6cf0c050                Initialize_Multiply
+ .text          0x6cf0c0b0     0x2200 ../build/x86_Release/pmc_parse.o
+                0x6cf0d090                PMC_TryParse@16
+                0x6cf0e200                Initialize_Parse
+ .text          0x6cf0e2b0      0x330 ../build/x86_Release/pmc_pow.o
+                0x6cf0e2b0                PMC_Pow_X_I@12
+                0x6cf0e5d0                Initialize_Pow
+ .text          0x6cf0e5e0     0x1020 ../build/x86_Release/pmc_shift.o
+                0x6cf0e5e0                RightShift_Imp_DIV
+                0x6cf0eca0                RightShift_Imp
+                0x6cf0ecb0                LeftShift_Imp_DIV
+                0x6cf0f3c0                LeftShift_Imp
+                0x6cf0f3d0                PMC_RightShift_X_I@12
+                0x6cf0f4e0                PMC_LeftShift_X_I@12
+                0x6cf0f5f0                Initialize_Shift
+ .text          0x6cf0f600       0x30 ../build/x86_Release/pmc_statistics.o
+                0x6cf0f600                PMC_GetStatisticsInfo@4
+ .text          0x6cf0f630      0xb20 ../build/x86_Release/pmc_subtruct.o
+                0x6cf0f6b0                Subtruct_Imp
+                0x6cf0fa60                PMC_Subtruct_I_X@12
+                0x6cf0fae0                PMC_Subtruct_X_I@12
+                0x6cf0fc40                PMC_Subtruct_L_X@16
+                0x6cf0fd60                PMC_Subtruct_X_L@16
+                0x6cf0ffc0                PMC_Subtruct_X_X@12
+                0x6cf10140                Initialize_Subtruct
+ .text          0x6cf10150       0xe0 ../build/x86_Release/pmc_to.o
+                0x6cf10150                PMC_To_X_I@8
+                0x6cf101a0                PMC_To_X_L@8
+                0x6cf10220                Initialize_To
+ .text          0x6cf10230      0xd20 ../build/x86_Release/pmc_tostring.o
+                0x6cf10da0                PMC_ToString@24
+                0x6cf10ec0                Initialize_ToString
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_autogenerated.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Add.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_BitwiseAnd.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_BitwiseOr.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Clone.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Compare.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_DivRem.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Equals.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ExclusiveOr.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_From_To.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_GetNumberType.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_GreatestCommonDivisor.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ModPow.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Multiply.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ParseDN.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ParseX.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Pow.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Shift.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_Subtruct.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ToStringD.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ToStringN.o
+ .text          0x6cf10f50        0x0 ../build/x86_Release/TEST_op_ToStringX.o
+ .text          0x6cf10f50        0x0 C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dgzch.o)
+ .text          0x6cf10f50        0x0 C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dgzct.o)
  *(SORT_BY_NAME(.text$*))
  *(.text.*)
  *(.gnu.linkonce.t.*)
  *(.glue_7t)
  *(.glue_7)
-                0x6cf10d10                ___CTOR_LIST__ = .
-                0x6cf10d10                __CTOR_LIST__ = .
-                0x6cf10d10        0x4 LONG 0xffffffff
+                0x6cf10f50                ___CTOR_LIST__ = .
+                0x6cf10f50                __CTOR_LIST__ = .
+                0x6cf10f50        0x4 LONG 0xffffffff
  *(.ctors)
  *(.ctor)
  *(SORT_BY_NAME(.ctors.*))
-                0x6cf10d14        0x4 LONG 0x0
-                0x6cf10d18                ___DTOR_LIST__ = .
-                0x6cf10d18                __DTOR_LIST__ = .
-                0x6cf10d18        0x4 LONG 0xffffffff
+                0x6cf10f54        0x4 LONG 0x0
+                0x6cf10f58                ___DTOR_LIST__ = .
+                0x6cf10f58                __DTOR_LIST__ = .
+                0x6cf10f58        0x4 LONG 0xffffffff
  *(.dtors)
  *(.dtor)
  *(SORT_BY_NAME(.dtors.*))
-                0x6cf10d1c        0x4 LONG 0x0
+                0x6cf10f5c        0x4 LONG 0x0
  *(.fini)
  *(.gcc_exc)
                 [!provide]                PROVIDE (etext = .)
@@ -458,26 +460,26 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
  .eh_frame      0x6cf140b8      0x2dc ../build/x86_Release/pmc_add.o
  .eh_frame      0x6cf14394      0x1a4 ../build/x86_Release/pmc_bitwiseand.o
  .eh_frame      0x6cf14538      0x23c ../build/x86_Release/pmc_bitwiseor.o
- .eh_frame      0x6cf14774       0x98 ../build/x86_Release/pmc_bytes.o
- .eh_frame      0x6cf1480c       0x64 ../build/x86_Release/pmc_clone.o
- .eh_frame      0x6cf14870      0x250 ../build/x86_Release/pmc_compare.o
- .eh_frame      0x6cf14ac0      0x3dc ../build/x86_Release/pmc_divrem.o
- .eh_frame      0x6cf14e9c      0x260 ../build/x86_Release/pmc_equals.o
- .eh_frame      0x6cf150fc      0x224 ../build/x86_Release/pmc_exclusiveor.o
- .eh_frame      0x6cf15320       0xd0 ../build/x86_Release/pmc_from.o
- .eh_frame      0x6cf153f0       0x5c ../build/x86_Release/pmc_getnumbertype.o
- .eh_frame      0x6cf1544c      0x228 ../build/x86_Release/pmc_greatestcommondivisor.o
- .eh_frame      0x6cf15674       0x48 ../build/x86_Release/pmc_initialize.o
- .eh_frame      0x6cf156bc      0x350 ../build/x86_Release/pmc_memory.o
- .eh_frame      0x6cf15a0c       0x6c ../build/x86_Release/pmc_modpow.o
- .eh_frame      0x6cf15a78      0x35c ../build/x86_Release/pmc_multiply.o
- .eh_frame      0x6cf15dd4      0x240 ../build/x86_Release/pmc_parse.o
- .eh_frame      0x6cf16014       0x9c ../build/x86_Release/pmc_pow.o
- .eh_frame      0x6cf160b0      0x16c ../build/x86_Release/pmc_shift.o
- .eh_frame      0x6cf1621c       0x2c ../build/x86_Release/pmc_statistics.o
- .eh_frame      0x6cf16248      0x268 ../build/x86_Release/pmc_subtruct.o
- .eh_frame      0x6cf164b0       0x94 ../build/x86_Release/pmc_to.o
- .eh_frame      0x6cf16544      0x1e0 ../build/x86_Release/pmc_tostring.o
+ .eh_frame      0x6cf14774      0x118 ../build/x86_Release/pmc_bytes.o
+ .eh_frame      0x6cf1488c       0x64 ../build/x86_Release/pmc_clone.o
+ .eh_frame      0x6cf148f0      0x250 ../build/x86_Release/pmc_compare.o
+ .eh_frame      0x6cf14b40      0x3dc ../build/x86_Release/pmc_divrem.o
+ .eh_frame      0x6cf14f1c      0x260 ../build/x86_Release/pmc_equals.o
+ .eh_frame      0x6cf1517c      0x224 ../build/x86_Release/pmc_exclusiveor.o
+ .eh_frame      0x6cf153a0       0xd0 ../build/x86_Release/pmc_from.o
+ .eh_frame      0x6cf15470       0x5c ../build/x86_Release/pmc_getnumbertype.o
+ .eh_frame      0x6cf154cc      0x228 ../build/x86_Release/pmc_greatestcommondivisor.o
+ .eh_frame      0x6cf156f4       0x3c ../build/x86_Release/pmc_initialize.o
+ .eh_frame      0x6cf15730      0x350 ../build/x86_Release/pmc_memory.o
+ .eh_frame      0x6cf15a80       0x6c ../build/x86_Release/pmc_modpow.o
+ .eh_frame      0x6cf15aec      0x35c ../build/x86_Release/pmc_multiply.o
+ .eh_frame      0x6cf15e48      0x240 ../build/x86_Release/pmc_parse.o
+ .eh_frame      0x6cf16088       0x9c ../build/x86_Release/pmc_pow.o
+ .eh_frame      0x6cf16124      0x16c ../build/x86_Release/pmc_shift.o
+ .eh_frame      0x6cf16290       0x2c ../build/x86_Release/pmc_statistics.o
+ .eh_frame      0x6cf162bc      0x268 ../build/x86_Release/pmc_subtruct.o
+ .eh_frame      0x6cf16524       0x94 ../build/x86_Release/pmc_to.o
+ .eh_frame      0x6cf165b8      0x1e0 ../build/x86_Release/pmc_tostring.o
 
 .pdata
  *(.pdata*)
@@ -665,7 +667,7 @@ LOAD C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i68
 
 .reloc          0x6cf1b000      0xa00
  *(.reloc)
- .reloc         0x6cf1b000      0x824 dll stuff
+ .reloc         0x6cf1b000      0x834 dll stuff
 
 .stab
  *(.stab)

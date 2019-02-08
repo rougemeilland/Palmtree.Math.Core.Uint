@@ -183,6 +183,8 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
     // バイト操作
     PMC_STATUS_CODE (__PMC_CALL * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
     PMC_STATUS_CODE (__PMC_CALL * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE(__PMC_CALL * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    PMC_STATUS_CODE(__PMC_CALL * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     // オブジェクトの複製
     PMC_STATUS_CODE (__PMC_CALL * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);

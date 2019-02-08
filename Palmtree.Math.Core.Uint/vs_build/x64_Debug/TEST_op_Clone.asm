@@ -368,7 +368,7 @@ $LN6@TEST_PMC_C:
 	lea	rdx, QWORD PTR o$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+72]
+	call	QWORD PTR [rax+88]
 	mov	DWORD PTR o_result$[rbp], eax
 	cmp	DWORD PTR o_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_C

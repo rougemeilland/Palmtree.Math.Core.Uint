@@ -88602,6 +88602,8 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
     PMC_STATUS_CODE ( * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE( * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    PMC_STATUS_CODE( * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
 
     PMC_STATUS_CODE ( * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
@@ -88736,7 +88738,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE ( * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 329 "../pmc.h"
+# 331 "../pmc.h"
     PMC_STATUS_CODE ( * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -88753,7 +88755,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 414 "../pmc.h"
+# 416 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -88994,6 +88996,8 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
@@ -89130,9 +89134,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 357 "../pmc_uint_internal.h" 3 4
+# 359 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 357 "../pmc_uint_internal.h"
+# 359 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -89144,9 +89148,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 367 "../pmc_uint_internal.h" 3 4
+# 369 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 367 "../pmc_uint_internal.h"
+# 369 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -89160,16 +89164,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 379 "../pmc_uint_internal.h" 3 4
+# 381 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 379 "../pmc_uint_internal.h"
+# 381 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 382 "../pmc_uint_internal.h" 3
+# 384 "../pmc_uint_internal.h" 3
                                                       long long
-# 382 "../pmc_uint_internal.h"
+# 384 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -89191,207 +89195,209 @@ static char initialized = 0;
 
  PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
-    PROCESSOR_FEATURES feature;
-    GetCPUInfo(&feature);
-
     if (!initialized)
     {
+        PROCESSOR_FEATURES feature;
+        GetCPUInfo(&feature);
         configuration_info = *config;
         if (Initialize_Memory(&feature) != (0))
             return (
-# 49 "../pmc_initialize.c" 3 4
+# 48 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 49 "../pmc_initialize.c"
+# 48 "../pmc_initialize.c"
                        );
         if (Initialize_From(&feature) != (0))
             return (
-# 51 "../pmc_initialize.c" 3 4
+# 50 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 51 "../pmc_initialize.c"
+# 50 "../pmc_initialize.c"
                        );
         if (Initialize_To(&feature) != (0))
             return (
-# 53 "../pmc_initialize.c" 3 4
+# 52 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 53 "../pmc_initialize.c"
+# 52 "../pmc_initialize.c"
                        );
         if (Initialize_Add(&feature) != (0))
             return (
-# 55 "../pmc_initialize.c" 3 4
+# 54 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 55 "../pmc_initialize.c"
+# 54 "../pmc_initialize.c"
                        );
         if (Initialize_Subtruct(&feature) != (0))
             return (
-# 57 "../pmc_initialize.c" 3 4
+# 56 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 57 "../pmc_initialize.c"
+# 56 "../pmc_initialize.c"
                        );
         if (Initialize_Multiply(&feature) != (0))
             return (
-# 59 "../pmc_initialize.c" 3 4
+# 58 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 59 "../pmc_initialize.c"
+# 58 "../pmc_initialize.c"
                        );
         if (Initialize_DivRem(&feature) != (0))
             return (
-# 61 "../pmc_initialize.c" 3 4
+# 60 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 61 "../pmc_initialize.c"
+# 60 "../pmc_initialize.c"
                        );
         if (Initialize_Shift(&feature) != (0))
             return (
-# 63 "../pmc_initialize.c" 3 4
+# 62 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 63 "../pmc_initialize.c"
+# 62 "../pmc_initialize.c"
                        );
         if (Initialize_BitwiseAnd(&feature) != (0))
             return (
-# 65 "../pmc_initialize.c" 3 4
+# 64 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 65 "../pmc_initialize.c"
+# 64 "../pmc_initialize.c"
                        );
         if (Initialize_BitwiseOr(&feature) != (0))
             return (
-# 67 "../pmc_initialize.c" 3 4
+# 66 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 67 "../pmc_initialize.c"
+# 66 "../pmc_initialize.c"
                        );
         if (Initialize_ExclusiveOr(&feature) != (0))
             return (
-# 69 "../pmc_initialize.c" 3 4
+# 68 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 69 "../pmc_initialize.c"
+# 68 "../pmc_initialize.c"
                        );
         if (Initialize_Compare(&feature) != (0))
             return (
-# 71 "../pmc_initialize.c" 3 4
+# 70 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 71 "../pmc_initialize.c"
+# 70 "../pmc_initialize.c"
                        );
         if (Initialize_Equals(&feature) != (0))
             return (
-# 73 "../pmc_initialize.c" 3 4
+# 72 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 73 "../pmc_initialize.c"
+# 72 "../pmc_initialize.c"
                        );
         if (Initialize_ToString(&feature) != (0))
             return (
-# 75 "../pmc_initialize.c" 3 4
+# 74 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 75 "../pmc_initialize.c"
+# 74 "../pmc_initialize.c"
                        );
         if (Initialize_Parse(&feature) != (0))
             return (
-# 77 "../pmc_initialize.c" 3 4
+# 76 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 77 "../pmc_initialize.c"
+# 76 "../pmc_initialize.c"
                        );
         if (Initialize_GreatestCommonDivisor(&feature) != (0))
             return (
-# 79 "../pmc_initialize.c" 3 4
+# 78 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 79 "../pmc_initialize.c"
+# 78 "../pmc_initialize.c"
                        );
         if (Initialize_Pow(&feature) != (0))
             return (
-# 81 "../pmc_initialize.c" 3 4
+# 80 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 81 "../pmc_initialize.c"
+# 80 "../pmc_initialize.c"
                        );
         if (Initialize_ModPow(&feature) != (0))
             return (
-# 83 "../pmc_initialize.c" 3 4
+# 82 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 83 "../pmc_initialize.c"
+# 82 "../pmc_initialize.c"
                        );
         if (Initialize_GetPropertyValue(&feature) != (0))
             return (
-# 85 "../pmc_initialize.c" 3 4
+# 84 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 85 "../pmc_initialize.c"
+# 84 "../pmc_initialize.c"
                        );
         if (Initialize_Clone(&feature) != (0))
             return (
-# 87 "../pmc_initialize.c" 3 4
+# 86 "../pmc_initialize.c" 3 4
                    ((void *)0)
-# 87 "../pmc_initialize.c"
+# 86 "../pmc_initialize.c"
                        );
+
+        entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
+        entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
+        entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
+        entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
+        entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
+        entry_points.GetStatisticsInfo = PMC_GetStatisticsInfo;
+        entry_points.From_I = PMC_From_I;
+        entry_points.From_L = PMC_From_L;
+        entry_points.Dispose = PMC_Dispose;
+        entry_points.To_X_I = PMC_To_X_I;
+        entry_points.To_X_L = PMC_To_X_L;
+        entry_points.FromByteArray = PMC_FromByteArray;
+        entry_points.FromByteArrayForSINT = PMC_FromByteArrayForSINT;
+        entry_points.ToByteArray = PMC_ToByteArray;
+        entry_points.ToByteArrayForSINT = PMC_ToByteArrayForSINT;
+        entry_points.ToString = PMC_ToString;
+        entry_points.TryParse = PMC_TryParse;
+        entry_points.Add_I_X = PMC_Add_I_X;
+        entry_points.Add_L_X = PMC_Add_L_X;
+        entry_points.Add_X_I = PMC_Add_X_I;
+        entry_points.Add_X_L = PMC_Add_X_L;
+        entry_points.Add_X_X = PMC_Add_X_X;
+        entry_points.Subtruct_I_X = PMC_Subtruct_I_X;
+        entry_points.Subtruct_L_X = PMC_Subtruct_L_X;
+        entry_points.Subtruct_X_I = PMC_Subtruct_X_I;
+        entry_points.Subtruct_X_L = PMC_Subtruct_X_L;
+        entry_points.Subtruct_X_X = PMC_Subtruct_X_X;
+        entry_points.Multiply_I_X = PMC_Multiply_I_X;
+        entry_points.Multiply_L_X = PMC_Multiply_L_X;
+        entry_points.Multiply_X_I = PMC_Multiply_X_I;
+        entry_points.Multiply_X_L = PMC_Multiply_X_L;
+        entry_points.Multiply_X_X = PMC_Multiply_X_X;
+        entry_points.DivRem_I_X = PMC_DivRem_I_X;
+        entry_points.DivRem_L_X = PMC_DivRem_L_X;
+        entry_points.DivRem_X_I = PMC_DivRem_X_I;
+        entry_points.DivRem_X_L = PMC_DivRem_X_L;
+        entry_points.DivRem_X_X = PMC_DivRem_X_X;
+        entry_points.RightShift_X_I = PMC_RightShift_X_I;
+        entry_points.LeftShift_X_I = PMC_LeftShift_X_I;
+        entry_points.BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
+        entry_points.BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
+        entry_points.BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
+        entry_points.BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
+        entry_points.BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
+        entry_points.BitwiseOr_I_X = PMC_BitwiseOr_I_X;
+        entry_points.BitwiseOr_L_X = PMC_BitwiseOr_L_X;
+        entry_points.BitwiseOr_X_I = PMC_BitwiseOr_X_I;
+        entry_points.BitwiseOr_X_L = PMC_BitwiseOr_X_L;
+        entry_points.BitwiseOr_X_X = PMC_BitwiseOr_X_X;
+        entry_points.ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
+        entry_points.ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
+        entry_points.ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
+        entry_points.ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
+        entry_points.ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
+        entry_points.Compare_I_X = PMC_Compare_I_X;
+        entry_points.Compare_L_X = PMC_Compare_L_X;
+        entry_points.Compare_X_I = PMC_Compare_X_I;
+        entry_points.Compare_X_L = PMC_Compare_X_L;
+        entry_points.Compare_X_X = PMC_Compare_X_X;
+        entry_points.Equals_I_X = PMC_Equals_I_X;
+        entry_points.Equals_L_X = PMC_Equals_L_X;
+        entry_points.Equals_X_I = PMC_Equals_X_I;
+        entry_points.Equals_X_L = PMC_Equals_X_L;
+        entry_points.Equals_X_X = PMC_Equals_X_X;
+        entry_points.GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
+        entry_points.GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
+        entry_points.GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
+        entry_points.GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
+        entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
+        entry_points.Pow_X_I = PMC_Pow_X_I;
+        entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
+        entry_points.GetNumberType_X = PMC_GetNumberType_X;
+        entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
+        entry_points.Clone_X = PMC_Clone_X;
+
+        initialized = 1;
     }
 
-    entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
-    entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
- entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
-    entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
-    entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
- entry_points.GetStatisticsInfo = PMC_GetStatisticsInfo;
- entry_points.From_I = PMC_From_I;
- entry_points.From_L = PMC_From_L;
-    entry_points.FromByteArray = PMC_FromByteArray;
-    entry_points.Dispose = PMC_Dispose;
-    entry_points.To_X_I = PMC_To_X_I;
- entry_points.To_X_L = PMC_To_X_L;
-    entry_points.ToByteArray = PMC_ToByteArray;
-    entry_points.ToString = PMC_ToString;
-    entry_points.TryParse = PMC_TryParse;
-    entry_points.Add_I_X = PMC_Add_I_X;
- entry_points.Add_L_X = PMC_Add_L_X;
-    entry_points.Add_X_I = PMC_Add_X_I;
-    entry_points.Add_X_L = PMC_Add_X_L;
-    entry_points.Add_X_X = PMC_Add_X_X;
-    entry_points.Subtruct_I_X = PMC_Subtruct_I_X;
-    entry_points.Subtruct_L_X = PMC_Subtruct_L_X;
-    entry_points.Subtruct_X_I = PMC_Subtruct_X_I;
-    entry_points.Subtruct_X_L = PMC_Subtruct_X_L;
-    entry_points.Subtruct_X_X = PMC_Subtruct_X_X;
-    entry_points.Multiply_I_X = PMC_Multiply_I_X;
-    entry_points.Multiply_L_X = PMC_Multiply_L_X;
-    entry_points.Multiply_X_I = PMC_Multiply_X_I;
-    entry_points.Multiply_X_L = PMC_Multiply_X_L;
-    entry_points.Multiply_X_X = PMC_Multiply_X_X;
-    entry_points.DivRem_I_X = PMC_DivRem_I_X;
-    entry_points.DivRem_L_X = PMC_DivRem_L_X;
-    entry_points.DivRem_X_I = PMC_DivRem_X_I;
-    entry_points.DivRem_X_L = PMC_DivRem_X_L;
-    entry_points.DivRem_X_X = PMC_DivRem_X_X;
-    entry_points.RightShift_X_I = PMC_RightShift_X_I;
-    entry_points.LeftShift_X_I = PMC_LeftShift_X_I;
-    entry_points.BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
-    entry_points.BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
-    entry_points.BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
-    entry_points.BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
-    entry_points.BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
-    entry_points.BitwiseOr_I_X = PMC_BitwiseOr_I_X;
-    entry_points.BitwiseOr_L_X = PMC_BitwiseOr_L_X;
-    entry_points.BitwiseOr_X_I = PMC_BitwiseOr_X_I;
-    entry_points.BitwiseOr_X_L = PMC_BitwiseOr_X_L;
-    entry_points.BitwiseOr_X_X = PMC_BitwiseOr_X_X;
-    entry_points.ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
-    entry_points.ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
-    entry_points.ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
-    entry_points.ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
-    entry_points.ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
-    entry_points.Compare_I_X = PMC_Compare_I_X;
-    entry_points.Compare_L_X = PMC_Compare_L_X;
-    entry_points.Compare_X_I = PMC_Compare_X_I;
-    entry_points.Compare_X_L = PMC_Compare_X_L;
-    entry_points.Compare_X_X = PMC_Compare_X_X;
-    entry_points.Equals_I_X = PMC_Equals_I_X;
-    entry_points.Equals_L_X = PMC_Equals_L_X;
-    entry_points.Equals_X_I = PMC_Equals_X_I;
-    entry_points.Equals_X_L = PMC_Equals_X_L;
-    entry_points.Equals_X_X = PMC_Equals_X_X;
-    entry_points.GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
-    entry_points.GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
-    entry_points.GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
-    entry_points.GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
-    entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
-    entry_points.Pow_X_I = PMC_Pow_X_I;
-    entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
-    entry_points.GetNumberType_X = PMC_GetNumberType_X;
-    entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
-    entry_points.Clone_X = PMC_Clone_X;
-
-    initialized = 1;
     return (&entry_points);
 }

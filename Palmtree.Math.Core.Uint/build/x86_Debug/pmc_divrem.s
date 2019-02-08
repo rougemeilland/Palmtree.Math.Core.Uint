@@ -5,7 +5,7 @@ Ltext0:
 _IncrementDIV32Counter:
 LFB71:
 	.file 1 "../pmc_uint_internal.h"
-	.loc 1 309 5
+	.loc 1 311 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -23,7 +23,7 @@ LBB21:
 	lock xaddl	%edx, (%eax)
 LBE21:
 LBE20:
-	.loc 1 311 5
+	.loc 1 313 5
 	nop
 	leave
 	.cfi_restore 5
@@ -34,7 +34,7 @@ LFE71:
 	.def	_IncrementMULTI32Counter;	.scl	3;	.type	32;	.endef
 _IncrementMULTI32Counter:
 LFB73:
-	.loc 1 321 5
+	.loc 1 323 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -51,7 +51,7 @@ LBB23:
 	lock xaddl	%edx, (%eax)
 LBE23:
 LBE22:
-	.loc 1 323 5
+	.loc 1 325 5
 	nop
 	leave
 	.cfi_restore 5
@@ -62,7 +62,7 @@ LFE73:
 	.def	_AddToDIV32Counter;	.scl	3;	.type	32;	.endef
 _AddToDIV32Counter:
 LFB75:
-	.loc 1 332 5
+	.loc 1 334 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -81,7 +81,7 @@ LBB25:
 	lock xaddl	%edx, (%eax)
 LBE25:
 LBE24:
-	.loc 1 334 5
+	.loc 1 336 5
 	nop
 	leave
 	.cfi_restore 5
@@ -92,7 +92,7 @@ LFE75:
 	.def	_AddToMULTI32Counter;	.scl	3;	.type	32;	.endef
 _AddToMULTI32Counter:
 LFB77:
-	.loc 1 344 5
+	.loc 1 346 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -111,7 +111,7 @@ LBB27:
 	lock xaddl	%edx, (%eax)
 LBE27:
 LBE26:
-	.loc 1 346 5
+	.loc 1 348 5
 	nop
 	leave
 	.cfi_restore 5
@@ -12665,7 +12665,7 @@ Ldebug_info0:
 	.uleb128 0x16
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x1
-	.word	0x12d
+	.word	0x12f
 	.byte	0x2d
 	.long	0x5120
 	.uleb128 0x7
@@ -16682,7 +16682,7 @@ Ldebug_info0:
 	.uleb128 0x39
 	.ascii "AddToMULTI32Counter\0"
 	.byte	0x1
-	.word	0x157
+	.word	0x159
 	.byte	0x1a
 	.long	LFB77
 	.long	LFE77-LFB77
@@ -16692,7 +16692,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.ascii "value\0"
 	.byte	0x1
-	.word	0x157
+	.word	0x159
 	.byte	0x37
 	.long	0x4c74
 	.uleb128 0x2
@@ -16703,7 +16703,7 @@ Ldebug_info0:
 	.long	LBB26
 	.long	LBE26-LBB26
 	.byte	0x1
-	.word	0x159
+	.word	0x15b
 	.byte	0x9
 	.uleb128 0x33
 	.long	0x7310
@@ -16720,7 +16720,7 @@ Ldebug_info0:
 	.uleb128 0x39
 	.ascii "AddToDIV32Counter\0"
 	.byte	0x1
-	.word	0x14b
+	.word	0x14d
 	.byte	0x1a
 	.long	LFB75
 	.long	LFE75-LFB75
@@ -16730,7 +16730,7 @@ Ldebug_info0:
 	.uleb128 0x20
 	.ascii "value\0"
 	.byte	0x1
-	.word	0x14b
+	.word	0x14d
 	.byte	0x35
 	.long	0x4c74
 	.uleb128 0x2
@@ -16741,7 +16741,7 @@ Ldebug_info0:
 	.long	LBB24
 	.long	LBE24-LBB24
 	.byte	0x1
-	.word	0x14d
+	.word	0x14f
 	.byte	0x9
 	.uleb128 0x33
 	.long	0x7310
@@ -16758,7 +16758,7 @@ Ldebug_info0:
 	.uleb128 0x39
 	.ascii "IncrementMULTI32Counter\0"
 	.byte	0x1
-	.word	0x140
+	.word	0x142
 	.byte	0x1a
 	.long	LFB73
 	.long	LFE73-LFB73
@@ -16770,7 +16770,7 @@ Ldebug_info0:
 	.long	LBB22
 	.long	LBE22-LBB22
 	.byte	0x1
-	.word	0x142
+	.word	0x144
 	.byte	0x9
 	.uleb128 0x33
 	.long	0x72c7
@@ -16782,7 +16782,7 @@ Ldebug_info0:
 	.uleb128 0x39
 	.ascii "IncrementDIV32Counter\0"
 	.byte	0x1
-	.word	0x134
+	.word	0x136
 	.byte	0x1a
 	.long	LFB71
 	.long	LFE71-LFB71
@@ -16794,7 +16794,7 @@ Ldebug_info0:
 	.long	LBB20
 	.long	LBE20-LBB20
 	.byte	0x1
-	.word	0x136
+	.word	0x138
 	.byte	0x9
 	.uleb128 0x33
 	.long	0x72c7

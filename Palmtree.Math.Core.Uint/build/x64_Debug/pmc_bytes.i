@@ -87645,6 +87645,8 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
     PMC_STATUS_CODE ( * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
     PMC_STATUS_CODE ( * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    PMC_STATUS_CODE( * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    PMC_STATUS_CODE( * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
 
     PMC_STATUS_CODE ( * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
@@ -87779,7 +87781,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE ( * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 329 "../pmc.h"
+# 331 "../pmc.h"
     PMC_STATUS_CODE ( * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -87796,7 +87798,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 414 "../pmc.h"
+# 416 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -88037,6 +88039,8 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
@@ -88173,9 +88177,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 357 "../pmc_uint_internal.h" 3 4
+# 359 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 357 "../pmc_uint_internal.h"
+# 359 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -88187,9 +88191,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 367 "../pmc_uint_internal.h" 3 4
+# 369 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 367 "../pmc_uint_internal.h"
+# 369 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -88203,16 +88207,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 379 "../pmc_uint_internal.h" 3 4
+# 381 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 379 "../pmc_uint_internal.h"
+# 381 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 382 "../pmc_uint_internal.h" 3
+# 384 "../pmc_uint_internal.h" 3
                                                       long long
-# 382 "../pmc_uint_internal.h"
+# 384 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -89856,7 +89860,7 @@ static __UNIT_TYPE CountActualBitsFromBuffer(unsigned char* p, size_t count)
 }
 
 
-PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o)
+PMC_STATUS_CODE PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs)
 {
     PMC_STATUS_CODE result;
     if (buffer == 
@@ -89867,10 +89871,78 @@ PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDL
         return ((-1));
     if (count < 1)
         return ((-1));
-    if (o == 
+    if (o_sign == 
 # 52 "../pmc_bytes.c" 3 4
-            ((void *)0)
+                 ((void *)0)
 # 52 "../pmc_bytes.c"
+                     )
+        return ((-1));
+    if (o_abs == 
+# 54 "../pmc_bytes.c" 3 4
+                ((void *)0)
+# 54 "../pmc_bytes.c"
+                    )
+        return ((-1));
+    unsigned char header = buffer[0];
+    unsigned char sign = header & 0x03;
+    unsigned char header_reserved = header & 0xfc;
+    if (header_reserved != 0)
+        return ((-1));
+    if (sign == 0)
+    {
+        if (count != 1)
+            return ((-1));
+        *o_sign = 0;
+        *o_abs = (PMC_HANDLE_UINT)&number_zero;
+    }
+    else if (sign == 2)
+        return ((-1));
+    else
+    {
+        __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
+        if (bit_count == 0)
+        {
+            *o_sign = 0;
+            *o_abs = (PMC_HANDLE_UINT)&number_zero;
+        }
+        else
+        {
+            NUMBER_HEADER* p;
+            if ((result = AllocateNumber(&p, bit_count, 
+# 81 "../pmc_bytes.c" 3 4
+                                                       ((void *)0)
+# 81 "../pmc_bytes.c"
+                                                           )) != (0))
+                return (result);
+            _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
+            CommitNumber(p);
+            *o_sign = sign == 1 ? 1 : -1;
+            *o_abs = (PMC_HANDLE_UINT)p;
+        }
+    }
+
+
+    if ((result = CheckNumber((NUMBER_HEADER*)*o_abs)) != (0))
+        return (result);
+
+    return ((0));
+}
+
+PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o)
+{
+    PMC_STATUS_CODE result;
+    if (buffer == 
+# 100 "../pmc_bytes.c" 3 4
+                 ((void *)0)
+# 100 "../pmc_bytes.c"
+                     )
+        return ((-1));
+    if (count < 1)
+        return ((-1));
+    if (o == 
+# 104 "../pmc_bytes.c" 3 4
+            ((void *)0)
+# 104 "../pmc_bytes.c"
                 )
         return ((-1));
     unsigned char header = buffer[0];
@@ -89893,9 +89965,9 @@ PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDL
         {
             NUMBER_HEADER* p;
             if ((result = AllocateNumber(&p, bit_count, 
-# 73 "../pmc_bytes.c" 3 4
+# 125 "../pmc_bytes.c" 3 4
                                                        ((void *)0)
-# 73 "../pmc_bytes.c"
+# 125 "../pmc_bytes.c"
                                                            )) != (0))
                 return (result);
             _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
@@ -89913,35 +89985,88 @@ PMC_STATUS_CODE PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDL
     return ((0));
 }
 
-PMC_STATUS_CODE PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count)
+PMC_STATUS_CODE PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count)
 {
     if (p == 
-# 92 "../pmc_bytes.c" 3 4
+# 144 "../pmc_bytes.c" 3 4
             ((void *)0)
-# 92 "../pmc_bytes.c"
+# 144 "../pmc_bytes.c"
                 )
         return ((-1));
     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
     PMC_STATUS_CODE result;
     if ((result = CheckNumber(np)) != (0))
         return (result);
-    size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8) + 1;
+    size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
     if (buffer != 
-# 99 "../pmc_bytes.c" 3 4
+# 151 "../pmc_bytes.c" 3 4
                  ((void *)0)
-# 99 "../pmc_bytes.c"
+# 151 "../pmc_bytes.c"
+                     )
+    {
+        if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+            return ((-4));
+        if (p_sign == 0)
+        {
+            if (np->IS_ZERO)
+                buffer[0] = 0x00;
+            else
+                return ((-256));
+        }
+        if (p_sign > 0)
+        {
+            if (np->IS_ZERO)
+                return ((-256));
+            else
+            {
+                buffer[0] = 0x01;
+                _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+            }
+        }
+        else
+        {
+            if (np->IS_ZERO)
+                return ((-256));
+            else
+            {
+                buffer[0] = 0x01;
+                _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+            }
+        }
+    }
+    *count = expected_abs_buffer_size + 1;
+    return ((0));
+}
+
+PMC_STATUS_CODE PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count)
+{
+    if (p == 
+# 189 "../pmc_bytes.c" 3 4
+            ((void *)0)
+# 189 "../pmc_bytes.c"
+                )
+        return ((-1));
+    NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+    PMC_STATUS_CODE result;
+    if ((result = CheckNumber(np)) != (0))
+        return (result);
+    size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
+    if (buffer != 
+# 196 "../pmc_bytes.c" 3 4
+                 ((void *)0)
+# 196 "../pmc_bytes.c"
                      )
     {
         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
             return ((-4));
         if (np->IS_ZERO)
-            buffer[0] = 0;
+            buffer[0] = 0x00;
         else
         {
-            buffer[0] = 1;
-            _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_buffer_size - 1);
+            buffer[0] = 0x01;
+            _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
         }
     }
-    *count = expected_buffer_size;
+    *count = expected_abs_buffer_size + 1;
     return ((0));
 }

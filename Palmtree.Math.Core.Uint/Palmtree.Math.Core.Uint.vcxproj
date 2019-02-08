@@ -237,7 +237,6 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".dep.inc" />
     <None Include="Palmtree.Math.Core.Uint.def" />
   </ItemGroup>
   <ItemGroup>

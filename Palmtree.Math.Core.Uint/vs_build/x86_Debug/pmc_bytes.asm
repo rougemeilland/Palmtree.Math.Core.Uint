@@ -28,6 +28,8 @@ __B1857B5F_pmc_bytes@c DB 01H
 msvcjmc	ENDS
 PUBLIC	_PMC_FromByteArray@12
 PUBLIC	_PMC_ToByteArray@16
+PUBLIC	_PMC_FromByteArrayForSINT@16
+PUBLIC	_PMC_ToByteArrayForSINT@20
 PUBLIC	__JustMyCode_Default
 EXTRN	_AllocateNumber:PROC
 EXTRN	_CommitNumber:PROC
@@ -282,17 +284,18 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 _TEXT	SEGMENT
-tv77 = -16						; size = 4
-_expected_buffer_size$ = -12				; size = 4
+tv76 = -16						; size = 4
+_expected_abs_buffer_size$ = -12			; size = 4
 _result$ = -8						; size = 4
 _np$ = -4						; size = 4
-_p$ = 8							; size = 4
-_buffer$ = 12						; size = 4
-_buffer_size$ = 16					; size = 4
-_count$ = 20						; size = 4
-_PMC_ToByteArray@16 PROC
+_p_sign$ = 8						; size = 1
+_p$ = 12						; size = 4
+_buffer$ = 16						; size = 4
+_buffer_size$ = 20					; size = 4
+_count$ = 24						; size = 4
+_PMC_ToByteArrayForSINT@20 PROC
 
-; 91   : {
+; 143  : {
 
 	push	ebp
 	mov	ebp, esp
@@ -305,24 +308,24 @@ _PMC_ToByteArray@16 PROC
 	mov	ecx, OFFSET __B1857B5F_pmc_bytes@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 92   :     if (p == NULL)
+; 144  :     if (p == NULL)
 
 	cmp	DWORD PTR _p$[ebp], 0
 	jne	SHORT $LN2@PMC_ToByte
 
-; 93   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 145  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_ToByte
 $LN2@PMC_ToByte:
 
-; 94   :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+; 146  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
 
 	mov	eax, DWORD PTR _p$[ebp]
 	mov	DWORD PTR _np$[ebp], eax
 
-; 95   :     PMC_STATUS_CODE result;
-; 96   :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+; 147  :     PMC_STATUS_CODE result;
+; 148  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	push	ecx
@@ -332,41 +335,40 @@ $LN2@PMC_ToByte:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN3@PMC_ToByte
 
-; 97   :         return (result);
+; 149  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	$LN1@PMC_ToByte
 $LN3@PMC_ToByte:
 
-; 98   :     size_t expected_buffer_size = np->IS_ZERO ? 1 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8) + 1;
+; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	edx, DWORD PTR _np$[ebp]
 	mov	eax, DWORD PTR [edx+24]
 	shr	eax, 1
 	and	eax, 1
-	je	SHORT $LN9@PMC_ToByte
-	mov	DWORD PTR tv77[ebp], 1
-	jmp	SHORT $LN10@PMC_ToByte
-$LN9@PMC_ToByte:
+	je	SHORT $LN16@PMC_ToByte
+	mov	DWORD PTR tv76[ebp], 0
+	jmp	SHORT $LN17@PMC_ToByte
+$LN16@PMC_ToByte:
 	push	8
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	call	__DIVIDE_CEILING_SIZE
 	add	esp, 8
-	add	eax, 1
-	mov	DWORD PTR tv77[ebp], eax
-$LN10@PMC_ToByte:
-	mov	eax, DWORD PTR tv77[ebp]
-	mov	DWORD PTR _expected_buffer_size$[ebp], eax
+	mov	DWORD PTR tv76[ebp], eax
+$LN17@PMC_ToByte:
+	mov	eax, DWORD PTR tv76[ebp]
+	mov	DWORD PTR _expected_abs_buffer_size$[ebp], eax
 
-; 99   :     if (buffer != NULL)
+; 151  :     if (buffer != NULL)
 
 	cmp	DWORD PTR _buffer$[ebp], 0
-	je	SHORT $LN4@PMC_ToByte
+	je	$LN4@PMC_ToByte
 
-; 100  :     {
-; 101  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+; 152  :     {
+; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	mov	ecx, DWORD PTR _np$[ebp]
 	mov	edx, DWORD PTR [ecx+12]
@@ -376,79 +378,164 @@ $LN10@PMC_ToByte:
 	cmp	edx, eax
 	jbe	SHORT $LN5@PMC_ToByte
 
-; 102  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
+; 154  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
 	mov	eax, -4					; fffffffcH
-	jmp	SHORT $LN1@PMC_ToByte
+	jmp	$LN1@PMC_ToByte
 $LN5@PMC_ToByte:
 
-; 103  :         if (np->IS_ZERO)
+; 155  :         if (p_sign == 0)
 
-	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
-	and	edx, 1
-	je	SHORT $LN6@PMC_ToByte
+	movsx	ecx, BYTE PTR _p_sign$[ebp]
+	test	ecx, ecx
+	jne	SHORT $LN6@PMC_ToByte
 
-; 104  :             buffer[0] = 0;
+; 156  :         {
+; 157  :             if (np->IS_ZERO)
 
-	mov	eax, 1
-	imul	ecx, eax, 0
-	mov	edx, DWORD PTR _buffer$[ebp]
-	mov	BYTE PTR [edx+ecx], 0
-	jmp	SHORT $LN4@PMC_ToByte
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+24]
+	shr	eax, 1
+	and	eax, 1
+	je	SHORT $LN7@PMC_ToByte
+
+; 158  :                 buffer[0] = 0x00;
+
+	mov	ecx, 1
+	imul	edx, ecx, 0
+	mov	eax, DWORD PTR _buffer$[ebp]
+	mov	BYTE PTR [eax+edx], 0
+	jmp	SHORT $LN6@PMC_ToByte
+$LN7@PMC_ToByte:
+
+; 159  :             else
+; 160  :                 return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffff00H
+	jmp	$LN1@PMC_ToByte
 $LN6@PMC_ToByte:
 
-; 105  :         else
-; 106  :         {
-; 107  :             buffer[0] = 1;
+; 161  :         }
+; 162  :         if (p_sign > 0)
 
-	mov	eax, 1
-	imul	ecx, eax, 0
-	mov	edx, DWORD PTR _buffer$[ebp]
-	mov	BYTE PTR [edx+ecx], 1
+	movsx	ecx, BYTE PTR _p_sign$[ebp]
+	test	ecx, ecx
+	jle	SHORT $LN9@PMC_ToByte
 
-; 108  :             _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_buffer_size - 1);
+; 163  :         {
+; 164  :             if (np->IS_ZERO)
 
-	mov	eax, DWORD PTR _expected_buffer_size$[ebp]
-	sub	eax, 1
-	push	eax
-	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
-	push	edx
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+24]
+	shr	eax, 1
+	and	eax, 1
+	je	SHORT $LN11@PMC_ToByte
+
+; 165  :                 return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffff00H
+	jmp	SHORT $LN1@PMC_ToByte
+	jmp	SHORT $LN12@PMC_ToByte
+$LN11@PMC_ToByte:
+
+; 166  :             else
+; 167  :             {
+; 168  :                 buffer[0] = 0x01;
+
+	mov	ecx, 1
+	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _buffer$[ebp]
-	add	eax, 1
+	mov	BYTE PTR [eax+edx], 1
+
+; 169  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+
+	mov	ecx, DWORD PTR _expected_abs_buffer_size$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+32]
 	push	eax
+	mov	ecx, DWORD PTR _buffer$[ebp]
+	add	ecx, 1
+	push	ecx
+	call	__COPY_MEMORY_BYTE
+	add	esp, 12					; 0000000cH
+$LN12@PMC_ToByte:
+
+; 170  :             }
+; 171  :         }
+
+	jmp	SHORT $LN4@PMC_ToByte
+$LN9@PMC_ToByte:
+
+; 172  :         else
+; 173  :         {
+; 174  :             if (np->IS_ZERO)
+
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+24]
+	shr	eax, 1
+	and	eax, 1
+	je	SHORT $LN13@PMC_ToByte
+
+; 175  :                 return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffff00H
+	jmp	SHORT $LN1@PMC_ToByte
+	jmp	SHORT $LN4@PMC_ToByte
+$LN13@PMC_ToByte:
+
+; 176  :             else
+; 177  :             {
+; 178  :                 buffer[0] = 0x01;
+
+	mov	ecx, 1
+	imul	edx, ecx, 0
+	mov	eax, DWORD PTR _buffer$[ebp]
+	mov	BYTE PTR [eax+edx], 1
+
+; 179  :                 _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+
+	mov	ecx, DWORD PTR _expected_abs_buffer_size$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+32]
+	push	eax
+	mov	ecx, DWORD PTR _buffer$[ebp]
+	add	ecx, 1
+	push	ecx
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
 $LN4@PMC_ToByte:
 
-; 109  :         }
-; 110  :     }
-; 111  :     *count = expected_buffer_size;
+; 180  :             }
+; 181  :         }
+; 182  :     }
+; 183  :     *count = expected_abs_buffer_size + 1;
 
-	mov	ecx, DWORD PTR _count$[ebp]
-	mov	edx, DWORD PTR _expected_buffer_size$[ebp]
-	mov	DWORD PTR [ecx], edx
+	mov	edx, DWORD PTR _expected_abs_buffer_size$[ebp]
+	add	edx, 1
+	mov	eax, DWORD PTR _count$[ebp]
+	mov	DWORD PTR [eax], edx
 
-; 112  :     return (PMC_STATUS_OK);
+; 184  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_ToByte:
 
-; 113  : }
+; 185  : }
 
 	add	esp, 16					; 00000010H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
-	ret	16					; 00000010H
-_PMC_ToByteArray@16 ENDP
+	ret	20					; 00000014H
+_PMC_ToByteArrayForSINT@20 ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 _TEXT	SEGMENT
+tv137 = -28						; size = 4
 _p$1 = -20						; size = 4
 _bit_count$2 = -12					; size = 4
 _header_reserved$ = -7					; size = 1
@@ -457,15 +544,17 @@ _header$ = -5						; size = 1
 _result$ = -4						; size = 4
 _buffer$ = 8						; size = 4
 _count$ = 12						; size = 4
-_o$ = 16						; size = 4
-_PMC_FromByteArray@12 PROC
+_o_sign$ = 16						; size = 4
+_o_abs$ = 20						; size = 4
+_PMC_FromByteArrayForSINT@16 PROC
 
 ; 46   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 24					; 00000018H
+	sub	esp, 28					; 0000001cH
 	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-28], eax
 	mov	DWORD PTR [ebp-24], eax
 	mov	DWORD PTR [ebp-20], eax
 	mov	DWORD PTR [ebp-16], eax
@@ -498,9 +587,9 @@ $LN2@PMC_FromBy:
 	jmp	$LN1@PMC_FromBy
 $LN3@PMC_FromBy:
 
-; 52   :     if (o == NULL)
+; 52   :     if (o_sign == NULL)
 
-	cmp	DWORD PTR _o$[ebp], 0
+	cmp	DWORD PTR _o_sign$[ebp], 0
 	jne	SHORT $LN4@PMC_FromBy
 
 ; 53   :         return (PMC_STATUS_ARGUMENT_ERROR);
@@ -509,7 +598,18 @@ $LN3@PMC_FromBy:
 	jmp	$LN1@PMC_FromBy
 $LN4@PMC_FromBy:
 
-; 54   :     unsigned char header = buffer[0];
+; 54   :     if (o_abs == NULL)
+
+	cmp	DWORD PTR _o_abs$[ebp], 0
+	jne	SHORT $LN5@PMC_FromBy
+
+; 55   :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN5@PMC_FromBy:
+
+; 56   :     unsigned char header = buffer[0];
 
 	mov	eax, 1
 	imul	ecx, eax, 0
@@ -517,66 +617,530 @@ $LN4@PMC_FromBy:
 	mov	al, BYTE PTR [edx+ecx]
 	mov	BYTE PTR _header$[ebp], al
 
-; 55   :     unsigned char sign = header & 0x03;
+; 57   :     unsigned char sign = header & 0x03;
 
 	movzx	ecx, BYTE PTR _header$[ebp]
 	and	ecx, 3
 	mov	BYTE PTR _sign$[ebp], cl
 
-; 56   :     unsigned char header_reserved = header & 0xfc;
+; 58   :     unsigned char header_reserved = header & 0xfc;
 
 	movzx	edx, BYTE PTR _header$[ebp]
 	and	edx, 252				; 000000fcH
 	mov	BYTE PTR _header_reserved$[ebp], dl
 
-; 57   :     if (header_reserved != 0)
+; 59   :     if (header_reserved != 0)
+
+	movzx	eax, BYTE PTR _header_reserved$[ebp]
+	test	eax, eax
+	je	SHORT $LN6@PMC_FromBy
+
+; 60   :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN6@PMC_FromBy:
+
+; 61   :     if (sign == 0)
+
+	movzx	ecx, BYTE PTR _sign$[ebp]
+	test	ecx, ecx
+	jne	SHORT $LN7@PMC_FromBy
+
+; 62   :     {
+; 63   :         if (count != 1)
+
+	cmp	DWORD PTR _count$[ebp], 1
+	je	SHORT $LN9@PMC_FromBy
+
+; 64   :             return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN9@PMC_FromBy:
+
+; 65   :         *o_sign = 0;
+
+	mov	edx, DWORD PTR _o_sign$[ebp]
+	mov	BYTE PTR [edx], 0
+
+; 66   :         *o_abs = (PMC_HANDLE_UINT)&number_zero;
+
+	mov	eax, DWORD PTR _o_abs$[ebp]
+	mov	DWORD PTR [eax], OFFSET _number_zero
+
+; 67   :     }
+
+	jmp	$LN8@PMC_FromBy
+$LN7@PMC_FromBy:
+
+; 68   :     else if (sign == 2)
+
+	movzx	ecx, BYTE PTR _sign$[ebp]
+	cmp	ecx, 2
+	jne	SHORT $LN10@PMC_FromBy
+
+; 69   :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+	jmp	$LN8@PMC_FromBy
+$LN10@PMC_FromBy:
+
+; 70   :     else
+; 71   :     {
+; 72   :         __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
+
+	mov	edx, DWORD PTR _count$[ebp]
+	sub	edx, 1
+	push	edx
+	mov	eax, DWORD PTR _buffer$[ebp]
+	add	eax, 1
+	push	eax
+	call	_CountActualBitsFromBuffer
+	add	esp, 8
+	mov	DWORD PTR _bit_count$2[ebp], eax
+
+; 73   :         if (bit_count == 0)
+
+	cmp	DWORD PTR _bit_count$2[ebp], 0
+	jne	SHORT $LN12@PMC_FromBy
+
+; 74   :         {
+; 75   :             *o_sign = 0;
+
+	mov	ecx, DWORD PTR _o_sign$[ebp]
+	mov	BYTE PTR [ecx], 0
+
+; 76   :             *o_abs = (PMC_HANDLE_UINT)&number_zero;
+
+	mov	edx, DWORD PTR _o_abs$[ebp]
+	mov	DWORD PTR [edx], OFFSET _number_zero
+
+; 77   :         }
+
+	jmp	SHORT $LN8@PMC_FromBy
+$LN12@PMC_FromBy:
+
+; 78   :         else
+; 79   :         {
+; 80   :             NUMBER_HEADER* p;
+; 81   :             if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
+
+	push	0
+	mov	eax, DWORD PTR _bit_count$2[ebp]
+	push	eax
+	lea	ecx, DWORD PTR _p$1[ebp]
+	push	ecx
+	call	_AllocateNumber
+	add	esp, 12					; 0000000cH
+	mov	DWORD PTR _result$[ebp], eax
+	cmp	DWORD PTR _result$[ebp], 0
+	je	SHORT $LN14@PMC_FromBy
+
+; 82   :                 return (result);
+
+	mov	eax, DWORD PTR _result$[ebp]
+	jmp	SHORT $LN1@PMC_FromBy
+$LN14@PMC_FromBy:
+
+; 83   :             _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
+
+	push	8
+	mov	edx, DWORD PTR _bit_count$2[ebp]
+	push	edx
+	call	__DIVIDE_CEILING_SIZE
+	add	esp, 8
+	push	eax
+	mov	eax, DWORD PTR _buffer$[ebp]
+	add	eax, 1
+	push	eax
+	mov	ecx, DWORD PTR _p$1[ebp]
+	mov	edx, DWORD PTR [ecx+32]
+	push	edx
+	call	__COPY_MEMORY_BYTE
+	add	esp, 12					; 0000000cH
+
+; 84   :             CommitNumber(p);
+
+	mov	eax, DWORD PTR _p$1[ebp]
+	push	eax
+	call	_CommitNumber
+	add	esp, 4
+
+; 85   :             *o_sign =  sign == 1 ? 1 : -1;
+
+	movzx	ecx, BYTE PTR _sign$[ebp]
+	cmp	ecx, 1
+	jne	SHORT $LN17@PMC_FromBy
+	mov	DWORD PTR tv137[ebp], 1
+	jmp	SHORT $LN18@PMC_FromBy
+$LN17@PMC_FromBy:
+	mov	DWORD PTR tv137[ebp], -1
+$LN18@PMC_FromBy:
+	mov	edx, DWORD PTR _o_sign$[ebp]
+	mov	al, BYTE PTR tv137[ebp]
+	mov	BYTE PTR [edx], al
+
+; 86   :             *o_abs = (PMC_HANDLE_UINT)p;
+
+	mov	ecx, DWORD PTR _o_abs$[ebp]
+	mov	edx, DWORD PTR _p$1[ebp]
+	mov	DWORD PTR [ecx], edx
+$LN8@PMC_FromBy:
+
+; 87   :         }
+; 88   :     }
+; 89   : 
+; 90   : #ifdef _DEBUG
+; 91   :     if ((result = CheckNumber((NUMBER_HEADER*)*o_abs)) != PMC_STATUS_OK)
+
+	mov	eax, DWORD PTR _o_abs$[ebp]
+	mov	ecx, DWORD PTR [eax]
+	push	ecx
+	call	_CheckNumber
+	add	esp, 4
+	mov	DWORD PTR _result$[ebp], eax
+	cmp	DWORD PTR _result$[ebp], 0
+	je	SHORT $LN15@PMC_FromBy
+
+; 92   :         return (result);
+
+	mov	eax, DWORD PTR _result$[ebp]
+	jmp	SHORT $LN1@PMC_FromBy
+$LN15@PMC_FromBy:
+
+; 93   : #endif
+; 94   :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_FromBy:
+
+; 95   : }
+
+	push	edx
+	mov	ecx, ebp
+	push	eax
+	lea	edx, DWORD PTR $LN21@PMC_FromBy
+	call	@_RTC_CheckStackVars@8
+	pop	eax
+	pop	edx
+	add	esp, 28					; 0000001cH
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+	npad	1
+$LN21@PMC_FromBy:
+	DD	1
+	DD	$LN20@PMC_FromBy
+$LN20@PMC_FromBy:
+	DD	-20					; ffffffecH
+	DD	4
+	DD	$LN19@PMC_FromBy
+$LN19@PMC_FromBy:
+	DB	112					; 00000070H
+	DB	0
+_PMC_FromByteArrayForSINT@16 ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
+_TEXT	SEGMENT
+tv76 = -16						; size = 4
+_expected_abs_buffer_size$ = -12			; size = 4
+_result$ = -8						; size = 4
+_np$ = -4						; size = 4
+_p$ = 8							; size = 4
+_buffer$ = 12						; size = 4
+_buffer_size$ = 16					; size = 4
+_count$ = 20						; size = 4
+_PMC_ToByteArray@16 PROC
+
+; 188  : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 16					; 00000010H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	ecx, OFFSET __B1857B5F_pmc_bytes@c
+	call	@__CheckForDebuggerJustMyCode@4
+
+; 189  :     if (p == NULL)
+
+	cmp	DWORD PTR _p$[ebp], 0
+	jne	SHORT $LN2@PMC_ToByte
+
+; 190  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_ToByte
+$LN2@PMC_ToByte:
+
+; 191  :     NUMBER_HEADER* np = (NUMBER_HEADER*)p;
+
+	mov	eax, DWORD PTR _p$[ebp]
+	mov	DWORD PTR _np$[ebp], eax
+
+; 192  :     PMC_STATUS_CODE result;
+; 193  :     if ((result = CheckNumber(np)) != PMC_STATUS_OK)
+
+	mov	ecx, DWORD PTR _np$[ebp]
+	push	ecx
+	call	_CheckNumber
+	add	esp, 4
+	mov	DWORD PTR _result$[ebp], eax
+	cmp	DWORD PTR _result$[ebp], 0
+	je	SHORT $LN3@PMC_ToByte
+
+; 194  :         return (result);
+
+	mov	eax, DWORD PTR _result$[ebp]
+	jmp	$LN1@PMC_ToByte
+$LN3@PMC_ToByte:
+
+; 195  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
+
+	mov	edx, DWORD PTR _np$[ebp]
+	mov	eax, DWORD PTR [edx+24]
+	shr	eax, 1
+	and	eax, 1
+	je	SHORT $LN9@PMC_ToByte
+	mov	DWORD PTR tv76[ebp], 0
+	jmp	SHORT $LN10@PMC_ToByte
+$LN9@PMC_ToByte:
+	push	8
+	mov	ecx, DWORD PTR _np$[ebp]
+	mov	edx, DWORD PTR [ecx+12]
+	push	edx
+	call	__DIVIDE_CEILING_SIZE
+	add	esp, 8
+	mov	DWORD PTR tv76[ebp], eax
+$LN10@PMC_ToByte:
+	mov	eax, DWORD PTR tv76[ebp]
+	mov	DWORD PTR _expected_abs_buffer_size$[ebp], eax
+
+; 196  :     if (buffer != NULL)
+
+	cmp	DWORD PTR _buffer$[ebp], 0
+	je	SHORT $LN4@PMC_ToByte
+
+; 197  :     {
+; 198  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
+
+	mov	ecx, DWORD PTR _np$[ebp]
+	mov	edx, DWORD PTR [ecx+12]
+	add	edx, 8
+	mov	eax, DWORD PTR _buffer_size$[ebp]
+	shl	eax, 3
+	cmp	edx, eax
+	jbe	SHORT $LN5@PMC_ToByte
+
+; 199  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
+
+	mov	eax, -4					; fffffffcH
+	jmp	SHORT $LN1@PMC_ToByte
+$LN5@PMC_ToByte:
+
+; 200  :         if (np->IS_ZERO)
+
+	mov	ecx, DWORD PTR _np$[ebp]
+	mov	edx, DWORD PTR [ecx+24]
+	shr	edx, 1
+	and	edx, 1
+	je	SHORT $LN6@PMC_ToByte
+
+; 201  :             buffer[0] = 0x00;
+
+	mov	eax, 1
+	imul	ecx, eax, 0
+	mov	edx, DWORD PTR _buffer$[ebp]
+	mov	BYTE PTR [edx+ecx], 0
+	jmp	SHORT $LN4@PMC_ToByte
+$LN6@PMC_ToByte:
+
+; 202  :         else
+; 203  :         {
+; 204  :             buffer[0] = 0x01;
+
+	mov	eax, 1
+	imul	ecx, eax, 0
+	mov	edx, DWORD PTR _buffer$[ebp]
+	mov	BYTE PTR [edx+ecx], 1
+
+; 205  :             _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
+
+	mov	eax, DWORD PTR _expected_abs_buffer_size$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _np$[ebp]
+	mov	edx, DWORD PTR [ecx+32]
+	push	edx
+	mov	eax, DWORD PTR _buffer$[ebp]
+	add	eax, 1
+	push	eax
+	call	__COPY_MEMORY_BYTE
+	add	esp, 12					; 0000000cH
+$LN4@PMC_ToByte:
+
+; 206  :         }
+; 207  :     }
+; 208  :     *count = expected_abs_buffer_size + 1;
+
+	mov	ecx, DWORD PTR _expected_abs_buffer_size$[ebp]
+	add	ecx, 1
+	mov	edx, DWORD PTR _count$[ebp]
+	mov	DWORD PTR [edx], ecx
+
+; 209  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_ToByte:
+
+; 210  : }
+
+	add	esp, 16					; 00000010H
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	mov	esp, ebp
+	pop	ebp
+	ret	16					; 00000010H
+_PMC_ToByteArray@16 ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
+_TEXT	SEGMENT
+_p$1 = -20						; size = 4
+_bit_count$2 = -12					; size = 4
+_header_reserved$ = -7					; size = 1
+_sign$ = -6						; size = 1
+_header$ = -5						; size = 1
+_result$ = -4						; size = 4
+_buffer$ = 8						; size = 4
+_count$ = 12						; size = 4
+_o$ = 16						; size = 4
+_PMC_FromByteArray@12 PROC
+
+; 98   : {
+
+	push	ebp
+	mov	ebp, esp
+	sub	esp, 24					; 00000018H
+	mov	eax, -858993460				; ccccccccH
+	mov	DWORD PTR [ebp-24], eax
+	mov	DWORD PTR [ebp-20], eax
+	mov	DWORD PTR [ebp-16], eax
+	mov	DWORD PTR [ebp-12], eax
+	mov	DWORD PTR [ebp-8], eax
+	mov	DWORD PTR [ebp-4], eax
+	mov	ecx, OFFSET __B1857B5F_pmc_bytes@c
+	call	@__CheckForDebuggerJustMyCode@4
+
+; 99   :     PMC_STATUS_CODE result;
+; 100  :     if (buffer == NULL)
+
+	cmp	DWORD PTR _buffer$[ebp], 0
+	jne	SHORT $LN2@PMC_FromBy
+
+; 101  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN2@PMC_FromBy:
+
+; 102  :     if (count < 1)
+
+	cmp	DWORD PTR _count$[ebp], 1
+	jae	SHORT $LN3@PMC_FromBy
+
+; 103  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN3@PMC_FromBy:
+
+; 104  :     if (o == NULL)
+
+	cmp	DWORD PTR _o$[ebp], 0
+	jne	SHORT $LN4@PMC_FromBy
+
+; 105  :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	or	eax, -1
+	jmp	$LN1@PMC_FromBy
+$LN4@PMC_FromBy:
+
+; 106  :     unsigned char header = buffer[0];
+
+	mov	eax, 1
+	imul	ecx, eax, 0
+	mov	edx, DWORD PTR _buffer$[ebp]
+	mov	al, BYTE PTR [edx+ecx]
+	mov	BYTE PTR _header$[ebp], al
+
+; 107  :     unsigned char sign = header & 0x03;
+
+	movzx	ecx, BYTE PTR _header$[ebp]
+	and	ecx, 3
+	mov	BYTE PTR _sign$[ebp], cl
+
+; 108  :     unsigned char header_reserved = header & 0xfc;
+
+	movzx	edx, BYTE PTR _header$[ebp]
+	and	edx, 252				; 000000fcH
+	mov	BYTE PTR _header_reserved$[ebp], dl
+
+; 109  :     if (header_reserved != 0)
 
 	movzx	eax, BYTE PTR _header_reserved$[ebp]
 	test	eax, eax
 	je	SHORT $LN5@PMC_FromBy
 
-; 58   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 110  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_FromBy
 $LN5@PMC_FromBy:
 
-; 59   :     if (sign == 0)
+; 111  :     if (sign == 0)
 
 	movzx	ecx, BYTE PTR _sign$[ebp]
 	test	ecx, ecx
 	jne	SHORT $LN6@PMC_FromBy
 
-; 60   :     {
-; 61   :         if (count != 1)
+; 112  :     {
+; 113  :         if (count != 1)
 
 	cmp	DWORD PTR _count$[ebp], 1
 	je	SHORT $LN8@PMC_FromBy
 
-; 62   :             return (PMC_STATUS_ARGUMENT_ERROR);
+; 114  :             return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	$LN1@PMC_FromBy
 $LN8@PMC_FromBy:
 
-; 63   :         *o = (PMC_HANDLE_UINT)&number_zero;
+; 115  :         *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [edx], OFFSET _number_zero
 
-; 64   :     }
+; 116  :     }
 
 	jmp	$LN7@PMC_FromBy
 $LN6@PMC_FromBy:
 
-; 65   :     else if (sign == 1)
+; 117  :     else if (sign == 1)
 
 	movzx	eax, BYTE PTR _sign$[ebp]
 	cmp	eax, 1
 	jne	$LN9@PMC_FromBy
 
-; 66   :     {
-; 67   :         __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
+; 118  :     {
+; 119  :         __UNIT_TYPE bit_count = CountActualBitsFromBuffer(buffer + 1, count - 1);
 
 	mov	ecx, DWORD PTR _count$[ebp]
 	sub	ecx, 1
@@ -588,22 +1152,22 @@ $LN6@PMC_FromBy:
 	add	esp, 8
 	mov	DWORD PTR _bit_count$2[ebp], eax
 
-; 68   :         if (bit_count == 0)
+; 120  :         if (bit_count == 0)
 
 	cmp	DWORD PTR _bit_count$2[ebp], 0
 	jne	SHORT $LN11@PMC_FromBy
 
-; 69   :             *o = (PMC_HANDLE_UINT)&number_zero;
+; 121  :             *o = (PMC_HANDLE_UINT)&number_zero;
 
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	DWORD PTR [eax], OFFSET _number_zero
 	jmp	SHORT $LN12@PMC_FromBy
 $LN11@PMC_FromBy:
 
-; 70   :         else
-; 71   :         {
-; 72   :             NUMBER_HEADER* p;
-; 73   :             if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
+; 122  :         else
+; 123  :         {
+; 124  :             NUMBER_HEADER* p;
+; 125  :             if ((result = AllocateNumber(&p, bit_count, NULL)) != PMC_STATUS_OK)
 
 	push	0
 	mov	ecx, DWORD PTR _bit_count$2[ebp]
@@ -616,13 +1180,13 @@ $LN11@PMC_FromBy:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN13@PMC_FromBy
 
-; 74   :                 return (result);
+; 126  :                 return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_FromBy
 $LN13@PMC_FromBy:
 
-; 75   :             _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
+; 127  :             _COPY_MEMORY_BYTE(p->BLOCK, buffer + 1, _DIVIDE_CEILING_SIZE(bit_count, 8));
 
 	push	8
 	mov	eax, DWORD PTR _bit_count$2[ebp]
@@ -639,36 +1203,36 @@ $LN13@PMC_FromBy:
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
 
-; 76   :             CommitNumber(p);
+; 128  :             CommitNumber(p);
 
 	mov	ecx, DWORD PTR _p$1[ebp]
 	push	ecx
 	call	_CommitNumber
 	add	esp, 4
 
-; 77   :             *o = (PMC_HANDLE_UINT)p;
+; 129  :             *o = (PMC_HANDLE_UINT)p;
 
 	mov	edx, DWORD PTR _o$[ebp]
 	mov	eax, DWORD PTR _p$1[ebp]
 	mov	DWORD PTR [edx], eax
 $LN12@PMC_FromBy:
 
-; 78   :         }
-; 79   :     }
+; 130  :         }
+; 131  :     }
 
 	jmp	SHORT $LN7@PMC_FromBy
 $LN9@PMC_FromBy:
 
-; 80   :     else
-; 81   :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 132  :     else
+; 133  :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	or	eax, -1
 	jmp	SHORT $LN1@PMC_FromBy
 $LN7@PMC_FromBy:
 
-; 82   : 
-; 83   : #ifdef _DEBUG
-; 84   :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
+; 134  : 
+; 135  : #ifdef _DEBUG
+; 136  :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _o$[ebp]
 	mov	edx, DWORD PTR [ecx]
@@ -679,19 +1243,19 @@ $LN7@PMC_FromBy:
 	cmp	DWORD PTR _result$[ebp], 0
 	je	SHORT $LN14@PMC_FromBy
 
-; 85   :         return (result);
+; 137  :         return (result);
 
 	mov	eax, DWORD PTR _result$[ebp]
 	jmp	SHORT $LN1@PMC_FromBy
 $LN14@PMC_FromBy:
 
-; 86   : #endif
-; 87   :     return (PMC_STATUS_OK);
+; 138  : #endif
+; 139  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_FromBy:
 
-; 88   : }
+; 140  : }
 
 	push	edx
 	mov	ecx, ebp
