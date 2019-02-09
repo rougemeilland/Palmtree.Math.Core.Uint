@@ -210,9 +210,9 @@ LVL5:
 	movl	28(%eax), %eax
 	.loc 2 49 83
 	movl	-20(%ebp), %edx
-	movl	$_actual_buf_size.61554, 12(%esp)
+	movl	$_actual_buf_size.61610, 12(%esp)
 	movl	$256, 8(%esp)
-	movl	$_actual_buf.61553, 4(%esp)
+	movl	$_actual_buf.61609, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL6:
@@ -236,13 +236,13 @@ LVL6:
 	movl	%eax, (%esp)
 	call	_TEST_Assert
 	.loc 2 50 73
-	movl	_actual_buf_size.61554, %eax
+	movl	_actual_buf_size.61610, %eax
 	movl	36(%ebp), %edx
 	movl	%edx, 12(%esp)
 	movl	32(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
-	movl	$_actual_buf.61553, (%esp)
+	movl	$_actual_buf.61609, (%esp)
 	call	__EQUALS_MEMORY
 	.loc 2 50 9
 	testl	%eax, %eax
@@ -288,8 +288,8 @@ L10:
 	ret
 	.cfi_endproc
 LFE72:
-.lcomm _actual_buf.61553,256,32
-.lcomm _actual_buf_size.61554,4,4
+.lcomm _actual_buf.61609,256,32
+.lcomm _actual_buf_size.61610,4,4
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5494,7 +5494,7 @@ Ldebug_info0:
 	.long	0x1d2a
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf.61553
+	.long	_actual_buf.61609
 	.uleb128 0x20
 	.ascii "actual_buf_size\0"
 	.byte	0x2
@@ -5503,7 +5503,7 @@ Ldebug_info0:
 	.long	0xc7
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf_size.61554
+	.long	_actual_buf_size.61610
 	.uleb128 0x20
 	.ascii "result\0"
 	.byte	0x2

@@ -160,7 +160,7 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
                 0x0000000000000430                . = SIZEOF_HEADERS
                 0x0000000000001000                . = ALIGN (__section_alignment__)
 
-.text           0x000000006ddc1000   0x477600
+.text           0x000000006ddc1000   0x477800
  *(.init)
  *(.text)
  .text          0x000000006ddc1000      0x340 ../build/x64_Debug/cpuid.o
@@ -206,255 +206,254 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .text          0x000000006ddc6230       0xd0 ../build/x64_Debug/pmc_clone.o
                 0x000000006ddc6230                PMC_Clone_X
                 0x000000006ddc62f0                Initialize_Clone
- .text          0x000000006ddc6300      0x610 ../build/x64_Debug/pmc_compare.o
+ .text          0x000000006ddc6300      0x6e0 ../build/x64_Debug/pmc_compare.o
                 0x000000006ddc6363                Compare_Imp
                 0x000000006ddc64da                PMC_Compare_I_X
-                0x000000006ddc6551                PMC_Compare_X_I
-                0x000000006ddc66bd                PMC_Compare_L_X
-                0x000000006ddc6736                PMC_Compare_X_L
-                0x000000006ddc67a8                PMC_Compare_X_X
-                0x000000006ddc6900                Initialize_Compare
- .text          0x000000006ddc6910     0x5fd0 ../build/x64_Debug/pmc_divrem.o
-                0x000000006ddc77d4                DivRem_X_X
-                0x000000006ddc793f                Rem_X_1W
-                0x000000006ddc83a5                DivRem_X_1W
-                0x000000006ddcb702                PMC_DivRem_I_X
-                0x000000006ddcb86e                PMC_DivRem_X_I
-                0x000000006ddcbb20                PMC_DivRem_L_X
-                0x000000006ddcbd13                PMC_DivRem_X_L
-                0x000000006ddcc029                PMC_DivRem_X_X
-                0x000000006ddcc890                Initialize_DivRem
- .text          0x000000006ddcc8e0      0x540 ../build/x64_Debug/pmc_equals.o
-                0x000000006ddcc943                Equals_X_X
-                0x000000006ddcca42                PMC_Equals_I_X
-                0x000000006ddccaba                PMC_Equals_X_I
-                0x000000006ddccbe7                PMC_Equals_L_X
-                0x000000006ddccc61                PMC_Equals_X_L
-                0x000000006ddcccd8                PMC_Equals_X_X
-                0x000000006ddcce0c                Initialize_Equals
- .text          0x000000006ddcce20     0x1400 ../build/x64_Debug/pmc_exclusiveor.o
-                0x000000006ddcdbd0                PMC_ExclusiveOr_I_X
-                0x000000006ddcdc6d                PMC_ExclusiveOr_X_I
-                0x000000006ddcde99                PMC_ExclusiveOr_L_X
-                0x000000006ddcdf38                PMC_ExclusiveOr_X_L
-                0x000000006ddcdfd7                PMC_ExclusiveOr_X_X
-                0x000000006ddce20a                Initialize_ExclusiveOr
- .text          0x000000006ddce220      0x250 ../build/x64_Debug/pmc_from.o
-                0x000000006ddce283                From_I_Imp
-                0x000000006ddce2ef                From_L_Imp
-                0x000000006ddce369                PMC_From_I
-                0x000000006ddce3de                PMC_From_L
-                0x000000006ddce456                Initialize_From
- .text          0x000000006ddce470     0x1080 ../build/x64_Debug/pmc_greatestcommondivisor.o
-                0x000000006ddcea65                PMC_GreatestCommonDivisor_I_X
-                0x000000006ddceafa                PMC_GreatestCommonDivisor_X_I
-                0x000000006ddcef7b                PMC_GreatestCommonDivisor_L_X
-                0x000000006ddcf012                PMC_GreatestCommonDivisor_X_L
-                0x000000006ddcf0a6                PMC_GreatestCommonDivisor_X_X
-                0x000000006ddcf4d9                Initialize_GreatestCommonDivisor
- .text          0x000000006ddcf4f0      0x7f0 ../build/x64_Debug/pmc_initialize.o
-                0x000000006ddcf625                PMC_UINT_Initialize
- .text          0x000000006ddcfce0     0x18e0 ../build/x64_Debug/pmc_memory.o
-                0x000000006ddd0890                AllocateBlock
-                0x000000006ddd09cc                DeallocateBlock
-                0x000000006ddd0b22                CheckBlockLight
-                0x000000006ddd0dec                AttatchNumber
-                0x000000006ddd0e39                AllocateNumber
-                0x000000006ddd0ec9                DetatchNumber
-                0x000000006ddd0efd                DeallocateNumber
-                0x000000006ddd105e                CommitNumber
-                0x000000006ddd1251                CheckNumber
-                0x000000006ddd12e8                DuplicateNumber
-                0x000000006ddd13c0                PMC_GetConstantValue_I
-                0x000000006ddd140a                PMC_Dispose
-                0x000000006ddd1449                Initialize_Memory
-                0x000000006ddd1527                AllocateHeapArea
-                0x000000006ddd1576                DeallocateHeapArea
- .text          0x000000006ddd15c0     0x1070 ../build/x64_Debug/pmc_modpow.o
-                0x000000006ddd2522                PMC_ModPow_X_X_X
-                0x000000006ddd2620                Initialize_ModPow
- .text          0x000000006ddd2630     0x2650 ../build/x64_Debug/pmc_multiply.o
-                0x000000006ddd2888                Multiply_X_X_Imp
-                0x000000006ddd45c7                PMC_Multiply_I_X
-                0x000000006ddd465c                PMC_Multiply_X_I
-                0x000000006ddd4879                PMC_Multiply_L_X
-                0x000000006ddd4910                PMC_Multiply_X_L
-                0x000000006ddd49a4                PMC_Multiply_X_X
-                0x000000006ddd4bf0                Initialize_Multiply
- .text          0x000000006ddd4c80     0x3610 ../build/x64_Debug/pmc_parse.o
-                0x000000006ddd80bf                PMC_TryParse
-                0x000000006ddd81be                Initialize_Parse
- .text          0x000000006ddd8290      0x590 ../build/x64_Debug/pmc_pow.o
-                0x000000006ddd877e                PMC_Pow_X_I
-                0x000000006ddd880f                Initialize_Pow
- .text          0x000000006ddd8820     0x4d40 ../build/x64_Debug/pmc_shift.o
-                0x000000006ddd89a6                RightShift_Imp
-                0x000000006ddd9bc8                RightShift_Imp_DIV
-                0x000000006dddadea                LeftShift_Imp
-                0x000000006dddc002                LeftShift_Imp_DIV
-                0x000000006dddd21a                PMC_RightShift_X_I
-                0x000000006dddd3bf                PMC_LeftShift_X_I
-                0x000000006dddd545                Initialize_Shift
- .text          0x000000006dddd560       0x50 ../build/x64_Debug/pmc_statistics.o
-                0x000000006dddd560                PMC_GetStatisticsInfo
- .text          0x000000006dddd5b0     0x1200 ../build/x64_Debug/pmc_subtruct.o
-                0x000000006ddddd3a                Subtruct_Imp
-                0x000000006ddddf18                PMC_Subtruct_I_X
-                0x000000006ddde03a                PMC_Subtruct_X_I
-                0x000000006ddde244                PMC_Subtruct_L_X
-                0x000000006ddde369                PMC_Subtruct_X_L
-                0x000000006ddde576                PMC_Subtruct_X_X
-                0x000000006ddde79f                Initialize_Subtruct
- .text          0x000000006ddde7b0      0x190 ../build/x64_Debug/pmc_to.o
-                0x000000006ddde7cc                PMC_To_X_I
-                0x000000006ddde84b                PMC_To_X_L
-                0x000000006ddde92e                Initialize_To
- .text          0x000000006ddde940     0x1b20 ../build/x64_Debug/pmc_tostring.o
-                0x000000006dde0233                PMC_ToString
-                0x000000006dde03c8                Initialize_ToString
- .text          0x000000006dde0460   0x44eaf0 ../build/x64_Debug/TEST_autogenerated.o
-                0x000000006dde0460                TEST_autogenerated
- .text          0x000000006e22ef50      0xca0 ../build/x64_Debug/TEST_op_Add.o
-                0x000000006e22efab                TEST_PMC_Add_I_X
-                0x000000006e22f1fb                TEST_PMC_Add_L_X
-                0x000000006e22f44f                TEST_PMC_Add_X_I
-                0x000000006e22f6a2                TEST_PMC_Add_X_L
-                0x000000006e22f8f6                TEST_PMC_Add_X_X
- .text          0x000000006e22fbf0      0x830 ../build/x64_Debug/TEST_op_BitwiseAnd.o
-                0x000000006e22fc4b                TEST_PMC_BitwiseAnd_I_X
-                0x000000006e22fd80                TEST_PMC_BitwiseAnd_L_X
-                0x000000006e22feb8                TEST_PMC_BitwiseAnd_X_I
-                0x000000006e22ffed                TEST_PMC_BitwiseAnd_X_L
-                0x000000006e230125                TEST_PMC_BitwiseAnd_X_X
- .text          0x000000006e230420      0xca0 ../build/x64_Debug/TEST_op_BitwiseOr.o
-                0x000000006e23047b                TEST_PMC_BitwiseOr_I_X
-                0x000000006e2306ce                TEST_PMC_BitwiseOr_L_X
-                0x000000006e230922                TEST_PMC_BitwiseOr_X_I
-                0x000000006e230b75                TEST_PMC_BitwiseOr_X_L
-                0x000000006e230dc9                TEST_PMC_BitwiseOr_X_X
- .text          0x000000006e2310c0      0x2b0 ../build/x64_Debug/TEST_op_Clone.o
-                0x000000006e23111b                TEST_PMC_Clone_X
- .text          0x000000006e231370      0x690 ../build/x64_Debug/TEST_op_Compare.o
-                0x000000006e231370                TEST_PMC_Compare_I_X
-                0x000000006e2314a5                TEST_PMC_Compare_L_X
-                0x000000006e2315db                TEST_PMC_Compare_X_I
-                0x000000006e231710                TEST_PMC_Compare_X_L
-                0x000000006e231846                TEST_PMC_Compare_X_X
- .text          0x000000006e231a00      0xcc0 ../build/x64_Debug/TEST_op_DivRem.o
-                0x000000006e231a5b                TEST_PMC_DivRem_I_X
-                0x000000006e231bd5                TEST_PMC_DivRem_L_X
-                0x000000006e231d54                TEST_PMC_DivRem_X_I
-                0x000000006e231fff                TEST_PMC_DivRem_X_L
-                0x000000006e2322ad                TEST_PMC_DivRem_X_X
- .text          0x000000006e2326c0      0x690 ../build/x64_Debug/TEST_op_Equals.o
-                0x000000006e2326c0                TEST_PMC_Equals_I_X
-                0x000000006e2327f5                TEST_PMC_Equals_L_X
-                0x000000006e23292b                TEST_PMC_Equals_X_I
-                0x000000006e232a60                TEST_PMC_Equals_X_L
-                0x000000006e232b96                TEST_PMC_Equals_X_X
- .text          0x000000006e232d50      0xca0 ../build/x64_Debug/TEST_op_ExclusiveOr.o
-                0x000000006e232dab                TEST_PMC_ExclusiveOr_I_X
-                0x000000006e232ffe                TEST_PMC_ExclusiveOr_L_X
-                0x000000006e233252                TEST_PMC_ExclusiveOr_X_I
-                0x000000006e2334a5                TEST_PMC_ExclusiveOr_X_L
-                0x000000006e2336f9                TEST_PMC_ExclusiveOr_X_X
- .text          0x000000006e2339f0      0x640 ../build/x64_Debug/TEST_op_From_To.o
-                0x000000006e233a4b                TEST_PMC_From_I
-                0x000000006e233bfd                TEST_PMC_From_L
-                0x000000006e233db0                TEST_PMC_To_X_I
-                0x000000006e233eeb                TEST_PMC_To_X_L
- .text          0x000000006e234030      0xd00 ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
-                0x000000006e23408b                TEST_PMC_GreatestCommonDivisor_I_X
-                0x000000006e2342f0                TEST_PMC_GreatestCommonDivisor_L_X
-                0x000000006e234556                TEST_PMC_GreatestCommonDivisor_X_I
-                0x000000006e2347bb                TEST_PMC_GreatestCommonDivisor_X_L
-                0x000000006e234a21                TEST_PMC_GreatestCommonDivisor_X_X
- .text          0x000000006e234d30      0x410 ../build/x64_Debug/TEST_op_ModPow.o
-                0x000000006e234d8b                TEST_PMC_ModPow_X_X_X
- .text          0x000000006e235140      0xca0 ../build/x64_Debug/TEST_op_Multiply.o
-                0x000000006e23519b                TEST_PMC_Multiply_I_X
-                0x000000006e2353ee                TEST_PMC_Multiply_L_X
-                0x000000006e235642                TEST_PMC_Multiply_X_I
-                0x000000006e235895                TEST_PMC_Multiply_X_L
-                0x000000006e235ae9                TEST_PMC_Multiply_X_X
- .text          0x000000006e235de0      0x450 ../build/x64_Debug/TEST_op_ParseDN.o
-                0x000000006e235e3b                TEST_PMC_ParseDN1
-                0x000000006e23602b                TEST_PMC_ParseDN2
- .text          0x000000006e236230      0x260 ../build/x64_Debug/TEST_op_ParseX.o
-                0x000000006e23628b                TEST_PMC_ParseX
- .text          0x000000006e236490      0x240 ../build/x64_Debug/TEST_op_Pow.o
-                0x000000006e2364eb                TEST_PMC_Pow_X_I
- .text          0x000000006e2366d0      0x890 ../build/x64_Debug/TEST_op_Remainder.o
-                0x000000006e23672b                TEST_PMC_Remainder_I_X
-                0x000000006e236871                TEST_PMC_Remainder_L_X
-                0x000000006e2369ba                TEST_PMC_Remainder_X_I
-                0x000000006e236b00                TEST_PMC_Remainder_X_L
-                0x000000006e236c49                TEST_PMC_Remainder_X_X
- .text          0x000000006e236f60      0x510 ../build/x64_Debug/TEST_op_Shift.o
-                0x000000006e236fbb                TEST_PMC_RightShift_X_I
-                0x000000006e23720e                TEST_PMC_LeftShift_X_I
- .text          0x000000006e237470      0xab0 ../build/x64_Debug/TEST_op_Subtruct.o
-                0x000000006e2374cb                TEST_PMC_Subtruct_I_X
-                0x000000006e237608                TEST_PMC_Subtruct_L_X
-                0x000000006e237748                TEST_PMC_Subtruct_X_I
-                0x000000006e2379ad                TEST_PMC_Subtruct_X_L
-                0x000000006e237c13                TEST_PMC_Subtruct_X_X
- .text          0x000000006e237f20      0x200 ../build/x64_Debug/TEST_op_ToStringD.o
-                0x000000006e237f20                TEST_PMC_ToStringD
- .text          0x000000006e238120      0x1f0 ../build/x64_Debug/TEST_op_ToStringN.o
-                0x000000006e238120                TEST_PMC_ToStringN
- .text          0x000000006e238310      0x200 ../build/x64_Debug/TEST_op_ToStringX.o
-                0x000000006e238310                TEST_PMC_ToStringX
- .text          0x000000006e238510        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01555.o)
-                0x000000006e238510                lstrlenW
- .text          0x000000006e238518        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01549.o)
-                0x000000006e238518                lstrcpyW
- .text          0x000000006e238520        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01548.o)
-                0x000000006e238520                lstrcpyA
- .text          0x000000006e238528        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01543.o)
-                0x000000006e238528                lstrcmpW
- .text          0x000000006e238530        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00841.o)
-                0x000000006e238530                HeapFree
- .text          0x000000006e238538        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00839.o)
-                0x000000006e238538                HeapDestroy
- .text          0x000000006e238540        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00837.o)
-                0x000000006e238540                HeapCreate
- .text          0x000000006e238548        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00835.o)
-                0x000000006e238548                HeapAlloc
- .text          0x000000006e238550        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00774.o)
-                0x000000006e238550                GetTickCount
- *fill*         0x000000006e238558        0x8 
- .text          0x000000006e238560        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifh.o)
- .text          0x000000006e238560        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqift.o)
- .text          0x000000006e238560        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqes00958.o)
-                0x000000006e238560                wsprintfW
- *fill*         0x000000006e238568        0x8 
- .text          0x000000006e238570        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqeh.o)
- .text          0x000000006e238570        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqet.o)
+                0x000000006ddc6578                PMC_Compare_X_I
+                0x000000006ddc670b                PMC_Compare_L_X
+                0x000000006ddc67ab                PMC_Compare_X_L
+                0x000000006ddc6844                PMC_Compare_X_X
+                0x000000006ddc69c3                Initialize_Compare
+ .text          0x000000006ddc69e0     0x5fd0 ../build/x64_Debug/pmc_divrem.o
+                0x000000006ddc78a4                DivRem_X_X
+                0x000000006ddc7a0f                Rem_X_1W
+                0x000000006ddc8475                DivRem_X_1W
+                0x000000006ddcb7d2                PMC_DivRem_I_X
+                0x000000006ddcb93e                PMC_DivRem_X_I
+                0x000000006ddcbbf0                PMC_DivRem_L_X
+                0x000000006ddcbde3                PMC_DivRem_X_L
+                0x000000006ddcc0f9                PMC_DivRem_X_X
+                0x000000006ddcc960                Initialize_DivRem
+ .text          0x000000006ddcc9b0      0x540 ../build/x64_Debug/pmc_equals.o
+                0x000000006ddccb75                PMC_Equals_I_X
+                0x000000006ddccbfc                PMC_Equals_X_I
+                0x000000006ddccc7f                PMC_Equals_L_X
+                0x000000006ddccd08                PMC_Equals_X_L
+                0x000000006ddccd8e                PMC_Equals_X_X
+                0x000000006ddccede                Initialize_Equals
+ .text          0x000000006ddccef0     0x1400 ../build/x64_Debug/pmc_exclusiveor.o
+                0x000000006ddcdca0                PMC_ExclusiveOr_I_X
+                0x000000006ddcdd3d                PMC_ExclusiveOr_X_I
+                0x000000006ddcdf69                PMC_ExclusiveOr_L_X
+                0x000000006ddce008                PMC_ExclusiveOr_X_L
+                0x000000006ddce0a7                PMC_ExclusiveOr_X_X
+                0x000000006ddce2da                Initialize_ExclusiveOr
+ .text          0x000000006ddce2f0      0x250 ../build/x64_Debug/pmc_from.o
+                0x000000006ddce353                From_I_Imp
+                0x000000006ddce3bf                From_L_Imp
+                0x000000006ddce439                PMC_From_I
+                0x000000006ddce4ae                PMC_From_L
+                0x000000006ddce526                Initialize_From
+ .text          0x000000006ddce540     0x1080 ../build/x64_Debug/pmc_greatestcommondivisor.o
+                0x000000006ddceb35                PMC_GreatestCommonDivisor_I_X
+                0x000000006ddcebca                PMC_GreatestCommonDivisor_X_I
+                0x000000006ddcf04b                PMC_GreatestCommonDivisor_L_X
+                0x000000006ddcf0e2                PMC_GreatestCommonDivisor_X_L
+                0x000000006ddcf176                PMC_GreatestCommonDivisor_X_X
+                0x000000006ddcf5a9                Initialize_GreatestCommonDivisor
+ .text          0x000000006ddcf5c0      0x7f0 ../build/x64_Debug/pmc_initialize.o
+                0x000000006ddcf6f5                PMC_UINT_Initialize
+ .text          0x000000006ddcfdb0     0x18e0 ../build/x64_Debug/pmc_memory.o
+                0x000000006ddd0960                AllocateBlock
+                0x000000006ddd0a9c                DeallocateBlock
+                0x000000006ddd0bf2                CheckBlockLight
+                0x000000006ddd0ebc                AttatchNumber
+                0x000000006ddd0f09                AllocateNumber
+                0x000000006ddd0f99                DetatchNumber
+                0x000000006ddd0fcd                DeallocateNumber
+                0x000000006ddd112e                CommitNumber
+                0x000000006ddd1321                CheckNumber
+                0x000000006ddd13b8                DuplicateNumber
+                0x000000006ddd1490                PMC_GetConstantValue_I
+                0x000000006ddd14da                PMC_Dispose
+                0x000000006ddd1519                Initialize_Memory
+                0x000000006ddd15f7                AllocateHeapArea
+                0x000000006ddd1646                DeallocateHeapArea
+ .text          0x000000006ddd1690     0x1070 ../build/x64_Debug/pmc_modpow.o
+                0x000000006ddd25f2                PMC_ModPow_X_X_X
+                0x000000006ddd26f0                Initialize_ModPow
+ .text          0x000000006ddd2700     0x2650 ../build/x64_Debug/pmc_multiply.o
+                0x000000006ddd2958                Multiply_X_X_Imp
+                0x000000006ddd4697                PMC_Multiply_I_X
+                0x000000006ddd472c                PMC_Multiply_X_I
+                0x000000006ddd4949                PMC_Multiply_L_X
+                0x000000006ddd49e0                PMC_Multiply_X_L
+                0x000000006ddd4a74                PMC_Multiply_X_X
+                0x000000006ddd4cc0                Initialize_Multiply
+ .text          0x000000006ddd4d50     0x3610 ../build/x64_Debug/pmc_parse.o
+                0x000000006ddd818f                PMC_TryParse
+                0x000000006ddd828e                Initialize_Parse
+ .text          0x000000006ddd8360      0x590 ../build/x64_Debug/pmc_pow.o
+                0x000000006ddd884e                PMC_Pow_X_I
+                0x000000006ddd88df                Initialize_Pow
+ .text          0x000000006ddd88f0     0x4d40 ../build/x64_Debug/pmc_shift.o
+                0x000000006ddd8a76                RightShift_Imp
+                0x000000006ddd9c98                RightShift_Imp_DIV
+                0x000000006dddaeba                LeftShift_Imp
+                0x000000006dddc0d2                LeftShift_Imp_DIV
+                0x000000006dddd2ea                PMC_RightShift_X_I
+                0x000000006dddd48f                PMC_LeftShift_X_I
+                0x000000006dddd615                Initialize_Shift
+ .text          0x000000006dddd630       0x50 ../build/x64_Debug/pmc_statistics.o
+                0x000000006dddd630                PMC_GetStatisticsInfo
+ .text          0x000000006dddd680     0x1200 ../build/x64_Debug/pmc_subtruct.o
+                0x000000006dddde0a                Subtruct_Imp
+                0x000000006ddddfe8                PMC_Subtruct_I_X
+                0x000000006ddde10a                PMC_Subtruct_X_I
+                0x000000006ddde314                PMC_Subtruct_L_X
+                0x000000006ddde439                PMC_Subtruct_X_L
+                0x000000006ddde646                PMC_Subtruct_X_X
+                0x000000006ddde86f                Initialize_Subtruct
+ .text          0x000000006ddde880      0x190 ../build/x64_Debug/pmc_to.o
+                0x000000006ddde89c                PMC_To_X_I
+                0x000000006ddde91b                PMC_To_X_L
+                0x000000006ddde9fe                Initialize_To
+ .text          0x000000006dddea10     0x1b20 ../build/x64_Debug/pmc_tostring.o
+                0x000000006dde0303                PMC_ToString
+                0x000000006dde0498                Initialize_ToString
+ .text          0x000000006dde0530   0x44eaf0 ../build/x64_Debug/TEST_autogenerated.o
+                0x000000006dde0530                TEST_autogenerated
+ .text          0x000000006e22f020      0xca0 ../build/x64_Debug/TEST_op_Add.o
+                0x000000006e22f07b                TEST_PMC_Add_I_X
+                0x000000006e22f2cb                TEST_PMC_Add_L_X
+                0x000000006e22f51f                TEST_PMC_Add_X_I
+                0x000000006e22f772                TEST_PMC_Add_X_L
+                0x000000006e22f9c6                TEST_PMC_Add_X_X
+ .text          0x000000006e22fcc0      0x830 ../build/x64_Debug/TEST_op_BitwiseAnd.o
+                0x000000006e22fd1b                TEST_PMC_BitwiseAnd_I_X
+                0x000000006e22fe50                TEST_PMC_BitwiseAnd_L_X
+                0x000000006e22ff88                TEST_PMC_BitwiseAnd_X_I
+                0x000000006e2300bd                TEST_PMC_BitwiseAnd_X_L
+                0x000000006e2301f5                TEST_PMC_BitwiseAnd_X_X
+ .text          0x000000006e2304f0      0xca0 ../build/x64_Debug/TEST_op_BitwiseOr.o
+                0x000000006e23054b                TEST_PMC_BitwiseOr_I_X
+                0x000000006e23079e                TEST_PMC_BitwiseOr_L_X
+                0x000000006e2309f2                TEST_PMC_BitwiseOr_X_I
+                0x000000006e230c45                TEST_PMC_BitwiseOr_X_L
+                0x000000006e230e99                TEST_PMC_BitwiseOr_X_X
+ .text          0x000000006e231190      0x2b0 ../build/x64_Debug/TEST_op_Clone.o
+                0x000000006e2311eb                TEST_PMC_Clone_X
+ .text          0x000000006e231440      0x690 ../build/x64_Debug/TEST_op_Compare.o
+                0x000000006e231440                TEST_PMC_Compare_I_X
+                0x000000006e231575                TEST_PMC_Compare_L_X
+                0x000000006e2316ab                TEST_PMC_Compare_X_I
+                0x000000006e2317e0                TEST_PMC_Compare_X_L
+                0x000000006e231916                TEST_PMC_Compare_X_X
+ .text          0x000000006e231ad0      0xcc0 ../build/x64_Debug/TEST_op_DivRem.o
+                0x000000006e231b2b                TEST_PMC_DivRem_I_X
+                0x000000006e231ca5                TEST_PMC_DivRem_L_X
+                0x000000006e231e24                TEST_PMC_DivRem_X_I
+                0x000000006e2320cf                TEST_PMC_DivRem_X_L
+                0x000000006e23237d                TEST_PMC_DivRem_X_X
+ .text          0x000000006e232790      0x690 ../build/x64_Debug/TEST_op_Equals.o
+                0x000000006e232790                TEST_PMC_Equals_I_X
+                0x000000006e2328c5                TEST_PMC_Equals_L_X
+                0x000000006e2329fb                TEST_PMC_Equals_X_I
+                0x000000006e232b30                TEST_PMC_Equals_X_L
+                0x000000006e232c66                TEST_PMC_Equals_X_X
+ .text          0x000000006e232e20      0xca0 ../build/x64_Debug/TEST_op_ExclusiveOr.o
+                0x000000006e232e7b                TEST_PMC_ExclusiveOr_I_X
+                0x000000006e2330ce                TEST_PMC_ExclusiveOr_L_X
+                0x000000006e233322                TEST_PMC_ExclusiveOr_X_I
+                0x000000006e233575                TEST_PMC_ExclusiveOr_X_L
+                0x000000006e2337c9                TEST_PMC_ExclusiveOr_X_X
+ .text          0x000000006e233ac0      0x640 ../build/x64_Debug/TEST_op_From_To.o
+                0x000000006e233b1b                TEST_PMC_From_I
+                0x000000006e233ccd                TEST_PMC_From_L
+                0x000000006e233e80                TEST_PMC_To_X_I
+                0x000000006e233fbb                TEST_PMC_To_X_L
+ .text          0x000000006e234100      0xd00 ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
+                0x000000006e23415b                TEST_PMC_GreatestCommonDivisor_I_X
+                0x000000006e2343c0                TEST_PMC_GreatestCommonDivisor_L_X
+                0x000000006e234626                TEST_PMC_GreatestCommonDivisor_X_I
+                0x000000006e23488b                TEST_PMC_GreatestCommonDivisor_X_L
+                0x000000006e234af1                TEST_PMC_GreatestCommonDivisor_X_X
+ .text          0x000000006e234e00      0x410 ../build/x64_Debug/TEST_op_ModPow.o
+                0x000000006e234e5b                TEST_PMC_ModPow_X_X_X
+ .text          0x000000006e235210      0xca0 ../build/x64_Debug/TEST_op_Multiply.o
+                0x000000006e23526b                TEST_PMC_Multiply_I_X
+                0x000000006e2354be                TEST_PMC_Multiply_L_X
+                0x000000006e235712                TEST_PMC_Multiply_X_I
+                0x000000006e235965                TEST_PMC_Multiply_X_L
+                0x000000006e235bb9                TEST_PMC_Multiply_X_X
+ .text          0x000000006e235eb0      0x450 ../build/x64_Debug/TEST_op_ParseDN.o
+                0x000000006e235f0b                TEST_PMC_ParseDN1
+                0x000000006e2360fb                TEST_PMC_ParseDN2
+ .text          0x000000006e236300      0x260 ../build/x64_Debug/TEST_op_ParseX.o
+                0x000000006e23635b                TEST_PMC_ParseX
+ .text          0x000000006e236560      0x240 ../build/x64_Debug/TEST_op_Pow.o
+                0x000000006e2365bb                TEST_PMC_Pow_X_I
+ .text          0x000000006e2367a0      0x890 ../build/x64_Debug/TEST_op_Remainder.o
+                0x000000006e2367fb                TEST_PMC_Remainder_I_X
+                0x000000006e236941                TEST_PMC_Remainder_L_X
+                0x000000006e236a8a                TEST_PMC_Remainder_X_I
+                0x000000006e236bd0                TEST_PMC_Remainder_X_L
+                0x000000006e236d19                TEST_PMC_Remainder_X_X
+ .text          0x000000006e237030      0x510 ../build/x64_Debug/TEST_op_Shift.o
+                0x000000006e23708b                TEST_PMC_RightShift_X_I
+                0x000000006e2372de                TEST_PMC_LeftShift_X_I
+ .text          0x000000006e237540      0xab0 ../build/x64_Debug/TEST_op_Subtruct.o
+                0x000000006e23759b                TEST_PMC_Subtruct_I_X
+                0x000000006e2376d8                TEST_PMC_Subtruct_L_X
+                0x000000006e237818                TEST_PMC_Subtruct_X_I
+                0x000000006e237a7d                TEST_PMC_Subtruct_X_L
+                0x000000006e237ce3                TEST_PMC_Subtruct_X_X
+ .text          0x000000006e237ff0      0x200 ../build/x64_Debug/TEST_op_ToStringD.o
+                0x000000006e237ff0                TEST_PMC_ToStringD
+ .text          0x000000006e2381f0      0x1f0 ../build/x64_Debug/TEST_op_ToStringN.o
+                0x000000006e2381f0                TEST_PMC_ToStringN
+ .text          0x000000006e2383e0      0x200 ../build/x64_Debug/TEST_op_ToStringX.o
+                0x000000006e2383e0                TEST_PMC_ToStringX
+ .text          0x000000006e2385e0        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01555.o)
+                0x000000006e2385e0                lstrlenW
+ .text          0x000000006e2385e8        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01549.o)
+                0x000000006e2385e8                lstrcpyW
+ .text          0x000000006e2385f0        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01548.o)
+                0x000000006e2385f0                lstrcpyA
+ .text          0x000000006e2385f8        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs01543.o)
+                0x000000006e2385f8                lstrcmpW
+ .text          0x000000006e238600        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00841.o)
+                0x000000006e238600                HeapFree
+ .text          0x000000006e238608        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00839.o)
+                0x000000006e238608                HeapDestroy
+ .text          0x000000006e238610        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00837.o)
+                0x000000006e238610                HeapCreate
+ .text          0x000000006e238618        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00835.o)
+                0x000000006e238618                HeapAlloc
+ .text          0x000000006e238620        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifs00774.o)
+                0x000000006e238620                GetTickCount
+ *fill*         0x000000006e238628        0x8 
+ .text          0x000000006e238630        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqifh.o)
+ .text          0x000000006e238630        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libkernel32.a(dqift.o)
+ .text          0x000000006e238630        0x8 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqes00958.o)
+                0x000000006e238630                wsprintfW
+ *fill*         0x000000006e238638        0x8 
+ .text          0x000000006e238640        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqeh.o)
+ .text          0x000000006e238640        0x0 C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/lib/../lib/libuser32.a(dyqet.o)
  *(SORT_BY_NAME(.text$*))
  *(.text.*)
  *(.gnu.linkonce.t.*)
  *(.glue_7t)
  *(.glue_7)
-                0x000000006e238570                . = ALIGN (0x8)
-                0x000000006e238570                ___CTOR_LIST__ = .
-                0x000000006e238570                __CTOR_LIST__ = .
-                0x000000006e238570        0x4 LONG 0xffffffffffffffff
-                0x000000006e238574        0x4 LONG 0xffffffffffffffff
+                0x000000006e238640                . = ALIGN (0x8)
+                0x000000006e238640                ___CTOR_LIST__ = .
+                0x000000006e238640                __CTOR_LIST__ = .
+                0x000000006e238640        0x4 LONG 0xffffffffffffffff
+                0x000000006e238644        0x4 LONG 0xffffffffffffffff
  *(.ctors)
  *(.ctor)
  *(SORT_BY_NAME(.ctors.*))
-                0x000000006e238578        0x4 LONG 0x0
-                0x000000006e23857c        0x4 LONG 0x0
-                0x000000006e238580                ___DTOR_LIST__ = .
-                0x000000006e238580                __DTOR_LIST__ = .
-                0x000000006e238580        0x4 LONG 0xffffffffffffffff
-                0x000000006e238584        0x4 LONG 0xffffffffffffffff
+                0x000000006e238648        0x4 LONG 0x0
+                0x000000006e23864c        0x4 LONG 0x0
+                0x000000006e238650                ___DTOR_LIST__ = .
+                0x000000006e238650                __DTOR_LIST__ = .
+                0x000000006e238650        0x4 LONG 0xffffffffffffffff
+                0x000000006e238654        0x4 LONG 0xffffffffffffffff
  *(.dtors)
  *(.dtor)
  *(SORT_BY_NAME(.dtors.*))
-                0x000000006e238588        0x4 LONG 0x0
-                0x000000006e23858c        0x4 LONG 0x0
+                0x000000006e238658        0x4 LONG 0x0
+                0x000000006e23865c        0x4 LONG 0x0
  *(.fini)
  *(.gcc_exc)
                 [!provide]                        PROVIDE (etext = .)
@@ -1292,43 +1291,43 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .debug_info    0x000000006e35d8e1     0x4f2e ../build/x64_Debug/pmc_clone.o
  .debug_info    0x000000006e36280f     0x53a4 ../build/x64_Debug/pmc_compare.o
  .debug_info    0x000000006e367bb3     0x77c0 ../build/x64_Debug/pmc_divrem.o
- .debug_info    0x000000006e36f373     0x536d ../build/x64_Debug/pmc_equals.o
- .debug_info    0x000000006e3746e0     0x5729 ../build/x64_Debug/pmc_exclusiveor.o
- .debug_info    0x000000006e379e09     0x512e ../build/x64_Debug/pmc_from.o
- .debug_info    0x000000006e37ef37     0x5a4f ../build/x64_Debug/pmc_greatestcommondivisor.o
- .debug_info    0x000000006e384986     0x5f10 ../build/x64_Debug/pmc_initialize.o
- .debug_info    0x000000006e38a896     0x5fca ../build/x64_Debug/pmc_memory.o
- .debug_info    0x000000006e390860     0x55f2 ../build/x64_Debug/pmc_modpow.o
- .debug_info    0x000000006e395e52     0x6305 ../build/x64_Debug/pmc_multiply.o
- .debug_info    0x000000006e39c157     0x69d5 ../build/x64_Debug/pmc_parse.o
- .debug_info    0x000000006e3a2b2c     0x53d0 ../build/x64_Debug/pmc_pow.o
- .debug_info    0x000000006e3a7efc     0x57c3 ../build/x64_Debug/pmc_shift.o
- .debug_info    0x000000006e3ad6bf     0x4d17 ../build/x64_Debug/pmc_statistics.o
- .debug_info    0x000000006e3b23d6     0x5a6b ../build/x64_Debug/pmc_subtruct.o
- .debug_info    0x000000006e3b7e41     0x4fda ../build/x64_Debug/pmc_to.o
- .debug_info    0x000000006e3bce1b     0x64af ../build/x64_Debug/pmc_tostring.o
- .debug_info    0x000000006e3c32ca    0xc4b1b ../build/x64_Debug/TEST_autogenerated.o
- .debug_info    0x000000006e487de5     0x5e78 ../build/x64_Debug/TEST_op_Add.o
- .debug_info    0x000000006e48dc5d     0x5ddb ../build/x64_Debug/TEST_op_BitwiseAnd.o
- .debug_info    0x000000006e493a38     0x5e90 ../build/x64_Debug/TEST_op_BitwiseOr.o
- .debug_info    0x000000006e4998c8     0x5a50 ../build/x64_Debug/TEST_op_Clone.o
- .debug_info    0x000000006e49f318     0x5cdb ../build/x64_Debug/TEST_op_Compare.o
- .debug_info    0x000000006e4a4ff3     0x5f5b ../build/x64_Debug/TEST_op_DivRem.o
- .debug_info    0x000000006e4aaf4e     0x5cd5 ../build/x64_Debug/TEST_op_Equals.o
- .debug_info    0x000000006e4b0c23     0x5e9c ../build/x64_Debug/TEST_op_ExclusiveOr.o
- .debug_info    0x000000006e4b6abf     0x5c58 ../build/x64_Debug/TEST_op_From_To.o
- .debug_info    0x000000006e4bc717     0x5f35 ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
- .debug_info    0x000000006e4c264c     0x5b0e ../build/x64_Debug/TEST_op_ModPow.o
- .debug_info    0x000000006e4c815a     0x5e96 ../build/x64_Debug/TEST_op_Multiply.o
- .debug_info    0x000000006e4cdff0     0x5c42 ../build/x64_Debug/TEST_op_ParseDN.o
- .debug_info    0x000000006e4d3c32     0x5abb ../build/x64_Debug/TEST_op_ParseX.o
- .debug_info    0x000000006e4d96ed     0x5a82 ../build/x64_Debug/TEST_op_Pow.o
- .debug_info    0x000000006e4df16f     0x5e21 ../build/x64_Debug/TEST_op_Remainder.o
- .debug_info    0x000000006e4e4f90     0x5b35 ../build/x64_Debug/TEST_op_Shift.o
- .debug_info    0x000000006e4eaac5     0x5e6c ../build/x64_Debug/TEST_op_Subtruct.o
- .debug_info    0x000000006e4f0931     0x5a3d ../build/x64_Debug/TEST_op_ToStringD.o
- .debug_info    0x000000006e4f636e     0x5aa6 ../build/x64_Debug/TEST_op_ToStringN.o
- .debug_info    0x000000006e4fbe14     0x5a3d ../build/x64_Debug/TEST_op_ToStringX.o
+ .debug_info    0x000000006e36f373     0x534d ../build/x64_Debug/pmc_equals.o
+ .debug_info    0x000000006e3746c0     0x5729 ../build/x64_Debug/pmc_exclusiveor.o
+ .debug_info    0x000000006e379de9     0x512e ../build/x64_Debug/pmc_from.o
+ .debug_info    0x000000006e37ef17     0x5a4f ../build/x64_Debug/pmc_greatestcommondivisor.o
+ .debug_info    0x000000006e384966     0x5f10 ../build/x64_Debug/pmc_initialize.o
+ .debug_info    0x000000006e38a876     0x5fca ../build/x64_Debug/pmc_memory.o
+ .debug_info    0x000000006e390840     0x55f2 ../build/x64_Debug/pmc_modpow.o
+ .debug_info    0x000000006e395e32     0x6305 ../build/x64_Debug/pmc_multiply.o
+ .debug_info    0x000000006e39c137     0x69d5 ../build/x64_Debug/pmc_parse.o
+ .debug_info    0x000000006e3a2b0c     0x53d0 ../build/x64_Debug/pmc_pow.o
+ .debug_info    0x000000006e3a7edc     0x57c3 ../build/x64_Debug/pmc_shift.o
+ .debug_info    0x000000006e3ad69f     0x4d17 ../build/x64_Debug/pmc_statistics.o
+ .debug_info    0x000000006e3b23b6     0x5a6b ../build/x64_Debug/pmc_subtruct.o
+ .debug_info    0x000000006e3b7e21     0x4fda ../build/x64_Debug/pmc_to.o
+ .debug_info    0x000000006e3bcdfb     0x64af ../build/x64_Debug/pmc_tostring.o
+ .debug_info    0x000000006e3c32aa    0xc4b1b ../build/x64_Debug/TEST_autogenerated.o
+ .debug_info    0x000000006e487dc5     0x5e78 ../build/x64_Debug/TEST_op_Add.o
+ .debug_info    0x000000006e48dc3d     0x5ddb ../build/x64_Debug/TEST_op_BitwiseAnd.o
+ .debug_info    0x000000006e493a18     0x5e90 ../build/x64_Debug/TEST_op_BitwiseOr.o
+ .debug_info    0x000000006e4998a8     0x5a50 ../build/x64_Debug/TEST_op_Clone.o
+ .debug_info    0x000000006e49f2f8     0x5cdb ../build/x64_Debug/TEST_op_Compare.o
+ .debug_info    0x000000006e4a4fd3     0x5f5b ../build/x64_Debug/TEST_op_DivRem.o
+ .debug_info    0x000000006e4aaf2e     0x5cd5 ../build/x64_Debug/TEST_op_Equals.o
+ .debug_info    0x000000006e4b0c03     0x5e9c ../build/x64_Debug/TEST_op_ExclusiveOr.o
+ .debug_info    0x000000006e4b6a9f     0x5c58 ../build/x64_Debug/TEST_op_From_To.o
+ .debug_info    0x000000006e4bc6f7     0x5f35 ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
+ .debug_info    0x000000006e4c262c     0x5b0e ../build/x64_Debug/TEST_op_ModPow.o
+ .debug_info    0x000000006e4c813a     0x5e96 ../build/x64_Debug/TEST_op_Multiply.o
+ .debug_info    0x000000006e4cdfd0     0x5c42 ../build/x64_Debug/TEST_op_ParseDN.o
+ .debug_info    0x000000006e4d3c12     0x5abb ../build/x64_Debug/TEST_op_ParseX.o
+ .debug_info    0x000000006e4d96cd     0x5a82 ../build/x64_Debug/TEST_op_Pow.o
+ .debug_info    0x000000006e4df14f     0x5e21 ../build/x64_Debug/TEST_op_Remainder.o
+ .debug_info    0x000000006e4e4f70     0x5b35 ../build/x64_Debug/TEST_op_Shift.o
+ .debug_info    0x000000006e4eaaa5     0x5e6c ../build/x64_Debug/TEST_op_Subtruct.o
+ .debug_info    0x000000006e4f0911     0x5a3d ../build/x64_Debug/TEST_op_ToStringD.o
+ .debug_info    0x000000006e4f634e     0x5aa6 ../build/x64_Debug/TEST_op_ToStringN.o
+ .debug_info    0x000000006e4fbdf4     0x5a3d ../build/x64_Debug/TEST_op_ToStringX.o
 
 .zdebug_info
  *(.zdebug_info .zdebug.gnu.linkonce.wi.*)
@@ -1347,43 +1346,43 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .debug_abbrev  0x000000006e50378b      0x1ec ../build/x64_Debug/pmc_clone.o
  .debug_abbrev  0x000000006e503977      0x2e5 ../build/x64_Debug/pmc_compare.o
  .debug_abbrev  0x000000006e503c5c      0x46b ../build/x64_Debug/pmc_divrem.o
- .debug_abbrev  0x000000006e5040c7      0x2d3 ../build/x64_Debug/pmc_equals.o
- .debug_abbrev  0x000000006e50439a      0x374 ../build/x64_Debug/pmc_exclusiveor.o
- .debug_abbrev  0x000000006e50470e      0x288 ../build/x64_Debug/pmc_from.o
- .debug_abbrev  0x000000006e504996      0x358 ../build/x64_Debug/pmc_greatestcommondivisor.o
- .debug_abbrev  0x000000006e504cee      0x2b4 ../build/x64_Debug/pmc_initialize.o
- .debug_abbrev  0x000000006e504fa2      0x4d5 ../build/x64_Debug/pmc_memory.o
- .debug_abbrev  0x000000006e505477      0x2f8 ../build/x64_Debug/pmc_modpow.o
- .debug_abbrev  0x000000006e50576f      0x42c ../build/x64_Debug/pmc_multiply.o
- .debug_abbrev  0x000000006e505b9b      0x463 ../build/x64_Debug/pmc_parse.o
- .debug_abbrev  0x000000006e505ffe      0x329 ../build/x64_Debug/pmc_pow.o
- .debug_abbrev  0x000000006e506327      0x2fe ../build/x64_Debug/pmc_shift.o
- .debug_abbrev  0x000000006e506625      0x1aa ../build/x64_Debug/pmc_statistics.o
- .debug_abbrev  0x000000006e5067cf      0x31b ../build/x64_Debug/pmc_subtruct.o
- .debug_abbrev  0x000000006e506aea      0x206 ../build/x64_Debug/pmc_to.o
- .debug_abbrev  0x000000006e506cf0      0x42d ../build/x64_Debug/pmc_tostring.o
- .debug_abbrev  0x000000006e50711d      0x234 ../build/x64_Debug/TEST_autogenerated.o
- .debug_abbrev  0x000000006e507351      0x21a ../build/x64_Debug/TEST_op_Add.o
- .debug_abbrev  0x000000006e50756b      0x21a ../build/x64_Debug/TEST_op_BitwiseAnd.o
- .debug_abbrev  0x000000006e507785      0x21a ../build/x64_Debug/TEST_op_BitwiseOr.o
- .debug_abbrev  0x000000006e50799f      0x1f8 ../build/x64_Debug/TEST_op_Clone.o
- .debug_abbrev  0x000000006e507b97      0x21a ../build/x64_Debug/TEST_op_Compare.o
- .debug_abbrev  0x000000006e507db1      0x23c ../build/x64_Debug/TEST_op_DivRem.o
- .debug_abbrev  0x000000006e507fed      0x21a ../build/x64_Debug/TEST_op_Equals.o
- .debug_abbrev  0x000000006e508207      0x21a ../build/x64_Debug/TEST_op_ExclusiveOr.o
- .debug_abbrev  0x000000006e508421      0x21a ../build/x64_Debug/TEST_op_From_To.o
- .debug_abbrev  0x000000006e50863b      0x22b ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
- .debug_abbrev  0x000000006e508866      0x209 ../build/x64_Debug/TEST_op_ModPow.o
- .debug_abbrev  0x000000006e508a6f      0x21a ../build/x64_Debug/TEST_op_Multiply.o
- .debug_abbrev  0x000000006e508c89      0x24b ../build/x64_Debug/TEST_op_ParseDN.o
- .debug_abbrev  0x000000006e508ed4      0x218 ../build/x64_Debug/TEST_op_ParseX.o
- .debug_abbrev  0x000000006e5090ec      0x201 ../build/x64_Debug/TEST_op_Pow.o
- .debug_abbrev  0x000000006e5092ed      0x21a ../build/x64_Debug/TEST_op_Remainder.o
- .debug_abbrev  0x000000006e509507      0x21a ../build/x64_Debug/TEST_op_Shift.o
- .debug_abbrev  0x000000006e509721      0x21a ../build/x64_Debug/TEST_op_Subtruct.o
- .debug_abbrev  0x000000006e50993b      0x205 ../build/x64_Debug/TEST_op_ToStringD.o
- .debug_abbrev  0x000000006e509b40      0x205 ../build/x64_Debug/TEST_op_ToStringN.o
- .debug_abbrev  0x000000006e509d45      0x205 ../build/x64_Debug/TEST_op_ToStringX.o
+ .debug_abbrev  0x000000006e5040c7      0x2d1 ../build/x64_Debug/pmc_equals.o
+ .debug_abbrev  0x000000006e504398      0x374 ../build/x64_Debug/pmc_exclusiveor.o
+ .debug_abbrev  0x000000006e50470c      0x288 ../build/x64_Debug/pmc_from.o
+ .debug_abbrev  0x000000006e504994      0x358 ../build/x64_Debug/pmc_greatestcommondivisor.o
+ .debug_abbrev  0x000000006e504cec      0x2b4 ../build/x64_Debug/pmc_initialize.o
+ .debug_abbrev  0x000000006e504fa0      0x4d5 ../build/x64_Debug/pmc_memory.o
+ .debug_abbrev  0x000000006e505475      0x2f8 ../build/x64_Debug/pmc_modpow.o
+ .debug_abbrev  0x000000006e50576d      0x42c ../build/x64_Debug/pmc_multiply.o
+ .debug_abbrev  0x000000006e505b99      0x463 ../build/x64_Debug/pmc_parse.o
+ .debug_abbrev  0x000000006e505ffc      0x329 ../build/x64_Debug/pmc_pow.o
+ .debug_abbrev  0x000000006e506325      0x2fe ../build/x64_Debug/pmc_shift.o
+ .debug_abbrev  0x000000006e506623      0x1aa ../build/x64_Debug/pmc_statistics.o
+ .debug_abbrev  0x000000006e5067cd      0x31b ../build/x64_Debug/pmc_subtruct.o
+ .debug_abbrev  0x000000006e506ae8      0x206 ../build/x64_Debug/pmc_to.o
+ .debug_abbrev  0x000000006e506cee      0x42d ../build/x64_Debug/pmc_tostring.o
+ .debug_abbrev  0x000000006e50711b      0x234 ../build/x64_Debug/TEST_autogenerated.o
+ .debug_abbrev  0x000000006e50734f      0x21a ../build/x64_Debug/TEST_op_Add.o
+ .debug_abbrev  0x000000006e507569      0x21a ../build/x64_Debug/TEST_op_BitwiseAnd.o
+ .debug_abbrev  0x000000006e507783      0x21a ../build/x64_Debug/TEST_op_BitwiseOr.o
+ .debug_abbrev  0x000000006e50799d      0x1f8 ../build/x64_Debug/TEST_op_Clone.o
+ .debug_abbrev  0x000000006e507b95      0x21a ../build/x64_Debug/TEST_op_Compare.o
+ .debug_abbrev  0x000000006e507daf      0x23c ../build/x64_Debug/TEST_op_DivRem.o
+ .debug_abbrev  0x000000006e507feb      0x21a ../build/x64_Debug/TEST_op_Equals.o
+ .debug_abbrev  0x000000006e508205      0x21a ../build/x64_Debug/TEST_op_ExclusiveOr.o
+ .debug_abbrev  0x000000006e50841f      0x21a ../build/x64_Debug/TEST_op_From_To.o
+ .debug_abbrev  0x000000006e508639      0x22b ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
+ .debug_abbrev  0x000000006e508864      0x209 ../build/x64_Debug/TEST_op_ModPow.o
+ .debug_abbrev  0x000000006e508a6d      0x21a ../build/x64_Debug/TEST_op_Multiply.o
+ .debug_abbrev  0x000000006e508c87      0x24b ../build/x64_Debug/TEST_op_ParseDN.o
+ .debug_abbrev  0x000000006e508ed2      0x218 ../build/x64_Debug/TEST_op_ParseX.o
+ .debug_abbrev  0x000000006e5090ea      0x201 ../build/x64_Debug/TEST_op_Pow.o
+ .debug_abbrev  0x000000006e5092eb      0x21a ../build/x64_Debug/TEST_op_Remainder.o
+ .debug_abbrev  0x000000006e509505      0x21a ../build/x64_Debug/TEST_op_Shift.o
+ .debug_abbrev  0x000000006e50971f      0x21a ../build/x64_Debug/TEST_op_Subtruct.o
+ .debug_abbrev  0x000000006e509939      0x205 ../build/x64_Debug/TEST_op_ToStringD.o
+ .debug_abbrev  0x000000006e509b3e      0x205 ../build/x64_Debug/TEST_op_ToStringN.o
+ .debug_abbrev  0x000000006e509d43      0x205 ../build/x64_Debug/TEST_op_ToStringX.o
 
 .zdebug_abbrev
  *(.zdebug_abbrev)
@@ -1400,45 +1399,45 @@ LOAD C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86
  .debug_line    0x000000006e50c145      0x9b6 ../build/x64_Debug/pmc_bitwiseor.o
  .debug_line    0x000000006e50cafb      0x4fa ../build/x64_Debug/pmc_bytes.o
  .debug_line    0x000000006e50cff5      0x288 ../build/x64_Debug/pmc_clone.o
- .debug_line    0x000000006e50d27d      0x4c8 ../build/x64_Debug/pmc_compare.o
- .debug_line    0x000000006e50d745     0x1654 ../build/x64_Debug/pmc_divrem.o
- .debug_line    0x000000006e50ed99      0x40e ../build/x64_Debug/pmc_equals.o
- .debug_line    0x000000006e50f1a7      0x9f1 ../build/x64_Debug/pmc_exclusiveor.o
- .debug_line    0x000000006e50fb98      0x319 ../build/x64_Debug/pmc_from.o
- .debug_line    0x000000006e50feb1      0x747 ../build/x64_Debug/pmc_greatestcommondivisor.o
- .debug_line    0x000000006e5105f8      0x4a4 ../build/x64_Debug/pmc_initialize.o
- .debug_line    0x000000006e510a9c      0xac6 ../build/x64_Debug/pmc_memory.o
- .debug_line    0x000000006e511562      0x6d1 ../build/x64_Debug/pmc_modpow.o
- .debug_line    0x000000006e511c33      0x9da ../build/x64_Debug/pmc_multiply.o
- .debug_line    0x000000006e51260d     0x141c ../build/x64_Debug/pmc_parse.o
- .debug_line    0x000000006e513a29      0x4bc ../build/x64_Debug/pmc_pow.o
- .debug_line    0x000000006e513ee5     0x1b14 ../build/x64_Debug/pmc_shift.o
- .debug_line    0x000000006e5159f9      0x222 ../build/x64_Debug/pmc_statistics.o
- .debug_line    0x000000006e515c1b      0x753 ../build/x64_Debug/pmc_subtruct.o
- .debug_line    0x000000006e51636e      0x2f2 ../build/x64_Debug/pmc_to.o
- .debug_line    0x000000006e516660      0xb87 ../build/x64_Debug/pmc_tostring.o
- .debug_line    0x000000006e5171e7    0x21d5e ../build/x64_Debug/TEST_autogenerated.o
- .debug_line    0x000000006e538f45      0x483 ../build/x64_Debug/TEST_op_Add.o
- .debug_line    0x000000006e5393c8      0x3e8 ../build/x64_Debug/TEST_op_BitwiseAnd.o
- .debug_line    0x000000006e5397b0      0x489 ../build/x64_Debug/TEST_op_BitwiseOr.o
- .debug_line    0x000000006e539c39      0x2af ../build/x64_Debug/TEST_op_Clone.o
- .debug_line    0x000000006e539ee8      0x38c ../build/x64_Debug/TEST_op_Compare.o
- .debug_line    0x000000006e53a274      0x4a1 ../build/x64_Debug/TEST_op_DivRem.o
- .debug_line    0x000000006e53a715      0x38b ../build/x64_Debug/TEST_op_Equals.o
- .debug_line    0x000000006e53aaa0      0x490 ../build/x64_Debug/TEST_op_ExclusiveOr.o
- .debug_line    0x000000006e53af30      0x36e ../build/x64_Debug/TEST_op_From_To.o
- .debug_line    0x000000006e53b29e      0x4ae ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
- .debug_line    0x000000006e53b74c      0x2f8 ../build/x64_Debug/TEST_op_ModPow.o
- .debug_line    0x000000006e53ba44      0x488 ../build/x64_Debug/TEST_op_Multiply.o
- .debug_line    0x000000006e53becc      0x319 ../build/x64_Debug/TEST_op_ParseDN.o
- .debug_line    0x000000006e53c1e5      0x2b4 ../build/x64_Debug/TEST_op_ParseX.o
- .debug_line    0x000000006e53c499      0x2ad ../build/x64_Debug/TEST_op_Pow.o
- .debug_line    0x000000006e53c746      0x403 ../build/x64_Debug/TEST_op_Remainder.o
- .debug_line    0x000000006e53cb49      0x31c ../build/x64_Debug/TEST_op_Shift.o
- .debug_line    0x000000006e53ce65      0x450 ../build/x64_Debug/TEST_op_Subtruct.o
- .debug_line    0x000000006e53d2b5      0x289 ../build/x64_Debug/TEST_op_ToStringD.o
- .debug_line    0x000000006e53d53e      0x28a ../build/x64_Debug/TEST_op_ToStringN.o
- .debug_line    0x000000006e53d7c8      0x289 ../build/x64_Debug/TEST_op_ToStringX.o
+ .debug_line    0x000000006e50d27d      0x581 ../build/x64_Debug/pmc_compare.o
+ .debug_line    0x000000006e50d7fe     0x1654 ../build/x64_Debug/pmc_divrem.o
+ .debug_line    0x000000006e50ee52      0x462 ../build/x64_Debug/pmc_equals.o
+ .debug_line    0x000000006e50f2b4      0x9f1 ../build/x64_Debug/pmc_exclusiveor.o
+ .debug_line    0x000000006e50fca5      0x319 ../build/x64_Debug/pmc_from.o
+ .debug_line    0x000000006e50ffbe      0x747 ../build/x64_Debug/pmc_greatestcommondivisor.o
+ .debug_line    0x000000006e510705      0x4a4 ../build/x64_Debug/pmc_initialize.o
+ .debug_line    0x000000006e510ba9      0xac6 ../build/x64_Debug/pmc_memory.o
+ .debug_line    0x000000006e51166f      0x6d1 ../build/x64_Debug/pmc_modpow.o
+ .debug_line    0x000000006e511d40      0x9da ../build/x64_Debug/pmc_multiply.o
+ .debug_line    0x000000006e51271a     0x141c ../build/x64_Debug/pmc_parse.o
+ .debug_line    0x000000006e513b36      0x4bc ../build/x64_Debug/pmc_pow.o
+ .debug_line    0x000000006e513ff2     0x1b14 ../build/x64_Debug/pmc_shift.o
+ .debug_line    0x000000006e515b06      0x222 ../build/x64_Debug/pmc_statistics.o
+ .debug_line    0x000000006e515d28      0x753 ../build/x64_Debug/pmc_subtruct.o
+ .debug_line    0x000000006e51647b      0x2f2 ../build/x64_Debug/pmc_to.o
+ .debug_line    0x000000006e51676d      0xb87 ../build/x64_Debug/pmc_tostring.o
+ .debug_line    0x000000006e5172f4    0x21d5e ../build/x64_Debug/TEST_autogenerated.o
+ .debug_line    0x000000006e539052      0x483 ../build/x64_Debug/TEST_op_Add.o
+ .debug_line    0x000000006e5394d5      0x3e8 ../build/x64_Debug/TEST_op_BitwiseAnd.o
+ .debug_line    0x000000006e5398bd      0x489 ../build/x64_Debug/TEST_op_BitwiseOr.o
+ .debug_line    0x000000006e539d46      0x2af ../build/x64_Debug/TEST_op_Clone.o
+ .debug_line    0x000000006e539ff5      0x38c ../build/x64_Debug/TEST_op_Compare.o
+ .debug_line    0x000000006e53a381      0x4a1 ../build/x64_Debug/TEST_op_DivRem.o
+ .debug_line    0x000000006e53a822      0x38b ../build/x64_Debug/TEST_op_Equals.o
+ .debug_line    0x000000006e53abad      0x490 ../build/x64_Debug/TEST_op_ExclusiveOr.o
+ .debug_line    0x000000006e53b03d      0x36e ../build/x64_Debug/TEST_op_From_To.o
+ .debug_line    0x000000006e53b3ab      0x4ae ../build/x64_Debug/TEST_op_GreatestCommonDivisor.o
+ .debug_line    0x000000006e53b859      0x2f8 ../build/x64_Debug/TEST_op_ModPow.o
+ .debug_line    0x000000006e53bb51      0x488 ../build/x64_Debug/TEST_op_Multiply.o
+ .debug_line    0x000000006e53bfd9      0x319 ../build/x64_Debug/TEST_op_ParseDN.o
+ .debug_line    0x000000006e53c2f2      0x2b4 ../build/x64_Debug/TEST_op_ParseX.o
+ .debug_line    0x000000006e53c5a6      0x2ad ../build/x64_Debug/TEST_op_Pow.o
+ .debug_line    0x000000006e53c853      0x403 ../build/x64_Debug/TEST_op_Remainder.o
+ .debug_line    0x000000006e53cc56      0x31c ../build/x64_Debug/TEST_op_Shift.o
+ .debug_line    0x000000006e53cf72      0x450 ../build/x64_Debug/TEST_op_Subtruct.o
+ .debug_line    0x000000006e53d3c2      0x289 ../build/x64_Debug/TEST_op_ToStringD.o
+ .debug_line    0x000000006e53d64b      0x28a ../build/x64_Debug/TEST_op_ToStringN.o
+ .debug_line    0x000000006e53d8d5      0x289 ../build/x64_Debug/TEST_op_ToStringX.o
 
 .zdebug_line
  *(.zdebug_line)

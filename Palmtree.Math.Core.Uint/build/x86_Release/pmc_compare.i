@@ -49066,7 +49066,24 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
-# 422 "../pmc.h"
+# 397 "../pmc.h"
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+
+
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+# 428 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -101511,6 +101528,10 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_I_X(_UINT32_T u, PMC_HA
     _INT32_T w_temp;
     PMC_Compare_X_I_Imp((NUMBER_HEADER*)v, u, &w_temp);
     *w = -w_temp;
+
+
+
+
     return ((0));
 }
 
@@ -101522,15 +101543,15 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_I(PMC_HANDLE_UINT u, 
         return ((-256));
     }
     if (u == 
-# 130 "../pmc_compare.c" 3 4
+# 134 "../pmc_compare.c" 3 4
             ((void *)0)
-# 130 "../pmc_compare.c"
+# 134 "../pmc_compare.c"
                 )
         return ((-1));
     if (w == 
-# 132 "../pmc_compare.c" 3 4
+# 136 "../pmc_compare.c" 3 4
             ((void *)0)
-# 132 "../pmc_compare.c"
+# 136 "../pmc_compare.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;
@@ -101539,6 +101560,10 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_I(PMC_HANDLE_UINT u, 
     _INT32_T w_temp;
     PMC_Compare_X_I_Imp((NUMBER_HEADER*)u, v, &w_temp);
     *w = w_temp;
+
+
+
+
     return ((0));
 }
 
@@ -101668,15 +101693,15 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_L_X(_UINT64_T u, PMC_HA
         return ((-256));
     }
     if (v == 
-# 268 "../pmc_compare.c" 3 4
+# 276 "../pmc_compare.c" 3 4
             ((void *)0)
-# 268 "../pmc_compare.c"
+# 276 "../pmc_compare.c"
                 )
         return ((-1));
     if (w == 
-# 270 "../pmc_compare.c" 3 4
+# 278 "../pmc_compare.c" 3 4
             ((void *)0)
-# 270 "../pmc_compare.c"
+# 278 "../pmc_compare.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;
@@ -101685,6 +101710,10 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_L_X(_UINT64_T u, PMC_HA
     _INT32_T w_temp;
     PMC_Compare_X_L_Imp((NUMBER_HEADER*)v, u, &w_temp);
     *w = -w_temp;
+
+
+
+
     return ((0));
 }
 
@@ -101696,15 +101725,15 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_L(PMC_HANDLE_UINT u, 
         return ((-256));
     }
     if (u == 
-# 288 "../pmc_compare.c" 3 4
+# 300 "../pmc_compare.c" 3 4
             ((void *)0)
-# 288 "../pmc_compare.c"
+# 300 "../pmc_compare.c"
                 )
         return ((-1));
     if (w == 
-# 290 "../pmc_compare.c" 3 4
+# 302 "../pmc_compare.c" 3 4
             ((void *)0)
-# 290 "../pmc_compare.c"
+# 302 "../pmc_compare.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;
@@ -101713,27 +101742,31 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_L(PMC_HANDLE_UINT u, 
     _INT32_T w_temp;
     PMC_Compare_X_L_Imp((NUMBER_HEADER*)u, v, &w_temp);
     *w = w_temp;
+
+
+
+
     return ((0));
 }
 
 PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w)
 {
     if (u == 
-# 303 "../pmc_compare.c" 3 4
+# 319 "../pmc_compare.c" 3 4
             ((void *)0)
-# 303 "../pmc_compare.c"
+# 319 "../pmc_compare.c"
                 )
         return ((-1));
     if (v == 
-# 305 "../pmc_compare.c" 3 4
+# 321 "../pmc_compare.c" 3 4
             ((void *)0)
-# 305 "../pmc_compare.c"
+# 321 "../pmc_compare.c"
                 )
         return ((-1));
     if (w == 
-# 307 "../pmc_compare.c" 3 4
+# 323 "../pmc_compare.c" 3 4
             ((void *)0)
-# 307 "../pmc_compare.c"
+# 323 "../pmc_compare.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -101771,6 +101804,10 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Compare_X_X(PMC_HANDLE_UINT u, 
             *w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
         }
     }
+
+
+
+
     return ((0));
 }
 

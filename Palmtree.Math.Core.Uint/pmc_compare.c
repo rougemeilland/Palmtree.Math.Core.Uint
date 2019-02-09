@@ -117,6 +117,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _INT3
     _INT32_T w_temp;
     PMC_Compare_X_I_Imp((NUMBER_HEADER*)v, u, &w_temp);
     *w = -w_temp;
+#ifdef _DEBUG
+    if (*w != 0 && *w != 1 && *w != -1)
+        return (PMC_STATUS_INTERNAL_ERROR);
+#endif
     return (PMC_STATUS_OK);
 }
 
@@ -137,6 +141,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_I(PMC_HANDLE_UINT u, _UINT32_T v, _INT3
     _INT32_T w_temp;
     PMC_Compare_X_I_Imp((NUMBER_HEADER*)u, v, &w_temp);
     *w = w_temp;
+#ifdef _DEBUG
+    if (*w != 0 && *w != 1 && *w != -1)
+        return (PMC_STATUS_INTERNAL_ERROR);
+#endif
     return (PMC_STATUS_OK);
 }
 
@@ -275,6 +283,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _INT3
     _INT32_T w_temp;
     PMC_Compare_X_L_Imp((NUMBER_HEADER*)v, u, &w_temp);
     *w = -w_temp;
+#ifdef _DEBUG
+    if (*w != 0 && *w != 1 && *w != -1)
+        return (PMC_STATUS_INTERNAL_ERROR);
+#endif
     return (PMC_STATUS_OK);
 }
 
@@ -295,6 +307,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_L(PMC_HANDLE_UINT u, _UINT64_T v, _INT3
     _INT32_T w_temp;
     PMC_Compare_X_L_Imp((NUMBER_HEADER*)u, v, &w_temp);
     *w = w_temp;
+#ifdef _DEBUG
+    if (*w != 0 && *w != 1 && *w != -1)
+        return (PMC_STATUS_INTERNAL_ERROR);
+#endif
     return (PMC_STATUS_OK);
 }
 
@@ -341,6 +357,10 @@ PMC_STATUS_CODE __PMC_CALL PMC_Compare_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v,
             *w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
         }
     }
+#ifdef _DEBUG
+    if (*w != 0 && *w != 1 && *w != -1)
+        return (PMC_STATUS_INTERNAL_ERROR);
+#endif
     return (PMC_STATUS_OK);
 }
 

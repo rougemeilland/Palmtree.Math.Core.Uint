@@ -87823,7 +87823,24 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
     PMC_STATUS_CODE ( * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
     PMC_STATUS_CODE ( * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
-# 422 "../pmc.h"
+# 397 "../pmc.h"
+    PMC_STATUS_CODE ( * Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+
+
+    PMC_STATUS_CODE ( * Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
+    PMC_STATUS_CODE ( * Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
+# 428 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -89878,40 +89895,17 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 # 29 "../pmc_equals.c" 2
 
 
-_INT32_T Equals_X_X(__UNIT_TYPE* u, __UNIT_TYPE* v, __UNIT_TYPE count)
-{
-    while (count > 0)
-    {
-        if (*u != *v)
-            return (0);
-        ++u;
-        ++v;
-        --count;
-    }
-    return (1);
-}
-
-
-static PMC_STATUS_CODE PMC_Equals_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, _INT32_T* w)
+static _INT32_T Equals_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v)
 {
     if (u->IS_ZERO)
     {
 
-        if (v == 0)
-        {
-
-            *w = 1;
-        }
-        else
-        {
-
-            *w = 0;
-        }
+        return (v == 0);
     }
     else if (v == 0)
     {
 
-        *w = 0;
+        return (0);
     }
     else
     {
@@ -89921,92 +89915,28 @@ static PMC_STATUS_CODE PMC_Equals_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, _INT32_
         if (u_bit_count != v_bit_count)
         {
 
-            *w = 0;
+            return (0);
         }
         else
         {
 
 
-            *w = u->BLOCK[0] == v;
+            return ( u->BLOCK[0] == v);
         }
     }
-    return ((0));
 }
 
-PMC_STATUS_CODE PMC_Equals_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w)
-{
-    if ((sizeof(__UNIT_TYPE) * 8) < sizeof(u) * 8)
-    {
-
-        return ((-256));
-    }
-    if (v == 
-# 93 "../pmc_equals.c" 3 4
-            ((void *)0)
-# 93 "../pmc_equals.c"
-                )
-        return ((-1));
-    if (w == 
-# 95 "../pmc_equals.c" 3 4
-            ((void *)0)
-# 95 "../pmc_equals.c"
-                )
-        return ((-1));
-    PMC_STATUS_CODE result;
-    if ((result = CheckNumber((NUMBER_HEADER*)v)) != (0))
-        return (result);
-    if ((result = PMC_Equals_X_I_Imp((NUMBER_HEADER*)v, u, w)) != (0))
-        return (result);
-    return ((0));
-}
-
-PMC_STATUS_CODE PMC_Equals_X_I(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w)
-{
-    if ((sizeof(__UNIT_TYPE) * 8) < sizeof(v) * 8)
-    {
-
-        return ((-256));
-    }
-    if (u == 
-# 112 "../pmc_equals.c" 3 4
-            ((void *)0)
-# 112 "../pmc_equals.c"
-                )
-        return ((-1));
-    if (w == 
-# 114 "../pmc_equals.c" 3 4
-            ((void *)0)
-# 114 "../pmc_equals.c"
-                )
-        return ((-1));
-    PMC_STATUS_CODE result;
-    if ((result = CheckNumber((NUMBER_HEADER*)u)) != (0))
-        return (result);
-    if ((result = PMC_Equals_X_I_Imp((NUMBER_HEADER*)u, v, w)) != (0))
-        return (result);
-    return ((0));
-}
-
-static PMC_STATUS_CODE PMC_Equals_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, _INT32_T* w)
+static _INT32_T Equals_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v)
 {
     if (u->IS_ZERO)
     {
 
-        if (v == 0)
-        {
-
-            *w = 1;
-        }
-        else
-        {
-
-            *w = 0;
-        }
+        return (v == 0);
     }
     else if (v == 0)
     {
 
-        *w = 0;
+        return (0);
     }
     else
     {
@@ -90024,13 +89954,13 @@ static PMC_STATUS_CODE PMC_Equals_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, _INT32_
                 if (u_bit_count != v_bit_count)
                 {
 
-                    *w = 0;
+                    return (0);
                 }
                 else
                 {
 
 
-                    *w = u->BLOCK[0] == v_lo;
+                    return (u->BLOCK[0] == v_lo);
                 }
             }
             else
@@ -90040,13 +89970,13 @@ static PMC_STATUS_CODE PMC_Equals_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, _INT32_
                 if (u_bit_count != v_bit_count)
                 {
 
-                    *w = 0;
+                    return (0);
                 }
                 else
                 {
 
 
-                    *w = u->BLOCK[1] == v_hi && u->BLOCK[0] == v_lo;
+                    return (u->BLOCK[1] == v_hi && u->BLOCK[0] == v_lo);
                 }
             }
         }
@@ -90059,16 +89989,89 @@ static PMC_STATUS_CODE PMC_Equals_X_L_Imp(NUMBER_HEADER* u, _UINT64_T v, _INT32_
             if (u_bit_count != v_bit_count)
             {
 
-                *w = 0;
+                return (0);
             }
             else
             {
 
 
-                *w = u->BLOCK[0] == v;
+                return (u->BLOCK[0] == v);
             }
         }
     }
+    return ((0));
+}
+
+static _INT32_T Equals_X_X_Imp(__UNIT_TYPE* u, __UNIT_TYPE* v, __UNIT_TYPE count)
+{
+    while (count > 0)
+    {
+        if (*u != *v)
+            return (0);
+        ++u;
+        ++v;
+        --count;
+    }
+    return (1);
+}
+
+PMC_STATUS_CODE PMC_Equals_I_X(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w)
+{
+    if ((sizeof(__UNIT_TYPE) * 8) < sizeof(u) * 8)
+    {
+
+        return ((-256));
+    }
+    if (v == 
+# 158 "../pmc_equals.c" 3 4
+            ((void *)0)
+# 158 "../pmc_equals.c"
+                )
+        return ((-1));
+    if (w == 
+# 160 "../pmc_equals.c" 3 4
+            ((void *)0)
+# 160 "../pmc_equals.c"
+                )
+        return ((-1));
+    PMC_STATUS_CODE result;
+    if ((result = CheckNumber((NUMBER_HEADER*)v)) != (0))
+        return (result);
+    *w = Equals_X_I_Imp((NUMBER_HEADER*)v, u);
+
+    if (*w != 0 && *w != 1)
+        return ((-256));
+
+    return ((0));
+}
+
+PMC_STATUS_CODE PMC_Equals_X_I(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w)
+{
+    if ((sizeof(__UNIT_TYPE) * 8) < sizeof(v) * 8)
+    {
+
+        return ((-256));
+    }
+    if (u == 
+# 180 "../pmc_equals.c" 3 4
+            ((void *)0)
+# 180 "../pmc_equals.c"
+                )
+        return ((-1));
+    if (w == 
+# 182 "../pmc_equals.c" 3 4
+            ((void *)0)
+# 182 "../pmc_equals.c"
+                )
+        return ((-1));
+    PMC_STATUS_CODE result;
+    if ((result = CheckNumber((NUMBER_HEADER*)u)) != (0))
+        return (result);
+    *w = Equals_X_I_Imp((NUMBER_HEADER*)u, v);
+
+    if (*w != 0 && *w != 1)
+        return ((-256));
+
     return ((0));
 }
 
@@ -90080,22 +90083,25 @@ PMC_STATUS_CODE PMC_Equals_L_X(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w)
         return ((-256));
     }
     if (v == 
-# 216 "../pmc_equals.c" 3 4
+# 202 "../pmc_equals.c" 3 4
             ((void *)0)
-# 216 "../pmc_equals.c"
+# 202 "../pmc_equals.c"
                 )
         return ((-1));
     if (w == 
-# 218 "../pmc_equals.c" 3 4
+# 204 "../pmc_equals.c" 3 4
             ((void *)0)
-# 218 "../pmc_equals.c"
+# 204 "../pmc_equals.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;
     if ((result = CheckNumber((NUMBER_HEADER*)v)) != (0))
         return (result);
-    if ((result = PMC_Equals_X_L_Imp((NUMBER_HEADER*)v, u, w)) != (0))
-        return (result);
+    *w = Equals_X_L_Imp((NUMBER_HEADER*)v, u);
+
+    if (*w != 0 && *w != 1)
+        return ((-256));
+
     return ((0));
 }
 
@@ -90107,43 +90113,46 @@ PMC_STATUS_CODE PMC_Equals_X_L(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w)
         return ((-256));
     }
     if (u == 
-# 235 "../pmc_equals.c" 3 4
+# 224 "../pmc_equals.c" 3 4
             ((void *)0)
-# 235 "../pmc_equals.c"
+# 224 "../pmc_equals.c"
                 )
         return ((-1));
     if (w == 
-# 237 "../pmc_equals.c" 3 4
+# 226 "../pmc_equals.c" 3 4
             ((void *)0)
-# 237 "../pmc_equals.c"
+# 226 "../pmc_equals.c"
                 )
         return ((-1));
     PMC_STATUS_CODE result;
     if ((result = CheckNumber((NUMBER_HEADER*)u)) != (0))
         return (result);
-    if ((result = PMC_Equals_X_L_Imp((NUMBER_HEADER*)u, v, w)) != (0))
-        return (result);
+    *w = Equals_X_L_Imp((NUMBER_HEADER*)u, v);
+
+    if (*w != 0 && *w != 1)
+        return ((-256));
+
     return ((0));
 }
 
 PMC_STATUS_CODE PMC_Equals_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w)
 {
     if (u == 
-# 249 "../pmc_equals.c" 3 4
+# 241 "../pmc_equals.c" 3 4
             ((void *)0)
-# 249 "../pmc_equals.c"
+# 241 "../pmc_equals.c"
                 )
         return ((-1));
     if (v == 
-# 251 "../pmc_equals.c" 3 4
+# 243 "../pmc_equals.c" 3 4
             ((void *)0)
-# 251 "../pmc_equals.c"
+# 243 "../pmc_equals.c"
                 )
         return ((-1));
     if (w == 
-# 253 "../pmc_equals.c" 3 4
+# 245 "../pmc_equals.c" 3 4
             ((void *)0)
-# 253 "../pmc_equals.c"
+# 245 "../pmc_equals.c"
                 )
         return ((-1));
     NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
@@ -90173,9 +90182,13 @@ PMC_STATUS_CODE PMC_Equals_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w
         else
         {
 
-            *w = Equals_X_X(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
+            *w = Equals_X_X_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
         }
     }
+
+    if (*w != 0 && *w != 1)
+        return ((-256));
+
     return ((0));
 }
 

@@ -62,12 +62,12 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG95263 DB	',', 00H, 00H, 00H
-$SG95264 DB	'.', 00H, 00H, 00H
-$SG95265 DB	'3', 00H
+$SG95361 DB	',', 00H, 00H, 00H
+$SG95362 DB	'.', 00H, 00H, 00H
+$SG95363 DB	'3', 00H
 	ORG $+2
-$SG95266 DB	'+', 00H, 00H, 00H
-$SG95267 DB	'-', 00H, 00H, 00H
+$SG95364 DB	'+', 00H, 00H, 00H
+$SG95365 DB	'-', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -8006,7 +8006,7 @@ _Initialize_Parse PROC
 ; 1030 :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG95263
+	push	OFFSET $SG95361
 	push	OFFSET _default_number_format_option+4
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8015,7 +8015,7 @@ _Initialize_Parse PROC
 ; 1031 :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG95264
+	push	OFFSET $SG95362
 	push	OFFSET _default_number_format_option+10
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8024,7 +8024,7 @@ _Initialize_Parse PROC
 ; 1032 :     lstrcpy(default_number_format_option.GroupSizes, "3");
 
 	mov	esi, esp
-	push	OFFSET $SG95265
+	push	OFFSET $SG95363
 	push	OFFSET _default_number_format_option+28
 	call	DWORD PTR __imp__lstrcpyA@8
 	cmp	esi, esp
@@ -8033,7 +8033,7 @@ _Initialize_Parse PROC
 ; 1033 :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG95266
+	push	OFFSET $SG95364
 	push	OFFSET _default_number_format_option+16
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -8042,7 +8042,7 @@ _Initialize_Parse PROC
 ; 1034 :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG95267
+	push	OFFSET $SG95365
 	push	OFFSET _default_number_format_option+22
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp

@@ -402,12 +402,12 @@ LFB77:
 	movl	%eax, 8(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, 4(%esp)
-	movl	$_buffer.61586, (%esp)
+	movl	$_buffer.61642, (%esp)
 	movl	__imp__wsprintfW, %eax
 	call	*%eax
 LVL7:
 	.loc 1 124 12
-	movl	$_buffer.61586, %eax
+	movl	$_buffer.61642, %eax
 	.loc 1 125 1
 	leave
 	.cfi_restore 5
@@ -432,12 +432,12 @@ LFB78:
 	movl	%eax, 8(%esp)
 	movl	8(%ebp), %eax
 	movl	%eax, 4(%esp)
-	movl	$_buffer.61591, (%esp)
+	movl	$_buffer.61647, (%esp)
 	movl	__imp__wsprintfW, %eax
 	call	*%eax
 LVL8:
 	.loc 1 131 12
-	movl	$_buffer.61591, %eax
+	movl	$_buffer.61647, %eax
 	.loc 1 132 1
 	leave
 	.cfi_restore 5
@@ -548,8 +548,8 @@ LBE2:
 	ret
 	.cfi_endproc
 LFE79:
-.lcomm _buffer.61586,512,32
-.lcomm _buffer.61591,512,32
+.lcomm _buffer.61642,512,32
+.lcomm _buffer.61647,512,32
 Letext0:
 	.file 2 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5984,7 +5984,7 @@ Ldebug_info0:
 	.long	0x5cdd
 	.uleb128 0x5
 	.byte	0x3
-	.long	_buffer.61591
+	.long	_buffer.61647
 	.uleb128 0x28
 	.long	LVL8
 	.long	0x5edf
@@ -6042,7 +6042,7 @@ Ldebug_info0:
 	.long	0x5cdd
 	.uleb128 0x5
 	.byte	0x3
-	.long	_buffer.61586
+	.long	_buffer.61642
 	.uleb128 0x28
 	.long	LVL7
 	.long	0x5edf

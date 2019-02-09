@@ -420,12 +420,12 @@ FormatTestLabel:
 	movl	%edx, %r9d
 	movl	%eax, %r8d
 	movq	16(%rbp), %rdx
-	leaq	buffer.84613(%rip), %rcx
+	leaq	buffer.84669(%rip), %rcx
 	movq	__imp_wsprintfW(%rip), %rax
 	call	*%rax
 .LVL7:
 	.loc 1 124 12
-	leaq	buffer.84613(%rip), %rax
+	leaq	buffer.84669(%rip), %rax
 	.loc 1 125 1
 	addq	$32, %rsp
 	popq	%rbp
@@ -458,12 +458,12 @@ FormatTestMesssage:
 	movl	24(%rbp), %eax
 	movl	%eax, %r8d
 	movq	16(%rbp), %rdx
-	leaq	buffer.84618(%rip), %rcx
+	leaq	buffer.84674(%rip), %rcx
 	movq	__imp_wsprintfW(%rip), %rax
 	call	*%rax
 .LVL8:
 	.loc 1 131 12
-	leaq	buffer.84618(%rip), %rax
+	leaq	buffer.84674(%rip), %rax
 	.loc 1 132 1
 	addq	$32, %rsp
 	popq	%rbp
@@ -585,8 +585,8 @@ DumpBinary_UNIT:
 	.cfi_endproc
 .LFE4281:
 	.seh_endproc
-.lcomm buffer.84613,512,32
-.lcomm buffer.84618,512,32
+.lcomm buffer.84669,512,32
+.lcomm buffer.84674,512,32
 .Letext0:
 	.file 2 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -6017,7 +6017,7 @@ DumpBinary_UNIT:
 	.long	0x5d31
 	.uleb128 0x9
 	.byte	0x3
-	.quad	buffer.84618
+	.quad	buffer.84674
 	.uleb128 0x2a
 	.quad	.LVL8
 	.long	0x5f61
@@ -6075,7 +6075,7 @@ DumpBinary_UNIT:
 	.long	0x5d31
 	.uleb128 0x9
 	.byte	0x3
-	.quad	buffer.84613
+	.quad	buffer.84669
 	.uleb128 0x2a
 	.quad	.LVL7
 	.long	0x5f61

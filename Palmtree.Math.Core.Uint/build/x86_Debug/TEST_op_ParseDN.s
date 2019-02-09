@@ -203,9 +203,9 @@ LVL5:
 	movl	28(%eax), %eax
 	.loc 2 49 85
 	movl	-20(%ebp), %edx
-	movl	$_actual_buf_size.61558, 12(%esp)
+	movl	$_actual_buf_size.61614, 12(%esp)
 	movl	$256, 8(%esp)
-	movl	$_actual_buf.61557, 4(%esp)
+	movl	$_actual_buf.61613, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL6:
@@ -229,13 +229,13 @@ LVL6:
 	movl	%eax, (%esp)
 	call	_TEST_Assert
 	.loc 2 50 75
-	movl	_actual_buf_size.61558, %eax
+	movl	_actual_buf_size.61614, %eax
 	movl	52(%ebp), %edx
 	movl	%edx, 12(%esp)
 	movl	48(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
-	movl	$_actual_buf.61557, (%esp)
+	movl	$_actual_buf.61613, (%esp)
 	call	__EQUALS_MEMORY
 	.loc 2 50 9
 	testl	%eax, %eax
@@ -416,9 +416,9 @@ LVL13:
 	movl	28(%eax), %eax
 	.loc 2 73 85
 	movl	-20(%ebp), %edx
-	movl	$_actual_buf_size.61574, 12(%esp)
+	movl	$_actual_buf_size.61630, 12(%esp)
 	movl	$256, 8(%esp)
-	movl	$_actual_buf.61573, 4(%esp)
+	movl	$_actual_buf.61629, 4(%esp)
 	movl	%edx, (%esp)
 	call	*%eax
 LVL14:
@@ -442,13 +442,13 @@ LVL14:
 	movl	%eax, (%esp)
 	call	_TEST_Assert
 	.loc 2 74 75
-	movl	_actual_buf_size.61574, %eax
+	movl	_actual_buf_size.61630, %eax
 	movl	36(%ebp), %edx
 	movl	%edx, 12(%esp)
 	movl	32(%ebp), %edx
 	movl	%edx, 8(%esp)
 	movl	%eax, 4(%esp)
-	movl	$_actual_buf.61573, (%esp)
+	movl	$_actual_buf.61629, (%esp)
 	call	__EQUALS_MEMORY
 	.loc 2 74 9
 	testl	%eax, %eax
@@ -494,10 +494,10 @@ L14:
 	ret
 	.cfi_endproc
 LFE73:
-.lcomm _actual_buf.61557,256,32
-.lcomm _actual_buf_size.61558,4,4
-.lcomm _actual_buf.61573,256,32
-.lcomm _actual_buf_size.61574,4,4
+.lcomm _actual_buf.61613,256,32
+.lcomm _actual_buf_size.61614,4,4
+.lcomm _actual_buf.61629,256,32
+.lcomm _actual_buf_size.61630,4,4
 Letext0:
 	.file 3 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/excpt.h"
@@ -5702,7 +5702,7 @@ Ldebug_info0:
 	.long	0x1d2b
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf.61573
+	.long	_actual_buf.61629
 	.uleb128 0x22
 	.secrel32	LASF5
 	.byte	0x2
@@ -5711,7 +5711,7 @@ Ldebug_info0:
 	.long	0xc8
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf_size.61574
+	.long	_actual_buf_size.61630
 	.uleb128 0x21
 	.ascii "result\0"
 	.byte	0x2
@@ -5896,7 +5896,7 @@ Ldebug_info0:
 	.long	0x1d2b
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf.61557
+	.long	_actual_buf.61613
 	.uleb128 0x22
 	.secrel32	LASF5
 	.byte	0x2
@@ -5905,7 +5905,7 @@ Ldebug_info0:
 	.long	0xc8
 	.uleb128 0x5
 	.byte	0x3
-	.long	_actual_buf_size.61558
+	.long	_actual_buf_size.61614
 	.uleb128 0x21
 	.ascii "result\0"
 	.byte	0x2

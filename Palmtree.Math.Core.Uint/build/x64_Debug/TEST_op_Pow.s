@@ -207,7 +207,7 @@ TEST_PMC_Pow_X_I:
 	leaq	-40(%rbp), %rdx
 	movq	%rdx, %r9
 	movl	$65536, %r8d
-	leaq	actual_z_buf.84582(%rip), %rdx
+	leaq	actual_z_buf.84638(%rip), %rdx
 	call	*%rax
 .LVL2:
 	movl	%eax, -12(%rbp)
@@ -234,7 +234,7 @@ TEST_PMC_Pow_X_I:
 	movq	%rcx, %r9
 	movq	%rdx, %r8
 	movq	%rax, %rdx
-	leaq	actual_z_buf.84582(%rip), %rcx
+	leaq	actual_z_buf.84638(%rip), %rcx
 	call	_EQUALS_MEMORY
 	.loc 2 46 9
 	testl	%eax, %eax
@@ -291,7 +291,7 @@ TEST_PMC_Pow_X_I:
 	.cfi_endproc
 .LFE4274:
 	.seh_endproc
-.lcomm actual_z_buf.84582,65536,32
+.lcomm actual_z_buf.84638,65536,32
 .Letext0:
 	.file 3 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/crtdefs.h"
 	.file 4 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/excpt.h"
@@ -5502,7 +5502,7 @@ TEST_PMC_Pow_X_I:
 	.long	0x59fc
 	.uleb128 0x9
 	.byte	0x3
-	.quad	actual_z_buf.84582
+	.quad	actual_z_buf.84638
 	.uleb128 0x22
 	.ascii "actual_z_buf_size\0"
 	.byte	0x2
