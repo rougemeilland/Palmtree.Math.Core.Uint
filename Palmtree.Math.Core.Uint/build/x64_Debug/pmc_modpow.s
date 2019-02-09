@@ -1701,7 +1701,7 @@ Initialize_ModPow:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x55e7
+	.long	0x55ee
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5528,7 +5528,7 @@ Initialize_ModPow:
 	.byte	0x4
 	.byte	0x1f
 	.byte	0x6c
-	.byte	0xc
+	.byte	0x12
 	.long	0x4aa6
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
@@ -5571,21 +5571,23 @@ Initialize_ModPow:
 	.byte	0x1c
 	.byte	0
 	.byte	0
+	.uleb128 0x4
+	.long	0x4a40
 	.uleb128 0x1a
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1f
 	.byte	0x6a
 	.byte	0x7
-	.long	0x4ae2
+	.long	0x4ae9
 	.uleb128 0x1b
 	.ascii "FLAGS\0"
 	.byte	0x1f
 	.byte	0x72
 	.byte	0x7
-	.long	0x4a40
+	.long	0x4aa6
 	.uleb128 0x1b
-	.ascii "dummy\0"
+	.ascii "__dummy\0"
 	.byte	0x1f
 	.byte	0x76
 	.byte	0xf
@@ -5596,17 +5598,17 @@ Initialize_ModPow:
 	.byte	0x1f
 	.byte	0x7b
 	.byte	0x26
-	.long	0x4afa
+	.long	0x4b01
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4aa6
+	.long	0x4aab
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
 	.byte	0x91
 	.byte	0x10
-	.long	0x4b7c
+	.long	0x4b83
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
@@ -5641,17 +5643,17 @@ Initialize_ModPow:
 	.byte	0x1f
 	.byte	0x97
 	.byte	0x3
-	.long	0x4b00
+	.long	0x4b07
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4ae2
+	.long	0x4ae9
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x20
 	.byte	0x23
 	.byte	0x10
-	.long	0x4c6f
+	.long	0x4c76
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x20
@@ -5708,7 +5710,7 @@ Initialize_ModPow:
 	.byte	0x20
 	.byte	0x33
 	.byte	0x3
-	.long	0x4b9e
+	.long	0x4ba5
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
@@ -5716,14 +5718,14 @@ Initialize_ModPow:
 	.byte	0x13
 	.long	0x49a8
 	.uleb128 0x4
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x48
 	.byte	0x22
 	.byte	0x27
 	.byte	0x14
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x22
@@ -5783,28 +5785,28 @@ Initialize_ModPow:
 	.byte	0x22
 	.byte	0x30
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x22
 	.byte	0x31
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x22
 	.byte	0x32
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
 	.byte	0x33
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.byte	0x28
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
@@ -5828,18 +5830,18 @@ Initialize_ModPow:
 	.byte	0x22
 	.byte	0x3b
 	.byte	0x16
-	.long	0x4dd4
+	.long	0x4ddb
 	.byte	0x40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
 	.byte	0x3c
 	.byte	0x7
-	.long	0x4ca3
+	.long	0x4caa
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x22
@@ -5851,22 +5853,22 @@ Initialize_ModPow:
 	.byte	0x22
 	.byte	0x45
 	.byte	0x1a
-	.long	0x4dda
+	.long	0x4de1
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x22
 	.byte	0x48
 	.byte	0x1a
-	.long	0x4dda
+	.long	0x4de1
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x22
 	.byte	0x4b
 	.byte	0x20
-	.long	0x4b7c
+	.long	0x4b83
 	.uleb128 0x1c
 	.long	0x13a
-	.long	0x4e5a
+	.long	0x4e61
 	.uleb128 0x11
 	.long	0x81a
 	.uleb128 0x1d
@@ -5876,10 +5878,10 @@ Initialize_ModPow:
 	.byte	0x22
 	.word	0x130
 	.byte	0x2d
-	.long	0x4e6f
+	.long	0x4e76
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4e4a
+	.long	0x4e51
 	.uleb128 0x1e
 	.ascii "Initialize_ModPow\0"
 	.byte	0x3
@@ -5890,20 +5892,20 @@ Initialize_ModPow:
 	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4ebb
+	.long	0x4ec2
 	.uleb128 0x1f
 	.ascii "feature\0"
 	.byte	0x3
 	.word	0x240
 	.byte	0x37
-	.long	0x4ebb
+	.long	0x4ec2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c6f
+	.long	0x4c76
 	.uleb128 0x20
 	.ascii "PMC_ModPow_X_X_X\0"
 	.byte	0x3
@@ -5914,13 +5916,13 @@ Initialize_ModPow:
 	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4f3a
+	.long	0x4f41
 	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x226
 	.byte	0x32
-	.long	0x4ae2
+	.long	0x4ae9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -5929,7 +5931,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x226
 	.byte	0x45
-	.long	0x4ae2
+	.long	0x4ae9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -5938,7 +5940,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x226
 	.byte	0x58
-	.long	0x4ae2
+	.long	0x4ae9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -5947,7 +5949,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x226
 	.byte	0x6c
-	.long	0x4b98
+	.long	0x4b9f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -5971,13 +5973,13 @@ Initialize_ModPow:
 	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x1c7
 	.byte	0x3c
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -5986,7 +5988,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x1c7
 	.byte	0x4e
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -5995,7 +5997,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x1c7
 	.byte	0x60
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6004,7 +6006,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x1c7
 	.byte	0x73
-	.long	0x4fbd
+	.long	0x4fc4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -6020,10 +6022,10 @@ Initialize_ModPow:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4dda
+	.long	0x4de1
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x23
 	.ascii "ModulePower\0"
 	.byte	0x3
@@ -6034,13 +6036,13 @@ Initialize_ModPow:
 	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x529d
+	.long	0x52a4
 	.uleb128 0x24
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0x89
 	.byte	0x33
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6049,7 +6051,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x89
 	.byte	0x45
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6058,7 +6060,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x89
 	.byte	0x57
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6067,7 +6069,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x89
 	.byte	0x6a
-	.long	0x4fbd
+	.long	0x4fc4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -6085,7 +6087,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x8f
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6094,7 +6096,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x90
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -6103,7 +6105,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x94
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -6112,7 +6114,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x95
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -160
@@ -6121,7 +6123,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x96
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -168
@@ -6130,7 +6132,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x97
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -6139,7 +6141,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x9d
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -6148,7 +6150,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x9e
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -176
@@ -6157,7 +6159,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x9f
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -184
@@ -6166,7 +6168,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xa0
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
@@ -6175,7 +6177,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xa7
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
@@ -6184,7 +6186,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xa8
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -192
@@ -6193,7 +6195,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xa9
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -200
@@ -6202,7 +6204,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xaa
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
@@ -6211,7 +6213,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xb2
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -120
@@ -6220,7 +6222,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xb3
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -208
@@ -6229,7 +6231,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xb4
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -216
@@ -6238,7 +6240,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xb5
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -128
@@ -6247,7 +6249,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xbe
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -136
@@ -6256,7 +6258,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xbf
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -224
@@ -6265,7 +6267,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0xc9
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -6283,7 +6285,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x106
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -6292,7 +6294,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x107
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6301,7 +6303,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x112
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -232
@@ -6310,7 +6312,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x113
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -152
@@ -6319,7 +6321,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x114
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -240
@@ -6328,7 +6330,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.word	0x115
 	.byte	0x11
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6343,13 +6345,13 @@ Initialize_ModPow:
 	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x534a
+	.long	0x5351
 	.uleb128 0x24
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x61
 	.byte	0x31
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6358,7 +6360,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x61
 	.byte	0x43
-	.long	0x4fb7
+	.long	0x4fbe
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6367,7 +6369,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x61
 	.byte	0x56
-	.long	0x4fbd
+	.long	0x4fc4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6388,7 +6390,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x6c
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6397,7 +6399,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x6d
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6406,7 +6408,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x6e
 	.byte	0x16
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -6415,7 +6417,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x71
 	.byte	0x15
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6430,13 +6432,13 @@ Initialize_ModPow:
 	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5398
+	.long	0x539f
 	.uleb128 0x24
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x30
-	.long	0x5398
+	.long	0x539f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6445,7 +6447,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x5a
 	.byte	0x41
-	.long	0x5398
+	.long	0x539f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6454,14 +6456,14 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x5c
 	.byte	0x12
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x23
 	.ascii "Compare_Easy\0"
 	.byte	0x3
@@ -6472,13 +6474,13 @@ Initialize_ModPow:
 	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x540a
+	.long	0x5411
 	.uleb128 0x24
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x50
 	.byte	0x26
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6487,7 +6489,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x50
 	.byte	0x35
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6496,7 +6498,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x50
 	.byte	0x4b
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6505,7 +6507,7 @@ Initialize_ModPow:
 	.byte	0x3
 	.byte	0x50
 	.byte	0x5a
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -6520,13 +6522,13 @@ Initialize_ModPow:
 	.quad	.LFE4365-.LFB4365
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5458
+	.long	0x545f
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.word	0x26e
 	.byte	0x35
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6549,13 +6551,13 @@ Initialize_ModPow:
 	.quad	.LFE4327-.LFB4327
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x54d4
+	.long	0x54db
 	.uleb128 0x24
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x6d
 	.byte	0x39
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6564,29 +6566,29 @@ Initialize_ModPow:
 	.byte	0x1
 	.byte	0x6d
 	.byte	0x48
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x2b
-	.long	0x55b0
+	.long	0x55b7
 	.quad	.LBB8
 	.quad	.LBE8-.LBB8
 	.byte	0x1
 	.byte	0x72
 	.byte	0x9
 	.uleb128 0x2c
-	.long	0x55da
+	.long	0x55e1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2c
-	.long	0x55cc
+	.long	0x55d3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2c
-	.long	0x55be
+	.long	0x55c5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6601,13 +6603,13 @@ Initialize_ModPow:
 	.quad	.LFE4321-.LFB4321
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x555d
+	.long	0x5564
 	.uleb128 0x24
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x39
-	.long	0x4dd4
+	.long	0x4ddb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6616,7 +6618,7 @@ Initialize_ModPow:
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x4f
-	.long	0x555d
+	.long	0x5564
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6625,29 +6627,29 @@ Initialize_ModPow:
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x5e
-	.long	0x4c8a
+	.long	0x4c91
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x2b
-	.long	0x5563
+	.long	0x556a
 	.quad	.LBB6
 	.quad	.LBE6-.LBB6
 	.byte	0x1
 	.byte	0x40
 	.byte	0x9
 	.uleb128 0x2c
-	.long	0x559a
+	.long	0x55a1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2c
-	.long	0x558a
+	.long	0x5591
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2c
-	.long	0x5575
+	.long	0x557c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6655,14 +6657,14 @@ Initialize_ModPow:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c9e
+	.long	0x4ca5
 	.uleb128 0x2d
 	.ascii "__movsq\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x55aa
+	.long	0x55b1
 	.uleb128 0x2e
 	.ascii "Destination\0"
 	.byte	0x2
@@ -6674,7 +6676,7 @@ Initialize_ModPow:
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x49
-	.long	0x55aa
+	.long	0x55b1
 	.uleb128 0x2e
 	.ascii "Count\0"
 	.byte	0x2

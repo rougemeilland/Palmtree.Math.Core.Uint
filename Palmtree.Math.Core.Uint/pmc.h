@@ -105,17 +105,17 @@ typedef int PMC_NUMBER_STYLE_CODE;
 
 union __tag_PMC_HANDLE_UINT
 {
-    struct __tag_UINT_FLAGS
+    const struct __tag_UINT_FLAGS
     {
-        unsigned    IS_ZERO : 1;            // データが 0 なら TRUE
-        unsigned    IS_ONE : 1;             // データが 1 なら TRUE
-        unsigned    IS_EVEN : 1;            // データが 偶数 なら TRUE
-        unsigned    IS_POWER_OF_TWO : 1;    // データが 2 のべき乗なら TRUE
+        unsigned    IS_ZERO : 1;            // 数値が 0 なら TRUE
+        unsigned    IS_ONE : 1;             // 数値が 1 なら TRUE
+        unsigned    IS_EVEN : 1;            // 数値が偶数なら TRUE
+        unsigned    IS_POWER_OF_TWO : 1;    // 数値が 2 のべき乗なら TRUE
     } FLAGS;
 #ifdef _M_IX86
-    _UINT32_T dummy;
+    _UINT32_T __dummy;
 #elif defined(_M_IX64)
-    _UINT64_T dummy;
+    _UINT64_T __dummy;
 #else
 #error unknown platform
 #endif
@@ -124,18 +124,18 @@ typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
 union __tag_PMC_HANDLE_SINT
 {
-    struct __tag_SINT_FLAGS
+    const struct __tag_SINT_FLAGS
     {
-        unsigned    IS_ZERO : 1;            // データが 0 なら TRUE
-        unsigned    IS_ONE : 1;             // データが 1 なら TRUE
-        unsigned    IS_MINUS_ONE : 1;       // データが -1 なら TRUE
-        unsigned    IS_EVEN : 1;            // データが 偶数 なら TRUE
-        unsigned    IS_POWER_OF_TWO : 1;    // データが 2 のべき乗なら TRUE
+        unsigned    IS_ZERO : 1;            // 数値が 0 なら TRUE
+        unsigned    IS_ONE : 1;             // 数値が 1 なら TRUE
+        unsigned    IS_MINUS_ONE : 1;       // 数値が -1 なら TRUE
+        unsigned    IS_EVEN : 1;            // 数値が偶数なら TRUE
+        unsigned    IS_POWER_OF_TWO : 1;    // 数値が 2 のべき乗なら TRUE
     } FLAGS;
 #ifdef _M_IX86
-    _UINT32_T dummy;
+    _UINT32_T __dummy;
 #elif defined(_M_IX64)
-    _UINT64_T dummy;
+    _UINT64_T __dummy;
 #else
 #error unknown platform
 #endif

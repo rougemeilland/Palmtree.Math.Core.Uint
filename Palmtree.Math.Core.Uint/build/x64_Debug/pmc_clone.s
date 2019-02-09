@@ -165,7 +165,7 @@ Initialize_Clone:
 	.file 32 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x4f23
+	.long	0x4f2a
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -3987,7 +3987,7 @@ Initialize_Clone:
 	.byte	0x4
 	.byte	0x1d
 	.byte	0x6c
-	.byte	0xc
+	.byte	0x12
 	.long	0x4a9a
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
@@ -4030,21 +4030,23 @@ Initialize_Clone:
 	.byte	0x1c
 	.byte	0
 	.byte	0
+	.uleb128 0x4
+	.long	0x4a34
 	.uleb128 0x1a
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1d
 	.byte	0x6a
 	.byte	0x7
-	.long	0x4ad6
+	.long	0x4add
 	.uleb128 0x1b
 	.ascii "FLAGS\0"
 	.byte	0x1d
 	.byte	0x72
 	.byte	0x7
-	.long	0x4a34
+	.long	0x4a9a
 	.uleb128 0x1b
-	.ascii "dummy\0"
+	.ascii "__dummy\0"
 	.byte	0x1d
 	.byte	0x76
 	.byte	0xf
@@ -4055,17 +4057,17 @@ Initialize_Clone:
 	.byte	0x1d
 	.byte	0x7b
 	.byte	0x26
-	.long	0x4aee
+	.long	0x4af5
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4a9a
+	.long	0x4a9f
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
 	.byte	0x91
 	.byte	0x10
-	.long	0x4b70
+	.long	0x4b77
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
@@ -4100,17 +4102,17 @@ Initialize_Clone:
 	.byte	0x1d
 	.byte	0x97
 	.byte	0x3
-	.long	0x4af4
+	.long	0x4afb
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4ad6
+	.long	0x4add
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x1e
 	.byte	0x23
 	.byte	0x10
-	.long	0x4c63
+	.long	0x4c6a
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x1e
@@ -4167,7 +4169,7 @@ Initialize_Clone:
 	.byte	0x1e
 	.byte	0x33
 	.byte	0x3
-	.long	0x4b92
+	.long	0x4b99
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x1f
@@ -4180,7 +4182,7 @@ Initialize_Clone:
 	.byte	0x20
 	.byte	0x27
 	.byte	0x14
-	.long	0x4dc3
+	.long	0x4dca
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x20
@@ -4240,28 +4242,28 @@ Initialize_Clone:
 	.byte	0x20
 	.byte	0x30
 	.byte	0x15
-	.long	0x4c7e
+	.long	0x4c85
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x20
 	.byte	0x31
 	.byte	0x15
-	.long	0x4c7e
+	.long	0x4c85
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x20
 	.byte	0x32
 	.byte	0x15
-	.long	0x4c7e
+	.long	0x4c85
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x20
 	.byte	0x33
 	.byte	0x15
-	.long	0x4c7e
+	.long	0x4c85
 	.byte	0x28
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
@@ -4285,18 +4287,18 @@ Initialize_Clone:
 	.byte	0x20
 	.byte	0x3b
 	.byte	0x16
-	.long	0x4dc3
+	.long	0x4dca
 	.byte	0x40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c7e
+	.long	0x4c85
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x20
 	.byte	0x3c
 	.byte	0x7
-	.long	0x4c92
+	.long	0x4c99
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x20
@@ -4308,22 +4310,22 @@ Initialize_Clone:
 	.byte	0x20
 	.byte	0x45
 	.byte	0x1a
-	.long	0x4dc9
+	.long	0x4dd0
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x20
 	.byte	0x48
 	.byte	0x1a
-	.long	0x4dc9
+	.long	0x4dd0
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x20
 	.byte	0x4b
 	.byte	0x20
-	.long	0x4b70
+	.long	0x4b77
 	.uleb128 0x1c
 	.long	0x134
-	.long	0x4e49
+	.long	0x4e50
 	.uleb128 0x11
 	.long	0x80e
 	.uleb128 0x1d
@@ -4333,10 +4335,10 @@ Initialize_Clone:
 	.byte	0x20
 	.word	0x130
 	.byte	0x2d
-	.long	0x4e5e
+	.long	0x4e65
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4e39
+	.long	0x4e40
 	.uleb128 0x1e
 	.ascii "Initialize_Clone\0"
 	.byte	0x1
@@ -4347,20 +4349,20 @@ Initialize_Clone:
 	.quad	.LFE4285-.LFB4285
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4ea7
+	.long	0x4eae
 	.uleb128 0x1f
 	.ascii "feature\0"
 	.byte	0x1
 	.byte	0x38
 	.byte	0x36
-	.long	0x4ea7
+	.long	0x4eae
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c63
+	.long	0x4c6a
 	.uleb128 0x20
 	.ascii "PMC_Clone_X\0"
 	.byte	0x1
@@ -4371,13 +4373,13 @@ Initialize_Clone:
 	.quad	.LFE4284-.LFB4284
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4f20
+	.long	0x4f27
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.byte	0x1e
 	.byte	0x2d
-	.long	0x4ad6
+	.long	0x4add
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -4386,7 +4388,7 @@ Initialize_Clone:
 	.byte	0x1
 	.byte	0x1e
 	.byte	0x41
-	.long	0x4b8c
+	.long	0x4b93
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -4395,7 +4397,7 @@ Initialize_Clone:
 	.byte	0x1
 	.byte	0x24
 	.byte	0x14
-	.long	0x4f20
+	.long	0x4f27
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -4413,14 +4415,14 @@ Initialize_Clone:
 	.byte	0x1
 	.byte	0x28
 	.byte	0x14
-	.long	0x4f20
+	.long	0x4f27
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4dc9
+	.long	0x4dd0
 	.byte	0
 	.section	.debug_abbrev,"dr"
 .Ldebug_abbrev0:

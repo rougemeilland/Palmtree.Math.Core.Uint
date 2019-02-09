@@ -8033,7 +8033,7 @@ Initialize_Shift:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x57b8
+	.long	0x57bf
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -11866,7 +11866,7 @@ Initialize_Shift:
 	.byte	0x4
 	.byte	0x1f
 	.byte	0x6c
-	.byte	0xc
+	.byte	0x12
 	.long	0x4ab2
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
@@ -11909,21 +11909,23 @@ Initialize_Shift:
 	.byte	0x1c
 	.byte	0
 	.byte	0
+	.uleb128 0x4
+	.long	0x4a4c
 	.uleb128 0x1a
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1f
 	.byte	0x6a
 	.byte	0x7
-	.long	0x4aee
+	.long	0x4af5
 	.uleb128 0x1b
 	.ascii "FLAGS\0"
 	.byte	0x1f
 	.byte	0x72
 	.byte	0x7
-	.long	0x4a4c
+	.long	0x4ab2
 	.uleb128 0x1b
-	.ascii "dummy\0"
+	.ascii "__dummy\0"
 	.byte	0x1f
 	.byte	0x76
 	.byte	0xf
@@ -11934,17 +11936,17 @@ Initialize_Shift:
 	.byte	0x1f
 	.byte	0x7b
 	.byte	0x26
-	.long	0x4b06
+	.long	0x4b0d
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4ab2
+	.long	0x4ab7
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
 	.byte	0x91
 	.byte	0x10
-	.long	0x4b88
+	.long	0x4b8f
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
@@ -11979,17 +11981,17 @@ Initialize_Shift:
 	.byte	0x1f
 	.byte	0x97
 	.byte	0x3
-	.long	0x4b0c
+	.long	0x4b13
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4aee
+	.long	0x4af5
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x20
 	.byte	0x23
 	.byte	0x10
-	.long	0x4c7b
+	.long	0x4c82
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x20
@@ -12046,7 +12048,7 @@ Initialize_Shift:
 	.byte	0x20
 	.byte	0x33
 	.byte	0x3
-	.long	0x4baa
+	.long	0x4bb1
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
@@ -12054,22 +12056,22 @@ Initialize_Shift:
 	.byte	0x13
 	.long	0x49b4
 	.uleb128 0x4
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE_DIV\0"
 	.byte	0x21
 	.byte	0x3e
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x4
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x48
 	.byte	0x22
 	.byte	0x27
 	.byte	0x14
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x22
@@ -12129,28 +12131,28 @@ Initialize_Shift:
 	.byte	0x22
 	.byte	0x30
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x22
 	.byte	0x31
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x22
 	.byte	0x32
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
 	.byte	0x33
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.byte	0x28
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
@@ -12174,18 +12176,18 @@ Initialize_Shift:
 	.byte	0x22
 	.byte	0x3b
 	.byte	0x16
-	.long	0x4dfd
+	.long	0x4e04
 	.byte	0x40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
 	.byte	0x3c
 	.byte	0x7
-	.long	0x4ccc
+	.long	0x4cd3
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x22
@@ -12197,22 +12199,22 @@ Initialize_Shift:
 	.byte	0x22
 	.byte	0x45
 	.byte	0x1a
-	.long	0x4e03
+	.long	0x4e0a
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x22
 	.byte	0x48
 	.byte	0x1a
-	.long	0x4e03
+	.long	0x4e0a
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x22
 	.byte	0x4b
 	.byte	0x20
-	.long	0x4b88
+	.long	0x4b8f
 	.uleb128 0x1c
 	.long	0x139
-	.long	0x4e83
+	.long	0x4e8a
 	.uleb128 0x11
 	.long	0x826
 	.uleb128 0x1d
@@ -12222,10 +12224,10 @@ Initialize_Shift:
 	.byte	0x22
 	.word	0x130
 	.byte	0x2d
-	.long	0x4e98
+	.long	0x4e9f
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4e73
+	.long	0x4e7a
 	.uleb128 0x1e
 	.ascii "Initialize_Shift\0"
 	.byte	0x3
@@ -12236,20 +12238,20 @@ Initialize_Shift:
 	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4ee3
+	.long	0x4eea
 	.uleb128 0x1f
 	.ascii "feature\0"
 	.byte	0x3
 	.word	0x298
 	.byte	0x36
-	.long	0x4ee3
+	.long	0x4eea
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c7b
+	.long	0x4c82
 	.uleb128 0x20
 	.ascii "PMC_LeftShift_X_I\0"
 	.byte	0x3
@@ -12260,13 +12262,13 @@ Initialize_Shift:
 	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4fb8
+	.long	0x4fbf
 	.uleb128 0x1f
 	.ascii "p\0"
 	.byte	0x3
 	.word	0x26c
 	.byte	0x33
-	.long	0x4aee
+	.long	0x4af5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12284,7 +12286,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x26c
 	.byte	0x54
-	.long	0x4ba4
+	.long	0x4bab
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12293,7 +12295,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x277
 	.byte	0x14
-	.long	0x4fb8
+	.long	0x4fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12302,7 +12304,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x278
 	.byte	0x14
-	.long	0x4fb8
+	.long	0x4fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12323,7 +12325,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x286
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -12332,7 +12334,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x287
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -12341,7 +12343,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x288
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12349,7 +12351,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4e03
+	.long	0x4e0a
 	.uleb128 0x20
 	.ascii "PMC_RightShift_X_I\0"
 	.byte	0x3
@@ -12360,13 +12362,13 @@ Initialize_Shift:
 	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x50a0
+	.long	0x50a7
 	.uleb128 0x1f
 	.ascii "p\0"
 	.byte	0x3
 	.word	0x23b
 	.byte	0x34
-	.long	0x4aee
+	.long	0x4af5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12384,7 +12386,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x23b
 	.byte	0x55
-	.long	0x4ba4
+	.long	0x4bab
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12393,7 +12395,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x246
 	.byte	0x14
-	.long	0x4fb8
+	.long	0x4fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12402,7 +12404,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x247
 	.byte	0x14
-	.long	0x4fb8
+	.long	0x4fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12423,7 +12425,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x255
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -12435,7 +12437,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x25a
 	.byte	0x19
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -12444,7 +12446,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x25b
 	.byte	0x19
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12460,13 +12462,13 @@ Initialize_Shift:
 	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x1f
 	.ascii "p\0"
 	.byte	0x3
 	.word	0x1b4
 	.byte	0x29
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12475,7 +12477,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b4
 	.byte	0x38
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -12484,7 +12486,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b4
 	.byte	0x52
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12493,7 +12495,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b4
 	.byte	0x66
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -12511,7 +12513,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b6
 	.byte	0x16
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12520,7 +12522,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b7
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12529,7 +12531,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b8
 	.byte	0x16
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -12538,7 +12540,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1b9
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12547,7 +12549,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1ba
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -12559,7 +12561,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1c4
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -12568,7 +12570,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1c8
 	.byte	0x19
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -12577,7 +12579,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1c9
 	.byte	0x19
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -12586,7 +12588,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x1cf
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -12594,7 +12596,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x24
 	.ascii "LeftShift_Imp\0"
 	.byte	0x3
@@ -12604,13 +12606,13 @@ Initialize_Shift:
 	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x52dc
+	.long	0x52e3
 	.uleb128 0x1f
 	.ascii "p\0"
 	.byte	0x3
 	.word	0x12d
 	.byte	0x21
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12619,7 +12621,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x12d
 	.byte	0x30
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -12628,7 +12630,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x12d
 	.byte	0x4a
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12637,7 +12639,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x12d
 	.byte	0x5a
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -12655,7 +12657,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x12f
 	.byte	0x12
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12664,7 +12666,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x130
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12673,7 +12675,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x131
 	.byte	0x12
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -12682,7 +12684,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x132
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12691,7 +12693,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x133
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -12703,7 +12705,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x13d
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -12712,7 +12714,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x141
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -12721,7 +12723,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x142
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -12730,7 +12732,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x148
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -12745,13 +12747,13 @@ Initialize_Shift:
 	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x53ff
+	.long	0x5406
 	.uleb128 0x27
 	.ascii "p\0"
 	.byte	0x3
 	.byte	0xa6
 	.byte	0x2a
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12760,7 +12762,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xa6
 	.byte	0x39
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -12769,7 +12771,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xa6
 	.byte	0x53
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12778,7 +12780,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xa6
 	.byte	0x67
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -12796,7 +12798,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xa8
 	.byte	0x16
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12805,7 +12807,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xa9
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12814,7 +12816,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xaa
 	.byte	0x16
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -12823,7 +12825,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xac
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12832,7 +12834,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xad
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -12844,7 +12846,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xb8
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -12853,7 +12855,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xbb
 	.byte	0x19
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -12862,7 +12864,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xbc
 	.byte	0x19
-	.long	0x4caf
+	.long	0x4cb6
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
@@ -12871,7 +12873,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xbd
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -12880,7 +12882,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0xbf
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -12895,13 +12897,13 @@ Initialize_Shift:
 	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x551e
+	.long	0x5525
 	.uleb128 0x27
 	.ascii "p\0"
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x22
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12910,7 +12912,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x31
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -12919,7 +12921,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x4b
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -12928,7 +12930,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x5b
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -12946,7 +12948,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x21
 	.byte	0x12
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -12955,7 +12957,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x22
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -12964,7 +12966,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x23
 	.byte	0x12
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -12973,7 +12975,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x25
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -12982,7 +12984,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x26
 	.byte	0x11
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -12994,7 +12996,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x31
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -13003,7 +13005,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x34
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -13012,7 +13014,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x35
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
@@ -13021,7 +13023,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x36
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
@@ -13030,7 +13032,7 @@ Initialize_Shift:
 	.byte	0x3
 	.byte	0x38
 	.byte	0x15
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -13045,13 +13047,13 @@ Initialize_Shift:
 	.quad	.LFE4328-.LFB4328
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x559c
+	.long	0x55a3
 	.uleb128 0x27
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x78
 	.byte	0x41
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -13060,29 +13062,29 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x78
 	.byte	0x50
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x2c
-	.long	0x5781
+	.long	0x5788
 	.quad	.LBB16
 	.quad	.LBE16-.LBB16
 	.byte	0x1
 	.byte	0x80
 	.byte	0x9
 	.uleb128 0x2d
-	.long	0x57ab
+	.long	0x57b2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2d
-	.long	0x579d
+	.long	0x57a4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2d
-	.long	0x578f
+	.long	0x5796
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -13097,13 +13099,13 @@ Initialize_Shift:
 	.quad	.LFE4327-.LFB4327
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5616
+	.long	0x561d
 	.uleb128 0x27
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x6d
 	.byte	0x39
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -13112,29 +13114,29 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x6d
 	.byte	0x48
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x2c
-	.long	0x5781
+	.long	0x5788
 	.quad	.LBB14
 	.quad	.LBE14-.LBB14
 	.byte	0x1
 	.byte	0x72
 	.byte	0x9
 	.uleb128 0x2d
-	.long	0x57ab
+	.long	0x57b2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2d
-	.long	0x579d
+	.long	0x57a4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2d
-	.long	0x578f
+	.long	0x5796
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -13149,13 +13151,13 @@ Initialize_Shift:
 	.quad	.LFE4322-.LFB4322
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x56a1
+	.long	0x56a8
 	.uleb128 0x27
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x46
 	.byte	0x41
-	.long	0x51bd
+	.long	0x51c4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -13164,7 +13166,7 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x46
 	.byte	0x5b
-	.long	0x56a1
+	.long	0x56a8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -13173,29 +13175,29 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x46
 	.byte	0x6a
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x2c
-	.long	0x5734
+	.long	0x573b
 	.quad	.LBB12
 	.quad	.LBE12-.LBB12
 	.byte	0x1
 	.byte	0x4e
 	.byte	0x9
 	.uleb128 0x2d
-	.long	0x576b
+	.long	0x5772
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2d
-	.long	0x575b
+	.long	0x5762
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2d
-	.long	0x5746
+	.long	0x574d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -13203,7 +13205,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4cc7
+	.long	0x4cce
 	.uleb128 0x2b
 	.ascii "_COPY_MEMORY_UNIT\0"
 	.byte	0x1
@@ -13213,13 +13215,13 @@ Initialize_Shift:
 	.quad	.LFE4321-.LFB4321
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x572e
+	.long	0x5735
 	.uleb128 0x27
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x39
-	.long	0x4dfd
+	.long	0x4e04
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -13228,7 +13230,7 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x4f
-	.long	0x572e
+	.long	0x5735
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -13237,29 +13239,29 @@ Initialize_Shift:
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x5e
-	.long	0x4c96
+	.long	0x4c9d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x2c
-	.long	0x5734
+	.long	0x573b
 	.quad	.LBB10
 	.quad	.LBE10-.LBB10
 	.byte	0x1
 	.byte	0x40
 	.byte	0x9
 	.uleb128 0x2d
-	.long	0x576b
+	.long	0x5772
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x2d
-	.long	0x575b
+	.long	0x5762
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x2d
-	.long	0x5746
+	.long	0x574d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -13267,14 +13269,14 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4caa
+	.long	0x4cb1
 	.uleb128 0x2e
 	.ascii "__movsq\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x577b
+	.long	0x5782
 	.uleb128 0x2f
 	.ascii "Destination\0"
 	.byte	0x2
@@ -13286,7 +13288,7 @@ Initialize_Shift:
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x49
-	.long	0x577b
+	.long	0x5782
 	.uleb128 0x2f
 	.ascii "Count\0"
 	.byte	0x2

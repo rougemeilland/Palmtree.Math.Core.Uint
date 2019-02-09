@@ -48814,7 +48814,7 @@ typedef int PMC_NUMBER_STYLE_CODE;
 
 union __tag_PMC_HANDLE_UINT
 {
-    struct __tag_UINT_FLAGS
+    const struct __tag_UINT_FLAGS
     {
         unsigned IS_ZERO : 1;
         unsigned IS_ONE : 1;
@@ -48822,7 +48822,7 @@ union __tag_PMC_HANDLE_UINT
         unsigned IS_POWER_OF_TWO : 1;
     } FLAGS;
 
-    _UINT32_T dummy;
+    _UINT32_T __dummy;
 
 
 
@@ -48833,7 +48833,7 @@ typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
 union __tag_PMC_HANDLE_SINT
 {
-    struct __tag_SINT_FLAGS
+    const struct __tag_SINT_FLAGS
     {
         unsigned IS_ZERO : 1;
         unsigned IS_ONE : 1;
@@ -48842,7 +48842,7 @@ union __tag_PMC_HANDLE_SINT
         unsigned IS_POWER_OF_TWO : 1;
     } FLAGS;
 
-    _UINT32_T dummy;
+    _UINT32_T __dummy;
 
 
 

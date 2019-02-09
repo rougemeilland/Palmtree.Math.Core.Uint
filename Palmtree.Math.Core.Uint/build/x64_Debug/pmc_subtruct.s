@@ -2054,7 +2054,7 @@ Initialize_Subtruct:
 	.file 35 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x5a60
+	.long	0x5a67
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5879,7 +5879,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x20
 	.byte	0x6c
-	.byte	0xc
+	.byte	0x12
 	.long	0x4aa3
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
@@ -5922,21 +5922,23 @@ Initialize_Subtruct:
 	.byte	0x1c
 	.byte	0
 	.byte	0
+	.uleb128 0x4
+	.long	0x4a3d
 	.uleb128 0x1a
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x20
 	.byte	0x6a
 	.byte	0x7
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x1b
 	.ascii "FLAGS\0"
 	.byte	0x20
 	.byte	0x72
 	.byte	0x7
-	.long	0x4a3d
+	.long	0x4aa3
 	.uleb128 0x1b
-	.ascii "dummy\0"
+	.ascii "__dummy\0"
 	.byte	0x20
 	.byte	0x76
 	.byte	0xf
@@ -5947,17 +5949,17 @@ Initialize_Subtruct:
 	.byte	0x20
 	.byte	0x7b
 	.byte	0x26
-	.long	0x4af7
+	.long	0x4afe
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4aa3
+	.long	0x4aa8
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x20
 	.byte	0x91
 	.byte	0x10
-	.long	0x4b79
+	.long	0x4b80
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x20
@@ -5992,10 +5994,10 @@ Initialize_Subtruct:
 	.byte	0x20
 	.byte	0x97
 	.byte	0x3
-	.long	0x4afd
+	.long	0x4b04
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x4993
@@ -6008,7 +6010,7 @@ Initialize_Subtruct:
 	.byte	0x21
 	.byte	0x23
 	.byte	0x10
-	.long	0x4c78
+	.long	0x4c7f
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x21
@@ -6065,7 +6067,7 @@ Initialize_Subtruct:
 	.byte	0x21
 	.byte	0x33
 	.byte	0x3
-	.long	0x4ba7
+	.long	0x4bae
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x22
@@ -6078,7 +6080,7 @@ Initialize_Subtruct:
 	.byte	0x23
 	.byte	0x27
 	.byte	0x14
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
 	.byte	0x23
@@ -6138,28 +6140,28 @@ Initialize_Subtruct:
 	.byte	0x23
 	.byte	0x30
 	.byte	0x15
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x23
 	.byte	0x31
 	.byte	0x15
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
 	.byte	0x23
 	.byte	0x32
 	.byte	0x15
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x23
 	.byte	0x33
 	.byte	0x15
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0x28
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
@@ -6183,18 +6185,18 @@ Initialize_Subtruct:
 	.byte	0x23
 	.byte	0x3b
 	.byte	0x16
-	.long	0x4dd8
+	.long	0x4ddf
 	.byte	0x40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x23
 	.byte	0x3c
 	.byte	0x7
-	.long	0x4ca7
+	.long	0x4cae
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x23
@@ -6206,22 +6208,22 @@ Initialize_Subtruct:
 	.byte	0x23
 	.byte	0x45
 	.byte	0x1a
-	.long	0x4dde
+	.long	0x4de5
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x23
 	.byte	0x48
 	.byte	0x1a
-	.long	0x4dde
+	.long	0x4de5
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x23
 	.byte	0x4b
 	.byte	0x20
-	.long	0x4b79
+	.long	0x4b80
 	.uleb128 0x1c
 	.long	0x137
-	.long	0x4e5e
+	.long	0x4e65
 	.uleb128 0x11
 	.long	0x817
 	.uleb128 0x1d
@@ -6231,10 +6233,10 @@ Initialize_Subtruct:
 	.byte	0x23
 	.word	0x130
 	.byte	0x2d
-	.long	0x4e73
+	.long	0x4e7a
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4e4e
+	.long	0x4e55
 	.uleb128 0x1e
 	.ascii "Initialize_Subtruct\0"
 	.byte	0x4
@@ -6245,20 +6247,20 @@ Initialize_Subtruct:
 	.quad	.LFE4424-.LFB4424
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4ec1
+	.long	0x4ec8
 	.uleb128 0x1f
 	.ascii "feature\0"
 	.byte	0x4
 	.word	0x2e0
 	.byte	0x39
-	.long	0x4ec1
+	.long	0x4ec8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c78
+	.long	0x4c7f
 	.uleb128 0x20
 	.ascii "PMC_Subtruct_X_X\0"
 	.byte	0x4
@@ -6269,13 +6271,13 @@ Initialize_Subtruct:
 	.quad	.LFE4423-.LFB4423
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x4
 	.word	0x291
 	.byte	0x32
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6284,7 +6286,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x291
 	.byte	0x45
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6293,7 +6295,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x291
 	.byte	0x59
-	.long	0x4b95
+	.long	0x4b9c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6302,7 +6304,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x299
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -6311,7 +6313,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x29a
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -6329,7 +6331,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x2a0
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -6341,7 +6343,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x2c3
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6350,7 +6352,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x2c4
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6359,7 +6361,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x2ca
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -6368,7 +6370,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x2cb
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -6376,7 +6378,7 @@ Initialize_Subtruct:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4dde
+	.long	0x4de5
 	.uleb128 0x20
 	.ascii "PMC_Subtruct_X_L\0"
 	.byte	0x4
@@ -6387,13 +6389,13 @@ Initialize_Subtruct:
 	.quad	.LFE4422-.LFB4422
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x511a
+	.long	0x5121
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x4
 	.word	0x204
 	.byte	0x32
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6411,7 +6413,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x204
 	.byte	0x53
-	.long	0x4b95
+	.long	0x4b9c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6420,7 +6422,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x20f
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6438,18 +6440,18 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x213
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
 	.uleb128 0x24
-	.long	0x50c6
+	.long	0x50cd
 	.uleb128 0x25
 	.secrel32	.LASF3
 	.byte	0x4
 	.word	0x23c
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x26
 	.ascii "y_hi\0"
 	.byte	0x4
@@ -6463,25 +6465,25 @@ Initialize_Subtruct:
 	.byte	0x1b
 	.long	0x4993
 	.uleb128 0x24
-	.long	0x509c
+	.long	0x50a3
 	.uleb128 0x25
 	.secrel32	.LASF4
 	.byte	0x4
 	.word	0x242
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF5
 	.byte	0x4
 	.word	0x248
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF6
 	.byte	0x4
 	.word	0x249
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0
 	.uleb128 0x27
 	.uleb128 0x25
@@ -6489,19 +6491,19 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x257
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF5
 	.byte	0x4
 	.word	0x25d
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF6
 	.byte	0x4
 	.word	0x25e
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.byte	0
 	.byte	0
 	.uleb128 0x23
@@ -6512,7 +6514,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x26e
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6521,7 +6523,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x26f
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6530,7 +6532,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x275
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -6539,7 +6541,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x276
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
@@ -6555,7 +6557,7 @@ Initialize_Subtruct:
 	.quad	.LFE4421-.LFB4421
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x52a8
+	.long	0x52af
 	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x4
@@ -6570,7 +6572,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x15b
 	.byte	0x3f
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6579,7 +6581,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x15b
 	.byte	0x4d
-	.long	0x4ba1
+	.long	0x4ba8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6588,7 +6590,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x166
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -6602,7 +6604,7 @@ Initialize_Subtruct:
 	.byte	0x91
 	.sleb128 -20
 	.uleb128 0x24
-	.long	0x5242
+	.long	0x5249
 	.uleb128 0x26
 	.ascii "u_hi\0"
 	.byte	0x4
@@ -6616,26 +6618,26 @@ Initialize_Subtruct:
 	.byte	0x1b
 	.long	0x4993
 	.uleb128 0x24
-	.long	0x51f0
+	.long	0x51f7
 	.uleb128 0x25
 	.secrel32	.LASF7
 	.byte	0x4
 	.word	0x196
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF8
 	.byte	0x4
 	.word	0x197
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x27
 	.uleb128 0x25
 	.secrel32	.LASF9
 	.byte	0x4
 	.word	0x1a5
 	.byte	0x25
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF10
 	.byte	0x4
@@ -6650,26 +6652,26 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x1b5
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF8
 	.byte	0x4
 	.word	0x1b6
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x27
 	.uleb128 0x26
 	.ascii "temp_w_hi\0"
 	.byte	0x4
 	.word	0x1c4
 	.byte	0x25
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x26
 	.ascii "temp_w_lo\0"
 	.byte	0x4
 	.word	0x1c5
 	.byte	0x25
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x25
 	.secrel32	.LASF10
 	.byte	0x4
@@ -6687,7 +6689,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x1e3
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6696,7 +6698,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x1e4
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6708,7 +6710,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x1f2
 	.byte	0x21
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
@@ -6734,13 +6736,13 @@ Initialize_Subtruct:
 	.quad	.LFE4420-.LFB4420
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x539b
+	.long	0x53a2
 	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x4
 	.word	0x105
 	.byte	0x32
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6758,7 +6760,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x105
 	.byte	0x53
-	.long	0x4b95
+	.long	0x4b9c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6767,7 +6769,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x110
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -6785,7 +6787,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x114
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -6797,7 +6799,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x139
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6806,7 +6808,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x13a
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6815,7 +6817,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x140
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -6824,7 +6826,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.word	0x141
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
@@ -6840,7 +6842,7 @@ Initialize_Subtruct:
 	.quad	.LFE4419-.LFB4419
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x546f
+	.long	0x5476
 	.uleb128 0x29
 	.ascii "u\0"
 	.byte	0x4
@@ -6855,7 +6857,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xb5
 	.byte	0x3f
-	.long	0x4adf
+	.long	0x4ae6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6864,7 +6866,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xb5
 	.byte	0x4d
-	.long	0x4b9b
+	.long	0x4ba2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6873,7 +6875,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xc0
 	.byte	0x14
-	.long	0x4fb3
+	.long	0x4fba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
@@ -6894,7 +6896,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xe7
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -6903,7 +6905,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xe8
 	.byte	0x19
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
@@ -6915,7 +6917,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0xf4
 	.byte	0x1d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -6941,13 +6943,13 @@ Initialize_Subtruct:
 	.quad	.LFE4418-.LFB4418
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5514
+	.long	0x551b
 	.uleb128 0x29
 	.ascii "up\0"
 	.byte	0x4
 	.byte	0x75
 	.byte	0x2b
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -6956,7 +6958,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x75
 	.byte	0x3b
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -6965,7 +6967,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x75
 	.byte	0x51
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -6974,7 +6976,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x75
 	.byte	0x61
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -6983,7 +6985,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x75
 	.byte	0x77
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
@@ -6992,7 +6994,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x75
 	.byte	0x87
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
@@ -7010,7 +7012,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x7a
 	.byte	0x11
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -7025,13 +7027,13 @@ Initialize_Subtruct:
 	.quad	.LFE4417-.LFB4417
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x55ba
+	.long	0x55c1
 	.uleb128 0x29
 	.ascii "up\0"
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x33
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -7040,7 +7042,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x43
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7049,7 +7051,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x58
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7058,7 +7060,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x6a
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7067,7 +7069,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x7d
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
@@ -7076,7 +7078,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x5a
 	.byte	0x8d
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
@@ -7104,13 +7106,13 @@ Initialize_Subtruct:
 	.quad	.LFE4416-.LFB4416
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x563b
+	.long	0x5642
 	.uleb128 0x29
 	.ascii "up\0"
 	.byte	0x4
 	.byte	0x4e
 	.byte	0x33
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -7119,7 +7121,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x4e
 	.byte	0x43
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7128,7 +7130,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x4e
 	.byte	0x58
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7137,7 +7139,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x4e
 	.byte	0x68
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7146,7 +7148,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x4e
 	.byte	0x78
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
@@ -7170,7 +7172,7 @@ Initialize_Subtruct:
 	.quad	.LFE4415-.LFB4415
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x56aa
+	.long	0x56b1
 	.uleb128 0x29
 	.ascii "c\0"
 	.byte	0x4
@@ -7185,7 +7187,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x20
 	.byte	0x36
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7194,7 +7196,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x20
 	.byte	0x46
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7203,7 +7205,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x20
 	.byte	0x5c
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7212,7 +7214,7 @@ Initialize_Subtruct:
 	.byte	0x4
 	.byte	0x20
 	.byte	0x6c
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
@@ -7227,7 +7229,7 @@ Initialize_Subtruct:
 	.quad	.LFE4410-.LFB4410
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x571a
+	.long	0x5721
 	.uleb128 0x1f
 	.ascii "c\0"
 	.byte	0x3
@@ -7242,7 +7244,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x1168
 	.byte	0x40
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7251,7 +7253,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x1168
 	.byte	0x51
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7260,7 +7262,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x1168
 	.byte	0x62
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7275,7 +7277,7 @@ Initialize_Subtruct:
 	.quad	.LFE4402-.LFB4402
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x578a
+	.long	0x5791
 	.uleb128 0x1f
 	.ascii "c\0"
 	.byte	0x3
@@ -7290,7 +7292,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xfca
 	.byte	0x40
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7299,7 +7301,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xfca
 	.byte	0x51
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7308,7 +7310,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xfca
 	.byte	0x62
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7323,7 +7325,7 @@ Initialize_Subtruct:
 	.quad	.LFE4394-.LFB4394
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x57fa
+	.long	0x5801
 	.uleb128 0x1f
 	.ascii "c\0"
 	.byte	0x3
@@ -7338,7 +7340,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xd76
 	.byte	0x40
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7347,7 +7349,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xd76
 	.byte	0x51
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7356,7 +7358,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0xd76
 	.byte	0x62
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7371,7 +7373,7 @@ Initialize_Subtruct:
 	.quad	.LFE4386-.LFB4386
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x586b
+	.long	0x5872
 	.uleb128 0x1f
 	.ascii "c\0"
 	.byte	0x3
@@ -7386,7 +7388,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x9b6
 	.byte	0x41
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7395,7 +7397,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x9b6
 	.byte	0x52
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7404,7 +7406,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x9b6
 	.byte	0x63
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7419,7 +7421,7 @@ Initialize_Subtruct:
 	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x58dc
+	.long	0x58e3
 	.uleb128 0x1f
 	.ascii "c\0"
 	.byte	0x3
@@ -7434,7 +7436,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x31e
 	.byte	0x41
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7443,7 +7445,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x31e
 	.byte	0x52
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7452,7 +7454,7 @@ Initialize_Subtruct:
 	.byte	0x3
 	.word	0x31e
 	.byte	0x63
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -7467,13 +7469,13 @@ Initialize_Subtruct:
 	.quad	.LFE4365-.LFB4365
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x592a
+	.long	0x5931
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.word	0x26e
 	.byte	0x35
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -7497,7 +7499,7 @@ Initialize_Subtruct:
 	.quad	.LFE4363-.LFB4363
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5976
+	.long	0x597d
 	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
@@ -7527,7 +7529,7 @@ Initialize_Subtruct:
 	.quad	.LFE4345-.LFB4345
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5a19
+	.long	0x5a20
 	.uleb128 0x2f
 	.secrel32	.LASF10
 	.byte	0x1
@@ -7542,7 +7544,7 @@ Initialize_Subtruct:
 	.byte	0x1
 	.word	0x106
 	.byte	0x42
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
@@ -7551,7 +7553,7 @@ Initialize_Subtruct:
 	.byte	0x1
 	.word	0x106
 	.byte	0x51
-	.long	0x4c93
+	.long	0x4c9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7560,34 +7562,34 @@ Initialize_Subtruct:
 	.byte	0x1
 	.word	0x106
 	.byte	0x61
-	.long	0x4dd8
+	.long	0x4ddf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
 	.uleb128 0x30
-	.long	0x5a19
+	.long	0x5a20
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
 	.word	0x10b
 	.byte	0x11
 	.uleb128 0x31
-	.long	0x5a56
+	.long	0x5a5d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x31
-	.long	0x5a4a
+	.long	0x5a51
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x31
-	.long	0x5a3e
+	.long	0x5a45
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
 	.uleb128 0x31
-	.long	0x5a31
+	.long	0x5a38
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -17
