@@ -74,7 +74,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_X DD imagerel $LN18
-	DD	imagerel $LN18+614
+	DD	imagerel $LN18+608
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -128,13 +128,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_I_Imp DD imagerel PMC_BitwiseOr_X_I_Imp
-	DD	imagerel PMC_BitwiseOr_X_I_Imp+439
+	DD	imagerel PMC_BitwiseOr_X_I_Imp+436
 	DD	imagerel $unwind$PMC_BitwiseOr_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_L_Imp DD imagerel PMC_BitwiseOr_X_L_Imp
-	DD	imagerel PMC_BitwiseOr_X_L_Imp+918
+	DD	imagerel PMC_BitwiseOr_X_L_Imp+915
 	DD	imagerel $unwind$PMC_BitwiseOr_X_L_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -487,8 +487,7 @@ PMC_BitwiseOr_X_L_Imp PROC				; COMDAT
 ; 270  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Bitwis
@@ -579,7 +578,7 @@ $LN7@PMC_Bitwis:
 ; 297  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$7[rbp], rax
 
 ; 298  :             _UINT32_T v_hi;
@@ -636,12 +635,12 @@ $LN14@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v_lo$9[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	BitwiseOr_X_1W
 
 ; 309  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
@@ -649,7 +648,7 @@ $LN14@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR w_light_check_code$12[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -709,14 +708,14 @@ $LN16@PMC_Bitwis:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v_lo$9[rbp]
 	mov	edx, DWORD PTR v_hi$8[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	r9d, ecx
 	mov	r8d, edx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	BitwiseOr_X_2W
 
 ; 321  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
@@ -724,7 +723,7 @@ $LN16@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR w_light_check_code$15[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -756,7 +755,7 @@ $LN10@PMC_Bitwis:
 ; 330  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$16[rbp], rax
 
 ; 331  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -798,12 +797,12 @@ $LN18@PMC_Bitwis:
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	BitwiseOr_X_1W
 
 ; 337  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
@@ -811,7 +810,7 @@ $LN18@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nw_light_check_code$19[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -887,8 +886,7 @@ PMC_BitwiseOr_X_I_Imp PROC				; COMDAT
 ; 183  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Bitwis
@@ -971,7 +969,7 @@ $LN7@PMC_Bitwis:
 ; 207  :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
 ; 208  :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -1014,12 +1012,12 @@ $LN10@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v$[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	BitwiseOr_X_1W
 
 ; 214  :         if ((result = CheckBlockLight((*w)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
@@ -1027,7 +1025,7 @@ $LN10@PMC_Bitwis:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nz_check_code$7[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -2966,8 +2964,7 @@ $LN6@PMC_Bitwis:
 ; 407  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_Bitwis
@@ -2996,8 +2993,7 @@ $LN7@PMC_Bitwis:
 ; 412  :     else if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN10@PMC_Bitwis
@@ -3029,8 +3025,8 @@ $LN10@PMC_Bitwis:
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rcx, QWORD PTR nv$[rbp]
-	mov	rcx, QWORD PTR [rcx+8]
-	cmp	QWORD PTR [rax+8], rcx
+	mov	rcx, QWORD PTR [rcx+16]
+	cmp	QWORD PTR [rax+16], rcx
 	jae	SHORT $LN13@PMC_Bitwis
 
 ; 420  :         {
@@ -3054,13 +3050,13 @@ $LN13@PMC_Bitwis:
 ; 425  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$6[rbp], rax
 
 ; 426  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$7[rbp], rax
 
 ; 427  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
@@ -3090,23 +3086,23 @@ $LN14@PMC_Bitwis:
 ; 431  :         BitwiseOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r9, QWORD PTR [rax+8]
+	mov	r9, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r8, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	BitwiseOr_X_X
 
 ; 432  :         if ((result = CheckBlockLight(nw->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nw_light_check_code$9[rbp]
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0

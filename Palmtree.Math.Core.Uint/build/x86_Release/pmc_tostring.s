@@ -109,7 +109,7 @@ LFB5501:
 	movl	%edx, 36(%esp)
 	movl	%ecx, 48(%esp)
 	movl	%eax, 52(%esp)
-	testb	$2, 24(%ebp)
+	testb	$1, 0(%ebp)
 	je	L10
 	cmpb	$78, %al
 	je	L71
@@ -183,7 +183,7 @@ L71:
 	.p2align 4,,10
 L10:
 	.cfi_restore_state
-	movl	12(%ebp), %eax
+	movl	16(%ebp), %eax
 	leal	72(%esp), %edx
 	movl	$-5, %edi
 	movl	%edx, 8(%esp)
@@ -197,10 +197,10 @@ L10:
 	movl	%eax, 60(%esp)
 	testl	%eax, %eax
 	je	L9
-	movl	8(%ebp), %ebx
-	movl	32(%ebp), %esi
+	movl	12(%ebp), %ebx
+	movl	36(%ebp), %esi
 	leal	80(%esp), %eax
-	movl	12(%ebp), %ebp
+	movl	16(%ebp), %ebp
 	movl	%eax, 8(%esp)
 	leal	84(%esp), %eax
 	movl	%eax, 4(%esp)
@@ -711,7 +711,7 @@ LFB5508:
 	subl	$32, %esp
 	.cfi_def_cfa_offset 52
 	movl	52(%esp), %ebp
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L77
 	leal	1(%ebp), %eax
 	testl	%ebp, %ebp
@@ -751,7 +751,7 @@ L76:
 L77:
 	.cfi_restore_state
 	movl	%eax, %esi
-	movl	12(%eax), %eax
+	movl	16(%eax), %eax
 	leal	3(%eax), %ebx
 	shrl	$2, %ebx
 	cmpl	%ebx, %ebp
@@ -760,8 +760,8 @@ L77:
 	cmpl	%eax, %ecx
 	jb	L94
 L81:
-	movl	8(%esi), %ecx
-	movl	32(%esi), %eax
+	movl	12(%esi), %ecx
+	movl	36(%esi), %eax
 	movl	%ecx, (%esp)
 	leal	-4(%eax,%ecx,4), %edi
 	movl	%ecx, %esi

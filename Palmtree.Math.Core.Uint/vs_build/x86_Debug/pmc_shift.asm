@@ -318,8 +318,7 @@ $LN5@PMC_LeftSh:
 ; 636  :     if (np->IS_ZERO)
 
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_LeftSh
 
@@ -370,7 +369,7 @@ $LN8@PMC_LeftSh:
 ; 646  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _p_bit_count$3[ebp], edx
 
 ; 647  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
@@ -404,15 +403,15 @@ $LN11@PMC_LeftSh:
 
 	push	0
 	mov	ecx, DWORD PTR _no$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _n$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -422,7 +421,7 @@ $LN11@PMC_LeftSh:
 	mov	edx, DWORD PTR _no_light_check_code$1[ebp]
 	push	edx
 	mov	eax, DWORD PTR _no$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -491,6 +490,7 @@ $LN1@PMC_LeftSh:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
+	npad	3
 $LN18@PMC_LeftSh:
 	DD	2
 	DD	$LN17@PMC_LeftSh
@@ -617,8 +617,7 @@ $LN5@PMC_RightS:
 ; 587  :     if (np->IS_ZERO)
 
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_RightS
 
@@ -669,7 +668,7 @@ $LN8@PMC_RightS:
 ; 597  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _p_bit_count$3[ebp], edx
 
 ; 598  :         if (p_bit_count <= n)
@@ -718,15 +717,15 @@ $LN13@PMC_RightS:
 
 	push	0
 	mov	eax, DWORD PTR _no$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _n$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -736,7 +735,7 @@ $LN13@PMC_RightS:
 	mov	ecx, DWORD PTR _no_light_check_code$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _no$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -806,7 +805,7 @@ $LN1@PMC_RightS:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	2
+	npad	1
 $LN20@PMC_RightS:
 	DD	2
 	DD	$LN19@PMC_RightS

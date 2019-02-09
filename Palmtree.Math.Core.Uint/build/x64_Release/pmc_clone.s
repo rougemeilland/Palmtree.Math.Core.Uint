@@ -24,7 +24,7 @@ PMC_Clone_X:
 	testl	%eax, %eax
 	movl	%eax, %esi
 	jne	.L1
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	movq	.refptr.number_zero(%rip), %rax
 	je	.L8
 .L3:

@@ -41,79 +41,79 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_DivRem_I_X DD imagerel $LN37
-	DD	imagerel $LN37+221
+	DD	imagerel $LN37+223
 	DD	imagerel $unwind$PMC_DivRem_I_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_DivRem_L_X DD imagerel $LN85
-	DD	imagerel $LN85+659
+	DD	imagerel $LN85+658
 	DD	imagerel $unwind$PMC_DivRem_L_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_DivRem_X_I DD imagerel $LN29
-	DD	imagerel $LN29+442
+	DD	imagerel $LN29+440
 	DD	imagerel $unwind$PMC_DivRem_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_DivRem_X_L DD imagerel $LN74
-	DD	imagerel $LN74+82
+	DD	imagerel $LN74+81
 	DD	imagerel $unwind$PMC_DivRem_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_DivRem_X_L DD imagerel $LN74+82
-	DD	imagerel $LN74+822
+$pdata$1$PMC_DivRem_X_L DD imagerel $LN74+81
+	DD	imagerel $LN74+816
 	DD	imagerel $chain$1$PMC_DivRem_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$PMC_DivRem_X_L DD imagerel $LN74+822
-	DD	imagerel $LN74+834
+$pdata$2$PMC_DivRem_X_L DD imagerel $LN74+816
+	DD	imagerel $LN74+828
 	DD	imagerel $chain$2$PMC_DivRem_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$3$PMC_DivRem_X_L DD imagerel $LN74+834
-	DD	imagerel $LN74+939
+$pdata$3$PMC_DivRem_X_L DD imagerel $LN74+828
+	DD	imagerel $LN74+933
 	DD	imagerel $chain$3$PMC_DivRem_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$4$PMC_DivRem_X_L DD imagerel $LN74+939
-	DD	imagerel $LN74+956
+$pdata$4$PMC_DivRem_X_L DD imagerel $LN74+933
+	DD	imagerel $LN74+950
 	DD	imagerel $chain$4$PMC_DivRem_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_DivRem_X_X DD imagerel $LN62
-	DD	imagerel $LN62+111
+	DD	imagerel $LN62+109
 	DD	imagerel $unwind$PMC_DivRem_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$0$PMC_DivRem_X_X DD imagerel $LN62+111
-	DD	imagerel $LN62+439
+$pdata$0$PMC_DivRem_X_X DD imagerel $LN62+109
+	DD	imagerel $LN62+437
 	DD	imagerel $chain$0$PMC_DivRem_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_DivRem_X_X DD imagerel $LN62+439
-	DD	imagerel $LN62+461
+$pdata$1$PMC_DivRem_X_X DD imagerel $LN62+437
+	DD	imagerel $LN62+459
 	DD	imagerel $chain$1$PMC_DivRem_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$PMC_DivRem_X_X DD imagerel $LN62+461
-	DD	imagerel $LN62+1154
+$pdata$2$PMC_DivRem_X_X DD imagerel $LN62+459
+	DD	imagerel $LN62+1149
 	DD	imagerel $chain$2$PMC_DivRem_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$3$PMC_DivRem_X_X DD imagerel $LN62+1154
-	DD	imagerel $LN62+1164
+$pdata$3$PMC_DivRem_X_X DD imagerel $LN62+1149
+	DD	imagerel $LN62+1159
 	DD	imagerel $chain$3$PMC_DivRem_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -275,7 +275,7 @@ xdata	ENDS
 xdata	SEGMENT
 $chain$3$PMC_DivRem_X_X DD 021H
 	DD	imagerel $LN62
-	DD	imagerel $LN62+111
+	DD	imagerel $LN62+109
 	DD	imagerel $unwind$PMC_DivRem_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -283,14 +283,14 @@ xdata	SEGMENT
 $chain$2$PMC_DivRem_X_X DD 020021H
 	DD	0133400H
 	DD	imagerel $LN62
-	DD	imagerel $LN62+111
+	DD	imagerel $LN62+109
 	DD	imagerel $unwind$PMC_DivRem_X_X
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$1$PMC_DivRem_X_X DD 021H
 	DD	imagerel $LN62
-	DD	imagerel $LN62+111
+	DD	imagerel $LN62+109
 	DD	imagerel $unwind$PMC_DivRem_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -298,7 +298,7 @@ xdata	SEGMENT
 $chain$0$PMC_DivRem_X_X DD 020821H
 	DD	0133408H
 	DD	imagerel $LN62
-	DD	imagerel $LN62+111
+	DD	imagerel $LN62+109
 	DD	imagerel $unwind$PMC_DivRem_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -313,7 +313,7 @@ xdata	ENDS
 xdata	SEGMENT
 $chain$4$PMC_DivRem_X_L DD 021H
 	DD	imagerel $LN74
-	DD	imagerel $LN74+82
+	DD	imagerel $LN74+81
 	DD	imagerel $unwind$PMC_DivRem_X_L
 xdata	ENDS
 ;	COMDAT xdata
@@ -322,14 +322,14 @@ $chain$3$PMC_DivRem_X_L DD 040021H
 	DD	016d400H
 	DD	0153400H
 	DD	imagerel $LN74
-	DD	imagerel $LN74+82
+	DD	imagerel $LN74+81
 	DD	imagerel $unwind$PMC_DivRem_X_L
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$2$PMC_DivRem_X_L DD 021H
 	DD	imagerel $LN74
-	DD	imagerel $LN74+82
+	DD	imagerel $LN74+81
 	DD	imagerel $unwind$PMC_DivRem_X_L
 xdata	ENDS
 ;	COMDAT xdata
@@ -338,7 +338,7 @@ $chain$1$PMC_DivRem_X_L DD 041021H
 	DD	016d410H
 	DD	0153408H
 	DD	imagerel $LN74
-	DD	imagerel $LN74+82
+	DD	imagerel $LN74+81
 	DD	imagerel $unwind$PMC_DivRem_X_L
 xdata	ENDS
 ;	COMDAT xdata
@@ -368,11 +368,11 @@ $unwind$PMC_DivRem_L_X DD 072119H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_DivRem_I_X DD 081401H
-	DD	096414H
-	DD	085414H
-	DD	063414H
-	DD	070103214H
+$unwind$PMC_DivRem_I_X DD 081501H
+	DD	097415H
+	DD	086415H
+	DD	063415H
+	DD	0e0113215H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
@@ -627,7 +627,7 @@ $LN19@DivRem_X_X:
 $LN30@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -690,7 +690,7 @@ $LN29@DivRem_X_X:
 	mov	DWORD PTR rh_hi$6[rsp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+4, eax
@@ -760,7 +760,7 @@ $LN26@DivRem_X_X:
 	add	al, -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -771,7 +771,7 @@ $LN26@DivRem_X_X:
 	mov	DWORD PTR rh_hi$4[rsp], r8d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -1181,7 +1181,7 @@ $LN18@DivRem_X_X:
 $LN29@DivRem_X_X:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -1244,7 +1244,7 @@ $LN28@DivRem_X_X:
 	mov	DWORD PTR rh_hi$6[rsp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+4, eax
@@ -1304,7 +1304,7 @@ $LN25@DivRem_X_X:
 	add	al, -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -1315,7 +1315,7 @@ $LN25@DivRem_X_X:
 	mov	DWORD PTR rh_hi$4[rsp], r8d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -5092,7 +5092,7 @@ $LL2@SubtructOn:
 	mov	DWORD PTR [rax+124], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5111,7 +5111,7 @@ $LL2@SubtructOn:
 	sub	rbx, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -5818,7 +5818,7 @@ $LN821@SubtructOn:
 	mov	DWORD PTR [rax+60], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5837,7 +5837,7 @@ $LN821@SubtructOn:
 	add	rbx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN604@SubtructOn:
@@ -6191,7 +6191,7 @@ $LN604@SubtructOn:
 	mov	DWORD PTR [rax+28], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -6210,7 +6210,7 @@ $LN604@SubtructOn:
 	add	rbx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN704@SubtructOn:
@@ -6393,7 +6393,7 @@ $LN704@SubtructOn:
 	mov	DWORD PTR [rax+12], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -6412,7 +6412,7 @@ $LN704@SubtructOn:
 	add	rbx, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN756@SubtructOn:
@@ -6511,7 +6511,7 @@ $LN756@SubtructOn:
 	mov	DWORD PTR [rax+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -6530,7 +6530,7 @@ $LN756@SubtructOn:
 	add	rbx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN784@SubtructOn:
@@ -6588,7 +6588,7 @@ $LN784@SubtructOn:
 	add	rax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 $LN800@SubtructOn:
@@ -8394,7 +8394,7 @@ $LL2@SubtructOn:
 	mov	DWORD PTR [rax+124], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -8413,7 +8413,7 @@ $LL2@SubtructOn:
 	sub	rbx, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -9120,7 +9120,7 @@ $LN821@SubtructOn:
 	mov	DWORD PTR [rax+60], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -9139,7 +9139,7 @@ $LN821@SubtructOn:
 	add	rbx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN604@SubtructOn:
@@ -9493,7 +9493,7 @@ $LN604@SubtructOn:
 	mov	DWORD PTR [rax+28], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -9512,7 +9512,7 @@ $LN604@SubtructOn:
 	add	rbx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN704@SubtructOn:
@@ -9695,7 +9695,7 @@ $LN704@SubtructOn:
 	mov	DWORD PTR [rax+12], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -9714,7 +9714,7 @@ $LN704@SubtructOn:
 	add	rbx, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN756@SubtructOn:
@@ -9813,7 +9813,7 @@ $LN756@SubtructOn:
 	mov	DWORD PTR [rax+4], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	ecx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -9832,7 +9832,7 @@ $LN756@SubtructOn:
 	add	rbx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 $LN784@SubtructOn:
@@ -9890,7 +9890,7 @@ $LN784@SubtructOn:
 	add	rax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 $LN800@SubtructOn:
@@ -10349,7 +10349,7 @@ CalculateQ_X PROC					; COMDAT
 $LN6@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10385,7 +10385,7 @@ $LN5@CalculateQ:
 	mov	eax, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	r14d, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10413,7 +10413,7 @@ $LN5@CalculateQ:
 	mov	DWORD PTR rh_hi$1[rsp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, r14d
 	lock xadd DWORD PTR statistics_info+4, eax
@@ -10493,7 +10493,7 @@ $LN2@CalculateQ:
 	mov	DWORD PTR rh_hi$3[rsp], r9d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, r14d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -10612,7 +10612,7 @@ CalculateQ_ PROC					; COMDAT
 $LN6@CalculateQ:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10648,7 +10648,7 @@ $LN5@CalculateQ:
 	mov	eax, ebx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	r14d, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10676,7 +10676,7 @@ $LN5@CalculateQ:
 	mov	DWORD PTR rh_hi$1[rsp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, r14d
 	lock xadd DWORD PTR statistics_info+4, eax
@@ -10739,7 +10739,7 @@ $LN2@CalculateQ:
 	mov	DWORD PTR rh_hi$3[rsp], r9d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, r14d
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -10838,7 +10838,7 @@ CheckQ_X PROC						; COMDAT
 	add	al, -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10849,7 +10849,7 @@ CheckQ_X PROC						; COMDAT
 	mov	DWORD PTR rh_hi$[rsp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -10969,7 +10969,7 @@ CheckQ_	PROC						; COMDAT
 	add	al, -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -10980,7 +10980,7 @@ CheckQ_	PROC						; COMDAT
 	mov	DWORD PTR rh_hi$[rsp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -11057,7 +11057,7 @@ AsumeQ_	PROC						; COMDAT
 $LN2@AsumeQ_:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -13499,11 +13499,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI64Counter PROC				; COMDAT
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, ecx
 
-; 358  :     }
+; 355  :     }
 
 	ret	0
 AddToMULTI64Counter ENDP
@@ -13515,11 +13515,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI32Counter PROC				; COMDAT
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 
-; 352  :     }
+; 349  :     }
 
 	ret	0
 AddToMULTI32Counter ENDP
@@ -13531,11 +13531,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV64Counter PROC					; COMDAT
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lock xadd DWORD PTR statistics_info+8, ecx
 
-; 346  :     }
+; 343  :     }
 
 	ret	0
 AddToDIV64Counter ENDP
@@ -13547,11 +13547,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV32Counter PROC					; COMDAT
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lock xadd DWORD PTR statistics_info+12, ecx
 
-; 340  :     }
+; 337  :     }
 
 	ret	0
 AddToDIV32Counter ENDP
@@ -13562,11 +13562,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 
-; 335  :     }
+; 332  :     }
 
 	ret	0
 IncrementMULTI64Counter ENDP
@@ -13577,11 +13577,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 
-; 329  :     }
+; 326  :     }
 
 	ret	0
 IncrementMULTI32Counter ENDP
@@ -13592,11 +13592,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 
-; 323  :     }
+; 320  :     }
 
 	ret	0
 IncrementDIV64Counter ENDP
@@ -13607,11 +13607,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 
-; 317  :     }
+; 314  :     }
 
 	ret	0
 IncrementDIV32Counter ENDP
@@ -13690,8 +13690,8 @@ $LN62:
 ; 1851 :         return (result);
 ; 1852 :     if (nv->IS_ZERO)
 
-	mov	eax, DWORD PTR [rdi+40]
-	test	al, 2
+	mov	eax, DWORD PTR [rdi]
+	test	al, 1
 	je	SHORT $LN7@PMC_DivRem
 
 ; 1853 :     {
@@ -13709,7 +13709,7 @@ $LN7@PMC_DivRem:
 ; 1860 :     NUMBER_HEADER* nr;
 ; 1861 :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rsi+40], 2
+	test	BYTE PTR [rsi], 1
 	mov	QWORD PTR [rsp+152], rbx
 	je	SHORT $LN8@PMC_DivRem
 
@@ -13736,7 +13736,7 @@ $LN8@PMC_DivRem:
 ; 1872 : 
 ; 1873 :         if (nv->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	je	SHORT $LN10@PMC_DivRem
 
 ; 1874 :         {
@@ -13790,11 +13790,11 @@ $LN10@PMC_DivRem:
 ; 1891 :             // x と y の商・剰余を計算する
 ; 1892 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	rbx, QWORD PTR [rsi+16]
+	mov	rbx, QWORD PTR [rsi+24]
 
 ; 1893 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	rax, QWORD PTR [rdi+16]
+	mov	rax, QWORD PTR [rdi+24]
 
 ; 1894 :             if (u_bit_count < v_bit_count)
 
@@ -13873,15 +13873,15 @@ $LN15@PMC_DivRem:
 ; 1920 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	rax, QWORD PTR nr$[rbp-112]
-	mov	r8, QWORD PTR [rdi+56]
+	mov	r8, QWORD PTR [rdi+64]
 	mov	r9, QWORD PTR nq$[rbp-112]
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	r8d, DWORD PTR [r8]
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	shl	rdx, 3
 	mov	QWORD PTR [rsp+32], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	shr	rdx, 2
 	call	DivRem_X_1W
 
@@ -13889,7 +13889,7 @@ $LN15@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rbp-112]
 	mov	rdx, QWORD PTR nq_light_check_code$3[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN51@PMC_DivRem
@@ -13899,7 +13899,7 @@ $LN15@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nr$[rbp-112]
 	mov	rdx, QWORD PTR nr_light_check_code$7[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	je	$LN56@PMC_DivRem
@@ -13949,9 +13949,9 @@ $LN20@PMC_DivRem:
 ; 1943 :                         return (result);
 ; 1944 :                     ((__UNIT_TYPE_DIV*)nr->BLOCK)[0] = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0]);
 
-	mov	rax, QWORD PTR [rdi+56]
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rax, QWORD PTR [rdi+64]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rsi+64]
 	shl	rdx, 3
 	mov	r8d, DWORD PTR [rax]
 	shr	rdx, 2
@@ -13961,7 +13961,7 @@ $LN20@PMC_DivRem:
 ; 1945 :                     nq = NULL;
 
 	xor	ebx, ebx
-	mov	rdx, QWORD PTR [rcx+56]
+	mov	rdx, QWORD PTR [rcx+64]
 	mov	DWORD PTR [rdx], eax
 
 ; 1946 :                     if ((result = CheckBlockLight(nr->BLOCK, nr_light_check_code)) != PMC_STATUS_OK)
@@ -13969,7 +13969,7 @@ $LN20@PMC_DivRem:
 	mov	rcx, QWORD PTR nr$[rbp-112]
 	mov	rdx, QWORD PTR nr_light_check_code$6[rbp-112]
 	mov	QWORD PTR nq$[rbp-112], rbx
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN51@PMC_DivRem
@@ -14040,7 +14040,7 @@ $LN34@PMC_DivRem:
 ; 1973 :                     __UNIT_TYPE work_v_buf_words;
 ; 1974 :                     __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
 
-	mov	rcx, QWORD PTR [rdi+8]
+	mov	rcx, QWORD PTR [rdi+16]
 	lea	r8, QWORD PTR work_v_buf_code$5[rbp-112]
 	shl	rcx, 6
 	lea	rdx, QWORD PTR work_v_buf_words$9[rbp-112]
@@ -14070,17 +14070,17 @@ $LN35@PMC_DivRem:
 ; 1981 :                     (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV*)nv->BLOCK, nv->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	rax, QWORD PTR nr$[rbp-112]
-	mov	r9, QWORD PTR [rdi+8]
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rdi+16]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nq$[rbp-112]
 	mov	QWORD PTR [rsp+48], rcx
 	shl	r9, 3
 	shl	rdx, 3
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+40], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	shr	r9, 2
 	shr	rdx, 2
 	mov	QWORD PTR [rsp+32], rbx
@@ -14099,7 +14099,7 @@ $LN35@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rbp-112]
 	mov	rdx, QWORD PTR nq_light_check_code$2[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN51@PMC_DivRem
@@ -14109,7 +14109,7 @@ $LN35@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rbp-112]
 	mov	rdx, QWORD PTR nq_light_check_code$2[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN51@PMC_DivRem
@@ -14140,7 +14140,7 @@ $LN56@PMC_DivRem:
 	call	CommitNumber
 	mov	rbx, QWORD PTR nq$[rbp-112]
 	lea	rdi, OFFSET FLAT:number_zero
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN39@PMC_DivRem
 	mov	rcx, rbx
 	call	DeallocateNumber
@@ -14148,7 +14148,7 @@ $LN56@PMC_DivRem:
 	mov	QWORD PTR nq$[rbp-112], rbx
 $LN39@PMC_DivRem:
 	mov	rax, QWORD PTR nr$[rbp-112]
-	test	BYTE PTR [rax+40], 2
+	test	BYTE PTR [rax], 1
 	je	SHORT $LN45@PMC_DivRem
 	mov	rcx, rax
 	call	DeallocateNumber
@@ -14215,7 +14215,7 @@ $LN31@PMC_DivRem:
 ; 2009 :                     __UNIT_TYPE work_v_buf_words;
 ; 2010 :                     __UNIT_TYPE_DIV* work_v_buf = (__UNIT_TYPE_DIV*)AllocateBlock(nv->UNIT_WORD_COUNT * __UNIT_TYPE_BIT_COUNT, &work_v_buf_words, &work_v_buf_code);
 
-	mov	rcx, QWORD PTR [rdi+8]
+	mov	rcx, QWORD PTR [rdi+16]
 	lea	r8, QWORD PTR work_v_buf_code$8[rbp-112]
 	shl	rcx, 6
 	lea	rdx, QWORD PTR work_v_buf_words$1[rbp-112]
@@ -14233,12 +14233,12 @@ $LN31@PMC_DivRem:
 
 	mov	rax, QWORD PTR nr$[rbp-112]
 	xor	ebx, ebx
-	mov	r9, QWORD PTR [rdi+8]
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rdi+16]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+48], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	shl	r9, 3
 	shl	rdx, 3
 	mov	QWORD PTR [rsp+40], rbx
@@ -14262,7 +14262,7 @@ $LN31@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nr$[rbp-112]
 	mov	rdx, QWORD PTR nr_light_check_code$4[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN51@PMC_DivRem
@@ -14280,7 +14280,7 @@ $LN58@PMC_DivRem:
 	mov	rcx, QWORD PTR nr$[rbp-112]
 	call	CommitNumber
 	mov	rax, QWORD PTR nr$[rbp-112]
-	test	BYTE PTR [rax+40], 2
+	test	BYTE PTR [rax], 1
 	je	SHORT $LN46@PMC_DivRem
 	mov	rcx, rax
 	call	DeallocateNumber
@@ -14411,7 +14411,7 @@ $LN6@PMC_DivRem:
 ; 1626 :     NUMBER_HEADER* nq;
 ; 1627 :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rdi+40], 2
+	test	BYTE PTR [rdi], 1
 	mov	QWORD PTR [rsp+168], rbx
 	mov	QWORD PTR [rsp+176], r13
 	je	SHORT $LN7@PMC_DivRem
@@ -14498,7 +14498,7 @@ $LN9@PMC_DivRem:
 ; 1657 :             // u と v の商・剰余を計算する
 ; 1658 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	r13, QWORD PTR [rdi+16]
+	mov	r13, QWORD PTR [rdi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 177  :         *result_high = (_UINT32_T)(value >> 32);
@@ -14565,7 +14565,7 @@ $LN51@PMC_DivRem:
 
 ; 1674 :                         *r = nu->BLOCK[0];
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	mov	QWORD PTR nq$[rbp-112], rdx
 	mov	rcx, QWORD PTR [rax]
 	mov	QWORD PTR [r15], rcx
@@ -14601,12 +14601,12 @@ $LN18@PMC_DivRem:
 
 	mov	r9, QWORD PTR nq$[rbp-112]
 	lea	rax, QWORD PTR r_buf$11[rbp-112]
-	mov	rdx, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rdi+16]
 	xor	ebx, ebx
-	mov	rcx, QWORD PTR [rdi+56]
+	mov	rcx, QWORD PTR [rdi+64]
 	mov	r8d, esi
 	shl	rdx, 3
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	shr	rdx, 2
 	mov	DWORD PTR r_buf$11[rbp-112], ebx
 	mov	QWORD PTR [rsp+32], rax
@@ -14616,7 +14616,7 @@ $LN18@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rbp-112]
 	mov	rdx, QWORD PTR nq_light_check_code$3[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN69@PMC_DivRem
@@ -14646,9 +14646,9 @@ $LN20@PMC_DivRem:
 ; 1697 :                         {
 ; 1698 :                             __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_lo);
 
-	mov	rdx, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rdi+16]
 	mov	r8d, esi
-	mov	rcx, QWORD PTR [rdi+56]
+	mov	rcx, QWORD PTR [rdi+64]
 	shl	rdx, 3
 	shr	rdx, 2
 	call	Rem_X_1W
@@ -14714,7 +14714,7 @@ $LN16@PMC_DivRem:
 ; 1714 :                         if (sizeof(v) == sizeof(__UNIT_TYPE))
 ; 1715 :                             *r = nu->BLOCK[0];
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	mov	QWORD PTR nq$[rbp-112], rdx
 	mov	rcx, QWORD PTR [rax]
 	mov	QWORD PTR [r15], rcx
@@ -14784,17 +14784,17 @@ $LN25@PMC_DivRem:
 ; 1741 :                             }
 ; 1742 :                             (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, (__UNIT_TYPE_DIV*)nq->BLOCK, r_buf);
 
-	mov	rdx, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rdi+16]
 	lea	r8, QWORD PTR v_buf$2[rbp-112]
 	mov	QWORD PTR [rsp+48], rax
 	mov	r9d, 2
 	mov	rax, QWORD PTR nq$[rbp-112]
 	shl	rdx, 3
 	shr	rdx, 2
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	lea	rax, QWORD PTR work_v_buf$10[rbp-112]
 	mov	QWORD PTR [rsp+40], rcx
-	mov	rcx, QWORD PTR [rdi+56]
+	mov	rcx, QWORD PTR [rdi+64]
 	mov	QWORD PTR [rsp+32], rax
 	call	QWORD PTR fp_DivRem_X_X
 
@@ -14802,7 +14802,7 @@ $LN25@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rbp-112]
 	mov	rdx, QWORD PTR nq_light_check_code$4[rbp-112]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN69@PMC_DivRem
@@ -14814,7 +14814,7 @@ $LN25@PMC_DivRem:
 	mov	rcx, rbx
 	call	CheckBlockLight
 	test	eax, eax
-	jne	$LN69@PMC_DivRem
+	jne	SHORT $LN69@PMC_DivRem
 
 ; 1746 :                                 return (result);
 ; 1747 :                             CommitNumber(nq);
@@ -14903,7 +14903,7 @@ $LN71@PMC_DivRem:
 ; 1825 :     if (q != NULL)
 
 	mov	rdx, QWORD PTR nq$[rbp-112]
-	test	BYTE PTR [rdx+40], 2
+	test	BYTE PTR [rdx], 1
 	je	SHORT $LN30@PMC_DivRem
 	mov	rcx, rdx
 	call	DeallocateNumber
@@ -14992,9 +14992,9 @@ $LN36@PMC_DivRem:
 ; 1768 :                             }
 ; 1769 :                             (*fp_DivRem_X_X)((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v_buf, sizeof(v_buf) / sizeof(v_buf[0]), work_v_buf, NULL, r_buf);
 
-	mov	rdx, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rdi+16]
 	lea	rax, QWORD PTR work_v_buf$9[rbp-112]
-	mov	rcx, QWORD PTR [rdi+56]
+	mov	rcx, QWORD PTR [rdi+64]
 	lea	r8, QWORD PTR v_buf$1[rbp-112]
 	shl	rdx, 3
 	mov	r9d, 2
@@ -15136,7 +15136,7 @@ $LN6@PMC_DivRem:
 ; 1327 :     NUMBER_HEADER* nq;
 ; 1328 :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN7@PMC_DivRem
 
 ; 1329 :     {
@@ -15220,7 +15220,7 @@ $LN9@PMC_DivRem:
 ; 1359 :             // x と y の商・剰余を計算する
 ; 1360 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 601  :         return (sizeof(x) * 8 - 1 - pos);
@@ -15254,7 +15254,7 @@ $LN9@PMC_DivRem:
 
 ; 1368 :                 *r = (_UINT32_T)nu->BLOCK[0];
 
-	mov	rax, QWORD PTR [rbx+56]
+	mov	rax, QWORD PTR [rbx+64]
 	mov	QWORD PTR nq$[rsp], rdx
 	mov	ecx, DWORD PTR [rax]
 	mov	DWORD PTR [rsi], ecx
@@ -15290,11 +15290,11 @@ $LN14@PMC_DivRem:
 
 	mov	r9, QWORD PTR nq$[rsp]
 	mov	r8d, ebp
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+64]
 	mov	DWORD PTR r_buf$2[rsp], eax
 	lea	rax, QWORD PTR r_buf$2[rsp]
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	shl	rdx, 3
 	shr	rdx, 2
 	mov	QWORD PTR [rsp+32], rax
@@ -15304,7 +15304,7 @@ $LN14@PMC_DivRem:
 
 	mov	rcx, QWORD PTR nq$[rsp]
 	mov	rdx, QWORD PTR nq_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_DivRem
@@ -15321,7 +15321,7 @@ $LN14@PMC_DivRem:
 	mov	rdx, QWORD PTR nq$[rsp]
 	mov	eax, DWORD PTR r_buf$2[rsp]
 	mov	DWORD PTR [rsi], eax
-	test	BYTE PTR [rdx+40], 2
+	test	BYTE PTR [rdx], 1
 	je	SHORT $LN17@PMC_DivRem
 
 ; 1385 :                     {
@@ -15367,9 +15367,9 @@ $LN16@PMC_DivRem:
 ; 1391 :                 {
 ; 1392 :                     __UNIT_TYPE_DIV r_buf = Rem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), v);
 
-	mov	rdx, QWORD PTR [rbx+8]
+	mov	rdx, QWORD PTR [rbx+16]
 	mov	r8d, ebp
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rcx, QWORD PTR [rbx+64]
 	shl	rdx, 3
 	shr	rdx, 2
 	call	Rem_X_1W
@@ -15495,8 +15495,8 @@ $LN85:
 ; 1425 :         return (result);
 ; 1426 :     if (nv->IS_ZERO)
 
-	mov	ecx, DWORD PTR [rsi+40]
-	test	cl, 2
+	mov	ecx, DWORD PTR [rsi]
+	test	cl, 1
 	je	SHORT $LN6@PMC_DivRem
 
 ; 1427 :     {
@@ -15546,7 +15546,7 @@ $LN7@PMC_DivRem:
 ; 1445 : 
 ; 1446 :         if (nv->IS_ONE)
 
-	test	cl, 4
+	test	cl, 2
 	je	SHORT $LN10@PMC_DivRem
 
 ; 1447 :         {
@@ -15620,7 +15620,7 @@ $LN41@PMC_DivRem:
 ; 1469 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 1470 :                     if (u_bit_count < v_bit_count)
 
-	cmp	rdx, QWORD PTR [rsi+16]
+	cmp	rdx, QWORD PTR [rsi+24]
 	jae	SHORT $LN17@PMC_DivRem
 
 ; 1471 :                     {
@@ -15658,7 +15658,7 @@ $LN17@PMC_DivRem:
 ; 1484 :                         __UNIT_TYPE_DIV temp_r;
 ; 1485 :                         __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u_lo, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 384  :             *r = (_UINT32_T)(t % v);
@@ -15692,7 +15692,7 @@ $LN20@PMC_DivRem:
 	mov	QWORD PTR [r14], rax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -15706,7 +15706,7 @@ $LN15@PMC_DivRem:
 ; 1501 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 1502 :                     if (u_bit_count < v_bit_count)
 
-	mov	r8, QWORD PTR [rsi+16]
+	mov	r8, QWORD PTR [rsi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 601  :         return (sizeof(x) * 8 - 1 - pos);
@@ -15768,7 +15768,7 @@ $LN23@PMC_DivRem:
 ; 1518 : 
 ; 1519 :                             if (q != NULL)
 
-	mov	rax, QWORD PTR [rsi+56]
+	mov	rax, QWORD PTR [rsi+64]
 	mov	r8d, DWORD PTR [rax]
 	test	rbx, rbx
 	je	SHORT $LN28@PMC_DivRem
@@ -15854,9 +15854,9 @@ $LN26@PMC_DivRem:
 ; 1541 :                             // この場合、2 ワード / 2 ワード の除算となるため、_DIVREM_UNIT 単発では計算できない。
 ; 1542 :                             if (q != NULL)
 
-	mov	r9, QWORD PTR [rsi+8]
+	mov	r9, QWORD PTR [rsi+16]
 	xor	eax, eax
-	mov	r8, QWORD PTR [rsi+56]
+	mov	r8, QWORD PTR [rsi+64]
 	shl	r9, 3
 	shr	r9, 2
 	test	rbx, rbx
@@ -15996,14 +15996,14 @@ PMC_DivRem_I_X PROC					; COMDAT
 
 $LN37:
 	mov	QWORD PTR [rsp+8], rbx
-	mov	QWORD PTR [rsp+24], rbp
-	mov	QWORD PTR [rsp+32], rsi
-	push	rdi
+	mov	QWORD PTR [rsp+24], rsi
+	mov	QWORD PTR [rsp+32], rdi
+	push	r14
 	sub	rsp, 32					; 00000020H
 	mov	esi, ecx
 	mov	rdi, r9
 	mov	rbx, r8
-	mov	rbp, rdx
+	mov	r14, rdx
 
 ; 1225 :     if (sizeof(__UNIT_TYPE_DIV) < sizeof(u))
 ; 1226 :     {
@@ -16033,8 +16033,8 @@ $LN37:
 ; 1237 :         return (result);
 ; 1238 :     if (nv->IS_ZERO)
 
-	mov	ecx, DWORD PTR [rbp+40]
-	test	cl, 2
+	mov	ecx, DWORD PTR [r14]
+	test	cl, 1
 	je	SHORT $LN6@PMC_DivRem
 
 ; 1239 :     {
@@ -16084,7 +16084,7 @@ $LN7@PMC_DivRem:
 ; 1257 : 
 ; 1258 :         if (nv->IS_ONE)
 
-	test	cl, 4
+	test	cl, 2
 	je	SHORT $LN10@PMC_DivRem
 
 ; 1259 :         {
@@ -16137,7 +16137,7 @@ $LN10@PMC_DivRem:
 ; 1273 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 1274 :             if (u_bit_count < v_bit_count)
 
-	cmp	rcx, QWORD PTR [rbp+16]
+	cmp	rcx, QWORD PTR [r14+24]
 	jae	SHORT $LN13@PMC_DivRem
 
 ; 1275 :             {
@@ -16174,7 +16174,7 @@ $LN13@PMC_DivRem:
 ; 1288 :                 __UNIT_TYPE_DIV temp_r;
 ; 1289 :                 __UNIT_TYPE_DIV temp_q = _DIVREM_UNIT(0, u, (__UNIT_TYPE_DIV)nv->BLOCK[0], &temp_r);
 
-	mov	rcx, QWORD PTR [rbp+56]
+	mov	rcx, QWORD PTR [r14+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 384  :             *r = (_UINT32_T)(t % v);
@@ -16206,7 +16206,7 @@ $LN16@PMC_DivRem:
 	mov	DWORD PTR [rdi], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -16225,10 +16225,10 @@ $LN1@PMC_DivRem:
 ; 1303 : }
 
 	mov	rbx, QWORD PTR [rsp+48]
-	mov	rbp, QWORD PTR [rsp+64]
-	mov	rsi, QWORD PTR [rsp+72]
+	mov	rsi, QWORD PTR [rsp+64]
+	mov	rdi, QWORD PTR [rsp+72]
 	add	rsp, 32					; 00000020H
-	pop	rdi
+	pop	r14
 	ret	0
 PMC_DivRem_I_X ENDP
 _TEXT	ENDS
@@ -16364,7 +16364,7 @@ $LN9@DivRem_X_X:
 	mov	QWORD PTR [rax], rcx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
@@ -16958,7 +16958,7 @@ $LL4@Rem_X_1W:
 	add	rcx, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 32					; 00000020H
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -17183,7 +17183,7 @@ $LN558@Rem_X_1W:
 	sub	rcx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 16
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -17298,7 +17298,7 @@ $LN415@Rem_X_1W:
 	sub	rcx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 8
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -17365,7 +17365,7 @@ $LN483@Rem_X_1W:
 	sub	rcx, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 4
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -17408,7 +17408,7 @@ $LN519@Rem_X_1W:
 	sub	rcx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -17434,7 +17434,7 @@ $LN539@Rem_X_1W:
 	div	r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 $LN561@Rem_X_1W:
@@ -17977,7 +17977,7 @@ $LL4@DivRem_X_1:
 	add	r10, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 32					; 00000020H
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -18227,7 +18227,7 @@ $LN558@DivRem_X_1:
 	sub	r10, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 16
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -18359,7 +18359,7 @@ $LN415@DivRem_X_1:
 	sub	r10, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 8
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -18439,7 +18439,7 @@ $LN483@DivRem_X_1:
 	sub	r10, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 4
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -18493,7 +18493,7 @@ $LN519@DivRem_X_1:
 	sub	r10, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -18520,7 +18520,7 @@ $LN539@DivRem_X_1:
 	mov	DWORD PTR [r10], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 $LN561@DivRem_X_1:

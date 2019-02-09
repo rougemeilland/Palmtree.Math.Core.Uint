@@ -29,7 +29,7 @@ LFB94:
 	testl	%eax, %eax
 	jne	L1
 	movl	$_number_zero, %eax
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L9
 L3:
 	movl	%eax, (%edi)

@@ -50,173 +50,173 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG94831 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94883 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94832 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94884 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94833 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94885 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94834 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94886 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94836 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG94888 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94837 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94889 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+4
-$SG94861 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94913 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94862 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94914 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94863 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94915 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94864 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94916 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94866 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG94918 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94867 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94919 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+4
-$SG94891 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94943 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94892 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94944 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94893 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94945 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94894 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94946 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94896 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG94948 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94897 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94949 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+4
-$SG94921 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94973 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94922 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94974 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94923 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94975 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94924 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94976 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94926 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG94978 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94927 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG94979 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
 	ORG $+4
-$SG94960 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95012 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94961 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95013 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94962 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG95014 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94963 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95015 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94964 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95016 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94965 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95017 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94967 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG95019 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r', 00H, 'r'
 	DB	00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0'
 	DB	0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH, '0g0o0j0D'
 	DB	'0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94968 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95020 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
 	DB	00H
-$SG94969 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
+$SG95021 DB	'pRYOn0$PL0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94970 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
+$SG95022 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'R', 00H, 'e', 00H
 	DB	'm', 00H, 'a', 00H, 'i', 00H, 'n', 00H, 'd', 00H, 'e', 00H, 'r'
 	DB	00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H
 	DB	'%', 00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H
@@ -241,32 +241,32 @@ _buffer2$ = 16						; size = 4
 _count2$ = 20						; size = 4
 __EQUALS_MEMORY PROC
 
-; 153  : {
+; 151  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __630249ED_pmc_uint_debug@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 154  :     if (count1 != count2)
+; 152  :     if (count1 != count2)
 
 	mov	eax, DWORD PTR _count1$[ebp]
 	cmp	eax, DWORD PTR _count2$[ebp]
 	je	SHORT $LN2@EQUALS_MEM
 
-; 155  :         return (-1);
+; 153  :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN2@EQUALS_MEM:
 
-; 156  :     while (count1 > 0)
+; 154  :     while (count1 > 0)
 
 	cmp	DWORD PTR _count1$[ebp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 157  :     {
-; 158  :         if (*buffer1 != *buffer2)
+; 155  :     {
+; 156  :         if (*buffer1 != *buffer2)
 
 	mov	ecx, DWORD PTR _buffer1$[ebp]
 	movzx	edx, BYTE PTR [ecx]
@@ -275,41 +275,41 @@ $LN2@EQUALS_MEM:
 	cmp	edx, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 159  :             return (-1);
+; 157  :             return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 160  :         ++buffer1;
+; 158  :         ++buffer1;
 
 	mov	edx, DWORD PTR _buffer1$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _buffer1$[ebp], edx
 
-; 161  :         ++buffer2;
+; 159  :         ++buffer2;
 
 	mov	eax, DWORD PTR _buffer2$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _buffer2$[ebp], eax
 
-; 162  :         --count1;
+; 160  :         --count1;
 
 	mov	ecx, DWORD PTR _count1$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _count1$[ebp], ecx
 
-; 163  :     }
+; 161  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 164  :     return (0);
+; 162  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 165  : }
+; 163  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -373,7 +373,7 @@ _TEST_PMC_Remainder_X_X PROC
 ; 104  :     PMC_STATUS_CODE u_result;
 ; 105  :     PMC_STATUS_CODE v_result;
 ; 106  :     PMC_STATUS_CODE r_result;
-; 107  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", u_result));
+; 107  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", u_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _u$[ebp]
@@ -383,7 +383,7 @@ _TEST_PMC_Remainder_X_X PROC
 	mov	edx, DWORD PTR _u_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -397,7 +397,7 @@ $LN7@TEST_PMC_R:
 $LN8@TEST_PMC_R:
 	mov	edx, DWORD PTR _u_result$[ebp]
 	push	edx
-	push	OFFSET $SG94960
+	push	OFFSET $SG95012
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -406,7 +406,7 @@ $LN8@TEST_PMC_R:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94961
+	push	OFFSET $SG95013
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -415,7 +415,7 @@ $LN8@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 108  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", v_result));
+; 108  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -425,7 +425,7 @@ $LN8@TEST_PMC_R:
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -439,7 +439,7 @@ $LN9@TEST_PMC_R:
 $LN10@TEST_PMC_R:
 	mov	edx, DWORD PTR _v_result$[ebp]
 	push	edx
-	push	OFFSET $SG94962
+	push	OFFSET $SG95014
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -448,7 +448,7 @@ $LN10@TEST_PMC_R:
 	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94963
+	push	OFFSET $SG95015
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -457,7 +457,7 @@ $LN10@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 109  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 3), (r_result = ep->DivRem_X_X(u, v, NULL, &r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_XÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", r_result));
+; 109  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 3), (r_result = ep->DivRem_X_X(u, v, NULL, &r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_X„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", r_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _r$[ebp]
@@ -468,7 +468,7 @@ $LN10@TEST_PMC_R:
 	mov	edx, DWORD PTR _u$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+140]
+	mov	ecx, DWORD PTR [eax+136]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -483,7 +483,7 @@ $LN11@TEST_PMC_R:
 $LN12@TEST_PMC_R:
 	mov	eax, DWORD PTR _r_result$[ebp]
 	push	eax
-	push	OFFSET $SG94964
+	push	OFFSET $SG95016
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -492,7 +492,7 @@ $LN12@TEST_PMC_R:
 	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94965
+	push	OFFSET $SG95017
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -507,7 +507,7 @@ $LN12@TEST_PMC_R:
 	jne	$LN2@TEST_PMC_R
 
 ; 111  :     {
-; 112  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", result));
+; 112  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", result));
 
 	mov	esi, esp
 	lea	ecx, DWORD PTR _actual_r_buf_size$[ebp]
@@ -518,7 +518,7 @@ $LN12@TEST_PMC_R:
 	mov	eax, DWORD PTR _r$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _ep$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+28]
 	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -532,7 +532,7 @@ $LN13@TEST_PMC_R:
 $LN14@TEST_PMC_R:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG94967
+	push	OFFSET $SG95019
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -541,7 +541,7 @@ $LN14@TEST_PMC_R:
 	push	4
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94968
+	push	OFFSET $SG95020
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -550,7 +550,7 @@ $LN14@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 113  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"èËó]ÇÃílÇ™àÍívÇµÇ»Ç¢");
+; 113  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"Ââ∞‰Ωô„ÅÆÂÄ§„Åå‰∏ÄËá¥„Åó„Å™„ÅÑ");
 
 	mov	ecx, DWORD PTR _desired_r_buf_size$[ebp]
 	push	ecx
@@ -569,13 +569,13 @@ $LN14@TEST_PMC_R:
 $LN15@TEST_PMC_R:
 	mov	DWORD PTR tv178[ebp], 0
 $LN16@TEST_PMC_R:
-	push	OFFSET $SG94969
+	push	OFFSET $SG95021
 	mov	edx, DWORD PTR tv178[ebp]
 	push	edx
 	push	5
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94970
+	push	OFFSET $SG95022
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -761,7 +761,7 @@ _TEST_PMC_Remainder_X_L PROC
 ; 83   :     unsigned __int64 actual_r;
 ; 84   :     PMC_STATUS_CODE result;
 ; 85   :     PMC_STATUS_CODE u_result;
-; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", u_result));
+; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", u_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _u$[ebp]
@@ -771,7 +771,7 @@ _TEST_PMC_Remainder_X_L PROC
 	mov	edx, DWORD PTR _u_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -785,7 +785,7 @@ $LN5@TEST_PMC_R:
 $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _u_result$[ebp]
 	push	edx
-	push	OFFSET $SG94921
+	push	OFFSET $SG94973
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -794,7 +794,7 @@ $LN6@TEST_PMC_R:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94922
+	push	OFFSET $SG94974
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -803,7 +803,7 @@ $LN6@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 87   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 2), (result = ep->DivRem_X_L(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_LÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", result));
+; 87   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 2), (result = ep->DivRem_X_L(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_L„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_r$[ebp]
@@ -816,7 +816,7 @@ $LN6@TEST_PMC_R:
 	mov	eax, DWORD PTR _u$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _ep$[ebp]
-	mov	edx, DWORD PTR [ecx+136]
+	mov	edx, DWORD PTR [ecx+132]
 	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -831,7 +831,7 @@ $LN7@TEST_PMC_R:
 $LN8@TEST_PMC_R:
 	mov	ecx, DWORD PTR _result$[ebp]
 	push	ecx
-	push	OFFSET $SG94923
+	push	OFFSET $SG94975
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -840,7 +840,7 @@ $LN8@TEST_PMC_R:
 	push	2
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94924
+	push	OFFSET $SG94976
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -855,7 +855,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 89   :     {
-; 90   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 3), actual_r == desired_r, L"èËó]ÇÃílÇ™àÍívÇµÇ»Ç¢");
+; 90   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 3), actual_r == desired_r, L"Ââ∞‰Ωô„ÅÆÂÄ§„Åå‰∏ÄËá¥„Åó„Å™„ÅÑ");
 
 	mov	edx, DWORD PTR _actual_r$[ebp]
 	cmp	edx, DWORD PTR _desired_r$[ebp]
@@ -868,13 +868,13 @@ $LN8@TEST_PMC_R:
 $LN9@TEST_PMC_R:
 	mov	DWORD PTR tv136[ebp], 0
 $LN10@TEST_PMC_R:
-	push	OFFSET $SG94926
+	push	OFFSET $SG94978
 	mov	ecx, DWORD PTR tv136[ebp]
 	push	ecx
 	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94927
+	push	OFFSET $SG94979
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -983,7 +983,7 @@ _TEST_PMC_Remainder_X_I PROC
 ; 67   :     unsigned __int32 actual_r;
 ; 68   :     PMC_STATUS_CODE result;
 ; 69   :     PMC_STATUS_CODE u_result;
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", u_result));
+; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", u_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _u$[ebp]
@@ -993,7 +993,7 @@ _TEST_PMC_Remainder_X_I PROC
 	mov	edx, DWORD PTR _u_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1007,7 +1007,7 @@ $LN5@TEST_PMC_R:
 $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _u_result$[ebp]
 	push	edx
-	push	OFFSET $SG94891
+	push	OFFSET $SG94943
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1016,7 +1016,7 @@ $LN6@TEST_PMC_R:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94892
+	push	OFFSET $SG94944
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1025,7 +1025,7 @@ $LN6@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 2), (result = ep->DivRem_X_I(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_IÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", result));
+; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 2), (result = ep->DivRem_X_I(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_I„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_r$[ebp]
@@ -1036,7 +1036,7 @@ $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _u$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+132]
+	mov	ecx, DWORD PTR [eax+128]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1051,7 +1051,7 @@ $LN7@TEST_PMC_R:
 $LN8@TEST_PMC_R:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG94893
+	push	OFFSET $SG94945
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1060,7 +1060,7 @@ $LN8@TEST_PMC_R:
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94894
+	push	OFFSET $SG94946
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1075,7 +1075,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 73   :     {
-; 74   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 3), actual_r == desired_r, L"èËó]ÇÃílÇ™àÍívÇµÇ»Ç¢");
+; 74   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 3), actual_r == desired_r, L"Ââ∞‰Ωô„ÅÆÂÄ§„Åå‰∏ÄËá¥„Åó„Å™„ÅÑ");
 
 	mov	ecx, DWORD PTR _actual_r$[ebp]
 	cmp	ecx, DWORD PTR _desired_r$[ebp]
@@ -1085,13 +1085,13 @@ $LN8@TEST_PMC_R:
 $LN9@TEST_PMC_R:
 	mov	DWORD PTR tv136[ebp], 0
 $LN10@TEST_PMC_R:
-	push	OFFSET $SG94896
+	push	OFFSET $SG94948
 	mov	edx, DWORD PTR tv136[ebp]
 	push	edx
 	push	3
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94897
+	push	OFFSET $SG94949
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1200,7 +1200,7 @@ _TEST_PMC_Remainder_L_X PROC
 ; 51   :     unsigned __int64 actual_r;
 ; 52   :     PMC_STATUS_CODE result;
 ; 53   :     PMC_STATUS_CODE v_result;
-; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", v_result));
+; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -1210,7 +1210,7 @@ _TEST_PMC_Remainder_L_X PROC
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1224,7 +1224,7 @@ $LN5@TEST_PMC_R:
 $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _v_result$[ebp]
 	push	edx
-	push	OFFSET $SG94861
+	push	OFFSET $SG94913
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1233,7 +1233,7 @@ $LN6@TEST_PMC_R:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94862
+	push	OFFSET $SG94914
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1242,7 +1242,7 @@ $LN6@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 2), (result = ep->DivRem_L_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_L_XÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", result));
+; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 2), (result = ep->DivRem_L_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_L_X„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_r$[ebp]
@@ -1255,7 +1255,7 @@ $LN6@TEST_PMC_R:
 	mov	eax, DWORD PTR _u$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _ep$[ebp]
-	mov	edx, DWORD PTR [ecx+128]
+	mov	edx, DWORD PTR [ecx+124]
 	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1270,7 +1270,7 @@ $LN7@TEST_PMC_R:
 $LN8@TEST_PMC_R:
 	mov	ecx, DWORD PTR _result$[ebp]
 	push	ecx
-	push	OFFSET $SG94863
+	push	OFFSET $SG94915
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1279,7 +1279,7 @@ $LN8@TEST_PMC_R:
 	push	2
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94864
+	push	OFFSET $SG94916
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1294,7 +1294,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 57   :     {
-; 58   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 3), actual_r == desired_r, L"èËó]ÇÃílÇ™àÍívÇµÇ»Ç¢");
+; 58   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 3), actual_r == desired_r, L"Ââ∞‰Ωô„ÅÆÂÄ§„Åå‰∏ÄËá¥„Åó„Å™„ÅÑ");
 
 	mov	edx, DWORD PTR _actual_r$[ebp]
 	cmp	edx, DWORD PTR _desired_r$[ebp]
@@ -1307,13 +1307,13 @@ $LN8@TEST_PMC_R:
 $LN9@TEST_PMC_R:
 	mov	DWORD PTR tv136[ebp], 0
 $LN10@TEST_PMC_R:
-	push	OFFSET $SG94866
+	push	OFFSET $SG94918
 	mov	ecx, DWORD PTR tv136[ebp]
 	push	ecx
 	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94867
+	push	OFFSET $SG94919
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1358,7 +1358,6 @@ $LN1@TEST_PMC_R:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
 $LN14@TEST_PMC_R:
 	DD	2
 	DD	$LN13@TEST_PMC_R
@@ -1422,7 +1421,7 @@ _TEST_PMC_Remainder_I_X PROC
 ; 35   :     unsigned __int32 actual_r;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", v_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", v_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _v$[ebp]
@@ -1432,7 +1431,7 @@ _TEST_PMC_Remainder_I_X PROC
 	mov	edx, DWORD PTR _v_buf$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+24]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1446,7 +1445,7 @@ $LN5@TEST_PMC_R:
 $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _v_result$[ebp]
 	push	edx
-	push	OFFSET $SG94831
+	push	OFFSET $SG94883
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1455,7 +1454,7 @@ $LN6@TEST_PMC_R:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94832
+	push	OFFSET $SG94884
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1464,7 +1463,7 @@ $LN6@TEST_PMC_R:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 2), (result = ep->DivRem_I_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_I_XÇÃïúãAÉRÅ[ÉhÇ™ä˙ë“í ÇËÇ≈ÇÕÇ»Ç¢(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 2), (result = ep->DivRem_I_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_I_X„ÅÆÂæ©Â∏∞„Ç≥„Éº„Éâ„ÅåÊúüÂæÖÈÄö„Çä„Åß„ÅØ„Å™„ÅÑ(%d)", result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _actual_r$[ebp]
@@ -1475,7 +1474,7 @@ $LN6@TEST_PMC_R:
 	mov	edx, DWORD PTR _u$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+124]
+	mov	ecx, DWORD PTR [eax+120]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -1490,7 +1489,7 @@ $LN7@TEST_PMC_R:
 $LN8@TEST_PMC_R:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG94833
+	push	OFFSET $SG94885
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -1499,7 +1498,7 @@ $LN8@TEST_PMC_R:
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94834
+	push	OFFSET $SG94886
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -1514,7 +1513,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 41   :     {
-; 42   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 3), actual_r == desired_r, L"èËó]ÇÃílÇ™àÍívÇµÇ»Ç¢");
+; 42   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 3), actual_r == desired_r, L"Ââ∞‰Ωô„ÅÆÂÄ§„Åå‰∏ÄËá¥„Åó„Å™„ÅÑ");
 
 	mov	ecx, DWORD PTR _actual_r$[ebp]
 	cmp	ecx, DWORD PTR _desired_r$[ebp]
@@ -1524,13 +1523,13 @@ $LN8@TEST_PMC_R:
 $LN9@TEST_PMC_R:
 	mov	DWORD PTR tv136[ebp], 0
 $LN10@TEST_PMC_R:
-	push	OFFSET $SG94836
+	push	OFFSET $SG94888
 	mov	edx, DWORD PTR tv136[ebp]
 	push	edx
 	push	3
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94837
+	push	OFFSET $SG94889
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax

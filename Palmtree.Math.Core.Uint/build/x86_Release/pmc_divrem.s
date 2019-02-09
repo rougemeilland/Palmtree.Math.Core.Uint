@@ -5368,8 +5368,8 @@ LFB5550:
 	movl	%eax, %ecx
 	testl	%eax, %eax
 	jne	L311
-	movzbl	24(%ebx), %eax
-	testb	$2, %al
+	movzbl	(%ebx), %eax
+	testb	$1, %al
 	jne	L320
 	testl	%edi, %edi
 	jne	L313
@@ -5399,7 +5399,7 @@ L311:
 	.p2align 4,,10
 L313:
 	.cfi_restore_state
-	testb	$4, %al
+	testb	$2, %al
 	jne	L334
 /APP
  # 597 "../pmc_inline_func.h" 1
@@ -5407,7 +5407,7 @@ L313:
  # 0 "" 2
 /NO_APP
 	addl	$1, %eax
-	cmpl	12(%ebx), %eax
+	cmpl	16(%ebx), %eax
 	jnb	L316
 	testl	%ebp, %ebp
 	je	L317
@@ -5423,7 +5423,7 @@ L334:
 	jmp	L314
 	.p2align 4,,10
 L316:
-	movl	32(%ebx), %ebx
+	movl	36(%ebx), %ebx
 	movl	%edi, %eax
 	movl	%ecx, %edx
 /APP
@@ -5482,7 +5482,7 @@ LFB5551:
 	movl	84(%esp), %eax
 	testl	%eax, %eax
 	je	L350
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L337
 	testl	%edi, %edi
 	movl	$_number_zero, %eax
@@ -5518,7 +5518,7 @@ L337:
 	.cfi_restore_state
 	cmpl	$1, 84(%esp)
 	je	L361
-	movl	12(%ebx), %edx
+	movl	16(%ebx), %edx
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl 84(%esp), %eax
@@ -5548,7 +5548,7 @@ L362:
 	movl	$_number_zero, %eax
 	cmove	%esi, %eax
 	movl	%eax, 36(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	(%eax), %eax
 	movl	%eax, 0(%ebp)
 	jmp	L339
@@ -5575,20 +5575,20 @@ L363:
 	movl	$0, 44(%esp)
 	movl	%eax, 16(%esp)
 	movl	36(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 12(%esp)
 	movl	84(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_DivRem_X_1W
 	movl	40(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	36(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -5599,7 +5599,7 @@ L363:
 	movl	44(%esp), %eax
 	movl	%eax, 0(%ebp)
 	movl	36(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L348
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
@@ -5610,10 +5610,10 @@ L363:
 L345:
 	movl	84(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_Rem_X_1W
 	movl	%eax, 0(%ebp)
@@ -5660,8 +5660,8 @@ LFB5552:
 	movl	%eax, %ecx
 	testl	%eax, %eax
 	jne	L364
-	movzbl	24(%ebx), %eax
-	testb	$2, %al
+	movzbl	(%ebx), %eax
+	testb	$1, %al
 	jne	L380
 	movl	%ebp, %edx
 	orl	%edi, %edx
@@ -5696,9 +5696,9 @@ L364:
 	.p2align 4,,10
 L366:
 	.cfi_restore_state
-	testb	$4, %al
+	testb	$2, %al
 	jne	L400
-	movl	12(%ebx), %edx
+	movl	16(%ebx), %edx
 	testl	%ebp, %ebp
 	jne	L369
 	xorl	%eax, %eax
@@ -5754,7 +5754,7 @@ L375:
 	jmp	L364
 	.p2align 4,,10
 L374:
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	cmpl	$32, %edx
 	ja	L376
 	movl	140(%esp), %edx
@@ -5790,7 +5790,7 @@ L374:
 L371:
 	movl	%edi, %eax
 	movl	140(%esp), %edi
-	movl	32(%ebx), %ebx
+	movl	36(%ebx), %ebx
 	xorl	%edx, %edx
 /APP
  # 405 "../pmc_inline_func.h" 1
@@ -5812,7 +5812,7 @@ L376:
 	movl	_fp_DivRem_X_X, %edx
 	movl	%ecx, 44(%esp)
 	movl	%edx, 40(%esp)
-	movl	8(%ebx), %edx
+	movl	12(%ebx), %edx
 	movl	140(%esp), %ebx
 	andl	$1073741823, %edx
 	testl	%ebx, %ebx
@@ -5931,7 +5931,7 @@ LFB5553:
 	movl	%edi, %eax
 	orl	%ebp, %eax
 	je	L427
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L403
 	movl	124(%esp), %eax
 	testl	%eax, %eax
@@ -5974,7 +5974,7 @@ L403:
 	xorl	$1, %eax
 	orl	%edi, %eax
 	je	L445
-	movl	12(%ebx), %eax
+	movl	16(%ebx), %eax
 	testl	%edi, %edi
 	jne	L409
 	testl	%ebp, %ebp
@@ -5993,7 +5993,7 @@ L403:
 	testl	%edi, %edi
 	cmove	%esi, %eax
 	movl	%eax, 48(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	(%eax), %eax
 	movl	$0, 4(%ecx)
 	movl	%eax, (%ecx)
@@ -6010,13 +6010,13 @@ L409:
 	jnb	L417
 	movl	124(%esp), %edi
 	movl	$_number_zero, %eax
-	movl	32(%ebx), %edx
+	movl	36(%ebx), %edx
 	testl	%edi, %edi
 	movl	(%edx), %ecx
 	cmove	%esi, %eax
 	movl	%eax, 48(%esp)
 	xorl	%eax, %eax
-	cmpl	$1, 8(%ebx)
+	cmpl	$1, 12(%ebx)
 	jbe	L419
 	movl	4(%edx), %eax
 L419:
@@ -6081,23 +6081,23 @@ L417:
 	je	L447
 	movl	%eax, 24(%esp)
 	movl	48(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	$2, 12(%esp)
 	movl	%eax, 20(%esp)
 	leal	72(%esp), %eax
 	movl	%eax, 16(%esp)
 	leal	64(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	*_fp_DivRem_X_X
 	movl	52(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	48(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6121,7 +6121,7 @@ L417:
 	movl	%edi, (%esp)
 	call	_DeallocateBlock
 	movl	48(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L416
 L444:
 	movl	%eax, (%esp)
@@ -6155,10 +6155,10 @@ L420:
 	movl	$0, 20(%esp)
 	movl	$2, 12(%esp)
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	*_fp_DivRem_X_X
 	movl	56(%esp), %eax
@@ -6201,19 +6201,19 @@ L410:
 	movl	$0, 72(%esp)
 	movl	%eax, 16(%esp)
 	movl	48(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%ebp, 8(%esp)
 	movl	%eax, 12(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_DivRem_X_1W
 	movl	64(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	48(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6226,7 +6226,7 @@ L410:
 	movl	$0, 4(%eax)
 	movl	%ecx, (%eax)
 	movl	48(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L416
 	jmp	L444
 	.p2align 4,,10
@@ -6236,10 +6236,10 @@ L430:
 	.p2align 4,,10
 L413:
 	movl	%ebp, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_Rem_X_1W
 	movl	128(%esp), %ecx
@@ -6323,10 +6323,10 @@ L516:
 	movl	%eax, %ebp
 	testl	%eax, %eax
 	jne	L449
-	movzbl	24(%esi), %eax
-	testb	$2, %al
+	movzbl	(%esi), %eax
+	testb	$1, %al
 	jne	L479
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L451
 	movl	120(%esp), %eax
 	testl	%eax, %eax
@@ -6365,7 +6365,7 @@ L521:
 	.p2align 4,,10
 L451:
 	.cfi_restore_state
-	testb	$4, %al
+	testb	$2, %al
 	je	L454
 	movl	120(%esp), %esi
 	testl	%esi, %esi
@@ -6381,8 +6381,8 @@ L485:
 	jmp	L449
 	.p2align 4,,10
 L454:
-	movl	12(%ebx), %eax
-	movl	12(%esi), %ecx
+	movl	16(%ebx), %eax
+	movl	16(%esi), %ecx
 	cmpl	%ecx, %eax
 	jb	L517
 	cmpl	$32, %ecx
@@ -6409,24 +6409,24 @@ L454:
 	testl	%eax, %eax
 	jne	L512
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 16(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 12(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	(%eax), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_DivRem_X_1W
 	movl	72(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6434,7 +6434,7 @@ L454:
 	movl	76(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6447,11 +6447,11 @@ L515:
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	56(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	jne	L518
 L474:
 	movl	60(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L466
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
@@ -6505,7 +6505,7 @@ L460:
 	movl	%eax, 8(%esp)
 	leal	76(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	sall	$5, %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
@@ -6513,22 +6513,22 @@ L460:
 	testl	%eax, %eax
 	je	L520
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 24(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 20(%esp)
 	movl	44(%esp), %eax
 	movl	%eax, 16(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 12(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	*_fp_DivRem_X_X
 	movl	72(%esp), %eax
@@ -6541,7 +6541,7 @@ L460:
 	movl	64(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6549,7 +6549,7 @@ L460:
 	movl	64(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6585,15 +6585,15 @@ L461:
 	testl	%eax, %eax
 	jne	L485
 	movl	60(%esp), %eax
-	movl	32(%eax), %edx
-	movl	32(%esi), %eax
+	movl	36(%eax), %edx
+	movl	36(%esi), %eax
 	movl	(%eax), %eax
 	movl	%edx, 44(%esp)
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_Rem_X_1W
 	movl	44(%esp), %edx
@@ -6602,7 +6602,7 @@ L461:
 	movl	$0, 56(%esp)
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -6612,7 +6612,7 @@ L511:
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	60(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L469
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
@@ -6633,7 +6633,7 @@ L470:
 	movl	%eax, 8(%esp)
 	leal	76(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	sall	$5, %eax
 	movl	%eax, (%esp)
 	call	_AllocateBlock
@@ -6642,19 +6642,19 @@ L470:
 	je	L482
 	movl	60(%esp), %eax
 	movl	%ecx, 44(%esp)
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	$0, 20(%esp)
 	movl	%ecx, 16(%esp)
 	movl	%eax, 24(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 12(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	andl	$1073741823, %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	*_fp_DivRem_X_X
 	movl	72(%esp), %eax
@@ -6668,7 +6668,7 @@ L470:
 	movl	68(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax

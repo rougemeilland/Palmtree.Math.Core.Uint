@@ -88497,14 +88497,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 76 "../pmc.h"
+# 70 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 89 "../pmc.h"
+# 83 "../pmc.h"
 
-# 89 "../pmc.h"
+# 83 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -88524,14 +88524,19 @@ typedef struct __tag_PMC_CONFIGURATION_INFO
 
 typedef int PMC_STATUS_CODE;
 
-typedef int PMC_NUMBER_TYPE_CODE;
-
 typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
-struct __tag_PMC_HANDLE_UINT
+union __tag_PMC_HANDLE_UINT
 {
+    struct __tag_UINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
 
 
@@ -88540,10 +88545,18 @@ struct __tag_PMC_HANDLE_UINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
+typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
-struct __tag_PMC_HANDLE_SINT
+union __tag_PMC_HANDLE_SINT
 {
+    struct __tag_SINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_MINUS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
 
 
@@ -88552,7 +88565,7 @@ struct __tag_PMC_HANDLE_SINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
+typedef union __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
 
 typedef struct __tag_PMC_STATISTICS_INFO
 {
@@ -88592,9 +88605,6 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
     void ( * Dispose)(PMC_HANDLE_UINT p);
-
-
-    PMC_STATUS_CODE ( * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
 
     PMC_STATUS_CODE ( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
@@ -88705,7 +88715,7 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 typedef struct __tag_PMC_SINT_ENTRY_POINTS
 {
 
-    PMC_UINT_ENTRY_POINTS uint;
+    PMC_UINT_ENTRY_POINTS UINT_ENTRY_POINTS;
 
 
     void ( * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
@@ -88718,9 +88728,6 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     void ( * Dispose)(PMC_HANDLE_SINT p);
-
-
-    PMC_STATUS_CODE ( * GetNumberType_X)(PMC_HANDLE_SINT x, PMC_NUMBER_TYPE_CODE* o);
 
 
     PMC_STATUS_CODE ( * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
@@ -88738,7 +88745,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE ( * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 331 "../pmc.h"
+# 332 "../pmc.h"
     PMC_STATUS_CODE ( * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -88764,7 +88771,16 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Multiply_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 418 "../pmc.h"
+
+
+    PMC_STATUS_CODE ( * DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE ( * DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE ( * DivRem_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_UINT* r);
+    PMC_STATUS_CODE ( * DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
+    PMC_STATUS_CODE ( * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
+    PMC_STATUS_CODE ( * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+    PMC_STATUS_CODE ( * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+# 422 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -88833,17 +88849,19 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+
         _UINT32_T SIGNATURE1;
         _UINT32_T SIGNATURE2;
         __UNIT_TYPE UNIT_WORD_COUNT;
         __UNIT_TYPE UNIT_BIT_COUNT;
         __UNIT_TYPE HASH_CODE;
         __UNIT_TYPE TRAILING_ZERO_BITS_COUNT;
+
         unsigned IS_STATIC : 1;
-        unsigned IS_ZERO : 1;
-        unsigned IS_ONE : 1;
-        unsigned IS_EVEN : 1;
-        unsigned IS_POWER_OF_TWO : 1;
 
         size_t BLOCK_COUNT;
 
@@ -88955,9 +88973,6 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE Initialize_To(PROCESSOR_FEATURES *feature);
 
 
-    extern PMC_STATUS_CODE Initialize_GetPropertyValue(PROCESSOR_FEATURES* feature);
-
-
     extern PMC_STATUS_CODE Initialize_Add(PROCESSOR_FEATURES* feature);
 
 
@@ -89011,8 +89026,6 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE PMC_From_L(_UINT64_T x, PMC_HANDLE_UINT* o);
 
     extern void PMC_Dispose(PMC_HANDLE_UINT p);
-
-    extern PMC_STATUS_CODE PMC_GetNumberType_X(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
     extern PMC_STATUS_CODE PMC_GetConstantValue_I(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
@@ -89156,9 +89169,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 363 "../pmc_uint_internal.h" 3 4
+# 360 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 363 "../pmc_uint_internal.h"
+# 360 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -89170,9 +89183,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 373 "../pmc_uint_internal.h" 3 4
+# 370 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 373 "../pmc_uint_internal.h"
+# 370 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -89186,16 +89199,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 385 "../pmc_uint_internal.h" 3 4
+# 382 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 385 "../pmc_uint_internal.h"
+# 382 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 388 "../pmc_uint_internal.h" 3
+# 385 "../pmc_uint_internal.h" 3
                                                       long long
-# 388 "../pmc_uint_internal.h"
+# 385 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -89206,6 +89219,659 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 #pragma endregion
 # 30 "../pmc_initialize.c" 2
 
+# 1 "../pmc_inline_func.h" 1
+# 42 "../pmc_inline_func.h"
+    __inline static void _COPY_MEMORY_BYTE(void* d, const void* s, size_t count)
+    {
+        __movsb(d, s, count);
+    }
+
+    __inline static void _COPY_MEMORY_32(_UINT32_T* d, const _UINT32_T* s, _UINT32_T count)
+    {
+        __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
+    }
+
+
+    __inline static void _COPY_MEMORY_64(_UINT64_T* d, const _UINT64_T* s, _UINT64_T count)
+    {
+        __movsq(d, s, count);
+    }
+
+
+    __inline static void _COPY_MEMORY_UNIT(__UNIT_TYPE* d, const __UNIT_TYPE* s, __UNIT_TYPE count)
+    {
+
+
+
+        __movsq(d, s, count);
+
+
+
+    }
+
+    __inline static void _COPY_MEMORY_UNIT_DIV(__UNIT_TYPE_DIV* d, const __UNIT_TYPE_DIV* s, __UNIT_TYPE count)
+    {
+
+
+
+
+
+
+        __movsq(d, s, count);
+
+
+
+
+
+
+    }
+
+    __inline static void _ZERO_MEMORY_BYTE(void* d, size_t count)
+    {
+        __stosb(d, 0, count);
+    }
+
+    __inline static void _ZERO_MEMORY_16(_UINT16_T* d, size_t count)
+    {
+        __stosw(d, 0, count);
+    }
+
+    __inline static void _ZERO_MEMORY_32(_UINT32_T* d, size_t count)
+    {
+        __stosd((unsigned long*)d, 0, count);
+    }
+
+
+    __inline static void _ZERO_MEMORY_64(_UINT64_T* d, size_t count)
+    {
+        __stosq(d, 0, count);
+    }
+
+
+    __inline static void _ZERO_MEMORY_UNIT(__UNIT_TYPE* d, __UNIT_TYPE count)
+    {
+
+
+
+        __stosq(d, 0, count);
+
+
+
+    }
+
+    __inline static void _ZERO_MEMORY_UNIT_DIV(__UNIT_TYPE_DIV* d, __UNIT_TYPE count)
+    {
+
+
+
+
+
+
+        __stosq(d, 0, count);
+
+
+
+
+
+
+    }
+
+    __inline static void _FILL_MEMORY_BYTE(void* d, unsigned char x, size_t count)
+    {
+        __stosb(d, x, count);
+    }
+
+    __inline static void _FILL_MEMORY_16(_UINT16_T* d, _UINT16_T x, size_t count)
+    {
+        __stosw(d, x, count);
+    }
+
+    __inline static void _FILL_MEMORY_32(_UINT32_T* d, _UINT32_T x, size_t count)
+    {
+        __stosd((unsigned long*)d, x, count);
+    }
+
+
+    __inline static void _FILL_MEMORY_64(_UINT64_T* d, _UINT64_T x, size_t count)
+    {
+        __stosq(d, x, count);
+    }
+
+
+    __inline static void _FILL_MEMORY_UNIT(__UNIT_TYPE* d, __UNIT_TYPE x, __UNIT_TYPE count)
+    {
+
+
+
+        __stosq(d, x, count);
+
+
+
+    }
+
+    __inline static _UINT64_T _FROMWORDTODWORD(_UINT32_T value_high, _UINT32_T value_low)
+    {
+        return (((_UINT64_T)value_high << 32) | value_low);
+    }
+
+    __inline static _UINT32_T _FROMDWORDTOWORD(_UINT64_T value, _UINT32_T *result_high)
+    {
+        *result_high = (_UINT32_T)(value >> 32);
+        return ((_UINT32_T)value);
+    }
+
+    __inline static __UNIT_TYPE _MAKE_MASK_UNIT(int bits)
+    {
+        return (((__UNIT_TYPE)1UL << bits) - 1);
+    }
+
+    __inline static __UNIT_TYPE _DIVIDE_CEILING_UNIT(__UNIT_TYPE u, __UNIT_TYPE v)
+    {
+        return ((u + v - 1) / v);
+    }
+
+    __inline static size_t _DIVIDE_CEILING_SIZE(size_t u, size_t v)
+    {
+        return ((u + v - 1) / v);
+    }
+
+    __inline static __UNIT_TYPE _MAXIMUM_UNIT(__UNIT_TYPE x, __UNIT_TYPE y)
+    {
+        return (x >= y ? x : y);
+    }
+
+    __inline static __UNIT_TYPE _MINIMUM_UNIT(__UNIT_TYPE x, __UNIT_TYPE y)
+    {
+        return (x <= y ? x : y);
+    }
+
+    __inline static char _ADD_UNIT(char carry, __UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w)
+    {
+
+
+
+        return (_addcarry_u64(carry, u, v, w));
+
+
+
+    }
+
+    __inline static char _ADD_UNIT_DIV(char carry, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w)
+    {
+
+
+
+
+
+
+        return (_addcarry_u64(carry, u, v, w));
+
+
+
+
+
+
+    }
+
+    __inline static char _ADDX_UNIT(char carry, __UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w)
+    {
+
+
+
+        return (_addcarryx_u64(carry, u, v, w));
+
+
+
+    }
+
+    __inline static char _ADDX_UNIT_DIV(char carry, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w)
+    {
+
+
+
+
+
+
+        return (_addcarryx_u64(carry, u, v, w));
+
+
+
+
+
+
+    }
+
+    __inline static char _SUBTRUCT_UNIT(char borrow, __UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w)
+    {
+
+
+
+        return (_subborrow_u64(borrow, u, v, w));
+
+
+
+    }
+
+    __inline static char _SUBTRUCT_UNIT_DIV(char borrow, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w)
+    {
+
+
+
+
+
+
+        return (_subborrow_u64(borrow, u, v, w));
+
+
+
+
+
+
+    }
+
+    __inline static __UNIT_TYPE _MULTIPLY_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
+    {
+# 303 "../pmc_inline_func.h"
+        return (_umul128(u, v, w_hi));
+
+
+
+    }
+
+    __inline static __UNIT_TYPE_DIV _MULTIPLY_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
+    {
+# 319 "../pmc_inline_func.h"
+        return (_umul128(u, v, w_hi));
+
+
+
+
+
+
+    }
+
+    __inline static __UNIT_TYPE _MULTIPLYX_UNIT(__UNIT_TYPE u, __UNIT_TYPE v, __UNIT_TYPE* w_hi)
+    {
+# 344 "../pmc_inline_func.h"
+        _UINT64_T w_lo;
+        __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+        return (w_lo);
+
+
+
+
+
+
+    }
+
+    __inline static __UNIT_TYPE_DIV _MULTIPLYX_UNIT_DIV(__UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* w_hi)
+    {
+# 365 "../pmc_inline_func.h"
+        _UINT64_T w_lo;
+        __asm__("mulxq %3, %0, %1" : "=r"(w_lo), "=r"(*w_hi), "+d"(u) : "rm"(v));
+        return (w_lo);
+
+
+
+
+
+
+    }
+
+
+    __inline static __UNIT_TYPE_DIV _DIVREM_UNIT(__UNIT_TYPE_DIV u_high, __UNIT_TYPE_DIV u_low, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *r)
+    {
+# 403 "../pmc_inline_func.h"
+        __UNIT_TYPE q;
+        if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+            __asm__("divl %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+        else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+            __asm__("divq %4": "=a"(q), "=d"(*r) : "0"(u_low), "1"(u_high), "rm"(v));
+        else
+        {
+
+            *r = 0;
+            q = 0;
+        }
+        return (q);
+
+
+
+    }
+
+
+    __inline static __UNIT_TYPE_DIV _DIVREM_SINGLE_UNIT(__UNIT_TYPE_DIV r, __UNIT_TYPE_DIV u, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV *q)
+    {
+# 447 "../pmc_inline_func.h"
+        if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT32_T))
+            __asm__("divl %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+        else if (sizeof(__UNIT_TYPE_DIV) == sizeof(_UINT64_T))
+            __asm__("divq %4": "=a"(*q), "=d"(r) : "0"(u), "1"(r), "rm"(v));
+        else
+        {
+
+            *q = 0;
+            r = 0;
+        }
+        return (r);
+
+
+
+    }
+
+    __inline static void _MEMCPY_UNIT(__UNIT_TYPE* dst, __UNIT_TYPE* src, size_t count)
+    {
+
+
+
+        __movsq(dst, src, count);
+
+
+
+    }
+
+    __inline static __UNIT_TYPE _ROTATE_L_UNIT(__UNIT_TYPE x, int count)
+    {
+
+
+
+        return (
+# 479 "../pmc_inline_func.h" 3
+               __rolq
+# 479 "../pmc_inline_func.h"
+                      (x, count));
+
+
+
+    }
+
+    __inline static __UNIT_TYPE _ROTATE_R_UNIT(__UNIT_TYPE x, int count)
+    {
+
+
+
+        return (
+# 490 "../pmc_inline_func.h" 3
+               __rorq
+# 490 "../pmc_inline_func.h"
+                      (x, count));
+
+
+
+    }
+
+    __inline static int _POPCNT_UNIT(__UNIT_TYPE value)
+    {
+
+
+
+        return ((int)__popcnt64(value));
+
+
+
+    }
+
+    __inline static int _POPCNT_ALT_UNIT(__UNIT_TYPE x)
+    {
+
+
+
+
+
+
+
+        x = (x & 0x5555555555555555) + ((x >> 1) & 0x5555555555555555);
+        x = (x & 0x3333333333333333) + ((x >> 2) & 0x3333333333333333);
+        x = (x & 0x0f0f0f0f0f0f0f0f) + ((x >> 4) & 0x0f0f0f0f0f0f0f0f);
+        x = (x & 0x00ff00ff00ff00ff) + ((x >> 8) & 0x00ff00ff00ff00ff);
+        x = (x & 0x0000ffff0000ffff) + ((x >> 16) & 0x0000ffff0000ffff);
+        x = (x & 0x00000000ffffffff) + ((x >> 32) & 0x00000000ffffffff);
+
+
+
+        return((int)x);
+    }
+
+    __inline static int _LZCNT_32(_UINT32_T value)
+    {
+        return (_lzcnt_u32(value));
+    }
+
+
+    __inline static int _LZCNT_64(_UINT64_T value)
+    {
+        return ((int)_lzcnt_u64(value));
+    }
+
+
+    __inline static int _LZCNT_UNIT(__UNIT_TYPE value)
+    {
+
+
+
+        return ((int)_lzcnt_u64(value));
+
+
+
+    }
+
+    __inline static int _LZCNT_UNIT_DIV(__UNIT_TYPE_DIV value)
+    {
+# 565 "../pmc_inline_func.h"
+        return (_lzcnt_u64(value));
+
+
+
+
+
+
+    }
+
+    __inline static int _LZCNT_ALT_8(unsigned char x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+        _UINT32_T pos;
+
+
+
+        __asm__("bsrl %1, %0" : "=r"(pos) : "rm"((_UINT32_T)x));
+
+
+
+        return ((unsigned char)(sizeof(x) * 8 - 1 - pos));
+    }
+
+    __inline static int _LZCNT_ALT_32(_UINT32_T x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+        _UINT32_T pos;
+
+
+
+        __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+
+
+
+        return (sizeof(x) * 8 - 1 - pos);
+    }
+
+
+    __inline static int _LZCNT_ALT_64(_UINT64_T x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+
+
+
+
+        _UINT64_T pos;
+        __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+
+
+
+        return (sizeof(x) * 8 - 1 - pos);
+    }
+
+
+    __inline static int _LZCNT_ALT_UNIT(__UNIT_TYPE x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+# 640 "../pmc_inline_func.h"
+        _UINT64_T pos;
+        __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+
+
+
+
+
+
+        return (sizeof(x) * 8 - 1 - pos);
+    }
+
+    __inline static int _LZCNT_ALT_UNIT_DIV(__UNIT_TYPE_DIV x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+# 669 "../pmc_inline_func.h"
+        _UINT64_T pos;
+        __asm__("bsrq %1, %0" : "=r"(pos) : "rm"(x));
+
+
+
+
+
+
+        return (sizeof(x) * 8 - 1 - pos);
+    }
+
+    __inline static int _TZCNT_UNIT(__UNIT_TYPE x)
+    {
+
+
+
+        return ((int)_tzcnt_u64(x));
+
+
+
+    }
+
+    __inline static int _TZCNT_ALT_USING_POPCNT_UNIT(__UNIT_TYPE x)
+    {
+
+
+
+        return((int)__popcnt64(~x & (x - 1)));
+
+
+
+    }
+
+    __inline static int _TZCNT_ALT_UNIT(__UNIT_TYPE x)
+    {
+        if (x == 0)
+            return (sizeof(x) * 8);
+# 720 "../pmc_inline_func.h"
+        _UINT64_T pos;
+        __asm__("bsfq %1, %0" : "=r"(pos) : "rm"(x));
+
+
+
+
+
+
+        return (pos);
+    }
+
+
+    __inline static _UINT32_T _REVERSE_BIT_ORDER_32(_UINT32_T x)
+    {
+        x = ((x & 0x55555555U) << 1) | ((x & 0xaaaaaaaaU) >> 1);
+        x = ((x & 0x33333333U) << 2) | ((x & 0xccccccccU) >> 2);
+        x = ((x & 0x0f0f0f0fU) << 4) | ((x & 0xf0f0f0f0U) >> 4);
+        x = ((x & 0x00ff00ffU) << 8) | ((x & 0xff00ff00U) >> 8);
+        x = (x << 16) | (x >> 16);
+        return (x);
+    }
+
+
+
+    __inline static _UINT64_T _REVERSE_BIT_ORDER_64(_UINT64_T x)
+    {
+        x = ((x & 0x5555555555555555UL) << 1) | ((x & 0xaaaaaaaaaaaaaaaaUL) >> 1);
+        x = ((x & 0x3333333333333333UL) << 2) | ((x & 0xccccccccccccccccUL) >> 2);
+        x = ((x & 0x0f0f0f0f0f0f0f0fUL) << 4) | ((x & 0xf0f0f0f0f0f0f0f0UL) >> 4);
+        x = ((x & 0x00ff00ff00ff00ffUL) << 8) | ((x & 0xff00ff00ff00ff00UL) >> 8);
+        x = ((x & 0x0000ffff0000ffffUL) << 16) | ((x & 0xffff0000ffff0000UL) >> 16);
+        x = (x << 32) | (x >> 32);
+        return (x);
+    }
+
+
+
+    __inline static __UNIT_TYPE _REVERSE_BIT_ORDER_UNIT(__UNIT_TYPE x)
+    {
+
+
+
+
+
+
+
+        x = ((x & 0x5555555555555555UL) << 1) | ((x & 0xaaaaaaaaaaaaaaaaUL) >> 1);
+        x = ((x & 0x3333333333333333UL) << 2) | ((x & 0xccccccccccccccccUL) >> 2);
+        x = ((x & 0x0f0f0f0f0f0f0f0fUL) << 4) | ((x & 0xf0f0f0f0f0f0f0f0UL) >> 4);
+        x = ((x & 0x00ff00ff00ff00ffUL) << 8) | ((x & 0xff00ff00ff00ff00UL) >> 8);
+        x = ((x & 0x0000ffff0000ffffUL) << 16) | ((x & 0xffff0000ffff0000UL) >> 16);
+        x = (x << 32) | (x >> 32);
+
+
+
+        return (x);
+    }
+
+
+    __inline static _UINT32_T GET_ABS_32(_INT32_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT32_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT32_T)u == 0x80000000U ? 0x80000000U : (_UINT32_T)-u);
+        }
+}
+
+
+    __inline static _UINT64_T GET_ABS_64(_INT64_T u, char*sign)
+    {
+        if (u > 0)
+        {
+            *sign = 1;
+            return ((_UINT64_T)u);
+        }
+        else if (u == 0)
+        {
+            *sign = 0;
+            return (0);
+        }
+        else
+        {
+            *sign = -1;
+            return ((_UINT64_T)u == 0x8000000000000000UL ? 0x8000000000000000UL : (_UINT64_T)-u);
+        }
+    }
+# 32 "../pmc_initialize.c" 2
 
 
 #pragma region 静的変数の定義
@@ -89214,133 +89880,192 @@ static PMC_UINT_ENTRY_POINTS entry_points;
 static char initialized = 0;
 #pragma endregion
 
+static BOOL SelfCheck()
+{
+    NUMBER_HEADER nh;
+    PMC_HANDLE_UINT handle = (PMC_HANDLE_UINT)&nh;
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_EVEN = 
+# 45 "../pmc_initialize.c" 3
+                1
+# 45 "../pmc_initialize.c"
+                    ;
+    if (!handle->FLAGS.IS_EVEN)
+        return (
+# 47 "../pmc_initialize.c" 3
+               0
+# 47 "../pmc_initialize.c"
+                    );
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_ONE = 
+# 49 "../pmc_initialize.c" 3
+               1
+# 49 "../pmc_initialize.c"
+                   ;
+    if (!handle->FLAGS.IS_ONE)
+        return (
+# 51 "../pmc_initialize.c" 3
+               0
+# 51 "../pmc_initialize.c"
+                    );
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_POWER_OF_TWO = 
+# 53 "../pmc_initialize.c" 3
+                        1
+# 53 "../pmc_initialize.c"
+                            ;
+    if (!handle->FLAGS.IS_POWER_OF_TWO)
+        return (
+# 55 "../pmc_initialize.c" 3
+               0
+# 55 "../pmc_initialize.c"
+                    );
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_ZERO = 
+# 57 "../pmc_initialize.c" 3
+                1
+# 57 "../pmc_initialize.c"
+                    ;
+    if (!handle->FLAGS.IS_ZERO)
+        return (
+# 59 "../pmc_initialize.c" 3
+               0
+# 59 "../pmc_initialize.c"
+                    );
+    return(
+# 60 "../pmc_initialize.c" 3
+          1
+# 60 "../pmc_initialize.c"
+              );
+}
 
 __attribute__((dllexport)) PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
     if (!initialized)
     {
-        PROCESSOR_FEATURES feature;
-        GetCPUInfo(&feature);
-        configuration_info = *config;
-        if (Initialize_Memory(&feature) != (0))
-            return (
-# 48 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 48 "../pmc_initialize.c"
-                       );
-        if (Initialize_From(&feature) != (0))
-            return (
-# 50 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 50 "../pmc_initialize.c"
-                       );
-        if (Initialize_To(&feature) != (0))
-            return (
-# 52 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 52 "../pmc_initialize.c"
-                       );
-        if (Initialize_Add(&feature) != (0))
-            return (
-# 54 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 54 "../pmc_initialize.c"
-                       );
-        if (Initialize_Subtruct(&feature) != (0))
-            return (
-# 56 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 56 "../pmc_initialize.c"
-                       );
-        if (Initialize_Multiply(&feature) != (0))
-            return (
-# 58 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 58 "../pmc_initialize.c"
-                       );
-        if (Initialize_DivRem(&feature) != (0))
-            return (
-# 60 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 60 "../pmc_initialize.c"
-                       );
-        if (Initialize_Shift(&feature) != (0))
-            return (
-# 62 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 62 "../pmc_initialize.c"
-                       );
-        if (Initialize_BitwiseAnd(&feature) != (0))
-            return (
-# 64 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 64 "../pmc_initialize.c"
-                       );
-        if (Initialize_BitwiseOr(&feature) != (0))
-            return (
-# 66 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 66 "../pmc_initialize.c"
-                       );
-        if (Initialize_ExclusiveOr(&feature) != (0))
+        if (!SelfCheck())
             return (
 # 68 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 68 "../pmc_initialize.c"
                        );
-        if (Initialize_Compare(&feature) != (0))
-            return (
-# 70 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 70 "../pmc_initialize.c"
-                       );
-        if (Initialize_Equals(&feature) != (0))
-            return (
-# 72 "../pmc_initialize.c" 3 4
-                   ((void *)0)
-# 72 "../pmc_initialize.c"
-                       );
-        if (Initialize_ToString(&feature) != (0))
+
+        PROCESSOR_FEATURES feature;
+        GetCPUInfo(&feature);
+        configuration_info = *config;
+        if (Initialize_Memory(&feature) != (0))
             return (
 # 74 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 74 "../pmc_initialize.c"
                        );
-        if (Initialize_Parse(&feature) != (0))
+        if (Initialize_From(&feature) != (0))
             return (
 # 76 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 76 "../pmc_initialize.c"
                        );
-        if (Initialize_GreatestCommonDivisor(&feature) != (0))
+        if (Initialize_To(&feature) != (0))
             return (
 # 78 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 78 "../pmc_initialize.c"
                        );
-        if (Initialize_Pow(&feature) != (0))
+        if (Initialize_Add(&feature) != (0))
             return (
 # 80 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 80 "../pmc_initialize.c"
                        );
-        if (Initialize_ModPow(&feature) != (0))
+        if (Initialize_Subtruct(&feature) != (0))
             return (
 # 82 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 82 "../pmc_initialize.c"
                        );
-        if (Initialize_GetPropertyValue(&feature) != (0))
+        if (Initialize_Multiply(&feature) != (0))
             return (
 # 84 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 84 "../pmc_initialize.c"
                        );
-        if (Initialize_Clone(&feature) != (0))
+        if (Initialize_DivRem(&feature) != (0))
             return (
 # 86 "../pmc_initialize.c" 3 4
                    ((void *)0)
 # 86 "../pmc_initialize.c"
+                       );
+        if (Initialize_Shift(&feature) != (0))
+            return (
+# 88 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 88 "../pmc_initialize.c"
+                       );
+        if (Initialize_BitwiseAnd(&feature) != (0))
+            return (
+# 90 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 90 "../pmc_initialize.c"
+                       );
+        if (Initialize_BitwiseOr(&feature) != (0))
+            return (
+# 92 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 92 "../pmc_initialize.c"
+                       );
+        if (Initialize_ExclusiveOr(&feature) != (0))
+            return (
+# 94 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 94 "../pmc_initialize.c"
+                       );
+        if (Initialize_Compare(&feature) != (0))
+            return (
+# 96 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 96 "../pmc_initialize.c"
+                       );
+        if (Initialize_Equals(&feature) != (0))
+            return (
+# 98 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 98 "../pmc_initialize.c"
+                       );
+        if (Initialize_ToString(&feature) != (0))
+            return (
+# 100 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 100 "../pmc_initialize.c"
+                       );
+        if (Initialize_Parse(&feature) != (0))
+            return (
+# 102 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 102 "../pmc_initialize.c"
+                       );
+        if (Initialize_GreatestCommonDivisor(&feature) != (0))
+            return (
+# 104 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 104 "../pmc_initialize.c"
+                       );
+        if (Initialize_Pow(&feature) != (0))
+            return (
+# 106 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 106 "../pmc_initialize.c"
+                       );
+        if (Initialize_ModPow(&feature) != (0))
+            return (
+# 108 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 108 "../pmc_initialize.c"
+                       );
+        if (Initialize_Clone(&feature) != (0))
+            return (
+# 110 "../pmc_initialize.c" 3 4
+                   ((void *)0)
+# 110 "../pmc_initialize.c"
                        );
 
         entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
@@ -89414,7 +90139,6 @@ __attribute__((dllexport)) PMC_UINT_ENTRY_POINTS* PMC_UINT_Initialize(PMC_CONFIG
         entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
         entry_points.Pow_X_I = PMC_Pow_X_I;
         entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
-        entry_points.GetNumberType_X = PMC_GetNumberType_X;
         entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
         entry_points.Clone_X = PMC_Clone_X;
 

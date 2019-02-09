@@ -111,7 +111,7 @@ L5:
 	addl	$7, %esi
 	movl	%eax, 28(%esp)
 	leal	1(%edi), %edx
-	movl	32(%ecx), %eax
+	movl	36(%ecx), %eax
 	movl	%esi, %ecx
 	movl	%edx, %esi
 	shrl	$3, %ecx
@@ -246,7 +246,7 @@ L32:
 	movl	%eax, 28(%esp)
 	addl	$1, %esi
 	shrl	$3, %ecx
-	movl	32(%edx), %edi
+	movl	36(%edx), %edi
 /APP
  # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -293,19 +293,19 @@ LFB5495:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L52
-	movzbl	24(%ebx), %ecx
+	movzbl	(%ebx), %ecx
 	xorl	%edx, %edx
-	andl	$2, %ecx
+	andl	$1, %ecx
 	movb	%cl, 31(%esp)
 	jne	L54
-	movl	12(%ebx), %edi
+	movl	16(%ebx), %edi
 	leal	7(%edi), %edx
 	shrl	$3, %edx
 L54:
 	movl	72(%esp), %ecx
 	testl	%ecx, %ecx
 	je	L55
-	movl	12(%ebx), %edi
+	movl	16(%ebx), %edi
 	leal	8(%edi), %ebp
 	movl	76(%esp), %edi
 	sall	$3, %edi
@@ -349,7 +349,7 @@ L56:
 	movl	%edx, %ecx
 	movb	$1, (%esi)
 	leal	1(%esi), %edi
-	movl	32(%ebx), %esi
+	movl	36(%ebx), %esi
 /APP
  # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -364,7 +364,7 @@ L57:
 	movl	%edx, %ecx
 	movb	$3, (%esi)
 	leal	1(%esi), %edi
-	movl	32(%ebx), %esi
+	movl	36(%ebx), %esi
 /APP
  # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -410,17 +410,17 @@ LFB5496:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L68
-	movzbl	24(%ebx), %ecx
+	movzbl	(%ebx), %ecx
 	xorl	%edx, %edx
-	andl	$2, %ecx
+	andl	$1, %ecx
 	jne	L70
-	movl	12(%ebx), %esi
+	movl	16(%ebx), %esi
 	leal	7(%esi), %edx
 	shrl	$3, %edx
 L70:
 	testl	%edi, %edi
 	je	L71
-	movl	12(%ebx), %esi
+	movl	16(%ebx), %esi
 	leal	8(%esi), %ebp
 	movl	56(%esp), %esi
 	sall	$3, %esi
@@ -456,7 +456,7 @@ L72:
 	movb	$1, (%edi)
 	movl	%edx, %ecx
 	addl	$1, %edi
-	movl	32(%ebx), %esi
+	movl	36(%ebx), %esi
 /APP
  # 1755 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb

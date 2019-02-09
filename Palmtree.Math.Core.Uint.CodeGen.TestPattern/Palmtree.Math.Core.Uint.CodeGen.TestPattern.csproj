@@ -70,7 +70,6 @@
     <Compile Include="TEST_PMC_Equals.cs" />
     <Compile Include="TEST_PMC_ExclusiveOr.cs" />
     <Compile Include="TEST_PMC_From.cs" />
-    <Compile Include="TEST_PMC_GetNumberType.cs" />
     <Compile Include="TEST_PMC_GreatestCommonDivisor.cs" />
     <Compile Include="TEST_PMC_LeftShift.cs" />
     <Compile Include="TEST_PMC_ModPow.cs" />

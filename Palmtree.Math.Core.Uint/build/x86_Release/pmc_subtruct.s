@@ -496,8 +496,8 @@ LFB5536:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L77
-	movzbl	24(%ebx), %edx
-	andl	$2, %edx
+	movzbl	(%ebx), %edx
+	andl	$1, %edx
 	testl	%edi, %edi
 	jne	L79
 	testb	%dl, %dl
@@ -528,9 +528,9 @@ L79:
  # 0 "" 2
 /NO_APP
 	addl	$1, %edx
-	cmpl	12(%ebx), %edx
+	cmpl	16(%ebx), %edx
 	jb	L84
-	movl	32(%ebx), %edx
+	movl	36(%ebx), %edx
 	subl	(%edx), %edi
 	jb	L84
 L81:
@@ -586,7 +586,7 @@ LFB5537:
 	movl	%eax, %esi
 	testl	%eax, %eax
 	jne	L86
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L88
 	movl	52(%esp), %edx
 	testl	%edx, %edx
@@ -613,7 +613,7 @@ L88:
 	movl	52(%esp), %eax
 	testl	%eax, %eax
 	je	L107
-	movl	12(%ebx), %edx
+	movl	16(%ebx), %edx
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl 52(%esp), %eax
@@ -650,9 +650,9 @@ L108:
 	testl	%eax, %eax
 	jne	L98
 	movl	24(%esp), %ecx
-	movl	8(%ebx), %edx
-	movl	32(%ebx), %eax
-	movl	32(%ecx), %ecx
+	movl	12(%ebx), %edx
+	movl	36(%ebx), %eax
+	movl	36(%ecx), %ecx
 	movl	%ecx, (%esp)
 	movl	52(%esp), %ecx
 	call	_Subtruct_X_1W.isra.0
@@ -662,7 +662,7 @@ L108:
 	movl	28(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	24(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -671,7 +671,7 @@ L108:
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	24(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L95
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
@@ -755,9 +755,9 @@ LFB5538:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L110
-	movzbl	24(%ebx), %edx
+	movzbl	(%ebx), %edx
 	movl	%ebp, %ecx
-	andl	$2, %edx
+	andl	$1, %edx
 	orl	%edi, %ecx
 	jne	L112
 	testb	%dl, %dl
@@ -786,7 +786,7 @@ L112:
 	.cfi_restore_state
 	testb	%dl, %dl
 	jne	L127
-	movl	12(%ebx), %ecx
+	movl	16(%ebx), %ecx
 	testl	%ebp, %ebp
 	jne	L114
 	xorl	%edx, %edx
@@ -801,7 +801,7 @@ L112:
 L115:
 	cmpl	%ecx, %edx
 	jb	L124
-	movl	32(%ebx), %edx
+	movl	36(%ebx), %edx
 	subl	(%edx), %edi
 	movl	%edi, 28(%esp)
 	jb	L124
@@ -840,11 +840,11 @@ L114:
 	addl	$33, %edx
 	cmpl	%ecx, %edx
 	jb	L124
-	movl	32(%ebx), %edx
+	movl	36(%ebx), %edx
 	subl	(%edx), %edi
 	setb	%cl
 	movl	%edi, 28(%esp)
-	cmpl	$1, 8(%ebx)
+	cmpl	$1, 12(%ebx)
 	jbe	L128
 	movl	4(%edx), %edx
 	addb	$-1, %cl
@@ -908,7 +908,7 @@ LFB5539:
 	movl	%eax, %ebp
 	testl	%eax, %eax
 	jne	L129
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L131
 	orl	%esi, %edi
 	jne	L181
@@ -938,7 +938,7 @@ L131:
 	movl	%edi, %eax
 	orl	%esi, %eax
 	je	L184
-	movl	12(%ebx), %eax
+	movl	16(%ebx), %eax
 	testl	%edi, %edi
 	jne	L134
 	testl	%esi, %esi
@@ -1033,9 +1033,9 @@ L135:
 	testl	%eax, %eax
 	jne	L150
 	movl	40(%esp), %ecx
-	movl	8(%ebx), %edx
-	movl	32(%ebx), %eax
-	movl	32(%ecx), %ecx
+	movl	12(%ebx), %edx
+	movl	36(%ebx), %eax
+	movl	36(%ecx), %ecx
 	movl	%ecx, (%esp)
 	movl	%esi, %ecx
 	call	_Subtruct_X_1W.isra.0
@@ -1046,7 +1046,7 @@ L135:
 	movl	%eax, 4(%esp)
 	movl	40(%esp), %eax
 L183:
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -1055,7 +1055,7 @@ L183:
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	40(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L133
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
@@ -1063,12 +1063,12 @@ L183:
 	jmp	L133
 	.p2align 4,,10
 L185:
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	movl	40(%esp), %ecx
 	movl	%eax, 28(%esp)
 	cmpl	$1, 28(%esp)
-	movl	32(%ecx), %edx
-	movl	32(%ebx), %eax
+	movl	36(%ecx), %edx
+	movl	36(%ebx), %eax
 	jbe	L141
 	movl	(%eax), %ecx
 	subl	%esi, %ecx
@@ -1204,14 +1204,14 @@ L202:
 	movl	%eax, %ebx
 	testl	%eax, %eax
 	jne	L187
-	movzbl	24(%edi), %eax
-	andl	$2, %eax
-	testb	$2, 24(%esi)
+	movzbl	(%edi), %eax
+	andl	$1, %eax
+	testb	$1, (%esi)
 	jne	L203
 	testb	%al, %al
 	jne	L204
-	movl	12(%esi), %eax
-	cmpl	12(%edi), %eax
+	movl	16(%esi), %eax
+	cmpl	16(%edi), %eax
 	jb	L196
 	leal	44(%esp), %edx
 	movl	%eax, 4(%esp)
@@ -1273,17 +1273,17 @@ L191:
 	.p2align 4,,10
 L205:
 	movl	40(%esp), %eax
-	movl	28(%eax), %edx
+	movl	32(%eax), %edx
 	movl	%edx, 20(%esp)
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 16(%esp)
-	movl	8(%edi), %eax
+	movl	12(%edi), %eax
 	movl	%eax, 12(%esp)
-	movl	32(%edi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	%eax, (%esp)
 	call	_Subtruct_Imp
 	movl	%eax, %esi
@@ -1292,7 +1292,7 @@ L205:
 	movl	44(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	40(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax

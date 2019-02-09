@@ -49,40 +49,40 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG96092 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
+$SG96136 DB	'w', 00H, 'o', 00H, 'r', 00H, 'k', 00H, '_', 00H, 'v', 00H
 	DB	'_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n0', 085H, 'Q', 0b9H, '['
 	DB	'L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG96093 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG96137 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96094 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+$SG96138 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
 	DB	'_', 00H, 'q', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG96095 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG96139 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96096 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
+$SG96140 DB	'a', 00H, 'c', 00H, 't', 00H, 'u', 00H, 'a', 00H, 'l', 00H
 	DB	'_', 00H, 'r', 00H, '_', 00H, 'b', 00H, 'u', 00H, 'f', 00H, 'n'
 	DB	'0', 085H, 'Q', 0b9H, '[L04x', 0dH, 'dW0f0D0', 08bH, '0', 00H, 00H
 	ORG $+2
-$SG96097 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG96141 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96098 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+$SG96142 DB	'FUn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
 	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG96099 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG96143 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG96100 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
+$SG96144 DB	'pRYOn0', 0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H
 	DB	'[L0', 00H, 'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
-$SG96101 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
+$SG96145 DB	'D', 00H, 'i', 00H, 'v', 00H, 'R', 00H, 'e', 00H, 'm', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ' ', 00H, '(', 00H, '%'
 	DB	00H, 'd', 00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 _DATA	ENDS
@@ -105,32 +105,32 @@ _buffer2$ = 16						; size = 4
 _count2$ = 20						; size = 4
 __EQUALS_MEMORY PROC
 
-; 153  : {
+; 151  : {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __630249ED_pmc_uint_debug@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 154  :     if (count1 != count2)
+; 152  :     if (count1 != count2)
 
 	mov	eax, DWORD PTR _count1$[ebp]
 	cmp	eax, DWORD PTR _count2$[ebp]
 	je	SHORT $LN2@EQUALS_MEM
 
-; 155  :         return (-1);
+; 153  :         return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN2@EQUALS_MEM:
 
-; 156  :     while (count1 > 0)
+; 154  :     while (count1 > 0)
 
 	cmp	DWORD PTR _count1$[ebp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 157  :     {
-; 158  :         if (*buffer1 != *buffer2)
+; 155  :     {
+; 156  :         if (*buffer1 != *buffer2)
 
 	mov	ecx, DWORD PTR _buffer1$[ebp]
 	movzx	edx, BYTE PTR [ecx]
@@ -139,41 +139,41 @@ $LN2@EQUALS_MEM:
 	cmp	edx, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 159  :             return (-1);
+; 157  :             return (-1);
 
 	or	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 160  :         ++buffer1;
+; 158  :         ++buffer1;
 
 	mov	edx, DWORD PTR _buffer1$[ebp]
 	add	edx, 1
 	mov	DWORD PTR _buffer1$[ebp], edx
 
-; 161  :         ++buffer2;
+; 159  :         ++buffer2;
 
 	mov	eax, DWORD PTR _buffer2$[ebp]
 	add	eax, 1
 	mov	DWORD PTR _buffer2$[ebp], eax
 
-; 162  :         --count1;
+; 160  :         --count1;
 
 	mov	ecx, DWORD PTR _count1$[ebp]
 	sub	ecx, 1
 	mov	DWORD PTR _count1$[ebp], ecx
 
-; 163  :     }
+; 161  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 164  :     return (0);
+; 162  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 165  : }
+; 163  : }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -448,13 +448,13 @@ $LN5@INTERNALTE:
 $LN9@INTERNALTE:
 	mov	DWORD PTR tv167[ebp], 0
 $LN10@INTERNALTE:
-	push	OFFSET $SG96092
+	push	OFFSET $SG96136
 	mov	ecx, DWORD PTR tv167[ebp]
 	push	ecx
 	push	1
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG96093
+	push	OFFSET $SG96137
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -478,13 +478,13 @@ $LN10@INTERNALTE:
 $LN11@INTERNALTE:
 	mov	DWORD PTR tv180[ebp], 0
 $LN12@INTERNALTE:
-	push	OFFSET $SG96094
+	push	OFFSET $SG96138
 	mov	eax, DWORD PTR tv180[ebp]
 	push	eax
 	push	2
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG96095
+	push	OFFSET $SG96139
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -508,13 +508,13 @@ $LN12@INTERNALTE:
 $LN13@INTERNALTE:
 	mov	DWORD PTR tv193[ebp], 0
 $LN14@INTERNALTE:
-	push	OFFSET $SG96096
+	push	OFFSET $SG96140
 	mov	edx, DWORD PTR tv193[ebp]
 	push	edx
 	push	3
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG96097
+	push	OFFSET $SG96141
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -544,13 +544,13 @@ $LN14@INTERNALTE:
 $LN15@INTERNALTE:
 	mov	DWORD PTR tv210[ebp], 0
 $LN16@INTERNALTE:
-	push	OFFSET $SG96098
+	push	OFFSET $SG96142
 	mov	eax, DWORD PTR tv210[ebp]
 	push	eax
 	push	4
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG96099
+	push	OFFSET $SG96143
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -580,13 +580,13 @@ $LN16@INTERNALTE:
 $LN17@INTERNALTE:
 	mov	DWORD PTR tv227[ebp], 0
 $LN18@INTERNALTE:
-	push	OFFSET $SG96100
+	push	OFFSET $SG96144
 	mov	ecx, DWORD PTR tv227[ebp]
 	push	ecx
 	push	5
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG96101
+	push	OFFSET $SG96145
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax

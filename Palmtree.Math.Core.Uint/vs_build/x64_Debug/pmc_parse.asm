@@ -231,7 +231,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$TryParseDN DD imagerel TryParseDN
-	DD	imagerel TryParseDN+1565
+	DD	imagerel TryParseDN+1559
 	DD	imagerel $unwind$TryParseDN
 pdata	ENDS
 ;	COMDAT pdata
@@ -1086,7 +1086,7 @@ $LN6@TryParseX:
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	rdx, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rax+64]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	BuildBinaryFromHexString
 
@@ -1095,7 +1095,7 @@ $LN6@TryParseX:
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR o_light_check_code$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -2451,7 +2451,7 @@ $LN24@TryParseDN:
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	r8, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rax+64]
 	mov	rdx, QWORD PTR bin_buf_count$[rbp]
 	mov	rcx, QWORD PTR bin_buf$[rbp]
 	call	ConvertCardinalNumber
@@ -2475,7 +2475,7 @@ $LN24@TryParseDN:
 ; 843  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	$LN1@TryParseDN
+	jmp	SHORT $LN1@TryParseDN
 $LN25@TryParseDN:
 
 ; 844  :     }
@@ -2484,7 +2484,7 @@ $LN25@TryParseDN:
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR no_light_check_code$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -2512,8 +2512,7 @@ $LN26@TryParseDN:
 
 	mov	rax, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN27@TryParseDN
@@ -7967,7 +7966,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 356  :     {
+; 353  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -7982,13 +7981,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 358  :     }
+; 355  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8003,7 +8002,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 350  :     {
+; 347  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -8018,13 +8017,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 352  :     }
+; 349  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8038,7 +8037,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 333  :     {
+; 330  :     {
 
 	push	rbp
 	push	rdi
@@ -8051,12 +8050,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 335  :     }
+; 332  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8070,7 +8069,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 327  :     {
+; 324  :     {
 
 	push	rbp
 	push	rdi
@@ -8083,12 +8082,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 329  :     }
+; 326  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

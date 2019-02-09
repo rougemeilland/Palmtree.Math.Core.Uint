@@ -87,7 +87,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_X DD imagerel $LN23
-	DD	imagerel $LN23+689
+	DD	imagerel $LN23+676
 	DD	imagerel $unwind$PMC_Multiply_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -219,13 +219,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_I_Imp DD imagerel PMC_Multiply_X_I_Imp
-	DD	imagerel PMC_Multiply_X_I_Imp+511
+	DD	imagerel PMC_Multiply_X_I_Imp+506
 	DD	imagerel $unwind$PMC_Multiply_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_L_Imp DD imagerel PMC_Multiply_X_L_Imp
-	DD	imagerel PMC_Multiply_X_L_Imp+995
+	DD	imagerel PMC_Multiply_X_L_Imp+990
 	DD	imagerel $unwind$PMC_Multiply_X_L_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -732,8 +732,7 @@ PMC_Multiply_X_L_Imp PROC				; COMDAT
 ; 548  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
@@ -756,8 +755,8 @@ $LN2@PMC_Multip:
 ; 555  :     else if (u->IS_ONE)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN4@PMC_Multip
@@ -881,7 +880,7 @@ $LN11@PMC_Multip:
 ; 602  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR x_bit_count$7[rbp], rax
 
 ; 603  :                 _UINT32_T y_hi;
@@ -939,12 +938,12 @@ $LN18@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR y_lo$9[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	QWORD PTR fp_Multiply_X_1W
 
 ; 614  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
@@ -952,7 +951,7 @@ $LN18@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nz_light_check_code$12[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -1013,14 +1012,14 @@ $LN20@PMC_Multip:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR y_lo$9[rbp]
 	mov	edx, DWORD PTR y_hi$8[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	r9d, ecx
 	mov	r8d, edx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	QWORD PTR fp_Multiply_X_2W
 
 ; 626  :                     if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
@@ -1028,7 +1027,7 @@ $LN20@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nz_light_check_code$15[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -1060,7 +1059,7 @@ $LN14@PMC_Multip:
 ; 635  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR x_bit_count$16[rbp], rax
 
 ; 636  :                 __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -1102,12 +1101,12 @@ $LN22@PMC_Multip:
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	QWORD PTR fp_Multiply_X_1W
 
 ; 642  :                 if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
@@ -1115,7 +1114,7 @@ $LN22@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nz_light_check_code$19[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -1194,8 +1193,7 @@ PMC_Multiply_X_I_Imp PROC				; COMDAT
 ; 434  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Multip
@@ -1218,8 +1216,8 @@ $LN2@PMC_Multip:
 ; 441  :     else if (u->IS_ONE)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN4@PMC_Multip
@@ -1334,7 +1332,7 @@ $LN11@PMC_Multip:
 ; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
 ; 485  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -1377,12 +1375,12 @@ $LN14@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v$[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	QWORD PTR fp_Multiply_X_1W
 
 ; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
@@ -1390,7 +1388,7 @@ $LN14@PMC_Multip:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR w_light_check_code$7[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -5612,7 +5610,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 356  :     {
+; 353  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5627,13 +5625,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 358  :     }
+; 355  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5648,7 +5646,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 350  :     {
+; 347  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -5663,13 +5661,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 352  :     }
+; 349  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5683,7 +5681,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 333  :     {
+; 330  :     {
 
 	push	rbp
 	push	rdi
@@ -5696,12 +5694,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 335  :     }
+; 332  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5715,7 +5713,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 327  :     {
+; 324  :     {
 
 	push	rbp
 	push	rdi
@@ -5728,12 +5726,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 329  :     }
+; 326  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -5852,8 +5850,7 @@ $LN6@PMC_Multip:
 ; 713  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_Multip
@@ -5876,8 +5873,8 @@ $LN7@PMC_Multip:
 ; 720  :     else if (nu->IS_ONE)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN9@PMC_Multip
@@ -5887,8 +5884,7 @@ $LN7@PMC_Multip:
 ; 723  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN11@PMC_Multip
@@ -5948,8 +5944,7 @@ $LN9@PMC_Multip:
 ; 744  :         if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN14@PMC_Multip
@@ -5971,8 +5966,8 @@ $LN14@PMC_Multip:
 ; 751  :         else if (nv->IS_ONE)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN16@PMC_Multip
@@ -6009,13 +6004,13 @@ $LN16@PMC_Multip:
 ; 764  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$5[rbp], rax
 
 ; 765  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$6[rbp], rax
 
 ; 766  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
@@ -6046,23 +6041,23 @@ $LN19@PMC_Multip:
 ; 770  :             (*fp_Multiply_X_X)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r9, QWORD PTR [rax+8]
+	mov	r9, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r8, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	QWORD PTR fp_Multiply_X_X
 
 ; 771  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$8[rbp]
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0

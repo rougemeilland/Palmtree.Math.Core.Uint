@@ -36,7 +36,7 @@ From_I_Imp:
 	movq	(%rsi), %rcx
 	movl	%eax, 44(%rsp)
 	movl	%ebx, %eax
-	movq	56(%rcx), %rdx
+	movq	64(%rcx), %rdx
 	movq	%rax, (%rdx)
 	call	CommitNumber
 	movl	44(%rsp), %eax
@@ -81,7 +81,7 @@ From_L_Imp:
 	jne	.L7
 	movq	(%rsi), %rcx
 	movl	%eax, 44(%rsp)
-	movq	56(%rcx), %rdx
+	movq	64(%rcx), %rdx
 	movq	%rbx, (%rdx)
 	call	CommitNumber
 	movl	44(%rsp), %eax

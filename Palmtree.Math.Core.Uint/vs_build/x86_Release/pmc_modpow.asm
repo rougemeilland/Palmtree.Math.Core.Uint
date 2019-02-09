@@ -52,8 +52,8 @@ _PMC_ModPow_X_X_X_Imp PROC				; COMDAT
 ; 459  :     if (m->IS_ZERO)
 
 	mov	edi, DWORD PTR _m$[ebp]
-	mov	ecx, DWORD PTR [edi+24]
-	test	cl, 2
+	mov	ecx, DWORD PTR [edi]
+	test	cl, 1
 	je	SHORT $LN2@PMC_ModPow
 
 ; 460  :     {
@@ -78,10 +78,10 @@ $LN2@PMC_ModPow:
 ; 466  :     else if (m->IS_ONE)
 
 	mov	esi, DWORD PTR _v$[ebp]
-	mov	edx, DWORD PTR [esi+24]
+	mov	edx, DWORD PTR [esi]
 	mov	eax, edx
-	and	eax, 2
-	test	cl, 4
+	and	eax, 1
+	test	cl, 2
 	je	SHORT $LN4@PMC_ModPow
 
 ; 467  :     {
@@ -96,7 +96,7 @@ $LN2@PMC_ModPow:
 ; 472  :             if (e->IS_ZERO)
 
 	mov	eax, DWORD PTR _e$[ebp]
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	jne	SHORT $LN38@PMC_ModPow
 $LN12@PMC_ModPow:
 
@@ -155,7 +155,7 @@ $LN4@PMC_ModPow:
 ; 501  :             if (e->IS_ZERO)
 
 	mov	eax, DWORD PTR _e$[ebp]
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN12@PMC_ModPow
 $LN38@PMC_ModPow:
 	pop	esi
@@ -187,7 +187,7 @@ $LN10@PMC_ModPow:
 ; 514  :         }
 ; 515  :         else if (v->IS_ONE)
 
-	test	dl, 4
+	test	dl, 2
 	jne	$LN37@PMC_ModPow
 
 ; 516  :         {
@@ -202,20 +202,20 @@ $LN10@PMC_ModPow:
 ; 525  :             if (e->IS_ZERO)
 
 	mov	ecx, DWORD PTR _e$[ebp]
-	mov	eax, DWORD PTR [ecx+24]
-	test	al, 2
+	mov	eax, DWORD PTR [ecx]
+	test	al, 1
 	jne	$LN37@PMC_ModPow
 
 ; 529  :             }
 ; 530  :             else if (e->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	je	$LN18@PMC_ModPow
 
 ; 101  :     if (u->UNIT_BIT_COUNT < v->UNIT_BIT_COUNT)
 
-	mov	eax, DWORD PTR [edi+12]
-	cmp	DWORD PTR [esi+12], eax
+	mov	eax, DWORD PTR [edi+16]
+	cmp	DWORD PTR [esi+16], eax
 	jae	SHORT $LN24@PMC_ModPow
 
 ; 102  :     {
@@ -261,7 +261,7 @@ $LN24@PMC_ModPow:
 	mov	ebx, DWORD PTR _r$[ebp]
 	lea	eax, DWORD PTR _r_check_code$1[ebp]
 	push	eax
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 	add	eax, 32					; 00000020H
 	push	eax
 	push	ebx
@@ -295,8 +295,8 @@ $LN28@PMC_ModPow:
 
 ; 120  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
 
-	mov	ecx, DWORD PTR [esi+8]
-	mov	edx, DWORD PTR [edi+8]
+	mov	ecx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [edi+12]
 	cmp	ecx, edx
 	jae	SHORT $LN29@PMC_ModPow
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -304,8 +304,8 @@ $LN28@PMC_ModPow:
 ; 62   :         __movsd((unsigned long *)d, (unsigned long *)s, (unsigned long)count);
 
 	mov	edi, DWORD PTR [ebx]
-	mov	esi, DWORD PTR [esi+32]
-	mov	edi, DWORD PTR [edi+32]
+	mov	esi, DWORD PTR [esi+36]
+	mov	edi, DWORD PTR [edi+36]
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -319,13 +319,13 @@ $LN29@PMC_ModPow:
 ; 124  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, NULL, (*r)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	0
 	push	DWORD PTR _work_v_buf$1$[ebp]
 	push	edx
-	push	DWORD PTR [edi+32]
+	push	DWORD PTR [edi+36]
 	push	ecx
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+36]
 	call	_DivRem_X_X
 
 ; 125  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
@@ -342,7 +342,7 @@ $LN29@PMC_ModPow:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _r_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -538,10 +538,10 @@ _ModulePower PROC					; COMDAT
 	push	ecx
 	lea	ecx, DWORD PTR _v_2_buf_words$[ebp]
 	push	ecx
-	mov	eax, DWORD PTR [edi+32]
-	mov	ebx, DWORD PTR [edi+8]
+	mov	eax, DWORD PTR [edi+36]
+	mov	ebx, DWORD PTR [edi+12]
 	mov	DWORD PTR _m_buf$1$[ebp], eax
-	mov	eax, DWORD PTR [esi+8]
+	mov	eax, DWORD PTR [esi+12]
 	inc	eax
 	mov	DWORD PTR _m_count$1$[ebp], ebx
 	shl	eax, 5
@@ -729,7 +729,7 @@ $LN13@ModulePowe:
 
 	lea	eax, DWORD PTR _r_check_code$[ebp]
 	push	eax
-	push	DWORD PTR [edi+12]
+	push	DWORD PTR [edi+16]
 	mov	edi, DWORD PTR _r$[ebp]
 	push	edi
 	call	_AllocateNumber
@@ -786,7 +786,7 @@ $LN14@ModulePowe:
 ; 201  :     __UNIT_TYPE v_count;
 ; 202  :     int cmp = Compare_Easy(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count);
 
-	mov	eax, DWORD PTR [esi+8]
+	mov	eax, DWORD PTR [esi+12]
 
 ; 82   :     if (u_count > v_count)
 
@@ -806,8 +806,8 @@ $LN15@ModulePowe:
 ; 219  :     }
 ; 220  :     else if (cmp > 0)
 
-	mov	ecx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
+	mov	ecx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
 	test	eax, eax
 	jle	$LN17@ModulePowe
 
@@ -900,7 +900,7 @@ $LN46@ModulePowe:
 
 	push	eax
 	push	DWORD PTR _m_buf$1$[ebp]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+36]
 	call	_Compare_Imp
 	add	esp, 12					; 0000000cH
 
@@ -1029,7 +1029,7 @@ $LN17@ModulePowe:
 
 ; 255  :         v_count = v->UNIT_WORD_COUNT;
 
-	mov	eax, DWORD PTR [eax+8]
+	mov	eax, DWORD PTR [eax+12]
 	mov	esi, DWORD PTR _v_2_buf$1$[ebp]
 	mov	DWORD PTR _v_count$1$[ebp], eax
 $LN18@ModulePowe:
@@ -1043,12 +1043,12 @@ $LN18@ModulePowe:
 ; 262  :     __UNIT_TYPE e_count = e->UNIT_WORD_COUNT;
 
 	mov	eax, DWORD PTR _e$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 
 ; 263  :     __UNIT_TYPE e_mask = ~((__UNIT_TYPE)-1 >> 1);
 ; 264  :     e_mask = e_mask >> _LZCNT_ALT_UNIT(e->BLOCK[e_count - 1]);
 
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR _e_count$1$[ebp], ecx
 	mov	eax, DWORD PTR [eax+ecx*4-4]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -1489,7 +1489,7 @@ $LN7@ModulePowe:
 	mov	eax, DWORD PTR _e$[ebp]
 	mov	esi, DWORD PTR _e_count$1$[ebp]
 	mov	edi, DWORD PTR _e_mask$1$[ebp]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	test	DWORD PTR [eax+esi*4-4], edi
 	mov	esi, DWORD PTR _m_count$1$[ebp]
 	je	$LN111@ModulePowe
@@ -1800,7 +1800,7 @@ $LN5@ModulePowe:
 	mov	esi, edx
 	mov	ecx, ebx
 	mov	edi, DWORD PTR [eax]
-	mov	edi, DWORD PTR [edi+32]
+	mov	edi, DWORD PTR [edi+36]
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -1808,7 +1808,7 @@ $LN5@ModulePowe:
 
 	mov	eax, DWORD PTR [eax]
 	push	DWORD PTR _r_check_code$[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -1888,12 +1888,12 @@ _Remainder PROC						; COMDAT
 
 	mov	eax, DWORD PTR _v$[ebp]
 	sub	esp, 12					; 0000000cH
-	mov	eax, DWORD PTR [eax+12]
+	mov	eax, DWORD PTR [eax+16]
 	push	ebx
 	push	esi
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	cmp	DWORD PTR [esi+12], eax
+	cmp	DWORD PTR [esi+16], eax
 	jae	SHORT $LN2@Remainder
 
 ; 102  :     {
@@ -1946,7 +1946,7 @@ $LN2@Remainder:
 	mov	ebx, DWORD PTR _r$[ebp]
 	lea	eax, DWORD PTR _r_check_code$1[ebp]
 	push	eax
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 	add	eax, 32					; 00000020H
 	push	eax
 	push	ebx
@@ -1981,8 +1981,8 @@ $LN6@Remainder:
 ; 120  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
 
 	mov	ecx, DWORD PTR _v$[ebp]
-	mov	edx, DWORD PTR [esi+8]
-	cmp	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [esi+12]
+	cmp	edx, DWORD PTR [ecx+12]
 	jae	SHORT $LN7@Remainder
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -1990,8 +1990,8 @@ $LN6@Remainder:
 
 	mov	edi, DWORD PTR [ebx]
 	mov	ecx, edx
-	mov	esi, DWORD PTR [esi+32]
-	mov	edi, DWORD PTR [edi+32]
+	mov	esi, DWORD PTR [esi+36]
+	mov	edi, DWORD PTR [edi+36]
 	rep movsd
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -2006,13 +2006,13 @@ $LN7@Remainder:
 ; 124  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, NULL, (*r)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	0
 	push	edi
-	push	DWORD PTR [ecx+8]
-	push	DWORD PTR [ecx+32]
+	push	DWORD PTR [ecx+12]
+	push	DWORD PTR [ecx+36]
 	push	edx
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+36]
 	call	_DivRem_X_X
 
 ; 125  :             if ((result = CheckBlockLight(work_v_buf, work_v_buf_code)) != PMC_STATUS_OK)
@@ -2029,7 +2029,7 @@ $LN7@Remainder:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _r_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax

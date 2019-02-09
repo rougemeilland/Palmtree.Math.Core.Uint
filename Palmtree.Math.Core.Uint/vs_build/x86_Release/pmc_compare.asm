@@ -41,7 +41,7 @@ _PMC_Compare_X_L_Imp PROC				; COMDAT
 ; 145  :     if (u->IS_ZERO)
 
 	mov	ebx, DWORD PTR _u$[ebp]
-	test	BYTE PTR [ebx+24], 2
+	test	BYTE PTR [ebx], 1
 	je	SHORT $LN2@PMC_Compar
 
 ; 146  :     {
@@ -222,7 +222,7 @@ $LN43@PMC_Compar:
 
 ; 177  :                 if (u_bit_count > v_bit_count)
 
-	cmp	DWORD PTR [ebx+12], eax
+	cmp	DWORD PTR [ebx+16], eax
 	ja	SHORT $LN53@PMC_Compar
 
 ; 178  :                 {
@@ -243,7 +243,7 @@ $LN43@PMC_Compar:
 ; 190  :                     // ⇒ u と v はともに 1 ワードで表現できる
 ; 191  :                     if (u->BLOCK[0] > v_lo)
 
-	mov	eax, DWORD PTR [ebx+32]
+	mov	eax, DWORD PTR [ebx+36]
 
 ; 192  :                         *w = 1;
 
@@ -274,7 +274,7 @@ $LN10@PMC_Compar:
 
 ; 203  :                 if (u_bit_count > v_bit_count)
 
-	mov	eax, DWORD PTR [ebx+12]
+	mov	eax, DWORD PTR [ebx+16]
 	cmp	eax, DWORD PTR _v_bit_count$1$[ebp]
 	ja	SHORT $LN53@PMC_Compar
 
@@ -296,7 +296,7 @@ $LN10@PMC_Compar:
 ; 216  :                     // ⇒ u と v はともに 2 ワードで表現できる
 ; 217  :                     if (u->BLOCK[1] > v_hi)
 
-	mov	eax, DWORD PTR [ebx+32]
+	mov	eax, DWORD PTR [ebx+36]
 	cmp	DWORD PTR [eax+4], edi
 	ja	SHORT $LN53@PMC_Compar
 
@@ -394,7 +394,7 @@ _PMC_Compare_X_I_Imp PROC				; COMDAT
 ; 55   :     if (u->IS_ZERO)
 
 	mov	edi, DWORD PTR _u$[ebp]
-	test	BYTE PTR [edi+24], 2
+	test	BYTE PTR [edi], 1
 	je	SHORT $LN2@PMC_Compar
 
 ; 56   :     {
@@ -458,7 +458,7 @@ $LN2@PMC_Compar:
 
 ; 79   :         if (u_bit_count > v_bit_count)
 
-	cmp	DWORD PTR [edi+12], eax
+	cmp	DWORD PTR [edi+16], eax
 	ja	SHORT $LN21@PMC_Compar
 
 ; 80   :         {
@@ -493,7 +493,7 @@ $LN10@PMC_Compar:
 ; 92   :             // ⇒ u と v はともに 1 ワードで表現できる
 ; 93   :             if (u->BLOCK[0] > v)
 
-	mov	eax, DWORD PTR [edi+32]
+	mov	eax, DWORD PTR [edi+36]
 	mov	eax, DWORD PTR [eax]
 	cmp	eax, esi
 	jbe	SHORT $LN12@PMC_Compar
@@ -730,23 +730,20 @@ _PMC_Compare_X_X@12 PROC				; COMDAT
 	call	_CheckNumber
 	add	esp, 4
 	test	eax, eax
-	jne	$LN1@PMC_Compar
+	jne	SHORT $LN1@PMC_Compar
 
 ; 315  :         return (result);
 ; 316  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [edi+24]
-	and	eax, 2
-	test	BYTE PTR [esi+24], 2
+	mov	eax, DWORD PTR [edi]
+	and	eax, 1
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN7@PMC_Compar
 
 ; 317  :     {
 ; 318  :         *w = nv->IS_ZERO ? 0 : -1;
 
-	neg	eax
 	pop	edi
-	sbb	eax, eax
-	neg	eax
 	dec	eax
 
 ; 342  :         }
@@ -777,12 +774,12 @@ $LN7@PMC_Compar:
 ; 325  :     {
 ; 326  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 
 ; 327  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 328  :         if (u_bit_count > v_bit_count)
 
-	cmp	eax, DWORD PTR [edi+12]
+	cmp	eax, DWORD PTR [edi+16]
 	ja	SHORT $LN25@PMC_Compar
 
 ; 329  :         {
@@ -802,15 +799,15 @@ $LN7@PMC_Compar:
 ; 340  :             // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
 ; 341  :             *w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
 
-	mov	ecx, DWORD PTR [esi+8]
+	mov	ecx, DWORD PTR [esi+12]
 
 ; 33   :     u += count;
 
-	mov	edx, DWORD PTR [esi+32]
+	mov	edx, DWORD PTR [esi+36]
 
 ; 34   :     v += count;
 
-	mov	esi, DWORD PTR [edi+32]
+	mov	esi, DWORD PTR [edi+36]
 	lea	eax, DWORD PTR [ecx*4]
 	add	edx, eax
 	add	esi, eax
@@ -819,7 +816,6 @@ $LN7@PMC_Compar:
 
 	test	ecx, ecx
 	je	SHORT $LN18@PMC_Compar
-	npad	3
 $LL17@PMC_Compar:
 
 ; 36   :     {

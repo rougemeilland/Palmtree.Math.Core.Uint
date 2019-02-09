@@ -785,7 +785,7 @@ PMC_Add_X_I_Imp:
 	subq	$80, %rsp
 	.seh_stackalloc	80
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rsi
 	movl	%edx, %ebx
 	movq	%r8, %rdi
@@ -825,7 +825,7 @@ PMC_Add_X_I_Imp:
 	movl	$32, %edx
 	cltq
 	subq	%rax, %rdx
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	movq	%rdi, %rcx
 	cmpq	%rax, %rdx
 	cmovb	%rax, %rdx
@@ -834,10 +834,10 @@ PMC_Add_X_I_Imp:
 	testl	%eax, %eax
 	jne	.L82
 	movq	(%rdi), %rdx
-	movq	8(%rsi), %r10
-	movq	56(%rdx), %r8
-	movq	48(%rdx), %rax
-	movq	56(%rsi), %rdx
+	movq	16(%rsi), %r10
+	movq	64(%rdx), %r8
+	movq	56(%rdx), %rax
+	movq	64(%rsi), %rdx
 	leaq	8(%r8), %r9
 	addq	(%rdx), %rbx
 	setc	%cl
@@ -852,7 +852,7 @@ PMC_Add_X_I_Imp:
 	jne	.L89
 	movq	(%rdi), %rax
 	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L82
@@ -892,7 +892,7 @@ PMC_Add_X_L_Imp:
 	subq	$80, %rsp
 	.seh_stackalloc	80
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rsi
 	movq	%rdx, %rbx
 	movq	%r8, %rdi
@@ -932,7 +932,7 @@ PMC_Add_X_L_Imp:
 	movl	$64, %edx
 	cltq
 	subq	%rax, %rdx
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	movq	%rdi, %rcx
 	cmpq	%rax, %rdx
 	cmovb	%rax, %rdx
@@ -941,10 +941,10 @@ PMC_Add_X_L_Imp:
 	testl	%eax, %eax
 	jne	.L90
 	movq	(%rdi), %rdx
-	movq	8(%rsi), %r10
-	movq	56(%rdx), %r8
-	movq	48(%rdx), %rax
-	movq	56(%rsi), %rdx
+	movq	16(%rsi), %r10
+	movq	64(%rdx), %r8
+	movq	56(%rdx), %rax
+	movq	64(%rsi), %rdx
 	leaq	8(%r8), %r9
 	addq	(%rdx), %rbx
 	setc	%cl
@@ -959,7 +959,7 @@ PMC_Add_X_L_Imp:
 	jne	.L97
 	movq	(%rdi), %rax
 	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L90
@@ -1214,9 +1214,9 @@ PMC_Add_X_X:
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L114
-	movzbl	40(%rdi), %eax
-	andl	$2, %eax
-	testb	$2, 40(%rsi)
+	movzbl	(%rdi), %eax
+	andl	$1, %eax
+	testb	$1, (%rsi)
 	jne	.L130
 	testb	%al, %al
 	je	.L119
@@ -1252,23 +1252,23 @@ PMC_Add_X_X:
 	jmp	.L114
 	.p2align 4,,10
 .L119:
-	movq	16(%rdi), %rdx
+	movq	24(%rdi), %rdx
 	leaq	48(%rsp), %rcx
-	cmpq	%rdx, 16(%rsi)
+	cmpq	%rdx, 24(%rsi)
 	leaq	56(%rsp), %r8
-	cmovnb	16(%rsi), %rdx
+	cmovnb	24(%rsi), %rdx
 	addq	$1, %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L125
 	movq	48(%rsp), %rax
-	movq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	8(%rdi), %r9
-	movq	48(%rax), %r8
+	movq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	16(%rdi), %r9
+	movq	56(%rax), %r8
 	movq	%r8, 40(%rsp)
-	movq	56(%rax), %rax
-	movq	56(%rdi), %r8
+	movq	64(%rax), %rax
+	movq	64(%rdi), %r8
 	movq	%rax, 32(%rsp)
 	call	*fp_Add_Imp(%rip)
 	testl	%eax, %eax
@@ -1276,7 +1276,7 @@ PMC_Add_X_X:
 	jne	.L131
 	movq	48(%rsp), %rax
 	movq	56(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L125

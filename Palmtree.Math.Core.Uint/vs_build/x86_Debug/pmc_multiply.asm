@@ -112,8 +112,7 @@ _PMC_Multiply_X_L_Imp PROC
 ; 548  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Multip
 
@@ -134,8 +133,8 @@ $LN2@PMC_Multip:
 ; 555  :     else if (u->IS_ONE)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 2
+	mov	ecx, DWORD PTR [eax]
+	shr	ecx, 1
 	and	ecx, 1
 	je	SHORT $LN4@PMC_Multip
 
@@ -267,7 +266,7 @@ $LN11@PMC_Multip:
 ; 602  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _x_bit_count$13[ebp], ecx
 
 ; 603  :                 _UINT32_T y_hi;
@@ -332,15 +331,15 @@ $LN18@PMC_Multip:
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	esi, esp
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _y_lo$11[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	DWORD PTR _fp_Multiply_X_1W
 	add	esp, 16					; 00000010H
@@ -353,7 +352,7 @@ $LN18@PMC_Multip:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -417,17 +416,17 @@ $LN20@PMC_Multip:
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	esi, esp
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _y_lo$11[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _y_hi$12[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	DWORD PTR _fp_Multiply_X_2W
 	add	esp, 20					; 00000014H
@@ -440,7 +439,7 @@ $LN20@PMC_Multip:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -475,7 +474,7 @@ $LN14@PMC_Multip:
 ; 635  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _x_bit_count$4[ebp], ecx
 
 ; 636  :                 __UNIT_TYPE y_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -520,15 +519,15 @@ $LN22@PMC_Multip:
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
 	mov	esi, esp
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	DWORD PTR _fp_Multiply_X_1W
 	add	esp, 16					; 00000010H
@@ -541,7 +540,7 @@ $LN22@PMC_Multip:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -589,7 +588,7 @@ $LN1@PMC_Multip:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
+	npad	2
 $LN30@PMC_Multip:
 	DD	4
 	DD	$LN29@PMC_Multip
@@ -711,8 +710,7 @@ _PMC_Multiply_X_I_Imp PROC
 ; 434  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Multip
 
@@ -733,8 +731,8 @@ $LN2@PMC_Multip:
 ; 441  :     else if (u->IS_ONE)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 2
+	mov	ecx, DWORD PTR [eax]
+	shr	ecx, 1
 	and	ecx, 1
 	je	SHORT $LN4@PMC_Multip
 
@@ -851,7 +849,7 @@ $LN11@PMC_Multip:
 ; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], eax
 
 ; 485  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -896,15 +894,15 @@ $LN14@PMC_Multip:
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
 	mov	esi, esp
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	DWORD PTR _fp_Multiply_X_1W
 	add	esp, 16					; 00000010H
@@ -917,7 +915,7 @@ $LN14@PMC_Multip:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -963,7 +961,6 @@ $LN1@PMC_Multip:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	3
 $LN19@PMC_Multip:
 	DD	1
 	DD	$LN18@PMC_Multip
@@ -5060,20 +5057,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC
 
-; 356  :     {
+; 353  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 358  :     }
+; 355  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5087,20 +5084,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC
 
-; 350  :     {
+; 347  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 352  :     }
+; 349  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5113,18 +5110,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC
 
-; 333  :     {
+; 330  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 335  :     }
+; 332  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5137,18 +5134,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC
 
-; 327  :     {
+; 324  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 329  :     }
+; 326  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -5266,8 +5263,7 @@ $LN6@PMC_Multip:
 ; 713  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Multip
 
@@ -5288,8 +5284,8 @@ $LN7@PMC_Multip:
 ; 720  :     else if (nu->IS_ONE)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 2
+	mov	edx, DWORD PTR [ecx]
+	shr	edx, 1
 	and	edx, 1
 	je	SHORT $LN9@PMC_Multip
 
@@ -5298,8 +5294,7 @@ $LN7@PMC_Multip:
 ; 723  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN11@PMC_Multip
 
@@ -5360,8 +5355,7 @@ $LN9@PMC_Multip:
 ; 744  :         if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN14@PMC_Multip
 
@@ -5381,8 +5375,8 @@ $LN14@PMC_Multip:
 ; 751  :         else if (nv->IS_ONE)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 2
+	mov	ecx, DWORD PTR [eax]
+	shr	ecx, 1
 	and	ecx, 1
 	je	SHORT $LN16@PMC_Multip
 
@@ -5421,13 +5415,13 @@ $LN16@PMC_Multip:
 ; 764  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], edx
 
 ; 765  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], ecx
 
 ; 766  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
@@ -5461,19 +5455,19 @@ $LN19@PMC_Multip:
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _nw$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	DWORD PTR _fp_Multiply_X_X
 	add	esp, 20					; 00000014H
@@ -5485,7 +5479,7 @@ $LN19@PMC_Multip:
 	mov	ecx, DWORD PTR _w_light_check_code$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -5557,6 +5551,7 @@ $LN1@PMC_Multip:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
+	npad	1
 $LN26@PMC_Multip:
 	DD	2
 	DD	$LN25@PMC_Multip

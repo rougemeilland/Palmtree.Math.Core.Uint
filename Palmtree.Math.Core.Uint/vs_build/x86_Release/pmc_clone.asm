@@ -57,7 +57,7 @@ _PMC_Clone_X@8 PROC					; COMDAT
 ; 40   :     NUMBER_HEADER* no;
 ; 41   :     if (nx->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN5@PMC_Clone_
 
 ; 42   :         no = &number_zero;

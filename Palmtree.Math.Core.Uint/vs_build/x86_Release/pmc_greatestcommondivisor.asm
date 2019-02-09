@@ -70,7 +70,7 @@ EXTRN	_Compare_Imp:PROC
 _TEXT	SEGMENT
 _k$1$ = -40						; size = 4
 _k$1$ = -36						; size = 4
-tv570 = -36						; size = 4
+tv562 = -36						; size = 4
 _result$8$ = -36					; size = 4
 _work_v_buf$1$ = -32					; size = 4
 _work_v_buf_code$1 = -32				; size = 4
@@ -111,7 +111,7 @@ _PMC_GreatestCommonDivisor_X_L_Imp PROC			; COMDAT
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN2@PMC_Greate
 
 ; 218  :     {
@@ -218,7 +218,7 @@ $LN7@PMC_Greate:
 ; 257  : 
 ; 258  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 259  :                 _UINT32_T v_hi;
 ; 260  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
@@ -386,7 +386,7 @@ $LN16@PMC_Greate:
 ; 289  : 
 ; 290  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
-	mov	eax, DWORD PTR [esi+20]
+	mov	eax, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 705  :             return (sizeof(x) * 8);
@@ -409,8 +409,8 @@ $LN93@PMC_Greate:
 
 ; 292  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	ecx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
+	mov	ecx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 203  :         return (x <= y ? x : y);
@@ -459,7 +459,7 @@ $LN57@PMC_Greate:
 	mov	ebx, DWORD PTR _work_u_buf$1$[ebp]
 	push	eax
 	mov	eax, DWORD PTR [esi]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 188  :         return ((u + v - 1) / v);
@@ -508,7 +508,7 @@ $LN57@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	DWORD PTR _nw_check_code$6[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -532,7 +532,7 @@ $LN57@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	1
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	push	eax
 	push	DWORD PTR _k$1$[ebp]
 	push	DWORD PTR _w_buf_count$5[ebp]
@@ -543,7 +543,7 @@ $LN57@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	DWORD PTR _nw_check_code$6[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 44					; 0000002cH
 	test	eax, eax
@@ -765,7 +765,7 @@ $LN25@PMC_Greate:
 ; 343  : 
 ; 344  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
-	mov	ecx, DWORD PTR [esi+20]
+	mov	ecx, DWORD PTR [esi+24]
 
 ; 345  :                     __UNIT_TYPE v_tzcnt = v_lo == 0 ? 32 + _TZCNT_ALT_UNIT(v_hi) : _TZCNT_ALT_UNIT(v_lo);
 
@@ -802,9 +802,9 @@ $LN95@PMC_Greate:
 
 ; 346  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	eax, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
-	mov	DWORD PTR tv570[ebp], esi
+	mov	eax, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
+	mov	DWORD PTR tv562[ebp], esi
 
 ; 347  :                     if (u_tzcnt > 0)
 
@@ -818,7 +818,7 @@ $LN95@PMC_Greate:
 	push	esi
 	push	ecx
 	push	eax
-	push	DWORD PTR tv570[ebp]
+	push	DWORD PTR tv562[ebp]
 	call	_RightShift_Imp
 	mov	edx, DWORD PTR _v_tzcnt$1$[ebp]
 	add	esp, 20					; 00000014H
@@ -864,7 +864,7 @@ $LN28@PMC_Greate:
 	lea	eax, DWORD PTR _w_buf_count$13[ebp]
 	push	eax
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 188  :         return ((u + v - 1) / v);
@@ -905,7 +905,7 @@ $LN28@PMC_Greate:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nw_check_code$12[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -929,7 +929,7 @@ $LN28@PMC_Greate:
 
 	mov	eax, DWORD PTR [ebx]
 	push	1
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	push	eax
 	push	DWORD PTR _k$1$[ebp]
 	push	DWORD PTR _w_buf_count$13[ebp]
@@ -940,7 +940,7 @@ $LN28@PMC_Greate:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nw_check_code$12[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 44					; 0000002cH
 	test	eax, eax
@@ -1081,7 +1081,7 @@ _PMC_GreatestCommonDivisor_X_I_Imp PROC			; COMDAT
 	push	esi
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN2@PMC_Greate
 
 ; 76   :     {
@@ -1196,7 +1196,7 @@ $LN7@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [esi+12], edi
+	cmp	DWORD PTR [esi+16], edi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 118  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -1206,7 +1206,7 @@ $LN7@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	edi, DWORD PTR [esi+12]
+	cmovae	edi, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 118  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -1325,7 +1325,7 @@ $LN12@PMC_Greate:
 
 ; 139  :             __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
-	mov	ecx, DWORD PTR [esi+20]
+	mov	ecx, DWORD PTR [esi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 709  :         _BitScanForward(&pos, x);
@@ -1348,8 +1348,8 @@ $LN12@PMC_Greate:
 
 ; 141  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	edx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
+	mov	edx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
 
 ; 142  :             if (u_tzcnt > 0)
 
@@ -1391,7 +1391,7 @@ $LN30@PMC_Greate:
 	lea	eax, DWORD PTR _w_buf_count$3[ebp]
 	push	eax
 	mov	eax, DWORD PTR [esi]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 188  :         return ((u + v - 1) / v);
@@ -1432,7 +1432,7 @@ $LN30@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	DWORD PTR _nw_check_code$4[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -1456,7 +1456,7 @@ $LN30@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	1
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	push	eax
 	push	DWORD PTR _k$1$[ebp]
 	push	DWORD PTR _w_buf_count$3[ebp]
@@ -1467,7 +1467,7 @@ $LN30@PMC_Greate:
 
 	mov	eax, DWORD PTR [esi]
 	push	DWORD PTR _nw_check_code$4[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 44					; 0000002cH
 	test	eax, eax
@@ -2104,9 +2104,9 @@ _PMC_GreatestCommonDivisor_X_X@12 PROC			; COMDAT
 ; 495  :     NUMBER_HEADER* nw;
 ; 496  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [ebx+24]
-	and	eax, 2
-	test	BYTE PTR [esi+24], 2
+	mov	eax, DWORD PTR [ebx]
+	and	eax, 1
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN7@PMC_Greate
 
 ; 497  :     {
@@ -2206,7 +2206,7 @@ $LN12@PMC_Greate:
 ; 535  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 ; 536  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	ecx, DWORD PTR [ebx+12]
+	mov	ecx, DWORD PTR [ebx+16]
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
@@ -2215,7 +2215,7 @@ $LN12@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [esi+12], ecx
+	cmp	DWORD PTR [esi+16], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -2225,7 +2225,7 @@ $LN12@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	ecx, DWORD PTR [esi+12]
+	cmovae	ecx, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -2342,11 +2342,11 @@ $LN17@PMC_Greate:
 ; 561  : 
 ; 562  :             __UNIT_TYPE u_tzcnt = nu->TRAILING_ZERO_BITS_COUNT;
 
-	mov	ecx, DWORD PTR [esi+20]
+	mov	ecx, DWORD PTR [esi+24]
 
 ; 563  :             __UNIT_TYPE v_tzcnt = nv->TRAILING_ZERO_BITS_COUNT;
 
-	mov	eax, DWORD PTR [ebx+20]
+	mov	eax, DWORD PTR [ebx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 203  :         return (x <= y ? x : y);
@@ -2368,8 +2368,8 @@ $LN17@PMC_Greate:
 
 ; 564  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	edx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
+	mov	edx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
 
 ; 565  :             if (u_tzcnt > 0)
 
@@ -2399,8 +2399,8 @@ $LN31@PMC_Greate:
 
 ; 569  :             if (v_tzcnt > 0)
 
-	mov	ecx, DWORD PTR [ebx+8]
-	mov	esi, DWORD PTR [ebx+32]
+	mov	ecx, DWORD PTR [ebx+12]
+	mov	esi, DWORD PTR [ebx+36]
 	mov	ebx, DWORD PTR _work_v_buf$1$[ebp]
 	test	eax, eax
 	je	SHORT $LN20@PMC_Greate
@@ -2431,7 +2431,7 @@ $LN33@PMC_Greate:
 	lea	eax, DWORD PTR _w_buf_count$6[ebp]
 	push	eax
 	mov	eax, DWORD PTR _nw$[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 188  :         return ((u + v - 1) / v);
@@ -2472,7 +2472,7 @@ $LN33@PMC_Greate:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _nw_check_code$3[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -2496,7 +2496,7 @@ $LN33@PMC_Greate:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	1
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	push	eax
 	push	DWORD PTR _k$1$[ebp]
 	push	DWORD PTR _w_buf_count$6[ebp]
@@ -2507,7 +2507,7 @@ $LN33@PMC_Greate:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _nw_check_code$3[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 44					; 0000002cH
 	test	eax, eax

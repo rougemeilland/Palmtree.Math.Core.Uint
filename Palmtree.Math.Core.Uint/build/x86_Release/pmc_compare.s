@@ -5,7 +5,7 @@
 _PMC_Compare_X_I_Imp:
 LFB5493:
 	.cfi_startproc
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L2
 	testl	%edx, %edx
 	jne	L10
@@ -28,10 +28,10 @@ L5:
  # 0 "" 2
 /NO_APP
 	addl	$1, %ebx
-	cmpl	%ebx, 12(%eax)
+	cmpl	%ebx, 16(%eax)
 	ja	L6
 	jb	L3
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	cmpl	(%eax), %edx
 	jb	L6
 	ja	L3
@@ -75,7 +75,7 @@ LFB5502:
 	pushl	%ebx
 	.cfi_def_cfa_offset 12
 	.cfi_offset 3, -12
-	movl	12(%eax), %esi
+	movl	16(%eax), %esi
 	testl	%ecx, %ecx
 	jne	L16
 	testl	%edx, %edx
@@ -112,7 +112,7 @@ L16:
 	cmpl	%ebx, %esi
 	ja	L21
 	jb	L22
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	cmpl	4(%eax), %ecx
 	jb	L21
 	jbe	L26
@@ -131,7 +131,7 @@ L22:
 L18:
 	.cfi_restore_state
 	jb	L22
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	cmpl	(%eax), %edx
 	jb	L21
 	ja	L22
@@ -143,7 +143,7 @@ L23:
 L17:
 	testl	%esi, %esi
 	jne	L21
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	(%eax), %eax
 	testl	%eax, %eax
 	jne	L21
@@ -401,7 +401,7 @@ L45:
 	.p2align 4,,10
 L53:
 	.cfi_restore_state
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L47
 	xorl	%eax, %eax
 	orl	%edi, %ebp
@@ -502,7 +502,7 @@ L54:
 	.p2align 4,,10
 L62:
 	.cfi_restore_state
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L56
 	xorl	%eax, %eax
 	orl	%edi, %ebp
@@ -608,23 +608,23 @@ L79:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L63
-	movzbl	24(%esi), %edx
-	andl	$2, %edx
-	testb	$2, 24(%ebx)
+	movzbl	(%esi), %edx
+	movl	%edx, %ecx
+	andl	$1, %ecx
+	testb	$1, (%ebx)
 	jne	L80
-	testb	%dl, %dl
+	testb	%cl, %cl
 	jne	L67
-	movl	12(%esi), %ecx
-	cmpl	%ecx, 12(%ebx)
+	movl	16(%esi), %ecx
+	cmpl	%ecx, 16(%ebx)
 	ja	L67
 	jnb	L68
 	movl	$-1, (%edi)
 	jmp	L63
 	.p2align 4,,10
 L80:
-	testb	%dl, %dl
-	sete	%dl
-	movzbl	%dl, %edx
+	notl	%edx
+	andl	$1, %edx
 	negl	%edx
 	movl	%edx, (%edi)
 	addl	$28, %esp
@@ -666,9 +666,9 @@ L67:
 	.p2align 4,,10
 L68:
 	.cfi_restore_state
-	movl	8(%ebx), %ecx
-	movl	32(%ebx), %ebp
-	movl	32(%esi), %ebx
+	movl	12(%ebx), %ecx
+	movl	36(%ebx), %ebp
+	movl	36(%esi), %ebx
 	leal	0(,%ecx,4), %edx
 	addl	%edx, %ebp
 	addl	%edx, %ebx

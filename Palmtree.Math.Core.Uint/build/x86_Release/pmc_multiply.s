@@ -2463,10 +2463,10 @@ LFB5503:
 	.cfi_offset 3, -16
 	subl	$48, %esp
 	.cfi_def_cfa_offset 64
-	movzbl	24(%eax), %ebx
-	testb	$2, %bl
+	movzbl	(%eax), %ebx
+	testb	$1, %bl
 	jne	L94
-	andl	$4, %ebx
+	andl	$2, %ebx
 	movl	%ecx, %esi
 	movl	%eax, %edi
 	je	L93
@@ -2499,7 +2499,7 @@ L93:
 	leal	44(%esp), %eax
 	movl	%edx, 28(%esp)
 	movl	%eax, 8(%esp)
-	movl	12(%edi), %eax
+	movl	16(%edi), %eax
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl %edx, %ecx
@@ -2513,18 +2513,18 @@ L93:
 	jne	L90
 	movl	(%esi), %eax
 	movl	28(%esp), %edx
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%edx, 8(%esp)
 	movl	%eax, 12(%esp)
-	movl	8(%edi), %eax
+	movl	12(%edi), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%edi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_1W
 	movl	44(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	(%esi), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -2568,11 +2568,11 @@ LFB5506:
 	.cfi_offset 3, -20
 	subl	$76, %esp
 	.cfi_def_cfa_offset 96
-	movzbl	24(%eax), %esi
+	movzbl	(%eax), %esi
 	movl	96(%esp), %ebx
-	testl	$2, %esi
+	testl	$1, %esi
 	jne	L110
-	andl	$4, %esi
+	andl	$2, %esi
 	movl	%eax, %edi
 	movl	%ecx, %eax
 	je	L109
@@ -2607,7 +2607,7 @@ L109:
 	xorl	$1, %eax
 	orl	%ecx, %eax
 	je	L129
-	movl	12(%edi), %eax
+	movl	16(%edi), %eax
 	testl	%ecx, %ecx
 	jne	L112
 	leal	32(%eax), %ecx
@@ -2630,19 +2630,19 @@ L113:
 	jne	L106
 	movl	(%ebx), %eax
 	movl	40(%esp), %edx
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%edx, 8(%esp)
 	movl	%eax, 12(%esp)
-	movl	8(%edi), %eax
+	movl	12(%edi), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%edi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_1W
 L127:
 	movl	60(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	(%ebx), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -2679,13 +2679,13 @@ L112:
 	movl	(%ebx), %eax
 	movl	44(%esp), %edx
 	movl	40(%esp), %ecx
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%edx, 12(%esp)
 	movl	%ecx, 8(%esp)
 	movl	%eax, 16(%esp)
-	movl	8(%edi), %eax
+	movl	12(%edi), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%edi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_2W
 	jmp	L127
@@ -2962,13 +2962,13 @@ L163:
 	movl	%eax, %ebx
 	testl	%eax, %eax
 	jne	L147
-	movzbl	24(%esi), %eax
-	testb	$2, %al
+	movzbl	(%esi), %eax
+	testb	$1, %al
 	jne	L151
-	movzbl	24(%edi), %edx
+	movzbl	(%edi), %edx
 	movl	%edx, %ecx
-	andl	$2, %ecx
-	testb	$4, %al
+	andl	$1, %ecx
+	testb	$2, %al
 	je	L150
 	testb	%cl, %cl
 	je	L164
@@ -2996,7 +2996,7 @@ L150:
 	.cfi_restore_state
 	testb	%cl, %cl
 	jne	L157
-	andl	$4, %edx
+	andl	$2, %edx
 	je	L153
 	leal	40(%esp), %eax
 	movl	%esi, (%esp)
@@ -3032,8 +3032,8 @@ L158:
 L153:
 	leal	44(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	12(%edi), %eax
-	addl	12(%esi), %eax
+	movl	16(%edi), %eax
+	addl	16(%esi), %eax
 	movl	%eax, 4(%esp)
 	leal	40(%esp), %eax
 	movl	%eax, (%esp)
@@ -3041,21 +3041,21 @@ L153:
 	testl	%eax, %eax
 	jne	L158
 	movl	40(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 16(%esp)
-	movl	8(%edi), %eax
+	movl	12(%edi), %eax
 	movl	%eax, 12(%esp)
-	movl	32(%edi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%esi), %eax
+	movl	12(%esi), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_X
 	movl	44(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	40(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax

@@ -75,7 +75,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ExclusiveOr_X_X DD imagerel $LN19
-	DD	imagerel $LN19+650
+	DD	imagerel $LN19+641
 	DD	imagerel $unwind$PMC_ExclusiveOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -129,13 +129,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ExclusiveOr_X_I_Imp DD imagerel PMC_ExclusiveOr_X_I_Imp
-	DD	imagerel PMC_ExclusiveOr_X_I_Imp+496
+	DD	imagerel PMC_ExclusiveOr_X_I_Imp+490
 	DD	imagerel $unwind$PMC_ExclusiveOr_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ExclusiveOr_X_L_Imp DD imagerel PMC_ExclusiveOr_X_L_Imp
-	DD	imagerel PMC_ExclusiveOr_X_L_Imp+960
+	DD	imagerel PMC_ExclusiveOr_X_L_Imp+954
 	DD	imagerel $unwind$PMC_ExclusiveOr_X_L_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -490,8 +490,7 @@ PMC_ExclusiveOr_X_L_Imp PROC				; COMDAT
 ; 277  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Exclus
@@ -582,7 +581,7 @@ $LN7@PMC_Exclus:
 ; 304  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$7[rbp], rax
 
 ; 305  :             _UINT32_T v_hi;
@@ -639,12 +638,12 @@ $LN14@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v_lo$9[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ExclusiveOr_X_1W
 
 ; 316  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
@@ -652,7 +651,7 @@ $LN14@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nw_light_check_code$12[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -712,14 +711,14 @@ $LN16@PMC_Exclus:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v_lo$9[rbp]
 	mov	edx, DWORD PTR v_hi$8[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	r9d, ecx
 	mov	r8d, edx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ExclusiveOr_X_2W
 
 ; 328  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
@@ -727,7 +726,7 @@ $LN16@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nw_light_check_code$15[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -753,7 +752,7 @@ $LN10@PMC_Exclus:
 ; 336  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$16[rbp], rax
 
 ; 337  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -795,12 +794,12 @@ $LN18@PMC_Exclus:
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8, QWORD PTR v$[rbp]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ExclusiveOr_X_1W
 
 ; 343  :             if ((result = CheckBlockLight((*w)->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
@@ -808,7 +807,7 @@ $LN18@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nw_light_check_code$19[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -832,8 +831,7 @@ $LN11@PMC_Exclus:
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN20@PMC_Exclus
@@ -909,8 +907,7 @@ PMC_ExclusiveOr_X_I_Imp PROC				; COMDAT
 ; 183  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Exclus
@@ -993,7 +990,7 @@ $LN7@PMC_Exclus:
 ; 207  :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
 ; 208  :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -1036,12 +1033,12 @@ $LN10@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, DWORD PTR v$[rbp]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 	mov	r8d, ecx
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ExclusiveOr_X_1W
 
 ; 214  :         if ((result = CheckBlockLight((*w)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
@@ -1049,7 +1046,7 @@ $LN10@PMC_Exclus:
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR nz_check_code$7[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -1071,8 +1068,7 @@ $LN11@PMC_Exclus:
 
 	mov	rax, QWORD PTR w$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN12@PMC_Exclus
@@ -3013,8 +3009,7 @@ $LN6@PMC_Exclus:
 ; 420  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_Exclus
@@ -3043,8 +3038,7 @@ $LN7@PMC_Exclus:
 ; 425  :     else if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN10@PMC_Exclus
@@ -3076,8 +3070,8 @@ $LN10@PMC_Exclus:
 
 	mov	rax, QWORD PTR nu$[rbp]
 	mov	rcx, QWORD PTR nv$[rbp]
-	mov	rcx, QWORD PTR [rcx+8]
-	cmp	QWORD PTR [rax+8], rcx
+	mov	rcx, QWORD PTR [rcx+16]
+	cmp	QWORD PTR [rax+16], rcx
 	jae	SHORT $LN13@PMC_Exclus
 
 ; 433  :         {
@@ -3101,13 +3095,13 @@ $LN13@PMC_Exclus:
 ; 438  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$6[rbp], rax
 
 ; 439  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$7[rbp], rax
 
 ; 440  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
@@ -3137,23 +3131,23 @@ $LN14@PMC_Exclus:
 ; 444  :         ExclusiveOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rax
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r9, QWORD PTR [rax+8]
+	mov	r9, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	r8, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ExclusiveOr_X_X
 
 ; 445  :         if ((result = CheckBlockLight(nw->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nw_light_check_code$9[rbp]
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
@@ -3173,8 +3167,7 @@ $LN15@PMC_Exclus:
 ; 448  :         if (nw->IS_ZERO)
 
 	mov	rax, QWORD PTR nw$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN16@PMC_Exclus

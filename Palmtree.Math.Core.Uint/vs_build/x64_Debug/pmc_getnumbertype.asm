@@ -37,7 +37,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_GetNumberType_X DD imagerel $LN10
-	DD	imagerel $LN10+267
+	DD	imagerel $LN10+260
 	DD	imagerel $unwind$PMC_GetNumberType_X
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -146,8 +146,7 @@ $LN4@PMC_GetNum:
 ; 41   :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN5@PMC_GetNum
@@ -162,8 +161,8 @@ $LN5@PMC_GetNum:
 ; 43   :     if (nx->IS_ONE)
 
 	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN6@PMC_GetNum
@@ -178,8 +177,8 @@ $LN6@PMC_GetNum:
 ; 45   :     if (nx->IS_EVEN)
 
 	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 3
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 2
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_GetNum
@@ -194,8 +193,8 @@ $LN7@PMC_GetNum:
 ; 47   :     if (nx->IS_POWER_OF_TWO)
 
 	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 4
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 3
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN8@PMC_GetNum

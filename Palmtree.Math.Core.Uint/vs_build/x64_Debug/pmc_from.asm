@@ -824,7 +824,7 @@ $LN9@From_L_Imp:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, 8
 	imul	rcx, rcx, 1
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	edx, DWORD PTR x_hi$4[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 $LN7@From_L_Imp:
@@ -836,7 +836,7 @@ $LN7@From_L_Imp:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, 8
 	imul	rcx, rcx, 0
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	edx, DWORD PTR x_lo$5[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 
@@ -881,7 +881,7 @@ $LN10@From_L_Imp:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, 8
 	imul	rcx, rcx, 0
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	rdx, QWORD PTR x$[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 $LN5@From_L_Imp:
@@ -967,7 +967,7 @@ $LN2@From_I_Imp:
 	mov	rax, QWORD PTR [rax]
 	mov	ecx, 8
 	imul	rcx, rcx, 0
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	edx, DWORD PTR x$[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 

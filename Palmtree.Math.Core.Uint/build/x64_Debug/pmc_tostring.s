@@ -7,7 +7,7 @@
 IncrementDIV64Counter:
 .LFB4274:
 	.file 1 "../pmc_uint_internal.h"
-	.loc 1 321 5
+	.loc 1 318 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -31,7 +31,7 @@ IncrementDIV64Counter:
 	lock xaddl	%edx, (%rax)
 .LBE15:
 .LBE14:
-	.loc 1 323 5
+	.loc 1 320 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -45,7 +45,7 @@ IncrementDIV64Counter:
 	.seh_proc	AddToDIV64Counter
 AddToDIV64Counter:
 .LFB4278:
-	.loc 1 344 5
+	.loc 1 341 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -71,7 +71,7 @@ AddToDIV64Counter:
 	lock xaddl	%edx, (%rax)
 .LBE17:
 .LBE16:
-	.loc 1 346 5
+	.loc 1 343 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -1649,8 +1649,8 @@ ToStringDN:
 	movl	$19, -12(%rbp)
 	.loc 5 328 9
 	movq	16(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 5 328 8
 	testb	%al, %al
 	je	.L58
@@ -1758,10 +1758,10 @@ ToStringDN:
 .LBB30:
 	.loc 5 367 67
 	movq	16(%rbp), %rax
-	movq	16(%rax), %rdx
+	movq	24(%rax), %rdx
 	.loc 5 367 88
 	movq	16(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	.loc 5 367 105
 	shrq	$3, %rax
 	.loc 5 367 84
@@ -1783,16 +1783,16 @@ ToStringDN:
 .L67:
 	.loc 5 371 23
 	movq	16(%rbp), %rax
-	movq	16(%rax), %r8
+	movq	24(%rax), %r8
 	.loc 5 371 74
 	movq	16(%rbp), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	.loc 5 371 23
 	movabsq	$2305843009213693951, %rax
 	andq	%rax, %rdx
 	.loc 5 371 64
 	movq	16(%rbp), %rax
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	.loc 5 371 23
 	movq	-8(%rbp), %r9
 	leaq	-64(%rbp), %rax
@@ -2626,8 +2626,8 @@ ToStringX:
 	movl	%r9d, 40(%rbp)
 	.loc 5 474 9
 	movq	16(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 5 474 8
 	testb	%al, %al
 	je	.L83
@@ -2667,7 +2667,7 @@ ToStringX:
 .LBB31:
 	.loc 5 489 34
 	movq	16(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	movl	$4, %edx
 	movq	%rax, %rcx
 	call	_DIVIDE_CEILING_UNIT
@@ -2719,10 +2719,10 @@ ToStringX:
 .L91:
 	.loc 5 507 31
 	movq	16(%rbp), %rax
-	movq	56(%rax), %rdx
+	movq	64(%rax), %rdx
 	.loc 5 507 42
 	movq	16(%rbp), %rax
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	.loc 5 507 39
 	salq	$3, %rax
 	.loc 5 507 60
@@ -2751,11 +2751,11 @@ ToStringX:
 	movq	%rax, -64(%rbp)
 	.loc 5 510 21 discriminator 4
 	movq	16(%rbp), %rax
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	movq	%rax, -40(%rbp)
 	.loc 5 511 48 discriminator 4
 	movq	16(%rbp), %rax
-	movq	8(%rax), %rax
+	movq	16(%rax), %rax
 	.loc 5 511 100 discriminator 4
 	sall	$4, %eax
 	movq	-48(%rbp), %rdx
@@ -3140,7 +3140,7 @@ Initialize_ToString:
 	.file 37 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/winbase.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x643d
+	.long	0x64a4
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -7116,38 +7116,38 @@ Initialize_ToString:
 	.uleb128 0x3
 	.ascii "_INT32_T\0"
 	.byte	0x22
-	.byte	0x5a
+	.byte	0x54
 	.byte	0x11
 	.long	0x4c50
 	.uleb128 0x3
 	.ascii "_UINT16_T\0"
 	.byte	0x22
-	.byte	0x5d
+	.byte	0x57
 	.byte	0x12
 	.long	0x4c3f
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x22
-	.byte	0x5e
+	.byte	0x58
 	.byte	0x12
 	.long	0x4c60
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x22
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x4c71
 	.uleb128 0x13
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x22
-	.byte	0x64
+	.byte	0x5e
 	.byte	0x10
 	.long	0x4d18
 	.uleb128 0x1d
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x22
-	.byte	0x66
+	.byte	0x60
 	.byte	0xe
 	.long	0x469
 	.byte	0x4
@@ -7158,71 +7158,124 @@ Initialize_ToString:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x22
-	.byte	0x67
+	.byte	0x61
 	.byte	0x3
 	.long	0x4cc9
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x22
-	.byte	0x6a
+	.byte	0x64
 	.byte	0xd
 	.long	0x13c
 	.uleb128 0x13
+	.ascii "__tag_UINT_FLAGS\0"
+	.byte	0x4
+	.byte	0x22
+	.byte	0x6c
+	.byte	0xc
+	.long	0x4db5
+	.uleb128 0x1d
+	.ascii "IS_ZERO\0"
+	.byte	0x22
+	.byte	0x6e
+	.byte	0x12
+	.long	0x469
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1f
+	.byte	0
+	.uleb128 0x1d
+	.ascii "IS_ONE\0"
+	.byte	0x22
+	.byte	0x6f
+	.byte	0x12
+	.long	0x469
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1e
+	.byte	0
+	.uleb128 0x1d
+	.ascii "IS_EVEN\0"
+	.byte	0x22
+	.byte	0x70
+	.byte	0x12
+	.long	0x469
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1d
+	.byte	0
+	.uleb128 0x1e
+	.secrel32	.LASF1
+	.byte	0x22
+	.byte	0x71
+	.byte	0x12
+	.long	0x469
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1c
+	.byte	0
+	.byte	0
+	.uleb128 0x1f
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x22
+	.byte	0x6a
+	.byte	0x7
+	.long	0x4df1
+	.uleb128 0x20
+	.ascii "FLAGS\0"
+	.byte	0x22
 	.byte	0x72
-	.byte	0x8
-	.long	0x4d7e
-	.uleb128 0x14
+	.byte	0x7
+	.long	0x4d4f
+	.uleb128 0x20
 	.ascii "dummy\0"
 	.byte	0x22
-	.byte	0x77
+	.byte	0x76
 	.byte	0xf
 	.long	0x4cb7
-	.byte	0
 	.byte	0
 	.uleb128 0x3
 	.ascii "PMC_HANDLE_UINT\0"
 	.byte	0x22
-	.byte	0x7c
-	.byte	0x27
-	.long	0x4d96
+	.byte	0x7b
+	.byte	0x26
+	.long	0x4e09
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x4d4f
+	.long	0x4db5
 	.uleb128 0x13
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x22
-	.byte	0x8a
+	.byte	0x91
 	.byte	0x10
-	.long	0x4e18
+	.long	0x4e8b
 	.uleb128 0x14
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x22
-	.byte	0x8c
+	.byte	0x93
 	.byte	0xa
 	.long	0x143
 	.byte	0
 	.uleb128 0x14
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x22
-	.byte	0x8d
+	.byte	0x94
 	.byte	0xa
 	.long	0x143
 	.byte	0x4
 	.uleb128 0x14
 	.ascii "COUNT_DIV64\0"
 	.byte	0x22
-	.byte	0x8e
+	.byte	0x95
 	.byte	0xa
 	.long	0x143
 	.byte	0x8
 	.uleb128 0x14
 	.ascii "COUNT_DIV32\0"
 	.byte	0x22
-	.byte	0x8f
+	.byte	0x96
 	.byte	0xa
 	.long	0x143
 	.byte	0xc
@@ -7230,69 +7283,69 @@ Initialize_ToString:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x22
-	.byte	0x90
+	.byte	0x97
 	.byte	0x3
-	.long	0x4d9c
+	.long	0x4e0f
 	.uleb128 0x13
 	.ascii "__tag_PMC_NUMBER_FORMAT_OPTION\0"
 	.byte	0x28
 	.byte	0x22
-	.byte	0x92
+	.byte	0x99
 	.byte	0x10
-	.long	0x4ee6
+	.long	0x4f59
 	.uleb128 0x14
 	.ascii "DecimalDigits\0"
 	.byte	0x22
-	.byte	0x94
+	.byte	0x9b
 	.byte	0x9
 	.long	0x13c
 	.byte	0
 	.uleb128 0x14
 	.ascii "GroupSeparator\0"
 	.byte	0x22
-	.byte	0x95
+	.byte	0x9c
 	.byte	0xd
-	.long	0x4ee6
+	.long	0x4f59
 	.byte	0x4
 	.uleb128 0x14
 	.ascii "DecimalSeparator\0"
 	.byte	0x22
-	.byte	0x96
+	.byte	0x9d
 	.byte	0xd
-	.long	0x4ee6
+	.long	0x4f59
 	.byte	0xa
 	.uleb128 0x14
 	.ascii "PositiveSign\0"
 	.byte	0x22
-	.byte	0x97
+	.byte	0x9e
 	.byte	0xd
-	.long	0x4ee6
+	.long	0x4f59
 	.byte	0x10
 	.uleb128 0x14
 	.ascii "NegativeSign\0"
 	.byte	0x22
-	.byte	0x98
+	.byte	0x9f
 	.byte	0xd
-	.long	0x4ee6
+	.long	0x4f59
 	.byte	0x16
 	.uleb128 0x14
 	.ascii "GroupSizes\0"
 	.byte	0x22
-	.byte	0x99
+	.byte	0xa0
 	.byte	0xa
-	.long	0x4ef6
+	.long	0x4f69
 	.byte	0x1c
 	.byte	0
 	.uleb128 0xf
 	.long	0x10c
-	.long	0x4ef6
+	.long	0x4f69
 	.uleb128 0x10
 	.long	0xdc
 	.byte	0x2
 	.byte	0
 	.uleb128 0xf
 	.long	0xc5
-	.long	0x4f06
+	.long	0x4f79
 	.uleb128 0x10
 	.long	0xdc
 	.byte	0xa
@@ -7300,19 +7353,19 @@ Initialize_ToString:
 	.uleb128 0x3
 	.ascii "PMC_NUMBER_FORMAT_OPTION\0"
 	.byte	0x22
-	.byte	0x9a
+	.byte	0xa1
 	.byte	0x3
-	.long	0x4e34
+	.long	0x4ea7
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x4f06
+	.long	0x4f79
 	.uleb128 0x13
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x23
 	.byte	0x23
 	.byte	0x10
-	.long	0x4ffe
+	.long	0x5071
 	.uleb128 0x1d
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x23
@@ -7369,7 +7422,7 @@ Initialize_ToString:
 	.byte	0x23
 	.byte	0x33
 	.byte	0x3
-	.long	0x4f2d
+	.long	0x4fa0
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x24
@@ -7381,179 +7434,179 @@ Initialize_ToString:
 	.byte	0x24
 	.byte	0x3e
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x4
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x13
 	.ascii "__tag_NUMBER_HEADER\0"
-	.byte	0x40
+	.byte	0x48
 	.byte	0x1
 	.byte	0x27
 	.byte	0x14
-	.long	0x5187
-	.uleb128 0x14
-	.ascii "SIGNATURE1\0"
+	.long	0x51ee
+	.uleb128 0x1d
+	.ascii "IS_ZERO\0"
 	.byte	0x1
 	.byte	0x29
-	.byte	0x13
-	.long	0x4ca5
-	.byte	0
-	.uleb128 0x14
-	.ascii "SIGNATURE2\0"
-	.byte	0x1
-	.byte	0x2a
-	.byte	0x13
-	.long	0x4ca5
-	.byte	0x4
-	.uleb128 0x14
-	.ascii "UNIT_WORD_COUNT\0"
-	.byte	0x1
-	.byte	0x2b
-	.byte	0x15
-	.long	0x5019
-	.byte	0x8
-	.uleb128 0x14
-	.ascii "UNIT_BIT_COUNT\0"
-	.byte	0x1
-	.byte	0x2c
-	.byte	0x15
-	.long	0x5019
-	.byte	0x10
-	.uleb128 0x14
-	.ascii "HASH_CODE\0"
-	.byte	0x1
-	.byte	0x2d
-	.byte	0x15
-	.long	0x5019
-	.byte	0x18
-	.uleb128 0x14
-	.ascii "TRAILING_ZERO_BITS_COUNT\0"
-	.byte	0x1
-	.byte	0x2e
-	.byte	0x15
-	.long	0x5019
-	.byte	0x20
-	.uleb128 0x1d
-	.ascii "IS_STATIC\0"
-	.byte	0x1
-	.byte	0x2f
 	.byte	0x12
 	.long	0x469
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1f
-	.byte	0x28
+	.byte	0
 	.uleb128 0x1d
-	.ascii "IS_ZERO\0"
+	.ascii "IS_ONE\0"
 	.byte	0x1
-	.byte	0x30
+	.byte	0x2a
 	.byte	0x12
 	.long	0x469
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1e
-	.byte	0x28
+	.byte	0
 	.uleb128 0x1d
-	.ascii "IS_ONE\0"
+	.ascii "IS_EVEN\0"
 	.byte	0x1
-	.byte	0x31
+	.byte	0x2b
 	.byte	0x12
 	.long	0x469
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1d
-	.byte	0x28
-	.uleb128 0x1d
-	.ascii "IS_EVEN\0"
+	.byte	0
+	.uleb128 0x1e
+	.secrel32	.LASF1
 	.byte	0x1
-	.byte	0x32
+	.byte	0x2c
 	.byte	0x12
 	.long	0x469
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1c
-	.byte	0x28
-	.uleb128 0x1d
-	.ascii "IS_POWER_OF_TWO\0"
+	.byte	0
+	.uleb128 0x14
+	.ascii "SIGNATURE1\0"
+	.byte	0x1
+	.byte	0x2e
+	.byte	0x13
+	.long	0x4ca5
+	.byte	0x4
+	.uleb128 0x14
+	.ascii "SIGNATURE2\0"
+	.byte	0x1
+	.byte	0x2f
+	.byte	0x13
+	.long	0x4ca5
+	.byte	0x8
+	.uleb128 0x14
+	.ascii "UNIT_WORD_COUNT\0"
+	.byte	0x1
+	.byte	0x30
+	.byte	0x15
+	.long	0x508c
+	.byte	0x10
+	.uleb128 0x14
+	.ascii "UNIT_BIT_COUNT\0"
+	.byte	0x1
+	.byte	0x31
+	.byte	0x15
+	.long	0x508c
+	.byte	0x18
+	.uleb128 0x14
+	.ascii "HASH_CODE\0"
+	.byte	0x1
+	.byte	0x32
+	.byte	0x15
+	.long	0x508c
+	.byte	0x20
+	.uleb128 0x14
+	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x1
 	.byte	0x33
+	.byte	0x15
+	.long	0x508c
+	.byte	0x28
+	.uleb128 0x1d
+	.ascii "IS_STATIC\0"
+	.byte	0x1
+	.byte	0x35
 	.byte	0x12
 	.long	0x469
 	.byte	0x4
 	.byte	0x1
-	.byte	0x1b
-	.byte	0x28
+	.byte	0x1f
+	.byte	0x30
 	.uleb128 0x14
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x1
-	.byte	0x35
+	.byte	0x37
 	.byte	0x10
 	.long	0xcd
-	.byte	0x30
+	.byte	0x38
 	.uleb128 0x14
 	.ascii "BLOCK\0"
 	.byte	0x1
-	.byte	0x39
+	.byte	0x3b
 	.byte	0x16
-	.long	0x5187
-	.byte	0x38
+	.long	0x51ee
+	.byte	0x40
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x1
-	.byte	0x3a
+	.byte	0x3c
 	.byte	0x7
-	.long	0x504a
+	.long	0x50bd
 	.uleb128 0x16
 	.ascii "configuration_info\0"
 	.byte	0x1
-	.byte	0x40
+	.byte	0x42
 	.byte	0x23
 	.long	0x4d18
 	.uleb128 0x16
 	.ascii "number_zero\0"
 	.byte	0x1
-	.byte	0x43
+	.byte	0x45
 	.byte	0x1a
-	.long	0x518d
+	.long	0x51f4
 	.uleb128 0x16
 	.ascii "number_one\0"
 	.byte	0x1
-	.byte	0x46
+	.byte	0x48
 	.byte	0x1a
-	.long	0x518d
+	.long	0x51f4
 	.uleb128 0x16
 	.ascii "statistics_info\0"
 	.byte	0x1
-	.byte	0x49
+	.byte	0x4b
 	.byte	0x20
-	.long	0x4e18
-	.uleb128 0x1e
+	.long	0x4e8b
+	.uleb128 0x21
 	.long	0x13c
-	.long	0x520d
+	.long	0x5274
 	.uleb128 0x12
 	.long	0x821
-	.uleb128 0x1f
+	.uleb128 0x22
 	.byte	0
 	.uleb128 0x18
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x1
-	.word	0x133
+	.word	0x130
 	.byte	0x2d
-	.long	0x5222
+	.long	0x5289
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x51fd
+	.long	0x5264
 	.uleb128 0x13
 	.ascii "TOSTRINGN_OUTPUT_STATE\0"
 	.byte	0x38
 	.byte	0x5
 	.byte	0x1f
 	.byte	0x8
-	.long	0x5330
+	.long	0x5397
 	.uleb128 0x14
 	.ascii "FORMAT\0"
 	.byte	0x5
@@ -7566,14 +7619,14 @@ Initialize_ToString:
 	.byte	0x5
 	.byte	0x22
 	.byte	0xd
-	.long	0x5330
+	.long	0x5397
 	.byte	0x2
 	.uleb128 0x14
 	.ascii "DECIMAL_SEPARATOR\0"
 	.byte	0x5
 	.byte	0x23
 	.byte	0xd
-	.long	0x5330
+	.long	0x5397
 	.byte	0xc
 	.uleb128 0x14
 	.ascii "GROUP_SEPARATOR_LENGTH\0"
@@ -7620,62 +7673,62 @@ Initialize_ToString:
 	.byte	0
 	.uleb128 0xf
 	.long	0x10c
-	.long	0x5340
+	.long	0x53a7
 	.uleb128 0x10
 	.long	0xdc
 	.byte	0x4
 	.byte	0
 	.uleb128 0xf
 	.long	0x10c
-	.long	0x5350
+	.long	0x53b7
 	.uleb128 0x10
 	.long	0xdc
 	.byte	0xa
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "decimal_digits\0"
 	.byte	0x5
 	.byte	0x2d
 	.byte	0x10
-	.long	0x5340
+	.long	0x53a7
 	.uleb128 0x9
 	.byte	0x3
 	.quad	decimal_digits
 	.uleb128 0xf
 	.long	0x10c
-	.long	0x5381
+	.long	0x53e8
 	.uleb128 0x10
 	.long	0xdc
 	.byte	0x10
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "hexadecimal_lower_digits\0"
 	.byte	0x5
 	.byte	0x2e
 	.byte	0x10
-	.long	0x5371
+	.long	0x53d8
 	.uleb128 0x9
 	.byte	0x3
 	.quad	hexadecimal_lower_digits
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "hexadecimal_upper_digits\0"
 	.byte	0x5
 	.byte	0x2f
 	.byte	0x10
-	.long	0x5371
+	.long	0x53d8
 	.uleb128 0x9
 	.byte	0x3
 	.quad	hexadecimal_upper_digits
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "default_number_format_option\0"
 	.byte	0x5
 	.byte	0x30
 	.byte	0x21
-	.long	0x4f06
+	.long	0x4f79
 	.uleb128 0x9
 	.byte	0x3
 	.quad	default_number_format_option
-	.uleb128 0x21
+	.uleb128 0x24
 	.ascii "Initialize_ToString\0"
 	.byte	0x5
 	.word	0x22a
@@ -7685,36 +7738,36 @@ Initialize_ToString:
 	.quad	.LFE4388-.LFB4388
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x548f
-	.uleb128 0x22
+	.long	0x54f6
+	.uleb128 0x25
 	.ascii "feature\0"
 	.byte	0x5
 	.word	0x22a
 	.byte	0x39
-	.long	0x548f
+	.long	0x54f6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x23
+	.uleb128 0x26
 	.quad	.LVL6
-	.long	0x6419
-	.uleb128 0x23
+	.long	0x6480
+	.uleb128 0x26
 	.quad	.LVL7
-	.long	0x6419
-	.uleb128 0x23
+	.long	0x6480
+	.uleb128 0x26
 	.quad	.LVL8
-	.long	0x6426
-	.uleb128 0x23
+	.long	0x648d
+	.uleb128 0x26
 	.quad	.LVL9
-	.long	0x6419
-	.uleb128 0x23
+	.long	0x6480
+	.uleb128 0x26
 	.quad	.LVL10
-	.long	0x6419
+	.long	0x6480
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x4ffe
-	.uleb128 0x24
+	.long	0x5071
+	.uleb128 0x27
 	.ascii "PMC_ToString\0"
 	.byte	0x5
 	.word	0x20d
@@ -7724,18 +7777,18 @@ Initialize_ToString:
 	.quad	.LFE4387-.LFB4387
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x553f
-	.uleb128 0x22
+	.long	0x55a6
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x5
 	.word	0x20d
 	.byte	0x2e
-	.long	0x4d7e
+	.long	0x4df1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF1
+	.uleb128 0x28
+	.secrel32	.LASF2
 	.byte	0x5
 	.word	0x20d
 	.byte	0x3a
@@ -7743,8 +7796,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF2
+	.uleb128 0x28
+	.secrel32	.LASF3
 	.byte	0x5
 	.word	0x20d
 	.byte	0x49
@@ -7752,8 +7805,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x25
-	.secrel32	.LASF3
+	.uleb128 0x28
+	.secrel32	.LASF4
 	.byte	0x5
 	.word	0x20d
 	.byte	0x5b
@@ -7761,8 +7814,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x5
 	.word	0x20d
 	.byte	0x67
@@ -7770,26 +7823,26 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x5
 	.word	0x20d
 	.byte	0x88
-	.long	0x4f27
+	.long	0x4f9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "nx\0"
 	.byte	0x5
 	.word	0x215
 	.byte	0x14
-	.long	0x553f
+	.long	0x55a6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x27
-	.secrel32	.LASF6
+	.uleb128 0x2a
+	.secrel32	.LASF7
 	.byte	0x5
 	.word	0x216
 	.byte	0x15
@@ -7800,8 +7853,8 @@ Initialize_ToString:
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x518d
-	.uleb128 0x28
+	.long	0x51f4
+	.uleb128 0x2b
 	.ascii "ToStringX\0"
 	.byte	0x5
 	.word	0x1d8
@@ -7811,18 +7864,18 @@ Initialize_ToString:
 	.quad	.LFE4386-.LFB4386
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x56a6
-	.uleb128 0x22
+	.long	0x570d
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x5
 	.word	0x1d8
 	.byte	0x31
-	.long	0x553f
+	.long	0x55a6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF1
+	.uleb128 0x28
+	.secrel32	.LASF2
 	.byte	0x5
 	.word	0x1d8
 	.byte	0x3d
@@ -7830,8 +7883,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF2
+	.uleb128 0x28
+	.secrel32	.LASF3
 	.byte	0x5
 	.word	0x1d8
 	.byte	0x4c
@@ -7839,8 +7892,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x5
 	.word	0x1d8
 	.byte	0x63
@@ -7848,16 +7901,16 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x5
 	.word	0x1d8
 	.byte	0x84
-	.long	0x4f27
+	.long	0x4f9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "using_upper_letter\0"
 	.byte	0x5
 	.word	0x1d8
@@ -7866,55 +7919,55 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
-	.uleb128 0x29
+	.uleb128 0x2c
 	.quad	.LBB31
 	.quad	.LBE31-.LBB31
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "output_len\0"
 	.byte	0x5
 	.word	0x1e9
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "filling_digit_len\0"
 	.byte	0x5
 	.word	0x1ea
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "total_length\0"
 	.byte	0x5
 	.word	0x1eb
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "filling_digit_count\0"
 	.byte	0x5
 	.word	0x1f8
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "s_ptr\0"
 	.byte	0x5
 	.word	0x1fb
 	.byte	0x16
-	.long	0x5187
+	.long	0x51ee
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "d_ptr\0"
 	.byte	0x5
 	.word	0x1fc
@@ -7923,8 +7976,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x27
-	.secrel32	.LASF7
+	.uleb128 0x2a
+	.secrel32	.LASF8
 	.byte	0x5
 	.word	0x1fd
 	.byte	0x12
@@ -7932,18 +7985,18 @@ Initialize_ToString:
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "w_count\0"
 	.byte	0x5
 	.word	0x1fe
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x2b
 	.ascii "ToStringX_1WORD\0"
 	.byte	0x5
 	.word	0x194
@@ -7953,17 +8006,17 @@ Initialize_ToString:
 	.quad	.LFE4385-.LFB4385
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x572f
-	.uleb128 0x22
+	.long	0x5796
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x5
 	.word	0x194
 	.byte	0x36
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "skip_digit_len\0"
 	.byte	0x5
 	.word	0x194
@@ -7972,8 +8025,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF7
+	.uleb128 0x28
+	.secrel32	.LASF8
 	.byte	0x5
 	.word	0x194
 	.byte	0x56
@@ -7981,7 +8034,7 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "ptr\0"
 	.byte	0x5
 	.word	0x194
@@ -7990,8 +8043,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x27
-	.secrel32	.LASF8
+	.uleb128 0x2a
+	.secrel32	.LASF9
 	.byte	0x5
 	.word	0x19c
 	.byte	0x9
@@ -8000,7 +8053,7 @@ Initialize_ToString:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x2b
 	.ascii "ToStringDN\0"
 	.byte	0x5
 	.word	0x137
@@ -8010,18 +8063,18 @@ Initialize_ToString:
 	.quad	.LFE4384-.LFB4384
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5920
-	.uleb128 0x22
+	.long	0x5987
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x5
 	.word	0x137
 	.byte	0x32
-	.long	0x553f
+	.long	0x55a6
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF1
+	.uleb128 0x28
+	.secrel32	.LASF2
 	.byte	0x5
 	.word	0x137
 	.byte	0x3e
@@ -8029,8 +8082,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF2
+	.uleb128 0x28
+	.secrel32	.LASF3
 	.byte	0x5
 	.word	0x137
 	.byte	0x4d
@@ -8038,8 +8091,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x25
-	.secrel32	.LASF3
+	.uleb128 0x28
+	.secrel32	.LASF4
 	.byte	0x5
 	.word	0x137
 	.byte	0x5f
@@ -8047,8 +8100,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x5
 	.word	0x137
 	.byte	0x71
@@ -8056,25 +8109,25 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x5
 	.word	0x137
 	.byte	0x92
-	.long	0x4f27
+	.long	0x4f9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
-	.uleb128 0x27
-	.secrel32	.LASF9
+	.uleb128 0x2a
+	.secrel32	.LASF10
 	.byte	0x5
 	.word	0x139
 	.byte	0x15
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "word_digit_count\0"
 	.byte	0x5
 	.word	0x13a
@@ -8083,11 +8136,11 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -28
-	.uleb128 0x2a
+	.uleb128 0x2d
 	.quad	.LBB29
 	.quad	.LBE29-.LBB29
-	.long	0x5836
-	.uleb128 0x26
+	.long	0x589d
+	.uleb128 0x29
 	.ascii "decimal_separator_len\0"
 	.byte	0x5
 	.word	0x156
@@ -8096,18 +8149,18 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x23
+	.uleb128 0x26
 	.quad	.LVL4
-	.long	0x6419
-	.uleb128 0x23
+	.long	0x6480
+	.uleb128 0x26
 	.quad	.LVL5
-	.long	0x6433
+	.long	0x649a
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2c
 	.quad	.LBB30
 	.quad	.LBE30-.LBB30
-	.uleb128 0x27
-	.secrel32	.LASF6
+	.uleb128 0x2a
+	.secrel32	.LASF7
 	.byte	0x5
 	.word	0x16b
 	.byte	0x19
@@ -8115,61 +8168,61 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -44
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "r_buf_code\0"
 	.byte	0x5
 	.word	0x16c
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "r_buf_words\0"
 	.byte	0x5
 	.word	0x16d
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "r_buf\0"
 	.byte	0x5
 	.word	0x16f
 	.byte	0x1a
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
-	.uleb128 0x27
-	.secrel32	.LASF10
+	.uleb128 0x2a
+	.secrel32	.LASF11
 	.byte	0x5
 	.word	0x172
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "rev_str_buf_code\0"
 	.byte	0x5
 	.word	0x17b
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "rev_str_buf_words\0"
 	.byte	0x5
 	.word	0x17c
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "rev_str_buf\0"
 	.byte	0x5
 	.word	0x17e
@@ -8178,12 +8231,12 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "rev_str_buf_count\0"
 	.byte	0x5
 	.word	0x184
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
@@ -8191,8 +8244,8 @@ Initialize_ToString:
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x502d
-	.uleb128 0x2b
+	.long	0x50a0
+	.uleb128 0x2e
 	.ascii "ToStringDN_Finalize\0"
 	.byte	0x5
 	.word	0x12a
@@ -8201,8 +8254,8 @@ Initialize_ToString:
 	.quad	.LFE4383-.LFB4383
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x59cd
-	.uleb128 0x22
+	.long	0x5a34
+	.uleb128 0x25
 	.ascii "in_buf\0"
 	.byte	0x5
 	.word	0x12a
@@ -8211,17 +8264,17 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF11
+	.uleb128 0x28
+	.secrel32	.LASF12
 	.byte	0x5
 	.word	0x12a
 	.byte	0x3e
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF12
+	.uleb128 0x28
+	.secrel32	.LASF13
 	.byte	0x5
 	.word	0x12a
 	.byte	0x55
@@ -8229,17 +8282,17 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x25
-	.secrel32	.LASF13
+	.uleb128 0x28
+	.secrel32	.LASF14
 	.byte	0x5
 	.word	0x12a
 	.byte	0x6a
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x27
-	.secrel32	.LASF14
+	.uleb128 0x2a
+	.secrel32	.LASF15
 	.byte	0x5
 	.word	0x12c
 	.byte	0xe
@@ -8247,7 +8300,7 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "out_ptr\0"
 	.byte	0x5
 	.word	0x12d
@@ -8256,17 +8309,17 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x27
-	.secrel32	.LASF8
+	.uleb128 0x2a
+	.secrel32	.LASF9
 	.byte	0x5
 	.word	0x12e
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2f
 	.ascii "PrintDecimal\0"
 	.byte	0x5
 	.word	0x100
@@ -8275,27 +8328,27 @@ Initialize_ToString:
 	.quad	.LFE4382-.LFB4382
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5ae8
-	.uleb128 0x22
+	.long	0x5b4f
+	.uleb128 0x25
 	.ascii "in_buf\0"
 	.byte	0x5
 	.word	0x100
 	.byte	0x2b
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF11
+	.uleb128 0x28
+	.secrel32	.LASF12
 	.byte	0x5
 	.word	0x100
 	.byte	0x3f
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x25
-	.secrel32	.LASF12
+	.uleb128 0x28
+	.secrel32	.LASF13
 	.byte	0x5
 	.word	0x100
 	.byte	0x56
@@ -8303,17 +8356,17 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x25
-	.secrel32	.LASF13
+	.uleb128 0x28
+	.secrel32	.LASF14
 	.byte	0x5
 	.word	0x100
 	.byte	0x6c
-	.long	0x5187
+	.long	0x51ee
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x25
-	.secrel32	.LASF3
+	.uleb128 0x28
+	.secrel32	.LASF4
 	.byte	0x5
 	.word	0x100
 	.byte	0x80
@@ -8321,8 +8374,8 @@ Initialize_ToString:
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -116
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x5
 	.word	0x100
 	.byte	0x92
@@ -8330,48 +8383,48 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x5
 	.word	0x100
 	.byte	0xb3
-	.long	0x4f27
+	.long	0x4f9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 48
-	.uleb128 0x27
-	.secrel32	.LASF15
+	.uleb128 0x2a
+	.secrel32	.LASF16
 	.byte	0x5
 	.word	0x102
 	.byte	0x23
-	.long	0x5228
+	.long	0x528f
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
-	.uleb128 0x27
-	.secrel32	.LASF14
+	.uleb128 0x2a
+	.secrel32	.LASF15
 	.byte	0x5
 	.word	0x10e
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "in_count\0"
 	.byte	0x5
 	.word	0x10f
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
-	.uleb128 0x2a
+	.uleb128 0x2d
 	.quad	.LBB27
 	.quad	.LBE27-.LBB27
-	.long	0x5ac5
-	.uleb128 0x27
-	.secrel32	.LASF8
+	.long	0x5b2c
+	.uleb128 0x2a
+	.secrel32	.LASF9
 	.byte	0x5
 	.word	0x106
 	.byte	0x13
@@ -8380,11 +8433,11 @@ Initialize_ToString:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2c
 	.quad	.LBB28
 	.quad	.LBE28-.LBB28
-	.uleb128 0x27
-	.secrel32	.LASF8
+	.uleb128 0x2a
+	.secrel32	.LASF9
 	.byte	0x5
 	.word	0x11d
 	.byte	0x11
@@ -8394,7 +8447,7 @@ Initialize_ToString:
 	.sleb128 -44
 	.byte	0
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x30
 	.ascii "ToStringDN_1WORD\0"
 	.byte	0x5
 	.byte	0xc4
@@ -8403,39 +8456,39 @@ Initialize_ToString:
 	.quad	.LFE4381-.LFB4381
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5b3d
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5ba4
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0xc4
 	.byte	0x3d
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x\0"
 	.byte	0x5
 	.byte	0xc4
 	.byte	0x54
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "r\0"
 	.byte	0x5
 	.byte	0xc6
 	.byte	0x15
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x5228
-	.uleb128 0x2d
+	.long	0x528f
+	.uleb128 0x30
 	.ascii "ToStringDN_LEADING_1WORD\0"
 	.byte	0x5
 	.byte	0xb3
@@ -8444,36 +8497,36 @@ Initialize_ToString:
 	.quad	.LFE4380-.LFB4380
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5ba0
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5c07
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0xb3
 	.byte	0x45
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x\0"
 	.byte	0x5
 	.byte	0xb3
 	.byte	0x5c
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "r\0"
 	.byte	0x5
 	.byte	0xb5
 	.byte	0x15
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "OutputOneChar\0"
 	.byte	0x5
 	.byte	0x8a
@@ -8482,30 +8535,30 @@ Initialize_ToString:
 	.quad	.LFE4379-.LFB4379
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5bf2
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5c59
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0x8a
 	.byte	0x3a
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x\0"
 	.byte	0x5
 	.byte	0x8a
 	.byte	0x51
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x23
+	.uleb128 0x26
 	.quad	.LVL3
-	.long	0x6419
+	.long	0x6480
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "OutputUngroupedOneChar\0"
 	.byte	0x5
 	.byte	0x84
@@ -8514,27 +8567,27 @@ Initialize_ToString:
 	.quad	.LFE4378-.LFB4378
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5c40
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5ca7
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0x84
 	.byte	0x43
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x\0"
 	.byte	0x5
 	.byte	0x84
 	.byte	0x5a
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "OutputDecimalSeparator\0"
 	.byte	0x5
 	.byte	0x7e
@@ -8543,21 +8596,21 @@ Initialize_ToString:
 	.quad	.LFE4377-.LFB4377
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5c8e
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5cf5
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0x7e
 	.byte	0x43
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x23
+	.uleb128 0x26
 	.quad	.LVL2
-	.long	0x6419
+	.long	0x6480
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "InitializeOutputState\0"
 	.byte	0x5
 	.byte	0x5e
@@ -8566,18 +8619,18 @@ Initialize_ToString:
 	.quad	.LFE4376-.LFB4376
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5d37
-	.uleb128 0x2e
-	.secrel32	.LASF15
+	.long	0x5d9e
+	.uleb128 0x31
+	.secrel32	.LASF16
 	.byte	0x5
 	.byte	0x5e
 	.byte	0x42
-	.long	0x5b3d
+	.long	0x5ba4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2e
-	.secrel32	.LASF12
+	.uleb128 0x31
+	.secrel32	.LASF13
 	.byte	0x5
 	.byte	0x5e
 	.byte	0x52
@@ -8585,8 +8638,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x2e
-	.secrel32	.LASF3
+	.uleb128 0x31
+	.secrel32	.LASF4
 	.byte	0x5
 	.byte	0x5e
 	.byte	0x60
@@ -8594,17 +8647,17 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x2e
-	.secrel32	.LASF5
+	.uleb128 0x31
+	.secrel32	.LASF6
 	.byte	0x5
 	.byte	0x5e
 	.byte	0x82
-	.long	0x4f27
+	.long	0x4f9a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x31
-	.secrel32	.LASF14
+	.uleb128 0x34
+	.secrel32	.LASF15
 	.byte	0x5
 	.byte	0x63
 	.byte	0xe
@@ -8612,7 +8665,7 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "out_ptr\0"
 	.byte	0x5
 	.byte	0x64
@@ -8621,14 +8674,14 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x23
+	.uleb128 0x26
 	.quad	.LVL0
-	.long	0x6433
-	.uleb128 0x23
+	.long	0x649a
+	.uleb128 0x26
 	.quad	.LVL1
-	.long	0x6433
+	.long	0x649a
 	.byte	0
-	.uleb128 0x32
+	.uleb128 0x35
 	.ascii "ConvertCardinalNumber\0"
 	.byte	0x5
 	.byte	0x33
@@ -8638,63 +8691,63 @@ Initialize_ToString:
 	.quad	.LFE4375-.LFB4375
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5f09
-	.uleb128 0x2f
+	.long	0x5f70
+	.uleb128 0x32
 	.ascii "x_buf\0"
 	.byte	0x5
 	.byte	0x33
 	.byte	0x3f
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x_buf_size\0"
 	.byte	0x5
 	.byte	0x33
 	.byte	0x52
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x_bit_count\0"
 	.byte	0x5
 	.byte	0x33
 	.byte	0x6a
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x2e
-	.secrel32	.LASF9
+	.uleb128 0x31
+	.secrel32	.LASF10
 	.byte	0x5
 	.byte	0x33
 	.byte	0x87
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "r_buf\0"
 	.byte	0x5
 	.byte	0x33
 	.byte	0xa4
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x2e
-	.secrel32	.LASF10
+	.uleb128 0x31
+	.secrel32	.LASF11
 	.byte	0x5
 	.byte	0x33
 	.byte	0xb8
-	.long	0x5187
+	.long	0x51ee
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
-	.uleb128 0x31
-	.secrel32	.LASF6
+	.uleb128 0x34
+	.secrel32	.LASF7
 	.byte	0x5
 	.byte	0x35
 	.byte	0x15
@@ -8702,141 +8755,141 @@ Initialize_ToString:
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -68
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_1_code\0"
 	.byte	0x5
 	.byte	0x36
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_1_words\0"
 	.byte	0x5
 	.byte	0x37
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_1\0"
 	.byte	0x5
 	.byte	0x38
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_2_code\0"
 	.byte	0x5
 	.byte	0x3b
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_2_words\0"
 	.byte	0x5
 	.byte	0x3c
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_buf_2\0"
 	.byte	0x5
 	.byte	0x3d
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "u_ptr\0"
 	.byte	0x5
 	.byte	0x43
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "q_ptr\0"
 	.byte	0x5
 	.byte	0x44
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "r_ptr\0"
 	.byte	0x5
 	.byte	0x46
 	.byte	0x16
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "work_u_count\0"
 	.byte	0x5
 	.byte	0x47
 	.byte	0x11
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x29
+	.uleb128 0x2c
 	.quad	.LBB26
 	.quad	.LBE26-.LBB26
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "r_value\0"
 	.byte	0x5
 	.byte	0x4b
 	.byte	0x19
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -120
-	.uleb128 0x20
+	.uleb128 0x23
 	.ascii "temp\0"
 	.byte	0x5
 	.byte	0x52
 	.byte	0x1a
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.byte	0
 	.byte	0
-	.uleb128 0x33
+	.uleb128 0x36
 	.ascii "_ROTATE_L_UNIT\0"
 	.byte	0x3
 	.word	0x1da
 	.byte	0x21
-	.long	0x5019
+	.long	0x508c
 	.quad	.LFB4354
 	.quad	.LFE4354-.LFB4354
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5f80
-	.uleb128 0x22
+	.long	0x5fe7
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x3
 	.word	0x1da
 	.byte	0x3c
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x25
-	.secrel32	.LASF8
+	.uleb128 0x28
+	.secrel32	.LASF9
 	.byte	0x3
 	.word	0x1da
 	.byte	0x43
@@ -8844,113 +8897,113 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x34
-	.long	0x62a2
+	.uleb128 0x37
+	.long	0x6309
 	.quad	.LBB24
 	.quad	.LBE24-.LBB24
 	.byte	0x3
 	.word	0x1df
 	.byte	0x10
-	.uleb128 0x35
-	.long	0x62c2
+	.uleb128 0x38
+	.long	0x6329
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -28
-	.uleb128 0x35
-	.long	0x62b6
+	.uleb128 0x38
+	.long	0x631d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.byte	0
-	.uleb128 0x33
+	.uleb128 0x36
 	.ascii "_DIVREM_UNIT\0"
 	.byte	0x3
 	.word	0x179
 	.byte	0x25
-	.long	0x502d
+	.long	0x50a0
 	.quad	.LFB4351
 	.quad	.LFE4351-.LFB4351
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5ffc
-	.uleb128 0x22
+	.long	0x6063
+	.uleb128 0x25
 	.ascii "u_high\0"
 	.byte	0x3
 	.word	0x179
 	.byte	0x42
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "u_low\0"
 	.byte	0x3
 	.word	0x179
 	.byte	0x5a
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x179
 	.byte	0x71
-	.long	0x502d
+	.long	0x50a0
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "r\0"
 	.byte	0x3
 	.word	0x179
 	.byte	0x85
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "q\0"
 	.byte	0x3
 	.word	0x193
 	.byte	0x15
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x36
+	.uleb128 0x39
 	.ascii "_DIVIDE_CEILING_UNIT\0"
 	.byte	0x3
 	.byte	0xba
 	.byte	0x21
-	.long	0x5019
+	.long	0x508c
 	.quad	.LFB4337
 	.quad	.LFE4337-.LFB4337
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x604a
-	.uleb128 0x2f
+	.long	0x60b1
+	.uleb128 0x32
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0xba
 	.byte	0x42
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0xba
 	.byte	0x51
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "_FILL_MEMORY_16\0"
 	.byte	0x3
 	.byte	0x8e
@@ -8959,17 +9012,17 @@ Initialize_ToString:
 	.quad	.LFE4330-.LFB4330
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x60cf
-	.uleb128 0x2f
+	.long	0x6136
+	.uleb128 0x32
 	.ascii "d\0"
 	.byte	0x3
 	.byte	0x8e
 	.byte	0x35
-	.long	0x60cf
+	.long	0x6136
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "x\0"
 	.byte	0x3
 	.byte	0x8e
@@ -8978,8 +9031,8 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x2e
-	.secrel32	.LASF8
+	.uleb128 0x31
+	.secrel32	.LASF9
 	.byte	0x3
 	.byte	0x8e
 	.byte	0x4c
@@ -8987,25 +9040,25 @@ Initialize_ToString:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x37
-	.long	0x62cf
+	.uleb128 0x3a
+	.long	0x6336
 	.quad	.LBB22
 	.quad	.LBE22-.LBB22
 	.byte	0x3
 	.byte	0x90
 	.byte	0x9
-	.uleb128 0x35
-	.long	0x62fd
+	.uleb128 0x38
+	.long	0x6364
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x35
-	.long	0x62ef
+	.uleb128 0x38
+	.long	0x6356
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -42
-	.uleb128 0x35
-	.long	0x62e1
+	.uleb128 0x38
+	.long	0x6348
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -9014,7 +9067,7 @@ Initialize_ToString:
 	.uleb128 0x7
 	.byte	0x8
 	.long	0x4c93
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "_ZERO_MEMORY_UNIT_DIV\0"
 	.byte	0x3
 	.byte	0x78
@@ -9023,50 +9076,50 @@ Initialize_ToString:
 	.quad	.LFE4328-.LFB4328
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6153
-	.uleb128 0x2f
+	.long	0x61ba
+	.uleb128 0x32
 	.ascii "d\0"
 	.byte	0x3
 	.byte	0x78
 	.byte	0x41
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2e
-	.secrel32	.LASF8
+	.uleb128 0x31
+	.secrel32	.LASF9
 	.byte	0x3
 	.byte	0x78
 	.byte	0x50
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x37
-	.long	0x63db
+	.uleb128 0x3a
+	.long	0x6442
 	.quad	.LBB20
 	.quad	.LBE20-.LBB20
 	.byte	0x3
 	.byte	0x80
 	.byte	0x9
-	.uleb128 0x35
-	.long	0x6409
+	.uleb128 0x38
+	.long	0x6470
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x35
-	.long	0x63fb
+	.uleb128 0x38
+	.long	0x6462
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x35
-	.long	0x63ed
+	.uleb128 0x38
+	.long	0x6454
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.byte	0
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.ascii "_COPY_MEMORY_UNIT_DIV\0"
 	.byte	0x3
 	.byte	0x46
@@ -9075,53 +9128,53 @@ Initialize_ToString:
 	.quad	.LFE4322-.LFB4322
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x61de
-	.uleb128 0x2f
+	.long	0x6245
+	.uleb128 0x32
 	.ascii "d\0"
 	.byte	0x3
 	.byte	0x46
 	.byte	0x41
-	.long	0x5920
+	.long	0x5987
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.ascii "s\0"
 	.byte	0x3
 	.byte	0x46
 	.byte	0x5b
-	.long	0x61de
+	.long	0x6245
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x2e
-	.secrel32	.LASF8
+	.uleb128 0x31
+	.secrel32	.LASF9
 	.byte	0x3
 	.byte	0x46
 	.byte	0x6a
-	.long	0x5019
+	.long	0x508c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x37
-	.long	0x638e
+	.uleb128 0x3a
+	.long	0x63f5
 	.quad	.LBB18
 	.quad	.LBE18-.LBB18
 	.byte	0x3
 	.byte	0x4e
 	.byte	0x9
-	.uleb128 0x35
-	.long	0x63c5
+	.uleb128 0x38
+	.long	0x642c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x35
-	.long	0x63b5
+	.uleb128 0x38
+	.long	0x641c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x35
-	.long	0x63a0
+	.uleb128 0x38
+	.long	0x6407
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -9129,175 +9182,175 @@ Initialize_ToString:
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
-	.long	0x5045
-	.uleb128 0x2b
+	.long	0x50b8
+	.uleb128 0x2e
 	.ascii "AddToDIV64Counter\0"
 	.byte	0x1
-	.word	0x157
+	.word	0x154
 	.byte	0x1a
 	.quad	.LFB4278
 	.quad	.LFE4278-.LFB4278
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x624e
-	.uleb128 0x22
+	.long	0x62b5
+	.uleb128 0x25
 	.ascii "value\0"
 	.byte	0x1
-	.word	0x157
+	.word	0x154
 	.byte	0x35
 	.long	0x4c82
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x34
-	.long	0x6348
+	.uleb128 0x37
+	.long	0x63af
 	.quad	.LBB16
 	.quad	.LBE16-.LBB16
 	.byte	0x1
-	.word	0x159
+	.word	0x156
 	.byte	0x9
-	.uleb128 0x35
-	.long	0x637e
+	.uleb128 0x38
+	.long	0x63e5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -28
-	.uleb128 0x35
-	.long	0x636e
+	.uleb128 0x38
+	.long	0x63d5
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.byte	0
-	.uleb128 0x2b
+	.uleb128 0x2e
 	.ascii "IncrementDIV64Counter\0"
 	.byte	0x1
-	.word	0x140
+	.word	0x13d
 	.byte	0x1a
 	.quad	.LFB4274
 	.quad	.LFE4274-.LFB4274
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x62a2
-	.uleb128 0x34
-	.long	0x630d
+	.long	0x6309
+	.uleb128 0x37
+	.long	0x6374
 	.quad	.LBB14
 	.quad	.LBE14-.LBB14
 	.byte	0x1
-	.word	0x142
+	.word	0x13f
 	.byte	0x9
-	.uleb128 0x35
-	.long	0x6331
+	.uleb128 0x38
+	.long	0x6398
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.byte	0
-	.uleb128 0x38
+	.uleb128 0x3b
 	.ascii "__rolq\0"
 	.byte	0x4
 	.byte	0xf2
 	.byte	0x1
 	.long	0xdc
 	.byte	0x3
-	.long	0x62cf
-	.uleb128 0x39
+	.long	0x6336
+	.uleb128 0x3c
 	.ascii "__X\0"
 	.byte	0x4
 	.byte	0xf2
 	.byte	0x1c
 	.long	0xdc
-	.uleb128 0x39
+	.uleb128 0x3c
 	.ascii "__C\0"
 	.byte	0x4
 	.byte	0xf2
 	.byte	0x25
 	.long	0x13c
 	.byte	0
-	.uleb128 0x3a
+	.uleb128 0x3d
 	.ascii "__stosw\0"
 	.byte	0x2
 	.word	0x5ae
 	.byte	0x6
 	.byte	0x3
-	.long	0x630d
-	.uleb128 0x3b
+	.long	0x6374
+	.uleb128 0x3e
 	.ascii "Dest\0"
 	.byte	0x2
 	.word	0x5ae
 	.byte	0x1e
 	.long	0x4cb
-	.uleb128 0x3b
+	.uleb128 0x3e
 	.ascii "Data\0"
 	.byte	0x2
 	.word	0x5ae
 	.byte	0x33
 	.long	0x121
-	.uleb128 0x3b
+	.uleb128 0x3e
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x5ae
 	.byte	0x40
 	.long	0xcd
 	.byte	0
-	.uleb128 0x3c
+	.uleb128 0x3f
 	.ascii "_InterlockedIncrement\0"
 	.byte	0x2
 	.word	0x53e
 	.byte	0x6
 	.long	0x143
 	.byte	0x3
-	.long	0x6342
-	.uleb128 0x3b
+	.long	0x63a9
+	.uleb128 0x3e
 	.ascii "Addend\0"
 	.byte	0x2
 	.word	0x53e
 	.byte	0x2b
-	.long	0x6342
+	.long	0x63a9
 	.byte	0
 	.uleb128 0x7
 	.byte	0x8
 	.long	0x14f
-	.uleb128 0x3c
+	.uleb128 0x3f
 	.ascii "_InterlockedExchangeAdd\0"
 	.byte	0x2
 	.word	0x528
 	.byte	0x6
 	.long	0x143
 	.byte	0x3
-	.long	0x638e
-	.uleb128 0x3b
+	.long	0x63f5
+	.uleb128 0x3e
 	.ascii "Addend\0"
 	.byte	0x2
 	.word	0x528
 	.byte	0x2d
-	.long	0x6342
-	.uleb128 0x3b
+	.long	0x63a9
+	.uleb128 0x3e
 	.ascii "Value\0"
 	.byte	0x2
 	.word	0x528
 	.byte	0x3a
 	.long	0x143
 	.byte	0
-	.uleb128 0x3a
+	.uleb128 0x3d
 	.ascii "__movsq\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x63d5
-	.uleb128 0x3b
+	.long	0x643c
+	.uleb128 0x3e
 	.ascii "Destination\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x22
 	.long	0x75d
-	.uleb128 0x3b
+	.uleb128 0x3e
 	.ascii "Source\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x49
-	.long	0x63d5
-	.uleb128 0x3b
+	.long	0x643c
+	.uleb128 0x3e
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x3b8
@@ -9307,47 +9360,47 @@ Initialize_ToString:
 	.uleb128 0x7
 	.byte	0x8
 	.long	0xf6
-	.uleb128 0x3a
+	.uleb128 0x3d
 	.ascii "__stosq\0"
 	.byte	0x2
 	.word	0x263
 	.byte	0x6
 	.byte	0x3
-	.long	0x6419
-	.uleb128 0x3b
+	.long	0x6480
+	.uleb128 0x3e
 	.ascii "Dest\0"
 	.byte	0x2
 	.word	0x263
 	.byte	0x22
 	.long	0x75d
-	.uleb128 0x3b
+	.uleb128 0x3e
 	.ascii "Data\0"
 	.byte	0x2
 	.word	0x263
 	.byte	0x3b
 	.long	0xdc
-	.uleb128 0x3b
+	.uleb128 0x3e
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x263
 	.byte	0x48
 	.long	0xcd
 	.byte	0
-	.uleb128 0x3d
-	.secrel32	.LASF16
-	.secrel32	.LASF16
+	.uleb128 0x40
+	.secrel32	.LASF17
+	.secrel32	.LASF17
 	.byte	0x25
 	.word	0x57d
 	.byte	0x25
-	.uleb128 0x3d
-	.secrel32	.LASF17
-	.secrel32	.LASF17
+	.uleb128 0x40
+	.secrel32	.LASF18
+	.secrel32	.LASF18
 	.byte	0x25
 	.word	0x57c
 	.byte	0x24
-	.uleb128 0x3d
-	.secrel32	.LASF18
-	.secrel32	.LASF18
+	.uleb128 0x40
+	.secrel32	.LASF19
+	.secrel32	.LASF19
 	.byte	0x25
 	.word	0x581
 	.byte	0x22
@@ -9748,6 +9801,61 @@ Initialize_ToString:
 	.byte	0
 	.byte	0
 	.uleb128 0x1e
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0xd
+	.uleb128 0xb
+	.uleb128 0xc
+	.uleb128 0xb
+	.uleb128 0x38
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x1f
+	.uleb128 0x17
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x20
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x21
 	.uleb128 0x15
 	.byte	0x1
 	.uleb128 0x27
@@ -9758,12 +9866,12 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1f
+	.uleb128 0x22
 	.uleb128 0x18
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x23
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -9778,61 +9886,6 @@ Initialize_ToString:
 	.uleb128 0x13
 	.uleb128 0x2
 	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x21
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2117
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x22
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x23
-	.uleb128 0x4109
-	.byte	0
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x31
-	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x24
@@ -9858,13 +9911,68 @@ Initialize_ToString:
 	.uleb128 0x7
 	.uleb128 0x40
 	.uleb128 0x18
-	.uleb128 0x2116
+	.uleb128 0x2117
 	.uleb128 0x19
 	.uleb128 0x1
 	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x25
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x26
+	.uleb128 0x4109
+	.byte	0
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x31
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x27
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x28
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -9881,7 +9989,7 @@ Initialize_ToString:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x26
+	.uleb128 0x29
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -9898,7 +10006,7 @@ Initialize_ToString:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x27
+	.uleb128 0x2a
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -9915,7 +10023,7 @@ Initialize_ToString:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x2b
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -9942,7 +10050,7 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2c
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -9951,7 +10059,7 @@ Initialize_ToString:
 	.uleb128 0x7
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x2d
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -9962,7 +10070,7 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2b
+	.uleb128 0x2e
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -9987,88 +10095,29 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2c
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2116
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x2d
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2116
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x2e
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
 	.uleb128 0x2f
-	.uleb128 0x5
-	.byte	0
+	.uleb128 0x2e
+	.byte	0x1
 	.uleb128 0x3
 	.uleb128 0x8
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
-	.uleb128 0xb
+	.uleb128 0x5
 	.uleb128 0x39
 	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
 	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x30
@@ -10090,14 +10139,14 @@ Initialize_ToString:
 	.uleb128 0x7
 	.uleb128 0x40
 	.uleb128 0x18
-	.uleb128 0x2117
+	.uleb128 0x2116
 	.uleb128 0x19
 	.uleb128 0x1
 	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x31
-	.uleb128 0x34
+	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
 	.uleb128 0xe
@@ -10114,6 +10163,65 @@ Initialize_ToString:
 	.byte	0
 	.byte	0
 	.uleb128 0x32
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x33
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x34
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x35
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -10140,59 +10248,6 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x33
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2117
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x34
-	.uleb128 0x1d
-	.byte	0x1
-	.uleb128 0x31
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x58
-	.uleb128 0xb
-	.uleb128 0x59
-	.uleb128 0x5
-	.uleb128 0x57
-	.uleb128 0xb
-	.byte	0
-	.byte	0
-	.uleb128 0x35
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x31
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
 	.uleb128 0x36
 	.uleb128 0x2e
 	.byte	0x1
@@ -10201,7 +10256,7 @@ Initialize_ToString:
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
-	.uleb128 0xb
+	.uleb128 0x5
 	.uleb128 0x39
 	.uleb128 0xb
 	.uleb128 0x27
@@ -10232,12 +10287,65 @@ Initialize_ToString:
 	.uleb128 0x58
 	.uleb128 0xb
 	.uleb128 0x59
-	.uleb128 0xb
+	.uleb128 0x5
 	.uleb128 0x57
 	.uleb128 0xb
 	.byte	0
 	.byte	0
 	.uleb128 0x38
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x31
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x39
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x3a
+	.uleb128 0x1d
+	.byte	0x1
+	.uleb128 0x31
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x58
+	.uleb128 0xb
+	.uleb128 0x59
+	.uleb128 0xb
+	.uleb128 0x57
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x3b
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -10262,81 +10370,81 @@ Initialize_ToString:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x39
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x3a
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x20
-	.uleb128 0xb
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x3b
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
 	.uleb128 0x3c
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
+	.uleb128 0x5
+	.byte	0
 	.uleb128 0x3
 	.uleb128 0x8
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
-	.uleb128 0x5
+	.uleb128 0xb
 	.uleb128 0x39
 	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
 	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x20
-	.uleb128 0xb
-	.uleb128 0x1
 	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x3d
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x20
+	.uleb128 0xb
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x3e
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x3f
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x20
+	.uleb128 0xb
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x40
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -10371,43 +10479,45 @@ Initialize_ToString:
 	.section	.debug_line,"dr"
 .Ldebug_line0:
 	.section	.debug_str,"dr"
-.LASF15:
+.LASF16:
 	.ascii "state\0"
-.LASF2:
+.LASF3:
 	.ascii "buffer_size\0"
-.LASF8:
+.LASF9:
 	.ascii "count\0"
-.LASF10:
+.LASF11:
 	.ascii "r_buf_count\0"
-.LASF14:
+.LASF1:
+	.ascii "IS_POWER_OF_TWO\0"
+.LASF15:
 	.ascii "in_ptr\0"
-.LASF18:
+.LASF19:
 	.ascii "lstrlenW\0"
 .LASF0:
 	.ascii "refcount\0"
-.LASF4:
-	.ascii "width\0"
-.LASF3:
-	.ascii "format\0"
 .LASF5:
-	.ascii "format_option\0"
+	.ascii "width\0"
+.LASF4:
+	.ascii "format\0"
 .LASF6:
-	.ascii "result\0"
-.LASF11:
-	.ascii "in_buf_count\0"
+	.ascii "format_option\0"
 .LASF7:
-	.ascii "digit_table\0"
-.LASF1:
-	.ascii "buffer\0"
-.LASF13:
-	.ascii "out_buf_count\0"
+	.ascii "result\0"
 .LASF12:
+	.ascii "in_buf_count\0"
+.LASF8:
+	.ascii "digit_table\0"
+.LASF2:
+	.ascii "buffer\0"
+.LASF14:
+	.ascii "out_buf_count\0"
+.LASF13:
 	.ascii "out_buf\0"
-.LASF16:
-	.ascii "lstrcpyW\0"
 .LASF17:
+	.ascii "lstrcpyW\0"
+.LASF18:
 	.ascii "lstrcpyA\0"
-.LASF9:
+.LASF10:
 	.ascii "base_value\0"
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	AllocateBlock;	.scl	2;	.type	32;	.endef

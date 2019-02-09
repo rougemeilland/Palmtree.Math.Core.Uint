@@ -692,7 +692,7 @@ $LN9@From_L_Imp:
 	mov	eax, DWORD PTR [edx]
 	mov	ecx, 4
 	shl	ecx, 0
-	mov	edx, DWORD PTR [eax+32]
+	mov	edx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR _x_hi$5[ebp]
 	mov	DWORD PTR [ecx+edx], eax
 $LN7@From_L_Imp:
@@ -704,7 +704,7 @@ $LN7@From_L_Imp:
 	mov	edx, DWORD PTR [ecx]
 	mov	eax, 4
 	imul	ecx, eax, 0
-	mov	edx, DWORD PTR [edx+32]
+	mov	edx, DWORD PTR [edx+36]
 	mov	eax, DWORD PTR _x_lo$4[ebp]
 	mov	DWORD PTR [ecx+edx], eax
 
@@ -753,7 +753,7 @@ $LN10@From_L_Imp:
 	mov	ecx, DWORD PTR [eax]
 	mov	eax, 4
 	imul	eax, eax, 0
-	mov	ecx, DWORD PTR [ecx+32]
+	mov	ecx, DWORD PTR [ecx+36]
 	mov	DWORD PTR [eax+ecx], edx
 $LN3@From_L_Imp:
 
@@ -850,7 +850,7 @@ $LN2@From_I_Imp:
 	mov	ecx, DWORD PTR [eax]
 	mov	edx, 4
 	imul	eax, edx, 0
-	mov	ecx, DWORD PTR [ecx+32]
+	mov	ecx, DWORD PTR [ecx+36]
 	mov	edx, DWORD PTR _x$[ebp]
 	mov	DWORD PTR [eax+ecx], edx
 

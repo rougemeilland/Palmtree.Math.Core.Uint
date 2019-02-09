@@ -74,7 +74,7 @@ _PMC_Add_X_L_Imp PROC					; COMDAT
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN2@PMC_Add_X_
 
 ; 402  :     {
@@ -185,7 +185,7 @@ $LN7@PMC_Add_X_:
 ; 441  : 
 ; 442  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 443  :                 _UINT32_T v_hi;
 ; 444  :                 _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
@@ -257,11 +257,11 @@ $LN26@PMC_Add_X_:
 ; 453  :                     if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR [edi]
-	push	DWORD PTR [eax+28]
 	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	ebx
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_Add_X_1W
 	mov	ecx, DWORD PTR [edi]
 	mov	esi, eax
@@ -294,7 +294,7 @@ $LN15@PMC_Add_X_:
 ; 458  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _w_light_check_code$3[ebp]
-	push	DWORD PTR [ecx+32]
+	push	DWORD PTR [ecx+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -369,21 +369,21 @@ $LN12@PMC_Add_X_:
 ; 469  :                     if ((result = Add_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR [edi]
-	mov	ecx, DWORD PTR [eax+28]
+	mov	ecx, DWORD PTR [eax+32]
 
 ; 101  :     __UNIT_TYPE* wp = w_buf;
 
-	mov	edx, DWORD PTR [eax+32]
+	mov	edx, DWORD PTR [eax+36]
 
 ; 468  :                         return (result);
 ; 469  :                     if ((result = Add_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	DWORD PTR _w_count$1$[ebp], ecx
-	mov	ecx, DWORD PTR [esi+8]
+	mov	ecx, DWORD PTR [esi+12]
 
 ; 100  :     __UNIT_TYPE* up = u_buf;
 
-	mov	esi, DWORD PTR [esi+32]
+	mov	esi, DWORD PTR [esi+36]
 
 ; 468  :                         return (result);
 ; 469  :                     if ((result = Add_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
@@ -506,7 +506,7 @@ $LN18@PMC_Add_X_:
 ; 474  :                     if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _w_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -594,7 +594,7 @@ _PMC_Add_X_I_Imp PROC					; COMDAT
 	push	ebx
 	mov	ebx, DWORD PTR _nu$[ebp]
 	push	esi
-	test	BYTE PTR [ebx+24], 2
+	test	BYTE PTR [ebx], 1
 	je	SHORT $LN2@PMC_Add_X_
 
 ; 297  :     {
@@ -711,7 +711,7 @@ $LN7@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [ebx+12], eax
+	cmp	DWORD PTR [ebx+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 337  :             if ((result = AllocateNumber(nw, z_bit_count, &nz_check_code)) != PMC_STATUS_OK)
@@ -721,7 +721,7 @@ $LN7@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	eax, DWORD PTR [ebx+12]
+	cmovae	eax, DWORD PTR [ebx+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 335  :             __UNIT_TYPE z_bit_count = _MAXIMUM_UNIT(x_bit_count, y_bit_count) + 1;
@@ -742,10 +742,10 @@ $LN7@PMC_Add_X_:
 
 	mov	eax, DWORD PTR [esi]
 	push	edi
-	mov	edi, DWORD PTR [ebx+8]
-	mov	ebx, DWORD PTR [ebx+32]
-	mov	edx, DWORD PTR [eax+28]
-	mov	esi, DWORD PTR [eax+32]
+	mov	edi, DWORD PTR [ebx+12]
+	mov	ebx, DWORD PTR [ebx+36]
+	mov	edx, DWORD PTR [eax+32]
+	mov	esi, DWORD PTR [eax+36]
 
 ; 90   :     c = _ADD_UNIT(0, *u_ptr++, v, w_ptr++);
 
@@ -824,7 +824,7 @@ $LN11@PMC_Add_X_:
 ; 344  :             if ((result = CheckBlockLight((*nw)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _nz_check_code$1[ebp]
-	push	DWORD PTR [ecx+32]
+	push	DWORD PTR [ecx+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -5547,9 +5547,9 @@ _PMC_Add_X_X@12 PROC					; COMDAT
 ; 565  :     NUMBER_HEADER* nw;
 ; 566  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [edi+24]
-	and	eax, 2
-	test	BYTE PTR [esi+24], 2
+	mov	eax, DWORD PTR [edi]
+	and	eax, 1
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN7@PMC_Add_X_
 
 ; 567  :     {
@@ -5658,7 +5658,7 @@ $LN12@PMC_Add_X_:
 ; 585  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 ; 586  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	ecx, DWORD PTR [edi+12]
+	mov	ecx, DWORD PTR [edi+16]
 
 ; 589  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
@@ -5667,7 +5667,7 @@ $LN12@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [esi+12], ecx
+	cmp	DWORD PTR [esi+16], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 589  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
@@ -5677,7 +5677,7 @@ $LN12@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	ecx, DWORD PTR [esi+12]
+	cmovae	ecx, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 587  :             __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -5697,12 +5697,12 @@ $LN12@PMC_Add_X_:
 ; 591  :             if ((result = (*fp_Add_Imp)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw$[ebp]
-	push	DWORD PTR [eax+28]
 	push	DWORD PTR [eax+32]
-	push	DWORD PTR [edi+8]
-	push	DWORD PTR [edi+32]
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [eax+36]
+	push	DWORD PTR [edi+12]
+	push	DWORD PTR [edi+36]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	DWORD PTR _fp_Add_Imp
 	mov	esi, eax
 	add	esp, 24					; 00000018H
@@ -5734,7 +5734,7 @@ $LN16@PMC_Add_X_:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _w_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax

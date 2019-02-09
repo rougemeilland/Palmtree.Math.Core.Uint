@@ -28,6 +28,7 @@
 #include <immintrin.h>
 #include "pmc_uint_internal.h"
 #include "pmc_cpuid.h"
+#include "pmc_inline_func.h"
 
 
 #pragma region 静的変数の定義
@@ -36,11 +37,36 @@ static PMC_UINT_ENTRY_POINTS entry_points;
 static char initialized = 0;
 #pragma endregion
 
+static BOOL SelfCheck()
+{
+    NUMBER_HEADER nh;
+    PMC_HANDLE_UINT handle = (PMC_HANDLE_UINT)&nh;
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_EVEN = TRUE;
+    if (!handle->FLAGS.IS_EVEN)
+        return (FALSE);
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_ONE = TRUE;
+    if (!handle->FLAGS.IS_ONE)
+        return (FALSE);
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_POWER_OF_TWO = TRUE;
+    if (!handle->FLAGS.IS_POWER_OF_TWO)
+        return (FALSE);
+    _ZERO_MEMORY_BYTE(&nh, sizeof(nh));
+    nh.IS_ZERO = TRUE;
+    if (!handle->FLAGS.IS_ZERO)
+        return (FALSE);
+    return(TRUE);
+}
 
 PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATION_INFO* config)
 {
     if (!initialized)
     {
+        if (!SelfCheck())
+            return (NULL);
+
         PROCESSOR_FEATURES feature;
         GetCPUInfo(&feature);
         configuration_info = *config;
@@ -79,8 +105,6 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
         if (Initialize_Pow(&feature) != PMC_STATUS_OK)
             return (NULL);
         if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
-            return (NULL);
-        if (Initialize_GetPropertyValue(&feature) != PMC_STATUS_OK)
             return (NULL);
         if (Initialize_Clone(&feature) != PMC_STATUS_OK)
             return (NULL);
@@ -156,7 +180,6 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
         entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
         entry_points.Pow_X_I = PMC_Pow_X_I;
         entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
-        entry_points.GetNumberType_X = PMC_GetNumberType_X;
         entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
         entry_points.Clone_X = PMC_Clone_X;
 

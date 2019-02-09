@@ -99,7 +99,7 @@ PMC_FromByteArrayForSINT:
 	movl	%eax, 44(%rsp)
 	addq	$1, %rsi
 	shrq	$3, %rcx
-	movq	56(%rdx), %rdi
+	movq	64(%rdx), %rdi
 /APP
  # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -212,7 +212,7 @@ PMC_FromByteArray:
 	movl	%eax, 44(%rsp)
 	addq	$1, %rsi
 	shrq	$3, %rcx
-	movq	56(%rdx), %rdi
+	movq	64(%rdx), %rdi
 /APP
  # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -255,17 +255,17 @@ PMC_ToByteArrayForSINT:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L50
-	movzbl	40(%rbx), %ecx
+	movzbl	(%rbx), %ecx
 	xorl	%edx, %edx
-	andl	$2, %ecx
+	andl	$1, %ecx
 	jne	.L52
-	movq	16(%rbx), %rdx
+	movq	24(%rbx), %rdx
 	addq	$7, %rdx
 	shrq	$3, %rdx
 .L52:
 	testq	%rdi, %rdi
 	je	.L53
-	movq	16(%rbx), %r10
+	movq	24(%rbx), %r10
 	salq	$3, %rsi
 	leaq	8(%r10), %r8
 	cmpq	%rsi, %r8
@@ -294,7 +294,7 @@ PMC_ToByteArrayForSINT:
 	movb	$1, (%rdi)
 	movq	%rdx, %rcx
 	addq	$1, %rdi
-	movq	56(%rbx), %rsi
+	movq	64(%rbx), %rsi
 /APP
  # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -308,7 +308,7 @@ PMC_ToByteArrayForSINT:
 	movb	$3, (%rdi)
 	movq	%rdx, %rcx
 	addq	$1, %rdi
-	movq	56(%rbx), %rsi
+	movq	64(%rbx), %rsi
 /APP
  # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb
@@ -350,17 +350,17 @@ PMC_ToByteArray:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L65
-	movzbl	40(%rbx), %edx
+	movzbl	(%rbx), %edx
 	xorl	%r10d, %r10d
-	andl	$2, %edx
+	andl	$1, %edx
 	jne	.L67
-	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rcx
 	leaq	7(%rcx), %r10
 	shrq	$3, %r10
 .L67:
 	testq	%rdi, %rdi
 	je	.L68
-	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rcx
 	salq	$3, %rsi
 	addq	$8, %rcx
 	cmpq	%rsi, %rcx
@@ -383,7 +383,7 @@ PMC_ToByteArray:
 	movb	$1, (%rdi)
 	movq	%r10, %rcx
 	addq	$1, %rdi
-	movq	56(%rbx), %rsi
+	movq	64(%rbx), %rsi
 /APP
  # 1755 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsb

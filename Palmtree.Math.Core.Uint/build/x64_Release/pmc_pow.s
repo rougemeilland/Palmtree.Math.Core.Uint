@@ -47,8 +47,8 @@ PMC_Pow_X_I:
 	ret
 	.p2align 4,,10
 .L31:
-	movzbl	40(%rsi), %edx
-	testb	$2, %dl
+	movzbl	(%rsi), %edx
+	testb	$1, %dl
 	je	.L5
 	testl	%ebp, %ebp
 	je	.L6
@@ -57,13 +57,13 @@ PMC_Pow_X_I:
 	jmp	.L1
 	.p2align 4,,10
 .L5:
-	andl	$4, %edx
+	andl	$2, %edx
 	jne	.L8
 	testl	%ebp, %ebp
 	je	.L8
 	cmpl	$1, %ebp
 	je	.L32
-	movq	16(%rsi), %r9
+	movq	24(%rsi), %r9
 	xorl	%edx, %edx
 	movl	%ebp, %r8d
 	movq	$-65, %rax
@@ -95,13 +95,13 @@ PMC_Pow_X_I:
 	testl	%eax, %eax
 	jne	.L33
 	movq	(%rbx), %rax
-	movq	8(%rsi), %rdx
+	movq	16(%rsi), %rdx
 	movq	48(%rsp), %r10
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rdx, %rcx
 	movq	%r10, %rdi
 	movq	%rax, 72(%rsp)
-	movq	56(%rsi), %rax
+	movq	64(%rsi), %rax
 	movq	%rax, %rsi
 	movq	%rax, 56(%rsp)
 /APP
@@ -214,7 +214,7 @@ PMC_Pow_X_I:
 	jne	.L1
 	movq	(%rbx), %rax
 	movq	120(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L1

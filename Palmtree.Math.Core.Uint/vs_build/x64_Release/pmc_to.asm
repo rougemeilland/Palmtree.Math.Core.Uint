@@ -12,13 +12,13 @@ EXTRN	CheckNumber:PROC
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_To_X_I DD imagerel $LN9
-	DD	imagerel $LN9+90
+	DD	imagerel $LN9+89
 	DD	imagerel $unwind$PMC_To_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_To_X_L DD imagerel $LN15
-	DD	imagerel $LN15+97
+	DD	imagerel $LN15+96
 	DD	imagerel $unwind$PMC_To_X_L
 pdata	ENDS
 ;	COMDAT xdata
@@ -86,7 +86,7 @@ $LN15:
 ; 61   :         return (result);
 ; 62   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
-	cmp	QWORD PTR [rbx+16], 64			; 00000040H
+	cmp	QWORD PTR [rbx+24], 64			; 00000040H
 	jbe	SHORT $LN4@PMC_To_X_L
 
 ; 63   :         return (PMC_STATUS_OVERFLOW);
@@ -113,7 +113,7 @@ $LN4@PMC_To_X_L:
 
 ; 64   :     if (np->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN5@PMC_To_X_L
 
 ; 65   :     {
@@ -147,7 +147,7 @@ $LN5@PMC_To_X_L:
 ; 71   :         // 値が 1 ワードで表現できる場合
 ; 72   :         *o = np->BLOCK[0];
 
-	mov	rax, QWORD PTR [rbx+56]
+	mov	rax, QWORD PTR [rbx+64]
 	mov	rcx, QWORD PTR [rax]
 
 ; 73   :         return (PMC_STATUS_OK);
@@ -204,7 +204,7 @@ $LN9:
 ; 41   :         return (result);
 ; 42   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
-	cmp	QWORD PTR [rbx+16], 32			; 00000020H
+	cmp	QWORD PTR [rbx+24], 32			; 00000020H
 	jbe	SHORT $LN4@PMC_To_X_I
 
 ; 43   :         return (PMC_STATUS_OVERFLOW);
@@ -221,7 +221,7 @@ $LN4@PMC_To_X_I:
 
 ; 44   :     if (np->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN5@PMC_To_X_I
 
 ; 45   :         *o = 0;
@@ -243,7 +243,7 @@ $LN5@PMC_To_X_I:
 ; 46   :     else
 ; 47   :         *o = (_UINT32_T)np->BLOCK[0];
 
-	mov	rax, QWORD PTR [rbx+56]
+	mov	rax, QWORD PTR [rbx+64]
 	mov	eax, DWORD PTR [rax]
 
 ; 48   :     return (PMC_STATUS_OK);

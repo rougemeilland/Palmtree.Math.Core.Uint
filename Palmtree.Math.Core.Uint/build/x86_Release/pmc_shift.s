@@ -1522,12 +1522,12 @@ LFB5496:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L79
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	jne	L83
 	movl	84(%esp), %edx
 	testl	%edx, %edx
 	je	L87
-	movl	12(%ebx), %edx
+	movl	16(%ebx), %edx
 	cmpl	%edx, 84(%esp)
 	jb	L88
 L83:
@@ -1557,19 +1557,19 @@ L88:
 	jne	L79
 	movl	56(%esp), %eax
 	movl	$0, 16(%esp)
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 12(%esp)
 	movl	84(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_RightShift_Imp_DIV
 	movl	60(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -1623,7 +1623,7 @@ LFB5497:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L89
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L91
 	movl	$_number_zero, (%esi)
 L89:
@@ -1667,7 +1667,7 @@ L92:
 	leal	60(%esp), %eax
 	movl	%eax, 8(%esp)
 	movl	84(%esp), %eax
-	addl	12(%ebx), %eax
+	addl	16(%ebx), %eax
 	movl	%eax, 4(%esp)
 	leal	56(%esp), %eax
 	movl	%eax, (%esp)
@@ -1676,19 +1676,19 @@ L92:
 	jne	L89
 	movl	56(%esp), %eax
 	movl	$0, 16(%esp)
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, 12(%esp)
 	movl	84(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	8(%ebx), %eax
+	movl	12(%ebx), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%ebx), %eax
+	movl	36(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_LeftShift_Imp_DIV
 	movl	60(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax

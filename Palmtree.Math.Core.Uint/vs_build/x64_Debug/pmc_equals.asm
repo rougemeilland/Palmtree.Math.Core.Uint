@@ -68,7 +68,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Equals_X_X DD imagerel $LN16
-	DD	imagerel $LN16+405
+	DD	imagerel $LN16+396
 	DD	imagerel $unwind$PMC_Equals_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -98,13 +98,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Equals_X_I_Imp DD imagerel PMC_Equals_X_I_Imp
-	DD	imagerel PMC_Equals_X_I_Imp+300
+	DD	imagerel PMC_Equals_X_I_Imp+297
 	DD	imagerel $unwind$PMC_Equals_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Equals_X_L_Imp DD imagerel PMC_Equals_X_L_Imp
-	DD	imagerel PMC_Equals_X_L_Imp+664
+	DD	imagerel PMC_Equals_X_L_Imp+661
 	DD	imagerel $unwind$PMC_Equals_X_L_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -263,9 +263,9 @@ v_bit_count$7 = 104
 v_bit_count$8 = 136
 u_bit_count$9 = 168
 v_bit_count$10 = 200
-tv145 = 404
-tv134 = 404
-tv86 = 404
+tv144 = 404
+tv133 = 404
+tv85 = 404
 u$ = 448
 v$ = 456
 w$ = 464
@@ -291,8 +291,7 @@ PMC_Equals_X_L_Imp PROC					; COMDAT
 ; 126  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Equals
@@ -362,7 +361,7 @@ $LN6@PMC_Equals:
 ; 151  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
 ; 152  :             _UINT32_T v_hi;
@@ -417,17 +416,17 @@ $LN12@PMC_Equals:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jne	SHORT $LN19@PMC_Equals
-	mov	DWORD PTR tv86[rbp], 1
+	mov	DWORD PTR tv85[rbp], 1
 	jmp	SHORT $LN20@PMC_Equals
 $LN19@PMC_Equals:
-	mov	DWORD PTR tv86[rbp], 0
+	mov	DWORD PTR tv85[rbp], 0
 $LN20@PMC_Equals:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv86[rbp]
+	mov	ecx, DWORD PTR tv85[rbp]
 	mov	DWORD PTR [rax], ecx
 $LN13@PMC_Equals:
 
@@ -477,24 +476,24 @@ $LN14@PMC_Equals:
 	mov	eax, 8
 	imul	rax, rax, 1
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_hi$5[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jne	SHORT $LN21@PMC_Equals
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jne	SHORT $LN21@PMC_Equals
-	mov	DWORD PTR tv134[rbp], 1
+	mov	DWORD PTR tv133[rbp], 1
 	jmp	SHORT $LN22@PMC_Equals
 $LN21@PMC_Equals:
-	mov	DWORD PTR tv134[rbp], 0
+	mov	DWORD PTR tv133[rbp], 0
 $LN22@PMC_Equals:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv134[rbp]
+	mov	ecx, DWORD PTR tv133[rbp]
 	mov	DWORD PTR [rax], ecx
 $LN15@PMC_Equals:
 $LN11@PMC_Equals:
@@ -513,7 +512,7 @@ $LN8@PMC_Equals:
 ; 191  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$9[rbp], rax
 
 ; 192  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -553,17 +552,17 @@ $LN16@PMC_Equals:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	rdx, QWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jne	SHORT $LN23@PMC_Equals
-	mov	DWORD PTR tv145[rbp], 1
+	mov	DWORD PTR tv144[rbp], 1
 	jmp	SHORT $LN24@PMC_Equals
 $LN23@PMC_Equals:
-	mov	DWORD PTR tv145[rbp], 0
+	mov	DWORD PTR tv144[rbp], 0
 $LN24@PMC_Equals:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv145[rbp]
+	mov	ecx, DWORD PTR tv144[rbp]
 	mov	DWORD PTR [rax], ecx
 $LN17@PMC_Equals:
 $LN9@PMC_Equals:
@@ -596,7 +595,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 u_bit_count$1 = 8
 v_bit_count$2 = 40
-tv81 = 244
+tv80 = 244
 u$ = 288
 v$ = 296
 w$ = 304
@@ -622,8 +621,7 @@ PMC_Equals_X_I_Imp PROC					; COMDAT
 ; 47   :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Equals
@@ -685,7 +683,7 @@ $LN6@PMC_Equals:
 ; 69   :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$1[rbp], rax
 
 ; 70   :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -725,17 +723,17 @@ $LN8@PMC_Equals:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jne	SHORT $LN11@PMC_Equals
-	mov	DWORD PTR tv81[rbp], 1
+	mov	DWORD PTR tv80[rbp], 1
 	jmp	SHORT $LN12@PMC_Equals
 $LN11@PMC_Equals:
-	mov	DWORD PTR tv81[rbp], 0
+	mov	DWORD PTR tv80[rbp], 0
 $LN12@PMC_Equals:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv81[rbp]
+	mov	ecx, DWORD PTR tv80[rbp]
 	mov	DWORD PTR [rax], ecx
 $LN9@PMC_Equals:
 $LN7@PMC_Equals:
@@ -1041,7 +1039,7 @@ nv$ = 40
 result$ = 68
 u_bit_count$1 = 104
 v_bit_count$2 = 136
-tv81 = 340
+tv79 = 340
 u$ = 384
 v$ = 392
 w$ = 400
@@ -1140,8 +1138,7 @@ $LN6@PMC_Equals:
 ; 262  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_Equals
@@ -1150,18 +1147,17 @@ $LN6@PMC_Equals:
 ; 264  :         *w = nv->IS_ZERO ? 1 : 0;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN14@PMC_Equals
-	mov	DWORD PTR tv81[rbp], 1
+	mov	DWORD PTR tv79[rbp], 1
 	jmp	SHORT $LN15@PMC_Equals
 $LN14@PMC_Equals:
-	mov	DWORD PTR tv81[rbp], 0
+	mov	DWORD PTR tv79[rbp], 0
 $LN15@PMC_Equals:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv81[rbp]
+	mov	ecx, DWORD PTR tv79[rbp]
 	mov	DWORD PTR [rax], ecx
 
 ; 265  :     }
@@ -1172,8 +1168,7 @@ $LN7@PMC_Equals:
 ; 266  :     else if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN9@PMC_Equals
@@ -1194,13 +1189,13 @@ $LN9@PMC_Equals:
 ; 272  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$1[rbp], rax
 
 ; 273  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$2[rbp], rax
 
 ; 274  :         if (u_bit_count != v_bit_count)
@@ -1227,11 +1222,11 @@ $LN11@PMC_Equals:
 ; 282  :             *w = Equals_X_X(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	r8, QWORD PTR [rax+8]
+	mov	r8, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rdx, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	Equals_X_X
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	DWORD PTR [rcx], eax

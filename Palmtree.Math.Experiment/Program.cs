@@ -13,6 +13,21 @@ namespace Palmtree.Math.Experiment
         {
             //ModPowの障害調査コード();
 
+            //DivRemの障害調査コード();
+
+            foreach (var dividend in new[] { new BigInteger(10), new BigInteger(-10) })
+            {
+                foreach (var divisor in new[] { new BigInteger(3), new BigInteger(-3) })
+                {
+                    Console.WriteLine(string.Format("{0} / {1} => {2}, {0} % {1} => {3}", dividend, divisor, dividend / divisor, dividend % divisor));
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void DivRemの障害調査コード()
+        {
             var u = BigInteger.Parse("99999999999999999999999999999999999999999999999999999999981110534068521419145216000000000000000000000000000000000000892029807941224925661617625565249246047764459999999999999999999999999999999999982159403841175501486773314328474458653301145600000000000000000000000000000000000089202980794122492566123983624661967443066881");
             var v = BigInteger.Parse("9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
             var desired_q = u / v;
@@ -26,8 +41,6 @@ namespace Palmtree.Math.Experiment
                 throw new ApplicationException();
             if (desired_r != actual_r)
                 throw new ApplicationException();
-
-            Console.ReadLine();
         }
 
         private static void DivRem(BigInteger u, BigInteger v, out BigInteger q, out BigInteger r)

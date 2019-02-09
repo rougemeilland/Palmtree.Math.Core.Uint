@@ -48756,14 +48756,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 76 "../pmc.h"
+# 70 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 89 "../pmc.h"
+# 83 "../pmc.h"
 
-# 89 "../pmc.h"
+# 83 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48783,14 +48783,19 @@ typedef struct __tag_PMC_CONFIGURATION_INFO
 
 typedef int PMC_STATUS_CODE;
 
-typedef int PMC_NUMBER_TYPE_CODE;
-
 typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
-struct __tag_PMC_HANDLE_UINT
+union __tag_PMC_HANDLE_UINT
 {
+    struct __tag_UINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
     _UINT32_T dummy;
 
@@ -48799,10 +48804,18 @@ struct __tag_PMC_HANDLE_UINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
+typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
-struct __tag_PMC_HANDLE_SINT
+union __tag_PMC_HANDLE_SINT
 {
+    struct __tag_SINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_MINUS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
     _UINT32_T dummy;
 
@@ -48811,7 +48824,7 @@ struct __tag_PMC_HANDLE_SINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
+typedef union __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
 
 typedef struct __tag_PMC_STATISTICS_INFO
 {
@@ -48851,9 +48864,6 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 
 
     void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_UINT p);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetNumberType_X)(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
 
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
@@ -48964,7 +48974,7 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 typedef struct __tag_PMC_SINT_ENTRY_POINTS
 {
 
-    PMC_UINT_ENTRY_POINTS uint;
+    PMC_UINT_ENTRY_POINTS UINT_ENTRY_POINTS;
 
 
     void (__attribute__((__stdcall__)) * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
@@ -48977,9 +48987,6 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_SINT p);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetNumberType_X)(PMC_HANDLE_SINT x, PMC_NUMBER_TYPE_CODE* o);
 
 
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
@@ -48997,7 +49004,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 331 "../pmc.h"
+# 332 "../pmc.h"
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -49023,7 +49030,16 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 418 "../pmc.h"
+
+
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_UINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+# 422 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 

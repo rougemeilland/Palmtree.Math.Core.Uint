@@ -2013,13 +2013,13 @@ PMC_Multiply_X_I_Imp:
 	subq	$64, %rsp
 	.seh_stackalloc	64
 	.seh_endprologue
-	movzbl	40(%rcx), %eax
-	testb	$2, %al
+	movzbl	(%rcx), %eax
+	testb	$1, %al
 	movq	%rcx, %rbx
 	movl	%edx, %edi
 	movq	%r8, %rsi
 	jne	.L86
-	testb	$4, %al
+	testb	$2, %al
 	je	.L85
 	testl	%edx, %edx
 	jne	.L95
@@ -2039,7 +2039,7 @@ PMC_Multiply_X_I_Imp:
 	je	.L86
 	cmpl	$1, %edx
 	je	.L96
-	movq	16(%rbx), %rax
+	movq	24(%rbx), %rax
 	leaq	56(%rsp), %r8
 /APP
  # 597 "../pmc_inline_func.h" 1
@@ -2057,13 +2057,13 @@ PMC_Multiply_X_I_Imp:
 	jne	.L82
 	movq	(%rsi), %rax
 	movl	%edi, %r8d
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	call	*fp_Multiply_X_1W(%rip)
 	movq	(%rsi), %rax
 	movq	56(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L82
@@ -2097,13 +2097,13 @@ PMC_Multiply_X_L_Imp:
 	subq	$64, %rsp
 	.seh_stackalloc	64
 	.seh_endprologue
-	movzbl	40(%rcx), %eax
-	testb	$2, %al
+	movzbl	(%rcx), %eax
+	testb	$1, %al
 	movq	%rcx, %rbx
 	movq	%rdx, %rdi
 	movq	%r8, %rsi
 	jne	.L101
-	testb	$4, %al
+	testb	$2, %al
 	je	.L100
 	testq	%rdx, %rdx
 	jne	.L110
@@ -2123,7 +2123,7 @@ PMC_Multiply_X_L_Imp:
 	je	.L101
 	cmpq	$1, %rdx
 	je	.L111
-	movq	16(%rbx), %rax
+	movq	24(%rbx), %rax
 	leaq	56(%rsp), %r8
 /APP
  # 641 "../pmc_inline_func.h" 1
@@ -2141,13 +2141,13 @@ PMC_Multiply_X_L_Imp:
 	jne	.L97
 	movq	(%rsi), %rax
 	movq	%rdi, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	call	*fp_Multiply_X_1W(%rip)
 	movq	(%rsi), %rax
 	movq	56(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L97
@@ -2404,8 +2404,8 @@ PMC_Multiply_X_X:
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L129
-	movzbl	40(%rsi), %eax
-	testb	$2, %al
+	movzbl	(%rsi), %eax
+	testb	$1, %al
 	je	.L131
 .L139:
 	movq	.refptr.number_zero(%rip), %rax
@@ -2420,10 +2420,10 @@ PMC_Multiply_X_X:
 	ret
 	.p2align 4,,10
 .L131:
-	movzbl	40(%rdi), %edx
+	movzbl	(%rdi), %edx
 	movl	%edx, %ecx
-	andl	$2, %ecx
-	testb	$4, %al
+	andl	$1, %ecx
+	testb	$2, %al
 	je	.L132
 	testb	%cl, %cl
 	jne	.L139
@@ -2440,7 +2440,7 @@ PMC_Multiply_X_X:
 .L132:
 	testb	%cl, %cl
 	jne	.L139
-	andl	$4, %edx
+	andl	$2, %edx
 	je	.L135
 	leaq	48(%rsp), %rdx
 	movq	%rsi, %rcx
@@ -2455,24 +2455,24 @@ PMC_Multiply_X_X:
 	jmp	.L129
 	.p2align 4,,10
 .L135:
-	movq	16(%rdi), %rdx
+	movq	24(%rdi), %rdx
 	leaq	48(%rsp), %rcx
-	addq	16(%rsi), %rdx
+	addq	24(%rsi), %rdx
 	leaq	56(%rsp), %r8
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L140
 	movq	48(%rsp), %rax
-	movq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	8(%rdi), %r9
-	movq	56(%rax), %rax
-	movq	56(%rdi), %r8
+	movq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	16(%rdi), %r9
+	movq	64(%rax), %rax
+	movq	64(%rdi), %r8
 	movq	%rax, 32(%rsp)
 	call	*fp_Multiply_X_X(%rip)
 	movq	48(%rsp), %rax
 	movq	56(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L140

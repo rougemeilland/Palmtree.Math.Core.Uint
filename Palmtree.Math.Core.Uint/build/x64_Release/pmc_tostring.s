@@ -87,7 +87,7 @@ ToStringDN:
 	subq	$216, %rsp
 	.seh_stackalloc	216
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rbp
 	movq	%rdx, %r14
 	movl	%r9d, 68(%rsp)
@@ -140,7 +140,7 @@ ToStringDN:
 	jmp	.L8
 	.p2align 4,,10
 .L9:
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	leaq	104(%rsp), %rdx
 	movl	$-5, %edi
 	leaq	96(%rsp), %r8
@@ -151,12 +151,12 @@ ToStringDN:
 	testq	%rax, %rax
 	movq	%rax, %r15
 	je	.L8
-	movq	56(%rbp), %rsi
+	movq	64(%rbp), %rsi
 	leaq	120(%rsp), %rdx
 	movabsq	$2305843009213693951, %rbx
-	andq	8(%rbp), %rbx
+	andq	16(%rbp), %rbx
 	leaq	112(%rsp), %r8
-	movq	16(%rbp), %rbp
+	movq	24(%rbp), %rbp
 	addq	$64, %rbp
 	movq	%rbp, %rcx
 	call	AllocateBlock
@@ -710,7 +710,7 @@ ToStringX.isra.2:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rbx
 	je	.L73
 	leal	1(%r9), %eax
@@ -738,7 +738,7 @@ ToStringX.isra.2:
 	ret
 	.p2align 4,,10
 .L73:
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	movl	%r9d, %r9d
 	leaq	3(%rax), %r10
 	shrq	$2, %r10
@@ -748,9 +748,9 @@ ToStringX.isra.2:
 	cmpq	%rax, %r8
 	jb	.L90
 .L77:
-	movq	8(%rbx), %r11
+	movq	16(%rbx), %r11
 	leaq	hexadecimal_upper_digits(%rip), %r8
-	movq	56(%rbx), %rax
+	movq	64(%rbx), %rax
 	movl	64(%rsp), %ecx
 	movl	%r11d, %r9d
 	leaq	-8(%rax,%r11,8), %rbx

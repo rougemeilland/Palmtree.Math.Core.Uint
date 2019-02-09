@@ -105,8 +105,7 @@ _PMC_ExclusiveOr_X_L_Imp PROC
 ; 277  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Exclus
 
@@ -204,7 +203,7 @@ $LN7@PMC_Exclus:
 ; 304  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$13[ebp], eax
 
 ; 305  :             _UINT32_T v_hi;
@@ -272,15 +271,15 @@ $LN14@PMC_Exclus:
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _v_lo$11[ebp]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_ExclusiveOr_X_1W
 	add	esp, 16					; 00000010H
@@ -291,7 +290,7 @@ $LN14@PMC_Exclus:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -358,17 +357,17 @@ $LN16@PMC_Exclus:
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _v_lo$11[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _v_hi$12[ebp]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_ExclusiveOr_X_2W
 	add	esp, 20					; 00000014H
@@ -379,7 +378,7 @@ $LN16@PMC_Exclus:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -406,7 +405,7 @@ $LN10@PMC_Exclus:
 ; 336  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], eax
 
 ; 337  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -455,15 +454,15 @@ $LN18@PMC_Exclus:
 
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _v$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_ExclusiveOr_X_1W
 	add	esp, 16					; 00000010H
@@ -474,7 +473,7 @@ $LN18@PMC_Exclus:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -501,8 +500,7 @@ $LN11@PMC_Exclus:
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN3@PMC_Exclus
 
@@ -544,7 +542,6 @@ $LN1@PMC_Exclus:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	2
 $LN27@PMC_Exclus:
 	DD	4
 	DD	$LN26@PMC_Exclus
@@ -665,8 +662,7 @@ _PMC_ExclusiveOr_X_I_Imp PROC
 ; 183  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Exclus
 
@@ -752,7 +748,7 @@ $LN7@PMC_Exclus:
 ; 207  :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], edx
 
 ; 208  :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -801,15 +797,15 @@ $LN10@PMC_Exclus:
 
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _v$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_ExclusiveOr_X_1W
 	add	esp, 16					; 00000010H
@@ -820,7 +816,7 @@ $LN10@PMC_Exclus:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -846,8 +842,7 @@ $LN11@PMC_Exclus:
 
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN3@PMC_Exclus
 
@@ -888,6 +883,7 @@ $LN1@PMC_Exclus:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
+	npad	2
 $LN16@PMC_Exclus:
 	DD	1
 	DD	$LN15@PMC_Exclus
@@ -2697,8 +2693,7 @@ $LN6@PMC_Exclus:
 ; 420  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Exclus
 
@@ -2729,8 +2724,7 @@ $LN7@PMC_Exclus:
 ; 425  :     else if (nv->IS_ZERO)
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN10@PMC_Exclus
 
@@ -2764,8 +2758,8 @@ $LN10@PMC_Exclus:
 
 	mov	eax, DWORD PTR _nu$[ebp]
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [eax+8]
-	cmp	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [eax+12]
+	cmp	edx, DWORD PTR [ecx+12]
 	jae	SHORT $LN13@PMC_Exclus
 
 ; 433  :         {
@@ -2789,13 +2783,13 @@ $LN13@PMC_Exclus:
 ; 438  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], ecx
 
 ; 439  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], eax
 
 ; 440  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
@@ -2832,19 +2826,19 @@ $LN14@PMC_Exclus:
 ; 444  :         ExclusiveOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	eax, DWORD PTR _nw$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_ExclusiveOr_X_X
 	add	esp, 20					; 00000014H
@@ -2854,7 +2848,7 @@ $LN14@PMC_Exclus:
 	mov	ecx, DWORD PTR _nw_light_check_code$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -2878,8 +2872,7 @@ $LN15@PMC_Exclus:
 ; 448  :         if (nw->IS_ZERO)
 
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN8@PMC_Exclus
 
@@ -2944,6 +2937,7 @@ $LN1@PMC_Exclus:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
+	npad	1
 $LN22@PMC_Exclus:
 	DD	2
 	DD	$LN21@PMC_Exclus

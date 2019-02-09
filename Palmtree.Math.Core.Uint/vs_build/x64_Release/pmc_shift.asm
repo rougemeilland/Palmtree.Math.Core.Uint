@@ -105,13 +105,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_RightShift_X_I DD imagerel $LN20
-	DD	imagerel $LN20+283
+	DD	imagerel $LN20+282
 	DD	imagerel $unwind$PMC_RightShift_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_LeftShift_X_I DD imagerel $LN18
-	DD	imagerel $LN18+274
+	DD	imagerel $LN18+273
 	DD	imagerel $unwind$PMC_LeftShift_X_I
 pdata	ENDS
 ;	COMDAT pdata
@@ -472,7 +472,7 @@ $LN18:
 ; 635  :         return (result);
 ; 636  :     if (np->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN6@PMC_LeftSh
 
 ; 637  :         *o = (PMC_HANDLE_UINT)&number_zero;
@@ -542,7 +542,7 @@ $LN8@PMC_LeftSh:
 ; 646  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 ; 647  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 
 ; 648  :         __UNIT_TYPE no_light_check_code;
 ; 649  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
@@ -559,17 +559,17 @@ $LN8@PMC_LeftSh:
 
 	mov	r9, QWORD PTR no$[rsp]
 	mov	r8, rsi
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+64]
 	mov	DWORD PTR [rsp+32], eax
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	call	LeftShift_Imp
 
 ; 652  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR no$[rsp]
 	mov	rdx, QWORD PTR no_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_LeftSh
@@ -665,7 +665,7 @@ $LN20:
 ; 586  :         return (result);
 ; 587  :     if (np->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	jne	$LN16@PMC_RightS
 
 ; 588  :         *o = (PMC_HANDLE_UINT)&number_zero;
@@ -713,7 +713,7 @@ $LN8@PMC_RightS:
 ; 596  :     {
 ; 597  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 
 ; 598  :         if (p_bit_count <= n)
 
@@ -740,17 +740,17 @@ $LN8@PMC_RightS:
 
 	mov	r9, QWORD PTR no$[rsp]
 	mov	r8, rsi
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+64]
 	mov	DWORD PTR [rsp+32], eax
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	call	RightShift_Imp
 
 ; 607  :             if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR no$[rsp]
 	mov	rdx, QWORD PTR no_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_RightS

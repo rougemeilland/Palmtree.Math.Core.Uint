@@ -38,17 +38,19 @@ extern "C" {
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
+        unsigned IS_ZERO : 1;               // データが 0 なら TRUE
+        unsigned IS_ONE : 1;                // データが 1 なら TRUE
+        unsigned IS_EVEN : 1;               // データが 偶数 なら TRUE
+        unsigned IS_POWER_OF_TWO : 1;       // データが 2 のべき乗なら TRUE
+
         _UINT32_T SIGNATURE1;               // テーブルを識別するためのデータ1
         _UINT32_T SIGNATURE2;               // テーブルを識別するためのデータ2
         __UNIT_TYPE UNIT_WORD_COUNT;        // BLOCKが示す領域において有効なデータが格納されている要素の数
         __UNIT_TYPE UNIT_BIT_COUNT;         // データの有効部分の合計ビット数
         __UNIT_TYPE HASH_CODE;              // データのハッシュコード。
         __UNIT_TYPE TRAILING_ZERO_BITS_COUNT;  // データの最下位の連続した 0 ビット数
+
         unsigned IS_STATIC : 1;             // 本構造体が静的に割り当てられていて開放不要ならばTRUE
-        unsigned IS_ZERO : 1;               // データが 0 なら TRUE
-        unsigned IS_ONE : 1;                // データが 1 なら TRUE
-        unsigned IS_EVEN : 1;               // データが 偶数 なら TRUE
-        unsigned IS_POWER_OF_TWO : 1;       // データが 2 のべき乗なら TRUE
 
         size_t BLOCK_COUNT;             // BLOCKが示す領域に格納可能な最大の要素数
         // 多倍長整数の内部データが格納されている領域へのポインタ
@@ -159,9 +161,6 @@ extern "C" {
     // Toの実装の初期化処理を行う。
     extern PMC_STATUS_CODE Initialize_To(PROCESSOR_FEATURES *feature);
 
-    // GetPropertyValue の実装の初期化処理を行う。
-    extern PMC_STATUS_CODE Initialize_GetPropertyValue(PROCESSOR_FEATURES* feature);
-
     // 加算演算子の実装の初期化処理を行う。
     extern PMC_STATUS_CODE Initialize_Add(PROCESSOR_FEATURES* feature);
 
@@ -216,8 +215,6 @@ extern "C" {
     extern PMC_STATUS_CODE __PMC_CALL PMC_From_L(_UINT64_T x, PMC_HANDLE_UINT* o);
 
     extern void __PMC_CALL PMC_Dispose(PMC_HANDLE_UINT p);
-
-    extern PMC_STATUS_CODE __PMC_CALL PMC_GetNumberType_X(PMC_HANDLE_UINT x, PMC_NUMBER_TYPE_CODE* o);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_GetConstantValue_I(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 

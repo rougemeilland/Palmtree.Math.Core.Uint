@@ -100726,8 +100726,15 @@ typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
-struct __tag_PMC_HANDLE_UINT
+union __tag_PMC_HANDLE_UINT
 {
+    struct __tag_UINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
 
 
@@ -100736,10 +100743,18 @@ struct __tag_PMC_HANDLE_UINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
+typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
-struct __tag_PMC_HANDLE_SINT
+union __tag_PMC_HANDLE_SINT
 {
+    struct __tag_SINT_FLAGS
+    {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_MINUS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+    } FLAGS;
 
 
 
@@ -100748,7 +100763,7 @@ struct __tag_PMC_HANDLE_SINT
 
 
 };
-typedef struct __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
+typedef union __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
 
 typedef struct __tag_PMC_STATISTICS_INFO
 {
@@ -100901,7 +100916,7 @@ typedef struct __tag_PMC_UINT_ENTRY_POINTS
 typedef struct __tag_PMC_SINT_ENTRY_POINTS
 {
 
-    PMC_UINT_ENTRY_POINTS uint;
+    PMC_UINT_ENTRY_POINTS UINT_ENTRY_POINTS;
 
 
     void ( * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
@@ -100934,7 +100949,7 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
 
 
     PMC_STATUS_CODE ( * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 331 "../pmc.h"
+# 346 "../pmc.h"
     PMC_STATUS_CODE ( * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
@@ -100960,7 +100975,16 @@ typedef struct __tag_PMC_SINT_ENTRY_POINTS
     PMC_STATUS_CODE ( * Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Multiply_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
     PMC_STATUS_CODE ( * Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-# 418 "../pmc.h"
+
+
+    PMC_STATUS_CODE ( * DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE ( * DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
+    PMC_STATUS_CODE ( * DivRem_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_UINT* r);
+    PMC_STATUS_CODE ( * DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
+    PMC_STATUS_CODE ( * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
+    PMC_STATUS_CODE ( * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+    PMC_STATUS_CODE ( * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
+# 436 "../pmc.h"
 } PMC_SINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -101029,17 +101053,19 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 #pragma region 型の定義
     typedef struct __tag_NUMBER_HEADER
     {
+        unsigned IS_ZERO : 1;
+        unsigned IS_ONE : 1;
+        unsigned IS_EVEN : 1;
+        unsigned IS_POWER_OF_TWO : 1;
+
         _UINT32_T SIGNATURE1;
         _UINT32_T SIGNATURE2;
         __UNIT_TYPE UNIT_WORD_COUNT;
         __UNIT_TYPE UNIT_BIT_COUNT;
         __UNIT_TYPE HASH_CODE;
         __UNIT_TYPE TRAILING_ZERO_BITS_COUNT;
+
         unsigned IS_STATIC : 1;
-        unsigned IS_ZERO : 1;
-        unsigned IS_ONE : 1;
-        unsigned IS_EVEN : 1;
-        unsigned IS_POWER_OF_TWO : 1;
 
         size_t BLOCK_COUNT;
 
@@ -101360,12 +101386,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 380 "../pmc_uint_internal.h"
+# 382 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 394 "../pmc_uint_internal.h"
+# 396 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../pmc_getnumbertype.c" 2

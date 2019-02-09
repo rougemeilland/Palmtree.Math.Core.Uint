@@ -2460,7 +2460,7 @@ L431:
 	testl	%eax, %eax
 	jne	L435
 	movl	60(%esp), %eax
-	movl	32(%eax), %esi
+	movl	36(%eax), %esi
 	movl	%ebx, (%esp)
 	call	*%ebp
 	.cfi_def_cfa_offset 204
@@ -2800,7 +2800,7 @@ L274:
 	jne	L441
 	movl	60(%esp), %eax
 	addl	$32, %ebp
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%ebp, (%esp)
 	movl	%eax, 32(%esp)
 	leal	92(%esp), %eax
@@ -3459,7 +3459,7 @@ L195:
 	movl	96(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -3989,7 +3989,7 @@ L442:
 	movl	88(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	60(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
@@ -4002,7 +4002,7 @@ L442:
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	movl	60(%esp), %eax
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L196
 	movl	%eax, (%esp)
 	call	_DeallocateNumber

@@ -22,7 +22,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ToByteArray DD imagerel $LN16
-	DD	imagerel $LN16+165
+	DD	imagerel $LN16+164
 	DD	imagerel $unwind$PMC_ToByteArray
 pdata	ENDS
 ;	COMDAT pdata
@@ -40,13 +40,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$0$PMC_ToByteArrayForSINT DD imagerel $LN30+62
-	DD	imagerel $LN30+195
+	DD	imagerel $LN30+194
 	DD	imagerel $chain$0$PMC_ToByteArrayForSINT
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_ToByteArrayForSINT DD imagerel $LN30+195
-	DD	imagerel $LN30+217
+$pdata$1$PMC_ToByteArrayForSINT DD imagerel $LN30+194
+	DD	imagerel $LN30+216
 	DD	imagerel $chain$1$PMC_ToByteArrayForSINT
 pdata	ENDS
 ;	COMDAT pdata
@@ -324,8 +324,8 @@ $LN2@PMC_ToByte:
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	QWORD PTR [rsp+48], rdi
-	mov	edi, DWORD PTR [rbx+40]
-	and	edi, 2
+	mov	edi, DWORD PTR [rbx]
+	and	edi, 1
 	je	SHORT $LN17@PMC_ToByte
 	xor	edx, edx
 	jmp	SHORT $LN18@PMC_ToByte
@@ -334,7 +334,7 @@ $LN17@PMC_ToByte:
 
 ; 193  :         return ((u + v - 1) / v);
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 	add	rdx, 7
 	shr	rdx, 3
 $LN18@PMC_ToByte:
@@ -348,7 +348,7 @@ $LN18@PMC_ToByte:
 ; 152  :     {
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
-	mov	rcx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+24]
 	lea	rax, QWORD PTR [r14*8]
 	add	rcx, 8
 	cmp	rcx, rax
@@ -435,7 +435,7 @@ $LN28@PMC_ToByte:
 
 	lea	rdi, QWORD PTR [rsi+1]
 	mov	rcx, rdx
-	mov	rsi, QWORD PTR [rbx+56]
+	mov	rsi, QWORD PTR [rbx+64]
 	rep movsb
 $LN23@PMC_ToByte:
 	mov	rax, QWORD PTR count$[rsp]
@@ -626,7 +626,7 @@ $LN12@PMC_FromBy:
 
 ; 44   :         __movsb(d, s, count);
 
-	mov	rdi, QWORD PTR [rdi+56]
+	mov	rdi, QWORD PTR [rdi+64]
 	rep movsb
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
@@ -712,8 +712,8 @@ $LN2@PMC_ToByte:
 ; 194  :         return (result);
 ; 195  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
-	mov	r8d, DWORD PTR [rsi+40]
-	and	r8d, 2
+	mov	r8d, DWORD PTR [rsi]
+	and	r8d, 1
 	je	SHORT $LN9@PMC_ToByte
 	xor	edx, edx
 	jmp	SHORT $LN10@PMC_ToByte
@@ -722,7 +722,7 @@ $LN9@PMC_ToByte:
 
 ; 193  :         return ((u + v - 1) / v);
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rsi+24]
 	add	rdx, 7
 	shr	rdx, 3
 $LN10@PMC_ToByte:
@@ -736,7 +736,7 @@ $LN10@PMC_ToByte:
 ; 197  :     {
 ; 198  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
-	mov	rcx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rsi+24]
 	lea	rax, QWORD PTR [rbp*8]
 	add	rcx, 8
 	cmp	rcx, rax
@@ -769,7 +769,7 @@ $LN6@PMC_ToByte:
 ; 44   :         __movsb(d, s, count);
 
 	mov	rcx, rdx
-	mov	rsi, QWORD PTR [rsi+56]
+	mov	rsi, QWORD PTR [rsi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
 ; 205  :             _COPY_MEMORY_BYTE(buffer + 1, np->BLOCK, expected_abs_buffer_size);
@@ -960,7 +960,7 @@ $LN11@PMC_FromBy:
 
 ; 44   :         __movsb(d, s, count);
 
-	mov	rdi, QWORD PTR [rdi+56]
+	mov	rdi, QWORD PTR [rdi+64]
 	rep movsb
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 

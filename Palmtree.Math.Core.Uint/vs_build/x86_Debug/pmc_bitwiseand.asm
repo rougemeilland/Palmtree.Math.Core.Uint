@@ -1470,8 +1470,7 @@ $LN6@PMC_Bitwis:
 ; 325  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Bitwis
 
@@ -1485,8 +1484,7 @@ $LN7@PMC_Bitwis:
 ; 327  :     else if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN9@PMC_Bitwis
 
@@ -1502,13 +1500,13 @@ $LN9@PMC_Bitwis:
 ; 331  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$5[ebp], edx
 
 ; 332  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$4[ebp], ecx
 
 ; 333  :         __UNIT_TYPE w_bit_count = _MINIMUM_UNIT(u_bit_count, v_bit_count);
@@ -1556,13 +1554,13 @@ $LN11@PMC_Bitwis:
 	mov	edx, DWORD PTR _w_word_count$1[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nw$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_BitwiseAnd_X_X
 	add	esp, 16					; 00000010H
@@ -1572,7 +1570,7 @@ $LN11@PMC_Bitwis:
 	mov	eax, DWORD PTR _nw_light_check_code$2[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nw$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -1596,8 +1594,7 @@ $LN12@PMC_Bitwis:
 ; 342  :         if (nw->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nw$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN13@PMC_Bitwis
 
@@ -1663,7 +1660,7 @@ $LN1@PMC_Bitwis:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	1
+	npad	2
 $LN19@PMC_Bitwis:
 	DD	2
 	DD	$LN18@PMC_Bitwis
@@ -1704,7 +1701,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
 _TEXT	SEGMENT
-tv85 = -36						; size = 4
+tv84 = -36						; size = 4
 _w_lo$1 = -32						; size = 4
 _w_hi$2 = -28						; size = 4
 _v_lo$3 = -24						; size = 4
@@ -1795,8 +1792,7 @@ $LN5@PMC_Bitwis:
 ; 275  :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Bitwis
 
@@ -1862,20 +1858,20 @@ $LN8@PMC_Bitwis:
 ; 296  :             _UINT32_T w_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] & v_hi : 0;
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	cmp	DWORD PTR [eax+8], 1
+	cmp	DWORD PTR [eax+12], 1
 	jbe	SHORT $LN13@PMC_Bitwis
 	mov	ecx, 4
 	shl	ecx, 0
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	and	ecx, DWORD PTR _v_hi$4[ebp]
-	mov	DWORD PTR tv85[ebp], ecx
+	mov	DWORD PTR tv84[ebp], ecx
 	jmp	SHORT $LN14@PMC_Bitwis
 $LN13@PMC_Bitwis:
-	mov	DWORD PTR tv85[ebp], 0
+	mov	DWORD PTR tv84[ebp], 0
 $LN14@PMC_Bitwis:
-	mov	edx, DWORD PTR tv85[ebp]
+	mov	edx, DWORD PTR tv84[ebp]
 	mov	DWORD PTR _w_hi$2[ebp], edx
 
 ; 297  :             _UINT32_T w_lo = nu->BLOCK[0] & v_lo;
@@ -1883,7 +1879,7 @@ $LN14@PMC_Bitwis:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	and	ecx, DWORD PTR _v_lo$3[ebp]
 	mov	DWORD PTR _w_lo$1[ebp], ecx
@@ -1913,7 +1909,7 @@ $LN10@PMC_Bitwis:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	xor	ecx, ecx
 	and	eax, DWORD PTR _v$[ebp]
@@ -1945,6 +1941,7 @@ $LN1@PMC_Bitwis:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
+	npad	3
 $LN17@PMC_Bitwis:
 	DD	1
 	DD	$LN16@PMC_Bitwis
@@ -2041,8 +2038,7 @@ $LN5@PMC_Bitwis:
 ; 191  :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Bitwis
 
@@ -2085,7 +2081,7 @@ $LN8@PMC_Bitwis:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	and	edx, DWORD PTR _v$[ebp]
 	mov	eax, DWORD PTR _w$[ebp]
@@ -2111,7 +2107,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseand.c
 _TEXT	SEGMENT
-tv85 = -36						; size = 4
+tv84 = -36						; size = 4
 _w_lo$1 = -32						; size = 4
 _w_hi$2 = -28						; size = 4
 _u_lo$3 = -24						; size = 4
@@ -2202,8 +2198,7 @@ $LN5@PMC_Bitwis:
 ; 226  :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Bitwis
 
@@ -2269,20 +2264,20 @@ $LN8@PMC_Bitwis:
 ; 247  :             _UINT32_T w_hi = nv->UNIT_WORD_COUNT > 1 ? nv->BLOCK[1] & u_hi : 0;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	cmp	DWORD PTR [eax+8], 1
+	cmp	DWORD PTR [eax+12], 1
 	jbe	SHORT $LN13@PMC_Bitwis
 	mov	ecx, 4
 	shl	ecx, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	and	ecx, DWORD PTR _u_hi$4[ebp]
-	mov	DWORD PTR tv85[ebp], ecx
+	mov	DWORD PTR tv84[ebp], ecx
 	jmp	SHORT $LN14@PMC_Bitwis
 $LN13@PMC_Bitwis:
-	mov	DWORD PTR tv85[ebp], 0
+	mov	DWORD PTR tv84[ebp], 0
 $LN14@PMC_Bitwis:
-	mov	edx, DWORD PTR tv85[ebp]
+	mov	edx, DWORD PTR tv84[ebp]
 	mov	DWORD PTR _w_hi$2[ebp], edx
 
 ; 248  :             _UINT32_T w_lo = nv->BLOCK[0] & u_lo;
@@ -2290,7 +2285,7 @@ $LN14@PMC_Bitwis:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	and	ecx, DWORD PTR _u_lo$3[ebp]
 	mov	DWORD PTR _w_lo$1[ebp], ecx
@@ -2320,7 +2315,7 @@ $LN10@PMC_Bitwis:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	xor	ecx, ecx
 	and	eax, DWORD PTR _u$[ebp]
@@ -2352,6 +2347,7 @@ $LN1@PMC_Bitwis:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
+	npad	3
 $LN17@PMC_Bitwis:
 	DD	1
 	DD	$LN16@PMC_Bitwis
@@ -2448,8 +2444,7 @@ $LN5@PMC_Bitwis:
 ; 156  :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Bitwis
 
@@ -2492,7 +2487,7 @@ $LN8@PMC_Bitwis:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	and	edx, DWORD PTR _u$[ebp]
 	mov	eax, DWORD PTR _w$[ebp]

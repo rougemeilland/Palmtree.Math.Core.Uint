@@ -158,8 +158,8 @@ hexadecimal_upper_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H
 _DATA	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$ToStringX DD 089b01H
-	DD	06349bH
+$unwind$ToStringX DD 089a01H
+	DD	06349aH
 	DD	08640fH
 	DD	07540fH
 	DD	0700b320fH
@@ -309,7 +309,7 @@ ToStringX PROC						; COMDAT
 
 ; 474  :     if (x->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	r10, rdx
 	mov	r11, rcx
 	je	SHORT $LN4@ToStringX
@@ -373,7 +373,7 @@ $LN4@ToStringX:
 
 ; 188  :         return ((u + v - 1) / v);
 
-	mov	rbp, QWORD PTR [rcx+16]
+	mov	rbp, QWORD PTR [rcx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 
 ; 502  :         if (buffer_size < total_length + 1)
@@ -440,12 +440,12 @@ $LN17@ToStringX:
 
 ; 507  :         __UNIT_TYPE* s_ptr = x->BLOCK + x->UNIT_WORD_COUNT - 1;
 
-	mov	rdi, QWORD PTR [r11+8]
+	mov	rdi, QWORD PTR [r11+16]
 
 ; 508  :         wchar_t* d_ptr = buffer + filling_digit_len;
 
 	lea	r9, QWORD PTR [r10+rdx*2]
-	mov	rax, QWORD PTR [r11+56]
+	mov	rax, QWORD PTR [r11+64]
 
 ; 509  :         wchar_t* digit_table = using_upper_letter ? hexadecimal_upper_digits : hexadecimal_lower_digits;
 
@@ -475,7 +475,7 @@ $LN17@ToStringX:
 ; 514  :         while (w_count > 0)
 
 	je	SHORT $LN3@ToStringX
-	npad	2
+	npad	3
 $LL2@ToStringX:
 
 ; 515  :         {
@@ -1240,7 +1240,7 @@ ToStringDN PROC						; COMDAT
 ; 327  : 
 ; 328  :     if (x->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	movzx	eax, r9b
 	mov	rbx, rdx
 	mov	rdi, rcx
@@ -1367,7 +1367,7 @@ $LN6@ToStringDN:
 ; 366  :         // xを base_value 基数として変換した数値が r に格納される。約 7% ほど余分に領域が必要な計算になるが、余裕を見て 12.5% 程度の領域を獲得している。
 ; 367  :         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(x->UNIT_BIT_COUNT + (x->UNIT_BIT_COUNT >> 3) + __UNIT_TYPE_BIT_COUNT, &r_buf_words, &r_buf_code);
 
-	mov	rcx, QWORD PTR [rcx+16]
+	mov	rcx, QWORD PTR [rcx+24]
 	lea	r8, QWORD PTR r_buf_code$7[rbp-121]
 	mov	rax, rcx
 	lea	rdx, QWORD PTR r_buf_words$2[rbp-121]
@@ -1391,7 +1391,7 @@ $LN14@ToStringDN:
 ; 370  :         __UNIT_TYPE r_buf_count;
 ; 371  :         if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x->BLOCK, x->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != PMC_STATUS_OK)
 
-	mov	rsi, QWORD PTR [rdi+8]
+	mov	rsi, QWORD PTR [rdi+16]
 
 ; 56   :     __UNIT_TYPE_DIV* work_buf_1 = (__UNIT_TYPE_DIV*)AllocateBlock(x_bit_count + __UNIT_TYPE_BIT_COUNT, &work_buf_1_words, &work_buf_1_code);
 
@@ -1400,12 +1400,12 @@ $LN14@ToStringDN:
 ; 370  :         __UNIT_TYPE r_buf_count;
 ; 371  :         if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x->BLOCK, x->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != PMC_STATUS_OK)
 
-	mov	r14, QWORD PTR [rdi+56]
+	mov	r14, QWORD PTR [rdi+64]
 
 ; 56   :     __UNIT_TYPE_DIV* work_buf_1 = (__UNIT_TYPE_DIV*)AllocateBlock(x_bit_count + __UNIT_TYPE_BIT_COUNT, &work_buf_1_words, &work_buf_1_code);
 
 	lea	rdx, QWORD PTR work_buf_1_words$1[rbp-121]
-	mov	rdi, QWORD PTR [rdi+16]
+	mov	rdi, QWORD PTR [rdi+24]
 
 ; 370  :         __UNIT_TYPE r_buf_count;
 ; 371  :         if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x->BLOCK, x->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != PMC_STATUS_OK)
@@ -1496,7 +1496,7 @@ $LN33@ToStringDN:
 ; 72   :     while (work_u_count > 0)
 
 	je	$LN29@ToStringDN
-	npad	5
+	npad	6
 $LL28@ToStringDN:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -2708,7 +2708,7 @@ $LN259@PrintDecim:
 $LN260@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -2965,7 +2965,7 @@ $LN293@PrintDecim:
 $LN294@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3208,7 +3208,7 @@ $LN319@PrintDecim:
 $LN320@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3355,7 +3355,7 @@ $LN345@PrintDecim:
 $LN346@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	ebx, edi
@@ -3650,7 +3650,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3708,7 +3708,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 2
 	lock xadd DWORD PTR statistics_info+12, ecx
@@ -3750,7 +3750,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3823,7 +3823,7 @@ $LL4@ToStringDN:
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	r8d, ebx
@@ -4700,11 +4700,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV64Counter PROC					; COMDAT
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lock xadd DWORD PTR statistics_info+8, ecx
 
-; 346  :     }
+; 343  :     }
 
 	ret	0
 AddToDIV64Counter ENDP
@@ -4716,11 +4716,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV32Counter PROC					; COMDAT
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lock xadd DWORD PTR statistics_info+12, ecx
 
-; 340  :     }
+; 337  :     }
 
 	ret	0
 AddToDIV32Counter ENDP
@@ -4731,11 +4731,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 
-; 323  :     }
+; 320  :     }
 
 	ret	0
 IncrementDIV64Counter ENDP
@@ -4746,11 +4746,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 
-; 317  :     }
+; 314  :     }
 
 	ret	0
 IncrementDIV32Counter ENDP

@@ -50,8 +50,8 @@ L1:
 	.p2align 4,,10
 L32:
 	.cfi_restore_state
-	movzbl	24(%esi), %edx
-	testb	$2, %dl
+	movzbl	(%esi), %edx
+	testb	$1, %dl
 	je	L5
 	movl	132(%esp), %ecx
 	testl	%ecx, %ecx
@@ -76,7 +76,7 @@ L32:
 	.p2align 4,,10
 L5:
 	.cfi_restore_state
-	andl	$4, %edx
+	andl	$2, %edx
 	jne	L8
 	movl	132(%esp), %edx
 	testl	%edx, %edx
@@ -85,7 +85,7 @@ L5:
 	je	L33
 	movl	$-33, %eax
 	xorl	%edx, %edx
-	movl	12(%esi), %edi
+	movl	16(%esi), %edi
 	divl	132(%esp)
 	movl	%eax, %ecx
 	movl	$-2, %eax
@@ -119,14 +119,14 @@ L5:
 	testl	%eax, %eax
 	jne	L34
 	movl	(%ebx), %eax
-	movl	8(%esi), %edx
+	movl	12(%esi), %edx
 	movl	48(%esp), %ebp
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%edx, 44(%esp)
 	movl	%edx, %ecx
 	movl	%ebp, %edi
 	movl	%eax, 60(%esp)
-	movl	32(%esi), %eax
+	movl	36(%esi), %eax
 	movl	%eax, %esi
 	movl	%eax, 52(%esp)
 /APP
@@ -262,7 +262,7 @@ L13:
 	movl	92(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	(%ebx), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax

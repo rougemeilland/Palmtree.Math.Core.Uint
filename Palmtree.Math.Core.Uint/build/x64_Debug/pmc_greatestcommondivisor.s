@@ -476,8 +476,8 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	%r8, 96(%rbp)
 	.loc 3 75 9
 	movq	80(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 3 75 8
 	testb	%al, %al
 	je	.L30
@@ -520,7 +520,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 .LBB8:
 	.loc 3 112 25
 	movq	80(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	movq	%rax, 32(%rbp)
 	.loc 3 113 55
 	movl	88(%rbp), %eax
@@ -600,7 +600,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 .L38:
 	.loc 3 139 25
 	movq	80(%rbp), %rax
-	movq	32(%rax), %rax
+	movq	40(%rax), %rax
 	movq	%rax, -8(%rbp)
 	.loc 3 140 35
 	movl	88(%rbp), %eax
@@ -620,9 +620,9 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	je	.L39
 	.loc 3 143 17
 	movq	80(%rbp), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	80(%rbp), %rax
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	8(%rbp), %r8
 	movq	-8(%rbp), %rcx
 	movl	$0, 32(%rsp)
@@ -634,10 +634,10 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 .L39:
 	.loc 3 145 17
 	movq	80(%rbp), %rax
-	movq	8(%rax), %rcx
+	movq	16(%rax), %rcx
 	.loc 3 145 48
 	movq	80(%rbp), %rax
-	movq	56(%rax), %rdx
+	movq	64(%rax), %rdx
 	.loc 3 145 17
 	movq	8(%rbp), %rax
 	movq	%rcx, %r8
@@ -658,7 +658,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	96(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 149 13
-	movq	56(%rax), %rbx
+	movq	64(%rax), %rbx
 	movq	16(%rbp), %rax
 	movl	$64, %edx
 	movq	%rax, %rcx
@@ -702,7 +702,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	96(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 154 27
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 44(%rbp)
@@ -727,13 +727,13 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	96(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 159 13
-	movq	56(%rax), %r8
+	movq	64(%rax), %r8
 	movq	-72(%rbp), %rdx
 	.loc 3 159 28
 	movq	96(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 159 13
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	-24(%rbp), %rcx
 	movl	$1, 32(%rsp)
 	movq	%r8, %r9
@@ -746,7 +746,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	96(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 160 27
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 44(%rbp)
@@ -975,8 +975,8 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	%r8, 192(%rbp)
 	.loc 3 217 9
 	movq	176(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 3 217 8
 	testb	%al, %al
 	je	.L60
@@ -1019,7 +1019,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 .LBB9:
 	.loc 3 377 29
 	movq	176(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	movq	%rax, 104(%rbp)
 	.loc 3 378 59
 	movq	184(%rbp), %rax
@@ -1099,7 +1099,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 .L68:
 	.loc 3 404 29
 	movq	176(%rbp), %rax
-	movq	32(%rax), %rax
+	movq	40(%rax), %rax
 	movq	%rax, 72(%rbp)
 	.loc 3 405 39
 	movq	184(%rbp), %rax
@@ -1119,9 +1119,9 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	je	.L69
 	.loc 3 408 21
 	movq	176(%rbp), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	176(%rbp), %rax
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	120(%rbp), %r8
 	movq	72(%rbp), %rcx
 	movl	$0, 32(%rsp)
@@ -1133,10 +1133,10 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 .L69:
 	.loc 3 410 21
 	movq	176(%rbp), %rax
-	movq	8(%rax), %rcx
+	movq	16(%rax), %rcx
 	.loc 3 410 52
 	movq	176(%rbp), %rax
-	movq	56(%rax), %rdx
+	movq	64(%rax), %rdx
 	.loc 3 410 21
 	movq	120(%rbp), %rax
 	movq	%rcx, %r8
@@ -1158,7 +1158,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	192(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 414 17
-	movq	56(%rax), %rbx
+	movq	64(%rax), %rbx
 	movq	128(%rbp), %rax
 	movl	$64, %edx
 	movq	%rax, %rcx
@@ -1202,7 +1202,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	192(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 419 31
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 140(%rbp)
@@ -1227,13 +1227,13 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	192(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 424 17
-	movq	56(%rax), %r8
+	movq	64(%rax), %r8
 	movq	-80(%rbp), %rdx
 	.loc 3 424 32
 	movq	192(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 424 17
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	88(%rbp), %rcx
 	movl	$1, 32(%rsp)
 	movq	%r8, %r9
@@ -1246,7 +1246,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	192(%rbp), %rax
 	movq	(%rax), %rax
 	.loc 3 425 31
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 140(%rbp)
@@ -1527,15 +1527,15 @@ PMC_GreatestCommonDivisor_X_X:
 .L95:
 	.loc 3 496 9
 	movq	56(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 3 496 8
 	testb	%al, %al
 	je	.L96
 	.loc 3 500 13
 	movq	48(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 3 500 12
 	testb	%al, %al
 	je	.L97
@@ -1564,8 +1564,8 @@ PMC_GreatestCommonDivisor_X_X:
 .L96:
 	.loc 3 521 13
 	movq	48(%rbp), %rax
-	movzbl	40(%rax), %eax
-	andl	$2, %eax
+	movzbl	(%rax), %eax
+	andl	$1, %eax
 	.loc 3 521 12
 	testb	%al, %al
 	je	.L100
@@ -1591,11 +1591,11 @@ PMC_GreatestCommonDivisor_X_X:
 .LBB10:
 	.loc 3 535 25
 	movq	56(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	movq	%rax, 32(%rbp)
 	.loc 3 536 25
 	movq	48(%rbp), %rax
-	movq	16(%rax), %rax
+	movq	24(%rax), %rax
 	movq	%rax, 24(%rbp)
 	.loc 3 537 42
 	movq	24(%rbp), %rdx
@@ -1665,11 +1665,11 @@ PMC_GreatestCommonDivisor_X_X:
 .L105:
 	.loc 3 562 25
 	movq	56(%rbp), %rax
-	movq	32(%rax), %rax
+	movq	40(%rax), %rax
 	movq	%rax, -8(%rbp)
 	.loc 3 563 25
 	movq	48(%rbp), %rax
-	movq	32(%rax), %rax
+	movq	40(%rax), %rax
 	movq	%rax, -16(%rbp)
 	.loc 3 564 29
 	movq	-16(%rbp), %rdx
@@ -1682,9 +1682,9 @@ PMC_GreatestCommonDivisor_X_X:
 	je	.L106
 	.loc 3 566 17
 	movq	56(%rbp), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	56(%rbp), %rax
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	8(%rbp), %r8
 	movq	-8(%rbp), %rcx
 	movl	$0, 32(%rsp)
@@ -1696,10 +1696,10 @@ PMC_GreatestCommonDivisor_X_X:
 .L106:
 	.loc 3 568 17
 	movq	56(%rbp), %rax
-	movq	8(%rax), %rcx
+	movq	16(%rax), %rcx
 	.loc 3 568 49
 	movq	56(%rbp), %rax
-	movq	56(%rax), %rdx
+	movq	64(%rax), %rdx
 	.loc 3 568 17
 	movq	8(%rbp), %rax
 	movq	%rcx, %r8
@@ -1711,9 +1711,9 @@ PMC_GreatestCommonDivisor_X_X:
 	je	.L108
 	.loc 3 570 17
 	movq	48(%rbp), %rax
-	movq	8(%rax), %rdx
+	movq	16(%rax), %rdx
 	movq	48(%rbp), %rax
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	0(%rbp), %r8
 	movq	-16(%rbp), %rcx
 	movl	$0, 32(%rsp)
@@ -1725,10 +1725,10 @@ PMC_GreatestCommonDivisor_X_X:
 .L108:
 	.loc 3 572 17
 	movq	48(%rbp), %rax
-	movq	8(%rax), %rcx
+	movq	16(%rax), %rcx
 	.loc 3 572 49
 	movq	48(%rbp), %rax
-	movq	56(%rax), %rdx
+	movq	64(%rax), %rdx
 	.loc 3 572 17
 	movq	0(%rbp), %rax
 	movq	%rcx, %r8
@@ -1738,7 +1738,7 @@ PMC_GreatestCommonDivisor_X_X:
 	.loc 3 575 130
 	movq	-32(%rbp), %rax
 	.loc 3 575 13
-	movq	56(%rax), %rbx
+	movq	64(%rax), %rbx
 	movq	16(%rbp), %rax
 	movl	$64, %edx
 	movq	%rax, %rcx
@@ -1781,7 +1781,7 @@ PMC_GreatestCommonDivisor_X_X:
 	.loc 3 580 45
 	movq	-32(%rbp), %rax
 	.loc 3 580 27
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 44(%rbp)
@@ -1805,12 +1805,12 @@ PMC_GreatestCommonDivisor_X_X:
 	.loc 3 585 56
 	movq	-32(%rbp), %rax
 	.loc 3 585 13
-	movq	56(%rax), %r8
+	movq	64(%rax), %r8
 	movq	-80(%rbp), %rdx
 	.loc 3 585 29
 	movq	-32(%rbp), %rax
 	.loc 3 585 13
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	-24(%rbp), %rcx
 	movl	$1, 32(%rsp)
 	movq	%r8, %r9
@@ -1822,7 +1822,7 @@ PMC_GreatestCommonDivisor_X_X:
 	.loc 3 586 45
 	movq	-32(%rbp), %rax
 	.loc 3 586 27
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%rax, %rcx
 	call	CheckBlockLight
 	movl	%eax, 44(%rbp)
@@ -1930,7 +1930,7 @@ Initialize_GreatestCommonDivisor:
 	.file 34 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x59dd
+	.long	0x5a44
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5713,26 +5713,26 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x3
 	.ascii "_UINT32_T\0"
 	.byte	0x1f
-	.byte	0x5e
+	.byte	0x58
 	.byte	0x12
 	.long	0x4983
 	.uleb128 0x3
 	.ascii "_UINT64_T\0"
 	.byte	0x1f
-	.byte	0x5f
+	.byte	0x59
 	.byte	0x12
 	.long	0x4994
 	.uleb128 0x12
 	.ascii "__tag_PMC_CONFIGURATION_INFO\0"
 	.byte	0x4
 	.byte	0x1f
-	.byte	0x64
+	.byte	0x5e
 	.byte	0x10
 	.long	0x4a18
 	.uleb128 0x18
 	.ascii "MEMORY_VERIFICATION_ENABLED\0"
 	.byte	0x1f
-	.byte	0x66
+	.byte	0x60
 	.byte	0xe
 	.long	0x471
 	.byte	0x4
@@ -5743,71 +5743,124 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x3
 	.ascii "PMC_CONFIGURATION_INFO\0"
 	.byte	0x1f
-	.byte	0x67
+	.byte	0x61
 	.byte	0x3
 	.long	0x49c9
 	.uleb128 0x3
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x1f
-	.byte	0x6a
+	.byte	0x64
 	.byte	0xd
 	.long	0x149
 	.uleb128 0x12
+	.ascii "__tag_UINT_FLAGS\0"
+	.byte	0x4
+	.byte	0x1f
+	.byte	0x6c
+	.byte	0xc
+	.long	0x4ab5
+	.uleb128 0x18
+	.ascii "IS_ZERO\0"
+	.byte	0x1f
+	.byte	0x6e
+	.byte	0x12
+	.long	0x471
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1f
+	.byte	0
+	.uleb128 0x18
+	.ascii "IS_ONE\0"
+	.byte	0x1f
+	.byte	0x6f
+	.byte	0x12
+	.long	0x471
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1e
+	.byte	0
+	.uleb128 0x18
+	.ascii "IS_EVEN\0"
+	.byte	0x1f
+	.byte	0x70
+	.byte	0x12
+	.long	0x471
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1d
+	.byte	0
+	.uleb128 0x19
+	.secrel32	.LASF1
+	.byte	0x1f
+	.byte	0x71
+	.byte	0x12
+	.long	0x471
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1c
+	.byte	0
+	.byte	0
+	.uleb128 0x1a
 	.ascii "__tag_PMC_HANDLE_UINT\0"
 	.byte	0x8
 	.byte	0x1f
+	.byte	0x6a
+	.byte	0x7
+	.long	0x4af1
+	.uleb128 0x1b
+	.ascii "FLAGS\0"
+	.byte	0x1f
 	.byte	0x72
-	.byte	0x8
-	.long	0x4a7e
-	.uleb128 0x13
+	.byte	0x7
+	.long	0x4a4f
+	.uleb128 0x1b
 	.ascii "dummy\0"
 	.byte	0x1f
-	.byte	0x77
+	.byte	0x76
 	.byte	0xf
 	.long	0x49b7
-	.byte	0
 	.byte	0
 	.uleb128 0x3
 	.ascii "PMC_HANDLE_UINT\0"
 	.byte	0x1f
-	.byte	0x7c
-	.byte	0x27
-	.long	0x4a96
+	.byte	0x7b
+	.byte	0x26
+	.long	0x4b09
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4a4f
+	.long	0x4ab5
 	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x8a
+	.byte	0x91
 	.byte	0x10
-	.long	0x4b18
+	.long	0x4b8b
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x8c
+	.byte	0x93
 	.byte	0xa
 	.long	0x150
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x8d
+	.byte	0x94
 	.byte	0xa
 	.long	0x150
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x8e
+	.byte	0x95
 	.byte	0xa
 	.long	0x150
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x8f
+	.byte	0x96
 	.byte	0xa
 	.long	0x150
 	.byte	0xc
@@ -5815,19 +5868,19 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x90
+	.byte	0x97
 	.byte	0x3
-	.long	0x4a9c
+	.long	0x4b0f
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x20
 	.byte	0x23
 	.byte	0x10
-	.long	0x4c0b
+	.long	0x4c7e
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
 	.byte	0x20
@@ -5884,7 +5937,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x20
 	.byte	0x33
 	.byte	0x3
-	.long	0x4b3a
+	.long	0x4bad
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
 	.byte	0x21
@@ -5892,171 +5945,171 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x13
 	.long	0x49b7
 	.uleb128 0x4
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
-	.byte	0x40
+	.byte	0x48
 	.byte	0x22
 	.byte	0x27
 	.byte	0x14
-	.long	0x4d7c
-	.uleb128 0x13
-	.ascii "SIGNATURE1\0"
+	.long	0x4de3
+	.uleb128 0x18
+	.ascii "IS_ZERO\0"
 	.byte	0x22
 	.byte	0x29
-	.byte	0x13
-	.long	0x49a5
-	.byte	0
-	.uleb128 0x13
-	.ascii "SIGNATURE2\0"
-	.byte	0x22
-	.byte	0x2a
-	.byte	0x13
-	.long	0x49a5
-	.byte	0x4
-	.uleb128 0x13
-	.ascii "UNIT_WORD_COUNT\0"
-	.byte	0x22
-	.byte	0x2b
-	.byte	0x15
-	.long	0x4c26
-	.byte	0x8
-	.uleb128 0x13
-	.ascii "UNIT_BIT_COUNT\0"
-	.byte	0x22
-	.byte	0x2c
-	.byte	0x15
-	.long	0x4c26
-	.byte	0x10
-	.uleb128 0x13
-	.ascii "HASH_CODE\0"
-	.byte	0x22
-	.byte	0x2d
-	.byte	0x15
-	.long	0x4c26
-	.byte	0x18
-	.uleb128 0x13
-	.ascii "TRAILING_ZERO_BITS_COUNT\0"
-	.byte	0x22
-	.byte	0x2e
-	.byte	0x15
-	.long	0x4c26
-	.byte	0x20
-	.uleb128 0x18
-	.ascii "IS_STATIC\0"
-	.byte	0x22
-	.byte	0x2f
 	.byte	0x12
 	.long	0x471
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1f
-	.byte	0x28
+	.byte	0
 	.uleb128 0x18
-	.ascii "IS_ZERO\0"
+	.ascii "IS_ONE\0"
 	.byte	0x22
-	.byte	0x30
+	.byte	0x2a
 	.byte	0x12
 	.long	0x471
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1e
-	.byte	0x28
+	.byte	0
 	.uleb128 0x18
-	.ascii "IS_ONE\0"
+	.ascii "IS_EVEN\0"
 	.byte	0x22
-	.byte	0x31
+	.byte	0x2b
 	.byte	0x12
 	.long	0x471
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1d
-	.byte	0x28
-	.uleb128 0x18
-	.ascii "IS_EVEN\0"
+	.byte	0
+	.uleb128 0x19
+	.secrel32	.LASF1
 	.byte	0x22
-	.byte	0x32
+	.byte	0x2c
 	.byte	0x12
 	.long	0x471
 	.byte	0x4
 	.byte	0x1
 	.byte	0x1c
-	.byte	0x28
-	.uleb128 0x18
-	.ascii "IS_POWER_OF_TWO\0"
+	.byte	0
+	.uleb128 0x13
+	.ascii "SIGNATURE1\0"
+	.byte	0x22
+	.byte	0x2e
+	.byte	0x13
+	.long	0x49a5
+	.byte	0x4
+	.uleb128 0x13
+	.ascii "SIGNATURE2\0"
+	.byte	0x22
+	.byte	0x2f
+	.byte	0x13
+	.long	0x49a5
+	.byte	0x8
+	.uleb128 0x13
+	.ascii "UNIT_WORD_COUNT\0"
+	.byte	0x22
+	.byte	0x30
+	.byte	0x15
+	.long	0x4c99
+	.byte	0x10
+	.uleb128 0x13
+	.ascii "UNIT_BIT_COUNT\0"
+	.byte	0x22
+	.byte	0x31
+	.byte	0x15
+	.long	0x4c99
+	.byte	0x18
+	.uleb128 0x13
+	.ascii "HASH_CODE\0"
+	.byte	0x22
+	.byte	0x32
+	.byte	0x15
+	.long	0x4c99
+	.byte	0x20
+	.uleb128 0x13
+	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x22
 	.byte	0x33
+	.byte	0x15
+	.long	0x4c99
+	.byte	0x28
+	.uleb128 0x18
+	.ascii "IS_STATIC\0"
+	.byte	0x22
+	.byte	0x35
 	.byte	0x12
 	.long	0x471
 	.byte	0x4
 	.byte	0x1
-	.byte	0x1b
-	.byte	0x28
+	.byte	0x1f
+	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
 	.byte	0x22
-	.byte	0x35
+	.byte	0x37
 	.byte	0x10
 	.long	0xda
-	.byte	0x30
+	.byte	0x38
 	.uleb128 0x13
 	.ascii "BLOCK\0"
 	.byte	0x22
-	.byte	0x39
+	.byte	0x3b
 	.byte	0x16
-	.long	0x4d7c
-	.byte	0x38
+	.long	0x4de3
+	.byte	0x40
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x22
-	.byte	0x3a
+	.byte	0x3c
 	.byte	0x7
-	.long	0x4c3f
+	.long	0x4cb2
 	.uleb128 0x15
 	.ascii "configuration_info\0"
 	.byte	0x22
-	.byte	0x40
+	.byte	0x42
 	.byte	0x23
 	.long	0x4a18
 	.uleb128 0x15
 	.ascii "number_zero\0"
 	.byte	0x22
-	.byte	0x43
+	.byte	0x45
 	.byte	0x1a
-	.long	0x4d82
+	.long	0x4de9
 	.uleb128 0x15
 	.ascii "number_one\0"
 	.byte	0x22
-	.byte	0x46
+	.byte	0x48
 	.byte	0x1a
-	.long	0x4d82
+	.long	0x4de9
 	.uleb128 0x15
 	.ascii "statistics_info\0"
 	.byte	0x22
-	.byte	0x49
+	.byte	0x4b
 	.byte	0x20
-	.long	0x4b18
-	.uleb128 0x19
+	.long	0x4b8b
+	.uleb128 0x1c
 	.long	0x149
-	.long	0x4e02
+	.long	0x4e69
 	.uleb128 0x11
 	.long	0x829
-	.uleb128 0x1a
+	.uleb128 0x1d
 	.byte	0
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
 	.byte	0x22
-	.word	0x133
+	.word	0x130
 	.byte	0x2d
-	.long	0x4e17
+	.long	0x4e7e
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4df2
-	.uleb128 0x1b
+	.long	0x4e59
+	.uleb128 0x1e
 	.ascii "Initialize_GreatestCommonDivisor\0"
 	.byte	0x3
 	.word	0x257
@@ -6066,21 +6119,21 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4423-.LFB4423
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x4e72
-	.uleb128 0x1c
+	.long	0x4ed9
+	.uleb128 0x1f
 	.ascii "feature\0"
 	.byte	0x3
 	.word	0x257
 	.byte	0x46
-	.long	0x4e72
+	.long	0x4ed9
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c0b
-	.uleb128 0x1d
+	.long	0x4c7e
+	.uleb128 0x20
 	.ascii "PMC_GreatestCommonDivisor_X_X\0"
 	.byte	0x3
 	.word	0x1e0
@@ -6090,54 +6143,54 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4422-.LFB4422
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x501b
-	.uleb128 0x1c
+	.long	0x5082
+	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
 	.word	0x1e0
 	.byte	0x3f
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x1e0
 	.byte	0x52
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "w\0"
 	.byte	0x3
 	.word	0x1e0
 	.byte	0x66
-	.long	0x4b34
+	.long	0x4ba7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "nu\0"
 	.byte	0x3
 	.word	0x1e8
 	.byte	0x14
-	.long	0x501b
+	.long	0x5082
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "nv\0"
 	.byte	0x3
 	.word	0x1e9
 	.byte	0x14
-	.long	0x501b
+	.long	0x5082
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x1f
-	.secrel32	.LASF1
+	.uleb128 0x22
+	.secrel32	.LASF2
 	.byte	0x3
 	.word	0x1ea
 	.byte	0x15
@@ -6145,141 +6198,141 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -52
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "nw\0"
 	.byte	0x3
 	.word	0x1ef
 	.byte	0x14
-	.long	0x501b
+	.long	0x5082
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -128
-	.uleb128 0x20
+	.uleb128 0x23
 	.quad	.LBB10
 	.quad	.LBE10-.LBB10
-	.uleb128 0x1f
-	.secrel32	.LASF2
+	.uleb128 0x22
+	.secrel32	.LASF3
 	.byte	0x3
 	.word	0x217
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x1f
-	.secrel32	.LASF3
+	.uleb128 0x22
+	.secrel32	.LASF4
 	.byte	0x3
 	.word	0x218
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
-	.uleb128 0x1f
-	.secrel32	.LASF4
+	.uleb128 0x22
+	.secrel32	.LASF5
 	.byte	0x3
 	.word	0x219
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x1f
-	.secrel32	.LASF5
+	.uleb128 0x22
+	.secrel32	.LASF6
 	.byte	0x3
 	.word	0x21b
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -136
-	.uleb128 0x1f
-	.secrel32	.LASF6
+	.uleb128 0x22
+	.secrel32	.LASF7
 	.byte	0x3
 	.word	0x21c
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -144
-	.uleb128 0x1f
-	.secrel32	.LASF7
+	.uleb128 0x22
+	.secrel32	.LASF8
 	.byte	0x3
 	.word	0x21d
 	.byte	0x1a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
-	.uleb128 0x1f
-	.secrel32	.LASF8
+	.uleb128 0x22
+	.secrel32	.LASF9
 	.byte	0x3
 	.word	0x221
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -152
-	.uleb128 0x1f
-	.secrel32	.LASF9
+	.uleb128 0x22
+	.secrel32	.LASF10
 	.byte	0x3
 	.word	0x222
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -160
-	.uleb128 0x1f
-	.secrel32	.LASF10
+	.uleb128 0x22
+	.secrel32	.LASF11
 	.byte	0x3
 	.word	0x223
 	.byte	0x1a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
-	.uleb128 0x1f
-	.secrel32	.LASF11
+	.uleb128 0x22
+	.secrel32	.LASF12
 	.byte	0x3
 	.word	0x22a
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -168
-	.uleb128 0x1f
-	.secrel32	.LASF12
+	.uleb128 0x22
+	.secrel32	.LASF13
 	.byte	0x3
 	.word	0x232
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
-	.uleb128 0x1f
-	.secrel32	.LASF13
+	.uleb128 0x22
+	.secrel32	.LASF14
 	.byte	0x3
 	.word	0x233
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "k\0"
 	.byte	0x3
 	.word	0x234
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -120
-	.uleb128 0x1f
-	.secrel32	.LASF14
+	.uleb128 0x22
+	.secrel32	.LASF15
 	.byte	0x3
 	.word	0x23e
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -176
@@ -6287,8 +6340,8 @@ Initialize_GreatestCommonDivisor:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4d82
-	.uleb128 0x1d
+	.long	0x4de9
+	.uleb128 0x20
 	.ascii "PMC_GreatestCommonDivisor_X_L\0"
 	.byte	0x3
 	.word	0x1c9
@@ -6298,17 +6351,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4421-.LFB4421
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5099
-	.uleb128 0x1c
+	.long	0x5100
+	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
 	.word	0x1c9
 	.byte	0x3f
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x1c9
@@ -6317,17 +6370,17 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "w\0"
 	.byte	0x3
 	.word	0x1c9
 	.byte	0x60
-	.long	0x4b34
+	.long	0x4ba7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x1f
-	.secrel32	.LASF1
+	.uleb128 0x22
+	.secrel32	.LASF2
 	.byte	0x3
 	.word	0x1d4
 	.byte	0x15
@@ -6336,7 +6389,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x20
 	.ascii "PMC_GreatestCommonDivisor_L_X\0"
 	.byte	0x3
 	.word	0x1b2
@@ -6346,8 +6399,8 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4420-.LFB4420
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5111
-	.uleb128 0x1c
+	.long	0x5178
+	.uleb128 0x1f
 	.ascii "u\0"
 	.byte	0x3
 	.word	0x1b2
@@ -6356,26 +6409,26 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "v\0"
 	.byte	0x3
 	.word	0x1b2
 	.byte	0x4c
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x1c
+	.uleb128 0x1f
 	.ascii "w\0"
 	.byte	0x3
 	.word	0x1b2
 	.byte	0x60
-	.long	0x4b34
+	.long	0x4ba7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x1f
-	.secrel32	.LASF1
+	.uleb128 0x22
+	.secrel32	.LASF2
 	.byte	0x3
 	.word	0x1bd
 	.byte	0x15
@@ -6384,7 +6437,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x24
 	.ascii "PMC_GreatestCommonDivisor_X_L_Imp\0"
 	.byte	0x3
 	.byte	0xd6
@@ -6394,17 +6447,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4419-.LFB4419
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5408
-	.uleb128 0x22
+	.long	0x546f
+	.uleb128 0x25
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0xd6
 	.byte	0x49
-	.long	0x501b
+	.long	0x5082
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0xd6
@@ -6413,17 +6466,17 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "w\0"
 	.byte	0x3
 	.byte	0xd6
 	.byte	0x69
-	.long	0x5408
+	.long	0x546f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x23
-	.secrel32	.LASF1
+	.uleb128 0x26
+	.secrel32	.LASF2
 	.byte	0x3
 	.byte	0xd8
 	.byte	0x15
@@ -6431,314 +6484,314 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -36
-	.uleb128 0x24
-	.long	0x530c
-	.uleb128 0x25
-	.secrel32	.LASF2
+	.uleb128 0x27
+	.long	0x5373
+	.uleb128 0x28
+	.secrel32	.LASF3
 	.byte	0x3
 	.word	0x102
 	.byte	0x1d
-	.long	0x4c26
-	.uleb128 0x26
+	.long	0x4c99
+	.uleb128 0x29
 	.ascii "v_hi\0"
 	.byte	0x3
 	.word	0x103
 	.byte	0x1b
 	.long	0x49a5
-	.uleb128 0x26
+	.uleb128 0x29
 	.ascii "v_lo\0"
 	.byte	0x3
 	.word	0x104
 	.byte	0x1b
 	.long	0x49a5
-	.uleb128 0x24
-	.long	0x5262
-	.uleb128 0x25
-	.secrel32	.LASF3
+	.uleb128 0x27
+	.long	0x52c9
+	.uleb128 0x28
+	.secrel32	.LASF4
 	.byte	0x3
 	.word	0x108
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x3
 	.word	0x109
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x3
 	.word	0x10b
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF6
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF7
 	.byte	0x3
 	.word	0x10c
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF7
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF8
 	.byte	0x3
 	.word	0x10d
 	.byte	0x22
-	.long	0x4d7c
-	.uleb128 0x25
-	.secrel32	.LASF8
+	.long	0x4de3
+	.uleb128 0x28
+	.secrel32	.LASF9
 	.byte	0x3
 	.word	0x111
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF9
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF10
 	.byte	0x3
 	.word	0x112
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF10
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF11
 	.byte	0x3
 	.word	0x113
 	.byte	0x22
-	.long	0x4d7c
-	.uleb128 0x25
-	.secrel32	.LASF11
+	.long	0x4de3
+	.uleb128 0x28
+	.secrel32	.LASF12
 	.byte	0x3
 	.word	0x11a
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF12
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF13
 	.byte	0x3
 	.word	0x122
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF13
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF14
 	.byte	0x3
 	.word	0x123
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x26
+	.long	0x4c99
+	.uleb128 0x29
 	.ascii "k\0"
 	.byte	0x3
 	.word	0x124
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF14
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF15
 	.byte	0x3
 	.word	0x12b
 	.byte	0x21
-	.long	0x4c26
+	.long	0x4c99
 	.byte	0
-	.uleb128 0x27
-	.uleb128 0x25
-	.secrel32	.LASF3
+	.uleb128 0x2a
+	.uleb128 0x28
+	.secrel32	.LASF4
 	.byte	0x3
 	.word	0x13e
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF4
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF5
 	.byte	0x3
 	.word	0x13f
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF5
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF6
 	.byte	0x3
 	.word	0x141
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF6
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF7
 	.byte	0x3
 	.word	0x142
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF7
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF8
 	.byte	0x3
 	.word	0x143
 	.byte	0x22
-	.long	0x4d7c
-	.uleb128 0x25
-	.secrel32	.LASF8
+	.long	0x4de3
+	.uleb128 0x28
+	.secrel32	.LASF9
 	.byte	0x3
 	.word	0x147
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF9
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF10
 	.byte	0x3
 	.word	0x148
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF10
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF11
 	.byte	0x3
 	.word	0x149
 	.byte	0x22
-	.long	0x4d7c
-	.uleb128 0x25
-	.secrel32	.LASF11
+	.long	0x4de3
+	.uleb128 0x28
+	.secrel32	.LASF12
 	.byte	0x3
 	.word	0x150
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF12
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF13
 	.byte	0x3
 	.word	0x158
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF13
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF14
 	.byte	0x3
 	.word	0x159
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x26
+	.long	0x4c99
+	.uleb128 0x29
 	.ascii "k\0"
 	.byte	0x3
 	.word	0x15a
 	.byte	0x21
-	.long	0x4c26
-	.uleb128 0x25
-	.secrel32	.LASF14
+	.long	0x4c99
+	.uleb128 0x28
+	.secrel32	.LASF15
 	.byte	0x3
 	.word	0x164
 	.byte	0x21
-	.long	0x4c26
+	.long	0x4c99
 	.byte	0
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x23
 	.quad	.LBB9
 	.quad	.LBE9-.LBB9
-	.uleb128 0x1f
-	.secrel32	.LASF2
+	.uleb128 0x22
+	.secrel32	.LASF3
 	.byte	0x3
 	.word	0x179
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
-	.uleb128 0x1f
-	.secrel32	.LASF3
+	.uleb128 0x22
+	.secrel32	.LASF4
 	.byte	0x3
 	.word	0x17a
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x1f
-	.secrel32	.LASF4
+	.uleb128 0x22
+	.secrel32	.LASF5
 	.byte	0x3
 	.word	0x17b
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x1f
-	.secrel32	.LASF5
+	.uleb128 0x22
+	.secrel32	.LASF6
 	.byte	0x3
 	.word	0x17d
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -216
-	.uleb128 0x1f
-	.secrel32	.LASF6
+	.uleb128 0x22
+	.secrel32	.LASF7
 	.byte	0x3
 	.word	0x17e
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -224
-	.uleb128 0x1f
-	.secrel32	.LASF7
+	.uleb128 0x22
+	.secrel32	.LASF8
 	.byte	0x3
 	.word	0x17f
 	.byte	0x1e
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x1f
-	.secrel32	.LASF8
+	.uleb128 0x22
+	.secrel32	.LASF9
 	.byte	0x3
 	.word	0x183
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -232
-	.uleb128 0x1f
-	.secrel32	.LASF9
+	.uleb128 0x22
+	.secrel32	.LASF10
 	.byte	0x3
 	.word	0x184
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -240
-	.uleb128 0x1f
-	.secrel32	.LASF10
+	.uleb128 0x22
+	.secrel32	.LASF11
 	.byte	0x3
 	.word	0x185
 	.byte	0x1e
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x1f
-	.secrel32	.LASF11
+	.uleb128 0x22
+	.secrel32	.LASF12
 	.byte	0x3
 	.word	0x18c
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -248
-	.uleb128 0x1f
-	.secrel32	.LASF12
+	.uleb128 0x22
+	.secrel32	.LASF13
 	.byte	0x3
 	.word	0x194
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
-	.uleb128 0x1f
-	.secrel32	.LASF13
+	.uleb128 0x22
+	.secrel32	.LASF14
 	.byte	0x3
 	.word	0x195
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "k\0"
 	.byte	0x3
 	.word	0x196
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
-	.uleb128 0x1f
-	.secrel32	.LASF14
+	.uleb128 0x22
+	.secrel32	.LASF15
 	.byte	0x3
 	.word	0x19d
 	.byte	0x1d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -256
@@ -6746,8 +6799,8 @@ Initialize_GreatestCommonDivisor:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x501b
-	.uleb128 0x28
+	.long	0x5082
+	.uleb128 0x2b
 	.ascii "PMC_GreatestCommonDivisor_X_I\0"
 	.byte	0x3
 	.byte	0xbf
@@ -6757,17 +6810,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4418-.LFB4418
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5481
-	.uleb128 0x22
+	.long	0x54e8
+	.uleb128 0x25
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0xbf
 	.byte	0x3f
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0xbf
@@ -6776,17 +6829,17 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "w\0"
 	.byte	0x3
 	.byte	0xbf
 	.byte	0x60
-	.long	0x4b34
+	.long	0x4ba7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x23
-	.secrel32	.LASF1
+	.uleb128 0x26
+	.secrel32	.LASF2
 	.byte	0x3
 	.byte	0xca
 	.byte	0x15
@@ -6795,7 +6848,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x2b
 	.ascii "PMC_GreatestCommonDivisor_I_X\0"
 	.byte	0x3
 	.byte	0xa8
@@ -6805,8 +6858,8 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4417-.LFB4417
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x54f4
-	.uleb128 0x22
+	.long	0x555b
+	.uleb128 0x25
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0xa8
@@ -6815,26 +6868,26 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0xa8
 	.byte	0x4c
-	.long	0x4a7e
+	.long	0x4af1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "w\0"
 	.byte	0x3
 	.byte	0xa8
 	.byte	0x60
-	.long	0x4b34
+	.long	0x4ba7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x23
-	.secrel32	.LASF1
+	.uleb128 0x26
+	.secrel32	.LASF2
 	.byte	0x3
 	.byte	0xb3
 	.byte	0x15
@@ -6843,7 +6896,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x24
 	.ascii "PMC_GreatestCommonDivisor_X_I_Imp\0"
 	.byte	0x3
 	.byte	0x48
@@ -6853,17 +6906,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4416-.LFB4416
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5658
-	.uleb128 0x22
+	.long	0x56bf
+	.uleb128 0x25
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x48
 	.byte	0x49
-	.long	0x501b
+	.long	0x5082
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0x48
@@ -6872,17 +6925,17 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "w\0"
 	.byte	0x3
 	.byte	0x48
 	.byte	0x69
-	.long	0x5408
+	.long	0x546f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x23
-	.secrel32	.LASF1
+	.uleb128 0x26
+	.secrel32	.LASF2
 	.byte	0x3
 	.byte	0x4a
 	.byte	0x15
@@ -6890,138 +6943,138 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -36
-	.uleb128 0x20
+	.uleb128 0x23
 	.quad	.LBB8
 	.quad	.LBE8-.LBB8
-	.uleb128 0x23
-	.secrel32	.LASF2
+	.uleb128 0x26
+	.secrel32	.LASF3
 	.byte	0x3
 	.byte	0x70
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x23
-	.secrel32	.LASF3
+	.uleb128 0x26
+	.secrel32	.LASF4
 	.byte	0x3
 	.byte	0x71
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x23
-	.secrel32	.LASF4
+	.uleb128 0x26
+	.secrel32	.LASF5
 	.byte	0x3
 	.byte	0x72
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
-	.uleb128 0x23
-	.secrel32	.LASF5
+	.uleb128 0x26
+	.secrel32	.LASF6
 	.byte	0x3
 	.byte	0x74
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
-	.uleb128 0x23
-	.secrel32	.LASF6
+	.uleb128 0x26
+	.secrel32	.LASF7
 	.byte	0x3
 	.byte	0x75
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -120
-	.uleb128 0x23
-	.secrel32	.LASF7
+	.uleb128 0x26
+	.secrel32	.LASF8
 	.byte	0x3
 	.byte	0x76
 	.byte	0x1a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
-	.uleb128 0x23
-	.secrel32	.LASF8
+	.uleb128 0x26
+	.secrel32	.LASF9
 	.byte	0x3
 	.byte	0x7a
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -128
-	.uleb128 0x23
-	.secrel32	.LASF9
+	.uleb128 0x26
+	.secrel32	.LASF10
 	.byte	0x3
 	.byte	0x7b
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -136
-	.uleb128 0x23
-	.secrel32	.LASF10
+	.uleb128 0x26
+	.secrel32	.LASF11
 	.byte	0x3
 	.byte	0x7c
 	.byte	0x1a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
-	.uleb128 0x23
-	.secrel32	.LASF11
+	.uleb128 0x26
+	.secrel32	.LASF12
 	.byte	0x3
 	.byte	0x83
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -144
-	.uleb128 0x23
-	.secrel32	.LASF12
+	.uleb128 0x26
+	.secrel32	.LASF13
 	.byte	0x3
 	.byte	0x8b
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -88
-	.uleb128 0x23
-	.secrel32	.LASF13
+	.uleb128 0x26
+	.secrel32	.LASF14
 	.byte	0x3
 	.byte	0x8c
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -96
-	.uleb128 0x29
+	.uleb128 0x2c
 	.ascii "k\0"
 	.byte	0x3
 	.byte	0x8d
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -104
-	.uleb128 0x23
-	.secrel32	.LASF14
+	.uleb128 0x26
+	.secrel32	.LASF15
 	.byte	0x3
 	.byte	0x94
 	.byte	0x19
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -152
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x2d
 	.ascii "GreatestCommonDivisor_Imp\0"
 	.byte	0x3
 	.byte	0x1f
@@ -7030,74 +7083,74 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4415-.LFB4415
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5740
-	.uleb128 0x22
+	.long	0x57a7
+	.uleb128 0x25
 	.ascii "p1_buf\0"
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x34
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "p2_buf\0"
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x49
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "word_count\0"
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x5d
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "w_buf\0"
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x76
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
-	.uleb128 0x2b
-	.secrel32	.LASF14
+	.uleb128 0x2e
+	.secrel32	.LASF15
 	.byte	0x3
 	.byte	0x1f
 	.byte	0x8a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x29
+	.uleb128 0x2c
 	.ascii "u\0"
 	.byte	0x3
 	.byte	0x21
 	.byte	0x12
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
-	.uleb128 0x29
+	.uleb128 0x2c
 	.ascii "v\0"
 	.byte	0x3
 	.byte	0x22
 	.byte	0x12
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
-	.uleb128 0x20
+	.uleb128 0x23
 	.quad	.LBB6
 	.quad	.LBE6-.LBB6
-	.uleb128 0x29
+	.uleb128 0x2c
 	.ascii "c\0"
 	.byte	0x3
 	.byte	0x2d
@@ -7106,22 +7159,22 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -36
-	.uleb128 0x20
+	.uleb128 0x23
 	.quad	.LBB7
 	.quad	.LBE7-.LBB7
-	.uleb128 0x29
+	.uleb128 0x2c
 	.ascii "tt\0"
 	.byte	0x3
 	.byte	0x39
 	.byte	0x1a
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2f
 	.ascii "_TZCNT_ALT_UNIT\0"
 	.byte	0x1
 	.word	0x2be
@@ -7131,17 +7184,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4369-.LFB4369
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x578e
-	.uleb128 0x1c
+	.long	0x57f5
+	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.word	0x2be
 	.byte	0x35
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "pos\0"
 	.byte	0x1
 	.word	0x2d0
@@ -7151,7 +7204,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2f
 	.ascii "_LZCNT_ALT_UNIT\0"
 	.byte	0x1
 	.word	0x26e
@@ -7161,17 +7214,17 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4365-.LFB4365
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x57dc
-	.uleb128 0x1c
+	.long	0x5843
+	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.word	0x26e
 	.byte	0x35
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "pos\0"
 	.byte	0x1
 	.word	0x280
@@ -7181,7 +7234,7 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2f
 	.ascii "_LZCNT_ALT_32\0"
 	.byte	0x1
 	.word	0x24d
@@ -7191,8 +7244,8 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4363-.LFB4363
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5828
-	.uleb128 0x1c
+	.long	0x588f
+	.uleb128 0x1f
 	.ascii "x\0"
 	.byte	0x1
 	.word	0x24d
@@ -7201,7 +7254,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x1e
+	.uleb128 0x21
 	.ascii "pos\0"
 	.byte	0x1
 	.word	0x251
@@ -7211,97 +7264,97 @@ Initialize_GreatestCommonDivisor:
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x30
 	.ascii "_MINIMUM_UNIT\0"
 	.byte	0x1
 	.byte	0xc9
 	.byte	0x21
-	.long	0x4c26
+	.long	0x4c99
 	.quad	.LFB4340
 	.quad	.LFE4340-.LFB4340
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x586f
-	.uleb128 0x22
+	.long	0x58d6
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x1
 	.byte	0xc9
 	.byte	0x3b
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "y\0"
 	.byte	0x1
 	.byte	0xc9
 	.byte	0x4a
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x30
 	.ascii "_MAXIMUM_UNIT\0"
 	.byte	0x1
 	.byte	0xc4
 	.byte	0x21
-	.long	0x4c26
+	.long	0x4c99
 	.quad	.LFB4339
 	.quad	.LFE4339-.LFB4339
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x58b6
-	.uleb128 0x22
+	.long	0x591d
+	.uleb128 0x25
 	.ascii "x\0"
 	.byte	0x1
 	.byte	0xc4
 	.byte	0x3b
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "y\0"
 	.byte	0x1
 	.byte	0xc4
 	.byte	0x4a
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x30
 	.ascii "_DIVIDE_CEILING_UNIT\0"
 	.byte	0x1
 	.byte	0xba
 	.byte	0x21
-	.long	0x4c26
+	.long	0x4c99
 	.quad	.LFB4337
 	.quad	.LFE4337-.LFB4337
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x5904
-	.uleb128 0x22
+	.long	0x596b
+	.uleb128 0x25
 	.ascii "u\0"
 	.byte	0x1
 	.byte	0xba
 	.byte	0x42
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "v\0"
 	.byte	0x1
 	.byte	0xba
 	.byte	0x51
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
-	.uleb128 0x2e
+	.uleb128 0x31
 	.ascii "_COPY_MEMORY_UNIT\0"
 	.byte	0x1
 	.byte	0x3b
@@ -7310,53 +7363,53 @@ Initialize_GreatestCommonDivisor:
 	.quad	.LFE4321-.LFB4321
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x598d
-	.uleb128 0x22
+	.long	0x59f4
+	.uleb128 0x25
 	.ascii "d\0"
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x39
-	.long	0x4d7c
+	.long	0x4de3
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "s\0"
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x4f
-	.long	0x598d
+	.long	0x59f4
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x22
+	.uleb128 0x25
 	.ascii "count\0"
 	.byte	0x1
 	.byte	0x3b
 	.byte	0x5e
-	.long	0x4c26
+	.long	0x4c99
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
-	.uleb128 0x2f
-	.long	0x5993
+	.uleb128 0x32
+	.long	0x59fa
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
 	.byte	0x40
 	.byte	0x9
-	.uleb128 0x30
-	.long	0x59ca
+	.uleb128 0x33
+	.long	0x5a31
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
-	.uleb128 0x30
-	.long	0x59ba
+	.uleb128 0x33
+	.long	0x5a21
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
-	.uleb128 0x30
-	.long	0x59a5
+	.uleb128 0x33
+	.long	0x5a0c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -7364,27 +7417,27 @@ Initialize_GreatestCommonDivisor:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4c3a
-	.uleb128 0x31
+	.long	0x4cad
+	.uleb128 0x34
 	.ascii "__movsq\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x59da
-	.uleb128 0x32
+	.long	0x5a41
+	.uleb128 0x35
 	.ascii "Destination\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x22
 	.long	0x765
-	.uleb128 0x32
+	.uleb128 0x35
 	.ascii "Source\0"
 	.byte	0x2
 	.word	0x3b8
 	.byte	0x49
-	.long	0x59da
-	.uleb128 0x32
+	.long	0x5a41
+	.uleb128 0x35
 	.ascii "Count\0"
 	.byte	0x2
 	.word	0x3b8
@@ -7724,6 +7777,61 @@ Initialize_GreatestCommonDivisor:
 	.byte	0
 	.byte	0
 	.uleb128 0x19
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0xd
+	.uleb128 0xb
+	.uleb128 0xc
+	.uleb128 0xb
+	.uleb128 0x38
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x1a
+	.uleb128 0x17
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1b
+	.uleb128 0xd
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1c
 	.uleb128 0x15
 	.byte	0x1
 	.uleb128 0x27
@@ -7734,12 +7842,12 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1a
+	.uleb128 0x1d
 	.uleb128 0x18
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x1b
+	.uleb128 0x1e
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -7768,74 +7876,11 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1c
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x1d
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2116
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x1e
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
 	.uleb128 0x1f
-	.uleb128 0x34
+	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
-	.uleb128 0xe
+	.uleb128 0x8
 	.uleb128 0x3a
 	.uleb128 0xb
 	.uleb128 0x3b
@@ -7849,6 +7894,69 @@ Initialize_GreatestCommonDivisor:
 	.byte	0
 	.byte	0
 	.uleb128 0x20
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x21
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x22
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x23
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -7857,7 +7965,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x7
 	.byte	0
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x24
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -7884,7 +7992,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x22
+	.uleb128 0x25
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -7899,51 +8007,51 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.uleb128 0x2
 	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x23
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x24
-	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x25
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x26
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x27
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x28
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x29
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
 	.uleb128 0x8
 	.uleb128 0x3a
 	.uleb128 0xb
@@ -7955,12 +8063,12 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x27
+	.uleb128 0x2a
 	.uleb128 0xb
 	.byte	0x1
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x2b
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -7989,7 +8097,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2c
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -8004,75 +8112,6 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.uleb128 0x2
 	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x2a
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2116
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x2b
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x2c
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0xb
-	.uleb128 0x3b
-	.uleb128 0x5
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x27
-	.uleb128 0x19
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
-	.uleb128 0x40
-	.uleb128 0x18
-	.uleb128 0x2117
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x2d
@@ -8088,6 +8127,48 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0xb
 	.uleb128 0x27
 	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x2e
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x2f
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
 	.uleb128 0x49
 	.uleb128 0x13
 	.uleb128 0x11
@@ -8102,7 +8183,34 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
+	.uleb128 0x30
 	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x31
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3
@@ -8127,7 +8235,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2f
+	.uleb128 0x32
 	.uleb128 0x1d
 	.byte	0x1
 	.uleb128 0x31
@@ -8144,7 +8252,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x33
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x31
@@ -8153,7 +8261,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x34
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -8174,7 +8282,7 @@ Initialize_GreatestCommonDivisor:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x32
+	.uleb128 0x35
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -8205,35 +8313,37 @@ Initialize_GreatestCommonDivisor:
 	.section	.debug_line,"dr"
 .Ldebug_line0:
 	.section	.debug_str,"dr"
-.LASF5:
-	.ascii "work_u_buf_code\0"
-.LASF14:
-	.ascii "w_buf_count\0"
 .LASF6:
+	.ascii "work_u_buf_code\0"
+.LASF15:
+	.ascii "w_buf_count\0"
+.LASF7:
 	.ascii "work_u_buf_words\0"
-.LASF8:
+.LASF9:
 	.ascii "work_v_buf_code\0"
-.LASF13:
+.LASF14:
 	.ascii "v_tzcnt\0"
+.LASF3:
+	.ascii "u_bit_count\0"
+.LASF11:
+	.ascii "work_v_buf\0"
+.LASF12:
+	.ascii "nw_check_code\0"
+.LASF2:
+	.ascii "result\0"
+.LASF5:
+	.ascii "work_bit_count\0"
 .LASF0:
 	.ascii "refcount\0"
-.LASF2:
-	.ascii "u_bit_count\0"
 .LASF10:
-	.ascii "work_v_buf\0"
-.LASF11:
-	.ascii "nw_check_code\0"
-.LASF1:
-	.ascii "result\0"
-.LASF4:
-	.ascii "work_bit_count\0"
-.LASF9:
 	.ascii "work_v_buf_words\0"
-.LASF7:
+.LASF1:
+	.ascii "IS_POWER_OF_TWO\0"
+.LASF8:
 	.ascii "work_u_buf\0"
-.LASF12:
+.LASF13:
 	.ascii "u_tzcnt\0"
-.LASF3:
+.LASF4:
 	.ascii "v_bit_count\0"
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	Compare_Imp;	.scl	2;	.type	32;	.endef

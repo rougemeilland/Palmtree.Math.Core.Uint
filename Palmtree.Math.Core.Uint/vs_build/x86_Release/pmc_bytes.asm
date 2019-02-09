@@ -260,8 +260,8 @@ $LN2@PMC_ToByte:
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	push	edi
-	mov	edi, DWORD PTR [esi+24]
-	and	edi, 2
+	mov	edi, DWORD PTR [esi]
+	and	edi, 1
 	je	SHORT $LN17@PMC_ToByte
 	xor	edx, edx
 	jmp	SHORT $LN18@PMC_ToByte
@@ -270,7 +270,7 @@ $LN17@PMC_ToByte:
 
 ; 193  :         return ((u + v - 1) / v);
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 	add	edx, 7
 	shr	edx, 3
 $LN18@PMC_ToByte:
@@ -286,7 +286,7 @@ $LN18@PMC_ToByte:
 ; 152  :     {
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
-	mov	ecx, DWORD PTR [esi+12]
+	mov	ecx, DWORD PTR [esi+16]
 	mov	eax, DWORD PTR _buffer_size$[ebp]
 	add	ecx, 8
 	shl	eax, 3
@@ -406,7 +406,7 @@ $LN29@PMC_ToByte:
 ; 182  :     }
 ; 183  :     *count = expected_abs_buffer_size + 1;
 
-	mov	esi, DWORD PTR [esi+32]
+	mov	esi, DWORD PTR [esi+36]
 	lea	edi, DWORD PTR [ebx+1]
 	mov	ecx, edx
 	rep movsb
@@ -616,7 +616,7 @@ $LN12@PMC_FromBy:
 
 ; 44   :         __movsb(d, s, count);
 
-	mov	edi, DWORD PTR [edi+32]
+	mov	edi, DWORD PTR [edi+36]
 	rep movsb
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 
@@ -699,8 +699,8 @@ $LN2@PMC_ToByte:
 ; 195  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	push	edi
-	mov	edi, DWORD PTR [esi+24]
-	and	edi, 2
+	mov	edi, DWORD PTR [esi]
+	and	edi, 1
 	je	SHORT $LN9@PMC_ToByte
 	xor	edx, edx
 	jmp	SHORT $LN10@PMC_ToByte
@@ -709,7 +709,7 @@ $LN9@PMC_ToByte:
 
 ; 193  :         return ((u + v - 1) / v);
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 	add	edx, 7
 	shr	edx, 3
 $LN10@PMC_ToByte:
@@ -725,7 +725,7 @@ $LN10@PMC_ToByte:
 ; 197  :     {
 ; 198  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
-	mov	ecx, DWORD PTR [esi+12]
+	mov	ecx, DWORD PTR [esi+16]
 	mov	eax, DWORD PTR _buffer_size$[ebp]
 	add	ecx, 8
 	shl	eax, 3
@@ -784,7 +784,7 @@ $LN6@PMC_ToByte:
 
 ; 44   :         __movsb(d, s, count);
 
-	mov	esi, DWORD PTR [esi+32]
+	mov	esi, DWORD PTR [esi+36]
 	mov	ecx, edx
 	rep movsb
 $LN13@PMC_ToByte:
@@ -976,7 +976,7 @@ $LN11@PMC_FromBy:
 
 ; 44   :         __movsb(d, s, count);
 
-	mov	edi, DWORD PTR [edi+32]
+	mov	edi, DWORD PTR [edi+36]
 	rep movsb
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 

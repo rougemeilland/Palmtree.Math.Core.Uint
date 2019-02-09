@@ -63,7 +63,7 @@ _PMC_BitwiseOr_X_L_Imp PROC				; COMDAT
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN2@PMC_Bitwis
 
 ; 271  :     {
@@ -160,7 +160,7 @@ $LN7@PMC_Bitwis:
 ; 296  :             // _UINT64_T が 1 ワードで表現しきれない場合
 ; 297  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 298  :             _UINT32_T v_hi;
 ; 299  :             _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
@@ -228,17 +228,17 @@ $LN23@PMC_Bitwis:
 ; 308  :                 BitwiseOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v_lo, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	edi
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_BitwiseOr_X_1W
 
 ; 309  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _w_light_check_code$2[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 24					; 00000018H
 	test	eax, eax
@@ -309,9 +309,9 @@ $LN12@PMC_Bitwis:
 ; 320  :                 BitwiseOr_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	mov	ecx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
-	mov	edx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
+	mov	edx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR [esi]
 	or	eax, edi
 
@@ -366,7 +366,7 @@ $LN39@PMC_Bitwis:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _w_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -447,7 +447,7 @@ _PMC_BitwiseOr_X_I_Imp PROC				; COMDAT
 ; 183  :     if (u->IS_ZERO)
 
 	mov	edi, DWORD PTR _u$[ebp]
-	test	BYTE PTR [edi+24], 2
+	test	BYTE PTR [edi], 1
 	je	SHORT $LN2@PMC_Bitwis
 
 ; 184  :     {
@@ -553,7 +553,7 @@ $LN7@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [edi+12], eax
+	cmp	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 211  :         if ((result = AllocateNumber(w, w_bit_count, &nz_check_code)) != PMC_STATUS_OK)
@@ -563,7 +563,7 @@ $LN7@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	eax, DWORD PTR [edi+12]
+	cmovae	eax, DWORD PTR [edi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 209  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -583,9 +583,9 @@ $LN7@PMC_Bitwis:
 ; 213  :         BitwiseOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	mov	ecx, DWORD PTR [edi+8]
-	mov	edi, DWORD PTR [edi+32]
-	mov	edx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [edi+12]
+	mov	edi, DWORD PTR [edi+36]
+	mov	edx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR [edi]
 	or	eax, esi
 	mov	DWORD PTR [edx], eax
@@ -616,7 +616,7 @@ $LN22@PMC_Bitwis:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nz_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -1455,7 +1455,7 @@ _TEXT	ENDS
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 ;	COMDAT _PMC_BitwiseOr_X_X@12
 _TEXT	SEGMENT
-tv263 = 8						; size = 4
+tv249 = 8						; size = 4
 _u$ = 8							; size = 4
 _nw$ = 12						; size = 4
 _v$ = 12						; size = 4
@@ -1515,7 +1515,7 @@ _PMC_BitwiseOr_X_X@12 PROC				; COMDAT
 ; 406  :     NUMBER_HEADER* nw;
 ; 407  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [edi+24], 2
+	test	BYTE PTR [edi], 1
 	lea	eax, DWORD PTR _nw$[ebp]
 	je	SHORT $LN7@PMC_Bitwis
 
@@ -1543,7 +1543,7 @@ $LN7@PMC_Bitwis:
 ; 411  :     }
 ; 412  :     else if (nv->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN10@PMC_Bitwis
 
 ; 413  :     {
@@ -1562,7 +1562,7 @@ $LN10@PMC_Bitwis:
 ; 418  :     {
 ; 419  :         if (nu->UNIT_WORD_COUNT < nv->UNIT_WORD_COUNT)
 
-	mov	ecx, DWORD PTR [edi+8]
+	mov	ecx, DWORD PTR [edi+12]
 
 ; 420  :         {
 ; 421  :             NUMBER_HEADER* t = nu;
@@ -1572,14 +1572,14 @@ $LN10@PMC_Bitwis:
 ; 425  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, edi
-	cmp	ecx, DWORD PTR [esi+8]
+	cmp	ecx, DWORD PTR [esi+12]
 	cmovae	edx, esi
 	cmovae	esi, edi
-	mov	DWORD PTR tv263[ebp], edx
+	mov	DWORD PTR tv249[ebp], edx
 
 ; 426  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	ecx, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx+16]
 
 ; 429  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
 
@@ -1588,7 +1588,7 @@ $LN10@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [esi+12], ecx
+	cmp	DWORD PTR [esi+16], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 429  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
@@ -1598,7 +1598,7 @@ $LN10@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	ecx, DWORD PTR [esi+12]
+	cmovae	ecx, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 429  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
@@ -1614,19 +1614,19 @@ $LN10@PMC_Bitwis:
 ; 431  :         BitwiseOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	eax, DWORD PTR _nw$[ebp]
-	push	DWORD PTR [eax+32]
-	mov	eax, DWORD PTR tv263[ebp]
-	push	DWORD PTR [eax+8]
-	push	DWORD PTR [eax+32]
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [eax+36]
+	mov	eax, DWORD PTR tv249[ebp]
+	push	DWORD PTR [eax+12]
+	push	DWORD PTR [eax+36]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_BitwiseOr_X_X
 
 ; 432  :         if ((result = CheckBlockLight(nw->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _nw_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 28					; 0000001cH
 	test	eax, eax

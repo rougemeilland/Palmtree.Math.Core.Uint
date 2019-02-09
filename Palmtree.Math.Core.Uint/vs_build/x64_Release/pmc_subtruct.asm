@@ -28,31 +28,31 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Subtruct_I_X DD imagerel $LN25
-	DD	imagerel $LN25+221
+	DD	imagerel $LN25+220
 	DD	imagerel $unwind$PMC_Subtruct_I_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Subtruct_L_X DD imagerel $LN58
-	DD	imagerel $LN58+203
+	DD	imagerel $LN58+202
 	DD	imagerel $unwind$PMC_Subtruct_L_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Subtruct_X_I DD imagerel $LN27
-	DD	imagerel $LN27+395
+	DD	imagerel $LN27+393
 	DD	imagerel $unwind$PMC_Subtruct_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Subtruct_X_L DD imagerel $LN69
-	DD	imagerel $LN69+399
+	DD	imagerel $LN69+397
 	DD	imagerel $unwind$PMC_Subtruct_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Subtruct_X_X DD imagerel $LN23
-	DD	imagerel $LN23+386
+	DD	imagerel $LN23+384
 	DD	imagerel $unwind$PMC_Subtruct_X_X
 pdata	ENDS
 ;	COMDAT xdata
@@ -1678,9 +1678,9 @@ $LN23:
 ; 672  :     NUMBER_HEADER* nz;
 ; 673  :     if (nx->IS_ZERO)
 
-	mov	eax, DWORD PTR [rdi+40]
-	and	eax, 2
-	test	BYTE PTR [rbx+40], 2
+	mov	eax, DWORD PTR [rdi]
+	and	eax, 1
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN7@PMC_Subtru
 
 ; 674  :     {
@@ -1764,12 +1764,12 @@ $LN11@PMC_Subtru:
 ; 706  :             // x と y の差を計算する
 ; 707  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 
 ; 708  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
 ; 709  :             if (x_bit_count < y_bit_count)
 
-	cmp	rdx, QWORD PTR [rdi+16]
+	cmp	rdx, QWORD PTR [rdi+24]
 	jae	SHORT $LN14@PMC_Subtru
 $LN19@PMC_Subtru:
 
@@ -1803,13 +1803,13 @@ $LN14@PMC_Subtru:
 ; 718  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nz$[rsp]
-	mov	r9, QWORD PTR [rdi+8]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rax, QWORD PTR [rcx+48]
-	mov	QWORD PTR [rsp+40], rax
+	mov	r9, QWORD PTR [rdi+16]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rdx, QWORD PTR [rbx+16]
 	mov	rax, QWORD PTR [rcx+56]
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	QWORD PTR [rsp+40], rax
+	mov	rax, QWORD PTR [rcx+64]
+	mov	rcx, QWORD PTR [rbx+64]
 	mov	QWORD PTR [rsp+32], rax
 	call	Subtruct_Imp
 	mov	rcx, QWORD PTR nz$[rsp]
@@ -1842,7 +1842,7 @@ $LN16@PMC_Subtru:
 ; 723  :             if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
@@ -1944,7 +1944,7 @@ $LN69:
 ; 531  :     NUMBER_HEADER* nz;
 ; 532  :     if (nx->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN6@PMC_Subtru
 
 ; 533  :     {
@@ -2101,7 +2101,7 @@ $LN10@PMC_Subtru:
 ; 621  : 
 ; 622  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 648  :         return (sizeof(x) * 8 - 1 - pos);
@@ -2154,10 +2154,10 @@ $LN25@PMC_Subtru:
 
 	mov	r9, QWORD PTR nz$[rsp]
 	mov	r8, rdi
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rbx+56]
-	mov	rax, QWORD PTR [r9+48]
-	mov	r9, QWORD PTR [r9+56]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+64]
+	mov	rax, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	mov	QWORD PTR [rsp+32], rax
 	call	Subtruct_X_1W
 	mov	rcx, QWORD PTR nz$[rsp]
@@ -2190,7 +2190,7 @@ $LN27@PMC_Subtru:
 ; 638  :                 if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
@@ -2205,7 +2205,7 @@ $LN27@PMC_Subtru:
 ; 642  :             if (nz->IS_ZERO)
 
 	mov	rax, QWORD PTR nz$[rsp]
-	test	BYTE PTR [rax+40], 2
+	test	BYTE PTR [rax], 1
 	je	SHORT $LN29@PMC_Subtru
 
 ; 643  :             {
@@ -2305,7 +2305,7 @@ $LN27:
 ; 276  :     NUMBER_HEADER* nw;
 ; 277  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN6@PMC_Subtru
 
 ; 278  :     {
@@ -2408,7 +2408,7 @@ $LN10@PMC_Subtru:
 ; 312  :             // u と v の差を計算する
 ; 313  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 601  :         return (sizeof(x) * 8 - 1 - pos);
@@ -2461,10 +2461,10 @@ $LN13@PMC_Subtru:
 
 	mov	r9, QWORD PTR nw$[rsp]
 	mov	r8, rdi
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rbx+56]
-	mov	rax, QWORD PTR [r9+48]
-	mov	r9, QWORD PTR [r9+56]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rbx+64]
+	mov	rax, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	mov	QWORD PTR [rsp+32], rax
 	call	Subtruct_X_1W
 	mov	rcx, QWORD PTR nw$[rsp]
@@ -2497,7 +2497,7 @@ $LN15@PMC_Subtru:
 ; 329  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Subtru
@@ -2511,7 +2511,7 @@ $LN15@PMC_Subtru:
 ; 332  :             if (nw->IS_ZERO)
 
 	mov	rax, QWORD PTR nw$[rsp]
-	test	BYTE PTR [rax+40], 2
+	test	BYTE PTR [rax], 1
 	je	SHORT $LN17@PMC_Subtru
 
 ; 333  :             {
@@ -2611,8 +2611,8 @@ $LN58:
 ; 361  :         return (result);
 ; 362  :     if (u == 0)
 
-	mov	eax, DWORD PTR [rsi+40]
-	and	eax, 2
+	mov	eax, DWORD PTR [rsi]
+	and	eax, 1
 	test	rbx, rbx
 	jne	SHORT $LN6@PMC_Subtru
 
@@ -2701,7 +2701,7 @@ $LN6@PMC_Subtru:
 ; 484  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 485  :                 if (u_bit_count < v_bit_count)
 
-	cmp	rcx, QWORD PTR [rsi+16]
+	cmp	rcx, QWORD PTR [rsi+24]
 	jb	SHORT $LN54@PMC_Subtru
 
 ; 486  :                 {
@@ -2719,7 +2719,7 @@ $LN6@PMC_Subtru:
 ; 498  :                     __UNIT_TYPE temp_w;
 ; 499  :                     char borrow = _SUBTRUCT_UNIT(0, (__UNIT_TYPE)u, nv->BLOCK[0], &temp_w);
 
-	mov	rax, QWORD PTR [rsi+56]
+	mov	rax, QWORD PTR [rsi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 267  :         return (_subborrow_u64(borrow, u, v, w));
@@ -2838,8 +2838,8 @@ $LN25:
 ; 195  :         return (result);
 ; 196  :     if (u == 0)
 
-	mov	eax, DWORD PTR [rdi+40]
-	and	eax, 2
+	mov	eax, DWORD PTR [rdi]
+	and	eax, 1
 	test	esi, esi
 	jne	SHORT $LN6@PMC_Subtru
 
@@ -2944,7 +2944,7 @@ $LN10@PMC_Subtru:
 ; 232  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 233  :             if (u_bit_count < v_bit_count)
 
-	cmp	rcx, QWORD PTR [rdi+16]
+	cmp	rcx, QWORD PTR [rdi+24]
 	jb	SHORT $LN22@PMC_Subtru
 
 ; 234  :             {
@@ -2960,7 +2960,7 @@ $LN10@PMC_Subtru:
 ; 244  :                 __UNIT_TYPE temp_w;
 ; 245  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	mov	rcx, rsi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 

@@ -62,10 +62,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_equals.c
 _TEXT	SEGMENT
-tv141 = -56						; size = 4
-tv200 = -52						; size = 8
-tv129 = -44						; size = 4
-tv84 = -40						; size = 4
+tv140 = -56						; size = 4
+tv199 = -52						; size = 8
+tv128 = -44						; size = 4
+tv83 = -40						; size = 4
 _v_bit_count$1 = -36					; size = 4
 _u_bit_count$2 = -32					; size = 4
 _v_bit_count$3 = -28					; size = 4
@@ -94,8 +94,7 @@ _PMC_Equals_X_L_Imp PROC
 ; 126  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Equals
 
@@ -166,7 +165,7 @@ $LN6@PMC_Equals:
 ; 151  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$7[ebp], eax
 
 ; 152  :             _UINT32_T v_hi;
@@ -226,17 +225,17 @@ $LN12@PMC_Equals:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [eax+edx]
 	cmp	eax, DWORD PTR _v_lo$5[ebp]
 	jne	SHORT $LN19@PMC_Equals
-	mov	DWORD PTR tv84[ebp], 1
+	mov	DWORD PTR tv83[ebp], 1
 	jmp	SHORT $LN20@PMC_Equals
 $LN19@PMC_Equals:
-	mov	DWORD PTR tv84[ebp], 0
+	mov	DWORD PTR tv83[ebp], 0
 $LN20@PMC_Equals:
 	mov	ecx, DWORD PTR _w$[ebp]
-	mov	edx, DWORD PTR tv84[ebp]
+	mov	edx, DWORD PTR tv83[ebp]
 	mov	DWORD PTR [ecx], edx
 $LN13@PMC_Equals:
 
@@ -286,24 +285,24 @@ $LN14@PMC_Equals:
 	mov	ecx, 4
 	shl	ecx, 0
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [ecx+eax]
 	cmp	ecx, DWORD PTR _v_hi$6[ebp]
 	jne	SHORT $LN21@PMC_Equals
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [eax+edx]
 	cmp	eax, DWORD PTR _v_lo$5[ebp]
 	jne	SHORT $LN21@PMC_Equals
-	mov	DWORD PTR tv129[ebp], 1
+	mov	DWORD PTR tv128[ebp], 1
 	jmp	SHORT $LN22@PMC_Equals
 $LN21@PMC_Equals:
-	mov	DWORD PTR tv129[ebp], 0
+	mov	DWORD PTR tv128[ebp], 0
 $LN22@PMC_Equals:
 	mov	ecx, DWORD PTR _w$[ebp]
-	mov	edx, DWORD PTR tv129[ebp]
+	mov	edx, DWORD PTR tv128[ebp]
 	mov	DWORD PTR [ecx], edx
 $LN11@PMC_Equals:
 
@@ -321,7 +320,7 @@ $LN8@PMC_Equals:
 ; 191  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _u_bit_count$2[ebp], ecx
 
 ; 192  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -361,24 +360,24 @@ $LN16@PMC_Equals:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	xor	eax, eax
-	mov	DWORD PTR tv200[ebp], edx
-	mov	DWORD PTR tv200[ebp+4], eax
-	mov	ecx, DWORD PTR tv200[ebp]
+	mov	DWORD PTR tv199[ebp], edx
+	mov	DWORD PTR tv199[ebp+4], eax
+	mov	ecx, DWORD PTR tv199[ebp]
 	cmp	ecx, DWORD PTR _v$[ebp]
 	jne	SHORT $LN23@PMC_Equals
-	mov	edx, DWORD PTR tv200[ebp+4]
+	mov	edx, DWORD PTR tv199[ebp+4]
 	cmp	edx, DWORD PTR _v$[ebp+4]
 	jne	SHORT $LN23@PMC_Equals
-	mov	DWORD PTR tv141[ebp], 1
+	mov	DWORD PTR tv140[ebp], 1
 	jmp	SHORT $LN24@PMC_Equals
 $LN23@PMC_Equals:
-	mov	DWORD PTR tv141[ebp], 0
+	mov	DWORD PTR tv140[ebp], 0
 $LN24@PMC_Equals:
 	mov	eax, DWORD PTR _w$[ebp]
-	mov	ecx, DWORD PTR tv141[ebp]
+	mov	ecx, DWORD PTR tv140[ebp]
 	mov	DWORD PTR [eax], ecx
 $LN3@PMC_Equals:
 
@@ -405,6 +404,7 @@ $LN3@PMC_Equals:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
+	npad	3
 $LN27@PMC_Equals:
 	DD	1
 	DD	$LN26@PMC_Equals
@@ -423,7 +423,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_equals.c
 _TEXT	SEGMENT
-tv79 = -12						; size = 4
+tv78 = -12						; size = 4
 _v_bit_count$1 = -8					; size = 4
 _u_bit_count$2 = -4					; size = 4
 _u$ = 8							; size = 4
@@ -445,8 +445,7 @@ _PMC_Equals_X_I_Imp PROC
 ; 47   :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Equals
 
@@ -507,7 +506,7 @@ $LN6@PMC_Equals:
 ; 69   :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$2[ebp], eax
 
 ; 70   :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -547,17 +546,17 @@ $LN8@PMC_Equals:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [eax+edx]
 	cmp	eax, DWORD PTR _v$[ebp]
 	jne	SHORT $LN11@PMC_Equals
-	mov	DWORD PTR tv79[ebp], 1
+	mov	DWORD PTR tv78[ebp], 1
 	jmp	SHORT $LN12@PMC_Equals
 $LN11@PMC_Equals:
-	mov	DWORD PTR tv79[ebp], 0
+	mov	DWORD PTR tv78[ebp], 0
 $LN12@PMC_Equals:
 	mov	ecx, DWORD PTR _w$[ebp]
-	mov	edx, DWORD PTR tv79[ebp]
+	mov	edx, DWORD PTR tv78[ebp]
 	mov	DWORD PTR [ecx], edx
 $LN3@PMC_Equals:
 
@@ -853,7 +852,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_equals.c
 _TEXT	SEGMENT
-tv81 = -24						; size = 4
+tv79 = -24						; size = 4
 _v_bit_count$1 = -20					; size = 4
 _u_bit_count$2 = -16					; size = 4
 _result$ = -12						; size = 4
@@ -958,8 +957,7 @@ $LN6@PMC_Equals:
 ; 262  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Equals
 
@@ -967,17 +965,16 @@ $LN6@PMC_Equals:
 ; 264  :         *w = nv->IS_ZERO ? 1 : 0;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN14@PMC_Equals
-	mov	DWORD PTR tv81[ebp], 1
+	mov	DWORD PTR tv79[ebp], 1
 	jmp	SHORT $LN15@PMC_Equals
 $LN14@PMC_Equals:
-	mov	DWORD PTR tv81[ebp], 0
+	mov	DWORD PTR tv79[ebp], 0
 $LN15@PMC_Equals:
 	mov	edx, DWORD PTR _w$[ebp]
-	mov	eax, DWORD PTR tv81[ebp]
+	mov	eax, DWORD PTR tv79[ebp]
 	mov	DWORD PTR [edx], eax
 
 ; 265  :     }
@@ -988,8 +985,7 @@ $LN7@PMC_Equals:
 ; 266  :     else if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN9@PMC_Equals
 
@@ -1009,13 +1005,13 @@ $LN9@PMC_Equals:
 ; 272  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$2[ebp], edx
 
 ; 273  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$1[ebp], ecx
 
 ; 274  :         if (u_bit_count != v_bit_count)
@@ -1042,13 +1038,13 @@ $LN11@PMC_Equals:
 ; 282  :             *w = Equals_X_X(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_Equals_X_X
 	add	esp, 12					; 0000000cH

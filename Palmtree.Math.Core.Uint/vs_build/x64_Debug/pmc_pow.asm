@@ -78,7 +78,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp
-	DD	imagerel PMC_Pow_X_I_Imp+797
+	DD	imagerel PMC_Pow_X_I_Imp+792
 	DD	imagerel $unwind$PMC_Pow_X_I_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -274,7 +274,7 @@ work2_buf_code$13 = 200
 work2_buf_words$14 = 232
 work2_buf$15 = 264
 r_check_code$16 = 296
-tv80 = 504
+tv79 = 504
 v$ = 544
 e$ = 552
 r$ = 560
@@ -301,8 +301,7 @@ PMC_Pow_X_I_Imp PROC					; COMDAT
 ; 79   :     if (v->IS_ZERO)
 
 	mov	rax, QWORD PTR v$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Pow_X_
@@ -349,8 +348,8 @@ $LN2@PMC_Pow_X_:
 ; 97   :     else if (v->IS_ONE)
 
 	mov	rax, QWORD PTR v$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 2
+	mov	eax, DWORD PTR [rax]
+	shr	eax, 1
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN6@PMC_Pow_X_
@@ -431,7 +430,7 @@ $LN10@PMC_Pow_X_:
 ; 128  :             __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR v$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$8[rbp], rax
 
 ; 129  : 
@@ -439,10 +438,10 @@ $LN10@PMC_Pow_X_:
 ; 131  :             if (v_bit_count > ((__UNIT_TYPE)-1 - __UNIT_TYPE_BIT_COUNT) / e)
 
 	mov	eax, DWORD PTR e$[rbp]
-	mov	QWORD PTR tv80[rbp], rax
+	mov	QWORD PTR tv79[rbp], rax
 	xor	edx, edx
 	mov	rax, -65				; ffffffffffffffbfH
-	mov	rcx, QWORD PTR tv80[rbp]
+	mov	rcx, QWORD PTR tv79[rbp]
 	div	rcx
 	cmp	QWORD PTR v_bit_count$8[rbp], rax
 	jbe	SHORT $LN13@PMC_Pow_X_
@@ -552,16 +551,16 @@ $LN16@PMC_Pow_X_:
 
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rax, QWORD PTR [rax]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+40], rax
 	mov	rax, QWORD PTR work2_buf$15[rbp]
 	mov	QWORD PTR [rsp+32], rax
 	mov	r9, QWORD PTR work1_buf$12[rbp]
 	mov	r8d, DWORD PTR e$[rbp]
 	mov	rax, QWORD PTR v$[rbp]
-	mov	rdx, QWORD PTR [rax+8]
+	mov	rdx, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR v$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	Pow_Imp
 
 ; 160  : 
@@ -600,7 +599,7 @@ $LN18@PMC_Pow_X_:
 	mov	rax, QWORD PTR r$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR r_check_code$16[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0

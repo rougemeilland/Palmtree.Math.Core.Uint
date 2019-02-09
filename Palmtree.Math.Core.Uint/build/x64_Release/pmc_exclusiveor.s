@@ -15,7 +15,7 @@ PMC_ExclusiveOr_X_I_Imp:
 	subq	$72, %rsp
 	.seh_stackalloc	72
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rsi
 	movl	%edx, %ebx
 	movq	%r8, %rbp
@@ -57,7 +57,7 @@ PMC_ExclusiveOr_X_I_Imp:
 	movl	$32, %edx
 	cltq
 	subq	%rax, %rdx
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	movq	%rbp, %rcx
 	cmpq	%rax, %rdx
 	cmovb	%rax, %rdx
@@ -66,9 +66,9 @@ PMC_ExclusiveOr_X_I_Imp:
 	testl	%eax, %eax
 	jne	.L1
 	movq	0(%rbp), %rax
-	movq	56(%rax), %rcx
-	movq	8(%rsi), %rax
-	movq	56(%rsi), %rsi
+	movq	64(%rax), %rcx
+	movq	16(%rsi), %rax
+	movq	64(%rsi), %rsi
 	xorq	(%rsi), %rbx
 	cmpq	$1, %rax
 	movq	%rbx, (%rcx)
@@ -82,7 +82,7 @@ PMC_ExclusiveOr_X_I_Imp:
  # 0 "" 2
 /NO_APP
 	movq	0(%rbp), %rax
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 .L8:
 	movq	56(%rsp), %rdx
 	call	CheckBlockLight
@@ -93,7 +93,7 @@ PMC_ExclusiveOr_X_I_Imp:
 	call	CommitNumber
 	movq	0(%rbp), %rcx
 	movl	44(%rsp), %eax
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L1
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rdx
@@ -127,7 +127,7 @@ PMC_ExclusiveOr_X_L_Imp:
 	subq	$72, %rsp
 	.seh_stackalloc	72
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	movq	%rcx, %rsi
 	movq	%rdx, %rbx
 	movq	%r8, %rbp
@@ -169,7 +169,7 @@ PMC_ExclusiveOr_X_L_Imp:
 	movl	$64, %edx
 	cltq
 	subq	%rax, %rdx
-	movq	16(%rcx), %rax
+	movq	24(%rcx), %rax
 	movq	%rbp, %rcx
 	cmpq	%rax, %rdx
 	cmovb	%rax, %rdx
@@ -178,9 +178,9 @@ PMC_ExclusiveOr_X_L_Imp:
 	testl	%eax, %eax
 	jne	.L14
 	movq	0(%rbp), %rax
-	movq	56(%rax), %rcx
-	movq	8(%rsi), %rax
-	movq	56(%rsi), %rsi
+	movq	64(%rax), %rcx
+	movq	16(%rsi), %rax
+	movq	64(%rsi), %rsi
 	xorq	(%rsi), %rbx
 	cmpq	$1, %rax
 	movq	%rbx, (%rcx)
@@ -194,7 +194,7 @@ PMC_ExclusiveOr_X_L_Imp:
  # 0 "" 2
 /NO_APP
 	movq	0(%rbp), %rax
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 .L21:
 	movq	56(%rsp), %rdx
 	call	CheckBlockLight
@@ -205,7 +205,7 @@ PMC_ExclusiveOr_X_L_Imp:
 	call	CommitNumber
 	movq	0(%rbp), %rcx
 	movl	44(%rsp), %eax
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L14
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rdx
@@ -458,35 +458,35 @@ PMC_ExclusiveOr_X_X:
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L39
-	testb	$2, 40(%rbp)
+	testb	$1, 0(%rbp)
 	jne	.L82
-	testb	$2, 40(%rsi)
+	testb	$1, (%rsi)
 	jne	.L83
-	movq	8(%rsi), %rax
-	cmpq	%rax, 8(%rbp)
+	movq	16(%rsi), %rax
+	cmpq	%rax, 16(%rbp)
 	jnb	.L45
 	movq	%rbp, %rax
 	movq	%rsi, %rbp
 	movq	%rax, %rsi
 .L45:
-	movq	16(%rsi), %rdx
+	movq	24(%rsi), %rdx
 	leaq	32(%rsp), %rcx
-	cmpq	%rdx, 16(%rbp)
+	cmpq	%rdx, 24(%rbp)
 	leaq	40(%rsp), %r8
-	cmovnb	16(%rbp), %rdx
+	cmovnb	24(%rbp), %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L57
-	movq	8(%rsi), %r13
-	movq	8(%rbp), %rcx
+	movq	16(%rsi), %r13
+	movq	16(%rbp), %rcx
 	movq	32(%rsp), %rax
-	movq	56(%rsi), %r11
-	movq	56(%rbp), %rsi
+	movq	64(%rsi), %r11
+	movq	64(%rbp), %rsi
 	movq	%r13, %rbp
 	shrq	$5, %rbp
 	subq	%r13, %rcx
 	testq	%rbp, %rbp
-	movq	56(%rax), %rdi
+	movq	64(%rax), %rdi
 	je	.L47
 	movq	%rbp, %r10
 	movq	%rdi, %r8
@@ -729,7 +729,7 @@ PMC_ExclusiveOr_X_X:
 /NO_APP
 	movq	32(%rsp), %rax
 	movq	40(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	je	.L84
@@ -779,7 +779,7 @@ PMC_ExclusiveOr_X_X:
 	movq	32(%rsp), %rcx
 	call	CommitNumber
 	movq	32(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L44
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx

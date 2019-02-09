@@ -74,7 +74,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_X DD imagerel $LN18
-	DD	imagerel $LN18+436
+	DD	imagerel $LN18+427
 	DD	imagerel $unwind$PMC_Compare_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -98,13 +98,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_I_Imp DD imagerel PMC_Compare_X_I_Imp
-	DD	imagerel PMC_Compare_X_I_Imp+364
+	DD	imagerel PMC_Compare_X_I_Imp+361
 	DD	imagerel $unwind$PMC_Compare_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_L_Imp DD imagerel PMC_Compare_X_L_Imp
-	DD	imagerel PMC_Compare_X_L_Imp+926
+	DD	imagerel PMC_Compare_X_L_Imp+923
 	DD	imagerel $unwind$PMC_Compare_X_L_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -360,8 +360,7 @@ PMC_Compare_X_L_Imp PROC				; COMDAT
 ; 145  :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Compar
@@ -431,7 +430,7 @@ $LN6@PMC_Compar:
 ; 170  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$4[rbp], rax
 
 ; 171  :             _UINT32_T v_hi;
@@ -504,7 +503,7 @@ $LN14@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jbe	SHORT $LN16@PMC_Compar
@@ -521,7 +520,7 @@ $LN16@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jae	SHORT $LN18@PMC_Compar
@@ -607,7 +606,7 @@ $LN22@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 1
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_hi$5[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jbe	SHORT $LN24@PMC_Compar
@@ -624,7 +623,7 @@ $LN24@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 1
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_hi$5[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jae	SHORT $LN26@PMC_Compar
@@ -641,7 +640,7 @@ $LN26@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jbe	SHORT $LN28@PMC_Compar
@@ -658,7 +657,7 @@ $LN28@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v_lo$6[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jae	SHORT $LN30@PMC_Compar
@@ -697,7 +696,7 @@ $LN8@PMC_Compar:
 ; 234  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$9[rbp], rax
 
 ; 235  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -755,7 +754,7 @@ $LN34@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	rdx, QWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jbe	SHORT $LN36@PMC_Compar
@@ -772,7 +771,7 @@ $LN36@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	rdx, QWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jae	SHORT $LN38@PMC_Compar
@@ -842,8 +841,7 @@ PMC_Compare_X_I_Imp PROC				; COMDAT
 ; 55   :     if (u->IS_ZERO)
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@PMC_Compar
@@ -905,7 +903,7 @@ $LN6@PMC_Compar:
 ; 77   :         __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR u$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$1[rbp], rax
 
 ; 78   :         __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -963,7 +961,7 @@ $LN10@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jbe	SHORT $LN12@PMC_Compar
@@ -980,7 +978,7 @@ $LN12@PMC_Compar:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR u$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, DWORD PTR v$[rbp]
 	cmp	QWORD PTR [rax+rcx], rdx
 	jae	SHORT $LN14@PMC_Compar
@@ -1216,7 +1214,7 @@ nv$ = 40
 result$ = 68
 u_bit_count$1 = 104
 v_bit_count$2 = 136
-tv81 = 340
+tv79 = 340
 u$ = 384
 v$ = 392
 w$ = 400
@@ -1315,8 +1313,7 @@ $LN6@PMC_Compar:
 ; 316  :     if (nu->IS_ZERO)
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN7@PMC_Compar
@@ -1325,18 +1322,17 @@ $LN6@PMC_Compar:
 ; 318  :         *w = nv->IS_ZERO ? 0 : -1;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN16@PMC_Compar
-	mov	DWORD PTR tv81[rbp], 0
+	mov	DWORD PTR tv79[rbp], 0
 	jmp	SHORT $LN17@PMC_Compar
 $LN16@PMC_Compar:
-	mov	DWORD PTR tv81[rbp], -1
+	mov	DWORD PTR tv79[rbp], -1
 $LN17@PMC_Compar:
 	mov	rax, QWORD PTR w$[rbp]
-	mov	ecx, DWORD PTR tv81[rbp]
+	mov	ecx, DWORD PTR tv79[rbp]
 	mov	DWORD PTR [rax], ecx
 
 ; 319  :     }
@@ -1347,8 +1343,7 @@ $LN7@PMC_Compar:
 ; 320  :     else if (nv->IS_ZERO)
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN9@PMC_Compar
@@ -1369,13 +1364,13 @@ $LN9@PMC_Compar:
 ; 326  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR u_bit_count$1[rbp], rax
 
 ; 327  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	mov	QWORD PTR v_bit_count$2[rbp], rax
 
 ; 328  :         if (u_bit_count > v_bit_count)
@@ -1420,11 +1415,11 @@ $LN13@PMC_Compar:
 ; 341  :             *w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
 
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	r8, QWORD PTR [rax+8]
+	mov	r8, QWORD PTR [rax+16]
 	mov	rax, QWORD PTR nv$[rbp]
-	mov	rdx, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR nu$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	Compare_Imp
 	mov	rcx, QWORD PTR w$[rbp]
 	mov	DWORD PTR [rcx], eax

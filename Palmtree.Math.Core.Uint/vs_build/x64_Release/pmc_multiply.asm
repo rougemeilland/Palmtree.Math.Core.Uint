@@ -53,7 +53,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_X DD imagerel $LN27
-	DD	imagerel $LN27+379
+	DD	imagerel $LN27+377
 	DD	imagerel $unwind$PMC_Multiply_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -95,13 +95,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_I_Imp DD imagerel PMC_Multiply_X_I_Imp
-	DD	imagerel PMC_Multiply_X_I_Imp+249
+	DD	imagerel PMC_Multiply_X_I_Imp+248
 	DD	imagerel $unwind$PMC_Multiply_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_X_L_Imp DD imagerel PMC_Multiply_X_L_Imp
-	DD	imagerel PMC_Multiply_X_L_Imp+255
+	DD	imagerel PMC_Multiply_X_L_Imp+254
 	DD	imagerel $unwind$PMC_Multiply_X_L_Imp
 pdata	ENDS
 ;	COMDAT xdata
@@ -227,11 +227,11 @@ PMC_Multiply_X_L_Imp PROC				; COMDAT
 ; 547  :     PMC_STATUS_CODE result;
 ; 548  :     if (u->IS_ZERO)
 
-	mov	eax, DWORD PTR [rcx+40]
+	mov	eax, DWORD PTR [rcx]
 	mov	rbx, r8
 	mov	rdi, rdx
 	mov	rsi, rcx
-	test	al, 2
+	test	al, 1
 	jne	SHORT $LN36@PMC_Multip
 
 ; 549  :     {
@@ -242,7 +242,7 @@ PMC_Multiply_X_L_Imp PROC				; COMDAT
 ; 554  :     }
 ; 555  :     else if (u->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	je	SHORT $LN4@PMC_Multip
 
 ; 556  :     {
@@ -388,7 +388,7 @@ $LN11@PMC_Multip:
 ; 634  : 
 ; 635  :                 __UNIT_TYPE x_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rcx+16]
+	mov	rdx, QWORD PTR [rcx+24]
 
 ; 637  :                 __UNIT_TYPE z_bit_count = x_bit_count + y_bit_count;
 ; 638  :                 __UNIT_TYPE nz_light_check_code;
@@ -436,16 +436,16 @@ $LN11@PMC_Multip:
 
 	mov	r9, QWORD PTR [rbx]
 	mov	r8, rdi
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	rcx, QWORD PTR [rsi+56]
-	mov	r9, QWORD PTR [r9+56]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rsi+64]
+	mov	r9, QWORD PTR [r9+64]
 	call	QWORD PTR fp_Multiply_X_1W
 
 ; 642  :                 if ((result = CheckBlockLight((*w)->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nz_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Multip
@@ -496,11 +496,11 @@ PMC_Multiply_X_I_Imp PROC				; COMDAT
 ; 433  :     PMC_STATUS_CODE result;
 ; 434  :     if (u->IS_ZERO)
 
-	mov	eax, DWORD PTR [rcx+40]
+	mov	eax, DWORD PTR [rcx]
 	mov	rbx, r8
 	mov	edi, edx
 	mov	rsi, rcx
-	test	al, 2
+	test	al, 1
 	jne	SHORT $LN20@PMC_Multip
 
 ; 435  :     {
@@ -511,7 +511,7 @@ PMC_Multiply_X_I_Imp PROC				; COMDAT
 ; 440  :     }
 ; 441  :     else if (u->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	je	SHORT $LN4@PMC_Multip
 
 ; 442  :     {
@@ -619,7 +619,7 @@ $LN11@PMC_Multip:
 ; 483  :             // u と v の積を計算する
 ; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rcx+16]
+	mov	rdx, QWORD PTR [rcx+24]
 
 ; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
 ; 487  :             __UNIT_TYPE w_light_check_code;
@@ -663,16 +663,16 @@ $LN11@PMC_Multip:
 
 	mov	r9, QWORD PTR [rbx]
 	mov	r8, rdi
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	rcx, QWORD PTR [rsi+56]
-	mov	r9, QWORD PTR [r9+56]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rsi+64]
+	mov	r9, QWORD PTR [r9+64]
 	call	QWORD PTR fp_Multiply_X_1W
 
 ; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Multip
@@ -2151,7 +2151,7 @@ $LL2@Multiply_W:
 	add	rcx, QWORD PTR [r9+248]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2193,7 +2193,7 @@ $LL2@Multiply_W:
 	mov	QWORD PTR t_hi$63[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2619,7 +2619,7 @@ $LN3@Multiply_W:
 	add	rcx, QWORD PTR [r9+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2661,7 +2661,7 @@ $LN3@Multiply_W:
 	mov	QWORD PTR t_hi$95[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN605@Multiply_W:
@@ -2868,7 +2868,7 @@ $LN605@Multiply_W:
 	add	rcx, QWORD PTR [r9+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2910,7 +2910,7 @@ $LN605@Multiply_W:
 	mov	QWORD PTR t_hi$111[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN705@Multiply_W:
@@ -3013,7 +3013,7 @@ $LN705@Multiply_W:
 	add	rcx, QWORD PTR [r9+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3055,7 +3055,7 @@ $LN705@Multiply_W:
 	mov	QWORD PTR t_hi$119[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN757@Multiply_W:
@@ -3106,7 +3106,7 @@ $LN757@Multiply_W:
 	add	rcx, QWORD PTR [r9+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3148,7 +3148,7 @@ $LN757@Multiply_W:
 	mov	QWORD PTR t_hi$123[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN785@Multiply_W:
@@ -3198,7 +3198,7 @@ $LN785@Multiply_W:
 	mov	QWORD PTR t_lo$124[rbp-256], r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -4561,7 +4561,7 @@ $LL2@Multiply_W:
 	add	r9, 256					; 00000100H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 	lock xadd DWORD PTR statistics_info, eax
@@ -5101,7 +5101,7 @@ $LN3@Multiply_W:
 	sub	r9, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 	lock xadd DWORD PTR statistics_info, eax
@@ -5376,7 +5376,7 @@ $LN605@Multiply_W:
 	add	r9, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 	lock xadd DWORD PTR statistics_info, eax
@@ -5536,7 +5536,7 @@ $LN705@Multiply_W:
 	add	r9, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 	lock xadd DWORD PTR statistics_info, eax
@@ -5630,7 +5630,7 @@ $LN757@Multiply_W:
 	add	r9, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info, eax
@@ -5673,7 +5673,7 @@ $LN785@Multiply_W:
 	add	r9, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -6057,11 +6057,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI64Counter PROC				; COMDAT
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, ecx
 
-; 358  :     }
+; 355  :     }
 
 	ret	0
 AddToMULTI64Counter ENDP
@@ -6073,11 +6073,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI32Counter PROC				; COMDAT
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 
-; 352  :     }
+; 349  :     }
 
 	ret	0
 AddToMULTI32Counter ENDP
@@ -6088,11 +6088,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 
-; 335  :     }
+; 332  :     }
 
 	ret	0
 IncrementMULTI64Counter ENDP
@@ -6103,11 +6103,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 
-; 329  :     }
+; 326  :     }
 
 	ret	0
 IncrementMULTI32Counter ENDP
@@ -6172,8 +6172,8 @@ $LN27:
 ; 712  :     NUMBER_HEADER* nw;
 ; 713  :     if (nu->IS_ZERO)
 
-	mov	ecx, DWORD PTR [rsi+40]
-	test	cl, 2
+	mov	ecx, DWORD PTR [rsi]
+	test	cl, 1
 	jne	SHORT $LN25@PMC_Multip
 
 ; 714  :     {
@@ -6184,10 +6184,10 @@ $LN27:
 ; 719  :     }
 ; 720  :     else if (nu->IS_ONE)
 
-	mov	edx, DWORD PTR [rdi+40]
+	mov	edx, DWORD PTR [rdi]
 	mov	eax, edx
-	and	eax, 2
-	test	cl, 4
+	and	eax, 1
+	test	cl, 2
 	je	SHORT $LN9@PMC_Multip
 
 ; 721  :     {
@@ -6282,7 +6282,7 @@ $LN14@PMC_Multip:
 ; 750  :         }
 ; 751  :         else if (nv->IS_ONE)
 
-	test	dl, 4
+	test	dl, 2
 	je	SHORT $LN16@PMC_Multip
 
 ; 752  :         {
@@ -6330,13 +6330,13 @@ $LN16@PMC_Multip:
 ; 765  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 766  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rsi+24]
 
 ; 767  :             __UNIT_TYPE w_light_check_code;
 ; 768  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR w_light_check_code$1[rsp]
-	add	rdx, QWORD PTR [rdi+16]
+	add	rdx, QWORD PTR [rdi+24]
 	lea	rcx, QWORD PTR nw$[rsp]
 	call	AllocateNumber
 	test	eax, eax
@@ -6346,19 +6346,19 @@ $LN16@PMC_Multip:
 ; 770  :             (*fp_Multiply_X_X)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rsp]
-	mov	r9, QWORD PTR [rdi+8]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rdi+16]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	call	QWORD PTR fp_Multiply_X_X
 
 ; 771  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nw$[rsp]
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Multip

@@ -71,12 +71,12 @@ _hexadecimal_upper_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H
 	DB	'5', 00H, '6', 00H, '7', 00H, '8', 00H, '9', 00H, 'A', 00H, 'B'
 	DB	00H, 'C', 00H, 'D', 00H, 'E', 00H, 'F', 00H, 00H, 00H
 	ORG $+2
-$SG95048 DB	',', 00H, 00H, 00H
-$SG95049 DB	'.', 00H, 00H, 00H
-$SG95050 DB	'3', 00H
+$SG95105 DB	',', 00H, 00H, 00H
+$SG95106 DB	'.', 00H, 00H, 00H
+$SG95107 DB	'3', 00H
 	ORG $+2
-$SG95051 DB	'+', 00H, 00H, 00H
-$SG95052 DB	'-', 00H, 00H, 00H
+$SG95108 DB	'+', 00H, 00H, 00H
+$SG95109 DB	'-', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -91,7 +91,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 _TEXT	SEGMENT
-tv128 = -36						; size = 4
+tv95 = -36						; size = 4
 _w_count$1 = -32					; size = 4
 _digit_table$2 = -28					; size = 4
 _d_ptr$3 = -24						; size = 4
@@ -129,8 +129,7 @@ _ToStringX PROC
 ; 474  :     if (x->IS_ZERO)
 
 	mov	eax, DWORD PTR _x$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN4@ToStringX
 
@@ -190,7 +189,7 @@ $LN4@ToStringX:
 
 	push	4
 	mov	edx, DWORD PTR _x$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	push	eax
 	call	__DIVIDE_CEILING_UNIT
 	add	esp, 8
@@ -271,9 +270,9 @@ $LN11@ToStringX:
 ; 507  :         __UNIT_TYPE* s_ptr = x->BLOCK + x->UNIT_WORD_COUNT - 1;
 
 	mov	eax, DWORD PTR _x$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	mov	edx, DWORD PTR _x$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	lea	ecx, DWORD PTR [eax+ecx*4-4]
 	mov	DWORD PTR _s_ptr$4[ebp], ecx
 
@@ -288,18 +287,18 @@ $LN11@ToStringX:
 
 	cmp	DWORD PTR _using_upper_letter$[ebp], 0
 	je	SHORT $LN13@ToStringX
-	mov	DWORD PTR tv128[ebp], OFFSET _hexadecimal_upper_digits
+	mov	DWORD PTR tv95[ebp], OFFSET _hexadecimal_upper_digits
 	jmp	SHORT $LN14@ToStringX
 $LN13@ToStringX:
-	mov	DWORD PTR tv128[ebp], OFFSET _hexadecimal_lower_digits
+	mov	DWORD PTR tv95[ebp], OFFSET _hexadecimal_lower_digits
 $LN14@ToStringX:
-	mov	edx, DWORD PTR tv128[ebp]
+	mov	edx, DWORD PTR tv95[ebp]
 	mov	DWORD PTR _digit_table$2[ebp], edx
 
 ; 510  :         __UNIT_TYPE w_count = x->UNIT_WORD_COUNT;
 
 	mov	eax, DWORD PTR _x$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	mov	DWORD PTR _w_count$1[ebp], ecx
 
 ; 511  :         d_ptr = ToStringX_1WORD(*s_ptr, (int)(x->UNIT_WORD_COUNT * (__UNIT_TYPE_BIT_COUNT / 4) - output_len), digit_table, d_ptr);
@@ -309,7 +308,7 @@ $LN14@ToStringX:
 	mov	eax, DWORD PTR _digit_table$2[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _x$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 3
 	sub	edx, DWORD PTR _output_len$8[ebp]
 	push	edx
@@ -1078,7 +1077,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 _TEXT	SEGMENT
-tv170 = -100						; size = 4
+tv169 = -100						; size = 4
 _rev_str_buf_count$1 = -92				; size = 4
 _rev_str_buf$2 = -84					; size = 4
 _rev_str_buf_words$3 = -76				; size = 4
@@ -1165,8 +1164,7 @@ $LN3@ToStringDN:
 ; 328  :     if (x->IS_ZERO)
 
 	mov	edx, DWORD PTR _x$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	$LN6@ToStringDN
 
@@ -1326,10 +1324,10 @@ $LN6@ToStringDN:
 	lea	ecx, DWORD PTR _r_buf_words$7[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _x$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	shr	eax, 3
 	mov	ecx, DWORD PTR _x$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	lea	eax, DWORD PTR [edx+eax+32]
 	push	eax
 	call	_AllocateBlock
@@ -1357,15 +1355,15 @@ $LN14@ToStringDN:
 	mov	eax, DWORD PTR _base_value$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _x$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	push	edx
 	mov	eax, DWORD PTR _x$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _x$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_ConvertCardinalNumber
 	add	esp, 24					; 00000018H
@@ -1420,17 +1418,17 @@ $LN16@ToStringDN:
 	jbe	SHORT $LN21@ToStringDN
 	mov	eax, DWORD PTR _r_buf_count$5[ebp]
 	imul	eax, DWORD PTR _word_digit_count$[ebp]
-	mov	DWORD PTR tv170[ebp], eax
+	mov	DWORD PTR tv169[ebp], eax
 	jmp	SHORT $LN22@ToStringDN
 $LN21@ToStringDN:
 	mov	ecx, DWORD PTR _width$[ebp]
-	mov	DWORD PTR tv170[ebp], ecx
+	mov	DWORD PTR tv169[ebp], ecx
 $LN22@ToStringDN:
 	lea	edx, DWORD PTR _rev_str_buf_code$4[ebp]
 	push	edx
 	lea	eax, DWORD PTR _rev_str_buf_words$3[ebp]
 	push	eax
-	mov	ecx, DWORD PTR tv170[ebp]
+	mov	ecx, DWORD PTR tv169[ebp]
 	mov	edx, DWORD PTR _width$[ebp]
 	lea	eax, DWORD PTR [edx+ecx*2]
 	lea	ecx, DWORD PTR [eax+eax+4]
@@ -1579,7 +1577,6 @@ $LN1@ToStringDN:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
 $LN30@ToStringDN:
 	DD	6
 	DD	$LN29@ToStringDN
@@ -3879,20 +3876,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC
 
-; 344  :     {
+; 341  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 346  :     }
+; 343  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3906,20 +3903,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC
 
-; 338  :     {
+; 335  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 340  :     }
+; 337  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3932,18 +3929,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC
 
-; 321  :     {
+; 318  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 323  :     }
+; 320  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3956,18 +3953,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC
 
-; 315  :     {
+; 312  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 317  :     }
+; 314  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -4288,7 +4285,7 @@ _Initialize_ToString PROC
 ; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG95048
+	push	OFFSET $SG95105
 	push	OFFSET _default_number_format_option+4
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4297,7 +4294,7 @@ _Initialize_ToString PROC
 ; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG95049
+	push	OFFSET $SG95106
 	push	OFFSET _default_number_format_option+10
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4306,7 +4303,7 @@ _Initialize_ToString PROC
 ; 559  :     lstrcpy(default_number_format_option.GroupSizes, "3");
 
 	mov	esi, esp
-	push	OFFSET $SG95050
+	push	OFFSET $SG95107
 	push	OFFSET _default_number_format_option+28
 	call	DWORD PTR __imp__lstrcpyA@8
 	cmp	esi, esp
@@ -4315,7 +4312,7 @@ _Initialize_ToString PROC
 ; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG95051
+	push	OFFSET $SG95108
 	push	OFFSET _default_number_format_option+16
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
@@ -4324,7 +4321,7 @@ _Initialize_ToString PROC
 ; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG95052
+	push	OFFSET $SG95109
 	push	OFFSET _default_number_format_option+22
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp

@@ -34,7 +34,7 @@ L2:
 	jne	L1
 	movl	(%esi), %edx
 	movl	%eax, 28(%esp)
-	movl	32(%edx), %ecx
+	movl	36(%edx), %ecx
 	movl	%ebx, (%ecx)
 	movl	%edx, (%esp)
 	call	_CommitNumber
@@ -90,7 +90,7 @@ L11:
 	testl	%eax, %eax
 	jne	L9
 	movl	(%ebx), %eax
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 L13:
 	movl	%esi, (%edx)
 	movl	%eax, (%esp)
@@ -126,7 +126,7 @@ L10:
 	testl	%eax, %eax
 	jne	L9
 	movl	(%ebx), %eax
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 	movl	%edi, 4(%edx)
 	jmp	L13
 	.cfi_endproc

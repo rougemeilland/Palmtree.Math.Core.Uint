@@ -1373,11 +1373,11 @@ PMC_RightShift_X_I:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L79
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	jne	.L83
 	testl	%edi, %edi
 	je	.L86
-	movq	16(%rbx), %rdx
+	movq	24(%rbx), %rdx
 	cmpq	%rdx, %rdi
 	jb	.L87
 .L83:
@@ -1399,14 +1399,14 @@ PMC_RightShift_X_I:
 	jne	.L79
 	movq	64(%rsp), %rax
 	movq	%rdi, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	movl	$0, 32(%rsp)
 	call	RightShift_Imp_DIV
 	movq	64(%rsp), %rax
 	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L79
@@ -1456,7 +1456,7 @@ PMC_LeftShift_X_I:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L88
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	je	.L90
 	movq	.refptr.number_zero(%rip), %rdx
 	movq	%rdx, (%rsi)
@@ -1484,7 +1484,7 @@ PMC_LeftShift_X_I:
 	ret
 	.p2align 4,,10
 .L91:
-	movq	16(%rbx), %rdx
+	movq	24(%rbx), %rdx
 	leaq	64(%rsp), %rcx
 	leaq	72(%rsp), %r8
 	addq	%rdi, %rdx
@@ -1493,14 +1493,14 @@ PMC_LeftShift_X_I:
 	jne	.L88
 	movq	64(%rsp), %rax
 	movq	%rdi, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	movl	$0, 32(%rsp)
 	call	LeftShift_Imp_DIV
 	movq	64(%rsp), %rax
 	movq	72(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L88

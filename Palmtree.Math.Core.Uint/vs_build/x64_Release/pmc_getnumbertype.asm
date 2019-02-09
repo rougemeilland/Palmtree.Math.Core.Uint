@@ -11,7 +11,7 @@ EXTRN	CheckNumber:PROC
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_GetNumberType_X DD imagerel $LN12
-	DD	imagerel $LN12+116
+	DD	imagerel $LN12+113
 	DD	imagerel $unwind$PMC_GetNumberType_X
 pdata	ENDS
 ;	COMDAT xdata
@@ -60,14 +60,13 @@ $LN12:
 ; 40   :     PMC_NUMBER_TYPE_CODE value = 0;
 ; 41   :     if (nx->IS_ZERO)
 
-	mov	r8d, DWORD PTR [rbx+40]
+	mov	r8d, DWORD PTR [rbx]
 
 ; 42   :         value |= 0x01;
 ; 43   :     if (nx->IS_ONE)
 
 	mov	eax, r8d
 	mov	ecx, r8d
-	shr	ecx, 1
 	and	ecx, 1
 
 ; 44   :         value |= 0x02;
@@ -75,7 +74,7 @@ $LN12:
 
 	mov	edx, ecx
 	or	edx, 2
-	and	al, 4
+	and	al, 2
 	mov	eax, r8d
 	cmove	edx, ecx
 
@@ -84,7 +83,7 @@ $LN12:
 
 	mov	ecx, edx
 	or	ecx, 8
-	and	al, 8
+	and	al, 4
 	cmove	ecx, edx
 
 ; 48   :         value |= 0x10;
@@ -92,7 +91,7 @@ $LN12:
 
 	mov	eax, ecx
 	or	eax, 16
-	and	r8b, 16
+	and	r8b, 8
 	cmove	eax, ecx
 	mov	DWORD PTR [rdi], eax
 

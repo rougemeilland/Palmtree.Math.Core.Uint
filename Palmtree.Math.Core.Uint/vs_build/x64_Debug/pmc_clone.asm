@@ -40,7 +40,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Clone_X DD imagerel $LN10
-	DD	imagerel $LN10+266
+	DD	imagerel $LN10+263
 	DD	imagerel $unwind$PMC_Clone_X
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -160,8 +160,7 @@ $LN4@PMC_Clone_:
 ; 41   :     if (nx->IS_ZERO)
 
 	mov	rax, QWORD PTR nx$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN5@PMC_Clone_

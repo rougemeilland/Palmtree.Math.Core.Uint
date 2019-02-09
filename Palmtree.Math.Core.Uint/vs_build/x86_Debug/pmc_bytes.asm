@@ -284,7 +284,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 _TEXT	SEGMENT
-tv76 = -16						; size = 4
+tv75 = -16						; size = 4
 _expected_abs_buffer_size$ = -12			; size = 4
 _result$ = -8						; size = 4
 _np$ = -4						; size = 4
@@ -344,22 +344,21 @@ $LN3@PMC_ToByte:
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN17@PMC_ToByte
-	mov	DWORD PTR tv76[ebp], 0
+	mov	DWORD PTR tv75[ebp], 0
 	jmp	SHORT $LN18@PMC_ToByte
 $LN17@PMC_ToByte:
 	push	8
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	push	edx
 	call	__DIVIDE_CEILING_SIZE
 	add	esp, 8
-	mov	DWORD PTR tv76[ebp], eax
+	mov	DWORD PTR tv75[ebp], eax
 $LN18@PMC_ToByte:
-	mov	eax, DWORD PTR tv76[ebp]
+	mov	eax, DWORD PTR tv75[ebp]
 	mov	DWORD PTR _expected_abs_buffer_size$[ebp], eax
 
 ; 151  :     if (buffer != NULL)
@@ -371,7 +370,7 @@ $LN18@PMC_ToByte:
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	add	edx, 8
 	mov	eax, DWORD PTR _buffer_size$[ebp]
 	shl	eax, 3
@@ -394,8 +393,7 @@ $LN5@PMC_ToByte:
 ; 157  :             if (np->IS_ZERO)
 
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN8@PMC_ToByte
 
@@ -430,8 +428,7 @@ $LN6@PMC_ToByte:
 ; 164  :             if (np->IS_ZERO)
 
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN12@PMC_ToByte
 
@@ -456,7 +453,7 @@ $LN12@PMC_ToByte:
 	mov	ecx, DWORD PTR _expected_abs_buffer_size$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _buffer$[ebp]
 	add	ecx, 1
@@ -476,8 +473,7 @@ $LN10@PMC_ToByte:
 ; 174  :             if (np->IS_ZERO)
 
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN14@PMC_ToByte
 
@@ -502,7 +498,7 @@ $LN14@PMC_ToByte:
 	mov	ecx, DWORD PTR _expected_abs_buffer_size$[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _buffer$[ebp]
 	add	ecx, 1
@@ -760,7 +756,7 @@ $LN14@PMC_FromBy:
 	add	eax, 1
 	push	eax
 	mov	ecx, DWORD PTR _p$1[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH
@@ -851,7 +847,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bytes.c
 _TEXT	SEGMENT
-tv76 = -16						; size = 4
+tv75 = -16						; size = 4
 _expected_abs_buffer_size$ = -12			; size = 4
 _result$ = -8						; size = 4
 _np$ = -4						; size = 4
@@ -910,22 +906,21 @@ $LN3@PMC_ToByte:
 ; 195  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	edx, DWORD PTR _np$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN9@PMC_ToByte
-	mov	DWORD PTR tv76[ebp], 0
+	mov	DWORD PTR tv75[ebp], 0
 	jmp	SHORT $LN10@PMC_ToByte
 $LN9@PMC_ToByte:
 	push	8
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	push	edx
 	call	__DIVIDE_CEILING_SIZE
 	add	esp, 8
-	mov	DWORD PTR tv76[ebp], eax
+	mov	DWORD PTR tv75[ebp], eax
 $LN10@PMC_ToByte:
-	mov	eax, DWORD PTR tv76[ebp]
+	mov	eax, DWORD PTR tv75[ebp]
 	mov	DWORD PTR _expected_abs_buffer_size$[ebp], eax
 
 ; 196  :     if (buffer != NULL)
@@ -937,7 +932,7 @@ $LN10@PMC_ToByte:
 ; 198  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	add	edx, 8
 	mov	eax, DWORD PTR _buffer_size$[ebp]
 	shl	eax, 3
@@ -953,8 +948,7 @@ $LN5@PMC_ToByte:
 ; 200  :         if (np->IS_ZERO)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN6@PMC_ToByte
 
@@ -981,7 +975,7 @@ $LN6@PMC_ToByte:
 	mov	eax, DWORD PTR _expected_abs_buffer_size$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _buffer$[ebp]
 	add	eax, 1
@@ -1202,7 +1196,7 @@ $LN13@PMC_FromBy:
 	add	ecx, 1
 	push	ecx
 	mov	edx, DWORD PTR _p$1[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	__COPY_MEMORY_BYTE
 	add	esp, 12					; 0000000cH

@@ -39,13 +39,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_To_X_I DD imagerel $LN8
-	DD	imagerel $LN8+196
+	DD	imagerel $LN8+193
 	DD	imagerel $unwind$PMC_To_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_To_X_L DD imagerel $LN11
-	DD	imagerel $LN11+323
+	DD	imagerel $LN11+320
 	DD	imagerel $unwind$PMC_To_X_L
 pdata	ENDS
 ;	COMDAT pdata
@@ -142,7 +142,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 np$ = 8
 result$ = 36
-tv87 = 248
+tv86 = 248
 p$ = 288
 o$ = 296
 PMC_To_X_L PROC						; COMDAT
@@ -202,7 +202,7 @@ $LN3@PMC_To_X_L:
 ; 62   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	rax, QWORD PTR np$[rbp]
-	cmp	QWORD PTR [rax+16], 64			; 00000040H
+	cmp	QWORD PTR [rax+24], 64			; 00000040H
 	jbe	SHORT $LN4@PMC_To_X_L
 
 ; 63   :         return (PMC_STATUS_OVERFLOW);
@@ -214,8 +214,7 @@ $LN4@PMC_To_X_L:
 ; 64   :     if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN5@PMC_To_X_L
@@ -236,7 +235,7 @@ $LN5@PMC_To_X_L:
 ; 69   :     if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT)
 
 	mov	rax, QWORD PTR np$[rbp]
-	cmp	QWORD PTR [rax+16], 64			; 00000040H
+	cmp	QWORD PTR [rax+24], 64			; 00000040H
 	ja	SHORT $LN6@PMC_To_X_L
 
 ; 70   :     {
@@ -246,7 +245,7 @@ $LN5@PMC_To_X_L:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	rdx, QWORD PTR o$[rbp]
 	mov	rax, QWORD PTR [rax+rcx]
 	mov	QWORD PTR [rdx], rax
@@ -264,7 +263,7 @@ $LN6@PMC_To_X_L:
 ; 75   :     else if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT * 2)
 
 	mov	rax, QWORD PTR np$[rbp]
-	cmp	QWORD PTR [rax+16], 128			; 00000080H
+	cmp	QWORD PTR [rax+24], 128			; 00000080H
 	ja	SHORT $LN8@PMC_To_X_L
 
 ; 76   :     {
@@ -274,14 +273,14 @@ $LN6@PMC_To_X_L:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	edx, 8
 	imul	rdx, rdx, 1
-	mov	QWORD PTR tv87[rbp], rdx
+	mov	QWORD PTR tv86[rbp], rdx
 	mov	r8, QWORD PTR np$[rbp]
-	mov	r8, QWORD PTR [r8+56]
+	mov	r8, QWORD PTR [r8+64]
 	mov	edx, DWORD PTR [rcx+rax]
-	mov	rax, QWORD PTR tv87[rbp]
+	mov	rax, QWORD PTR tv86[rbp]
 	mov	ecx, DWORD PTR [r8+rax]
 	call	_FROMWORDTODWORD
 	mov	rcx, QWORD PTR o$[rbp]
@@ -378,7 +377,7 @@ $LN3@PMC_To_X_I:
 ; 42   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	rax, QWORD PTR np$[rbp]
-	cmp	QWORD PTR [rax+16], 32			; 00000020H
+	cmp	QWORD PTR [rax+24], 32			; 00000020H
 	jbe	SHORT $LN4@PMC_To_X_I
 
 ; 43   :         return (PMC_STATUS_OVERFLOW);
@@ -390,8 +389,7 @@ $LN4@PMC_To_X_I:
 ; 44   :     if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN5@PMC_To_X_I
@@ -409,7 +407,7 @@ $LN5@PMC_To_X_I:
 	mov	eax, 8
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	mov	rdx, QWORD PTR o$[rbp]
 	mov	eax, DWORD PTR [rax+rcx]
 	mov	DWORD PTR [rdx], eax

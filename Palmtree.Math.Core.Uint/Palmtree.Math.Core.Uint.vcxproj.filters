@@ -145,12 +145,6 @@
     <ClCompile Include="pmc_memory.c">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TEST_op_GetNumberType.c">
-      <Filter>ソース ファイル\テスト</Filter>
-    </ClCompile>
-    <ClCompile Include="pmc_getnumbertype.c">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="TEST_op_Remainder.c">
       <Filter>ソース ファイル\テスト</Filter>
     </ClCompile>

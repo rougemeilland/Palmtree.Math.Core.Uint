@@ -65,13 +65,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ModPow_X_X_X_Imp DD imagerel PMC_ModPow_X_X_X_Imp
-	DD	imagerel PMC_ModPow_X_X_X_Imp+431
+	DD	imagerel PMC_ModPow_X_X_X_Imp+426
 	DD	imagerel $unwind$PMC_ModPow_X_X_X_Imp
 pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_ModPow_X_X_X_Imp DD 084401H
-	DD	0c5444H
+$unwind$PMC_ModPow_X_X_X_Imp DD 084201H
+	DD	0c5442H
 	DD	0f640fH
 	DD	0d340fH
 	DD	0700b920fH
@@ -155,9 +155,9 @@ PMC_ModPow_X_X_X_Imp PROC				; COMDAT
 ; 458  : 
 ; 459  :     if (m->IS_ZERO)
 
-	mov	r8d, DWORD PTR [r8+40]
+	mov	r8d, DWORD PTR [r8]
 	mov	rsi, rcx
-	test	r8b, 2
+	test	r8b, 1
 	je	SHORT $LN2@PMC_ModPow
 
 ; 460  :     {
@@ -180,11 +180,11 @@ $LN2@PMC_ModPow:
 ; 465  :     }
 ; 466  :     else if (m->IS_ONE)
 
-	mov	ecx, DWORD PTR [rcx+40]
+	mov	ecx, DWORD PTR [rcx]
 	mov	eax, ecx
-	and	eax, 2
+	and	eax, 1
 	mov	QWORD PTR [rsp+96], rbp
-	test	r8b, 4
+	test	r8b, 2
 	je	SHORT $LN4@PMC_ModPow
 
 ; 467  :     {
@@ -198,7 +198,7 @@ $LN2@PMC_ModPow:
 ; 471  :             // v が 0 の場合
 ; 472  :             if (e->IS_ZERO)
 
-	test	BYTE PTR [rdx+40], 2
+	test	BYTE PTR [rdx], 1
 	jne	SHORT $LN38@PMC_ModPow
 $LN8@PMC_ModPow:
 
@@ -245,7 +245,7 @@ $LN4@PMC_ModPow:
 ; 500  :             // v が 0 の場合
 ; 501  :             if (e->IS_ZERO)
 
-	test	BYTE PTR [rdx+40], 2
+	test	BYTE PTR [rdx], 1
 	je	SHORT $LN8@PMC_ModPow
 $LN38@PMC_ModPow:
 
@@ -269,7 +269,7 @@ $LN10@PMC_ModPow:
 ; 514  :         }
 ; 515  :         else if (v->IS_ONE)
 
-	test	cl, 4
+	test	cl, 2
 	jne	$LN37@PMC_ModPow
 
 ; 516  :         {
@@ -283,20 +283,20 @@ $LN10@PMC_ModPow:
 ; 524  :             // v が 2 以上の場合
 ; 525  :             if (e->IS_ZERO)
 
-	mov	eax, DWORD PTR [rdx+40]
-	test	al, 2
+	mov	eax, DWORD PTR [rdx]
+	test	al, 1
 	jne	$LN37@PMC_ModPow
 
 ; 529  :             }
 ; 530  :             else if (e->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	je	$LN18@PMC_ModPow
 
 ; 101  :     if (u->UNIT_BIT_COUNT < v->UNIT_BIT_COUNT)
 
-	mov	rcx, QWORD PTR [rdi+16]
-	cmp	QWORD PTR [rsi+16], rcx
+	mov	rcx, QWORD PTR [rdi+24]
+	cmp	QWORD PTR [rsi+24], rcx
 	jae	SHORT $LN24@PMC_ModPow
 
 ; 102  :     {
@@ -334,7 +334,7 @@ $LN24@PMC_ModPow:
 ; 113  :         __UNIT_TYPE r_check_code;
 ; 114  :         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + __UNIT_TYPE_BIT_COUNT, &r_check_code)) != PMC_STATUS_OK)
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rsi+24]
 	lea	r8, QWORD PTR r_check_code$2[rsp]
 	add	rdx, 64					; 00000040H
 	mov	rcx, rbx
@@ -360,8 +360,8 @@ $LN28@PMC_ModPow:
 ; 119  : 
 ; 120  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
 
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	r9, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	r9, QWORD PTR [rdi+16]
 	cmp	rdx, r9
 	jae	SHORT $LN29@PMC_ModPow
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -370,8 +370,8 @@ $LN28@PMC_ModPow:
 
 	mov	rdi, QWORD PTR [rbx]
 	mov	rcx, rdx
-	mov	rsi, QWORD PTR [rsi+56]
-	mov	rdi, QWORD PTR [rdi+56]
+	mov	rsi, QWORD PTR [rsi+64]
+	mov	rdi, QWORD PTR [rdi+64]
 	rep movsq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -385,10 +385,10 @@ $LN29@PMC_ModPow:
 ; 124  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, NULL, (*r)->BLOCK);
 
 	mov	rax, QWORD PTR [rbx]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+48], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	mov	QWORD PTR [rsp+40], 0
 	mov	QWORD PTR [rsp+32], rbp
 	call	DivRem_X_X
@@ -406,7 +406,7 @@ $LN29@PMC_ModPow:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR r_check_code$2[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN39@PMC_ModPow
@@ -553,7 +553,7 @@ ModulePower PROC					; COMDAT
 ; 142  :     PMC_STATUS_CODE result;
 ; 143  :     __UNIT_TYPE* m_buf = m->BLOCK;
 
-	mov	rax, QWORD PTR [r8+56]
+	mov	rax, QWORD PTR [r8+64]
 
 ; 144  :     __UNIT_TYPE m_count = m->UNIT_WORD_COUNT;
 ; 145  : 
@@ -565,9 +565,9 @@ ModulePower PROC					; COMDAT
 ; 151  :     __UNIT_TYPE* v_2_buf = AllocateBlock(v_2_bit_count, &v_2_buf_words, &v_2_buf_code);
 
 	lea	rdx, QWORD PTR v_2_buf_words$[rbp-153]
-	mov	r14, QWORD PTR [r8+8]
+	mov	r14, QWORD PTR [r8+16]
 	mov	rbx, rcx
-	mov	rcx, QWORD PTR [rcx+8]
+	mov	rcx, QWORD PTR [rcx+16]
 	mov	rsi, r8
 	inc	rcx
 	mov	QWORD PTR m_buf$1$[rbp-153], rax
@@ -691,7 +691,7 @@ $LN11@ModulePowe:
 ; 191  :     __UNIT_TYPE r_check_code;
 ; 192  :     if ((result = AllocateNumber(r, r_bit_count, &r_check_code)) != PMC_STATUS_OK)
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rsi+24]
 	lea	r8, QWORD PTR r_check_code$[rbp-153]
 	mov	rsi, QWORD PTR r$[rbp-153]
 	mov	rcx, rsi
@@ -737,7 +737,7 @@ $LN14@ModulePowe:
 ; 201  :     __UNIT_TYPE v_count;
 ; 202  :     int cmp = Compare_Easy(v->BLOCK, v->UNIT_WORD_COUNT, m_buf, m_count);
 
-	mov	r8, QWORD PTR [rbx+8]
+	mov	r8, QWORD PTR [rbx+16]
 
 ; 82   :     if (u_count > v_count)
 
@@ -752,8 +752,8 @@ $LN15@ModulePowe:
 ; 219  :     }
 ; 220  :     else if (cmp > 0)
 
-	mov	rcx, QWORD PTR [rbx+8]
-	mov	rsi, QWORD PTR [rbx+56]
+	mov	rcx, QWORD PTR [rbx+16]
+	mov	rsi, QWORD PTR [rbx+64]
 	test	eax, eax
 	jle	$LN17@ModulePowe
 
@@ -840,7 +840,7 @@ $LN46@ModulePowe:
 ; 87   :         return (Compare_Imp(u, v, u_count));
 
 	mov	rdx, QWORD PTR m_buf$1$[rbp-153]
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rcx, QWORD PTR [rbx+64]
 	call	Compare_Imp
 
 ; 203  :     if (cmp == 0)
@@ -952,7 +952,7 @@ $LN17@ModulePowe:
 
 ; 255  :         v_count = v->UNIT_WORD_COUNT;
 
-	mov	r13, QWORD PTR [rbx+8]
+	mov	r13, QWORD PTR [rbx+16]
 $LN18@ModulePowe:
 
 ; 256  :     }
@@ -964,11 +964,11 @@ $LN18@ModulePowe:
 ; 262  :     __UNIT_TYPE e_count = e->UNIT_WORD_COUNT;
 
 	mov	rax, QWORD PTR e$[rbp-153]
-	mov	r8, QWORD PTR [rax+8]
+	mov	r8, QWORD PTR [rax+16]
 
 ; 264  :     e_mask = e_mask >> _LZCNT_ALT_UNIT(e->BLOCK[e_count - 1]);
 
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	mov	rcx, QWORD PTR [rax+r8*8-8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -1331,7 +1331,7 @@ $LN7@ModulePowe:
 	mov	rax, QWORD PTR e$[rbp-153]
 	mov	r8, QWORD PTR e_count$1$[rbp-153]
 	mov	rcx, QWORD PTR e_mask$1$[rbp-153]
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 	test	QWORD PTR [rax+r8*8-8], rcx
 	je	$LN9@ModulePowe
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -1540,7 +1540,7 @@ $LN5@ModulePowe:
 	mov	rsi, r15
 	mov	rcx, rbx
 	mov	rdi, QWORD PTR [r14]
-	mov	rdi, QWORD PTR [rdi+56]
+	mov	rdi, QWORD PTR [rdi+64]
 	rep movsq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -1548,7 +1548,7 @@ $LN5@ModulePowe:
 
 	mov	rcx, QWORD PTR [r14]
 	mov	rdx, QWORD PTR r_check_code$[rbp-153]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN114@ModulePowe
@@ -1635,9 +1635,9 @@ Remainder PROC						; COMDAT
 ; 100  : 
 ; 101  :     if (u->UNIT_BIT_COUNT < v->UNIT_BIT_COUNT)
 
-	mov	rcx, QWORD PTR [rdx+16]
+	mov	rcx, QWORD PTR [rdx+24]
 	mov	rdi, rdx
-	cmp	QWORD PTR [rsi+16], rcx
+	cmp	QWORD PTR [rsi+24], rcx
 	jae	SHORT $LN2@Remainder
 
 ; 102  :     {
@@ -1681,7 +1681,7 @@ $LN2@Remainder:
 ; 113  :         __UNIT_TYPE r_check_code;
 ; 114  :         if ((result = AllocateNumber(r, u->UNIT_BIT_COUNT + __UNIT_TYPE_BIT_COUNT, &r_check_code)) != PMC_STATUS_OK)
 
-	mov	rdx, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rsi+24]
 	lea	r8, QWORD PTR r_check_code$3[rsp]
 	add	rdx, 64					; 00000040H
 	mov	rcx, rbx
@@ -1713,8 +1713,8 @@ $LN6@Remainder:
 ; 119  : 
 ; 120  :         if (u->UNIT_WORD_COUNT < v->UNIT_WORD_COUNT)
 
-	mov	rdx, QWORD PTR [rsi+8]
-	mov	r9, QWORD PTR [rdi+8]
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	r9, QWORD PTR [rdi+16]
 	cmp	rdx, r9
 	jae	SHORT $LN7@Remainder
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -1723,8 +1723,8 @@ $LN6@Remainder:
 
 	mov	rdi, QWORD PTR [rbx]
 	mov	rcx, rdx
-	mov	rsi, QWORD PTR [rsi+56]
-	mov	rdi, QWORD PTR [rdi+56]
+	mov	rsi, QWORD PTR [rsi+64]
+	mov	rdi, QWORD PTR [rdi+64]
 	rep movsq
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_modpow.c
 
@@ -1738,10 +1738,10 @@ $LN7@Remainder:
 ; 124  :             DivRem_X_X(u->BLOCK, u->UNIT_WORD_COUNT, v->BLOCK, v->UNIT_WORD_COUNT, work_v_buf, NULL, (*r)->BLOCK);
 
 	mov	rax, QWORD PTR [rbx]
-	mov	r8, QWORD PTR [rdi+56]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r8, QWORD PTR [rdi+64]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+48], rcx
-	mov	rcx, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+64]
 	mov	QWORD PTR [rsp+40], 0
 	mov	QWORD PTR [rsp+32], rbp
 	call	DivRem_X_X
@@ -1759,7 +1759,7 @@ $LN7@Remainder:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR r_check_code$3[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@Remainder

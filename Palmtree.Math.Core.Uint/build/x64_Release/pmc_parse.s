@@ -2046,7 +2046,7 @@ PMC_TryParse:
 	jne	.L354
 	movq	72(%rsp), %rax
 	movq	%rsi, %rcx
-	movq	56(%rax), %rbx
+	movq	64(%rax), %rbx
 	call	*%rdi
 	movq	%rsi, %r10
 	movslq	%eax, %rdi
@@ -2178,7 +2178,7 @@ PMC_TryParse:
 .L147:
 	movq	72(%rsp), %rax
 	movq	144(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
@@ -2478,7 +2478,7 @@ PMC_TryParse:
 	leaq	64(%r13), %rcx
 	movq	%r12, %rdx
 	leaq	136(%rsp), %r8
-	movq	56(%rax), %rsi
+	movq	64(%rax), %rsi
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, %r13
@@ -2825,7 +2825,7 @@ PMC_TryParse:
 	call	DeallocateBlock
 	movq	72(%rsp), %rax
 	movq	128(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
@@ -2835,7 +2835,7 @@ PMC_TryParse:
 	movq	72(%rsp), %rcx
 	call	CommitNumber
 	movq	72(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L148
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx

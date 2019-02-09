@@ -226,7 +226,7 @@ _PMC_LeftShift_X_I@12 PROC				; COMDAT
 ; 635  :         return (result);
 ; 636  :     if (np->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	push	ebx
 	je	SHORT $LN6@PMC_LeftSh
 
@@ -279,7 +279,7 @@ $LN8@PMC_LeftSh:
 ; 646  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 ; 647  :         __UNIT_TYPE o_bit_count = p_bit_count + n;
 
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 
 ; 648  :         __UNIT_TYPE no_light_check_code;
 ; 649  :         if ((result = AllocateNumber(&no, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
@@ -300,17 +300,17 @@ $LN8@PMC_LeftSh:
 
 	push	eax
 	mov	eax, DWORD PTR _no$[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	ebx
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_LeftShift_Imp
 
 ; 652  :         if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _no$[ebp]
 	push	DWORD PTR _no_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 28					; 0000001cH
 	test	eax, eax
@@ -407,7 +407,7 @@ _PMC_RightShift_X_I@12 PROC				; COMDAT
 ; 586  :         return (result);
 ; 587  :     if (np->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	push	ebx
 	jne	$LN16@PMC_RightS
 
@@ -459,7 +459,7 @@ $LN8@PMC_RightS:
 ; 596  :     {
 ; 597  :         __UNIT_TYPE p_bit_count = np->UNIT_BIT_COUNT;
 
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 
 ; 598  :         if (p_bit_count <= n)
 
@@ -488,17 +488,17 @@ $LN8@PMC_RightS:
 
 	push	eax
 	mov	eax, DWORD PTR _no$[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	ebx
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_RightShift_Imp
 
 ; 607  :             if ((result = CheckBlockLight(no->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _no$[ebp]
 	push	DWORD PTR _no_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 28					; 0000001cH
 	test	eax, eax

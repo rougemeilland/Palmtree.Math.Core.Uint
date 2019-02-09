@@ -185,7 +185,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$ToStringDN DD imagerel ToStringDN
-	DD	imagerel ToStringDN+1094
+	DD	imagerel ToStringDN+1091
 	DD	imagerel $unwind$ToStringDN
 pdata	ENDS
 ;	COMDAT pdata
@@ -197,7 +197,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$ToStringX DD imagerel ToStringX
-	DD	imagerel ToStringX+650
+	DD	imagerel ToStringX+647
 	DD	imagerel $unwind$ToStringX
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -697,7 +697,7 @@ s_ptr$5 = 136
 d_ptr$6 = 168
 digit_table$7 = 200
 w_count$8 = 232
-tv134 = 440
+tv133 = 440
 x$ = 480
 buffer$ = 488
 buffer_size$ = 496
@@ -727,8 +727,7 @@ ToStringX PROC						; COMDAT
 ; 474  :     if (x->IS_ZERO)
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN4@ToStringX
@@ -788,7 +787,7 @@ $LN4@ToStringX:
 
 	mov	edx, 4
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rcx, QWORD PTR [rax+16]
+	mov	rcx, QWORD PTR [rax+24]
 	call	_DIVIDE_CEILING_UNIT
 	mov	QWORD PTR output_len$1[rbp], rax
 
@@ -864,9 +863,9 @@ $LN11@ToStringX:
 ; 507  :         __UNIT_TYPE* s_ptr = x->BLOCK + x->UNIT_WORD_COUNT - 1;
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR [rax+8]
+	mov	rax, QWORD PTR [rax+16]
 	mov	rcx, QWORD PTR x$[rbp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	lea	rax, QWORD PTR [rcx+rax*8-8]
 	mov	QWORD PTR s_ptr$5[rbp], rax
 
@@ -882,25 +881,25 @@ $LN11@ToStringX:
 	cmp	DWORD PTR using_upper_letter$[rbp], 0
 	je	SHORT $LN13@ToStringX
 	lea	rax, OFFSET FLAT:hexadecimal_upper_digits
-	mov	QWORD PTR tv134[rbp], rax
+	mov	QWORD PTR tv133[rbp], rax
 	jmp	SHORT $LN14@ToStringX
 $LN13@ToStringX:
 	lea	rax, OFFSET FLAT:hexadecimal_lower_digits
-	mov	QWORD PTR tv134[rbp], rax
+	mov	QWORD PTR tv133[rbp], rax
 $LN14@ToStringX:
-	mov	rax, QWORD PTR tv134[rbp]
+	mov	rax, QWORD PTR tv133[rbp]
 	mov	QWORD PTR digit_table$7[rbp], rax
 
 ; 510  :         __UNIT_TYPE w_count = x->UNIT_WORD_COUNT;
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR [rax+8]
+	mov	rax, QWORD PTR [rax+16]
 	mov	QWORD PTR w_count$8[rbp], rax
 
 ; 511  :         d_ptr = ToStringX_1WORD(*s_ptr, (int)(x->UNIT_WORD_COUNT * (__UNIT_TYPE_BIT_COUNT / 4) - output_len), digit_table, d_ptr);
 
 	mov	rax, QWORD PTR x$[rbp]
-	imul	rax, QWORD PTR [rax+8], 16
+	imul	rax, QWORD PTR [rax+16], 16
 	sub	rax, QWORD PTR output_len$1[rbp]
 	mov	r9, QWORD PTR d_ptr$6[rbp]
 	mov	r8, QWORD PTR digit_table$7[rbp]
@@ -1625,7 +1624,7 @@ rev_str_buf_code$15 = 264
 rev_str_buf_words$16 = 296
 rev_str_buf$17 = 328
 rev_str_buf_count$18 = 360
-tv180 = 568
+tv179 = 568
 x$ = 608
 buffer$ = 616
 buffer_size$ = 624
@@ -1706,8 +1705,7 @@ $LN3@ToStringDN:
 ; 328  :     if (x->IS_ZERO)
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	$LN6@ToStringDN
@@ -1857,10 +1855,10 @@ $LN6@ToStringDN:
 ; 367  :         __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(x->UNIT_BIT_COUNT + (x->UNIT_BIT_COUNT >> 3) + __UNIT_TYPE_BIT_COUNT, &r_buf_words, &r_buf_code);
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	shr	rax, 3
 	mov	rcx, QWORD PTR x$[rbp]
-	mov	rcx, QWORD PTR [rcx+16]
+	mov	rcx, QWORD PTR [rcx+24]
 	lea	rax, QWORD PTR [rcx+rax+64]
 	lea	r8, QWORD PTR r_buf_code$11[rbp]
 	lea	rdx, QWORD PTR r_buf_words$12[rbp]
@@ -1883,7 +1881,7 @@ $LN14@ToStringDN:
 ; 371  :         if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x->BLOCK, x->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rax, QWORD PTR [rax+8]
+	mov	rax, QWORD PTR [rax+16]
 	shl	rax, 3
 	xor	edx, edx
 	mov	ecx, 4
@@ -1894,10 +1892,10 @@ $LN14@ToStringDN:
 	mov	QWORD PTR [rsp+32], rcx
 	mov	r9d, DWORD PTR base_value$[rbp]
 	mov	rcx, QWORD PTR x$[rbp]
-	mov	r8, QWORD PTR [rcx+16]
+	mov	r8, QWORD PTR [rcx+24]
 	mov	rdx, rax
 	mov	rax, QWORD PTR x$[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	ConvertCardinalNumber
 	mov	DWORD PTR result$10[rbp], eax
 	cmp	DWORD PTR result$10[rbp], 0
@@ -1949,14 +1947,14 @@ $LN16@ToStringDN:
 	mov	rcx, QWORD PTR r_buf_count$14[rbp]
 	imul	rcx, rax
 	mov	rax, rcx
-	mov	QWORD PTR tv180[rbp], rax
+	mov	QWORD PTR tv179[rbp], rax
 	jmp	SHORT $LN22@ToStringDN
 $LN21@ToStringDN:
 	mov	eax, DWORD PTR width$[rbp]
-	mov	QWORD PTR tv180[rbp], rax
+	mov	QWORD PTR tv179[rbp], rax
 $LN22@ToStringDN:
 	mov	eax, DWORD PTR width$[rbp]
-	mov	rcx, QWORD PTR tv180[rbp]
+	mov	rcx, QWORD PTR tv179[rbp]
 	lea	rax, QWORD PTR [rax+rcx*2]
 	lea	rax, QWORD PTR [rax+rax+4]
 	shl	rax, 3
@@ -4056,7 +4054,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV64Counter PROC					; COMDAT
 
-; 344  :     {
+; 341  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4071,13 +4069,13 @@ AddToDIV64Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 346  :     }
+; 343  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4092,7 +4090,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV32Counter PROC					; COMDAT
 
-; 338  :     {
+; 335  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4107,13 +4105,13 @@ AddToDIV32Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 340  :     }
+; 337  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4127,7 +4125,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 321  :     {
+; 318  :     {
 
 	push	rbp
 	push	rdi
@@ -4140,12 +4138,12 @@ IncrementDIV64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	lock inc DWORD PTR [rax]
 
-; 323  :     }
+; 320  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4159,7 +4157,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 315  :     {
+; 312  :     {
 
 	push	rbp
 	push	rdi
@@ -4172,12 +4170,12 @@ IncrementDIV32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	lock inc DWORD PTR [rax]
 
-; 317  :     }
+; 314  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

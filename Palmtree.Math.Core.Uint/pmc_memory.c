@@ -270,7 +270,7 @@ PMC_STATUS_CODE CheckBlockLight(__UNIT_TYPE* buffer, __UNIT_TYPE code)
 __inline static void ClearNumberHeader(NUMBER_HEADER* p)
 {
 #ifdef _M_IX64
-    if (sizeof(*p) == sizeof(_UINT64_T) * 8)
+    if (sizeof(*p) == sizeof(_UINT64_T) * 9)
     {
         _UINT64_T* __p = (_UINT64_T*)p;
         __p[0] = 0;
@@ -281,11 +281,12 @@ __inline static void ClearNumberHeader(NUMBER_HEADER* p)
         __p[5] = 0;
         __p[6] = 0;
         __p[7] = 0;
+        __p[8] = 0;
     }
     else
     {
 #endif
-        if (sizeof(*p) == sizeof(_UINT32_T) * 9)
+        if (sizeof(*p) == sizeof(_UINT32_T) * 10)
         {
             _UINT32_T* __p = (_UINT32_T*)p;
             __p[0] = 0;
@@ -297,6 +298,7 @@ __inline static void ClearNumberHeader(NUMBER_HEADER* p)
             __p[6] = 0;
             __p[7] = 0;
             __p[8] = 0;
+            __p[9] = 0;
         }
 #ifdef _M_IX64
         else if (sizeof(*p) % sizeof(_UINT64_T) == 0)
@@ -316,7 +318,7 @@ __inline static void ClearNumberHeader(NUMBER_HEADER* p)
 __inline static void FillNumberHeader(NUMBER_HEADER* p)
 {
 #ifdef _M_IX64
-    if (sizeof(*p) == sizeof(_UINT64_T) * 8)
+    if (sizeof(*p) == sizeof(_UINT64_T) * 9)
     {
         _UINT64_T* __p = (_UINT64_T*)p;
         __p[0] = DEFAULT_MEMORY_DATA;
@@ -327,11 +329,12 @@ __inline static void FillNumberHeader(NUMBER_HEADER* p)
         __p[5] = DEFAULT_MEMORY_DATA;
         __p[6] = DEFAULT_MEMORY_DATA;
         __p[7] = DEFAULT_MEMORY_DATA;
+        __p[8] = DEFAULT_MEMORY_DATA;
     }
     else
     {
 #endif
-        if (sizeof(*p) == sizeof(_UINT32_T) * 9)
+        if (sizeof(*p) == sizeof(_UINT32_T) * 10)
         {
             _UINT32_T* __p = (_UINT32_T*)p;
             __p[0] = (_UINT32_T)DEFAULT_MEMORY_DATA;
@@ -343,6 +346,7 @@ __inline static void FillNumberHeader(NUMBER_HEADER* p)
             __p[6] = (_UINT32_T)DEFAULT_MEMORY_DATA;
             __p[7] = (_UINT32_T)DEFAULT_MEMORY_DATA;
             __p[8] = (_UINT32_T)DEFAULT_MEMORY_DATA;
+            __p[9] = (_UINT32_T)DEFAULT_MEMORY_DATA;
         }
 #ifdef _M_IX64
         else if (sizeof(*p) % sizeof(_UINT64_T) == 0)

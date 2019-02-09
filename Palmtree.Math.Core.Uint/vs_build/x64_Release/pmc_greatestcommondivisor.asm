@@ -51,7 +51,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_GreatestCommonDivisor_X_X DD imagerel $LN40
-	DD	imagerel $LN40+647
+	DD	imagerel $LN40+645
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -69,44 +69,44 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_GreatestCommonDivisor_X_I_Imp DD imagerel PMC_GreatestCommonDivisor_X_I_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+324
+	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+323
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$0$PMC_GreatestCommonDivisor_X_I_Imp DD imagerel PMC_GreatestCommonDivisor_X_I_Imp+324
-	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+485
+$pdata$0$PMC_GreatestCommonDivisor_X_I_Imp DD imagerel PMC_GreatestCommonDivisor_X_I_Imp+323
+	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+484
 	DD	imagerel $chain$0$PMC_GreatestCommonDivisor_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_GreatestCommonDivisor_X_I_Imp DD imagerel PMC_GreatestCommonDivisor_X_I_Imp+485
-	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+632
+$pdata$1$PMC_GreatestCommonDivisor_X_I_Imp DD imagerel PMC_GreatestCommonDivisor_X_I_Imp+484
+	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+631
 	DD	imagerel $chain$1$PMC_GreatestCommonDivisor_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_GreatestCommonDivisor_X_L_Imp DD imagerel PMC_GreatestCommonDivisor_X_L_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+336
+	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+335
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_L_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$0$PMC_GreatestCommonDivisor_X_L_Imp DD imagerel PMC_GreatestCommonDivisor_X_L_Imp+336
-	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+471
+$pdata$0$PMC_GreatestCommonDivisor_X_L_Imp DD imagerel PMC_GreatestCommonDivisor_X_L_Imp+335
+	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+470
 	DD	imagerel $chain$0$PMC_GreatestCommonDivisor_X_L_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_GreatestCommonDivisor_X_L_Imp DD imagerel PMC_GreatestCommonDivisor_X_L_Imp+471
-	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+620
+$pdata$1$PMC_GreatestCommonDivisor_X_L_Imp DD imagerel PMC_GreatestCommonDivisor_X_L_Imp+470
+	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+619
 	DD	imagerel $chain$1$PMC_GreatestCommonDivisor_X_L_Imp
 pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$1$PMC_GreatestCommonDivisor_X_L_Imp DD 021H
 	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+336
+	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+335
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_L_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -114,7 +114,7 @@ xdata	SEGMENT
 $chain$0$PMC_GreatestCommonDivisor_X_L_Imp DD 020821H
 	DD	015c408H
 	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+336
+	DD	imagerel PMC_GreatestCommonDivisor_X_L_Imp+335
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_L_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -129,7 +129,7 @@ xdata	ENDS
 xdata	SEGMENT
 $chain$1$PMC_GreatestCommonDivisor_X_I_Imp DD 021H
 	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+324
+	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+323
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_I_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -137,7 +137,7 @@ xdata	SEGMENT
 $chain$0$PMC_GreatestCommonDivisor_X_I_Imp DD 020821H
 	DD	013d408H
 	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp
-	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+324
+	DD	imagerel PMC_GreatestCommonDivisor_X_I_Imp+323
 	DD	imagerel $unwind$PMC_GreatestCommonDivisor_X_I_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -246,7 +246,7 @@ PMC_GreatestCommonDivisor_X_L_Imp PROC			; COMDAT
 ; 216  :     PMC_STATUS_CODE result;
 ; 217  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	rbp, rdx
 	mov	rdi, rcx
@@ -374,8 +374,8 @@ $LN7@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rdi+16], r13
-	cmovae	r13, QWORD PTR [rdi+16]
+	cmp	QWORD PTR [rdi+24], r13
+	cmovae	r13, QWORD PTR [rdi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 383  :                 __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -476,12 +476,12 @@ $LN35@PMC_Greate:
 ; 403  : 
 ; 404  :                 __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
-	mov	r8, QWORD PTR [rdi+32]
+	mov	r8, QWORD PTR [rdi+40]
 
 ; 406  :                 __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	rcx, QWORD PTR [rdi+8]
-	mov	rsi, QWORD PTR [rdi+56]
+	mov	rcx, QWORD PTR [rdi+16]
+	mov	rsi, QWORD PTR [rdi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 718  :         _BitScanForward64(&pos, x);
@@ -560,7 +560,7 @@ $LN88@PMC_Greate:
 ; 414  :                 GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	mov	QWORD PTR [rsp+32], rax
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	call	GreatestCommonDivisor_Imp
 
 ; 415  :                 if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
@@ -586,7 +586,7 @@ $LN88@PMC_Greate:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nw_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate
@@ -611,7 +611,7 @@ $LN88@PMC_Greate:
 	mov	r8, QWORD PTR k$1$[rsp]
 	mov	rdx, QWORD PTR w_buf_count$4[rsp]
 	mov	DWORD PTR [rsp+32], 1
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	r9, rcx
 	call	LeftShift_Imp
 
@@ -619,7 +619,7 @@ $LN88@PMC_Greate:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nw_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate
@@ -698,7 +698,7 @@ PMC_GreatestCommonDivisor_X_I_Imp PROC			; COMDAT
 ; 74   :     PMC_STATUS_CODE result;
 ; 75   :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	edi, edx
 	mov	rsi, rcx
@@ -826,8 +826,8 @@ $LN7@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rsi+16], r15
-	cmovae	r15, QWORD PTR [rsi+16]
+	cmp	QWORD PTR [rsi+24], r15
+	cmovae	r15, QWORD PTR [rsi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 118  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -928,7 +928,7 @@ $LN12@PMC_Greate:
 ; 138  : 
 ; 139  :             __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
-	mov	r8, QWORD PTR [rsi+32]
+	mov	r8, QWORD PTR [rsi+40]
 
 ; 140  :             __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v);
 
@@ -967,8 +967,8 @@ $LN25@PMC_Greate:
 
 ; 141  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	rcx, QWORD PTR [rsi+8]
-	mov	rsi, QWORD PTR [rsi+56]
+	mov	rcx, QWORD PTR [rsi+16]
+	mov	rsi, QWORD PTR [rsi+64]
 	movsxd	r13, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -1038,7 +1038,7 @@ $LN30@PMC_Greate:
 ; 149  :             GreatestCommonDivisor_Imp(work_u_buf, work_v_buf, _DIVIDE_CEILING_UNIT(work_bit_count, __UNIT_TYPE_BIT_COUNT), (*w)->BLOCK, &w_buf_count);
 
 	mov	QWORD PTR [rsp+32], rax
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	call	GreatestCommonDivisor_Imp
 
 ; 150  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
@@ -1064,7 +1064,7 @@ $LN30@PMC_Greate:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nw_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate
@@ -1089,7 +1089,7 @@ $LN30@PMC_Greate:
 	mov	r8, rdi
 	mov	rdx, QWORD PTR w_buf_count$2[rsp]
 	mov	DWORD PTR [rsp+32], 1
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	r9, rcx
 	call	LeftShift_Imp
 
@@ -1097,7 +1097,7 @@ $LN30@PMC_Greate:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nw_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate
@@ -1670,9 +1670,9 @@ $LN40:
 ; 495  :     NUMBER_HEADER* nw;
 ; 496  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [rbx+40]
-	and	eax, 2
-	test	BYTE PTR [rdi+40], 2
+	mov	eax, DWORD PTR [rbx]
+	and	eax, 1
+	test	BYTE PTR [rdi], 1
 	je	SHORT $LN7@PMC_Greate
 
 ; 497  :     {
@@ -1752,7 +1752,7 @@ $LN12@PMC_Greate:
 ; 535  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 ; 536  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	r13, QWORD PTR [rbx+16]
+	mov	r13, QWORD PTR [rbx+24]
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
 
@@ -1761,7 +1761,7 @@ $LN12@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rdi+16], r13
+	cmp	QWORD PTR [rdi+24], r13
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -1771,7 +1771,7 @@ $LN12@PMC_Greate:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	r13, QWORD PTR [rdi+16]
+	cmovae	r13, QWORD PTR [rdi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 
 ; 541  :             __UNIT_TYPE* work_u_buf = AllocateBlock(work_bit_count, &work_u_buf_words, &work_u_buf_code);
@@ -1853,15 +1853,15 @@ $LN17@PMC_Greate:
 ; 561  : 
 ; 562  :             __UNIT_TYPE u_tzcnt = nu->TRAILING_ZERO_BITS_COUNT;
 
-	mov	r8, QWORD PTR [rdi+32]
+	mov	r8, QWORD PTR [rdi+40]
 
 ; 563  :             __UNIT_TYPE v_tzcnt = nv->TRAILING_ZERO_BITS_COUNT;
 
-	mov	rax, QWORD PTR [rbx+32]
+	mov	rax, QWORD PTR [rbx+40]
 
 ; 564  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	rsi, QWORD PTR [rdi+56]
+	mov	rsi, QWORD PTR [rdi+64]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 203  :         return (x <= y ? x : y);
@@ -1883,7 +1883,7 @@ $LN17@PMC_Greate:
 
 ; 564  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
 
-	mov	rcx, QWORD PTR [rdi+8]
+	mov	rcx, QWORD PTR [rdi+16]
 
 ; 565  :             if (u_tzcnt > 0)
 
@@ -1911,8 +1911,8 @@ $LN31@PMC_Greate:
 
 ; 569  :             if (v_tzcnt > 0)
 
-	mov	rcx, QWORD PTR [rbx+8]
-	mov	rsi, QWORD PTR [rbx+56]
+	mov	rcx, QWORD PTR [rbx+16]
+	mov	rsi, QWORD PTR [rbx+64]
 	test	rax, rax
 	je	SHORT $LN20@PMC_Greate
 
@@ -1960,7 +1960,7 @@ $LN33@PMC_Greate:
 
 	mov	rdx, r14
 	mov	rcx, r15
-	mov	r9, QWORD PTR [r9+56]
+	mov	r9, QWORD PTR [r9+64]
 	call	GreatestCommonDivisor_Imp
 
 ; 576  :             if ((result = CheckBlockLight(work_u_buf, work_u_buf_code)) != PMC_STATUS_OK)
@@ -1985,7 +1985,7 @@ $LN33@PMC_Greate:
 
 	mov	rcx, QWORD PTR nw$[rbp-96]
 	mov	rdx, QWORD PTR nw_check_code$2[rbp-96]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate
@@ -2010,7 +2010,7 @@ $LN33@PMC_Greate:
 	mov	r8, QWORD PTR k$1$[rbp-96]
 	mov	rdx, QWORD PTR w_buf_count$3[rbp-96]
 	mov	DWORD PTR [rsp+32], 1
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	r9, rcx
 	call	LeftShift_Imp
 
@@ -2018,7 +2018,7 @@ $LN33@PMC_Greate:
 
 	mov	rcx, QWORD PTR nw$[rbp-96]
 	mov	rdx, QWORD PTR nw_check_code$2[rbp-96]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Greate

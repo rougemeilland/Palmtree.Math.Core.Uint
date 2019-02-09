@@ -5,7 +5,7 @@
 _PMC_Equals_X_I_Imp:
 LFB5493:
 	.cfi_startproc
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L2
 	testl	%edx, %edx
 	je	L14
@@ -31,7 +31,7 @@ L2:
  # 0 "" 2
 /NO_APP
 	addl	$1, %ebx
-	cmpl	%ebx, 12(%eax)
+	cmpl	%ebx, 16(%eax)
 	je	L15
 	movl	$0, (%ecx)
 L4:
@@ -44,7 +44,7 @@ L4:
 	.p2align 4,,10
 L15:
 	.cfi_restore_state
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	cmpl	%edx, (%eax)
 	sete	%al
 	movzbl	%al, %eax
@@ -63,7 +63,7 @@ LFB5502:
 	pushl	%ebx
 	.cfi_def_cfa_offset 12
 	.cfi_offset 3, -12
-	movl	12(%eax), %ebx
+	movl	16(%eax), %ebx
 	testl	%ecx, %ecx
 	jne	L17
 	testl	%edx, %edx
@@ -99,7 +99,7 @@ L17:
 	addl	$33, %esi
 	cmpl	%esi, %ebx
 	jne	L21
-	movl	32(%eax), %ebx
+	movl	36(%eax), %ebx
 	xorl	%eax, %eax
 	cmpl	4(%ebx), %ecx
 	jne	L22
@@ -120,7 +120,7 @@ L22:
 	.p2align 4,,10
 L19:
 	.cfi_restore_state
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	12(%esp), %esi
 	cmpl	%edx, (%eax)
 	sete	%al
@@ -322,7 +322,7 @@ L45:
 	.p2align 4,,10
 L54:
 	.cfi_restore_state
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L47
 	orl	%ebp, %edi
 	jne	L48
@@ -458,7 +458,7 @@ L56:
 	.p2align 4,,10
 L65:
 	.cfi_restore_state
-	testb	$2, 24(%ebx)
+	testb	$1, (%ebx)
 	je	L58
 	orl	%ebp, %edi
 	jne	L59
@@ -593,13 +593,14 @@ L80:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L67
-	movzbl	24(%esi), %edx
-	testb	$2, 24(%ebx)
+	movzbl	(%esi), %edx
+	andl	$1, %edx
+	testb	$1, (%ebx)
 	jne	L81
-	andl	$2, %edx
+	testb	%dl, %dl
 	jne	L71
-	movl	12(%esi), %ecx
-	cmpl	%ecx, 12(%ebx)
+	movl	16(%esi), %ecx
+	cmpl	%ecx, 16(%ebx)
 	je	L82
 L71:
 	movl	$0, (%edi)
@@ -619,8 +620,7 @@ L71:
 	.p2align 4,,10
 L81:
 	.cfi_restore_state
-	shrb	%dl
-	andl	$1, %edx
+	movzbl	%dl, %edx
 	movl	%edx, (%edi)
 	addl	$16, %esp
 	.cfi_remember_state
@@ -638,9 +638,9 @@ L81:
 	.p2align 4,,10
 L82:
 	.cfi_restore_state
-	movl	8(%ebx), %edx
-	movl	32(%esi), %esi
-	movl	32(%ebx), %ecx
+	movl	12(%ebx), %edx
+	movl	36(%esi), %esi
+	movl	36(%ebx), %ecx
 	testl	%edx, %edx
 	je	L76
 	movl	(%ecx), %ebx

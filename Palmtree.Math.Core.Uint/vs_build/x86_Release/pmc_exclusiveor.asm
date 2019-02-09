@@ -64,7 +64,7 @@ _PMC_ExclusiveOr_X_L_Imp PROC				; COMDAT
 
 	mov	esi, DWORD PTR _u$[ebp]
 	push	edi
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN2@PMC_Exclus
 
 ; 278  :     {
@@ -161,7 +161,7 @@ $LN7@PMC_Exclus:
 ; 303  :             // _UINT64_T が 1 ワードで表現しきれない場合
 ; 304  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 305  :             _UINT32_T v_hi;
 ; 306  :             _UINT32_T v_lo = _FROMDWORDTOWORD(v, &v_hi);
@@ -229,17 +229,17 @@ $LN24@PMC_Exclus:
 ; 315  :                 ExclusiveOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v_lo, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	edi
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_ExclusiveOr_X_1W
 
 ; 316  :                 if ((result = CheckBlockLight((*w)->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nw_light_check_code$2[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 24					; 00000018H
 	test	eax, eax
@@ -310,9 +310,9 @@ $LN12@PMC_Exclus:
 ; 327  :                 ExclusiveOr_X_2W(u->BLOCK, u->UNIT_WORD_COUNT, v_hi, v_lo, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	mov	ecx, DWORD PTR [esi+8]
-	mov	esi, DWORD PTR [esi+32]
-	mov	edx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [esi+12]
+	mov	esi, DWORD PTR [esi+36]
+	mov	edx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR [esi]
 	xor	eax, edi
 
@@ -367,7 +367,7 @@ $LN40@PMC_Exclus:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nw_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -400,7 +400,7 @@ $LN17@PMC_Exclus:
 
 	mov	eax, DWORD PTR [ebx]
 	add	esp, 4
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN20@PMC_Exclus
 
 ; 348  :         {
@@ -465,7 +465,7 @@ _PMC_ExclusiveOr_X_I_Imp PROC				; COMDAT
 ; 183  :     if (u->IS_ZERO)
 
 	mov	edi, DWORD PTR _u$[ebp]
-	test	BYTE PTR [edi+24], 2
+	test	BYTE PTR [edi], 1
 	je	SHORT $LN2@PMC_Exclus
 
 ; 184  :     {
@@ -571,7 +571,7 @@ $LN7@PMC_Exclus:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [edi+12], eax
+	cmp	DWORD PTR [edi+16], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exclusiveor.c
 
 ; 211  :         if ((result = AllocateNumber(w, w_bit_count, &nz_check_code)) != PMC_STATUS_OK)
@@ -581,7 +581,7 @@ $LN7@PMC_Exclus:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	eax, DWORD PTR [edi+12]
+	cmovae	eax, DWORD PTR [edi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exclusiveor.c
 
 ; 209  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -601,9 +601,9 @@ $LN7@PMC_Exclus:
 ; 213  :         ExclusiveOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
 
 	mov	eax, DWORD PTR [ebx]
-	mov	ecx, DWORD PTR [edi+8]
-	mov	edi, DWORD PTR [edi+32]
-	mov	edx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [edi+12]
+	mov	edi, DWORD PTR [edi+36]
+	mov	edx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR [edi]
 	xor	eax, esi
 	mov	DWORD PTR [edx], eax
@@ -634,7 +634,7 @@ $LN23@PMC_Exclus:
 
 	mov	eax, DWORD PTR [ebx]
 	push	DWORD PTR _nz_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -650,7 +650,7 @@ $LN23@PMC_Exclus:
 
 	mov	eax, DWORD PTR [ebx]
 	add	esp, 4
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN12@PMC_Exclus
 
 ; 218  :         {
@@ -1491,7 +1491,7 @@ _TEXT	ENDS
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exclusiveor.c
 ;	COMDAT _PMC_ExclusiveOr_X_X@12
 _TEXT	SEGMENT
-tv310 = 8						; size = 4
+tv253 = 8						; size = 4
 _u$ = 8							; size = 4
 _nw$ = 12						; size = 4
 _v$ = 12						; size = 4
@@ -1551,7 +1551,7 @@ _PMC_ExclusiveOr_X_X@12 PROC				; COMDAT
 ; 419  :     NUMBER_HEADER* nw;
 ; 420  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [edi+24], 2
+	test	BYTE PTR [edi], 1
 	lea	eax, DWORD PTR _nw$[ebp]
 	je	SHORT $LN7@PMC_Exclus
 
@@ -1578,7 +1578,7 @@ $LN7@PMC_Exclus:
 ; 424  :     }
 ; 425  :     else if (nv->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN10@PMC_Exclus
 
 ; 426  :     {
@@ -1626,7 +1626,7 @@ $LN10@PMC_Exclus:
 ; 431  :     {
 ; 432  :         if (nu->UNIT_WORD_COUNT < nv->UNIT_WORD_COUNT)
 
-	mov	ecx, DWORD PTR [edi+8]
+	mov	ecx, DWORD PTR [edi+12]
 
 ; 433  :         {
 ; 434  :             NUMBER_HEADER* t = nu;
@@ -1636,14 +1636,14 @@ $LN10@PMC_Exclus:
 ; 438  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, edi
-	cmp	ecx, DWORD PTR [esi+8]
+	cmp	ecx, DWORD PTR [esi+12]
 	cmovae	edx, esi
 	cmovae	esi, edi
-	mov	DWORD PTR tv310[ebp], edx
+	mov	DWORD PTR tv253[ebp], edx
 
 ; 439  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	ecx, DWORD PTR [edx+12]
+	mov	ecx, DWORD PTR [edx+16]
 
 ; 442  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
 
@@ -1652,7 +1652,7 @@ $LN10@PMC_Exclus:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	DWORD PTR [esi+12], ecx
+	cmp	DWORD PTR [esi+16], ecx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exclusiveor.c
 
 ; 442  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
@@ -1662,7 +1662,7 @@ $LN10@PMC_Exclus:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	ecx, DWORD PTR [esi+12]
+	cmovae	ecx, DWORD PTR [esi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exclusiveor.c
 
 ; 442  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
@@ -1678,19 +1678,19 @@ $LN10@PMC_Exclus:
 ; 444  :         ExclusiveOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	eax, DWORD PTR _nw$[ebp]
-	push	DWORD PTR [eax+32]
-	mov	eax, DWORD PTR tv310[ebp]
-	push	DWORD PTR [eax+8]
-	push	DWORD PTR [eax+32]
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [eax+36]
+	mov	eax, DWORD PTR tv253[ebp]
+	push	DWORD PTR [eax+12]
+	push	DWORD PTR [eax+36]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_ExclusiveOr_X_X
 
 ; 445  :         if ((result = CheckBlockLight(nw->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _nw_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 28					; 0000001cH
 	test	eax, eax
@@ -1706,7 +1706,7 @@ $LN10@PMC_Exclus:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	add	esp, 4
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN16@PMC_Exclus
 
 ; 449  :         {

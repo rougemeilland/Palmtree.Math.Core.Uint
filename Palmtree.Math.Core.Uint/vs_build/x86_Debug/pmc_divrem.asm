@@ -11025,20 +11025,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC
 
-; 356  :     {
+; 353  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 357  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 358  :     }
+; 355  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11052,20 +11052,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC
 
-; 350  :     {
+; 347  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 351  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 352  :     }
+; 349  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11079,20 +11079,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC
 
-; 344  :     {
+; 341  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 346  :     }
+; 343  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11106,20 +11106,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC
 
-; 338  :     {
+; 335  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 340  :     }
+; 337  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11132,18 +11132,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC
 
-; 333  :     {
+; 330  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 334  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 335  :     }
+; 332  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11156,18 +11156,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC
 
-; 327  :     {
+; 324  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 328  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 329  :     }
+; 326  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11180,18 +11180,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC
 
-; 321  :     {
+; 318  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 323  :     }
+; 320  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11204,18 +11204,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC
 
-; 315  :     {
+; 312  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 317  :     }
+; 314  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -11226,8 +11226,8 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 _TEXT	SEGMENT
-tv128 = -204						; size = 4
-tv82 = -200						; size = 4
+tv94 = -204						; size = 4
+tv80 = -200						; size = 4
 _work_v_buf$1 = -196					; size = 4
 _work_v_buf_words$2 = -188				; size = 4
 _work_v_buf_code$3 = -176				; size = 4
@@ -11352,8 +11352,7 @@ $LN6@PMC_DivRem:
 ; 1852 :     if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_DivRem
 
@@ -11373,8 +11372,7 @@ $LN7@PMC_DivRem:
 ; 1861 :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN8@PMC_DivRem
 
@@ -11386,12 +11384,12 @@ $LN7@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN51@PMC_DivRem
-	mov	DWORD PTR tv82[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv80[ebp], OFFSET _number_zero
 	jmp	SHORT $LN52@PMC_DivRem
 $LN51@PMC_DivRem:
-	mov	DWORD PTR tv82[ebp], 0
+	mov	DWORD PTR tv80[ebp], 0
 $LN52@PMC_DivRem:
-	mov	edx, DWORD PTR tv82[ebp]
+	mov	edx, DWORD PTR tv80[ebp]
 	mov	DWORD PTR _nq$[ebp], edx
 
 ; 1867 :         nr = &number_zero;
@@ -11410,8 +11408,8 @@ $LN8@PMC_DivRem:
 ; 1873 :         if (nv->IS_ONE)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 2
+	mov	ecx, DWORD PTR [eax]
+	shr	ecx, 1
 	and	ecx, 1
 	je	SHORT $LN10@PMC_DivRem
 
@@ -11471,13 +11469,13 @@ $LN10@PMC_DivRem:
 ; 1892 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$20[ebp], edx
 
 ; 1893 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$19[ebp], ecx
 
 ; 1894 :             if (u_bit_count < v_bit_count)
@@ -11494,12 +11492,12 @@ $LN10@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN53@PMC_DivRem
-	mov	DWORD PTR tv128[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv94[ebp], OFFSET _number_zero
 	jmp	SHORT $LN54@PMC_DivRem
 $LN53@PMC_DivRem:
-	mov	DWORD PTR tv128[ebp], 0
+	mov	DWORD PTR tv94[ebp], 0
 $LN54@PMC_DivRem:
-	mov	eax, DWORD PTR tv128[ebp]
+	mov	eax, DWORD PTR tv94[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1900 :                 if ((result = DuplicateNumber(nu, &nr)) != PMC_STATUS_OK)
@@ -11604,24 +11602,24 @@ $LN23@PMC_DivRem:
 ; 1920 :                     DivRem_X_1W((__UNIT_TYPE_DIV*)nu->BLOCK, nu->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), (__UNIT_TYPE_DIV)nv->BLOCK[0], (__UNIT_TYPE_DIV*)nq->BLOCK, (__UNIT_TYPE_DIV*)nr->BLOCK);
 
 	mov	edx, DWORD PTR _nr$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	shl	eax, 2
 	shr	eax, 2
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_DivRem_X_1W
 	add	esp, 20					; 00000014H
@@ -11631,7 +11629,7 @@ $LN23@PMC_DivRem:
 	mov	eax, DWORD PTR _nq_light_check_code$17[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -11650,7 +11648,7 @@ $LN24@PMC_DivRem:
 	mov	eax, DWORD PTR _nr_light_check_code$15[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -11681,8 +11679,7 @@ $LN25@PMC_DivRem:
 ; 1927 :                     if (nq->IS_ZERO)
 
 	mov	edx, DWORD PTR _nq$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN26@PMC_DivRem
 
@@ -11703,8 +11700,7 @@ $LN26@PMC_DivRem:
 ; 1932 :                     if (nr->IS_ZERO)
 
 	mov	edx, DWORD PTR _nr$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN27@PMC_DivRem
 
@@ -11759,23 +11755,23 @@ $LN28@PMC_DivRem:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Rem_X_1W
 	add	esp, 12					; 0000000cH
 	mov	edx, 4
 	imul	ecx, edx, 0
 	mov	edx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [edx+32]
+	mov	edx, DWORD PTR [edx+36]
 	mov	DWORD PTR [ecx+edx], eax
 
 ; 1945 :                     nq = NULL;
@@ -11787,7 +11783,7 @@ $LN28@PMC_DivRem:
 	mov	eax, DWORD PTR _nr_light_check_code$13[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -11811,8 +11807,7 @@ $LN29@PMC_DivRem:
 ; 1949 :                     if (nr->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN21@PMC_DivRem
 
@@ -11918,7 +11913,7 @@ $LN34@PMC_DivRem:
 	lea	edx, DWORD PTR _work_v_buf_words$7[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 5
 	push	ecx
 	call	_AllocateBlock
@@ -11950,28 +11945,28 @@ $LN35@PMC_DivRem:
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _nr$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _nq$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_v_buf$6[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	shl	eax, 2
 	shr	eax, 2
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	DWORD PTR _fp_DivRem_X_X
 	add	esp, 28					; 0000001cH
@@ -12001,7 +11996,7 @@ $LN36@PMC_DivRem:
 	mov	eax, DWORD PTR _nq_light_check_code$10[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -12020,7 +12015,7 @@ $LN37@PMC_DivRem:
 	mov	eax, DWORD PTR _nq_light_check_code$10[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -12060,8 +12055,7 @@ $LN38@PMC_DivRem:
 ; 1991 :                     if (nq->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN39@PMC_DivRem
 
@@ -12082,8 +12076,7 @@ $LN39@PMC_DivRem:
 ; 1996 :                     if (nr->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN40@PMC_DivRem
 
@@ -12144,7 +12137,7 @@ $LN41@PMC_DivRem:
 	lea	eax, DWORD PTR _work_v_buf_words$2[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 5
 	push	edx
 	call	_AllocateBlock
@@ -12167,26 +12160,26 @@ $LN42@PMC_DivRem:
 
 	mov	esi, esp
 	mov	eax, DWORD PTR _nr$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	push	0
 	mov	edx, DWORD PTR _work_v_buf$1[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	DWORD PTR _fp_DivRem_X_X
 	add	esp, 28					; 0000001cH
@@ -12220,7 +12213,7 @@ $LN43@PMC_DivRem:
 	mov	ecx, DWORD PTR _nr_light_check_code$4[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nr$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -12253,8 +12246,7 @@ $LN44@PMC_DivRem:
 ; 2022 :                     if (nr->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nr$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN9@PMC_DivRem
 
@@ -12359,6 +12351,7 @@ $LN1@PMC_DivRem:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
+	npad	2
 $LN68@PMC_DivRem:
 	DD	12					; 0000000cH
 	DD	$LN67@PMC_DivRem
@@ -12608,11 +12601,11 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 _TEXT	SEGMENT
-tv316 = -296						; size = 4
-tv190 = -292						; size = 4
-tv176 = -288						; size = 4
-tv94 = -284						; size = 4
-tv76 = -280						; size = 4
+tv313 = -296						; size = 4
+tv188 = -292						; size = 4
+tv174 = -288						; size = 4
+tv93 = -284						; size = 4
+tv75 = -280						; size = 4
 $T1 = -273						; size = 1
 _r_buf$2 = -272						; size = 4
 _r_buf$3 = -264						; size = 4
@@ -12748,8 +12741,7 @@ $LN6@PMC_DivRem:
 ; 1627 :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_DivRem
 
@@ -12761,13 +12753,13 @@ $LN6@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN49@PMC_DivRem
-	mov	DWORD PTR tv76[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv75[ebp], OFFSET _number_zero
 	jmp	SHORT $LN50@PMC_DivRem
 $LN49@PMC_DivRem:
-	mov	DWORD PTR tv76[ebp], 0
+	mov	DWORD PTR tv75[ebp], 0
 $LN50@PMC_DivRem:
 	mov	BYTE PTR $T1[ebp], 1
-	mov	eax, DWORD PTR tv76[ebp]
+	mov	eax, DWORD PTR tv75[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1633 :         *r = 0;
@@ -12852,7 +12844,7 @@ $LN9@PMC_DivRem:
 ; 1658 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$32[ebp], eax
 
 ; 1659 :             if (sizeof(__UNIT_TYPE_DIV) < sizeof(v))
@@ -12907,13 +12899,13 @@ $LN9@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN51@PMC_DivRem
-	mov	DWORD PTR tv94[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv93[ebp], OFFSET _number_zero
 	jmp	SHORT $LN52@PMC_DivRem
 $LN51@PMC_DivRem:
-	mov	DWORD PTR tv94[ebp], 0
+	mov	DWORD PTR tv93[ebp], 0
 $LN52@PMC_DivRem:
 	mov	BYTE PTR $T1[ebp], 1
-	mov	eax, DWORD PTR tv94[ebp]
+	mov	eax, DWORD PTR tv93[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1674 :                         *r = nu->BLOCK[0];
@@ -12921,7 +12913,7 @@ $LN52@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	xor	eax, eax
 	mov	ecx, DWORD PTR _r$[ebp]
@@ -12985,17 +12977,17 @@ $LN59@PMC_DivRem:
 	lea	eax, DWORD PTR _r_buf$26[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _v_lo$30[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_DivRem_X_1W
 	add	esp, 20					; 00000014H
@@ -13011,7 +13003,7 @@ $LN61@PMC_DivRem:
 	mov	edx, DWORD PTR _nq_light_check_code$27[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nq$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -13055,8 +13047,7 @@ $LN62@PMC_DivRem:
 	add	esp, 4
 $LN63@PMC_DivRem:
 	mov	eax, DWORD PTR _nq$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN24@PMC_DivRem
 
@@ -13093,12 +13084,12 @@ $LN20@PMC_DivRem:
 	mov	eax, DWORD PTR _v_lo$30[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Rem_X_1W
 	add	esp, 12					; 0000000cH
@@ -13152,13 +13143,13 @@ $LN16@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN53@PMC_DivRem
-	mov	DWORD PTR tv176[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv174[ebp], OFFSET _number_zero
 	jmp	SHORT $LN54@PMC_DivRem
 $LN53@PMC_DivRem:
-	mov	DWORD PTR tv176[ebp], 0
+	mov	DWORD PTR tv174[ebp], 0
 $LN54@PMC_DivRem:
 	mov	BYTE PTR $T1[ebp], 1
-	mov	eax, DWORD PTR tv176[ebp]
+	mov	eax, DWORD PTR tv174[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1714 :                         if (sizeof(v) == sizeof(__UNIT_TYPE))
@@ -13171,7 +13162,7 @@ $LN54@PMC_DivRem:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	xor	ecx, ecx
 	mov	edx, DWORD PTR _r$[ebp]
@@ -13187,26 +13178,26 @@ $LN27@PMC_DivRem:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [ecx+eax]
 	mov	DWORD PTR _r_lo$23[ebp], ecx
 
 ; 1719 :                             __UNIT_TYPE r_hi = nu->UNIT_WORD_COUNT > 1 ? nu->BLOCK[1] : 0;
 
 	mov	edx, DWORD PTR _nu$[ebp]
-	cmp	DWORD PTR [edx+8], 1
+	cmp	DWORD PTR [edx+12], 1
 	jbe	SHORT $LN55@PMC_DivRem
 	mov	eax, 4
 	shl	eax, 0
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [eax+edx]
-	mov	DWORD PTR tv190[ebp], eax
+	mov	DWORD PTR tv188[ebp], eax
 	jmp	SHORT $LN56@PMC_DivRem
 $LN55@PMC_DivRem:
-	mov	DWORD PTR tv190[ebp], 0
+	mov	DWORD PTR tv188[ebp], 0
 $LN56@PMC_DivRem:
-	mov	ecx, DWORD PTR tv190[ebp]
+	mov	ecx, DWORD PTR tv188[ebp]
 	mov	DWORD PTR _r_hi$22[ebp], ecx
 
 ; 1720 :                             *r = _FROMWORDTODWORD((_UINT32_T)r_hi, (_UINT32_T)r_lo);
@@ -13335,7 +13326,7 @@ $LN66@PMC_DivRem:
 	mov	ecx, DWORD PTR _r_buf$14[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nq$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	lea	ecx, DWORD PTR _work_v_buf$17[ebp]
 	push	ecx
@@ -13343,12 +13334,12 @@ $LN66@PMC_DivRem:
 	lea	edx, DWORD PTR _v_buf$18[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	DWORD PTR _fp_DivRem_X_X
 	add	esp, 28					; 0000001cH
@@ -13366,7 +13357,7 @@ $LN67@PMC_DivRem:
 	mov	ecx, DWORD PTR _nq_light_check_code$19[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nq$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -13447,8 +13438,7 @@ $LN68@PMC_DivRem:
 	add	esp, 4
 $LN69@PMC_DivRem:
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN35@PMC_DivRem
 
@@ -13550,12 +13540,12 @@ $LN36@PMC_DivRem:
 	lea	ecx, DWORD PTR _v_buf$12[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	shl	eax, 2
 	shr	eax, 2
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	DWORD PTR _fp_DivRem_X_X
 	add	esp, 28					; 0000001cH
@@ -13629,7 +13619,7 @@ $LN14@PMC_DivRem:
 ; 1784 :                 __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$7[ebp], edx
 
 ; 1785 :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -13656,13 +13646,13 @@ $LN14@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN57@PMC_DivRem
-	mov	DWORD PTR tv316[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv313[ebp], OFFSET _number_zero
 	jmp	SHORT $LN58@PMC_DivRem
 $LN57@PMC_DivRem:
-	mov	DWORD PTR tv316[ebp], 0
+	mov	DWORD PTR tv313[ebp], 0
 $LN58@PMC_DivRem:
 	mov	BYTE PTR $T1[ebp], 1
-	mov	eax, DWORD PTR tv316[ebp]
+	mov	eax, DWORD PTR tv313[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1792 :                     *r = nu->BLOCK[0];
@@ -13670,7 +13660,7 @@ $LN58@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	xor	eax, eax
 	mov	ecx, DWORD PTR _r$[ebp]
@@ -13734,17 +13724,17 @@ $LN72@PMC_DivRem:
 	lea	eax, DWORD PTR _r_buf$3[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_DivRem_X_1W
 	add	esp, 20					; 00000014H
@@ -13760,7 +13750,7 @@ $LN73@PMC_DivRem:
 	mov	edx, DWORD PTR _nq_light_check_code$4[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nq$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -13804,8 +13794,7 @@ $LN74@PMC_DivRem:
 	add	esp, 4
 $LN75@PMC_DivRem:
 	mov	eax, DWORD PTR _nq$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN44@PMC_DivRem
 
@@ -13842,12 +13831,12 @@ $LN40@PMC_DivRem:
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Rem_X_1W
 	add	esp, 12					; 0000000cH
@@ -14173,8 +14162,8 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_divrem.c
 _TEXT	SEGMENT
-tv89 = -68						; size = 4
-tv76 = -64						; size = 4
+tv88 = -68						; size = 4
+tv75 = -64						; size = 4
 _r_buf$1 = -60						; size = 4
 _r_buf$2 = -52						; size = 4
 _nq_light_check_code$3 = -40				; size = 4
@@ -14281,8 +14270,7 @@ $LN6@PMC_DivRem:
 ; 1328 :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN7@PMC_DivRem
 
@@ -14295,12 +14283,12 @@ $LN6@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN25@PMC_DivRem
-	mov	DWORD PTR tv76[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv75[ebp], OFFSET _number_zero
 	jmp	SHORT $LN26@PMC_DivRem
 $LN25@PMC_DivRem:
-	mov	DWORD PTR tv76[ebp], 0
+	mov	DWORD PTR tv75[ebp], 0
 $LN26@PMC_DivRem:
-	mov	edx, DWORD PTR tv76[ebp]
+	mov	edx, DWORD PTR tv75[ebp]
 	mov	DWORD PTR _nq$[ebp], edx
 
 ; 1335 :         *r = 0;
@@ -14379,7 +14367,7 @@ $LN9@PMC_DivRem:
 ; 1360 :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$6[ebp], edx
 
 ; 1361 :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -14406,12 +14394,12 @@ $LN9@PMC_DivRem:
 
 	cmp	DWORD PTR _q$[ebp], 0
 	je	SHORT $LN27@PMC_DivRem
-	mov	DWORD PTR tv89[ebp], OFFSET _number_zero
+	mov	DWORD PTR tv88[ebp], OFFSET _number_zero
 	jmp	SHORT $LN28@PMC_DivRem
 $LN27@PMC_DivRem:
-	mov	DWORD PTR tv89[ebp], 0
+	mov	DWORD PTR tv88[ebp], 0
 $LN28@PMC_DivRem:
-	mov	eax, DWORD PTR tv89[ebp]
+	mov	eax, DWORD PTR tv88[ebp]
 	mov	DWORD PTR _nq$[ebp], eax
 
 ; 1368 :                 *r = (_UINT32_T)nu->BLOCK[0];
@@ -14419,7 +14407,7 @@ $LN28@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR _r$[ebp]
 	mov	ecx, DWORD PTR [edx+ecx]
 	mov	DWORD PTR [eax], ecx
@@ -14474,17 +14462,17 @@ $LN18@PMC_DivRem:
 	lea	eax, DWORD PTR _r_buf$2[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nq$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	shl	edx, 2
 	shr	edx, 2
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_DivRem_X_1W
 	add	esp, 20					; 00000014H
@@ -14494,7 +14482,7 @@ $LN18@PMC_DivRem:
 	mov	edx, DWORD PTR _nq_light_check_code$3[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nq$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -14524,8 +14512,7 @@ $LN19@PMC_DivRem:
 ; 1384 :                     if (nq->IS_ZERO)
 
 	mov	edx, DWORD PTR _nq$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN20@PMC_DivRem
 
@@ -14555,12 +14542,12 @@ $LN16@PMC_DivRem:
 	mov	edx, DWORD PTR _v$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_Rem_X_1W
 	add	esp, 12					; 0000000cH
@@ -14639,7 +14626,7 @@ $LN1@PMC_DivRem:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
-	npad	3
+	npad	1
 $LN33@PMC_DivRem:
 	DD	3
 	DD	$LN32@PMC_DivRem
@@ -14801,8 +14788,7 @@ $LN5@PMC_DivRem:
 ; 1426 :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_DivRem
 
@@ -14857,8 +14843,8 @@ $LN7@PMC_DivRem:
 ; 1446 :         if (nv->IS_ONE)
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 2
+	mov	eax, DWORD PTR [edx]
+	shr	eax, 1
 	and	eax, 1
 	je	SHORT $LN10@PMC_DivRem
 
@@ -14937,7 +14923,7 @@ $LN10@PMC_DivRem:
 ; 1469 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$21[ebp], eax
 
 ; 1470 :                     if (u_bit_count < v_bit_count)
@@ -14988,7 +14974,7 @@ $LN17@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, DWORD PTR _u_lo$23[ebp]
@@ -15061,7 +15047,7 @@ $LN15@PMC_DivRem:
 ; 1501 :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$17[ebp], eax
 
 ; 1502 :                     if (u_bit_count < v_bit_count)
@@ -15106,7 +15092,7 @@ $LN23@PMC_DivRem:
 ; 1515 :                         if (nv->UNIT_BIT_COUNT <= sizeof(__UNIT_TYPE_DIV) * 8)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	cmp	DWORD PTR [eax+12], 32			; 00000020H
+	cmp	DWORD PTR [eax+16], 32			; 00000020H
 	ja	$LN26@PMC_DivRem
 
 ; 1516 :                         {
@@ -15142,7 +15128,7 @@ $LN23@PMC_DivRem:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	push	eax
 	push	2
@@ -15195,7 +15181,7 @@ $LN28@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	push	2
@@ -15265,12 +15251,12 @@ $LN26@PMC_DivRem:
 	lea	edx, DWORD PTR _work_v_buf$8[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	push	2
 	lea	ecx, DWORD PTR _u_buf$11[ebp]
@@ -15346,12 +15332,12 @@ $LN30@PMC_DivRem:
 	lea	edx, DWORD PTR _work_v_buf$5[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	shl	ecx, 2
 	shr	ecx, 2
 	push	ecx
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	push	2
 	lea	ecx, DWORD PTR _u_buf$7[ebp]
@@ -15405,7 +15391,7 @@ $LN13@PMC_DivRem:
 ; 1570 :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], eax
 
 ; 1571 :                 if (u_bit_count < v_bit_count)
@@ -15456,7 +15442,7 @@ $LN32@PMC_DivRem:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
@@ -15537,7 +15523,7 @@ $LN1@PMC_DivRem:
 	mov	esp, ebp
 	pop	ebp
 	ret	20					; 00000014H
-	npad	2
+	npad	3
 $LN54@PMC_DivRem:
 	DD	14					; 0000000eH
 	DD	$LN53@PMC_DivRem
@@ -15788,8 +15774,7 @@ $LN5@PMC_DivRem:
 ; 1238 :     if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_DivRem
 
@@ -15841,8 +15826,8 @@ $LN7@PMC_DivRem:
 ; 1258 :         if (nv->IS_ONE)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 2
+	mov	edx, DWORD PTR [ecx]
+	shr	edx, 1
 	and	edx, 1
 	je	SHORT $LN10@PMC_DivRem
 
@@ -15890,7 +15875,7 @@ $LN10@PMC_DivRem:
 ; 1273 :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], eax
 
 ; 1274 :             if (u_bit_count < v_bit_count)
@@ -15938,7 +15923,7 @@ $LN13@PMC_DivRem:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
@@ -16008,7 +15993,7 @@ $LN1@PMC_DivRem:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
-	npad	2
+	npad	3
 $LN22@PMC_DivRem:
 	DD	1
 	DD	$LN21@PMC_DivRem

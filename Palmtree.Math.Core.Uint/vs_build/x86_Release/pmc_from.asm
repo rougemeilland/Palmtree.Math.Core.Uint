@@ -302,7 +302,7 @@ $LN12@PMC_From_L:
 ; 66   :             (*o)->BLOCK[1] = x_hi;
 
 	mov	eax, DWORD PTR _p$[ebp]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax+4], edi
 $LN13@PMC_From_L:
 
@@ -310,7 +310,7 @@ $LN13@PMC_From_L:
 ; 68   :         (*o)->BLOCK[0] = x_lo;
 
 	mov	eax, DWORD PTR _p$[ebp]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax], esi
 
 ; 69   :     }
@@ -447,7 +447,7 @@ $LN3@PMC_From_I:
 ; 36   :     (*o)->BLOCK[0] = x;
 
 	mov	eax, DWORD PTR _p$1[ebp]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax], esi
 
 ; 37   :     CommitNumber(*o);
@@ -650,7 +650,7 @@ $LN6@From_L_Imp:
 ; 66   :             (*o)->BLOCK[1] = x_hi;
 
 	mov	eax, DWORD PTR [esi]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax+4], ebx
 $LN7@From_L_Imp:
 
@@ -658,7 +658,7 @@ $LN7@From_L_Imp:
 ; 68   :         (*o)->BLOCK[0] = x_lo;
 
 	mov	eax, DWORD PTR [esi]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax], edi
 
 ; 69   :     }
@@ -766,7 +766,7 @@ $LN4@From_I_Imp:
 ; 36   :     (*o)->BLOCK[0] = x;
 
 	mov	eax, DWORD PTR [edi]
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR [eax], esi
 
 ; 37   :     CommitNumber(*o);

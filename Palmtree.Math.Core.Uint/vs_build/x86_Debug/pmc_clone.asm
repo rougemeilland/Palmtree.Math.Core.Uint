@@ -126,8 +126,7 @@ $LN4@PMC_Clone_:
 ; 41   :     if (nx->IS_ZERO)
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN5@PMC_Clone_
 
@@ -203,6 +202,7 @@ $LN1@PMC_Clone_:
 	mov	esp, ebp
 	pop	ebp
 	ret	8
+	npad	3
 $LN12@PMC_Clone_:
 	DD	1
 	DD	$LN11@PMC_Clone_

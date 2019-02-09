@@ -54,22 +54,21 @@ _PMC_GetNumberType_X@8 PROC				; COMDAT
 ; 40   :     PMC_NUMBER_TYPE_CODE value = 0;
 ; 41   :     if (nx->IS_ZERO)
 
-	mov	ebx, DWORD PTR [ebx+24]
+	mov	ebx, DWORD PTR [ebx]
 	mov	ecx, ebx
-	shr	ecx, 1
+	and	ecx, 1
 
 ; 42   :         value |= 0x01;
 ; 43   :     if (nx->IS_ONE)
 
 	mov	eax, ebx
-	and	ecx, 1
 
 ; 44   :         value |= 0x02;
 ; 45   :     if (nx->IS_EVEN)
 
 	mov	edx, ecx
 	or	edx, 2
-	and	al, 4
+	and	al, 2
 	mov	eax, ebx
 	cmove	edx, ecx
 
@@ -78,7 +77,7 @@ _PMC_GetNumberType_X@8 PROC				; COMDAT
 
 	mov	ecx, edx
 	or	ecx, 8
-	and	al, 8
+	and	al, 4
 	cmove	ecx, edx
 
 ; 48   :         value |= 0x10;
@@ -86,7 +85,7 @@ _PMC_GetNumberType_X@8 PROC				; COMDAT
 
 	mov	eax, ecx
 	or	eax, 16					; 00000010H
-	and	bl, 16					; 00000010H
+	and	bl, 8
 	cmove	eax, ecx
 	mov	DWORD PTR [esi], eax
 

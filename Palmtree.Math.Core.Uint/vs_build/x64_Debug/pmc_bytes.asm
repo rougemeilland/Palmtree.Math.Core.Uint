@@ -44,7 +44,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ToByteArray DD imagerel $LN11
-	DD	imagerel $LN11+353
+	DD	imagerel $LN11+347
 	DD	imagerel $unwind$PMC_ToByteArray
 pdata	ENDS
 ;	COMDAT pdata
@@ -56,7 +56,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_ToByteArrayForSINT DD imagerel $LN19
-	DD	imagerel $LN19+501
+	DD	imagerel $LN19+489
 	DD	imagerel $unwind$PMC_ToByteArrayForSINT
 pdata	ENDS
 ;	COMDAT pdata
@@ -447,7 +447,7 @@ _TEXT	SEGMENT
 np$ = 8
 result$ = 36
 expected_abs_buffer_size$ = 72
-tv76 = 280
+tv75 = 280
 p_sign$ = 320
 p$ = 328
 buffer$ = 336
@@ -508,21 +508,20 @@ $LN3@PMC_ToByte:
 ; 150  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN17@PMC_ToByte
-	mov	QWORD PTR tv76[rbp], 0
+	mov	QWORD PTR tv75[rbp], 0
 	jmp	SHORT $LN18@PMC_ToByte
 $LN17@PMC_ToByte:
 	mov	edx, 8
 	mov	rax, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rax+16]
+	mov	rcx, QWORD PTR [rax+24]
 	call	_DIVIDE_CEILING_SIZE
-	mov	QWORD PTR tv76[rbp], rax
+	mov	QWORD PTR tv75[rbp], rax
 $LN18@PMC_ToByte:
-	mov	rax, QWORD PTR tv76[rbp]
+	mov	rax, QWORD PTR tv75[rbp]
 	mov	QWORD PTR expected_abs_buffer_size$[rbp], rax
 
 ; 151  :     if (buffer != NULL)
@@ -534,7 +533,7 @@ $LN18@PMC_ToByte:
 ; 153  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	add	rax, 8
 	mov	rcx, QWORD PTR buffer_size$[rbp]
 	shl	rcx, 3
@@ -557,8 +556,7 @@ $LN5@PMC_ToByte:
 ; 157  :             if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN8@PMC_ToByte
@@ -594,8 +592,7 @@ $LN6@PMC_ToByte:
 ; 164  :             if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN12@PMC_ToByte
@@ -622,7 +619,7 @@ $LN12@PMC_ToByte:
 	inc	rax
 	mov	r8, QWORD PTR expected_abs_buffer_size$[rbp]
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rdx, QWORD PTR [rcx+56]
+	mov	rdx, QWORD PTR [rcx+64]
 	mov	rcx, rax
 	call	_COPY_MEMORY_BYTE
 $LN13@PMC_ToByte:
@@ -638,8 +635,7 @@ $LN10@PMC_ToByte:
 ; 174  :             if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN14@PMC_ToByte
@@ -666,7 +662,7 @@ $LN14@PMC_ToByte:
 	inc	rax
 	mov	r8, QWORD PTR expected_abs_buffer_size$[rbp]
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rdx, QWORD PTR [rcx+56]
+	mov	rdx, QWORD PTR [rcx+64]
 	mov	rcx, rax
 	call	_COPY_MEMORY_BYTE
 $LN15@PMC_ToByte:
@@ -920,7 +916,7 @@ $LN14@PMC_FromBy:
 	mov	r8, rax
 	mov	rdx, rcx
 	mov	rax, QWORD PTR p$5[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	_COPY_MEMORY_BYTE
 
 ; 84   :             CommitNumber(p);
@@ -996,7 +992,7 @@ _TEXT	SEGMENT
 np$ = 8
 result$ = 36
 expected_abs_buffer_size$ = 72
-tv76 = 280
+tv75 = 280
 p$ = 320
 buffer$ = 328
 buffer_size$ = 336
@@ -1056,21 +1052,20 @@ $LN3@PMC_ToByte:
 ; 195  :     size_t expected_abs_buffer_size = np->IS_ZERO ? 0 : _DIVIDE_CEILING_SIZE(np->UNIT_BIT_COUNT, 8);
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN9@PMC_ToByte
-	mov	QWORD PTR tv76[rbp], 0
+	mov	QWORD PTR tv75[rbp], 0
 	jmp	SHORT $LN10@PMC_ToByte
 $LN9@PMC_ToByte:
 	mov	edx, 8
 	mov	rax, QWORD PTR np$[rbp]
-	mov	rcx, QWORD PTR [rax+16]
+	mov	rcx, QWORD PTR [rax+24]
 	call	_DIVIDE_CEILING_SIZE
-	mov	QWORD PTR tv76[rbp], rax
+	mov	QWORD PTR tv75[rbp], rax
 $LN10@PMC_ToByte:
-	mov	rax, QWORD PTR tv76[rbp]
+	mov	rax, QWORD PTR tv75[rbp]
 	mov	QWORD PTR expected_abs_buffer_size$[rbp], rax
 
 ; 196  :     if (buffer != NULL)
@@ -1082,7 +1077,7 @@ $LN10@PMC_ToByte:
 ; 198  :         if (8 + np->UNIT_BIT_COUNT > sizeof(*buffer) * 8 * buffer_size)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	rax, QWORD PTR [rax+16]
+	mov	rax, QWORD PTR [rax+24]
 	add	rax, 8
 	mov	rcx, QWORD PTR buffer_size$[rbp]
 	shl	rcx, 3
@@ -1098,8 +1093,7 @@ $LN5@PMC_ToByte:
 ; 200  :         if (np->IS_ZERO)
 
 	mov	rax, QWORD PTR np$[rbp]
-	mov	eax, DWORD PTR [rax+40]
-	shr	eax, 1
+	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN6@PMC_ToByte
@@ -1128,7 +1122,7 @@ $LN6@PMC_ToByte:
 	inc	rax
 	mov	r8, QWORD PTR expected_abs_buffer_size$[rbp]
 	mov	rcx, QWORD PTR np$[rbp]
-	mov	rdx, QWORD PTR [rcx+56]
+	mov	rdx, QWORD PTR [rcx+64]
 	mov	rcx, rax
 	call	_COPY_MEMORY_BYTE
 $LN7@PMC_ToByte:
@@ -1343,7 +1337,7 @@ $LN13@PMC_FromBy:
 	mov	r8, rax
 	mov	rdx, rcx
 	mov	rax, QWORD PTR p$5[rbp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	call	_COPY_MEMORY_BYTE
 
 ; 128  :             CommitNumber(p);

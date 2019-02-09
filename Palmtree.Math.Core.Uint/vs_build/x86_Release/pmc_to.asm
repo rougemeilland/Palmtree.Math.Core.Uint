@@ -73,7 +73,7 @@ _PMC_To_X_L@8 PROC					; COMDAT
 ; 61   :         return (result);
 ; 62   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
-	mov	ecx, DWORD PTR [esi+12]
+	mov	ecx, DWORD PTR [esi+16]
 	cmp	ecx, 64					; 00000040H
 	jbe	SHORT $LN4@PMC_To_X_L
 
@@ -94,7 +94,7 @@ $LN4@PMC_To_X_L:
 
 ; 64   :     if (np->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN5@PMC_To_X_L
 
 ; 65   :     {
@@ -120,7 +120,7 @@ $LN5@PMC_To_X_L:
 ; 68   :     }
 ; 69   :     if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT)
 
-	mov	eax, DWORD PTR [esi+32]
+	mov	eax, DWORD PTR [esi+36]
 	cmp	ecx, 32					; 00000020H
 	ja	SHORT $LN6@PMC_To_X_L
 
@@ -205,7 +205,7 @@ _PMC_To_X_I@8 PROC					; COMDAT
 ; 41   :         return (result);
 ; 42   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
-	cmp	DWORD PTR [esi+12], 32			; 00000020H
+	cmp	DWORD PTR [esi+16], 32			; 00000020H
 	jbe	SHORT $LN4@PMC_To_X_I
 
 ; 43   :         return (PMC_STATUS_OVERFLOW);
@@ -221,7 +221,7 @@ $LN4@PMC_To_X_I:
 
 ; 44   :     if (np->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN5@PMC_To_X_I
 
 ; 48   :     return (PMC_STATUS_OK);
@@ -242,7 +242,7 @@ $LN5@PMC_To_X_I:
 ; 46   :     else
 ; 47   :         *o = (_UINT32_T)np->BLOCK[0];
 
-	mov	eax, DWORD PTR [esi+32]
+	mov	eax, DWORD PTR [esi+36]
 	mov	ecx, DWORD PTR [eax]
 
 ; 48   :     return (PMC_STATUS_OK);

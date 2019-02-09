@@ -123,8 +123,7 @@ $LN4@PMC_GetNum:
 ; 41   :     if (nx->IS_ZERO)
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN5@PMC_GetNum
 
@@ -138,8 +137,8 @@ $LN5@PMC_GetNum:
 ; 43   :     if (nx->IS_ONE)
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 2
+	mov	eax, DWORD PTR [edx]
+	shr	eax, 1
 	and	eax, 1
 	je	SHORT $LN6@PMC_GetNum
 
@@ -153,8 +152,8 @@ $LN6@PMC_GetNum:
 ; 45   :     if (nx->IS_EVEN)
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 3
+	mov	eax, DWORD PTR [edx]
+	shr	eax, 2
 	and	eax, 1
 	je	SHORT $LN7@PMC_GetNum
 
@@ -168,8 +167,8 @@ $LN7@PMC_GetNum:
 ; 47   :     if (nx->IS_POWER_OF_TWO)
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 4
+	mov	eax, DWORD PTR [edx]
+	shr	eax, 3
 	and	eax, 1
 	je	SHORT $LN8@PMC_GetNum
 

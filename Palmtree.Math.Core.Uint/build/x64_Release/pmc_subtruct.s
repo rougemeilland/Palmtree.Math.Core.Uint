@@ -458,8 +458,8 @@ PMC_Subtruct_I_X:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L72
-	movzbl	40(%rbx), %edx
-	andl	$2, %edx
+	movzbl	(%rbx), %edx
+	andl	$1, %edx
 	testl	%esi, %esi
 	jne	.L74
 	testb	%dl, %dl
@@ -485,9 +485,9 @@ PMC_Subtruct_I_X:
 	movl	$32, %ecx
 	movslq	%edx, %rdx
 	subq	%rdx, %rcx
-	cmpq	16(%rbx), %rcx
+	cmpq	24(%rbx), %rcx
 	jb	.L79
-	movq	56(%rbx), %rdx
+	movq	64(%rbx), %rdx
 	subq	(%rdx), %rsi
 	jb	.L79
 .L76:
@@ -532,7 +532,7 @@ PMC_Subtruct_X_I:
 	testl	%eax, %eax
 	movl	%eax, %esi
 	jne	.L80
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	je	.L82
 	testl	%ebp, %ebp
 	jne	.L91
@@ -550,7 +550,7 @@ PMC_Subtruct_X_I:
 .L82:
 	testl	%ebp, %ebp
 	je	.L100
-	movq	16(%rbx), %rdx
+	movq	24(%rbx), %rdx
 	movl	$31, %eax
 /APP
  # 597 "../pmc_inline_func.h" 1
@@ -581,23 +581,23 @@ PMC_Subtruct_X_I:
 	jne	.L92
 	movq	32(%rsp), %rax
 	movl	%ebp, %r8d
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	call	Subtruct_X_1W.isra.0
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L102
 	movq	32(%rsp), %rax
 	movq	40(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L92
 	movq	32(%rsp), %rcx
 	call	CommitNumber
 	movq	32(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L89
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx
@@ -661,8 +661,8 @@ PMC_Subtruct_L_X:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L103
-	movzbl	40(%rbx), %edx
-	andl	$2, %edx
+	movzbl	(%rbx), %edx
+	andl	$1, %edx
 	testq	%rdi, %rdi
 	jne	.L105
 	testb	%dl, %dl
@@ -688,9 +688,9 @@ PMC_Subtruct_L_X:
 	movl	$64, %ecx
 	movslq	%edx, %rdx
 	subq	%rdx, %rcx
-	cmpq	16(%rbx), %rcx
+	cmpq	24(%rbx), %rcx
 	jb	.L110
-	movq	56(%rbx), %rdx
+	movq	64(%rbx), %rdx
 	subq	(%rdx), %rdi
 	jb	.L110
 .L107:
@@ -735,7 +735,7 @@ PMC_Subtruct_X_L:
 	testl	%eax, %eax
 	movl	%eax, %esi
 	jne	.L111
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	je	.L113
 	testq	%rbp, %rbp
 	jne	.L121
@@ -753,7 +753,7 @@ PMC_Subtruct_X_L:
 .L113:
 	testq	%rbp, %rbp
 	je	.L126
-	movq	16(%rbx), %rdx
+	movq	24(%rbx), %rdx
 	movl	$63, %eax
 /APP
  # 641 "../pmc_inline_func.h" 1
@@ -784,23 +784,23 @@ PMC_Subtruct_X_L:
 	jne	.L122
 	movq	32(%rsp), %rax
 	movq	%rbp, %r8
-	movq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	movq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	call	Subtruct_X_1W.isra.0
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L128
 	movq	32(%rsp), %rax
 	movq	40(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L122
 	movq	32(%rsp), %rcx
 	call	CommitNumber
 	movq	32(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L115
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx
@@ -885,14 +885,14 @@ PMC_Subtruct_X_X:
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L129
-	movzbl	40(%rdi), %eax
-	andl	$2, %eax
-	testb	$2, 40(%rsi)
+	movzbl	(%rdi), %eax
+	andl	$1, %eax
+	testb	$1, (%rsi)
 	jne	.L144
 	testb	%al, %al
 	jne	.L145
-	movq	16(%rsi), %rdx
-	cmpq	16(%rdi), %rdx
+	movq	24(%rsi), %rdx
+	cmpq	24(%rdi), %rdx
 	jb	.L138
 	leaq	48(%rsp), %rcx
 	leaq	56(%rsp), %r8
@@ -939,13 +939,13 @@ PMC_Subtruct_X_X:
 	.p2align 4,,10
 .L146:
 	movq	48(%rsp), %rax
-	movq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	8(%rdi), %r9
-	movq	48(%rax), %r8
+	movq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	16(%rdi), %r9
+	movq	56(%rax), %r8
 	movq	%r8, 40(%rsp)
-	movq	56(%rax), %rax
-	movq	56(%rdi), %r8
+	movq	64(%rax), %rax
+	movq	64(%rdi), %r8
 	movq	%rax, 32(%rsp)
 	call	Subtruct_Imp
 	testl	%eax, %eax
@@ -953,7 +953,7 @@ PMC_Subtruct_X_X:
 	jne	.L147
 	movq	48(%rsp), %rax
 	movq	56(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L139

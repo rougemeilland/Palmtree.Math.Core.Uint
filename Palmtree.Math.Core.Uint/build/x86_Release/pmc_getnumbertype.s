@@ -24,21 +24,16 @@ LFB94:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L1
-	movzbl	24(%ebx), %ecx
-	movl	%ecx, %ebx
-	shrb	%bl
-	andl	$1, %ebx
-	movl	%ebx, %edx
-	orl	$2, %edx
-	testb	$4, %cl
-	cmove	%ebx, %edx
+	movzbl	(%ebx), %ecx
+	movl	%ecx, %edx
+	andl	$3, %edx
 	movl	%edx, %ebx
 	orl	$8, %ebx
-	testb	$8, %cl
+	testb	$4, %cl
 	cmovne	%ebx, %edx
 	movl	%edx, %ebx
 	orl	$16, %ebx
-	andl	$16, %ecx
+	andl	$8, %ecx
 	cmovne	%ebx, %edx
 	movl	%edx, (%esi)
 L1:

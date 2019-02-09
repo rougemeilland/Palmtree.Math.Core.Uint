@@ -120,7 +120,7 @@ LFB5533:
 	.cfi_offset 3, -20
 	subl	$108, %esp
 	.cfi_def_cfa_offset 128
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L18
 	testl	%edx, %edx
 	je	L26
@@ -182,8 +182,8 @@ L20:
  # 0 "" 2
 /NO_APP
 	addl	$1, %ebx
-	cmpl	%ebx, 12(%eax)
-	cmovnb	12(%eax), %ebx
+	cmpl	%ebx, 16(%eax)
+	cmovnb	16(%eax), %ebx
 	movl	%edx, 48(%esp)
 	leal	72(%esp), %eax
 	movl	$-5, %edi
@@ -215,7 +215,7 @@ L20:
 	testl	%eax, %eax
 	movl	%eax, %edi
 	jne	L31
-	movl	20(%esi), %eax
+	movl	24(%esi), %eax
 /APP
  # 711 "../pmc_inline_func.h" 1
 	bsfl %edx, %ecx
@@ -223,8 +223,8 @@ L20:
 /NO_APP
 	movl	%eax, 56(%esp)
 	movl	%ecx, 48(%esp)
-	movl	8(%esi), %ecx
-	movl	32(%esi), %esi
+	movl	12(%esi), %ecx
+	movl	36(%esi), %esi
 	testl	%eax, %eax
 	jne	L32
 	movl	44(%esp), %edi
@@ -246,7 +246,7 @@ L25:
 	movl	%edi, %edx
 	movl	%eax, 4(%esp)
 	movl	0(%ebp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	movl	%esi, %eax
 	call	_GreatestCommonDivisor_Imp
@@ -267,7 +267,7 @@ L25:
 	movl	88(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	0(%ebp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %edi
@@ -283,7 +283,7 @@ L25:
 	call	_DeallocateBlock
 	movl	0(%ebp), %eax
 	movl	56(%esp), %ecx
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 	movl	48(%esp), %eax
 	movl	$1, 16(%esp)
 	cmpl	%eax, %ecx
@@ -297,7 +297,7 @@ L25:
 	movl	88(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	0(%ebp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %edi
@@ -360,7 +360,7 @@ LFB5536:
 	movl	%edx, %ebx
 	subl	$108, %esp
 	.cfi_def_cfa_offset 128
-	testb	$2, 24(%eax)
+	testb	$1, (%eax)
 	je	L34
 	movl	%ecx, %eax
 	orl	%ebx, %eax
@@ -396,7 +396,7 @@ L34:
 	movl	%ecx, %eax
 	orl	%ebx, %eax
 	je	L71
-	movl	12(%esi), %ebp
+	movl	16(%esi), %ebp
 	testl	%ecx, %ecx
 	jne	L37
 	testl	%ebx, %ebx
@@ -438,7 +438,7 @@ L38:
 	movl	%eax, %edi
 	testl	%eax, %eax
 	jne	L72
-	movl	20(%esi), %eax
+	movl	24(%esi), %eax
 	movl	$32, 48(%esp)
 	movl	%eax, 56(%esp)
 	testl	%ebx, %ebx
@@ -451,8 +451,8 @@ L38:
 	movl	%eax, 48(%esp)
 L42:
 	movl	56(%esp), %eax
-	movl	8(%esi), %ecx
-	movl	32(%esi), %esi
+	movl	12(%esi), %ecx
+	movl	36(%esi), %esi
 	testl	%eax, %eax
 	jne	L73
 	movl	44(%esp), %edi
@@ -474,7 +474,7 @@ L44:
 	shrl	$5, %ecx
 	movl	%eax, 4(%esp)
 	movl	(%edi), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	movl	%ebx, %eax
 	call	_GreatestCommonDivisor_Imp
@@ -496,7 +496,7 @@ L44:
 	movl	128(%esp), %ecx
 	movl	%eax, 4(%esp)
 	movl	(%ecx), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %edi
@@ -513,7 +513,7 @@ L44:
 	movl	128(%esp), %ecx
 	movl	(%ecx), %eax
 	movl	56(%esp), %ecx
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 	movl	48(%esp), %eax
 	movl	$1, 16(%esp)
 	movl	%edx, 12(%esp)
@@ -585,7 +585,7 @@ L37:
 	testl	%eax, %eax
 	movl	%eax, %edi
 	jne	L74
-	movl	20(%esi), %eax
+	movl	24(%esi), %eax
 	movl	%eax, 52(%esp)
 	testl	%ebx, %ebx
 	jne	L48
@@ -598,8 +598,8 @@ L37:
 	movl	%eax, 56(%esp)
 L49:
 	movl	52(%esp), %edi
-	movl	8(%esi), %ecx
-	movl	32(%esi), %esi
+	movl	12(%esi), %ecx
+	movl	36(%esi), %esi
 	testl	%edi, %edi
 	jne	L75
 	movl	44(%esp), %edi
@@ -625,7 +625,7 @@ L52:
 	shrl	$5, %ecx
 	movl	%esi, %edx
 	movl	(%eax), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	movl	%ebx, %eax
 	call	_GreatestCommonDivisor_Imp
@@ -647,7 +647,7 @@ L52:
 	movl	%eax, 4(%esp)
 	movl	128(%esp), %eax
 	movl	(%eax), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %edi
@@ -664,7 +664,7 @@ L52:
 	movl	128(%esp), %eax
 	movl	52(%esp), %ecx
 	movl	(%eax), %eax
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 	movl	56(%esp), %eax
 	movl	$1, 16(%esp)
 	movl	%edx, 12(%esp)
@@ -680,7 +680,7 @@ L69:
 	movl	%eax, 4(%esp)
 	movl	128(%esp), %eax
 	movl	(%eax), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %edi
@@ -1017,9 +1017,9 @@ L112:
 	movl	%eax, %esi
 	testl	%eax, %eax
 	jne	L93
-	movzbl	24(%ebx), %eax
-	andl	$2, %eax
-	testb	$2, 24(%edi)
+	movzbl	(%ebx), %eax
+	andl	$1, %eax
+	testb	$1, (%edi)
 	jne	L113
 	testb	%al, %al
 	je	L99
@@ -1066,11 +1066,11 @@ L113:
 	jmp	L93
 	.p2align 4,,10
 L99:
-	movl	12(%ebx), %ebp
+	movl	16(%ebx), %ebp
 	leal	56(%esp), %eax
-	cmpl	%ebp, 12(%edi)
+	cmpl	%ebp, 16(%edi)
 	movl	$-5, %esi
-	cmovnb	12(%edi), %ebp
+	cmovnb	16(%edi), %ebp
 	movl	%eax, 8(%esp)
 	leal	60(%esp), %eax
 	movl	%eax, 4(%esp)
@@ -1097,11 +1097,11 @@ L99:
 	movl	%eax, %esi
 	testl	%eax, %eax
 	jne	L114
-	movl	20(%ebx), %ecx
-	movl	20(%edi), %eax
-	movl	32(%edi), %esi
+	movl	24(%ebx), %ecx
+	movl	24(%edi), %eax
+	movl	36(%edi), %esi
 	movl	%ecx, 40(%esp)
-	movl	8(%edi), %ecx
+	movl	12(%edi), %ecx
 	movl	%eax, 44(%esp)
 	testl	%eax, %eax
 	jne	L115
@@ -1113,8 +1113,8 @@ L99:
 /NO_APP
 L104:
 	movl	40(%esp), %eax
-	movl	8(%ebx), %ecx
-	movl	32(%ebx), %esi
+	movl	12(%ebx), %ecx
+	movl	36(%ebx), %esi
 	testl	%eax, %eax
 	jne	L116
 	movl	36(%esp), %edi
@@ -1132,7 +1132,7 @@ L106:
 	movl	52(%esp), %eax
 	shrl	$5, %ecx
 	movl	%edi, %edx
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	movl	%ebx, %eax
 	call	_GreatestCommonDivisor_Imp
@@ -1153,7 +1153,7 @@ L106:
 	movl	72(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	52(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %esi
@@ -1169,7 +1169,7 @@ L106:
 	call	_DeallocateBlock
 	movl	52(%esp), %eax
 	movl	44(%esp), %ecx
-	movl	32(%eax), %edx
+	movl	36(%eax), %edx
 	movl	40(%esp), %eax
 	movl	$1, 16(%esp)
 	cmpl	%eax, %ecx
@@ -1183,7 +1183,7 @@ L106:
 	movl	72(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	52(%esp), %eax
-	movl	32(%eax), %eax
+	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	movl	%eax, %esi

@@ -144,7 +144,7 @@ $LN3@PMC_To_X_L:
 ; 62   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	eax, DWORD PTR _np$[ebp]
-	cmp	DWORD PTR [eax+12], 64			; 00000040H
+	cmp	DWORD PTR [eax+16], 64			; 00000040H
 	jbe	SHORT $LN4@PMC_To_X_L
 
 ; 63   :         return (PMC_STATUS_OVERFLOW);
@@ -156,8 +156,7 @@ $LN4@PMC_To_X_L:
 ; 64   :     if (np->IS_ZERO)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN5@PMC_To_X_L
 
@@ -178,7 +177,7 @@ $LN5@PMC_To_X_L:
 ; 69   :     if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	cmp	DWORD PTR [ecx+12], 32			; 00000020H
+	cmp	DWORD PTR [ecx+16], 32			; 00000020H
 	ja	SHORT $LN6@PMC_To_X_L
 
 ; 70   :     {
@@ -188,7 +187,7 @@ $LN5@PMC_To_X_L:
 	mov	edx, 4
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	xor	ecx, ecx
 	mov	edx, DWORD PTR _o$[ebp]
@@ -208,7 +207,7 @@ $LN6@PMC_To_X_L:
 ; 75   :     else if (np->UNIT_BIT_COUNT <= __UNIT_TYPE_BIT_COUNT * 2)
 
 	mov	eax, DWORD PTR _np$[ebp]
-	cmp	DWORD PTR [eax+12], 64			; 00000040H
+	cmp	DWORD PTR [eax+16], 64			; 00000040H
 	ja	SHORT $LN8@PMC_To_X_L
 
 ; 76   :     {
@@ -218,13 +217,13 @@ $LN6@PMC_To_X_L:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, 4
 	shl	eax, 0
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	mov	eax, DWORD PTR [edx+eax]
 	push	eax
 	call	__FROMWORDTODWORD
@@ -317,7 +316,7 @@ $LN3@PMC_To_X_I:
 ; 42   :     if (np->UNIT_BIT_COUNT > sizeof(*o) * 8)
 
 	mov	eax, DWORD PTR _np$[ebp]
-	cmp	DWORD PTR [eax+12], 32			; 00000020H
+	cmp	DWORD PTR [eax+16], 32			; 00000020H
 	jbe	SHORT $LN4@PMC_To_X_I
 
 ; 43   :         return (PMC_STATUS_OVERFLOW);
@@ -329,8 +328,7 @@ $LN4@PMC_To_X_I:
 ; 44   :     if (np->IS_ZERO)
 
 	mov	ecx, DWORD PTR _np$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN5@PMC_To_X_I
 
@@ -347,7 +345,7 @@ $LN5@PMC_To_X_I:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _np$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	eax, DWORD PTR _o$[ebp]
 	mov	ecx, DWORD PTR [edx+ecx]
 	mov	DWORD PTR [eax], ecx

@@ -46,31 +46,31 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_X DD imagerel $LN23
-	DD	imagerel $LN23+69
+	DD	imagerel $LN23+68
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$0$PMC_BitwiseOr_X_X DD imagerel $LN23+69
-	DD	imagerel $LN23+102
+$pdata$0$PMC_BitwiseOr_X_X DD imagerel $LN23+68
+	DD	imagerel $LN23+101
 	DD	imagerel $chain$0$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_BitwiseOr_X_X DD imagerel $LN23+102
-	DD	imagerel $LN23+110
+$pdata$1$PMC_BitwiseOr_X_X DD imagerel $LN23+101
+	DD	imagerel $LN23+109
 	DD	imagerel $chain$1$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$PMC_BitwiseOr_X_X DD imagerel $LN23+110
-	DD	imagerel $LN23+272
+$pdata$2$PMC_BitwiseOr_X_X DD imagerel $LN23+109
+	DD	imagerel $LN23+270
 	DD	imagerel $chain$2$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$3$PMC_BitwiseOr_X_X DD imagerel $LN23+272
-	DD	imagerel $LN23+285
+$pdata$3$PMC_BitwiseOr_X_X DD imagerel $LN23+270
+	DD	imagerel $LN23+283
 	DD	imagerel $chain$3$PMC_BitwiseOr_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -112,13 +112,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_I_Imp DD imagerel PMC_BitwiseOr_X_I_Imp
-	DD	imagerel PMC_BitwiseOr_X_I_Imp+240
+	DD	imagerel PMC_BitwiseOr_X_I_Imp+239
 	DD	imagerel $unwind$PMC_BitwiseOr_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_BitwiseOr_X_L_Imp DD imagerel PMC_BitwiseOr_X_L_Imp
-	DD	imagerel PMC_BitwiseOr_X_L_Imp+245
+	DD	imagerel PMC_BitwiseOr_X_L_Imp+244
 	DD	imagerel $unwind$PMC_BitwiseOr_X_L_Imp
 pdata	ENDS
 ;	COMDAT xdata
@@ -181,7 +181,7 @@ xdata	ENDS
 xdata	SEGMENT
 $chain$3$PMC_BitwiseOr_X_X DD 021H
 	DD	imagerel $LN23
-	DD	imagerel $LN23+69
+	DD	imagerel $LN23+68
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -189,14 +189,14 @@ xdata	SEGMENT
 $chain$2$PMC_BitwiseOr_X_X DD 020021H
 	DD	0b5400H
 	DD	imagerel $LN23
-	DD	imagerel $LN23+69
+	DD	imagerel $LN23+68
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$1$PMC_BitwiseOr_X_X DD 021H
 	DD	imagerel $LN23
-	DD	imagerel $LN23+69
+	DD	imagerel $LN23+68
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -204,7 +204,7 @@ xdata	SEGMENT
 $chain$0$PMC_BitwiseOr_X_X DD 020521H
 	DD	0b5405H
 	DD	imagerel $LN23
-	DD	imagerel $LN23+69
+	DD	imagerel $LN23+68
 	DD	imagerel $unwind$PMC_BitwiseOr_X_X
 xdata	ENDS
 ;	COMDAT xdata
@@ -270,7 +270,7 @@ PMC_BitwiseOr_X_L_Imp PROC				; COMDAT
 ; 269  :     PMC_STATUS_CODE result;
 ; 270  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	rsi, rdx
 	mov	rbp, rcx
@@ -365,8 +365,8 @@ $LN7@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rbp+16], rdx
-	cmovae	rdx, QWORD PTR [rbp+16]
+	cmp	QWORD PTR [rbp+24], rdx
+	cmovae	rdx, QWORD PTR [rbp+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 332  :             __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -383,9 +383,9 @@ $LN7@PMC_Bitwis:
 ; 336  :             BitwiseOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR [rbx]
-	mov	rdx, QWORD PTR [rbp+56]
-	mov	rcx, QWORD PTR [rbp+8]
-	mov	rdi, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rbp+64]
+	mov	rcx, QWORD PTR [rbp+16]
+	mov	rdi, QWORD PTR [rax+64]
 	mov	rax, QWORD PTR [rdx]
 
 ; 34   :     if (u_count == 1)
@@ -416,7 +416,7 @@ $LN56@PMC_Bitwis:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nw_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Bitwis
@@ -474,7 +474,7 @@ PMC_BitwiseOr_X_I_Imp PROC				; COMDAT
 ; 182  :     PMC_STATUS_CODE result;
 ; 183  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	esi, edx
 	mov	rbp, rcx
@@ -569,8 +569,8 @@ $LN7@PMC_Bitwis:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rbp+16], rdx
-	cmovae	rdx, QWORD PTR [rbp+16]
+	cmp	QWORD PTR [rbp+24], rdx
+	cmovae	rdx, QWORD PTR [rbp+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 209  :         __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -587,9 +587,9 @@ $LN7@PMC_Bitwis:
 ; 213  :         BitwiseOr_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
 
 	mov	rax, QWORD PTR [rbx]
-	mov	rdx, QWORD PTR [rbp+56]
-	mov	rcx, QWORD PTR [rbp+8]
-	mov	rdi, QWORD PTR [rax+56]
+	mov	rdx, QWORD PTR [rbp+64]
+	mov	rcx, QWORD PTR [rbp+16]
+	mov	rdi, QWORD PTR [rax+64]
 	mov	rax, rsi
 	or	rax, QWORD PTR [rdx]
 	mov	QWORD PTR [rdi], rax
@@ -620,7 +620,7 @@ $LN22@PMC_Bitwis:
 
 	mov	rcx, QWORD PTR [rbx]
 	mov	rdx, QWORD PTR nz_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Bitwis
@@ -1439,7 +1439,7 @@ $LN23:
 ; 406  :     NUMBER_HEADER* nw;
 ; 407  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rdi+40], 2
+	test	BYTE PTR [rdi], 1
 	mov	QWORD PTR [rsp+88], rbp
 	je	SHORT $LN7@PMC_Bitwis
 
@@ -1469,7 +1469,7 @@ $LN7@PMC_Bitwis:
 ; 411  :     }
 ; 412  :     else if (nv->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN10@PMC_Bitwis
 
 ; 413  :     {
@@ -1488,23 +1488,23 @@ $LN10@PMC_Bitwis:
 ; 418  :     {
 ; 419  :         if (nu->UNIT_WORD_COUNT < nv->UNIT_WORD_COUNT)
 
-	mov	rcx, QWORD PTR [rdi+8]
+	mov	rcx, QWORD PTR [rdi+16]
 
 ; 429  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR nw_light_check_code$1[rsp]
-	cmp	rcx, QWORD PTR [rbx+8]
+	cmp	rcx, QWORD PTR [rbx+16]
 	mov	rbp, rdi
 	lea	rcx, QWORD PTR nw$[rsp]
 	cmovae	rbp, rbx
 	cmovae	rbx, rdi
-	mov	rdx, QWORD PTR [rbp+16]
+	mov	rdx, QWORD PTR [rbp+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rbx+16], rdx
-	cmovae	rdx, QWORD PTR [rbx+16]
+	cmp	QWORD PTR [rbx+24], rdx
+	cmovae	rdx, QWORD PTR [rbx+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_bitwiseor.c
 
 ; 429  :         if ((result = AllocateNumber(&nw, w_bit_count, &nw_light_check_code)) != PMC_STATUS_OK)
@@ -1517,19 +1517,19 @@ $LN10@PMC_Bitwis:
 ; 431  :         BitwiseOr_X_X(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK);
 
 	mov	rax, QWORD PTR nw$[rsp]
-	mov	r9, QWORD PTR [rbp+8]
-	mov	r8, QWORD PTR [rbp+56]
-	mov	rdx, QWORD PTR [rbx+8]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rbp+16]
+	mov	r8, QWORD PTR [rbp+64]
+	mov	rdx, QWORD PTR [rbx+16]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rsp+32], rcx
-	mov	rcx, QWORD PTR [rbx+56]
+	mov	rcx, QWORD PTR [rbx+64]
 	call	BitwiseOr_X_X
 
 ; 432  :         if ((result = CheckBlockLight(nw->BLOCK, nw_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nw$[rsp]
 	mov	rdx, QWORD PTR nw_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	$LN20@PMC_Bitwis

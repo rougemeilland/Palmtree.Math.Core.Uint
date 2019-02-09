@@ -49,7 +49,7 @@ _r_check_code$1 = -52					; size = 4
 _work2_buf_code$2 = -48					; size = 4
 _work1_buf_code$3 = -44					; size = 4
 _r_buf$1$ = -40						; size = 4
-tv415 = -36						; size = 4
+tv406 = -36						; size = 4
 _work2_buf_words$4 = -32				; size = 4
 _work1_buf_words$5 = -28				; size = 4
 _v_buf$1$ = -24						; size = 4
@@ -77,8 +77,8 @@ _PMC_Pow_X_I_Imp PROC					; COMDAT
 ; 79   :     if (v->IS_ZERO)
 
 	mov	edi, DWORD PTR _v$[ebp]
-	mov	eax, DWORD PTR [edi+24]
-	test	al, 2
+	mov	eax, DWORD PTR [edi]
+	test	al, 1
 	je	SHORT $LN2@PMC_Pow_X_
 
 ; 80   :     {
@@ -130,7 +130,7 @@ $LN2@PMC_Pow_X_:
 ; 96   :     }
 ; 97   :     else if (v->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	jne	$LN44@PMC_Pow_X_
 
 ; 98   :     {
@@ -191,7 +191,7 @@ $LN10@PMC_Pow_X_:
 ; 131  :             if (v_bit_count > ((__UNIT_TYPE)-1 - __UNIT_TYPE_BIT_COUNT) / e)
 
 	xor	edx, edx
-	mov	esi, DWORD PTR [edi+12]
+	mov	esi, DWORD PTR [edi+16]
 	mov	eax, -33				; ffffffdfH
 	div	ebx
 	cmp	esi, eax
@@ -318,11 +318,11 @@ $LN16@PMC_Pow_X_:
 ; 158  : 
 ; 159  :             Pow_Imp(v->BLOCK, v->UNIT_WORD_COUNT, e, work1_buf, work2_buf, (*r)->BLOCK);
 
-	mov	eax, DWORD PTR [eax+32]
+	mov	eax, DWORD PTR [eax+36]
 	mov	DWORD PTR _r_buf$1$[ebp], eax
-	mov	eax, DWORD PTR [edi+8]
+	mov	eax, DWORD PTR [edi+12]
 	mov	DWORD PTR _v_buf_count$1$[ebp], eax
-	mov	eax, DWORD PTR [edi+32]
+	mov	eax, DWORD PTR [edi+36]
 	mov	DWORD PTR _v_buf$1$[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -386,14 +386,14 @@ $LN16@PMC_Pow_X_:
 
 	je	$LN23@PMC_Pow_X_
 	mov	edx, DWORD PTR _w_ptr$1$[ebp]
-	npad	3
+	npad	4
 $LL22@PMC_Pow_X_:
 
 ; 45   :     {
 ; 46   :         // u を自乗して w に格納する
 ; 47   :         _ZERO_MEMORY_UNIT(w_ptr, u_count * 2);
 
-	mov	DWORD PTR tv415[ebp], esi
+	mov	DWORD PTR tv406[ebp], esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 112  :         __stosd((unsigned long*)d, 0, (unsigned long)count);
@@ -507,7 +507,7 @@ $LN26@PMC_Pow_X_:
 ; 71   :         e_mask >>= 1;
 
 	shr	esi, 1
-	cmp	DWORD PTR tv415[ebp], 2
+	cmp	DWORD PTR tv406[ebp], 2
 	mov	DWORD PTR _e_mask$1$[ebp], esi
 	jae	SHORT $LL22@PMC_Pow_X_
 	mov	eax, DWORD PTR _u_ptr$1$[ebp]
@@ -549,7 +549,7 @@ $LN23@PMC_Pow_X_:
 	mov	edi, DWORD PTR _r$[ebp]
 	push	DWORD PTR _r_check_code$1[ebp]
 	mov	eax, DWORD PTR [edi]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax

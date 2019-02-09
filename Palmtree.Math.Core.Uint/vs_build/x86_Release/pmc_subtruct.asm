@@ -1738,9 +1738,9 @@ _PMC_Subtruct_X_X@12 PROC				; COMDAT
 ; 672  :     NUMBER_HEADER* nz;
 ; 673  :     if (nx->IS_ZERO)
 
-	mov	eax, DWORD PTR [edi+24]
-	and	eax, 2
-	test	BYTE PTR [esi+24], 2
+	mov	eax, DWORD PTR [edi]
+	and	eax, 1
+	test	BYTE PTR [esi], 1
 	je	SHORT $LN7@PMC_Subtru
 
 ; 674  :     {
@@ -1815,12 +1815,12 @@ $LN11@PMC_Subtru:
 ; 706  :             // x と y の差を計算する
 ; 707  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
-	mov	eax, DWORD PTR [esi+12]
+	mov	eax, DWORD PTR [esi+16]
 
 ; 708  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
 ; 709  :             if (x_bit_count < y_bit_count)
 
-	cmp	eax, DWORD PTR [edi+12]
+	cmp	eax, DWORD PTR [edi+16]
 	jae	SHORT $LN14@PMC_Subtru
 $LN19@PMC_Subtru:
 	pop	edi
@@ -1856,12 +1856,12 @@ $LN14@PMC_Subtru:
 ; 718  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nz$[ebp]
-	push	DWORD PTR [eax+28]
 	push	DWORD PTR [eax+32]
-	push	DWORD PTR [edi+8]
-	push	DWORD PTR [edi+32]
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [eax+36]
+	push	DWORD PTR [edi+12]
+	push	DWORD PTR [edi+36]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_Subtruct_Imp
 	mov	esi, eax
 	add	esp, 24					; 00000018H
@@ -1896,7 +1896,7 @@ $LN16@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nz$[ebp]
 	push	DWORD PTR _nz_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -2014,7 +2014,7 @@ _PMC_Subtruct_X_L@16 PROC				; COMDAT
 ; 531  :     NUMBER_HEADER* nz;
 ; 532  :     if (nx->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	push	ebx
 	je	SHORT $LN6@PMC_Subtru
 
@@ -2119,7 +2119,7 @@ $LN10@PMC_Subtru:
 ; 571  : 
 ; 572  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 573  :                 _UINT32_T y_hi;
 ; 574  :                 _UINT32_T y_lo = _FROMDWORDTOWORD(y, &y_hi);
@@ -2166,11 +2166,11 @@ $LN10@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nz$[ebp]
 	mov	ecx, DWORD PTR _y$[ebp]
-	push	DWORD PTR [eax+28]
 	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	ecx
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_Subtruct_X_1W
 	mov	esi, eax
 	add	esp, 20					; 00000014H
@@ -2192,7 +2192,7 @@ $LN19@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nz$[ebp]
 	push	DWORD PTR _nz_light_check_code$3[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -2264,10 +2264,10 @@ $LN21@PMC_Subtru:
 ; 609  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nz$[ebp]
-	mov	ecx, DWORD PTR [eax+28]
-	mov	edx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+32]
+	mov	edx, DWORD PTR [eax+36]
 	mov	DWORD PTR _w_count$1$[ebp], ecx
-	mov	ecx, DWORD PTR [esi+8]
+	mov	ecx, DWORD PTR [esi+12]
 	mov	DWORD PTR _wp$1$[ebp], edx
 	mov	DWORD PTR _u_count$1$[ebp], ecx
 
@@ -2289,7 +2289,7 @@ $LN34@PMC_Subtru:
 ; 608  :                         return (result);
 ; 609  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
-	mov	esi, DWORD PTR [esi+32]
+	mov	esi, DWORD PTR [esi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 265  :         return (_subborrow_u32(borrow, u, v, w));
@@ -2400,7 +2400,7 @@ $LN23@PMC_Subtru:
 ; 614  :                     if ((result = CheckBlockLight(nz->BLOCK, nz_light_check_code)) != PMC_STATUS_OK)
 
 	push	DWORD PTR _nz_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -2442,7 +2442,7 @@ $LN24@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nz$[ebp]
 	add	esp, 4
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN29@PMC_Subtru
 
 ; 643  :             {
@@ -2545,7 +2545,7 @@ _PMC_Subtruct_X_I@12 PROC				; COMDAT
 ; 276  :     NUMBER_HEADER* nw;
 ; 277  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [esi+24], 2
+	test	BYTE PTR [esi], 1
 	push	ebx
 	je	SHORT $LN6@PMC_Subtru
 
@@ -2641,7 +2641,7 @@ $LN10@PMC_Subtru:
 ; 312  :             // u と v の差を計算する
 ; 313  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	edx, DWORD PTR [esi+12]
+	mov	edx, DWORD PTR [esi+16]
 
 ; 314  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
 
@@ -2693,11 +2693,11 @@ $LN13@PMC_Subtru:
 ; 324  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	eax, DWORD PTR _nw$[ebp]
-	push	DWORD PTR [eax+28]
 	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	push	ebx
-	push	DWORD PTR [esi+8]
-	push	DWORD PTR [esi+32]
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
 	call	_Subtruct_X_1W
 	mov	esi, eax
 	add	esp, 20					; 00000014H
@@ -2732,7 +2732,7 @@ $LN15@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	push	DWORD PTR _w_light_check_code$1[ebp]
-	push	DWORD PTR [eax+32]
+	push	DWORD PTR [eax+36]
 	call	_CheckBlockLight
 	add	esp, 8
 	test	eax, eax
@@ -2748,7 +2748,7 @@ $LN15@PMC_Subtru:
 
 	mov	eax, DWORD PTR _nw$[ebp]
 	add	esp, 4
-	test	BYTE PTR [eax+24], 2
+	test	BYTE PTR [eax], 1
 	je	SHORT $LN17@PMC_Subtru
 
 ; 333  :             {
@@ -2858,9 +2858,9 @@ _PMC_Subtruct_L_X@16 PROC				; COMDAT
 ; 361  :         return (result);
 ; 362  :     if (u == 0)
 
-	mov	ecx, DWORD PTR [edi+24]
+	mov	ecx, DWORD PTR [edi]
 	mov	edx, DWORD PTR _u$[ebp+4]
-	and	ecx, 2
+	and	ecx, 1
 	push	esi
 	mov	esi, DWORD PTR _u$[ebp]
 	mov	eax, esi
@@ -2955,7 +2955,7 @@ $LN6@PMC_Subtru:
 ; 407  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 408  :                     if (u_bit_count < v_bit_count)
 
-	cmp	ecx, DWORD PTR [edi+12]
+	cmp	ecx, DWORD PTR [edi+16]
 	jb	SHORT $LN45@PMC_Subtru
 
 ; 409  :                     {
@@ -2973,7 +2973,7 @@ $LN6@PMC_Subtru:
 ; 421  :                         __UNIT_TYPE temp_w;
 ; 422  :                         char borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w);
 
-	mov	eax, DWORD PTR [edi+32]
+	mov	eax, DWORD PTR [edi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 265  :         return (_subborrow_u32(borrow, u, v, w));
@@ -3026,7 +3026,7 @@ $LN14@PMC_Subtru:
 ; 438  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 439  :                     if (u_bit_count < v_bit_count)
 
-	cmp	ecx, DWORD PTR [edi+12]
+	cmp	ecx, DWORD PTR [edi+16]
 	jb	SHORT $LN45@PMC_Subtru
 
 ; 440  :                     {
@@ -3046,7 +3046,7 @@ $LN14@PMC_Subtru:
 ; 454  :                         char borrow;
 ; 455  :                         borrow = _SUBTRUCT_UNIT(0, u_lo, nv->BLOCK[0], &temp_w_lo);
 
-	mov	ecx, DWORD PTR [edi+32]
+	mov	ecx, DWORD PTR [edi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 265  :         return (_subborrow_u32(borrow, u, v, w));
@@ -3058,7 +3058,7 @@ $LN14@PMC_Subtru:
 
 ; 456  :                         if (nv->UNIT_WORD_COUNT <= 1)
 
-	cmp	DWORD PTR [edi+8], 1
+	cmp	DWORD PTR [edi+12], 1
 	ja	SHORT $LN22@PMC_Subtru
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -3187,9 +3187,9 @@ _PMC_Subtruct_I_X@12 PROC				; COMDAT
 ; 195  :         return (result);
 ; 196  :     if (u == 0)
 
-	mov	eax, DWORD PTR [edi+24]
+	mov	eax, DWORD PTR [edi]
 	mov	edx, DWORD PTR _u$[ebp]
-	and	eax, 2
+	and	eax, 1
 	test	edx, edx
 	jne	SHORT $LN6@PMC_Subtru
 
@@ -3269,7 +3269,7 @@ $LN6@PMC_Subtru:
 ; 232  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 233  :             if (u_bit_count < v_bit_count)
 
-	cmp	ecx, DWORD PTR [edi+12]
+	cmp	ecx, DWORD PTR [edi+16]
 	jb	SHORT $LN19@PMC_Subtru
 
 ; 234  :             {
@@ -3285,7 +3285,7 @@ $LN6@PMC_Subtru:
 ; 244  :                 __UNIT_TYPE temp_w;
 ; 245  :                 char borrow = _SUBTRUCT_UNIT(0, u, nv->BLOCK[0], &temp_w);
 
-	mov	eax, DWORD PTR [edi+32]
+	mov	eax, DWORD PTR [edi+36]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 265  :         return (_subborrow_u32(borrow, u, v, w));

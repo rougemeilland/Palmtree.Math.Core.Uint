@@ -431,7 +431,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 153  : {
+; 151  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -449,26 +449,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 154  :     if (count1 != count2)
+; 152  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 155  :         return (-1);
+; 153  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 156  :     while (count1 > 0)
+; 154  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 157  :     {
-; 158  :         if (*buffer1 != *buffer2)
+; 155  :     {
+; 156  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -477,41 +477,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 159  :             return (-1);
+; 157  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 160  :         ++buffer1;
+; 158  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 161  :         ++buffer2;
+; 159  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 162  :         --count1;
+; 160  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 163  :     }
+; 161  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 164  :     return (0);
+; 162  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 165  : }
+; 163  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -585,13 +585,13 @@ $LN17:
 ; 104  :     PMC_STATUS_CODE u_result;
 ; 105  :     PMC_STATUS_CODE v_result;
 ; 106  :     PMC_STATUS_CODE r_result;
-; 107  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", u_result));
+; 107  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN7@TEST_PMC_R
@@ -615,13 +615,13 @@ $LN8@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 108  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", v_result));
+; 108  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 2), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN9@TEST_PMC_R
@@ -645,14 +645,14 @@ $LN10@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 109  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 3), (r_result = ep->DivRem_X_X(u, v, NULL, &r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_X‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", r_result));
+; 109  :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 3), (r_result = ep->DivRem_X_X(u, v, NULL, &r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_Xã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", r_result));
 
 	lea	r9, QWORD PTR r$[rbp]
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+280]
+	call	QWORD PTR [rax+272]
 	mov	DWORD PTR r_result$[rbp], eax
 	mov	eax, DWORD PTR desired_return_code$[rbp]
 	cmp	DWORD PTR r_result$[rbp], eax
@@ -683,14 +683,14 @@ $LN12@TEST_PMC_R:
 	jne	$LN2@TEST_PMC_R
 
 ; 111  :     {
-; 112  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", result));
+; 112  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 4), (result = ep->ToByteArray(r, actual_r_buf, sizeof(actual_r_buf), &actual_r_buf_size)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", result));
 
 	lea	r9, QWORD PTR actual_r_buf_size$[rbp]
 	mov	r8d, 256				; 00000100H
 	lea	rdx, QWORD PTR actual_r_buf$[rbp]
 	mov	rcx, QWORD PTR r$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+64]
+	call	QWORD PTR [rax+56]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN13@TEST_PMC_R
@@ -714,7 +714,7 @@ $LN14@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 113  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"è—]‚Ì’l‚ªˆê’v‚µ‚È‚¢");
+; 113  :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_X (%d.%d)", no, 5), _EQUALS_MEMORY(actual_r_buf, actual_r_buf_size, desired_r_buf, desired_r_buf_size) == 0, L"å‰°ä½™ã®å€¤ãŒä¸€è‡´ã—ãªã„");
 
 	mov	r9, QWORD PTR desired_r_buf_size$[rbp]
 	mov	r8, QWORD PTR desired_r_buf$[rbp]
@@ -838,13 +838,13 @@ $LN11:
 ; 83   :     unsigned __int64 actual_r;
 ; 84   :     PMC_STATUS_CODE result;
 ; 85   :     PMC_STATUS_CODE u_result;
-; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", u_result));
+; 86   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_R
@@ -868,14 +868,14 @@ $LN6@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 87   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 2), (result = ep->DivRem_X_L(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_L‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", result));
+; 87   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 2), (result = ep->DivRem_X_L(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_Lã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", result));
 
 	lea	r9, QWORD PTR actual_r$[rbp]
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+272]
+	call	QWORD PTR [rax+264]
 	mov	DWORD PTR result$[rbp], eax
 	mov	eax, DWORD PTR desired_return_code$[rbp]
 	cmp	DWORD PTR result$[rbp], eax
@@ -906,7 +906,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 89   :     {
-; 90   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 3), actual_r == desired_r, L"è—]‚Ì’l‚ªˆê’v‚µ‚È‚¢");
+; 90   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_L (%d.%d)", no, 3), actual_r == desired_r, L"å‰°ä½™ã®å€¤ãŒä¸€è‡´ã—ãªã„");
 
 	mov	rax, QWORD PTR desired_r$[rbp]
 	cmp	QWORD PTR actual_r$[rbp], rax
@@ -997,13 +997,13 @@ $LN11:
 ; 67   :     unsigned __int32 actual_r;
 ; 68   :     PMC_STATUS_CODE result;
 ; 69   :     PMC_STATUS_CODE u_result;
-; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", u_result));
+; 70   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 1), (u_result = ep->FromByteArray(u_buf, u_buf_size, &u)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", u_result));
 
 	lea	r8, QWORD PTR u$[rbp]
 	mov	rdx, QWORD PTR u_buf_size$[rbp]
 	mov	rcx, QWORD PTR u_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR u_result$[rbp], eax
 	cmp	DWORD PTR u_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_R
@@ -1027,14 +1027,14 @@ $LN6@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 2), (result = ep->DivRem_X_I(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_I‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", result));
+; 71   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 2), (result = ep->DivRem_X_I(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_X_Iã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", result));
 
 	lea	r9, QWORD PTR actual_r$[rbp]
 	xor	r8d, r8d
 	mov	edx, DWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+264]
+	call	QWORD PTR [rax+256]
 	mov	DWORD PTR result$[rbp], eax
 	mov	eax, DWORD PTR desired_return_code$[rbp]
 	cmp	DWORD PTR result$[rbp], eax
@@ -1065,7 +1065,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 73   :     {
-; 74   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 3), actual_r == desired_r, L"è—]‚Ì’l‚ªˆê’v‚µ‚È‚¢");
+; 74   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_X_I (%d.%d)", no, 3), actual_r == desired_r, L"å‰°ä½™ã®å€¤ãŒä¸€è‡´ã—ãªã„");
 
 	mov	eax, DWORD PTR desired_r$[rbp]
 	cmp	DWORD PTR actual_r$[rbp], eax
@@ -1156,13 +1156,13 @@ $LN11:
 ; 51   :     unsigned __int64 actual_r;
 ; 52   :     PMC_STATUS_CODE result;
 ; 53   :     PMC_STATUS_CODE v_result;
-; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", v_result));
+; 54   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_R
@@ -1186,14 +1186,14 @@ $LN6@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 2), (result = ep->DivRem_L_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_L_X‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", result));
+; 55   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 2), (result = ep->DivRem_L_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_L_Xã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", result));
 
 	lea	r9, QWORD PTR actual_r$[rbp]
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	rcx, QWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+256]
+	call	QWORD PTR [rax+248]
 	mov	DWORD PTR result$[rbp], eax
 	mov	eax, DWORD PTR desired_return_code$[rbp]
 	cmp	DWORD PTR result$[rbp], eax
@@ -1224,7 +1224,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 57   :     {
-; 58   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 3), actual_r == desired_r, L"è—]‚Ì’l‚ªˆê’v‚µ‚È‚¢");
+; 58   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_L_X (%d.%d)", no, 3), actual_r == desired_r, L"å‰°ä½™ã®å€¤ãŒä¸€è‡´ã—ãªã„");
 
 	mov	rax, QWORD PTR desired_r$[rbp]
 	cmp	QWORD PTR actual_r$[rbp], rax
@@ -1315,13 +1315,13 @@ $LN11:
 ; 35   :     unsigned __int32 actual_r;
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE v_result;
-; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArray‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", v_result));
+; 38   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 1), (v_result = ep->FromByteArray(v_buf, v_buf_size, &v)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", v_result));
 
 	lea	r8, QWORD PTR v$[rbp]
 	mov	rdx, QWORD PTR v_buf_size$[rbp]
 	mov	rcx, QWORD PTR v_buf$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+56]
+	call	QWORD PTR [rax+48]
 	mov	DWORD PTR v_result$[rbp], eax
 	cmp	DWORD PTR v_result$[rbp], 0
 	jne	SHORT $LN5@TEST_PMC_R
@@ -1345,14 +1345,14 @@ $LN6@TEST_PMC_R:
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 2), (result = ep->DivRem_I_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_I_X‚Ì•œ‹AƒR[ƒh‚ªŠú‘Ò’Ê‚è‚Å‚Í‚È‚¢(%d)", result));
+; 39   :     TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 2), (result = ep->DivRem_I_X(u, v, NULL, &actual_r)) == desired_return_code, FormatTestMesssage(L"PMC_Remainder_I_Xã®å¾©å¸°ã‚³ãƒ¼ãƒ‰ãŒæœŸå¾…é€šã‚Šã§ã¯ãªã„(%d)", result));
 
 	lea	r9, QWORD PTR actual_r$[rbp]
 	xor	r8d, r8d
 	mov	rdx, QWORD PTR v$[rbp]
 	mov	ecx, DWORD PTR u$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+248]
+	call	QWORD PTR [rax+240]
 	mov	DWORD PTR result$[rbp], eax
 	mov	eax, DWORD PTR desired_return_code$[rbp]
 	cmp	DWORD PTR result$[rbp], eax
@@ -1383,7 +1383,7 @@ $LN8@TEST_PMC_R:
 	jne	SHORT $LN2@TEST_PMC_R
 
 ; 41   :     {
-; 42   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 3), actual_r == desired_r, L"è—]‚Ì’l‚ªˆê’v‚µ‚È‚¢");
+; 42   :         TEST_Assert(env, FormatTestLabel(L"PMC_Remainder_I_X (%d.%d)", no, 3), actual_r == desired_r, L"å‰°ä½™ã®å€¤ãŒä¸€è‡´ã—ãªã„");
 
 	mov	eax, DWORD PTR desired_r$[rbp]
 	cmp	DWORD PTR actual_r$[rbp], eax

@@ -4657,8 +4657,8 @@ PMC_DivRem_I_X:
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L304
-	movzbl	40(%rbx), %eax
-	testb	$2, %al
+	movzbl	(%rbx), %eax
+	testb	$1, %al
 	jne	.L313
 	testl	%edi, %edi
 	jne	.L306
@@ -4677,7 +4677,7 @@ PMC_DivRem_I_X:
 	ret
 	.p2align 4,,10
 .L306:
-	testb	$4, %al
+	testb	$2, %al
 	jne	.L326
 	movl	$31, %eax
 /APP
@@ -4689,7 +4689,7 @@ PMC_DivRem_I_X:
 	movl	$32, %edx
 	cltq
 	subq	%rax, %rdx
-	cmpq	16(%rbx), %rdx
+	cmpq	24(%rbx), %rdx
 	jnb	.L309
 	testq	%rbp, %rbp
 	je	.L310
@@ -4707,7 +4707,7 @@ PMC_DivRem_I_X:
 .L309:
 	xorl	%edx, %edx
 	movl	%edi, %eax
-	movq	56(%rbx), %rcx
+	movq	64(%rbx), %rcx
 /APP
  # 407 "../pmc_inline_func.h" 1
 	divq (%rcx)
@@ -4761,7 +4761,7 @@ PMC_DivRem_X_I:
 	jne	.L327
 	testl	%r12d, %r12d
 	je	.L342
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	je	.L329
 	testq	%rdi, %rdi
 	movl	$0, %eax
@@ -4787,7 +4787,7 @@ PMC_DivRem_X_I:
 .L329:
 	cmpl	$1, %r12d
 	je	.L352
-	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rcx
 	movl	$31, %eax
 /APP
  # 597 "../pmc_inline_func.h" 1
@@ -4817,7 +4817,7 @@ PMC_DivRem_X_I:
 	movl	$0, %eax
 	cmovne	.refptr.number_zero(%rip), %rax
 	movq	%rax, 56(%rsp)
-	movq	56(%rbx), %rax
+	movq	64(%rbx), %rax
 	movq	(%rax), %rax
 	movl	%eax, 0(%rbp)
 	jmp	.L331
@@ -4843,15 +4843,15 @@ PMC_DivRem_X_I:
 	movl	%r12d, %r8d
 	movabsq	$2305843009213693951, %rdx
 	movq	$0, 72(%rsp)
-	andq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	andq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	leaq	72(%rsp), %rax
 	movq	%rax, 32(%rsp)
 	call	DivRem_X_1W
 	movq	56(%rsp), %rax
 	movq	64(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L344
@@ -4860,7 +4860,7 @@ PMC_DivRem_X_I:
 	movq	72(%rsp), %rax
 	movq	56(%rsp), %rcx
 	movl	%eax, 0(%rbp)
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L340
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx
@@ -4868,9 +4868,9 @@ PMC_DivRem_X_I:
 	.p2align 4,,10
 .L337:
 	movabsq	$2305843009213693951, %rdx
-	movq	56(%rbx), %rcx
+	movq	64(%rbx), %rcx
 	movl	%r12d, %r8d
-	andq	8(%rbx), %rdx
+	andq	16(%rbx), %rdx
 	call	Rem_X_1W
 	movl	%eax, 0(%rbp)
 	jmp	.L327
@@ -4911,8 +4911,8 @@ PMC_DivRem_L_X:
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L355
-	movzbl	40(%rbx), %eax
-	testb	$2, %al
+	movzbl	(%rbx), %eax
+	testb	$1, %al
 	jne	.L364
 	testq	%rdi, %rdi
 	jne	.L357
@@ -4931,7 +4931,7 @@ PMC_DivRem_L_X:
 	ret
 	.p2align 4,,10
 .L357:
-	testb	$4, %al
+	testb	$2, %al
 	jne	.L377
 	movl	$63, %eax
 /APP
@@ -4943,7 +4943,7 @@ PMC_DivRem_L_X:
 	movl	$64, %edx
 	cltq
 	subq	%rax, %rdx
-	cmpq	16(%rbx), %rdx
+	cmpq	24(%rbx), %rdx
 	jnb	.L360
 	testq	%rbp, %rbp
 	je	.L361
@@ -4960,7 +4960,7 @@ PMC_DivRem_L_X:
 	.p2align 4,,10
 .L360:
 	xorl	%edx, %edx
-	movq	56(%rbx), %rcx
+	movq	64(%rbx), %rcx
 	movq	%rdi, %rax
 /APP
  # 407 "../pmc_inline_func.h" 1
@@ -5015,7 +5015,7 @@ PMC_DivRem_X_L:
 	jne	.L378
 	testq	%r12, %r12
 	je	.L393
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	je	.L380
 	testq	%rdi, %rdi
 	movl	$0, %eax
@@ -5041,7 +5041,7 @@ PMC_DivRem_X_L:
 .L380:
 	cmpq	$1, %r12
 	je	.L403
-	movq	16(%rbx), %rcx
+	movq	24(%rbx), %rcx
 	movl	$63, %eax
 /APP
  # 641 "../pmc_inline_func.h" 1
@@ -5071,7 +5071,7 @@ PMC_DivRem_X_L:
 	movl	$0, %eax
 	cmovne	.refptr.number_zero(%rip), %rax
 	movq	%rax, 56(%rsp)
-	movq	56(%rbx), %rax
+	movq	64(%rbx), %rax
 	movq	(%rax), %rax
 	movq	%rax, 0(%rbp)
 	jmp	.L382
@@ -5097,15 +5097,15 @@ PMC_DivRem_X_L:
 	movq	%r12, %r8
 	movabsq	$2305843009213693951, %rdx
 	movq	$0, 72(%rsp)
-	andq	8(%rbx), %rdx
-	movq	56(%rbx), %rcx
-	movq	56(%rax), %r9
+	andq	16(%rbx), %rdx
+	movq	64(%rbx), %rcx
+	movq	64(%rax), %r9
 	leaq	72(%rsp), %rax
 	movq	%rax, 32(%rsp)
 	call	DivRem_X_1W
 	movq	56(%rsp), %rax
 	movq	64(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L395
@@ -5114,7 +5114,7 @@ PMC_DivRem_X_L:
 	movq	72(%rsp), %rax
 	movq	56(%rsp), %rcx
 	movq	%rax, 0(%rbp)
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L391
 	call	DeallocateNumber
 	movq	.refptr.number_zero(%rip), %rcx
@@ -5122,9 +5122,9 @@ PMC_DivRem_X_L:
 	.p2align 4,,10
 .L388:
 	movabsq	$2305843009213693951, %rdx
-	movq	56(%rbx), %rcx
+	movq	64(%rbx), %rcx
 	movq	%r12, %r8
-	andq	8(%rbx), %rdx
+	andq	16(%rbx), %rdx
 	call	Rem_X_1W
 	movq	%rax, 0(%rbp)
 	jmp	.L378
@@ -5189,10 +5189,10 @@ PMC_DivRem_X_X:
 	testl	%eax, %eax
 	movl	%eax, %ebx
 	jne	.L406
-	movzbl	40(%rdi), %eax
-	testb	$2, %al
+	movzbl	(%rdi), %eax
+	testb	$1, %al
 	jne	.L436
-	testb	$2, 40(%rsi)
+	testb	$1, (%rsi)
 	je	.L408
 	testq	%r12, %r12
 	je	.L474
@@ -5211,7 +5211,7 @@ PMC_DivRem_X_X:
 	jmp	.L406
 	.p2align 4,,10
 .L408:
-	testb	$4, %al
+	testb	$2, %al
 	je	.L411
 	testq	%r12, %r12
 	je	.L412
@@ -5225,8 +5225,8 @@ PMC_DivRem_X_X:
 	jmp	.L410
 	.p2align 4,,10
 .L411:
-	movq	16(%rsi), %rax
-	movq	16(%rdi), %rdx
+	movq	24(%rsi), %rax
+	movq	24(%rdi), %rdx
 	cmpq	%rdx, %rax
 	jb	.L475
 	cmpq	$64, %rdx
@@ -5249,23 +5249,23 @@ PMC_DivRem_X_X:
 	movabsq	$2305843009213693951, %rdx
 	movq	80(%rsp), %rax
 	movq	88(%rsp), %r8
-	andq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	56(%rax), %r9
-	movq	56(%r8), %r8
-	movq	56(%rdi), %rax
+	andq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	64(%rax), %r9
+	movq	64(%r8), %r8
+	movq	64(%rdi), %rax
 	movq	%r8, 32(%rsp)
 	movq	(%rax), %r8
 	call	DivRem_X_1W
 	movq	80(%rsp), %rax
 	movq	112(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L442
 	movq	88(%rsp), %rax
 	movq	120(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L442
@@ -5275,11 +5275,11 @@ PMC_DivRem_X_X:
 	movq	88(%rsp), %rcx
 	call	CommitNumber
 	movq	80(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	jne	.L476
 .L431:
 	movq	88(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	jne	.L477
 .L432:
 	movq	%rcx, %rax
@@ -5330,7 +5330,7 @@ PMC_DivRem_X_X:
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L465
-	movq	8(%rdi), %rcx
+	movq	16(%rdi), %rcx
 	leaq	120(%rsp), %rdx
 	leaq	112(%rsp), %r8
 	salq	$6, %rcx
@@ -5340,15 +5340,15 @@ PMC_DivRem_X_X:
 	je	.L479
 	movabsq	$2305843009213693951, %r9
 	movq	88(%rsp), %rax
-	movq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	56(%rdi), %r8
-	movq	56(%rax), %rax
+	movq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	64(%rdi), %r8
+	movq	64(%rax), %rax
 	andq	%r9, %rdx
-	andq	8(%rdi), %r9
+	andq	16(%rdi), %r9
 	movq	%rax, 48(%rsp)
 	movq	80(%rsp), %rax
-	movq	56(%rax), %rax
+	movq	64(%rax), %rax
 	movq	%r13, 32(%rsp)
 	movq	%rax, 40(%rsp)
 	call	*fp_DivRem_X_X(%rip)
@@ -5359,13 +5359,13 @@ PMC_DivRem_X_X:
 	jne	.L442
 	movq	80(%rsp), %rax
 	movq	96(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L442
 	movq	80(%rsp), %rax
 	movq	96(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L442
@@ -5394,7 +5394,7 @@ PMC_DivRem_X_X:
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L442
-	movq	8(%rdi), %rcx
+	movq	16(%rdi), %rcx
 	leaq	120(%rsp), %rdx
 	leaq	112(%rsp), %r8
 	salq	$6, %rcx
@@ -5404,14 +5404,14 @@ PMC_DivRem_X_X:
 	je	.L439
 	movabsq	$2305843009213693951, %r9
 	movq	88(%rsp), %rax
-	movq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	56(%rdi), %r8
-	movq	56(%rax), %rax
+	movq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	64(%rdi), %r8
+	movq	64(%rax), %rax
 	movq	%r12, 32(%rsp)
 	movq	$0, 40(%rsp)
 	andq	%r9, %rdx
-	andq	8(%rdi), %r9
+	andq	16(%rdi), %r9
 	movq	%rax, 48(%rsp)
 	call	*fp_DivRem_X_X(%rip)
 	movq	112(%rsp), %rdx
@@ -5422,7 +5422,7 @@ PMC_DivRem_X_X:
 	jne	.L442
 	movq	88(%rsp), %rax
 	movq	104(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L442
@@ -5433,7 +5433,7 @@ PMC_DivRem_X_X:
 	movq	88(%rsp), %rcx
 	call	CommitNumber
 	movq	88(%rsp), %rcx
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	jne	.L480
 .L434:
 	movq	%rcx, %rax
@@ -5447,17 +5447,17 @@ PMC_DivRem_X_X:
 	jne	.L442
 	movabsq	$2305843009213693951, %rdx
 	movq	88(%rsp), %rax
-	andq	8(%rsi), %rdx
-	movq	56(%rsi), %rcx
-	movq	56(%rax), %r12
-	movq	56(%rdi), %rax
+	andq	16(%rsi), %rdx
+	movq	64(%rsi), %rcx
+	movq	64(%rax), %r12
+	movq	64(%rdi), %rax
 	movq	(%rax), %r8
 	call	Rem_X_1W
 	movq	%rax, (%r12)
 	movq	88(%rsp), %rax
 	movq	$0, 80(%rsp)
 	movq	120(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	je	.L468

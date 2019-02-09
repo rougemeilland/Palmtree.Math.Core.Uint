@@ -21,23 +21,17 @@ PMC_GetNumberType_X:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L1
-	movzbl	40(%rbx), %r8d
-	movl	%r8d, %ecx
-	shrb	%cl
-	movl	%ecx, %r9d
-	andl	$1, %r9d
-	movl	%r9d, %ecx
-	orl	$2, %ecx
-	testb	$4, %r8b
-	cmove	%r9d, %ecx
-	movl	%ecx, %edx
-	orl	$8, %edx
-	testb	$8, %r8b
-	cmovne	%edx, %ecx
-	movl	%ecx, %edx
-	orl	$16, %edx
-	andl	$16, %r8d
-	cmovne	%edx, %ecx
+	movzbl	(%rbx), %edx
+	movl	%edx, %ecx
+	andl	$3, %ecx
+	movl	%ecx, %r8d
+	orl	$8, %r8d
+	testb	$4, %dl
+	cmovne	%r8d, %ecx
+	movl	%ecx, %r8d
+	orl	$16, %r8d
+	andl	$8, %edx
+	cmovne	%r8d, %ecx
 	movl	%ecx, (%rsi)
 .L1:
 	addq	$40, %rsp

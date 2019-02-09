@@ -2755,7 +2755,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 _TEXT	SEGMENT
-tv145 = -52						; size = 4
+tv142 = -52						; size = 4
 _nz_light_check_code$1 = -44				; size = 4
 _z_bit_count$2 = -36					; size = 4
 _y_bit_count$3 = -32					; size = 4
@@ -2862,8 +2862,7 @@ $LN6@PMC_Subtru:
 ; 673  :     if (nx->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nx$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Subtru
 
@@ -2871,8 +2870,7 @@ $LN6@PMC_Subtru:
 ; 675  :         if (ny->IS_ZERO)
 
 	mov	eax, DWORD PTR _ny$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN9@PMC_Subtru
 
@@ -2914,8 +2912,7 @@ $LN7@PMC_Subtru:
 ; 694  :         if (ny->IS_ZERO)
 
 	mov	eax, DWORD PTR _ny$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN11@PMC_Subtru
 
@@ -2954,13 +2951,13 @@ $LN11@PMC_Subtru:
 ; 707  :             __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _nx$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _x_bit_count$4[ebp], edx
 
 ; 708  :             __UNIT_TYPE y_bit_count = ny->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _ny$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _y_bit_count$3[ebp], ecx
 
 ; 709  :             if (x_bit_count < y_bit_count)
@@ -3007,22 +3004,22 @@ $LN15@PMC_Subtru:
 ; 718  :             if ((result = Subtruct_Imp(nx->BLOCK, nx->UNIT_WORD_COUNT, ny->BLOCK, ny->UNIT_WORD_COUNT, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	ecx, DWORD PTR _nz$[ebp]
-	mov	edx, DWORD PTR [ecx+28]
-	push	edx
-	mov	eax, DWORD PTR _nz$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
-	push	ecx
-	mov	edx, DWORD PTR _ny$[ebp]
-	mov	eax, DWORD PTR [edx+8]
-	push	eax
-	mov	ecx, DWORD PTR _ny$[ebp]
 	mov	edx, DWORD PTR [ecx+32]
 	push	edx
+	mov	eax, DWORD PTR _nz$[ebp]
+	mov	ecx, DWORD PTR [eax+36]
+	push	ecx
+	mov	edx, DWORD PTR _ny$[ebp]
+	mov	eax, DWORD PTR [edx+12]
+	push	eax
+	mov	ecx, DWORD PTR _ny$[ebp]
+	mov	edx, DWORD PTR [ecx+36]
+	push	edx
 	mov	eax, DWORD PTR _nx$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_Subtruct_Imp
 	add	esp, 24					; 00000018H
@@ -3042,13 +3039,13 @@ $LN15@PMC_Subtru:
 
 	cmp	DWORD PTR _result$[ebp], -258		; fffffefeH
 	jne	SHORT $LN20@PMC_Subtru
-	mov	DWORD PTR tv145[ebp], -2		; fffffffeH
+	mov	DWORD PTR tv142[ebp], -2		; fffffffeH
 	jmp	SHORT $LN21@PMC_Subtru
 $LN20@PMC_Subtru:
 	mov	edx, DWORD PTR _result$[ebp]
-	mov	DWORD PTR tv145[ebp], edx
+	mov	DWORD PTR tv142[ebp], edx
 $LN21@PMC_Subtru:
-	mov	eax, DWORD PTR tv145[ebp]
+	mov	eax, DWORD PTR tv142[ebp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN16@PMC_Subtru:
 
@@ -3058,7 +3055,7 @@ $LN16@PMC_Subtru:
 	mov	eax, DWORD PTR _nz_light_check_code$1[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nz$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3129,7 +3126,7 @@ $LN1@PMC_Subtru:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	1
+	npad	2
 $LN25@PMC_Subtru:
 	DD	2
 	DD	$LN24@PMC_Subtru
@@ -3170,9 +3167,9 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 _TEXT	SEGMENT
-tv200 = -116						; size = 4
-tv169 = -112						; size = 4
-tv140 = -108						; size = 4
+tv199 = -116						; size = 4
+tv168 = -112						; size = 4
+tv139 = -108						; size = 4
 _nz_light_check_code$1 = -100				; size = 4
 _z_bit_count$2 = -92					; size = 4
 _y_bit_count$3 = -88					; size = 4
@@ -3269,8 +3266,7 @@ $LN5@PMC_Subtru:
 ; 532  :     if (nx->IS_ZERO)
 
 	mov	eax, DWORD PTR _nx$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Subtru
 
@@ -3368,7 +3364,7 @@ $LN10@PMC_Subtru:
 ; 572  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _x_bit_count$13[ebp], eax
 
 ; 573  :                 _UINT32_T y_hi;
@@ -3445,18 +3441,18 @@ $LN18@PMC_Subtru:
 ; 588  :                     if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+28]
+	mov	eax, DWORD PTR [edx+32]
 	push	eax
 	mov	ecx, DWORD PTR _nz$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _y_lo$11[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nx$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _nx$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Subtruct_X_1W
 	add	esp, 20					; 00000014H
@@ -3476,13 +3472,13 @@ $LN18@PMC_Subtru:
 
 	cmp	DWORD PTR _result$[ebp], -258		; fffffefeH
 	jne	SHORT $LN32@PMC_Subtru
-	mov	DWORD PTR tv140[ebp], -2		; fffffffeH
+	mov	DWORD PTR tv139[ebp], -2		; fffffffeH
 	jmp	SHORT $LN33@PMC_Subtru
 $LN32@PMC_Subtru:
 	mov	eax, DWORD PTR _result$[ebp]
-	mov	DWORD PTR tv140[ebp], eax
+	mov	DWORD PTR tv139[ebp], eax
 $LN33@PMC_Subtru:
-	mov	eax, DWORD PTR tv140[ebp]
+	mov	eax, DWORD PTR tv139[ebp]
 	jmp	$LN1@PMC_Subtru
 $LN19@PMC_Subtru:
 
@@ -3492,7 +3488,7 @@ $LN19@PMC_Subtru:
 	mov	ecx, DWORD PTR _nz_light_check_code$8[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3568,20 +3564,20 @@ $LN22@PMC_Subtru:
 ; 609  :                     if ((result = Subtruct_X_2W(nx->BLOCK, nx->UNIT_WORD_COUNT, y_hi, y_lo, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+28]
+	mov	eax, DWORD PTR [edx+32]
 	push	eax
 	mov	ecx, DWORD PTR _nz$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _y_lo$11[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _y_hi$12[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _nx$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_Subtruct_X_2W
 	add	esp, 24					; 00000018H
@@ -3601,13 +3597,13 @@ $LN22@PMC_Subtru:
 
 	cmp	DWORD PTR _result$[ebp], -258		; fffffefeH
 	jne	SHORT $LN34@PMC_Subtru
-	mov	DWORD PTR tv169[ebp], -2		; fffffffeH
+	mov	DWORD PTR tv168[ebp], -2		; fffffffeH
 	jmp	SHORT $LN35@PMC_Subtru
 $LN34@PMC_Subtru:
 	mov	ecx, DWORD PTR _result$[ebp]
-	mov	DWORD PTR tv169[ebp], ecx
+	mov	DWORD PTR tv168[ebp], ecx
 $LN35@PMC_Subtru:
-	mov	eax, DWORD PTR tv169[ebp]
+	mov	eax, DWORD PTR tv168[ebp]
 	jmp	$LN1@PMC_Subtru
 $LN23@PMC_Subtru:
 
@@ -3617,7 +3613,7 @@ $LN23@PMC_Subtru:
 	mov	edx, DWORD PTR _nz_light_check_code$5[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nz$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3644,7 +3640,7 @@ $LN13@PMC_Subtru:
 ; 622  :                 __UNIT_TYPE x_bit_count = nx->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nx$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _x_bit_count$4[ebp], eax
 
 ; 623  :                 __UNIT_TYPE y_bit_count = sizeof(y) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)y);
@@ -3701,18 +3697,18 @@ $LN26@PMC_Subtru:
 ; 633  :                 if ((result = Subtruct_X_1W(nx->BLOCK, nx->UNIT_WORD_COUNT, (__UNIT_TYPE)y, nz->BLOCK, nz->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+28]
+	mov	eax, DWORD PTR [edx+32]
 	push	eax
 	mov	ecx, DWORD PTR _nz$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _y$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nx$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _nx$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Subtruct_X_1W
 	add	esp, 20					; 00000014H
@@ -3732,13 +3728,13 @@ $LN26@PMC_Subtru:
 
 	cmp	DWORD PTR _result$[ebp], -258		; fffffefeH
 	jne	SHORT $LN36@PMC_Subtru
-	mov	DWORD PTR tv200[ebp], -2		; fffffffeH
+	mov	DWORD PTR tv199[ebp], -2		; fffffffeH
 	jmp	SHORT $LN37@PMC_Subtru
 $LN36@PMC_Subtru:
 	mov	eax, DWORD PTR _result$[ebp]
-	mov	DWORD PTR tv200[ebp], eax
+	mov	DWORD PTR tv199[ebp], eax
 $LN37@PMC_Subtru:
-	mov	eax, DWORD PTR tv200[ebp]
+	mov	eax, DWORD PTR tv199[ebp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN27@PMC_Subtru:
 
@@ -3748,7 +3744,7 @@ $LN27@PMC_Subtru:
 	mov	ecx, DWORD PTR _nz_light_check_code$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3773,8 +3769,7 @@ $LN14@PMC_Subtru:
 ; 642  :             if (nz->IS_ZERO)
 
 	mov	edx, DWORD PTR _nz$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN11@PMC_Subtru
 
@@ -3841,7 +3836,6 @@ $LN1@PMC_Subtru:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
-	npad	2
 $LN44@PMC_Subtru:
 	DD	5
 	DD	$LN43@PMC_Subtru
@@ -3939,7 +3933,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_subtruct.c
 _TEXT	SEGMENT
-tv135 = -48						; size = 4
+tv134 = -48						; size = 4
 _w_light_check_code$1 = -40				; size = 4
 _w_bit_count$2 = -32					; size = 4
 _v_bit_count$3 = -28					; size = 4
@@ -4027,8 +4021,7 @@ $LN5@PMC_Subtru:
 ; 277  :     if (nu->IS_ZERO)
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN6@PMC_Subtru
 
@@ -4115,7 +4108,7 @@ $LN10@PMC_Subtru:
 ; 313  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _u_bit_count$4[ebp], eax
 
 ; 314  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -4172,18 +4165,18 @@ $LN14@PMC_Subtru:
 ; 324  :             if ((result = Subtruct_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+28]
+	mov	eax, DWORD PTR [edx+32]
 	push	eax
 	mov	ecx, DWORD PTR _nw$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _v$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_Subtruct_X_1W
 	add	esp, 20					; 00000014H
@@ -4203,13 +4196,13 @@ $LN14@PMC_Subtru:
 
 	cmp	DWORD PTR _result$[ebp], -258		; fffffefeH
 	jne	SHORT $LN20@PMC_Subtru
-	mov	DWORD PTR tv135[ebp], -2		; fffffffeH
+	mov	DWORD PTR tv134[ebp], -2		; fffffffeH
 	jmp	SHORT $LN21@PMC_Subtru
 $LN20@PMC_Subtru:
 	mov	eax, DWORD PTR _result$[ebp]
-	mov	DWORD PTR tv135[ebp], eax
+	mov	DWORD PTR tv134[ebp], eax
 $LN21@PMC_Subtru:
-	mov	eax, DWORD PTR tv135[ebp]
+	mov	eax, DWORD PTR tv134[ebp]
 	jmp	SHORT $LN1@PMC_Subtru
 $LN15@PMC_Subtru:
 
@@ -4219,7 +4212,7 @@ $LN15@PMC_Subtru:
 	mov	ecx, DWORD PTR _w_light_check_code$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -4243,8 +4236,7 @@ $LN16@PMC_Subtru:
 ; 332  :             if (nw->IS_ZERO)
 
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+24]
-	shr	eax, 1
+	mov	eax, DWORD PTR [edx]
 	and	eax, 1
 	je	SHORT $LN11@PMC_Subtru
 
@@ -4311,7 +4303,7 @@ $LN1@PMC_Subtru:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	3
+	npad	1
 $LN25@PMC_Subtru:
 	DD	2
 	DD	$LN24@PMC_Subtru
@@ -4456,8 +4448,7 @@ $LN5@PMC_Subtru:
 ; 366  :         if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN8@PMC_Subtru
 
@@ -4500,8 +4491,7 @@ $LN6@PMC_Subtru:
 ; 385  :         if (nv->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN10@PMC_Subtru
 
@@ -4569,7 +4559,7 @@ $LN10@PMC_Subtru:
 ; 407  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$12[ebp], ecx
 
 ; 408  :                     if (u_bit_count < v_bit_count)
@@ -4606,7 +4596,7 @@ $LN16@PMC_Subtru:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, DWORD PTR _u_lo$14[ebp]
@@ -4668,7 +4658,7 @@ $LN14@PMC_Subtru:
 ; 438  :                     __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$8[ebp], eax
 
 ; 439  :                     if (u_bit_count < v_bit_count)
@@ -4707,7 +4697,7 @@ $LN20@PMC_Subtru:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	push	ecx
 	mov	edx, DWORD PTR _u_lo$14[ebp]
@@ -4720,7 +4710,7 @@ $LN20@PMC_Subtru:
 ; 456  :                         if (nv->UNIT_WORD_COUNT <= 1)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	cmp	DWORD PTR [eax+8], 1
+	cmp	DWORD PTR [eax+12], 1
 	ja	SHORT $LN22@PMC_Subtru
 
 ; 457  :                         {
@@ -4753,7 +4743,7 @@ $LN22@PMC_Subtru:
 	mov	edx, 4
 	shl	edx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, DWORD PTR _u_hi$15[ebp]
@@ -4825,7 +4815,7 @@ $LN12@PMC_Subtru:
 ; 484  :                 __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], eax
 
 ; 485  :                 if (u_bit_count < v_bit_count)
@@ -4862,7 +4852,7 @@ $LN26@PMC_Subtru:
 	mov	eax, 4
 	imul	ecx, eax, 0
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	mov	ecx, DWORD PTR [eax+ecx]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
@@ -4927,6 +4917,7 @@ $LN1@PMC_Subtru:
 	mov	esp, ebp
 	pop	ebp
 	ret	16					; 00000010H
+	npad	2
 $LN37@PMC_Subtru:
 	DD	5
 	DD	$LN36@PMC_Subtru
@@ -5092,8 +5083,7 @@ $LN5@PMC_Subtru:
 ; 200  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN8@PMC_Subtru
 
@@ -5135,8 +5125,7 @@ $LN6@PMC_Subtru:
 ; 219  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN10@PMC_Subtru
 
@@ -5173,7 +5162,7 @@ $LN10@PMC_Subtru:
 ; 232  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _v_bit_count$3[ebp], ecx
 
 ; 233  :             if (u_bit_count < v_bit_count)
@@ -5208,7 +5197,7 @@ $LN12@PMC_Subtru:
 	mov	ecx, 4
 	imul	edx, ecx, 0
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	mov	edx, DWORD PTR [ecx+edx]
 	push	edx
 	mov	eax, DWORD PTR _u$[ebp]
@@ -5269,7 +5258,7 @@ $LN1@PMC_Subtru:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	3
+	npad	1
 $LN19@PMC_Subtru:
 	DD	1
 	DD	$LN18@PMC_Subtru

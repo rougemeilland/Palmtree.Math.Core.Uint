@@ -5,7 +5,7 @@
 	.seh_proc	PMC_Compare_X_I_Imp
 PMC_Compare_X_I_Imp:
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L2
 	testl	%edx, %edx
 	jne	.L3
@@ -26,10 +26,10 @@ PMC_Compare_X_I_Imp:
 	movl	$32, %r9d
 	cltq
 	subq	%rax, %r9
-	cmpq	%r9, 16(%rcx)
+	cmpq	%r9, 24(%rcx)
 	ja	.L6
 	jb	.L3
-	movq	56(%rcx), %rax
+	movq	64(%rcx), %rax
 	movl	%edx, %edx
 	cmpq	%rdx, (%rax)
 	ja	.L6
@@ -47,7 +47,7 @@ PMC_Compare_X_I_Imp:
 	.seh_proc	PMC_Compare_X_L_Imp
 PMC_Compare_X_L_Imp:
 	.seh_endprologue
-	testb	$2, 40(%rcx)
+	testb	$1, (%rcx)
 	je	.L10
 	testq	%rdx, %rdx
 	jne	.L11
@@ -68,10 +68,10 @@ PMC_Compare_X_L_Imp:
 	movl	$64, %r9d
 	cltq
 	subq	%rax, %r9
-	cmpq	%r9, 16(%rcx)
+	cmpq	%r9, 24(%rcx)
 	ja	.L14
 	jb	.L11
-	movq	56(%rcx), %rax
+	movq	64(%rcx), %rax
 	cmpq	(%rax), %rdx
 	jb	.L14
 	jbe	.L15
@@ -343,23 +343,23 @@ PMC_Compare_X_X:
 	call	CheckNumber
 	testl	%eax, %eax
 	jne	.L37
-	movzbl	40(%rsi), %edx
-	andl	$2, %edx
-	testb	$2, 40(%rbx)
+	movzbl	(%rsi), %edx
+	movl	%edx, %ecx
+	andl	$1, %ecx
+	testb	$1, (%rbx)
 	jne	.L53
-	testb	%dl, %dl
+	testb	%cl, %cl
 	jne	.L41
-	movq	16(%rsi), %rcx
-	cmpq	%rcx, 16(%rbx)
+	movq	24(%rsi), %rcx
+	cmpq	%rcx, 24(%rbx)
 	ja	.L41
 	jnb	.L42
 	movl	$-1, (%rdi)
 	jmp	.L37
 	.p2align 4,,10
 .L53:
-	testb	%dl, %dl
-	sete	%dl
-	movzbl	%dl, %edx
+	notl	%edx
+	andl	$1, %edx
 	negl	%edx
 	movl	%edx, (%rdi)
 	addq	$32, %rsp
@@ -377,9 +377,9 @@ PMC_Compare_X_X:
 	ret
 	.p2align 4,,10
 .L42:
-	movq	8(%rbx), %r9
-	movq	56(%rbx), %r8
-	movq	56(%rsi), %rcx
+	movq	16(%rbx), %r9
+	movq	64(%rbx), %r8
+	movq	64(%rsi), %rcx
 	leaq	0(,%r9,8), %rdx
 	addq	%rdx, %r8
 	addq	%rdx, %rcx

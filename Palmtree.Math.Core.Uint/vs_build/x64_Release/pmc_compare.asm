@@ -16,31 +16,31 @@ EXTRN	CheckNumber:PROC
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_I_X DD imagerel $LN29
-	DD	imagerel $LN29+232
+	DD	imagerel $LN29+231
 	DD	imagerel $unwind$PMC_Compare_I_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_L_X DD imagerel $LN61
-	DD	imagerel $LN61+236
+	DD	imagerel $LN61+235
 	DD	imagerel $unwind$PMC_Compare_L_X
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_I DD imagerel $LN29
-	DD	imagerel $LN29+149
+	DD	imagerel $LN29+148
 	DD	imagerel $unwind$PMC_Compare_X_I
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_L DD imagerel $LN61
-	DD	imagerel $LN61+153
+	DD	imagerel $LN61+152
 	DD	imagerel $unwind$PMC_Compare_X_L
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Compare_X_X DD imagerel $LN31
-	DD	imagerel $LN31+245
+	DD	imagerel $LN31+244
 	DD	imagerel $unwind$PMC_Compare_X_X
 pdata	ENDS
 ;	COMDAT xdata
@@ -91,7 +91,7 @@ PMC_Compare_X_L_Imp PROC				; COMDAT
 
 ; 145  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	r9, rcx
 	je	SHORT $LN2@PMC_Compar
 
@@ -160,7 +160,7 @@ $LN2@PMC_Compar:
 
 ; 236  :             if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [r9+16], rcx
+	cmp	QWORD PTR [r9+24], rcx
 	ja	SHORT $LN52@PMC_Compar
 
 ; 237  :             {
@@ -195,7 +195,7 @@ $LN34@PMC_Compar:
 ; 249  :                 // ⇒ u と v はともに 1 ワードで表現できる
 ; 250  :                 if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [r9+56]
+	mov	rax, QWORD PTR [r9+64]
 	cmp	QWORD PTR [rax], rdx
 	jbe	SHORT $LN36@PMC_Compar
 $LN52@PMC_Compar:
@@ -227,7 +227,7 @@ PMC_Compare_X_I_Imp PROC				; COMDAT
 
 ; 55   :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	r9, rcx
 	je	SHORT $LN2@PMC_Compar
 
@@ -291,7 +291,7 @@ $LN2@PMC_Compar:
 
 ; 79   :         if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [r9+16], rcx
+	cmp	QWORD PTR [r9+24], rcx
 	ja	SHORT $LN20@PMC_Compar
 
 ; 80   :         {
@@ -325,7 +325,7 @@ $LN10@PMC_Compar:
 ; 92   :             // ⇒ u と v はともに 1 ワードで表現できる
 ; 93   :             if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [r9+56]
+	mov	rax, QWORD PTR [r9+64]
 	mov	ecx, edx
 	cmp	QWORD PTR [rax], rcx
 	jbe	SHORT $LN12@PMC_Compar
@@ -522,17 +522,14 @@ $LN31:
 ; 315  :         return (result);
 ; 316  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [rdi+40]
-	and	eax, 2
-	test	BYTE PTR [rbx+40], 2
+	mov	eax, DWORD PTR [rdi]
+	and	eax, 1
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN7@PMC_Compar
 
 ; 317  :     {
 ; 318  :         *w = nv->IS_ZERO ? 0 : -1;
 
-	neg	eax
-	sbb	eax, eax
-	neg	eax
 	dec	eax
 
 ; 342  :         }
@@ -564,12 +561,12 @@ $LN7@PMC_Compar:
 ; 325  :     {
 ; 326  :         __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
-	mov	rax, QWORD PTR [rbx+16]
+	mov	rax, QWORD PTR [rbx+24]
 
 ; 327  :         __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 ; 328  :         if (u_bit_count > v_bit_count)
 
-	cmp	rax, QWORD PTR [rdi+16]
+	cmp	rax, QWORD PTR [rdi+24]
 	ja	SHORT $LN25@PMC_Compar
 
 ; 329  :         {
@@ -589,22 +586,23 @@ $LN7@PMC_Compar:
 ; 340  :             // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
 ; 341  :             *w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
 
-	mov	rcx, QWORD PTR [rbx+8]
+	mov	rcx, QWORD PTR [rbx+16]
 
 ; 33   :     u += count;
 
-	mov	rax, QWORD PTR [rbx+56]
+	mov	rax, QWORD PTR [rbx+64]
 	lea	r8, QWORD PTR [rax+rcx*8]
 
 ; 34   :     v += count;
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	lea	r9, QWORD PTR [rax+rcx*8]
 
 ; 35   :     while (count > 0)
 
 	test	rcx, rcx
 	je	SHORT $LN18@PMC_Compar
+	npad	7
 $LL17@PMC_Compar:
 
 ; 36   :     {
@@ -730,7 +728,7 @@ $LN61:
 
 ; 145  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rdi+40], 2
+	test	BYTE PTR [rdi], 1
 	je	SHORT $LN8@PMC_Compar
 
 ; 146  :     {
@@ -795,7 +793,7 @@ $LN8@PMC_Compar:
 
 ; 236  :             if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [rdi+16], rcx
+	cmp	QWORD PTR [rdi+24], rcx
 	ja	SHORT $LN59@PMC_Compar
 
 ; 237  :             {
@@ -823,7 +821,7 @@ $LN40@PMC_Compar:
 ; 249  :                 // ⇒ u と v はともに 1 ワードで表現できる
 ; 250  :                 if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	cmp	QWORD PTR [rax], rbx
 	jbe	SHORT $LN42@PMC_Compar
 $LN59@PMC_Compar:
@@ -898,7 +896,7 @@ $LN29:
 
 ; 55   :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rdi+40], 2
+	test	BYTE PTR [rdi], 1
 	je	SHORT $LN8@PMC_Compar
 
 ; 56   :     {
@@ -969,7 +967,7 @@ $LN8@PMC_Compar:
 
 ; 79   :         if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [rdi+16], rcx
+	cmp	QWORD PTR [rdi+24], rcx
 	ja	SHORT $LN27@PMC_Compar
 
 ; 80   :         {
@@ -997,7 +995,7 @@ $LN16@PMC_Compar:
 ; 92   :             // ⇒ u と v はともに 1 ワードで表現できる
 ; 93   :             if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	cmp	QWORD PTR [rax], rbx
 	jbe	SHORT $LN18@PMC_Compar
 $LN27@PMC_Compar:
@@ -1073,7 +1071,7 @@ $LN61:
 
 ; 145  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rdi+40], 2
+	test	BYTE PTR [rdi], 1
 	je	SHORT $LN8@PMC_Compar
 
 ; 146  :     {
@@ -1136,7 +1134,7 @@ $LN8@PMC_Compar:
 
 ; 236  :             if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [rdi+16], rcx
+	cmp	QWORD PTR [rdi+24], rcx
 	ja	SHORT $LN59@PMC_Compar
 
 ; 237  :             {
@@ -1175,7 +1173,7 @@ $LN40@PMC_Compar:
 
 ; 250  :                 if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [rdi+56]
+	mov	rax, QWORD PTR [rdi+64]
 	mov	rcx, QWORD PTR [rax]
 	cmp	rcx, rbx
 	jbe	SHORT $LN42@PMC_Compar
@@ -1290,7 +1288,7 @@ $LN29:
 
 ; 55   :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN8@PMC_Compar
 
 ; 56   :     {
@@ -1359,7 +1357,7 @@ $LN8@PMC_Compar:
 
 ; 79   :         if (u_bit_count > v_bit_count)
 
-	cmp	QWORD PTR [rbx+16], rcx
+	cmp	QWORD PTR [rbx+24], rcx
 	ja	SHORT $LN27@PMC_Compar
 
 ; 80   :         {
@@ -1398,7 +1396,7 @@ $LN16@PMC_Compar:
 
 ; 93   :             if (u->BLOCK[0] > v)
 
-	mov	rax, QWORD PTR [rbx+56]
+	mov	rax, QWORD PTR [rbx+64]
 	mov	rdx, QWORD PTR [rax]
 	cmp	rdx, rdi
 	jbe	SHORT $LN18@PMC_Compar

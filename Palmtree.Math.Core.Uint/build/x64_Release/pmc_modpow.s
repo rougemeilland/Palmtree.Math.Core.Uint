@@ -67,18 +67,18 @@ PMC_ModPow_X_X_X:
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L1
-	movzbl	40(%rsi), %eax
-	testb	$2, %al
+	movzbl	(%rsi), %eax
+	testb	$1, %al
 	jne	.L42
-	movzbl	40(%r12), %edx
+	movzbl	(%r12), %edx
 	movl	%edx, %ecx
-	andl	$2, %ecx
-	testb	$4, %al
+	andl	$1, %ecx
+	testb	$2, %al
 	je	.L5
 	testb	%cl, %cl
 	je	.L6
 .L8:
-	testb	$2, 40(%rbx)
+	testb	$1, (%rbx)
 	jne	.L7
 .L6:
 	movq	.refptr.number_zero(%rip), %rax
@@ -88,15 +88,15 @@ PMC_ModPow_X_X_X:
 .L5:
 	testb	%cl, %cl
 	jne	.L8
-	andl	$4, %edx
+	andl	$2, %edx
 	jne	.L10
-	movzbl	40(%rbx), %eax
+	movzbl	(%rbx), %eax
+	testb	$1, %al
+	jne	.L10
 	testb	$2, %al
-	jne	.L10
-	testb	$4, %al
 	je	.L11
-	movq	16(%rsi), %rcx
-	cmpq	%rcx, 16(%r12)
+	movq	24(%rsi), %rcx
+	cmpq	%rcx, 24(%r12)
 	jnb	.L12
 	movq	%rbp, %rdx
 	movq	%r12, %rcx
@@ -113,12 +113,12 @@ PMC_ModPow_X_X_X:
 	movq	%rax, 0(%rbp)
 	jmp	.L1
 .L11:
-	movq	56(%rsi), %rax
+	movq	64(%rsi), %rax
 	leaq	144(%rsp), %rdx
 	leaq	136(%rsp), %r8
-	movq	8(%rsi), %r14
+	movq	16(%rsi), %r14
 	movq	%rax, 112(%rsp)
-	movq	8(%r12), %rax
+	movq	16(%r12), %rax
 	leaq	1(%rax), %rcx
 	salq	$6, %rcx
 	call	AllocateBlock
@@ -150,15 +150,15 @@ PMC_ModPow_X_X_X:
 	testq	%rax, %rax
 	movq	%rax, 88(%rsp)
 	je	.L102
-	movq	16(%rsi), %rdx
+	movq	24(%rsi), %rdx
 	leaq	200(%rsp), %r8
 	movq	%rbp, %rcx
 	call	AllocateNumber
 	testl	%eax, %eax
 	jne	.L105
-	movq	8(%r12), %rdx
+	movq	16(%r12), %rdx
 	movl	%eax, 96(%rsp)
-	movq	56(%r12), %rcx
+	movq	64(%r12), %rcx
 	cmpq	%rdx, %r14
 	jb	.L23
 	ja	.L24
@@ -167,8 +167,8 @@ PMC_ModPow_X_X_X:
 	call	Compare_Imp
 	testl	%eax, %eax
 	je	.L100
-	movq	8(%r12), %rdx
-	movq	56(%r12), %rcx
+	movq	16(%r12), %rdx
+	movq	64(%r12), %rcx
 	jg	.L23
 .L24:
 	movq	%rcx, %rsi
@@ -179,15 +179,15 @@ PMC_ModPow_X_X_X:
 	rep movsq
  # 0 "" 2
 /NO_APP
-	movq	8(%r12), %rax
+	movq	16(%r12), %rax
 .L97:
 	movq	%rax, 96(%rsp)
 .L28:
-	movq	8(%rbx), %rax
+	movq	16(%rbx), %rax
 	movl	$64, %ecx
 	movq	%rax, %rdi
 	movq	%rax, %r15
-	movq	56(%rbx), %rax
+	movq	64(%rbx), %rax
 	movq	-8(%rax,%rdi,8), %rax
 	testq	%rax, %rax
 	je	.L30
@@ -266,7 +266,7 @@ PMC_ModPow_X_X_X:
 	cmpq	%r11, %r14
 	jbe	.L106
 .L34:
-	movq	56(%rbx), %rax
+	movq	64(%rbx), %rax
 	testq	%r13, -8(%rax,%rbp,8)
 	je	.L37
 	movq	%rsi, %rdi
@@ -392,7 +392,7 @@ PMC_ModPow_X_X_X:
 	testq	%rax, %rax
 	movq	%rax, %rbx
 	je	.L1
-	movq	16(%r12), %rax
+	movq	24(%r12), %rax
 	leaq	200(%rsp), %r8
 	movq	%rbp, %rcx
 	leaq	64(%rax), %rdx
@@ -400,12 +400,12 @@ PMC_ModPow_X_X_X:
 	testl	%eax, %eax
 	movl	%eax, %r10d
 	jne	.L110
-	movq	8(%r12), %rdx
-	movq	8(%rsi), %r9
+	movq	16(%r12), %rdx
+	movq	16(%rsi), %r9
 	movq	0(%rbp), %rax
-	movq	56(%r12), %rcx
+	movq	64(%r12), %rcx
 	cmpq	%r9, %rdx
-	movq	56(%rax), %rdi
+	movq	64(%rax), %rdi
 	jnb	.L15
 	movq	%rcx, %rsi
 	movq	%rdx, %rcx
@@ -427,7 +427,7 @@ PMC_ModPow_X_X_X:
 	movq	%rdi, 48(%rsp)
 	movq	$0, 40(%rsp)
 	movq	%rbx, 32(%rsp)
-	movq	56(%rsi), %r8
+	movq	64(%rsi), %r8
 	movl	%r10d, 64(%rsp)
 	call	DivRem_X_X
 	movq	184(%rsp), %rdx
@@ -437,7 +437,7 @@ PMC_ModPow_X_X_X:
 	jne	.L94
 	movq	0(%rbp), %rax
 	movq	200(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	movl	64(%rsp), %r10d
 	testl	%eax, %eax
@@ -549,7 +549,7 @@ PMC_ModPow_X_X_X:
 .L31:
 	movq	0(%rbp), %rax
 	movq	%r12, %rcx
-	movq	56(%rax), %rdi
+	movq	64(%rax), %rdi
 /APP
  # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsq
@@ -557,7 +557,7 @@ PMC_ModPow_X_X_X:
 /NO_APP
 	movq	0(%rbp), %rax
 	movq	200(%rsp), %rdx
-	movq	56(%rax), %rcx
+	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %r10d

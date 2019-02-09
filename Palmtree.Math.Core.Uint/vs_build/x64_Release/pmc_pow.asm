@@ -56,26 +56,26 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp
-	DD	imagerel PMC_Pow_X_I_Imp+318
+	DD	imagerel PMC_Pow_X_I_Imp+317
 	DD	imagerel $unwind$PMC_Pow_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$1$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp+318
-	DD	imagerel PMC_Pow_X_I_Imp+607
+$pdata$1$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp+317
+	DD	imagerel PMC_Pow_X_I_Imp+593
 	DD	imagerel $chain$1$PMC_Pow_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$2$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp+607
-	DD	imagerel PMC_Pow_X_I_Imp+731
+$pdata$2$PMC_Pow_X_I_Imp DD imagerel PMC_Pow_X_I_Imp+593
+	DD	imagerel PMC_Pow_X_I_Imp+717
 	DD	imagerel $chain$2$PMC_Pow_X_I_Imp
 pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $chain$2$PMC_Pow_X_I_Imp DD 021H
 	DD	imagerel PMC_Pow_X_I_Imp
-	DD	imagerel PMC_Pow_X_I_Imp+318
+	DD	imagerel PMC_Pow_X_I_Imp+317
 	DD	imagerel $unwind$PMC_Pow_X_I_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -84,7 +84,7 @@ $chain$1$PMC_Pow_X_I_Imp DD 041021H
 	DD	0ef410H
 	DD	0175408H
 	DD	imagerel PMC_Pow_X_I_Imp
-	DD	imagerel PMC_Pow_X_I_Imp+318
+	DD	imagerel PMC_Pow_X_I_Imp+317
 	DD	imagerel $unwind$PMC_Pow_X_I_Imp
 xdata	ENDS
 ;	COMDAT xdata
@@ -166,7 +166,7 @@ work1_buf$1$ = 80
 work2_buf_code$3 = 88
 work2_buf$1$ = 96
 r_check_code$4 = 104
-tv435 = 176
+tv426 = 176
 v$ = 176
 e$ = 184
 r$ = 192
@@ -187,11 +187,11 @@ PMC_Pow_X_I_Imp PROC					; COMDAT
 ; 78   :     PMC_STATUS_CODE result;
 ; 79   :     if (v->IS_ZERO)
 
-	mov	eax, DWORD PTR [rcx+40]
+	mov	eax, DWORD PTR [rcx]
 	mov	r12, r8
 	mov	r13d, edx
 	mov	rsi, rcx
-	test	al, 2
+	test	al, 1
 	je	SHORT $LN2@PMC_Pow_X_
 
 ; 80   :     {
@@ -239,7 +239,7 @@ $LN2@PMC_Pow_X_:
 
 ; 97   :     else if (v->IS_ONE)
 
-	test	al, 4
+	test	al, 2
 	jne	$LN44@PMC_Pow_X_
 
 ; 98   :     {
@@ -295,7 +295,7 @@ $LN10@PMC_Pow_X_:
 ; 127  :             // v の e 乗を計算する
 ; 128  :             __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
 
-	mov	rcx, QWORD PTR [rcx+16]
+	mov	rcx, QWORD PTR [rcx+24]
 
 ; 129  : 
 ; 130  :             // べき乗の計算結果のビット長が論理的な限界を超えると思われる場合、エラーを返す
@@ -405,7 +405,7 @@ $LN16@PMC_Pow_X_:
 
 ; 159  :             Pow_Imp(v->BLOCK, v->UNIT_WORD_COUNT, e, work1_buf, work2_buf, (*r)->BLOCK);
 
-	mov	rcx, QWORD PTR [rsi+8]
+	mov	rcx, QWORD PTR [rsi+16]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
 ; 64   :         __movsq(d, s, count);
@@ -425,7 +425,7 @@ $LN16@PMC_Pow_X_:
 
 ; 159  :             Pow_Imp(v->BLOCK, v->UNIT_WORD_COUNT, e, work1_buf, work2_buf, (*r)->BLOCK);
 
-	mov	rsi, QWORD PTR [rsi+56]
+	mov	rsi, QWORD PTR [rsi+64]
 	mov	QWORD PTR [rsp+184], rbp
 
 ; 37   :     __UNIT_TYPE* u_ptr = work1_buf;
@@ -439,7 +439,7 @@ $LN16@PMC_Pow_X_:
 
 ; 159  :             Pow_Imp(v->BLOCK, v->UNIT_WORD_COUNT, e, work1_buf, work2_buf, (*r)->BLOCK);
 
-	mov	rax, QWORD PTR [rax+56]
+	mov	rax, QWORD PTR [rax+64]
 
 ; 39   :     __UNIT_TYPE* w_ptr = work2_buf;
 
@@ -488,7 +488,6 @@ $LN16@PMC_Pow_X_:
 
 	je	$LN23@PMC_Pow_X_
 	mov	r12, rbx
-	npad	13
 $LL22@PMC_Pow_X_:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -499,7 +498,7 @@ $LL22@PMC_Pow_X_:
 
 ; 47   :         _ZERO_MEMORY_UNIT(w_ptr, u_count * 2);
 
-	mov	DWORD PTR tv435[rsp], r14d
+	mov	DWORD PTR tv426[rsp], r14d
 	lea	rsi, QWORD PTR [rbx+rbx]
 
 ; 48   :         Multiply_X_X_Imp(u_ptr, u_count, u_ptr, u_count, w_ptr);
@@ -601,7 +600,7 @@ $LN26@PMC_Pow_X_:
 ; 71   :         e_mask >>= 1;
 
 	shr	r14d, 1
-	cmp	DWORD PTR tv435[rsp], 2
+	cmp	DWORD PTR tv426[rsp], 2
 	jae	$LL22@PMC_Pow_X_
 	mov	r12, QWORD PTR r$[rsp]
 $LN23@PMC_Pow_X_:
@@ -641,7 +640,7 @@ $LN23@PMC_Pow_X_:
 
 	mov	rcx, QWORD PTR [r12]
 	mov	rdx, QWORD PTR r_check_code$4[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Pow_X_

@@ -13,7 +13,7 @@ EXTRN	number_zero:BYTE
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Clone_X DD imagerel $LN12
-	DD	imagerel $LN12+118
+	DD	imagerel $LN12+117
 	DD	imagerel $unwind$PMC_Clone_X
 pdata	ENDS
 ;	COMDAT xdata
@@ -63,7 +63,7 @@ $LN12:
 ; 40   :     NUMBER_HEADER* no;
 ; 41   :     if (nx->IS_ZERO)
 
-	test	BYTE PTR [rbx+40], 2
+	test	BYTE PTR [rbx], 1
 	je	SHORT $LN5@PMC_Clone_
 
 ; 42   :         no = &number_zero;

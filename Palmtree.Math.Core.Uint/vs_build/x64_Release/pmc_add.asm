@@ -50,7 +50,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Add_X_X DD imagerel $LN24
-	DD	imagerel $LN24+405
+	DD	imagerel $LN24+403
 	DD	imagerel $unwind$PMC_Add_X_X
 pdata	ENDS
 ;	COMDAT pdata
@@ -68,13 +68,13 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Add_X_I_Imp DD imagerel PMC_Add_X_I_Imp
-	DD	imagerel PMC_Add_X_I_Imp+314
+	DD	imagerel PMC_Add_X_I_Imp+313
 	DD	imagerel $unwind$PMC_Add_X_I_Imp
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Add_X_L_Imp DD imagerel PMC_Add_X_L_Imp
-	DD	imagerel PMC_Add_X_L_Imp+318
+	DD	imagerel PMC_Add_X_L_Imp+317
 	DD	imagerel $unwind$PMC_Add_X_L_Imp
 pdata	ENDS
 ;	COMDAT xdata
@@ -166,7 +166,7 @@ PMC_Add_X_L_Imp PROC					; COMDAT
 ; 400  :     PMC_STATUS_CODE result;
 ; 401  :     if (u->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	rdi, rdx
 	mov	rsi, rcx
@@ -294,8 +294,8 @@ $LN7@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rsi+16], rdx
-	cmovae	rdx, QWORD PTR [rsi+16]
+	cmp	QWORD PTR [rsi+24], rdx
+	cmovae	rdx, QWORD PTR [rsi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 485  :                 __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -312,10 +312,10 @@ $LN7@PMC_Add_X_:
 ; 489  :                 if ((result = Add_X_1W(u->BLOCK, u->UNIT_WORD_COUNT, (__UNIT_TYPE)v, (*w)->BLOCK, (*w)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR [rbx]
-	mov	r10, QWORD PTR [rsi+56]
-	mov	r8, QWORD PTR [rsi+8]
-	mov	rdx, QWORD PTR [rax+48]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r10, QWORD PTR [rsi+64]
+	mov	r8, QWORD PTR [rsi+16]
+	mov	rdx, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 
 ; 90   :     c = _ADD_UNIT(0, *u_ptr++, v, w_ptr++);
 
@@ -380,7 +380,7 @@ $LN21@PMC_Add_X_:
 ; 494  :                 if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Add_X_
@@ -442,7 +442,7 @@ PMC_Add_X_I_Imp PROC					; COMDAT
 ; 295  :     PMC_STATUS_CODE result;
 ; 296  :     if (nu->IS_ZERO)
 
-	test	BYTE PTR [rcx+40], 2
+	test	BYTE PTR [rcx], 1
 	mov	rbx, r8
 	mov	edi, edx
 	mov	rsi, rcx
@@ -568,8 +568,8 @@ $LN7@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rsi+16], rdx
-	cmovae	rdx, QWORD PTR [rsi+16]
+	cmp	QWORD PTR [rsi+24], rdx
+	cmovae	rdx, QWORD PTR [rsi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 335  :             __UNIT_TYPE z_bit_count = _MAXIMUM_UNIT(x_bit_count, y_bit_count) + 1;
@@ -586,10 +586,10 @@ $LN7@PMC_Add_X_:
 ; 339  :             if ((result = Add_X_1W(nu->BLOCK, nu->UNIT_WORD_COUNT, v, (*nw)->BLOCK, (*nw)->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rax, QWORD PTR [rbx]
-	mov	r11, QWORD PTR [rsi+56]
-	mov	r10, QWORD PTR [rsi+8]
-	mov	r8, QWORD PTR [rax+48]
-	mov	r9, QWORD PTR [rax+56]
+	mov	r11, QWORD PTR [rsi+64]
+	mov	r10, QWORD PTR [rsi+16]
+	mov	r8, QWORD PTR [rax+56]
+	mov	r9, QWORD PTR [rax+64]
 
 ; 90   :     c = _ADD_UNIT(0, *u_ptr++, v, w_ptr++);
 
@@ -665,7 +665,7 @@ $LN11@PMC_Add_X_:
 ; 344  :             if ((result = CheckBlockLight((*nw)->BLOCK, nz_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR nz_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Add_X_
@@ -4365,9 +4365,9 @@ $LN24:
 ; 565  :     NUMBER_HEADER* nw;
 ; 566  :     if (nu->IS_ZERO)
 
-	mov	eax, DWORD PTR [rbx+40]
-	and	eax, 2
-	test	BYTE PTR [rdi+40], 2
+	mov	eax, DWORD PTR [rbx]
+	and	eax, 1
+	test	BYTE PTR [rdi], 1
 	je	SHORT $LN7@PMC_Add_X_
 
 ; 567  :     {
@@ -4472,7 +4472,7 @@ $LN12@PMC_Add_X_:
 ; 585  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 ; 586  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
-	mov	rdx, QWORD PTR [rbx+16]
+	mov	rdx, QWORD PTR [rbx+24]
 
 ; 589  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
 
@@ -4481,7 +4481,7 @@ $LN12@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmp	QWORD PTR [rdi+16], rdx
+	cmp	QWORD PTR [rdi+24], rdx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 589  :             if ((result = AllocateNumber(&nw, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
@@ -4491,7 +4491,7 @@ $LN12@PMC_Add_X_:
 
 ; 198  :         return (x >= y ? x : y);
 
-	cmovae	rdx, QWORD PTR [rdi+16]
+	cmovae	rdx, QWORD PTR [rdi+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_add.c
 
 ; 587  :             __UNIT_TYPE w_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count) + 1;
@@ -4508,13 +4508,13 @@ $LN12@PMC_Add_X_:
 ; 591  :             if ((result = (*fp_Add_Imp)(nu->BLOCK, nu->UNIT_WORD_COUNT, nv->BLOCK, nv->UNIT_WORD_COUNT, nw->BLOCK, nw->BLOCK_COUNT)) != PMC_STATUS_OK)
 
 	mov	rcx, QWORD PTR nw$[rsp]
-	mov	r9, QWORD PTR [rbx+8]
-	mov	r8, QWORD PTR [rbx+56]
-	mov	rdx, QWORD PTR [rdi+8]
-	mov	rax, QWORD PTR [rcx+48]
-	mov	QWORD PTR [rsp+40], rax
+	mov	r9, QWORD PTR [rbx+16]
+	mov	r8, QWORD PTR [rbx+64]
+	mov	rdx, QWORD PTR [rdi+16]
 	mov	rax, QWORD PTR [rcx+56]
-	mov	rcx, QWORD PTR [rdi+56]
+	mov	QWORD PTR [rsp+40], rax
+	mov	rax, QWORD PTR [rcx+64]
+	mov	rcx, QWORD PTR [rdi+64]
 	mov	QWORD PTR [rsp+32], rax
 	call	QWORD PTR fp_Add_Imp
 	mov	rcx, QWORD PTR nw$[rsp]
@@ -4544,7 +4544,7 @@ $LN16@PMC_Add_X_:
 ; 596  :             if ((result = CheckBlockLight(nw->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+56]
+	mov	rcx, QWORD PTR [rcx+64]
 	call	CheckBlockLight
 	test	eax, eax
 	jne	SHORT $LN1@PMC_Add_X_

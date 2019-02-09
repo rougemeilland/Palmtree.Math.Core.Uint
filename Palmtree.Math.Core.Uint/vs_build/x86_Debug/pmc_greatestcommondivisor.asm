@@ -74,7 +74,7 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_greatestcommondivisor.c
 _TEXT	SEGMENT
-tv238 = -332						; size = 4
+tv237 = -332						; size = 4
 _w_buf_count$1 = -324					; size = 4
 _k$2 = -316						; size = 4
 _v_tzcnt$3 = -312					; size = 4
@@ -141,8 +141,7 @@ _PMC_GreatestCommonDivisor_X_L_Imp PROC
 ; 217  :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Greate
 
@@ -254,7 +253,7 @@ $LN7@PMC_Greate:
 ; 258  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+12]
+	mov	edx, DWORD PTR [ecx+16]
 	mov	DWORD PTR _u_bit_count$43[ebp], edx
 
 ; 259  :                 _UINT32_T v_hi;
@@ -406,7 +405,7 @@ $LN16@PMC_Greate:
 ; 290  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+20]
+	mov	edx, DWORD PTR [ecx+24]
 	mov	DWORD PTR _u_tzcnt$31[ebp], edx
 
 ; 291  :                     __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v_lo);
@@ -440,10 +439,10 @@ $LN16@PMC_Greate:
 	mov	ecx, DWORD PTR _u_tzcnt$31[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -454,10 +453,10 @@ $LN17@PMC_Greate:
 ; 296  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_u_buf$36[ebp]
 	push	ecx
@@ -483,7 +482,7 @@ $LN18@PMC_Greate:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	push	32					; 00000020H
 	mov	edx, DWORD PTR _work_bit_count$39[ebp]
@@ -540,7 +539,7 @@ $LN20@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -578,7 +577,7 @@ $LN21@PMC_Greate:
 	push	1
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _k$29[ebp]
 	push	edx
@@ -586,7 +585,7 @@ $LN21@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -597,7 +596,7 @@ $LN21@PMC_Greate:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -756,7 +755,7 @@ $LN25@PMC_Greate:
 ; 344  :                     __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+20]
+	mov	eax, DWORD PTR [edx+24]
 	mov	DWORD PTR _u_tzcnt$18[ebp], eax
 
 ; 345  :                     __UNIT_TYPE v_tzcnt = v_lo == 0 ? 32 + _TZCNT_ALT_UNIT(v_hi) : _TZCNT_ALT_UNIT(v_lo);
@@ -768,16 +767,16 @@ $LN25@PMC_Greate:
 	call	__TZCNT_ALT_UNIT
 	add	esp, 4
 	add	eax, 32					; 00000020H
-	mov	DWORD PTR tv238[ebp], eax
+	mov	DWORD PTR tv237[ebp], eax
 	jmp	SHORT $LN44@PMC_Greate
 $LN43@PMC_Greate:
 	mov	edx, DWORD PTR _v_lo$41[ebp]
 	push	edx
 	call	__TZCNT_ALT_UNIT
 	add	esp, 4
-	mov	DWORD PTR tv238[ebp], eax
+	mov	DWORD PTR tv237[ebp], eax
 $LN44@PMC_Greate:
-	mov	eax, DWORD PTR tv238[ebp]
+	mov	eax, DWORD PTR tv237[ebp]
 	mov	DWORD PTR _v_tzcnt$17[ebp], eax
 
 ; 346  :                     __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
@@ -803,10 +802,10 @@ $LN44@PMC_Greate:
 	mov	ecx, DWORD PTR _u_tzcnt$18[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -817,10 +816,10 @@ $LN26@PMC_Greate:
 ; 350  :                         _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_u_buf$23[ebp]
 	push	ecx
@@ -871,7 +870,7 @@ $LN28@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	push	32					; 00000020H
 	mov	ecx, DWORD PTR _work_bit_count$26[ebp]
@@ -928,7 +927,7 @@ $LN30@PMC_Greate:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -966,7 +965,7 @@ $LN31@PMC_Greate:
 	push	1
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _k$16[ebp]
 	push	ecx
@@ -974,7 +973,7 @@ $LN31@PMC_Greate:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -985,7 +984,7 @@ $LN31@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -1021,7 +1020,7 @@ $LN10@PMC_Greate:
 ; 377  :                 __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
 ; 378  :                 __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -1153,7 +1152,7 @@ $LN35@PMC_Greate:
 ; 404  :                 __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+20]
+	mov	edx, DWORD PTR [ecx+24]
 	mov	DWORD PTR _u_tzcnt$4[ebp], edx
 
 ; 405  :                 __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT((__UNIT_TYPE)v);
@@ -1187,10 +1186,10 @@ $LN35@PMC_Greate:
 	mov	ecx, DWORD PTR _u_tzcnt$4[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -1201,10 +1200,10 @@ $LN36@PMC_Greate:
 ; 410  :                     _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_u_buf$9[ebp]
 	push	ecx
@@ -1231,7 +1230,7 @@ $LN37@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	push	32					; 00000020H
 	mov	ecx, DWORD PTR _work_bit_count$12[ebp]
@@ -1288,7 +1287,7 @@ $LN39@PMC_Greate:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -1326,7 +1325,7 @@ $LN40@PMC_Greate:
 	push	1
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _k$2[ebp]
 	push	ecx
@@ -1334,7 +1333,7 @@ $LN40@PMC_Greate:
 	push	edx
 	mov	eax, DWORD PTR _w$[ebp]
 	mov	ecx, DWORD PTR [eax]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -1345,7 +1344,7 @@ $LN40@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -1392,7 +1391,6 @@ $LN1@PMC_Greate:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
 $LN65@PMC_Greate:
 	DD	19					; 00000013H
 	DD	$LN64@PMC_Greate
@@ -1796,8 +1794,7 @@ _PMC_GreatestCommonDivisor_X_I_Imp PROC
 ; 75   :     if (u->IS_ZERO)
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN2@PMC_Greate
 
@@ -1896,7 +1893,7 @@ $LN7@PMC_Greate:
 ; 112  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
 ; 113  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
@@ -2028,7 +2025,7 @@ $LN12@PMC_Greate:
 ; 139  :             __UNIT_TYPE u_tzcnt = u->TRAILING_ZERO_BITS_COUNT;
 
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+20]
+	mov	edx, DWORD PTR [ecx+24]
 	mov	DWORD PTR _u_tzcnt$4[ebp], edx
 
 ; 140  :             __UNIT_TYPE v_tzcnt = _TZCNT_ALT_UNIT(v);
@@ -2062,10 +2059,10 @@ $LN12@PMC_Greate:
 	mov	ecx, DWORD PTR _u_tzcnt$4[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _u$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -2076,10 +2073,10 @@ $LN13@PMC_Greate:
 ; 145  :                 _COPY_MEMORY_UNIT(work_u_buf, u->BLOCK, u->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _u$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _u$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_u_buf$9[ebp]
 	push	ecx
@@ -2105,7 +2102,7 @@ $LN14@PMC_Greate:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	push	32					; 00000020H
 	mov	edx, DWORD PTR _work_bit_count$12[ebp]
@@ -2162,7 +2159,7 @@ $LN16@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_CheckBlockLight
 	add	esp, 8
@@ -2200,7 +2197,7 @@ $LN17@PMC_Greate:
 	push	1
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _k$2[ebp]
 	push	edx
@@ -2208,7 +2205,7 @@ $LN17@PMC_Greate:
 	push	eax
 	mov	ecx, DWORD PTR _w$[ebp]
 	mov	edx, DWORD PTR [ecx]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -2219,7 +2216,7 @@ $LN17@PMC_Greate:
 	push	ecx
 	mov	edx, DWORD PTR _w$[ebp]
 	mov	eax, DWORD PTR [edx]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -2265,7 +2262,6 @@ $LN1@PMC_Greate:
 	mov	esp, ebp
 	pop	ebp
 	ret	0
-	npad	1
 $LN27@PMC_Greate:
 	DD	6
 	DD	$LN26@PMC_Greate
@@ -3159,8 +3155,7 @@ $LN6@PMC_Greate:
 ; 496  :     if (nu->IS_ZERO)
 
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+24]
-	shr	edx, 1
+	mov	edx, DWORD PTR [ecx]
 	and	edx, 1
 	je	SHORT $LN7@PMC_Greate
 
@@ -3170,8 +3165,7 @@ $LN6@PMC_Greate:
 ; 500  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN9@PMC_Greate
 
@@ -3232,8 +3226,7 @@ $LN7@PMC_Greate:
 ; 521  :         if (nv->IS_ZERO)
 
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	shr	ecx, 1
+	mov	ecx, DWORD PTR [eax]
 	and	ecx, 1
 	je	SHORT $LN12@PMC_Greate
 
@@ -3278,13 +3271,13 @@ $LN12@PMC_Greate:
 ; 535  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+12]
+	mov	ecx, DWORD PTR [eax+16]
 	mov	DWORD PTR _u_bit_count$14[ebp], ecx
 
 ; 536  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+12]
+	mov	eax, DWORD PTR [edx+16]
 	mov	DWORD PTR _v_bit_count$13[ebp], eax
 
 ; 537  :             __UNIT_TYPE work_bit_count = _MAXIMUM_UNIT(u_bit_count, v_bit_count);
@@ -3406,13 +3399,13 @@ $LN17@PMC_Greate:
 ; 562  :             __UNIT_TYPE u_tzcnt = nu->TRAILING_ZERO_BITS_COUNT;
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+20]
+	mov	ecx, DWORD PTR [eax+24]
 	mov	DWORD PTR _u_tzcnt$4[ebp], ecx
 
 ; 563  :             __UNIT_TYPE v_tzcnt = nv->TRAILING_ZERO_BITS_COUNT;
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+20]
+	mov	eax, DWORD PTR [edx+24]
 	mov	DWORD PTR _v_tzcnt$3[ebp], eax
 
 ; 564  :             __UNIT_TYPE k = _MINIMUM_UNIT(u_tzcnt, v_tzcnt);
@@ -3438,10 +3431,10 @@ $LN17@PMC_Greate:
 	mov	ecx, DWORD PTR _u_tzcnt$4[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _nu$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -3452,10 +3445,10 @@ $LN18@PMC_Greate:
 ; 568  :                 _COPY_MEMORY_UNIT(work_u_buf, nu->BLOCK, nu->UNIT_WORD_COUNT);
 
 	mov	eax, DWORD PTR _nu$[ebp]
-	mov	ecx, DWORD PTR [eax+8]
+	mov	ecx, DWORD PTR [eax+12]
 	push	ecx
 	mov	edx, DWORD PTR _nu$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	mov	ecx, DWORD PTR _work_u_buf$9[ebp]
 	push	ecx
@@ -3476,10 +3469,10 @@ $LN19@PMC_Greate:
 	mov	eax, DWORD PTR _v_tzcnt$3[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+8]
+	mov	edx, DWORD PTR [ecx+12]
 	push	edx
 	mov	eax, DWORD PTR _nv$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_RightShift_Imp
 	add	esp, 20					; 00000014H
@@ -3490,10 +3483,10 @@ $LN20@PMC_Greate:
 ; 572  :                 _COPY_MEMORY_UNIT(work_v_buf, nv->BLOCK, nv->UNIT_WORD_COUNT);
 
 	mov	edx, DWORD PTR _nv$[ebp]
-	mov	eax, DWORD PTR [edx+8]
+	mov	eax, DWORD PTR [edx+12]
 	push	eax
 	mov	ecx, DWORD PTR _nv$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	mov	eax, DWORD PTR _work_v_buf$6[ebp]
 	push	eax
@@ -3508,7 +3501,7 @@ $LN21@PMC_Greate:
 	lea	ecx, DWORD PTR _w_buf_count$1[ebp]
 	push	ecx
 	mov	edx, DWORD PTR _nw$[ebp]
-	mov	eax, DWORD PTR [edx+32]
+	mov	eax, DWORD PTR [edx+36]
 	push	eax
 	push	32					; 00000020H
 	mov	ecx, DWORD PTR _work_bit_count$12[ebp]
@@ -3564,7 +3557,7 @@ $LN23@PMC_Greate:
 	mov	edx, DWORD PTR _nw_check_code$5[ebp]
 	push	edx
 	mov	eax, DWORD PTR _nw$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3601,14 +3594,14 @@ $LN24@PMC_Greate:
 
 	push	1
 	mov	eax, DWORD PTR _nw$[ebp]
-	mov	ecx, DWORD PTR [eax+32]
+	mov	ecx, DWORD PTR [eax+36]
 	push	ecx
 	mov	edx, DWORD PTR _k$2[ebp]
 	push	edx
 	mov	eax, DWORD PTR _w_buf_count$1[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nw$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_LeftShift_Imp
 	add	esp, 20					; 00000014H
@@ -3618,7 +3611,7 @@ $LN24@PMC_Greate:
 	mov	eax, DWORD PTR _nw_check_code$5[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _nw$[ebp]
-	mov	edx, DWORD PTR [ecx+32]
+	mov	edx, DWORD PTR [ecx+36]
 	push	edx
 	call	_CheckBlockLight
 	add	esp, 8
@@ -3688,7 +3681,6 @@ $LN1@PMC_Greate:
 	mov	esp, ebp
 	pop	ebp
 	ret	12					; 0000000cH
-	npad	3
 $LN36@PMC_Greate:
 	DD	7
 	DD	$LN35@PMC_Greate

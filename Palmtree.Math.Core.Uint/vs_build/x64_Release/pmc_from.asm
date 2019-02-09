@@ -272,7 +272,7 @@ $LN3@PMC_From_L:
 ; 77   :         (*o)->BLOCK[0] = (__UNIT_TYPE)x;
 
 	mov	rax, QWORD PTR p$[rsp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rcx], rbx
 
 ; 78   :     }
@@ -394,7 +394,7 @@ $LN3@PMC_From_I:
 ; 36   :     (*o)->BLOCK[0] = x;
 
 	mov	rax, QWORD PTR p$1[rsp]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rcx], rbx
 
 ; 37   :     CommitNumber(*o);
@@ -537,7 +537,7 @@ $LN20@From_L_Imp:
 ; 77   :         (*o)->BLOCK[0] = (__UNIT_TYPE)x;
 
 	mov	rax, QWORD PTR [rdi]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rcx], rbx
 
 ; 78   :     }
@@ -623,7 +623,7 @@ $LN4@From_I_Imp:
 ; 36   :     (*o)->BLOCK[0] = x;
 
 	mov	rax, QWORD PTR [rdi]
-	mov	rcx, QWORD PTR [rax+56]
+	mov	rcx, QWORD PTR [rax+64]
 	mov	QWORD PTR [rcx], rbx
 
 ; 37   :     CommitNumber(*o);
