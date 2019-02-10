@@ -8028,9 +8028,10 @@ Initialize_Shift:
 	.file 29 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/commdlg.h"
 	.file 30 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/stdint.h"
 	.file 31 "../pmc.h"
-	.file 32 "../pmc_cpuid.h"
-	.file 33 "../pmc_internal.h"
-	.file 34 "../pmc_uint_internal.h"
+	.file 32 "../pmc_uint.h"
+	.file 33 "../pmc_cpuid.h"
+	.file 34 "../pmc_internal.h"
+	.file 35 "../pmc_uint_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
 	.long	0x57bf
@@ -11862,116 +11863,37 @@ Initialize_Shift:
 	.byte	0xd
 	.long	0x139
 	.uleb128 0x12
-	.ascii "__tag_UINT_FLAGS\0"
-	.byte	0x4
-	.byte	0x1f
-	.byte	0x6c
-	.byte	0x12
-	.long	0x4ab2
-	.uleb128 0x18
-	.ascii "IS_ZERO\0"
-	.byte	0x1f
-	.byte	0x6e
-	.byte	0x12
-	.long	0x461
-	.byte	0x4
-	.byte	0x1
-	.byte	0x1f
-	.byte	0
-	.uleb128 0x18
-	.ascii "IS_ONE\0"
-	.byte	0x1f
-	.byte	0x6f
-	.byte	0x12
-	.long	0x461
-	.byte	0x4
-	.byte	0x1
-	.byte	0x1e
-	.byte	0
-	.uleb128 0x18
-	.ascii "IS_EVEN\0"
-	.byte	0x1f
-	.byte	0x70
-	.byte	0x12
-	.long	0x461
-	.byte	0x4
-	.byte	0x1
-	.byte	0x1d
-	.byte	0
-	.uleb128 0x19
-	.secrel32	.LASF1
-	.byte	0x1f
-	.byte	0x71
-	.byte	0x12
-	.long	0x461
-	.byte	0x4
-	.byte	0x1
-	.byte	0x1c
-	.byte	0
-	.byte	0
-	.uleb128 0x4
-	.long	0x4a4c
-	.uleb128 0x1a
-	.ascii "__tag_PMC_HANDLE_UINT\0"
-	.byte	0x8
-	.byte	0x1f
-	.byte	0x6a
-	.byte	0x7
-	.long	0x4af5
-	.uleb128 0x1b
-	.ascii "FLAGS\0"
-	.byte	0x1f
-	.byte	0x72
-	.byte	0x7
-	.long	0x4ab2
-	.uleb128 0x1b
-	.ascii "__dummy\0"
-	.byte	0x1f
-	.byte	0x76
-	.byte	0xf
-	.long	0x49b4
-	.byte	0
-	.uleb128 0x3
-	.ascii "PMC_HANDLE_UINT\0"
-	.byte	0x1f
-	.byte	0x7b
-	.byte	0x26
-	.long	0x4b0d
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x4ab7
-	.uleb128 0x12
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1f
-	.byte	0x91
+	.byte	0x6a
 	.byte	0x10
-	.long	0x4b8f
+	.long	0x4ac8
 	.uleb128 0x13
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1f
-	.byte	0x93
+	.byte	0x6c
 	.byte	0xa
 	.long	0x140
 	.byte	0
 	.uleb128 0x13
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1f
-	.byte	0x94
+	.byte	0x6d
 	.byte	0xa
 	.long	0x140
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1f
-	.byte	0x95
+	.byte	0x6e
 	.byte	0xa
 	.long	0x140
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1f
-	.byte	0x96
+	.byte	0x6f
 	.byte	0xa
 	.long	0x140
 	.byte	0xc
@@ -11979,22 +11901,101 @@ Initialize_Shift:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1f
-	.byte	0x97
+	.byte	0x70
 	.byte	0x3
-	.long	0x4b13
+	.long	0x4a4c
+	.uleb128 0x12
+	.ascii "__tag_UINT_FLAGS\0"
+	.byte	0x4
+	.byte	0x20
+	.byte	0x26
+	.byte	0x16
+	.long	0x4b4a
+	.uleb128 0x18
+	.ascii "IS_ZERO\0"
+	.byte	0x20
+	.byte	0x28
+	.byte	0x16
+	.long	0x461
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1f
+	.byte	0
+	.uleb128 0x18
+	.ascii "IS_ONE\0"
+	.byte	0x20
+	.byte	0x29
+	.byte	0x16
+	.long	0x461
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1e
+	.byte	0
+	.uleb128 0x18
+	.ascii "IS_EVEN\0"
+	.byte	0x20
+	.byte	0x2a
+	.byte	0x16
+	.long	0x461
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1d
+	.byte	0
+	.uleb128 0x19
+	.secrel32	.LASF1
+	.byte	0x20
+	.byte	0x2b
+	.byte	0x16
+	.long	0x461
+	.byte	0x4
+	.byte	0x1
+	.byte	0x1c
+	.byte	0
+	.byte	0
+	.uleb128 0x4
+	.long	0x4ae4
+	.uleb128 0x1a
+	.ascii "__tag_PMC_HANDLE_UINT\0"
+	.byte	0x8
+	.byte	0x20
+	.byte	0x24
+	.byte	0xb
+	.long	0x4b8d
+	.uleb128 0x1b
+	.ascii "FLAGS\0"
+	.byte	0x20
+	.byte	0x2c
+	.byte	0xb
+	.long	0x4b4a
+	.uleb128 0x1b
+	.ascii "__dummy\0"
+	.byte	0x20
+	.byte	0x30
+	.byte	0x13
+	.long	0x49b4
+	.byte	0
+	.uleb128 0x3
+	.ascii "PMC_HANDLE_UINT\0"
+	.byte	0x20
+	.byte	0x35
+	.byte	0x2a
+	.long	0x4ba5
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x4af5
+	.long	0x4b4f
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x4b8d
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
-	.byte	0x20
+	.byte	0x21
 	.byte	0x23
 	.byte	0x10
 	.long	0x4c82
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_POPCNT\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x26
 	.byte	0xe
 	.long	0x461
@@ -12004,7 +12005,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ADX\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x29
 	.byte	0xe
 	.long	0x461
@@ -12014,7 +12015,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI1\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x2c
 	.byte	0xe
 	.long	0x461
@@ -12024,7 +12025,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_BMI2\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x2f
 	.byte	0xe
 	.long	0x461
@@ -12034,7 +12035,7 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "PROCESSOR_FEATURE_ABM\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x32
 	.byte	0xe
 	.long	0x461
@@ -12045,13 +12046,13 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x3
 	.ascii "PROCESSOR_FEATURES\0"
-	.byte	0x20
+	.byte	0x21
 	.byte	0x33
 	.byte	0x3
 	.long	0x4bb1
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE\0"
-	.byte	0x21
+	.byte	0x22
 	.byte	0x34
 	.byte	0x13
 	.long	0x49b4
@@ -12059,7 +12060,7 @@ Initialize_Shift:
 	.long	0x4c9d
 	.uleb128 0x3
 	.ascii "__UNIT_TYPE_DIV\0"
-	.byte	0x21
+	.byte	0x22
 	.byte	0x3e
 	.byte	0x15
 	.long	0x4c9d
@@ -12068,14 +12069,14 @@ Initialize_Shift:
 	.uleb128 0x12
 	.ascii "__tag_NUMBER_HEADER\0"
 	.byte	0x48
-	.byte	0x22
-	.byte	0x27
+	.byte	0x23
+	.byte	0x28
 	.byte	0x14
 	.long	0x4e04
 	.uleb128 0x18
 	.ascii "IS_ZERO\0"
-	.byte	0x22
-	.byte	0x29
+	.byte	0x23
+	.byte	0x2a
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -12084,8 +12085,8 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "IS_ONE\0"
-	.byte	0x22
-	.byte	0x2a
+	.byte	0x23
+	.byte	0x2b
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -12094,8 +12095,8 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x18
 	.ascii "IS_EVEN\0"
-	.byte	0x22
-	.byte	0x2b
+	.byte	0x23
+	.byte	0x2c
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -12104,8 +12105,8 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x19
 	.secrel32	.LASF1
-	.byte	0x22
-	.byte	0x2c
+	.byte	0x23
+	.byte	0x2d
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -12114,50 +12115,50 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x13
 	.ascii "SIGNATURE1\0"
-	.byte	0x22
-	.byte	0x2e
+	.byte	0x23
+	.byte	0x2f
 	.byte	0x13
 	.long	0x49a2
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
-	.byte	0x22
-	.byte	0x2f
+	.byte	0x23
+	.byte	0x30
 	.byte	0x13
 	.long	0x49a2
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
-	.byte	0x22
-	.byte	0x30
+	.byte	0x23
+	.byte	0x31
 	.byte	0x15
 	.long	0x4c9d
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
-	.byte	0x22
-	.byte	0x31
+	.byte	0x23
+	.byte	0x32
 	.byte	0x15
 	.long	0x4c9d
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "HASH_CODE\0"
-	.byte	0x22
-	.byte	0x32
+	.byte	0x23
+	.byte	0x33
 	.byte	0x15
 	.long	0x4c9d
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
-	.byte	0x22
-	.byte	0x33
+	.byte	0x23
+	.byte	0x34
 	.byte	0x15
 	.long	0x4c9d
 	.byte	0x28
 	.uleb128 0x18
 	.ascii "IS_STATIC\0"
-	.byte	0x22
-	.byte	0x35
+	.byte	0x23
+	.byte	0x36
 	.byte	0x12
 	.long	0x461
 	.byte	0x4
@@ -12166,15 +12167,15 @@ Initialize_Shift:
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "BLOCK_COUNT\0"
-	.byte	0x22
-	.byte	0x37
+	.byte	0x23
+	.byte	0x38
 	.byte	0x10
 	.long	0xca
 	.byte	0x38
 	.uleb128 0x13
 	.ascii "BLOCK\0"
-	.byte	0x22
-	.byte	0x3b
+	.byte	0x23
+	.byte	0x3c
 	.byte	0x16
 	.long	0x4e04
 	.byte	0x40
@@ -12184,34 +12185,34 @@ Initialize_Shift:
 	.long	0x4c9d
 	.uleb128 0x3
 	.ascii "NUMBER_HEADER\0"
-	.byte	0x22
-	.byte	0x3c
+	.byte	0x23
+	.byte	0x3d
 	.byte	0x7
 	.long	0x4cd3
 	.uleb128 0x15
 	.ascii "configuration_info\0"
-	.byte	0x22
-	.byte	0x42
+	.byte	0x23
+	.byte	0x43
 	.byte	0x23
 	.long	0x4a15
 	.uleb128 0x15
 	.ascii "number_zero\0"
-	.byte	0x22
-	.byte	0x45
+	.byte	0x23
+	.byte	0x46
 	.byte	0x1a
 	.long	0x4e0a
 	.uleb128 0x15
 	.ascii "number_one\0"
-	.byte	0x22
-	.byte	0x48
+	.byte	0x23
+	.byte	0x49
 	.byte	0x1a
 	.long	0x4e0a
 	.uleb128 0x15
 	.ascii "statistics_info\0"
-	.byte	0x22
-	.byte	0x4b
+	.byte	0x23
+	.byte	0x4c
 	.byte	0x20
-	.long	0x4b8f
+	.long	0x4ac8
 	.uleb128 0x1c
 	.long	0x139
 	.long	0x4e8a
@@ -12221,8 +12222,8 @@ Initialize_Shift:
 	.byte	0
 	.uleb128 0x17
 	.ascii "__DEBUG_LOG\0"
-	.byte	0x22
-	.word	0x130
+	.byte	0x23
+	.word	0x132
 	.byte	0x2d
 	.long	0x4e9f
 	.uleb128 0x6
@@ -12268,7 +12269,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x26c
 	.byte	0x33
-	.long	0x4af5
+	.long	0x4b8d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -12368,7 +12369,7 @@ Initialize_Shift:
 	.byte	0x3
 	.word	0x23b
 	.byte	0x34
-	.long	0x4af5
+	.long	0x4b8d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0

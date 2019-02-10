@@ -28,6 +28,7 @@
 
 
 #include <windows.h>
+#include "pmc_uint.h"
 #include "pmc_internal.h"
 
 
@@ -220,8 +221,6 @@ extern "C" {
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-    extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
-    extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
@@ -300,6 +299,9 @@ extern "C" {
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
+    extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
 #ifdef _DEBUG
     extern int(_cdecl * __DEBUG_LOG)(const wchar_t*, ...);
     extern void DumpBinary_UNIT(__UNIT_TYPE* buf, __UNIT_TYPE count);

@@ -172,6 +172,9 @@
     <ClInclude Include="pmc_uint_debug.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="pmc_uint.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Palmtree.Math.Core.Uint.def" />

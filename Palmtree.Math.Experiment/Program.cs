@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Numerics;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 
 namespace Palmtree.Math.Experiment
 {
@@ -15,12 +13,18 @@ namespace Palmtree.Math.Experiment
 
             //DivRemの障害調査コード();
 
-            foreach (var dividend in new[] { new BigInteger(10), new BigInteger(-10) })
+            foreach (var x in new[] { 50, 100, 200, 300,  -50, -100, -200, -300 }.Select(x => new BigInteger(x)))
             {
-                foreach (var divisor in new[] { new BigInteger(3), new BigInteger(-3) })
-                {
-                    Console.WriteLine(string.Format("{0} / {1} => {2}, {0} % {1} => {3}", dividend, divisor, dividend / divisor, dividend % divisor));
-                }
+                var s1 = x.ToString("x");
+                var s2 = x.ToString("x15");
+                var v1 = BigInteger.Parse(s1, NumberStyles.AllowHexSpecifier);
+                var v2 = BigInteger.Parse(s2, NumberStyles.AllowHexSpecifier);
+                if (v1 != x)
+                    throw new ApplicationException();
+                if (v2 != x)
+                    throw new ApplicationException();
+                Console.WriteLine(string.Format("{0:x}, {0:x15}", x));
+
             }
 
             Console.ReadLine();

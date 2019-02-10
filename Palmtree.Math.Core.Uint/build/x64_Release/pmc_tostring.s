@@ -16,7 +16,7 @@ OutputOneChar:
 	movq	%rcx, %rbx
 	movq	48(%rcx), %rcx
 	cmpb	$78, (%rbx)
-	je	.L6
+	je	.L9
 	movw	%si, (%rcx)
 	addq	$2, %rcx
 	movq	%rcx, 48(%rbx)
@@ -26,13 +26,13 @@ OutputOneChar:
 	popq	%rsi
 	ret
 	.p2align 4,,10
-.L6:
+.L9:
 	movl	40(%rbx), %edx
 	movl	44(%rbx), %eax
 	testl	%edx, %edx
 	jle	.L3
 	cmpl	%eax, %edx
-	jle	.L7
+	jle	.L10
 .L3:
 	movw	%si, (%rcx)
 	addl	$1, %eax
@@ -44,23 +44,23 @@ OutputOneChar:
 	popq	%rsi
 	ret
 	.p2align 4,,10
-.L7:
+.L10:
 	leaq	2(%rbx), %rdx
 	call	*__imp_lstrcpyW(%rip)
-	movq	48(%rbx), %rax
 	movslq	24(%rbx), %rdx
+	movq	48(%rbx), %rax
 	leaq	(%rax,%rdx,2), %rax
+	movq	32(%rbx), %rdx
 	movw	%si, (%rax)
 	addq	$2, %rax
 	movq	%rax, 48(%rbx)
-	movq	32(%rbx), %rax
 	movl	$1, 44(%rbx)
-	cmpb	$0, 1(%rax)
+	movzwl	2(%rdx), %eax
+	testw	%ax, %ax
 	je	.L1
-	leaq	1(%rax), %rdx
-	movq	%rdx, 32(%rbx)
-	movsbl	1(%rax), %eax
+	addq	$2, %rdx
 	subl	$48, %eax
+	movq	%rdx, 32(%rbx)
 	movl	%eax, 40(%rbx)
 	jmp	.L1
 	.seh_endproc
@@ -92,17 +92,17 @@ ToStringDN:
 	movq	%rdx, %r14
 	movl	%r9d, 68(%rsp)
 	movq	%r8, 304(%rsp)
-	je	.L9
+	je	.L12
 	cmpb	$78, %r9b
-	je	.L67
+	je	.L70
 	movl	320(%rsp), %esi
 	testl	%esi, %esi
-	je	.L41
+	je	.L44
 	movl	320(%rsp), %eax
 	addl	$1, %eax
-.L13:
+.L16:
 	cmpq	%rax, 304(%rsp)
-	jb	.L42
+	jb	.L45
 	movl	320(%rsp), %edx
 	movq	%r14, %rdi
 	movl	$48, %eax
@@ -115,7 +115,7 @@ ToStringDN:
 	xorl	%ebx, %ebx
 	xorl	%edi, %edi
 	movw	%bx, (%r14,%rdx,2)
-.L8:
+.L11:
 	movl	%edi, %eax
 	addq	$216, %rsp
 	popq	%rbx
@@ -128,18 +128,18 @@ ToStringDN:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L67:
+.L70:
 	movl	320(%rsp), %r13d
 	movl	$48, %r12d
 	movw	%r12w, (%rdx)
 	testl	%r13d, %r13d
-	jne	.L11
+	jne	.L14
 	xorl	%ebp, %ebp
 	xorl	%edi, %edi
 	movw	%bp, 2(%rdx)
-	jmp	.L8
+	jmp	.L11
 	.p2align 4,,10
-.L9:
+.L12:
 	movq	24(%rcx), %rax
 	leaq	104(%rsp), %rdx
 	movl	$-5, %edi
@@ -150,7 +150,7 @@ ToStringDN:
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, %r15
-	je	.L8
+	je	.L11
 	movq	64(%rbp), %rsi
 	leaq	120(%rsp), %rdx
 	movabsq	$2305843009213693951, %rbx
@@ -162,7 +162,7 @@ ToStringDN:
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, 48(%rsp)
-	je	.L16
+	je	.L19
 	leaq	136(%rsp), %rax
 	movq	%rbp, %rcx
 	leaq	128(%rsp), %r8
@@ -172,7 +172,7 @@ ToStringDN:
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, 56(%rsp)
-	je	.L68
+	je	.L71
 	movq	48(%rsp), %r12
 	movq	%rbx, %rcx
 	movq	%r12, %rdi
@@ -183,12 +183,12 @@ ToStringDN:
 /NO_APP
 	movq	120(%rsp), %r13
 	testq	%r13, %r13
-	je	.L44
+	je	.L47
 	movq	56(%rsp), %rsi
 	leaq	144(%rsp), %rbx
 	movq	%r15, %rbp
 	.p2align 4,,10
-.L23:
+.L26:
 	movq	%rsi, %rdi
 	movq	%r13, %rcx
 	xorl	%eax, %eax
@@ -207,25 +207,25 @@ ToStringDN:
 	movq	56(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L64
+	jne	.L67
 	movq	112(%rsp), %rdx
 	movq	48(%rsp), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L64
+	jne	.L67
 	movq	144(%rsp), %rax
 	addq	$8, %rbp
 	movq	%rax, -8(%rbp)
 	.p2align 4,,10
-.L20:
+.L23:
 	cmpq	$0, -8(%rsi,%r13,8)
-	jne	.L69
+	jne	.L72
 	subq	$1, %r13
-	jne	.L20
+	jne	.L23
 	subq	%r15, %rbp
 	sarq	$3, %rbp
 	movq	%rbp, 88(%rsp)
-.L18:
+.L21:
 	movq	136(%rsp), %rdx
 	movq	56(%rsp), %rcx
 	call	DeallocateBlock
@@ -237,7 +237,7 @@ ToStringDN:
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %edi
-	jne	.L8
+	jne	.L11
 	movq	88(%rsp), %rbx
 	movl	320(%rsp), %edi
 	movq	80(%rsp), %rdx
@@ -268,16 +268,16 @@ ToStringDN:
 	movq	328(%rsp), %rax
 	movzwl	4(%rax), %eax
 	testw	%ax, %ax
-	je	.L28
+	je	.L31
 	.p2align 4,,10
-.L25:
+.L28:
 	addq	$2, %rsi
 	movw	%ax, (%rdx)
 	subq	$2, %rdx
 	movzwl	(%rsi), %eax
 	testw	%ax, %ax
-	jne	.L25
-.L28:
+	jne	.L28
+.L31:
 	movq	328(%rsp), %rax
 	leaq	10(%rax), %rsi
 	movq	%rsi, %rcx
@@ -291,31 +291,31 @@ ToStringDN:
 	movq	328(%rsp), %rax
 	movzwl	10(%rax), %eax
 	testw	%ax, %ax
-	je	.L27
+	je	.L30
 	.p2align 4,,10
-.L26:
+.L29:
 	addq	$2, %rsi
 	movw	%ax, (%rdx)
 	subq	$2, %rdx
 	movzwl	(%rsi), %eax
 	testw	%ax, %ax
-	jne	.L26
-.L27:
+	jne	.L29
+.L30:
 	movq	328(%rsp), %rax
 	movl	$0, 188(%rsp)
 	addq	$28, %rax
 	movq	%rax, 176(%rsp)
 	movq	328(%rsp), %rax
-	movsbl	28(%rax), %eax
+	movzwl	28(%rax), %eax
 	subl	$48, %eax
 	cmpb	$78, 68(%rsp)
 	movl	%eax, 184(%rsp)
 	movq	48(%rsp), %rax
 	movq	%rax, 192(%rsp)
-	jne	.L31
+	jne	.L34
 	movl	320(%rsp), %r9d
 	testl	%r9d, %r9d
-	je	.L31
+	je	.L34
 	movl	320(%rsp), %ecx
 	movq	48(%rsp), %rdi
 	subl	$1, %ecx
@@ -323,12 +323,12 @@ ToStringDN:
 	movq	%rdi, %rax
 	leaq	(%rdi,%rcx,2), %rdx
 	.p2align 4,,10
-.L32:
+.L35:
 	movl	$48, %r8d
 	addq	$2, %rax
 	movw	%r8w, -2(%rax)
 	cmpq	%rdx, %rax
-	jne	.L32
+	jne	.L35
 	movq	48(%rsp), %rax
 	leaq	12(%rbx), %rdx
 	leaq	(%rax,%rcx,2), %rcx
@@ -337,10 +337,10 @@ ToStringDN:
 	movslq	172(%rsp), %rax
 	addq	%rax, %rax
 	addq	%rax, 192(%rsp)
-.L31:
+.L34:
 	movq	88(%rsp), %rax
 	subq	$1, %rax
-	je	.L45
+	je	.L48
 	movq	.refptr.statistics_info(%rip), %r12
 	xorl	%edi, %edi
 	xorl	%ebp, %ebp
@@ -349,7 +349,7 @@ ToStringDN:
 	movq	%rdi, %r14
 	movq	%rax, %rdi
 	.p2align 4,,10
-.L34:
+.L37:
 	movq	(%r15,%r14,8), %r13
 	movq	%rbx, %rcx
 	movq	%rbp, %rdx
@@ -540,16 +540,16 @@ ToStringDN:
 	lock addl	$1, 8(%r12)
 	addq	$1, %r14
 	cmpq	%r14, %rdi
-	jne	.L34
+	jne	.L37
 	movq	88(%rsp), %rax
 	movq	296(%rsp), %r14
 	leaq	-8(%r15,%rax,8), %rax
-.L33:
+.L36:
 	movq	(%rax), %r13
 	xorl	%ebp, %ebp
 	movl	$10, %esi
 	.p2align 4,,10
-.L35:
+.L38:
 	movq	%rbx, %rcx
 	movq	%r13, %rax
 	movq	%rbp, %rdx
@@ -562,15 +562,15 @@ ToStringDN:
 	call	OutputOneChar
 	lock addl	$1, 8(%r12)
 	testq	%r13, %r13
-	jne	.L35
+	jne	.L38
 	movq	192(%rsp), %rax
 	movq	%rax, %rsi
 	subq	48(%rsp), %rsi
 	movq	%rsi, %rbp
 	sarq	%rbp
 	cmpb	$68, 68(%rsp)
-	je	.L70
-.L36:
+	je	.L73
+.L39:
 	xorl	%edx, %edx
 	movq	48(%rsp), %rcx
 	movw	%dx, (%rax)
@@ -578,16 +578,16 @@ ToStringDN:
 	call	CheckBlockLight
 	testl	%eax, %eax
 	movl	%eax, %edi
-	jne	.L8
+	jne	.L11
 	movq	104(%rsp), %rdx
 	movq	%r15, %rcx
 	call	DeallocateBlock
 	leaq	1(%rbp), %rax
 	cmpq	304(%rsp), %rax
-	ja	.L71
+	ja	.L74
 	subq	$2, %rsi
 	testq	%rbp, %rbp
-	je	.L39
+	je	.L42
 	movq	%rbp, %rax
 	movq	%r14, %rdx
 	negq	%rax
@@ -595,33 +595,33 @@ ToStringDN:
 	addq	48(%rsp), %r8
 	movq	%rbp, %rax
 	.p2align 4,,10
-.L40:
+.L43:
 	movzwl	(%r8,%rax,2), %ecx
 	addq	$2, %rdx
 	movw	%cx, -2(%rdx)
 	subq	$1, %rax
-	jne	.L40
+	jne	.L43
 	leaq	(%r14,%rbp,2), %r14
-.L39:
+.L42:
 	movq	136(%rsp), %rdx
 	xorl	%eax, %eax
 	movq	48(%rsp), %rcx
 	movw	%ax, (%r14)
 	call	DeallocateBlock
-	jmp	.L8
+	jmp	.L11
 	.p2align 4,,10
-.L69:
+.L72:
 	movq	%r12, %rax
 	movq	%rsi, %r12
 	movq	%rax, %rsi
-	jmp	.L23
+	jmp	.L26
 	.p2align 4,,10
-.L41:
+.L44:
 	movl	$1, 320(%rsp)
 	movl	$2, %eax
-	jmp	.L13
+	jmp	.L16
 	.p2align 4,,10
-.L11:
+.L14:
 	movq	328(%rsp), %rax
 	leaq	2(%rdx), %rcx
 	leaq	10(%rax), %rbx
@@ -644,60 +644,60 @@ ToStringDN:
 	leal	1(%rdx,%rax), %eax
 	movw	%di, (%r14,%rax,2)
 	xorl	%edi, %edi
-	jmp	.L8
+	jmp	.L11
 	.p2align 4,,10
-.L64:
+.L67:
 	movl	%eax, %edi
-.L16:
+.L19:
 	movq	104(%rsp), %rdx
 	movq	%r15, %rcx
 	call	DeallocateBlock
-	jmp	.L8
+	jmp	.L11
 	.p2align 4,,10
-.L70:
+.L73:
 	movq	48(%rsp), %rdi
 	movq	56(%rsp), %rcx
 	leaq	(%rdi,%rcx,2), %rdx
 	cmpq	%rdx, %rax
-	jnb	.L36
+	jnb	.L39
 	movl	320(%rsp), %edi
 	subl	%ebp, %edi
 	testl	%edi, %edi
-	jle	.L36
+	jle	.L39
 	.p2align 4,,10
-.L37:
+.L40:
 	xorl	%edx, %edx
 	movq	%rbx, %rcx
 	call	OutputOneChar
 	subl	$1, %edi
-	jne	.L37
+	jne	.L40
 	movq	192(%rsp), %rax
 	movq	%rax, %rsi
 	subq	48(%rsp), %rsi
 	movq	%rsi, %rbp
 	sarq	%rbp
-	jmp	.L36
-.L44:
+	jmp	.L39
+.L47:
 	movq	$0, 88(%rsp)
-	jmp	.L18
-.L45:
+	jmp	.L21
+.L48:
 	movq	%r15, %rax
 	movq	.refptr.statistics_info(%rip), %r12
-	jmp	.L33
-.L71:
+	jmp	.L36
+.L74:
 	movq	136(%rsp), %rdx
 	movl	$-4, %edi
 	movq	48(%rsp), %rcx
 	call	DeallocateBlock
-	jmp	.L8
-.L42:
+	jmp	.L11
+.L45:
 	movl	$-4, %edi
-	jmp	.L8
-.L68:
+	jmp	.L11
+.L71:
 	movq	120(%rsp), %rdx
 	movq	48(%rsp), %rcx
 	call	DeallocateBlock
-	jmp	.L16
+	jmp	.L19
 	.seh_endproc
 	.p2align 4,,15
 	.def	ToStringX.isra.2;	.scl	3;	.type	32;	.endef
@@ -712,13 +712,13 @@ ToStringX.isra.2:
 	.seh_endprologue
 	testb	$1, (%rcx)
 	movq	%rcx, %rbx
-	je	.L73
+	je	.L76
 	leal	1(%r9), %eax
 	testl	%r9d, %r9d
-	je	.L113
+	je	.L116
 	cmpq	%rax, %r8
-	jb	.L90
-.L114:
+	jb	.L93
+.L117:
 	movl	%r9d, %r9d
 	movq	%rdx, %rdi
 	movl	$48, %eax
@@ -731,23 +731,23 @@ ToStringX.isra.2:
 	xorl	%r8d, %r8d
 	xorl	%eax, %eax
 	movw	%r8w, (%rdx,%r9,2)
-.L72:
+.L75:
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L73:
+.L76:
 	movq	24(%rcx), %rax
 	movl	%r9d, %r9d
 	leaq	3(%rax), %r10
 	shrq	$2, %r10
 	cmpq	%r9, %r10
-	jb	.L76
+	jb	.L79
 	leaq	1(%r10), %rax
 	cmpq	%rax, %r8
-	jb	.L90
-.L77:
+	jb	.L93
+.L80:
 	movq	16(%rbx), %r11
 	leaq	hexadecimal_upper_digits(%rip), %r8
 	movq	64(%rbx), %rax
@@ -761,7 +761,7 @@ ToStringX.isra.2:
 	movq	(%rbx), %rax
 	subl	%r10d, %r9d
 	testl	%r9d, %r9d
-	jle	.L93
+	jle	.L96
 	leal	0(,%r9,4), %ecx
 	andl	$63, %ecx
 	rolq	%cl, %rax
@@ -776,10 +776,10 @@ ToStringX.isra.2:
 	andl	$2, %r10d
 	andl	$1, %r9d
 	andl	$16, %ecx
-	jne	.L79
-.L80:
+	jne	.L82
+.L83:
 	testl	%esi, %esi
-	je	.L81
+	je	.L84
 	movq	%rax, %rcx
 	addq	$16, %rdx
 	shrq	$60, %rcx
@@ -820,9 +820,9 @@ ToStringX.isra.2:
 	andl	$15, %ecx
 	movzwl	(%r8,%rcx,2), %ecx
 	movw	%cx, -2(%rdx)
-.L81:
+.L84:
 	testl	%edi, %edi
-	je	.L82
+	je	.L85
 	movq	%rax, %rcx
 	addq	$8, %rdx
 	shrq	$60, %rcx
@@ -843,9 +843,9 @@ ToStringX.isra.2:
 	andl	$15, %ecx
 	movzwl	(%r8,%rcx,2), %ecx
 	movw	%cx, -2(%rdx)
-.L82:
+.L85:
 	testl	%r10d, %r10d
-	je	.L83
+	je	.L86
 	movq	%rax, %rcx
 	rolq	$8, %rax
 	addq	$4, %rdx
@@ -856,23 +856,23 @@ ToStringX.isra.2:
 	andl	$15, %ecx
 	movzwl	(%r8,%rcx,2), %ecx
 	movw	%cx, -2(%rdx)
-.L83:
+.L86:
 	testl	%r9d, %r9d
-	je	.L84
+	je	.L87
 	shrq	$60, %rax
 	addq	$2, %rdx
 	movzwl	(%r8,%rax,2), %eax
 	movw	%ax, -2(%rdx)
-.L84:
+.L87:
 	movq	%r11, %r9
 	subq	$1, %r9
-	je	.L85
+	je	.L88
 	movq	%r11, %rax
 	movq	%rdx, %rcx
 	negq	%rax
 	leaq	(%rbx,%rax,8), %rbx
 	.p2align 4,,10
-.L86:
+.L89:
 	movq	(%rbx,%r9,8), %rax
 	addq	$32, %rcx
 	movq	%rax, %r10
@@ -953,10 +953,10 @@ ToStringX.isra.2:
 	movzwl	(%r8,%rax,2), %eax
 	movw	%ax, -2(%rcx)
 	subq	$1, %r9
-	jne	.L86
+	jne	.L89
 	salq	$5, %r11
 	leaq	-32(%rdx,%r11), %rdx
-.L85:
+.L88:
 	xorl	%eax, %eax
 	movw	%ax, (%rdx)
 	xorl	%eax, %eax
@@ -965,22 +965,22 @@ ToStringX.isra.2:
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L113:
+.L116:
 	movl	$2, %eax
 	movl	$1, %r9d
 	cmpq	%rax, %r8
-	jnb	.L114
-	jmp	.L90
+	jnb	.L117
+	jmp	.L93
 	.p2align 4,,10
-.L76:
+.L79:
 	movq	%r9, %rcx
 	addq	$1, %r9
 	subq	%r10, %rcx
 	cmpq	%r9, %r8
-	jb	.L90
+	jb	.L93
 	leaq	(%rdx,%rcx,2), %r8
 	testq	%rcx, %rcx
-	je	.L91
+	je	.L94
 	movq	%rdx, %rdi
 	movl	$48, %eax
 /APP
@@ -989,14 +989,14 @@ ToStringX.isra.2:
  # 0 "" 2
 /NO_APP
 	movq	%r8, %rdx
-	jmp	.L77
+	jmp	.L80
 	.p2align 4,,10
-.L93:
+.L96:
 	xorl	%r9d, %r9d
 	xorl	%r10d, %r10d
 	xorl	%edi, %edi
 	xorl	%esi, %esi
-.L79:
+.L82:
 	movq	%rax, %rcx
 	addq	$32, %rdx
 	shrq	$60, %rcx
@@ -1076,14 +1076,14 @@ ToStringX.isra.2:
 	andl	$15, %ecx
 	movzwl	(%r8,%rcx,2), %ecx
 	movw	%cx, -2(%rdx)
-	jmp	.L80
+	jmp	.L83
 	.p2align 4,,10
-.L91:
+.L94:
 	movq	%r8, %rdx
-	jmp	.L77
-.L90:
+	jmp	.L80
+.L93:
 	movl	$-4, %eax
-	jmp	.L72
+	jmp	.L75
 	.seh_endproc
 	.p2align 4,,15
 	.globl	PMC_ToString
@@ -1112,84 +1112,84 @@ PMC_ToString:
 	movq	%rdx, %r12
 	movq	%r8, %r13
 	movl	%r9d, %ebx
-	je	.L126
+	je	.L129
 	testq	%rdx, %rdx
-	je	.L126
+	je	.L129
 	leaq	default_number_format_option(%rip), %rax
 	testq	%rsi, %rsi
 	cmove	%rax, %rsi
 	call	CheckNumber
 	testl	%eax, %eax
-	jne	.L115
+	jne	.L118
 	leal	-68(%rbx), %r9d
 	cmpb	$52, %r9b
-	ja	.L126
-	leaq	.L119(%rip), %rdx
+	ja	.L129
+	leaq	.L122(%rip), %rdx
 	movzbl	%r9b, %r9d
 	movslq	(%rdx,%r9,4), %rax
 	addq	%rdx, %rax
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L119:
-	.long	.L121-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L120-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L122-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L121-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L120-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L126-.L119
-	.long	.L118-.L119
+.L122:
+	.long	.L124-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L123-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L125-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L124-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L123-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L129-.L122
+	.long	.L121-.L122
 	.text
 	.p2align 4,,10
-.L126:
+.L129:
 	movl	$-1, %eax
-.L115:
+.L118:
 	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1199,12 +1199,12 @@ PMC_ToString:
 	popq	%r13
 	ret
 	.p2align 4,,10
-.L118:
+.L121:
 	testl	%ebp, %ebp
 	movl	$0, %r9d
 	movl	$0, 128(%rsp)
 	cmovns	%ebp, %r9d
-.L128:
+.L131:
 	movq	%r13, %r8
 	movq	%r12, %rdx
 	movq	%rdi, %rcx
@@ -1217,14 +1217,14 @@ PMC_ToString:
 	popq	%r13
 	jmp	ToStringX.isra.2
 	.p2align 4,,10
-.L121:
+.L124:
 	movl	$0, %r9d
 	testl	%ebp, %ebp
 	movq	%rsi, 136(%rsp)
 	cmovs	%r9d, %ebp
 	movl	$68, %r9d
 	movl	%ebp, 128(%rsp)
-.L127:
+.L130:
 	movq	%r13, %r8
 	movq	%r12, %rdx
 	movq	%rdi, %rcx
@@ -1237,22 +1237,22 @@ PMC_ToString:
 	popq	%r13
 	jmp	ToStringDN
 	.p2align 4,,10
-.L120:
+.L123:
 	testl	%ebp, %ebp
-	jns	.L124
+	jns	.L127
 	movl	(%rsi), %ebp
-.L124:
+.L127:
 	movq	%rsi, 136(%rsp)
 	movl	$78, %r9d
 	movl	%ebp, 128(%rsp)
-	jmp	.L127
+	jmp	.L130
 	.p2align 4,,10
-.L122:
+.L125:
 	testl	%ebp, %ebp
 	movl	$0, %r9d
 	movl	$1, 128(%rsp)
 	cmovns	%ebp, %r9d
-	jmp	.L128
+	jmp	.L131
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 2
@@ -1261,8 +1261,9 @@ PMC_ToString:
 	.align 2
 .LC1:
 	.ascii ".\0\0\0"
+	.align 2
 .LC2:
-	.ascii "3\0"
+	.ascii "3\0\0\0"
 	.align 2
 .LC3:
 	.ascii "+\0\0\0"
@@ -1290,7 +1291,7 @@ Initialize_ToString:
 	call	*%rbx
 	leaq	.LC2(%rip), %rdx
 	leaq	28+default_number_format_option(%rip), %rcx
-	call	*__imp_lstrcpyA(%rip)
+	call	*%rbx
 	leaq	.LC3(%rip), %rdx
 	leaq	16+default_number_format_option(%rip), %rcx
 	call	*%rbx
@@ -1302,7 +1303,7 @@ Initialize_ToString:
 	popq	%rbx
 	ret
 	.seh_endproc
-.lcomm default_number_format_option,40,32
+.lcomm default_number_format_option,52,32
 	.data
 	.align 32
 hexadecimal_upper_digits:

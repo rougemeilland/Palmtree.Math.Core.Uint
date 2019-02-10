@@ -38,7 +38,7 @@ void TEST_PMC_ParseX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int 
     PMC_STATUS_CODE x_result;
     PMC_NUMBER_FORMAT_OPTION opt;
     lstrcpyW(opt.GroupSeparator, L",");
-    lstrcpy(opt.GroupSizes, "3");
+    lstrcpyW(opt.GroupSizes, L"3");
     lstrcpyW(opt.DecimalSeparator, L".");
     opt.DecimalDigits = 2;
     lstrcpyW(opt.PositiveSign, L"+");

@@ -48708,8 +48708,8 @@ typedef struct _MODEMSETTINGS {
 # 27 "../pmc_parse.c" 2
 # 1 "../pmc_uint_internal.h" 1
 # 31 "../pmc_uint_internal.h"
-# 1 "../pmc_internal.h" 1
-# 31 "../pmc_internal.h"
+# 1 "../pmc_uint.h" 1
+# 29 "../pmc_uint.h"
 # 1 "../pmc.h" 1
 # 30 "../pmc.h"
 # 1 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/lib/gcc/i686-w64-mingw32/8.1.0/include/stdint.h" 1 3 4
@@ -48814,45 +48814,6 @@ typedef int PMC_CONSTANT_VALUE_CODE;
 
 typedef int PMC_NUMBER_STYLE_CODE;
 
-union __tag_PMC_HANDLE_UINT
-{
-    const struct __tag_UINT_FLAGS
-    {
-        unsigned IS_ZERO : 1;
-        unsigned IS_ONE : 1;
-        unsigned IS_EVEN : 1;
-        unsigned IS_POWER_OF_TWO : 1;
-    } FLAGS;
-
-    _UINT32_T __dummy;
-
-
-
-
-
-};
-typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
-
-union __tag_PMC_HANDLE_SINT
-{
-    const struct __tag_SINT_FLAGS
-    {
-        unsigned IS_ZERO : 1;
-        unsigned IS_ONE : 1;
-        unsigned IS_MINUS_ONE : 1;
-        unsigned IS_EVEN : 1;
-        unsigned IS_POWER_OF_TWO : 1;
-    } FLAGS;
-
-    _UINT32_T __dummy;
-
-
-
-
-
-};
-typedef union __tag_PMC_HANDLE_SINT* PMC_HANDLE_SINT;
-
 typedef struct __tag_PMC_STATISTICS_INFO
 {
     long COUNT_MULTI64;
@@ -48868,231 +48829,174 @@ typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
     wchar_t DecimalSeparator[3];
     wchar_t PositiveSign[3];
     wchar_t NegativeSign[3];
-    char GroupSizes[11];
+    wchar_t GroupSizes[11];
 } PMC_NUMBER_FORMAT_OPTION;
+#pragma endregion
+# 30 "../pmc_uint.h" 2
 
-typedef struct __tag_PMC_UINT_ENTRY_POINTS
-{
 
-    unsigned PROCESSOR_FEATURE_POPCNT : 1;
-    unsigned PROCESSOR_FEATURE_ADX : 1;
-    unsigned PROCESSOR_FEATURE_BMI1 : 1;
-    unsigned PROCESSOR_FEATURE_BMI2 : 1;
-    unsigned PROCESSOR_FEATURE_ABM : 1;
 
 
-    void (__attribute__((__stdcall__)) * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
 
+#pragma region 型の定義
+    union __tag_PMC_HANDLE_UINT
+    {
+        const struct __tag_UINT_FLAGS
+        {
+            unsigned IS_ZERO : 1;
+            unsigned IS_ONE : 1;
+            unsigned IS_EVEN : 1;
+            unsigned IS_POWER_OF_TWO : 1;
+        } FLAGS;
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_I)(_UINT32_T x, PMC_HANDLE_UINT* pp);
+        _UINT32_T __dummy;
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_L)(_UINT64_T x, PMC_HANDLE_UINT* pp);
 
 
-    void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_UINT p);
 
+    };
+    typedef union __tag_PMC_HANDLE_UINT* PMC_HANDLE_UINT;
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
+    typedef struct __tag_PMC_UINT_ENTRY_POINTS
+    {
 
+        unsigned PROCESSOR_FEATURE_POPCNT : 1;
+        unsigned PROCESSOR_FEATURE_ADX : 1;
+        unsigned PROCESSOR_FEATURE_BMI1 : 1;
+        unsigned PROCESSOR_FEATURE_BMI2 : 1;
+        unsigned PROCESSOR_FEATURE_ABM : 1;
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-    PMC_STATUS_CODE(__attribute__((__stdcall__)) * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
-    PMC_STATUS_CODE(__attribute__((__stdcall__)) * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
+        void (__attribute__((__stdcall__)) * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_I)(_UINT32_T x, PMC_HANDLE_UINT* pp);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_L)(_UINT64_T x, PMC_HANDLE_UINT* pp);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
+        void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_UINT p);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_UINT* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* pp);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArray)(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Clone_X)(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * LeftShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * RightShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* q, _UINT32_T* r);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* q, _UINT64_T* r);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* q, _UINT32_T* r);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* q, _UINT64_T* r);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* q, PMC_HANDLE_UINT* r);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * LeftShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * RightShift_X_I)(PMC_HANDLE_UINT p, _UINT32_T n, PMC_HANDLE_UINT* o);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _UINT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _UINT64_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _UINT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _UINT64_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseAnd_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Pow_X_I)(PMC_HANDLE_UINT x, _UINT32_T n, PMC_HANDLE_UINT* z);
 
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * BitwiseOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
-} PMC_UINT_ENTRY_POINTS;
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ExclusiveOr_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
-typedef struct __tag_PMC_SINT_ENTRY_POINTS
-{
 
-    PMC_UINT_ENTRY_POINTS UINT_ENTRY_POINTS;
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
 
-    void (__attribute__((__stdcall__)) * GetStatisticsInfo)(PMC_STATISTICS_INFO* statistics_info);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, _INT32_T* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, _INT32_T* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_I)(_INT32_T x, PMC_HANDLE_SINT* pp);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_L_X)(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_I)(PMC_HANDLE_UINT u, _UINT32_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_L)(PMC_HANDLE_UINT u, _UINT64_T v, PMC_HANDLE_UINT* w);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * GreatestCommonDivisor_X_X)(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * From_L)(_INT64_T x, PMC_HANDLE_SINT* pp);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * Pow_X_I)(PMC_HANDLE_UINT x, _UINT32_T n, PMC_HANDLE_UINT* z);
 
 
-    void (__attribute__((__stdcall__)) * Dispose)(PMC_HANDLE_SINT p);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
 
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * GetConstantValue_I)(PMC_CONSTANT_VALUE_CODE type, PMC_HANDLE_SINT* o);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArray)(unsigned char* buffer, size_t count, PMC_HANDLE_SINT* pp);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArray)(PMC_HANDLE_SINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Clone_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_I)(PMC_HANDLE_SINT p, _INT32_T* o);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_SINT p, _INT64_T* o);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Negate_X)(PMC_HANDLE_SINT x, PMC_HANDLE_SINT* o);
-# 332 "../pmc.h"
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Subtruct_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Multiply_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* w);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_I_X)(_INT32_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_L_X)(_INT64_T u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT*r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_UINT* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_I)(PMC_HANDLE_SINT u, _INT32_T v, PMC_HANDLE_SINT* q, _INT32_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_L)(PMC_HANDLE_SINT u, _INT64_T v, PMC_HANDLE_SINT* q, _INT64_T* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * DivRem_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, PMC_HANDLE_SINT* q, PMC_HANDLE_SINT* r);
-# 397 "../pmc.h"
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Compare_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
-
-
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_I_X)(_INT32_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_L_X)(_INT64_T u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_UX_X)(PMC_HANDLE_UINT u, PMC_HANDLE_SINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_I)(PMC_HANDLE_SINT u, _INT32_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_L)(PMC_HANDLE_SINT u, _INT64_T v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_UX)(PMC_HANDLE_SINT u, PMC_HANDLE_UINT v, _INT32_T* w);
-    PMC_STATUS_CODE (__attribute__((__stdcall__)) * Equals_X_X)(PMC_HANDLE_SINT u, PMC_HANDLE_SINT v, _INT32_T* w);
-# 428 "../pmc.h"
-} PMC_SINT_ENTRY_POINTS;
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParseForSINT)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    } PMC_UINT_ENTRY_POINTS;
 #pragma endregion
 
 
 #pragma region 宣言
-__attribute__((dllexport)) PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
-__attribute__((dllexport)) PMC_SINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_SINT_Initialize(PMC_CONFIGURATION_INFO*);
+    PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 32 "../pmc_internal.h" 2
+# 197 "../pmc_uint.h"
+       
+# 32 "../pmc_uint_internal.h" 2
+# 1 "../pmc_internal.h" 1
+# 32 "../pmc_internal.h"
 # 1 "../pmc_cpuid.h" 1
 # 35 "../pmc_cpuid.h"
 typedef struct _tag_PROCESSOR_FEATURES
@@ -49140,7 +49044,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #pragma endregion
-# 32 "../pmc_uint_internal.h" 2
+# 33 "../pmc_uint_internal.h" 2
 
 
 
@@ -49332,8 +49236,6 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArray(unsigned char* buffer, size_t count, PMC_HANDLE_UINT* o);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArray(PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Clone_X(PMC_HANDLE_UINT x, PMC_HANDLE_UINT* o);
 
@@ -49412,6 +49314,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m, PMC_HANDLE_UINT* r);
 
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
 
 
 
@@ -49478,12 +49383,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 377 "../pmc_uint_internal.h"
+# 379 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 391 "../pmc_uint_internal.h"
+# 393 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../pmc_parse.c" 2
@@ -101435,7 +101340,7 @@ struct __tag_PARSER_STATE
 {
     wchar_t* IN_PTR;
     _UINT32_T NUMBER_STYLES;
-    int SIGN;
+    char SIGN;
     wchar_t POSITIVE_SIGN[3];
     int POSITIVE_SIGN_LENGTH;
     wchar_t NEGATIVE_SIGN[3];
@@ -101582,7 +101487,7 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
 }
 
 
-static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, int* sign, wchar_t* int_part_buf, wchar_t* frac_part_buf)
+static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* sign, wchar_t* int_part_buf, wchar_t* frac_part_buf)
 {
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, frac_part_buf);
@@ -101674,7 +101579,8 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
     if (*state.IN_PTR != L'\0')
         return (0);
     FinalizeParserState(&state);
-    *sign = state.SIGN;
+
+    *sign = state.SIGN < 0 ? -1 : 1;
     return (1);
 }
 
@@ -101683,9 +101589,9 @@ static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_
 {
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, 
-# 282 "../pmc_parse.c" 3 4
+# 283 "../pmc_parse.c" 3 4
                                                                                      ((void *)0)
-# 282 "../pmc_parse.c"
+# 283 "../pmc_parse.c"
                                                                                          );
     if (number_styles & (0x0001))
         SkipSpace(&state);
@@ -102097,9 +102003,9 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE* in_buf, __UNIT_TYPE in
     __UNIT_TYPE work_buf_words;
     __UNIT_TYPE* work_buf = AllocateBlock((sizeof(__UNIT_TYPE) * 8) * (in_buf_count + 1), &work_buf_words, &work_buf_code);
     if (work_buf == 
-# 692 "../pmc_parse.c" 3 4
+# 693 "../pmc_parse.c" 3 4
                    ((void *)0)
-# 692 "../pmc_parse.c"
+# 693 "../pmc_parse.c"
                        )
         return ((-5));
 
@@ -102122,7 +102028,7 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE* in_buf, __UNIT_TYPE in
     return ((0));
 }
 
-static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, NUMBER_HEADER** o)
+static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
 
@@ -102138,9 +102044,9 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     __UNIT_TYPE int_part_buf_words;
     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
     if (int_part_buf == 
-# 729 "../pmc_parse.c" 3 4
+# 730 "../pmc_parse.c" 3 4
                        ((void *)0)
-# 729 "../pmc_parse.c"
+# 730 "../pmc_parse.c"
                            )
         return ((-5));
 
@@ -102148,16 +102054,15 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     __UNIT_TYPE frac_part_buf_words;
     wchar_t* frac_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &frac_part_buf_words, &frac_part_buf_code);
     if (frac_part_buf == 
-# 735 "../pmc_parse.c" 3 4
+# 736 "../pmc_parse.c" 3 4
                         ((void *)0)
-# 735 "../pmc_parse.c"
+# 736 "../pmc_parse.c"
                             )
     {
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
         return ((-5));
     }
-    int sign;
-    int result_parsing = ParseAsDecimalNumberString(source, number_styles, format_option, &sign, int_part_buf, frac_part_buf);
+    int result_parsing = ParseAsDecimalNumberString(source, number_styles, format_option, o_sign, int_part_buf, frac_part_buf);
     if ((result = CheckBlockLight((__UNIT_TYPE*)int_part_buf, int_part_buf_code)) != (0))
         return (result);
     if ((result = CheckBlockLight((__UNIT_TYPE*)frac_part_buf, frac_part_buf_code)) != (0))
@@ -102207,25 +102112,14 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
         return ((1));
     }
 
-    if (sign < 0)
-    {
-        if (int_part_buf[0] == L'\0')
-        {
-
-            sign = 0;
-        }
-        else
-        {
-
-            DeallocateBlock((__UNIT_TYPE*)frac_part_buf, frac_part_buf_words);
-            DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
-            return ((-2));
-        }
-    }
-
-
     if (int_part_buf[0] == L'\0')
     {
+
+
+
+        *o_sign = 0;
+
+
         int_part_buf[0] = L'0';
         int_part_buf[1] = L'\0';
     }
@@ -102237,9 +102131,9 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     __UNIT_TYPE bin_buf_words;
     __UNIT_TYPE* bin_buf = AllocateBlock(_DIVIDE_CEILING_SIZE(lstrlenW(int_part_buf), word_digit_count) * (sizeof(__UNIT_TYPE) * 8), &bin_buf_words, &bin_buf_code);
     if (bin_buf == 
-# 820 "../pmc_parse.c" 3 4
+# 809 "../pmc_parse.c" 3 4
                   ((void *)0)
-# 820 "../pmc_parse.c"
+# 809 "../pmc_parse.c"
                       )
     {
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
@@ -102253,27 +102147,28 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
 
     __UNIT_TYPE o_bit_count = bin_buf_count * (sizeof(__UNIT_TYPE) * 8);
     __UNIT_TYPE no_light_check_code;
-    if ((result = AllocateNumber(o, o_bit_count, &no_light_check_code)) != (0))
+    if ((result = AllocateNumber(o_abs, o_bit_count, &no_light_check_code)) != (0))
     {
         DeallocateBlock(bin_buf, bin_buf_words);
         return (result);
     }
 
-    if ((result = ConvertCardinalNumber(bin_buf, bin_buf_count, (*o)->BLOCK)) != (0))
+    if ((result = ConvertCardinalNumber(bin_buf, bin_buf_count, (*o_abs)->BLOCK)) != (0))
     {
-        DeallocateNumber(*o);
+        DeallocateNumber(*o_abs);
         DeallocateBlock(bin_buf, bin_buf_words);
         return (result);
     }
-    if ((result = CheckBlockLight((*o)->BLOCK, no_light_check_code)) != (0))
+    if ((result = CheckBlockLight((*o_abs)->BLOCK, no_light_check_code)) != (0))
         return (result);
     DeallocateBlock(bin_buf, bin_buf_words);
-    CommitNumber(*o);
-    if ((*o)->IS_ZERO)
+    CommitNumber(*o_abs);
+    if ((*o_abs)->IS_ZERO)
     {
-        DeallocateNumber(*o);
-        *o = &number_zero;
+        DeallocateNumber(*o_abs);
+        *o_abs = &number_zero;
     }
+# 851 "../pmc_parse.c"
     return ((0));
 }
 
@@ -102380,7 +102275,7 @@ static void BuildBinaryFromHexString(wchar_t* source, __UNIT_TYPE* out_buf)
     }
 }
 
-static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, NUMBER_HEADER** o)
+static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
     __UNIT_TYPE source_len = lstrlenW(source);
@@ -102388,9 +102283,9 @@ static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_N
     __UNIT_TYPE int_part_buf_words;
     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
     if (int_part_buf == 
-# 967 "../pmc_parse.c" 3 4
+# 964 "../pmc_parse.c" 3 4
                        ((void *)0)
-# 967 "../pmc_parse.c"
+# 964 "../pmc_parse.c"
                            )
         return ((-5));
     int result_parsing = ParseAsHexNumberString(source, number_styles, format_option, int_part_buf);
@@ -102401,45 +102296,60 @@ static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_N
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
         return ((1));
     }
+
+
+    *o_sign = Parse1DigitFromHexChar(int_part_buf[0]) >= 8 ? -1 : 1;
+
     __UNIT_TYPE o_bit_count = lstrlenW(int_part_buf) * 4;
     __UNIT_TYPE o_light_check_code;
-    if ((result = AllocateNumber(o, o_bit_count, &o_light_check_code)) != (0))
+    if ((result = AllocateNumber(o_abs, o_bit_count, &o_light_check_code)) != (0))
     {
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
         return (result);
     }
-    BuildBinaryFromHexString(int_part_buf, (*o)->BLOCK);
-    if ((result = CheckBlockLight((*o)->BLOCK, o_light_check_code)) != (0))
+    BuildBinaryFromHexString(int_part_buf, (*o_abs)->BLOCK);
+    if ((result = CheckBlockLight((*o_abs)->BLOCK, o_light_check_code)) != (0))
         return (result);
     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
-    CommitNumber(*o);
+    if (*o_sign < 0)
+    {
+
+
+        int lzcnt = o_bit_count % (sizeof(__UNIT_TYPE) * 8);
+        if (lzcnt != 0)
+        {
+            __UNIT_TYPE padding = (__UNIT_TYPE)-1 << lzcnt;
+            (*o_abs)->BLOCK[(*o_abs)->BLOCK_COUNT - 1] |= padding;
+        }
+
+
+        char carry = 1;
+        __UNIT_TYPE* p = (*o_abs)->BLOCK;
+        __UNIT_TYPE count = (*o_abs)->BLOCK_COUNT;
+        while (count > 0)
+        {
+            carry = _ADD_UNIT(carry, ~*p, 0, p);
+            ++p;
+            --count;
+        }
+    }
+    CommitNumber(*o_abs);
+    if ((*o_abs)->IS_ZERO)
+    {
+        DeallocateNumber(*o_abs);
+        *o_sign = 0;
+        *o_abs = &number_zero;
+    }
     return ((0));
 }
 
-PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o)
+static PMC_STATUS_CODE PMC_TryParse_Imp(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
-    if (source == 
-# 995 "../pmc_parse.c" 3 4
-                 ((void *)0)
-# 995 "../pmc_parse.c"
-                     )
-        return ((-1));
-    if (o == 
-# 997 "../pmc_parse.c" 3 4
-            ((void *)0)
-# 997 "../pmc_parse.c"
-                )
-        return ((-1));
-    if (format_option == 
-# 999 "../pmc_parse.c" 3 4
-                        ((void *)0)
-# 999 "../pmc_parse.c"
-                            )
-        format_option = &default_number_format_option;
-    NUMBER_HEADER* no;
     if (number_styles & (0x0200))
     {
+
+
 
         _UINT32_T mask = (0x0200) | (0x0001) | (0x0002);
 
@@ -102447,19 +102357,88 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_N
         if (number_styles & ~mask)
             return ((-1));
 
-        if ((result = TryParseX(source, number_styles, format_option, &no)) != (0))
+        if ((result = TryParseX(source, number_styles, format_option, o_sign, o_abs)) != (0))
             return (result);
     }
     else
     {
-        if ((result = TryParseDN(source, number_styles, format_option, &no)) != (0))
+
+        if ((result = TryParseDN(source, number_styles, format_option, o_sign, o_abs)) != (0))
             return (result);
     }
-    *o = (PMC_HANDLE_UINT)no;
 
 
 
 
+    return ((0));
+}
+
+PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o)
+{
+    PMC_STATUS_CODE result;
+    if (source == 
+# 1054 "../pmc_parse.c" 3 4
+                 ((void *)0)
+# 1054 "../pmc_parse.c"
+                     )
+        return ((-1));
+    if (o == 
+# 1056 "../pmc_parse.c" 3 4
+            ((void *)0)
+# 1056 "../pmc_parse.c"
+                )
+        return ((-1));
+    if (format_option == 
+# 1058 "../pmc_parse.c" 3 4
+                        ((void *)0)
+# 1058 "../pmc_parse.c"
+                            )
+        format_option = &default_number_format_option;
+    char o_sign;
+    NUMBER_HEADER* o_abs;
+    if ((result = PMC_TryParse_Imp(source, number_styles, format_option, &o_sign, &o_abs)) != (0))
+        return (result);
+    if (o_sign < 0)
+    {
+
+        DeallocateNumber(o_abs);
+        return ((-2));
+    }
+    *o = (PMC_HANDLE_UINT)o_abs;
+    return ((0));
+}
+
+PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs)
+{
+    PMC_STATUS_CODE result;
+    if (source == 
+# 1077 "../pmc_parse.c" 3 4
+                 ((void *)0)
+# 1077 "../pmc_parse.c"
+                     )
+        return ((-1));
+    if (o_sign == 
+# 1079 "../pmc_parse.c" 3 4
+                 ((void *)0)
+# 1079 "../pmc_parse.c"
+                     )
+        return ((-1));
+    if (o_abs == 
+# 1081 "../pmc_parse.c" 3 4
+                ((void *)0)
+# 1081 "../pmc_parse.c"
+                    )
+        return ((-1));
+    if (format_option == 
+# 1083 "../pmc_parse.c" 3 4
+                        ((void *)0)
+# 1083 "../pmc_parse.c"
+                            )
+        format_option = &default_number_format_option;
+    NUMBER_HEADER* no_abs;
+    if ((result = PMC_TryParse_Imp(source, number_styles, format_option, o_sign, &no_abs)) != (0))
+        return (result);
+    *o_abs = (PMC_HANDLE_UINT)no_abs;
     return ((0));
 }
 
@@ -102468,11 +102447,7 @@ PMC_STATUS_CODE Initialize_Parse(PROCESSOR_FEATURES* feature)
     default_number_format_option.DecimalDigits = 2;
     lstrcpyW(default_number_format_option.GroupSeparator, L",");
     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
-    
-# 1032 "../pmc_parse.c" 3
-   lstrcpyA
-# 1032 "../pmc_parse.c"
-          (default_number_format_option.GroupSizes, "3");
+    lstrcpyW(default_number_format_option.GroupSizes, L"3");
     lstrcpyW(default_number_format_option.PositiveSign, L"+");
     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 

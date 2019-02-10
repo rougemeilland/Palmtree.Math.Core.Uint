@@ -27,10 +27,9 @@ PUBLIC	PMC_ToString
 PUBLIC	__JustMyCode_Default
 PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13JOFGPIOO@?$AA?4@			; `string'
-PUBLIC	??_C@_01EKENIIDA@3@				; `string'
+PUBLIC	??_C@_13DMCFHHKM@?$AA3@				; `string'
 PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
 PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
-EXTRN	__imp_lstrcpyA:PROC
 EXTRN	__imp_lstrcpyW:PROC
 EXTRN	__imp_lstrlenW:PROC
 EXTRN	AllocateBlock:PROC
@@ -48,7 +47,7 @@ EXTRN	statistics_info:BYTE
 EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
 _BSS	SEGMENT
-default_number_format_option DB 028H DUP (?)
+default_number_format_option DB 034H DUP (?)
 _BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -155,7 +154,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$OutputOneChar DD imagerel OutputOneChar
-	DD	imagerel OutputOneChar+489
+	DD	imagerel OutputOneChar+490
 	DD	imagerel $unwind$OutputOneChar
 pdata	ENDS
 ;	COMDAT pdata
@@ -216,9 +215,9 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_01EKENIIDA@3@
+;	COMDAT ??_C@_13DMCFHHKM@?$AA3@
 CONST	SEGMENT
-??_C@_01EKENIIDA@3@ DB '3', 00H				; `string'
+??_C@_13DMCFHHKM@?$AA3@ DB '3', 00H, 00H, 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
 CONST	SEGMENT
@@ -791,7 +790,7 @@ $LN4@ToStringX:
 	call	_DIVIDE_CEILING_UNIT
 	mov	QWORD PTR output_len$1[rbp], rax
 
-; 490  :         __UNIT_TYPE filling_digit_len;;
+; 490  :         __UNIT_TYPE filling_digit_len;
 ; 491  :         __UNIT_TYPE total_length;
 ; 492  :         if (output_len < width)
 
@@ -2960,13 +2959,13 @@ OutputOneChar PROC					; COMDAT
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
-	mov	eax, 1
+	mov	eax, 2
 	imul	rax, rax, 1
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR [rcx+32]
-	movsx	eax, BYTE PTR [rcx+rax]
+	movzx	eax, WORD PTR [rcx+rax]
 	test	eax, eax
 	je	SHORT $LN6@OutputOneC
 
@@ -2975,15 +2974,15 @@ OutputOneChar PROC					; COMDAT
 
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax+32]
-	inc	rax
+	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	QWORD PTR [rcx+32], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax+32]
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	DWORD PTR [rcx+40], eax
@@ -3330,18 +3329,18 @@ $LN5@Initialize:
 ; 119  : 
 ; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
 
-	mov	eax, 1
+	mov	eax, 2
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR format_option$[rbp]
 	lea	rax, QWORD PTR [rcx+rax+28]
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	QWORD PTR [rcx+32], rax
 
-; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax+32]
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	DWORD PTR [rcx+40], eax
@@ -4054,7 +4053,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV64Counter PROC					; COMDAT
 
-; 341  :     {
+; 343  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4069,13 +4068,13 @@ AddToDIV64Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 344  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 343  :     }
+; 345  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4090,7 +4089,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV32Counter PROC					; COMDAT
 
-; 335  :     {
+; 337  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4105,13 +4104,13 @@ AddToDIV32Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 337  :     }
+; 339  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4125,7 +4124,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 318  :     {
+; 320  :     {
 
 	push	rbp
 	push	rdi
@@ -4138,12 +4137,12 @@ IncrementDIV64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 321  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	lock inc DWORD PTR [rax]
 
-; 320  :     }
+; 322  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4157,7 +4156,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 312  :     {
+; 314  :     {
 
 	push	rbp
 	push	rdi
@@ -4170,12 +4169,12 @@ IncrementDIV32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	lock inc DWORD PTR [rax]
 
-; 314  :     }
+; 316  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4501,11 +4500,11 @@ $LN3:
 	lea	rcx, OFFSET FLAT:default_number_format_option+10
 	call	QWORD PTR __imp_lstrcpyW
 
-; 559  :     lstrcpy(default_number_format_option.GroupSizes, "3");
+; 559  :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
 
-	lea	rdx, OFFSET FLAT:??_C@_01EKENIIDA@3@
+	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
 	lea	rcx, OFFSET FLAT:default_number_format_option+28
-	call	QWORD PTR __imp_lstrcpyA
+	call	QWORD PTR __imp_lstrcpyW
 
 ; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 

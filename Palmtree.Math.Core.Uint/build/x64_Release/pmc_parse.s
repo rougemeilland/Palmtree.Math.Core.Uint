@@ -32,7 +32,7 @@ ParseAsIntegerPartNumberSequence:
 	ret
 	.p2align 4,,10
 .L30:
-	movzwl	52(%rcx), %edx
+	movzwl	48(%rcx), %edx
 	testw	%dx, %dx
 	je	.L8
 	cmpw	%dx, %ax
@@ -45,11 +45,11 @@ ParseAsIntegerPartNumberSequence:
 	cmpw	%r9w, -2(%r8,%rdx)
 	jne	.L9
 .L10:
-	movzwl	52(%rcx,%rdx), %r9d
+	movzwl	48(%rcx,%rdx), %r9d
 	testw	%r9w, %r9w
 	jne	.L11
 .L8:
-	movslq	60(%rcx), %rax
+	movslq	56(%rcx), %rax
 	leaq	(%r8,%rax,2), %r8
 	movzwl	(%r8), %eax
 	movq	%r8, (%rcx)
@@ -58,19 +58,19 @@ ParseAsIntegerPartNumberSequence:
 	ja	.L3
 	.p2align 4,,10
 .L28:
-	movq	80(%rcx), %rdx
+	movq	72(%rcx), %rdx
 	addq	$2, %r8
 	movw	%ax, (%rdx)
 	addq	$2, %rdx
-	movq	%rdx, 80(%rcx)
+	movq	%rdx, 72(%rcx)
 	movq	%r8, (%rcx)
 	jmp	.L2
 	.p2align 4,,10
 .L9:
-	movslq	72(%rcx), %r9
+	movslq	68(%rcx), %r9
 	testl	%r9d, %r9d
 	jle	.L1
-	movzwl	64(%rcx), %edx
+	movzwl	60(%rcx), %edx
 	testw	%dx, %dx
 	je	.L12
 	cmpw	%dx, %ax
@@ -83,7 +83,7 @@ ParseAsIntegerPartNumberSequence:
 	cmpw	%dx, -2(%r8,%rax)
 	jne	.L1
 .L13:
-	movzwl	64(%rcx,%rax), %edx
+	movzwl	60(%rcx,%rax), %edx
 	testw	%dx, %dx
 	jne	.L14
 .L12:
@@ -114,11 +114,11 @@ ParseAsFractionPartNumberSequence:
 	cmpw	$5, %r8w
 	ja	.L31
 .L40:
-	movq	88(%rcx), %r8
+	movq	80(%rcx), %r8
 	addq	$2, %rax
 	movw	%dx, (%r8)
 	addq	$2, %r8
-	movq	%r8, 88(%rcx)
+	movq	%r8, 80(%rcx)
 	movq	%rax, (%rcx)
 	jmp	.L32
 	.p2align 4,,10
@@ -170,14 +170,14 @@ InitializeParserState:
 	.seh_stackalloc	32
 	.seh_endprologue
 	movq	__imp_lstrcpyW(%rip), %rbp
-	leaq	16(%rcx), %rdi
+	leaq	14(%rcx), %rdi
 	movq	%rcx, %rbx
 	movq	%r9, %rsi
 	movl	%r8d, 8(%rcx)
 	movq	%rdx, (%rcx)
-	leaq	28(%rbx), %r12
+	leaq	24(%rbx), %r12
 	leaq	16(%r9), %rdx
-	movl	$0, 12(%rcx)
+	movb	$0, 12(%rcx)
 	movq	%rdi, %rcx
 	call	*%rbp
 	movq	%rdi, %rcx
@@ -185,35 +185,35 @@ InitializeParserState:
 	call	*%rdi
 	leaq	22(%rsi), %rdx
 	movq	%r12, %rcx
-	movl	%eax, 24(%rbx)
+	movl	%eax, 20(%rbx)
 	call	*%rbp
 	movq	%r12, %rcx
 	call	*%rdi
-	leaq	40(%rbx), %r12
+	leaq	36(%rbx), %r12
 	leaq	10(%rsi), %rdx
 	movq	%r12, %rcx
-	movl	%eax, 36(%rbx)
+	movl	%eax, 32(%rbx)
 	call	*%rbp
 	movq	%r12, %rcx
 	call	*%rdi
-	leaq	52(%rbx), %r12
+	leaq	48(%rbx), %r12
 	leaq	4(%rsi), %rdx
 	movq	%r12, %rcx
-	movl	%eax, 48(%rbx)
+	movl	%eax, 44(%rbx)
 	call	*%rbp
 	movq	%r12, %rcx
 	call	*%rdi
-	cmpl	$160, 52(%rbx)
-	movl	%eax, 60(%rbx)
+	cmpl	$160, 48(%rbx)
+	movl	%eax, 56(%rbx)
 	je	.L50
 	xorl	%eax, %eax
-	movl	$0, 72(%rbx)
-	movw	%ax, 64(%rbx)
+	movl	$0, 68(%rbx)
+	movw	%ax, 60(%rbx)
 .L49:
 	movq	112(%rsp), %rax
-	movq	%rax, 80(%rbx)
+	movq	%rax, 72(%rbx)
 	movq	120(%rsp), %rax
-	movq	%rax, 88(%rbx)
+	movq	%rax, 80(%rbx)
 	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -223,8 +223,8 @@ InitializeParserState:
 	ret
 	.p2align 4,,10
 .L50:
-	movl	$32, 64(%rbx)
-	movl	$1, 72(%rbx)
+	movl	$32, 60(%rbx)
+	movl	$1, 68(%rbx)
 	jmp	.L49
 	.seh_endproc
 	.p2align 4,,15
@@ -1710,10 +1710,9 @@ MultiplyAndAdd_using_ADCX_MULX:
 	jmp	.L86
 	.seh_endproc
 	.p2align 4,,15
-	.globl	PMC_TryParse
-	.def	PMC_TryParse;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_TryParse
-PMC_TryParse:
+	.def	PMC_TryParse_Imp;	.scl	3;	.type	32;	.endef
+	.seh_proc	PMC_TryParse_Imp
+PMC_TryParse_Imp:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -1730,104 +1729,266 @@ PMC_TryParse:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$248, %rsp
-	.seh_stackalloc	248
+	subq	$232, %rsp
+	.seh_stackalloc	232
 	.seh_endprologue
-	testq	%rcx, %rcx
-	movq	%rcx, %r15
-	movl	%edx, %ebx
-	movq	%r8, %r14
-	movq	%r9, %rbp
-	je	.L249
-	testq	%r9, %r9
-	je	.L249
-	leaq	default_number_format_option(%rip), %rax
-	testq	%r8, %r8
-	cmove	%rax, %r14
 	movl	%edx, %eax
+	movq	%rcx, %rdi
+	movl	%edx, %ebx
 	andl	$512, %eax
-	movl	%eax, 52(%rsp)
-	je	.L122
+	movq	%r8, %r14
+	movq	%r9, %r15
+	movl	%eax, 60(%rsp)
+	je	.L120
 	testl	$-516, %edx
-	jne	.L249
-	movq	__imp_lstrlenW(%rip), %rdi
-	call	*%rdi
-	leaq	136(%rsp), %rdx
-	leaq	128(%rsp), %r8
+	jne	.L251
+	movq	__imp_lstrlenW(%rip), %rbp
+	call	*%rbp
+	leaq	120(%rsp), %rdx
+	leaq	112(%rsp), %r8
 	movslq	%eax, %rcx
 	addq	$1, %rcx
 	salq	$4, %rcx
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, %rsi
-	je	.L149
+	movq	%rax, %r12
+	je	.L153
 	movq	%rax, 32(%rsp)
 	movq	%r14, %r9
 	movl	%ebx, %r8d
-	movq	%r15, %rdx
-	leaq	144(%rsp), %r12
+	movq	%rdi, %rdx
+	leaq	128(%rsp), %rsi
 	movq	$0, 40(%rsp)
-	movq	%r12, %rcx
+	movq	%rsi, %rcx
 	call	InitializeParserState
 	testb	$1, %bl
-	je	.L124
-	movq	144(%rsp), %rax
+	je	.L123
+	movq	128(%rsp), %rax
 	movzwl	(%rax), %edx
 	cmpw	$32, %dx
-	ja	.L124
+	ja	.L123
 	movabsq	$4294983168, %rcx
 	addq	$2, %rax
 	movl	$1, %r9d
 	btq	%rdx, %rcx
 	movq	%rcx, %r8
-	jc	.L126
-	jmp	.L124
+	jc	.L125
+	jmp	.L123
 	.p2align 4,,10
-.L127:
+.L126:
 	movq	%r9, %rdx
 	addq	$2, %rax
 	salq	%cl, %rdx
 	testq	%r8, %rdx
-	je	.L348
-.L126:
+	je	.L362
+.L125:
 	movzwl	(%rax), %ecx
 	movq	%rax, %r10
 	cmpw	$32, %cx
-	jbe	.L127
-	movq	%rax, 144(%rsp)
-.L124:
-	movq	%r12, %rcx
+	jbe	.L126
+	movq	%rax, 128(%rsp)
+.L123:
+	movq	%rsi, %rcx
 	call	ParseAsIntegerPartNumberSequence
-	movq	144(%rsp), %rax
+	movq	128(%rsp), %rax
 	andl	$2, %ebx
 	movzwl	(%rax), %ecx
-	jne	.L128
-.L129:
+	jne	.L127
+.L128:
 	testw	%cx, %cx
-	movq	128(%rsp), %rdx
-	jne	.L134
-	xorl	%r13d, %r13d
-	movq	224(%rsp), %rax
-	testb	$32, 152(%rsp)
-	movw	%r13w, (%rax)
-	je	.L345
-	movq	232(%rsp), %rax
-	xorl	%ebx, %ebx
-	movw	%bx, (%rax)
-.L345:
-	movq	%rsi, %rcx
+	movq	112(%rsp), %rdx
+	jne	.L133
+	xorl	%r11d, %r11d
+	movq	200(%rsp), %rax
+	testb	$32, 136(%rsp)
+	movw	%r11w, (%rax)
+	je	.L359
+	movq	208(%rsp), %rax
+	xorl	%r10d, %r10d
+	movw	%r10w, (%rax)
+.L359:
+	movq	%r12, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
-	cmpw	$0, (%rsi)
-	jne	.L349
-.L138:
-	movq	136(%rsp), %rdx
-	movq	%rsi, %rcx
+	movzwl	(%r12), %ecx
+	testw	%cx, %cx
+	je	.L137
+	call	Parse1DigitFromHexChar
+	movq	%r12, %rcx
+	cmpl	$8, %eax
+	sbbl	%eax, %eax
+	andl	$2, %eax
+	subl	$1, %eax
+	movb	%al, (%r15)
+	call	*%rbp
+	movq	336(%rsp), %rcx
+	movq	%rsi, %r8
+	leal	0(,%rax,4), %ebx
+	movslq	%ebx, %rdx
+	call	AllocateNumber
+	testl	%eax, %eax
+	jne	.L363
+	movq	336(%rsp), %rax
+	movq	%r12, %rcx
+	movq	(%rax), %rax
+	movq	64(%rax), %rdi
+	call	*%rbp
+	movq	%r12, %r10
+	movslq	%eax, %rsi
+	leaq	15(%rsi), %rdx
+	shrq	$4, %rdx
+	andl	$15, %eax
+	leaq	-8(%rdi,%rdx,8), %rdi
+	je	.L142
+	movzwl	(%r12), %ecx
+	leaq	-8(%rdi), %rbp
+	movslq	%eax, %r11
+	leaq	2(%r12), %r14
+	call	Parse1DigitFromHexChar
+	movq	%r11, %r10
+	movl	%eax, %eax
+	subq	$1, %r10
+	je	.L143
+	.p2align 4,,10
+.L144:
+	movzwl	(%r14), %ecx
+	salq	$4, %rax
+	addq	$2, %r14
+	movq	%rax, %r13
+	call	Parse1DigitFromHexChar
+	movl	%eax, %eax
+	addq	%r13, %rax
+	subq	$1, %r10
+	jne	.L144
+.L143:
+	movq	%rax, (%rdi)
+	leaq	(%r12,%r11,2), %r10
+	subq	%r11, %rsi
+	movq	%rbp, %rdi
+.L142:
+	testq	%rsi, %rsi
+	je	.L147
+	.p2align 4,,10
+.L145:
+	movzwl	(%r10), %ecx
+	subq	$8, %rdi
+	call	Parse1DigitFromHexChar
+	movzwl	2(%r10), %ecx
+	movl	%eax, %r11d
+	salq	$4, %r11
+	movq	%r11, %rbp
+	call	Parse1DigitFromHexChar
+	movzwl	4(%r10), %ecx
+	movl	%eax, %r11d
+	addq	%rbp, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	6(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	8(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	10(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	12(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	14(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	16(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	18(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	20(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	22(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	24(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	26(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	28(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movzwl	30(%r10), %ecx
+	movl	%eax, %eax
+	addq	%rax, %r11
+	salq	$4, %r11
+	call	Parse1DigitFromHexChar
+	movl	%eax, %eax
+	addq	$32, %r10
+	addq	%rax, %r11
+	subq	$16, %rsi
+	movq	%r11, 8(%rdi)
+	jne	.L145
+.L147:
+	movq	336(%rsp), %rax
+	movq	128(%rsp), %rdx
+	movq	(%rax), %rax
+	movq	64(%rax), %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L119
+	movq	120(%rsp), %rdx
+	movq	%r12, %rcx
+	movl	%eax, 60(%rsp)
 	call	DeallocateBlock
-	movl	$1, %eax
+	cmpb	$0, (%r15)
+	movl	60(%rsp), %eax
+	js	.L364
+	movq	336(%rsp), %rbx
+	movq	(%rbx), %rdx
+.L150:
+	movq	%rdx, %rcx
+	movl	%eax, 60(%rsp)
+	call	CommitNumber
+	movq	336(%rsp), %rax
+	movq	(%rax), %rcx
+	movl	60(%rsp), %eax
+	testb	$1, (%rcx)
+	je	.L119
+	call	DeallocateNumber
+	movq	.refptr.number_zero(%rip), %rdx
+	movb	$0, (%r15)
+	movq	336(%rsp), %rax
+	movq	%rdx, (%rax)
+	movl	60(%rsp), %eax
 .L119:
-	addq	$248, %rsp
+	addq	$232, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -1838,480 +1999,324 @@ PMC_TryParse:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L128:
+.L127:
 	cmpw	$32, %cx
-	ja	.L130
+	ja	.L129
 	movabsq	$4294983168, %rdx
 	addq	$2, %rax
 	movl	$1, %r9d
 	btq	%rcx, %rdx
 	movq	%rdx, %r8
-	jc	.L132
-	jmp	.L129
+	jc	.L131
+	jmp	.L128
 	.p2align 4,,10
-.L133:
+.L132:
 	movq	%r9, %rdx
 	addq	$2, %rax
 	salq	%cl, %rdx
 	testq	%r8, %rdx
-	je	.L350
-.L132:
+	je	.L365
+.L131:
 	movzwl	(%rax), %ecx
 	movq	%rax, %r10
 	cmpw	$32, %cx
-	jbe	.L133
-.L130:
-	movq	128(%rsp), %rdx
-.L134:
-	movq	%rsi, %rcx
+	jbe	.L132
+.L129:
+	movq	112(%rsp), %rdx
+.L133:
+	movq	%r12, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	je	.L138
+	jne	.L119
+.L137:
+	movq	120(%rsp), %rdx
+	movq	%r12, %rcx
+	call	DeallocateBlock
+	movl	$1, %eax
 	jmp	.L119
 	.p2align 4,,10
-.L122:
-	movq	__imp_lstrlenW(%rip), %rdi
-	call	*%rdi
-	leaq	88(%rsp), %rdx
-	leaq	80(%rsp), %r8
-	movslq	%eax, %r12
-	addq	$1, %r12
-	salq	$4, %r12
-	movq	%r12, %rcx
+.L120:
+	movq	__imp_lstrlenW(%rip), %rbp
+	call	*%rbp
+	leaq	72(%rsp), %rdx
+	leaq	64(%rsp), %r8
+	movslq	%eax, %rsi
+	addq	$1, %rsi
+	salq	$4, %rsi
+	movq	%rsi, %rcx
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, %rsi
-	je	.L149
-	leaq	104(%rsp), %rdx
-	movq	%r12, %rcx
-	leaq	96(%rsp), %r8
+	movq	%rax, %r12
+	je	.L153
+	leaq	88(%rsp), %rdx
+	movq	%rsi, %rcx
+	leaq	80(%rsp), %r8
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, %r13
-	je	.L346
+	je	.L360
 	movq	%rax, 40(%rsp)
 	movq	%r14, %r9
 	movl	%ebx, %r8d
-	movq	%r15, %rdx
-	leaq	144(%rsp), %r12
-	movq	%rsi, 32(%rsp)
-	movq	%r12, %rcx
+	movq	%rdi, %rdx
+	leaq	128(%rsp), %rsi
+	movq	%r12, 32(%rsp)
+	movq	%rsi, %rcx
 	call	InitializeParserState
 	testb	$1, %bl
-	movq	144(%rsp), %rax
-	je	.L152
+	movq	128(%rsp), %rax
+	je	.L156
 	movzwl	(%rax), %edx
 	cmpw	$32, %dx
-	ja	.L152
+	ja	.L156
 	movabsq	$4294983168, %r8
 	btq	%rdx, %r8
-	jnc	.L157
+	jnc	.L161
 	leaq	2(%rax), %rdx
 	movl	$1, %r9d
-	jmp	.L154
+	jmp	.L158
 	.p2align 4,,10
-.L156:
+.L160:
 	leaq	2(%rax), %rdx
-	movq	%r9, %r15
-	salq	%cl, %r15
-	testq	%r8, %r15
-	je	.L155
-.L154:
+	movq	%r9, %rdi
+	salq	%cl, %rdi
+	testq	%r8, %rdi
+	je	.L159
+.L158:
 	movzwl	(%rdx), %ecx
 	movq	%rdx, %rax
 	cmpw	$32, %cx
-	jbe	.L156
-	movq	%rdx, 144(%rsp)
-.L152:
+	jbe	.L160
+	movq	%rdx, 128(%rsp)
+.L156:
 	testb	$16, %bl
-	je	.L157
+	je	.L161
 	cmpw	$40, (%rax)
-	jne	.L157
-	movl	$-1, 156(%rsp)
+	jne	.L161
 	leaq	2(%rax), %r8
+	movb	$-1, 140(%rsp)
 	movzwl	2(%rax), %eax
-	movq	%r8, 144(%rsp)
+	movq	%r8, 128(%rsp)
 	subl	$48, %eax
 	cmpw	$9, %ax
-	jbe	.L351
-.L158:
+	jbe	.L366
+.L162:
 	testb	$32, %bl
-	je	.L159
-	movzwl	184(%rsp), %eax
+	je	.L163
+	movzwl	164(%rsp), %eax
 	testw	%ax, %ax
-	je	.L160
+	je	.L164
 	movzwl	(%r8), %r9d
 	cmpw	%ax, %r9w
-	jne	.L161
-	leaq	40(%r12), %rax
+	jne	.L165
+	leaq	36(%rsi), %rax
 	movq	%r8, %rdx
-	jmp	.L162
+	jmp	.L166
 	.p2align 4,,10
-.L163:
+.L167:
 	cmpw	%cx, (%rdx)
-	jne	.L161
-.L162:
+	jne	.L165
+.L166:
 	addq	$2, %rax
 	movzwl	(%rax), %ecx
 	addq	$2, %rdx
 	testw	%cx, %cx
-	jne	.L163
-.L160:
-	movslq	192(%rsp), %rax
-	movq	%r12, %rcx
+	jne	.L167
+.L164:
+	movslq	172(%rsp), %rax
+	movq	%rsi, %rcx
 	leaq	(%r8,%rax,2), %rax
-	movq	%rax, 144(%rsp)
+	movq	%rax, 128(%rsp)
 	call	ParseAsFractionPartNumberSequence
-	movq	144(%rsp), %r8
+	movq	128(%rsp), %r8
 	movzwl	(%r8), %r9d
-	jmp	.L161
+	jmp	.L165
 	.p2align 4,,10
-.L155:
-	movq	%rax, 144(%rsp)
-.L157:
+.L159:
+	movq	%rax, 128(%rsp)
+.L161:
 	testb	$4, %bl
-	jne	.L352
+	jne	.L367
 	movzwl	(%rax), %r9d
-.L177:
+.L181:
 	leal	-48(%r9), %edx
-	movl	%ebx, %r8d
-	andl	$32, %r8d
+	movl	%ebx, %edi
+	andl	$32, %edi
 	cmpw	$9, %dx
-	jbe	.L353
-	testl	%r8d, %r8d
-	je	.L165
-	movzwl	184(%rsp), %edx
+	jbe	.L368
+	testl	%edi, %edi
+	je	.L169
+	movzwl	164(%rsp), %edx
 	testw	%dx, %dx
-	je	.L198
+	je	.L202
 	cmpw	%r9w, %dx
-	jne	.L165
-	leaq	40(%r12), %rdx
+	jne	.L169
+	leaq	36(%rsi), %rdx
 	movq	%rax, %rcx
-	jmp	.L199
+	jmp	.L203
 	.p2align 4,,10
-.L200:
+.L204:
 	cmpw	%r8w, (%rcx)
-	jne	.L165
-.L199:
+	jne	.L169
+.L203:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r8d
 	addq	$2, %rcx
 	testw	%r8w, %r8w
-	jne	.L200
-.L198:
-	movslq	192(%rsp), %rdx
-	movq	%r12, %rcx
+	jne	.L204
+.L202:
+	movslq	172(%rsp), %rdx
+	movq	%rsi, %rcx
 	leaq	(%rax,%rdx,2), %rax
-	movq	%rax, 144(%rsp)
+	movq	%rax, 128(%rsp)
 	call	ParseAsFractionPartNumberSequence
 	testb	$8, %bl
-	movq	144(%rsp), %rax
-	je	.L172
-	movzwl	160(%rsp), %edx
+	movq	128(%rsp), %rax
+	je	.L176
+	movzwl	142(%rsp), %edx
 	testw	%dx, %dx
-	je	.L201
+	je	.L205
 	movzwl	(%rax), %ecx
-	cmpw	%cx, %dx
-	jne	.L202
-	leaq	16(%r12), %rdx
+	cmpw	%dx, %cx
+	jne	.L206
+	leaq	14(%rsi), %rdx
 	movq	%rax, %r8
-	jmp	.L203
+	jmp	.L207
 	.p2align 4,,10
-.L204:
+.L208:
 	cmpw	%r9w, (%r8)
-	jne	.L202
-.L203:
+	jne	.L206
+.L207:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r9d
 	addq	$2, %r8
 	testw	%r9w, %r9w
-	jne	.L204
-.L201:
-	movslq	168(%rsp), %rdx
-	movl	$1, 156(%rsp)
+	jne	.L208
+.L205:
+	movslq	148(%rsp), %rdx
+	movb	$1, 140(%rsp)
 	leaq	(%rax,%rdx,2), %rax
-	movq	%rax, 144(%rsp)
+	movq	%rax, 128(%rsp)
 	movzwl	(%rax), %ecx
-	jmp	.L166
-	.p2align 4,,10
-.L349:
-	movq	%rsi, %rcx
-	call	*%rdi
-	leaq	72(%rsp), %rcx
-	movq	%r12, %r8
-	leal	0(,%rax,4), %edx
-	movslq	%edx, %rdx
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L354
-	movq	72(%rsp), %rax
-	movq	%rsi, %rcx
-	movq	64(%rax), %rbx
-	call	*%rdi
-	movq	%rsi, %r10
-	movslq	%eax, %rdi
-	leaq	15(%rdi), %rdx
-	shrq	$4, %rdx
-	andl	$15, %eax
-	leaq	-8(%rbx,%rdx,8), %r12
-	je	.L142
-	movzwl	(%rsi), %ecx
-	leaq	-8(%r12), %rbx
-	movslq	%eax, %r11
-	leaq	2(%rsi), %r14
-	call	Parse1DigitFromHexChar
-	movq	%r11, %r13
-	movl	%eax, %eax
-	subq	$1, %r13
-	je	.L143
-	.p2align 4,,10
-.L144:
-	movzwl	(%r14), %ecx
-	salq	$4, %rax
-	addq	$2, %r14
-	movq	%rax, %r10
-	call	Parse1DigitFromHexChar
-	movl	%eax, %eax
-	addq	%r10, %rax
-	subq	$1, %r13
-	jne	.L144
-.L143:
-	movq	%rax, (%r12)
-	leaq	(%rsi,%r11,2), %r10
-	subq	%r11, %rdi
-	movq	%rbx, %r12
-.L142:
-	testq	%rdi, %rdi
-	je	.L147
-	.p2align 4,,10
-.L145:
-	movzwl	(%r10), %ecx
-	subq	$8, %r12
-	call	Parse1DigitFromHexChar
-	movzwl	2(%r10), %ecx
-	movl	%eax, %ebx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	4(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	movq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	6(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	salq	$4, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	8(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	movq	%rbx, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	10(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	12(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	movq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	14(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	salq	$4, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	16(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	movq	%rbx, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	18(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	20(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	movq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	22(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	salq	$4, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	24(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	movq	%rbx, %r11
-	call	Parse1DigitFromHexChar
-	movzwl	26(%r10), %ecx
-	movl	%eax, %ebx
-	addq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	28(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	movq	%r11, %rbx
-	salq	$4, %rbx
-	call	Parse1DigitFromHexChar
-	movzwl	30(%r10), %ecx
-	movl	%eax, %r11d
-	addq	%rbx, %r11
-	salq	$4, %r11
-	call	Parse1DigitFromHexChar
-	movl	%eax, %eax
-	addq	$32, %r10
-	addq	%rax, %r11
-	subq	$16, %rdi
-	movq	%r11, 8(%r12)
-	jne	.L145
-.L147:
-	movq	72(%rsp), %rax
-	movq	144(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L119
-	movq	136(%rsp), %rdx
-	movq	%rsi, %rcx
-	call	DeallocateBlock
-	movq	72(%rsp), %rcx
-	call	CommitNumber
-	movq	72(%rsp), %rcx
-.L148:
-	movq	%rcx, 0(%rbp)
-	xorl	%eax, %eax
-	jmp	.L119
-	.p2align 4,,10
-.L352:
-	movzwl	160(%rsp), %edx
-	testw	%dx, %dx
-	je	.L168
-	movzwl	(%rax), %r9d
-	cmpw	%r9w, %dx
-	jne	.L169
-	leaq	16(%r12), %rdx
-	movq	%rax, %rcx
 	jmp	.L170
 	.p2align 4,,10
-.L171:
+.L367:
+	movzwl	142(%rsp), %edx
+	testw	%dx, %dx
+	je	.L172
+	movzwl	(%rax), %r9d
+	cmpw	%dx, %r9w
+	jne	.L173
+	leaq	14(%rsi), %rdx
+	movq	%rax, %rcx
+	jmp	.L174
+	.p2align 4,,10
+.L175:
 	cmpw	%r8w, (%rcx)
-	jne	.L169
-.L170:
+	jne	.L173
+.L174:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r8d
 	addq	$2, %rcx
 	testw	%r8w, %r8w
-	jne	.L171
-.L168:
-	movslq	168(%rsp), %rdx
-	movl	$1, 156(%rsp)
-	leaq	(%rax,%rdx,2), %rax
-	movzwl	(%rax), %ecx
-	movq	%rax, 144(%rsp)
-	leal	-48(%rcx), %edx
-	cmpw	$9, %dx
-	jbe	.L355
-.L246:
-	testb	$32, %bl
-	jne	.L356
+	jne	.L175
 .L172:
+	movslq	148(%rsp), %rdx
+	movb	$1, 140(%rsp)
+	leaq	(%rax,%rdx,2), %rax
+	movzwl	(%rax), %edi
+	movq	%rax, 128(%rsp)
+	leal	-48(%rdi), %edx
+	cmpw	$9, %dx
+	jbe	.L369
+.L249:
+	testb	$32, %bl
+	jne	.L370
+.L176:
 	movzwl	(%rax), %ecx
-.L166:
+.L170:
 	andl	$2, %ebx
-	je	.L207
-.L247:
+	je	.L211
+.L250:
 	cmpw	$32, %cx
-	ja	.L165
+	ja	.L169
 	movabsq	$4294983168, %rdx
 	addq	$2, %rax
 	movl	$1, %r9d
 	btq	%rcx, %rdx
 	movq	%rdx, %r8
-	jc	.L209
-	jmp	.L207
+	jc	.L213
+	jmp	.L211
 	.p2align 4,,10
-.L343:
+.L357:
 	movq	%r9, %rdx
 	addq	$2, %rax
 	salq	%cl, %rdx
 	testq	%r8, %rdx
-	je	.L357
-.L209:
+	je	.L371
+.L213:
 	movzwl	(%rax), %ecx
 	movq	%rax, %r10
 	cmpw	$32, %cx
-	jbe	.L343
+	jbe	.L357
 	.p2align 4,,10
-.L165:
+.L169:
+	movq	64(%rsp), %rdx
+	movq	%r12, %rcx
+	call	CheckBlockLight
+	testl	%eax, %eax
+	jne	.L119
 	movq	80(%rsp), %rdx
-	movq	%rsi, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L119
-	movq	96(%rsp), %rdx
 	movq	%r13, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
-	movl	52(%rsp), %r9d
-	testl	%r9d, %r9d
-	je	.L215
-	movzwl	(%rsi), %eax
+	movl	60(%rsp), %ecx
+	testl	%ecx, %ecx
+	je	.L220
+	movzwl	(%r12), %eax
 	testw	%ax, %ax
-	jne	.L214
+	jne	.L219
 	cmpw	$0, 0(%r13)
-	je	.L215
-.L218:
+	je	.L220
+.L223:
 	movq	%r13, %rcx
-	call	*%rdi
+	call	*%rbp
 	cltq
 	leaq	0(%r13,%rax,2), %rax
 	cmpq	%rax, %r13
-	jb	.L216
-	jmp	.L217
+	jb	.L221
+	jmp	.L222
 	.p2align 4,,10
-.L358:
+.L372:
 	subq	$2, %rax
 	cmpq	%rax, %r13
-	jnb	.L217
-.L216:
+	jnb	.L222
+.L221:
 	cmpw	$48, -2(%rax)
-	je	.L358
-.L217:
-	xorl	%r8d, %r8d
-	movq	104(%rsp), %rdx
-	movw	%r8w, (%rax)
+	je	.L372
+.L222:
+	xorl	%edx, %edx
+	movw	%dx, (%rax)
 	cmpw	$0, 0(%r13)
-	jne	.L347
-	movl	56(%rsp), %ecx
-	movzwl	(%rsi), %eax
-	testl	%ecx, %ecx
-	js	.L359
-	testw	%ax, %ax
-	je	.L224
-.L225:
+	movq	88(%rsp), %rdx
+	jne	.L361
+	cmpw	$0, (%r12)
+	jne	.L228
+	movb	$0, (%r15)
+	movl	$48, (%r12)
+.L228:
+	movabsq	$-2912643801112034465, %rdi
 	movq	%r13, %rcx
-	movabsq	$-2912643801112034465, %r13
 	call	DeallocateBlock
-	movq	%rsi, %rcx
-	call	*%rdi
-	leaq	120(%rsp), %r9
-	leaq	112(%rsp), %r8
+	movq	%r12, %rcx
+	call	*%rbp
+	leaq	104(%rsp), %r9
+	leaq	96(%rsp), %r8
 	movslq	%eax, %rdx
 	addq	$18, %rdx
 	movq	%rdx, %rax
-	mulq	%r13
+	mulq	%rdi
 	movq	%rdx, %rcx
 	movq	%r9, %rdx
 	shrq	$4, %rcx
@@ -2319,41 +2324,41 @@ PMC_TryParse:
 	call	AllocateBlock
 	testq	%rax, %rax
 	movq	%rax, %rbx
-	je	.L346
-	movq	%rsi, %rcx
-	call	*%rdi
+	je	.L360
+	movq	%r12, %rcx
+	call	*%rbp
 	movslq	%eax, %r8
 	movq	%r8, %rax
-	mulq	%r13
+	mulq	%rdi
 	shrq	$4, %rdx
 	leaq	(%rdx,%rdx,8), %rax
 	leaq	(%rdx,%rax,2), %rax
 	movq	%r8, %rdx
 	subq	%rax, %rdx
-	je	.L251
+	je	.L255
 	leaq	8(%rbx), %rdi
 	xorl	%ecx, %ecx
 	xorl	%eax, %eax
 	.p2align 4,,10
-.L228:
+.L231:
 	leaq	(%rax,%rax,4), %r9
-	movzwl	(%rsi,%rcx,2), %eax
+	movzwl	(%r12,%rcx,2), %eax
 	addq	$1, %rcx
 	subl	$48, %eax
 	cmpq	%rcx, %rdx
 	cltq
 	leaq	(%rax,%r9,2), %rax
-	jne	.L228
+	jne	.L231
 	movq	%rax, (%rbx)
-	leaq	(%rsi,%rdx,2), %rcx
+	leaq	(%r12,%rdx,2), %rcx
 	subq	%rdx, %r8
-.L227:
+.L230:
 	testq	%r8, %r8
-	je	.L229
+	je	.L232
 	movq	%r8, %r9
 	movq	%rdi, %rax
 	.p2align 4,,10
-.L230:
+.L233:
 	movzwl	(%rcx), %edx
 	addq	$8, %rax
 	addq	$38, %rcx
@@ -2451,434 +2456,539 @@ PMC_TryParse:
 	movslq	%edx, %rdx
 	leaq	(%rdx,%r10,2), %rdx
 	movq	%rdx, -8(%rax)
-	jne	.L230
+	jne	.L233
 	movabsq	$3883525068149379288, %rax
 	imulq	%rax, %r8
 	addq	%r8, %rdi
-.L229:
-	movq	112(%rsp), %rdx
+.L232:
+	movq	96(%rsp), %rdx
 	movq	%rbx, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
+	movq	72(%rsp), %rdx
 	subq	%rbx, %rdi
-	movq	88(%rsp), %rdx
-	movq	%rsi, %rcx
+	movq	%r12, %rcx
 	sarq	$3, %rdi
-	movq	%rdi, %r13
-	salq	$6, %r13
+	movq	%rdi, %rbp
+	salq	$6, %rbp
 	call	DeallocateBlock
-	leaq	72(%rsp), %rcx
-	movq	%r13, %rdx
-	leaq	128(%rsp), %r8
+	movq	336(%rsp), %rcx
+	leaq	112(%rsp), %r8
+	movq	%rbp, %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
-	jne	.L360
-	movq	72(%rsp), %rax
-	leaq	64(%r13), %rcx
-	movq	%r12, %rdx
-	leaq	136(%rsp), %r8
-	movq	64(%rax), %rsi
+	jne	.L373
+	movq	336(%rsp), %rax
+	leaq	64(%rbp), %rcx
+	movq	%rsi, %rdx
+	leaq	120(%rsp), %r8
+	movq	(%rax), %rax
+	movq	64(%rax), %r13
 	call	AllocateBlock
 	testq	%rax, %rax
-	movq	%rax, %r13
-	je	.L232
+	movq	%rax, %r12
+	je	.L235
 	movq	(%rbx), %rax
-	subq	$1, %rdi
-	movl	$1, %r12d
 	leaq	8(%rbx), %r14
-	movq	%rax, 0(%r13)
-	je	.L233
+	subq	$1, %rdi
+	movl	$1, %ebp
+	movq	%rax, (%r12)
+	je	.L236
 	.p2align 4,,10
-.L234:
+.L237:
 	movq	(%r14), %r8
-	movq	%r12, %rdx
-	movq	%r13, %rcx
+	movq	%rbp, %rdx
+	movq	%r12, %rcx
 	addq	$8, %r14
 	call	*fp_MultiplyAndAdd(%rip)
-	subq	%r13, %rax
-	movq	%rax, %r12
-	sarq	$3, %r12
+	subq	%r12, %rax
+	movq	%rax, %rbp
+	sarq	$3, %rbp
 	subq	$1, %rdi
-	jne	.L234
-.L233:
-	movq	136(%rsp), %rdx
-	movq	%r13, %rcx
+	jne	.L237
+.L236:
+	movq	120(%rsp), %rdx
+	movq	%r12, %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	je	.L361
-.L237:
-	movq	72(%rsp), %rcx
-	movl	%eax, 52(%rsp)
+	je	.L374
+.L240:
+	movl	%eax, 60(%rsp)
+	movq	336(%rsp), %rax
+	movq	(%rax), %rcx
 	call	DeallocateNumber
-	movq	120(%rsp), %rdx
+	movq	104(%rsp), %rdx
 	movq	%rbx, %rcx
 	call	DeallocateBlock
-	movl	52(%rsp), %eax
+	movl	60(%rsp), %eax
 	jmp	.L119
 	.p2align 4,,10
-.L357:
-	movq	%r10, 144(%rsp)
-.L207:
-	testw	%cx, %cx
-	jne	.L165
-	xorl	%r11d, %r11d
-	movq	224(%rsp), %rax
-	testb	$32, 152(%rsp)
-	movw	%r11w, (%rax)
-	je	.L211
-	movq	232(%rsp), %rax
-	xorl	%r10d, %r10d
-	movw	%r10w, (%rax)
-.L211:
-	movl	156(%rsp), %eax
-	movl	$1, 52(%rsp)
-	movl	%eax, 56(%rsp)
-	jmp	.L165
-	.p2align 4,,10
-.L348:
-	movq	%r10, 144(%rsp)
-	jmp	.L124
-	.p2align 4,,10
-.L350:
-	movq	%r10, 144(%rsp)
-	jmp	.L129
-	.p2align 4,,10
-.L169:
-	movzwl	172(%rsp), %edx
-	testw	%dx, %dx
-	je	.L179
-	cmpw	%r9w, %dx
-	jne	.L177
-	leaq	28(%r12), %rdx
-	movq	%rax, %rcx
-	jmp	.L244
-	.p2align 4,,10
-.L178:
-	cmpw	%r8w, (%rcx)
-	jne	.L177
-.L244:
-	addq	$2, %rdx
-	movzwl	(%rdx), %r8d
-	addq	$2, %rcx
-	testw	%r8w, %r8w
-	jne	.L178
-.L179:
-	movslq	180(%rsp), %rdx
-	movl	$-1, 156(%rsp)
-	leaq	(%rax,%rdx,2), %rax
-	movzwl	(%rax), %ecx
-	movq	%rax, 144(%rsp)
-	leal	-48(%rcx), %edx
-	cmpw	$9, %dx
-	jbe	.L362
-.L243:
-	testb	$32, %bl
-	je	.L172
-	movzwl	184(%rsp), %edx
-	testw	%dx, %dx
-	je	.L181
-	movzwl	(%rax), %ecx
-	cmpw	%cx, %dx
-	jne	.L166
-	leaq	40(%r12), %rdx
-	movq	%rax, %rcx
-	jmp	.L182
-	.p2align 4,,10
-.L183:
-	cmpw	%r8w, (%rcx)
-	jne	.L175
-.L182:
-	addq	$2, %rdx
-	movzwl	(%rdx), %r8d
-	addq	$2, %rcx
-	testw	%r8w, %r8w
-	jne	.L183
-.L181:
-	movslq	192(%rsp), %rdx
+.L363:
+	movq	120(%rsp), %rdx
 	movq	%r12, %rcx
-	leaq	(%rax,%rdx,2), %rax
-	movq	%rax, 144(%rsp)
-	call	ParseAsFractionPartNumberSequence
-	movq	144(%rsp), %rax
-	movzwl	(%rax), %ecx
-	jmp	.L166
-	.p2align 4,,10
-.L354:
-	movq	136(%rsp), %rdx
-	movq	%rsi, %rcx
-	movl	%eax, 52(%rsp)
+	movl	%eax, 60(%rsp)
 	call	DeallocateBlock
-	movl	52(%rsp), %eax
+	movl	60(%rsp), %eax
 	jmp	.L119
 	.p2align 4,,10
-.L214:
-	cmpw	$48, %ax
-	jne	.L218
-	movq	%rsi, %rax
-	.p2align 4,,10
-.L219:
-	addq	$2, %rax
-	movzwl	(%rax), %edx
-	cmpw	$48, %dx
-	je	.L219
-	testw	%dx, %dx
-	movw	%dx, (%rsi)
-	je	.L218
-	movl	$2, %edx
-	.p2align 4,,10
-.L220:
-	movzwl	(%rax,%rdx), %ecx
-	movw	%cx, (%rsi,%rdx)
-	addq	$2, %rdx
+.L371:
+	movq	%r10, 128(%rsp)
+.L211:
 	testw	%cx, %cx
-	jne	.L220
-	jmp	.L218
-	.p2align 4,,10
-.L356:
-	movzwl	184(%rsp), %edx
-	testw	%dx, %dx
-	je	.L181
-	movzwl	(%rax), %ecx
-	cmpw	%dx, %cx
-	jne	.L166
-	leaq	40(%r12), %rdx
-	movq	%rax, %rcx
-	jmp	.L174
-	.p2align 4,,10
-.L176:
-	cmpw	%r8w, (%rcx)
-	jne	.L175
-.L174:
-	addq	$2, %rdx
-	movzwl	(%rdx), %r8d
-	addq	$2, %rcx
-	testw	%r8w, %r8w
-	jne	.L176
-	jmp	.L181
-	.p2align 4,,10
-.L159:
-	movzwl	(%r8), %r9d
-.L161:
-	cmpw	$41, %r9w
-	jne	.L165
-	leaq	2(%r8), %rax
-	movzwl	2(%r8), %ecx
-	movq	%rax, 144(%rsp)
-	jmp	.L166
-	.p2align 4,,10
-.L355:
-	movq	%r12, %rcx
-	call	ParseAsIntegerPartNumberSequence
-	movq	144(%rsp), %rax
-	jmp	.L246
-	.p2align 4,,10
-.L351:
-	movq	%r12, %rcx
-	call	ParseAsIntegerPartNumberSequence
-	movq	144(%rsp), %r8
-	jmp	.L158
+	jne	.L169
+	xorl	%r9d, %r9d
+	movq	200(%rsp), %rax
+	testb	$32, 136(%rsp)
+	movw	%r9w, (%rax)
+	je	.L215
+	movq	208(%rsp), %rax
+	xorl	%r8d, %r8d
+	movw	%r8w, (%rax)
+.L215:
+	movzbl	140(%rsp), %eax
+	movl	$1, 60(%rsp)
+	sarb	$7, %al
+	orl	$1, %eax
+	movb	%al, (%r15)
+	jmp	.L169
 	.p2align 4,,10
 .L362:
-	movq	%r12, %rcx
-	call	ParseAsIntegerPartNumberSequence
-	movq	144(%rsp), %rax
-	jmp	.L243
+	movq	%r10, 128(%rsp)
+	jmp	.L123
 	.p2align 4,,10
-.L353:
-	movq	%r12, %rcx
-	movl	%r8d, 60(%rsp)
-	call	ParseAsIntegerPartNumberSequence
-	movl	60(%rsp), %r8d
-	movq	144(%rsp), %rax
-	testl	%r8d, %r8d
-	je	.L187
-	movzwl	184(%rsp), %edx
+.L365:
+	movq	%r10, 128(%rsp)
+	jmp	.L128
+	.p2align 4,,10
+.L173:
+	movzwl	152(%rsp), %edx
 	testw	%dx, %dx
-	je	.L186
-	cmpw	%dx, (%rax)
-	jne	.L187
-	leaq	40(%r12), %rdx
+	je	.L183
+	cmpw	%r9w, %dx
+	jne	.L181
+	leaq	24(%rsi), %rdx
 	movq	%rax, %rcx
-	jmp	.L188
+	jmp	.L247
 	.p2align 4,,10
-.L189:
+.L182:
 	cmpw	%r8w, (%rcx)
-	jne	.L187
-.L188:
+	jne	.L181
+.L247:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r8d
 	addq	$2, %rcx
 	testw	%r8w, %r8w
-	jne	.L189
-.L186:
-	movslq	192(%rsp), %rdx
-	movq	%r12, %rcx
+	jne	.L182
+.L183:
+	movslq	160(%rsp), %rdx
+	movb	$-1, 140(%rsp)
 	leaq	(%rax,%rdx,2), %rax
-	movq	%rax, 144(%rsp)
-	call	ParseAsFractionPartNumberSequence
-	movq	144(%rsp), %rax
+	movzwl	(%rax), %edi
+	movq	%rax, 128(%rsp)
+	leal	-48(%rdi), %edx
+	cmpw	$9, %dx
+	jbe	.L375
+.L246:
+	testb	$32, %bl
+	je	.L176
+	movzwl	164(%rsp), %edx
+	testw	%dx, %dx
+	je	.L185
+	movzwl	(%rax), %ecx
+	cmpw	%cx, %dx
+	jne	.L170
+	leaq	36(%rsi), %rdx
+	movq	%rax, %rcx
+	jmp	.L186
 	.p2align 4,,10
 .L187:
-	testb	$8, %bl
-	je	.L172
-	movzwl	160(%rsp), %edx
+	cmpw	%r8w, (%rcx)
+	jne	.L179
+.L186:
+	addq	$2, %rdx
+	movzwl	(%rdx), %r8d
+	addq	$2, %rcx
+	testw	%r8w, %r8w
+	jne	.L187
+.L185:
+	movslq	172(%rsp), %rdx
+	movq	%rsi, %rcx
+	leaq	(%rax,%rdx,2), %rax
+	movq	%rax, 128(%rsp)
+	call	ParseAsFractionPartNumberSequence
+	movq	128(%rsp), %rax
+	movzwl	(%rax), %ecx
+	jmp	.L170
+	.p2align 4,,10
+.L368:
+	movq	%rsi, %rcx
+	call	ParseAsIntegerPartNumberSequence
+	testl	%edi, %edi
+	movq	128(%rsp), %rax
+	je	.L191
+	movzwl	164(%rsp), %edx
 	testw	%dx, %dx
-	je	.L201
+	je	.L190
+	cmpw	%dx, (%rax)
+	jne	.L191
+	leaq	36(%rsi), %rdx
+	movq	%rax, %rcx
+	jmp	.L192
+	.p2align 4,,10
+.L193:
+	cmpw	%r8w, (%rcx)
+	jne	.L191
+.L192:
+	addq	$2, %rdx
+	movzwl	(%rdx), %r8d
+	addq	$2, %rcx
+	testw	%r8w, %r8w
+	jne	.L193
+.L190:
+	movslq	172(%rsp), %rdx
+	movq	%rsi, %rcx
+	leaq	(%rax,%rdx,2), %rax
+	movq	%rax, 128(%rsp)
+	call	ParseAsFractionPartNumberSequence
+	movq	128(%rsp), %rax
+	.p2align 4,,10
+.L191:
+	testb	$8, %bl
+	je	.L176
+	movzwl	142(%rsp), %edx
+	testw	%dx, %dx
+	je	.L205
 	movzwl	(%rax), %ecx
 	cmpw	%dx, %cx
-	jne	.L192
-	leaq	16(%r12), %rdx
+	jne	.L196
+	leaq	14(%rsi), %rdx
 	movq	%rax, %r8
-	jmp	.L193
+	jmp	.L197
 	.p2align 4,,10
-.L194:
+.L198:
 	cmpw	%r9w, (%r8)
-	jne	.L192
-.L193:
+	jne	.L196
+.L197:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r9d
 	addq	$2, %r8
 	testw	%r9w, %r9w
-	jne	.L194
-	jmp	.L201
+	jne	.L198
+	jmp	.L205
 	.p2align 4,,10
-.L215:
-	movq	104(%rsp), %rdx
-.L347:
-	movq	%r13, %rcx
-	call	DeallocateBlock
-	movq	88(%rsp), %rdx
-	movq	%rsi, %rcx
-	call	DeallocateBlock
-	movl	$1, %eax
-	jmp	.L119
-	.p2align 4,,10
-.L175:
-	andl	$2, %ebx
-	je	.L165
-	movq	144(%rsp), %rax
-	movzwl	(%rax), %ecx
-	jmp	.L247
+.L219:
+	cmpw	$48, %ax
+	jne	.L223
+	movq	%r12, %rax
 	.p2align 4,,10
 .L224:
-	movl	$48, (%rsi)
-	jmp	.L225
-	.p2align 4,,10
-.L359:
-	testw	%ax, %ax
+	addq	$2, %rax
+	movzwl	(%rax), %edx
+	cmpw	$48, %dx
 	je	.L224
-	movq	%r13, %rcx
-	call	DeallocateBlock
-	movq	88(%rsp), %rdx
-	movq	%rsi, %rcx
-	call	DeallocateBlock
-	movl	$-2, %eax
-	jmp	.L119
-	.p2align 4,,10
-.L251:
-	movq	%rbx, %rdi
-	movq	%rsi, %rcx
-	jmp	.L227
-	.p2align 4,,10
-.L249:
-	movl	$-1, %eax
-	jmp	.L119
-	.p2align 4,,10
-.L192:
-	movzwl	172(%rsp), %edx
 	testw	%dx, %dx
-	je	.L206
-	cmpw	%dx, %cx
-	jne	.L166
-	leaq	28(%r12), %rdx
-	movq	%rax, %rcx
-	jmp	.L239
+	movw	%dx, (%r12)
+	je	.L223
+	movl	$2, %edx
 	.p2align 4,,10
-.L195:
+.L225:
+	movzwl	(%rax,%rdx), %ecx
+	movw	%cx, (%r12,%rdx)
+	addq	$2, %rdx
+	testw	%cx, %cx
+	jne	.L225
+	jmp	.L223
+	.p2align 4,,10
+.L370:
+	movzwl	164(%rsp), %edx
+	testw	%dx, %dx
+	je	.L185
+	movzwl	(%rax), %ecx
+	cmpw	%cx, %dx
+	jne	.L170
+	leaq	36(%rsi), %rdx
+	movq	%rax, %rcx
+	jmp	.L178
+	.p2align 4,,10
+.L180:
 	cmpw	%r8w, (%rcx)
-	jne	.L175
-.L239:
+	jne	.L179
+.L178:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r8d
 	addq	$2, %rcx
 	testw	%r8w, %r8w
-	jne	.L195
-.L206:
-	movslq	180(%rsp), %rdx
-	movl	$-1, 156(%rsp)
-	leaq	(%rax,%rdx,2), %rax
-	movq	%rax, 144(%rsp)
-	movzwl	(%rax), %ecx
-	jmp	.L166
+	jne	.L180
+	jmp	.L185
+	.p2align 4,,10
+.L364:
+	movq	336(%rsp), %rsi
+	andl	$63, %ebx
+	movq	(%rsi), %rdx
+	movq	64(%rdx), %r8
+	movq	56(%rdx), %r9
+	je	.L149
+	movq	$-1, %r10
+	movl	%ebx, %ecx
+	salq	%cl, %r10
+	orq	%r10, -8(%r8,%r9,8)
+	movq	56(%rdx), %r9
+.L149:
+	testq	%r9, %r9
+	je	.L150
+	movl	$1, %ecx
+	xorl	%r10d, %r10d
+	.p2align 4,,10
+.L151:
+	movq	(%r8), %rdx
+	addb	$-1, %cl
+	notq	%rdx
+	adcq	%r10, %rdx
+	setc	%cl
+	movq	%rdx, (%r8)
+	addq	$8, %r8
+	subq	$1, %r9
+	jne	.L151
+	movq	336(%rsp), %rsi
+	movq	(%rsi), %rdx
+	jmp	.L150
+	.p2align 4,,10
+.L163:
+	movzwl	(%r8), %r9d
+.L165:
+	cmpw	$41, %r9w
+	jne	.L169
+	leaq	2(%r8), %rax
+	movzwl	2(%r8), %ecx
+	movq	%rax, 128(%rsp)
+	jmp	.L170
+	.p2align 4,,10
+.L369:
+	movq	%rsi, %rcx
+	call	ParseAsIntegerPartNumberSequence
+	movq	128(%rsp), %rax
+	jmp	.L249
+	.p2align 4,,10
+.L366:
+	movq	%rsi, %rcx
+	call	ParseAsIntegerPartNumberSequence
+	movq	128(%rsp), %r8
+	jmp	.L162
+	.p2align 4,,10
+.L375:
+	movq	%rsi, %rcx
+	call	ParseAsIntegerPartNumberSequence
+	movq	128(%rsp), %rax
+	jmp	.L246
+	.p2align 4,,10
+.L220:
+	movq	88(%rsp), %rdx
 .L361:
-	movq	%rsi, %rdi
+	movq	%r13, %rcx
+	call	DeallocateBlock
+	movq	72(%rsp), %rdx
 	movq	%r12, %rcx
-	movq	%r13, %rsi
+	call	DeallocateBlock
+	movl	$1, %eax
+	jmp	.L119
+	.p2align 4,,10
+.L179:
+	andl	$2, %ebx
+	je	.L169
+	movq	128(%rsp), %rax
+	movzwl	(%rax), %ecx
+	jmp	.L250
+	.p2align 4,,10
+.L255:
+	movq	%rbx, %rdi
+	movq	%r12, %rcx
+	jmp	.L230
+	.p2align 4,,10
+.L196:
+	movzwl	152(%rsp), %edx
+	testw	%dx, %dx
+	je	.L210
+	cmpw	%dx, %cx
+	jne	.L170
+	leaq	24(%rsi), %rdx
+	movq	%rax, %rcx
+	jmp	.L242
+	.p2align 4,,10
+.L199:
+	cmpw	%r8w, (%rcx)
+	jne	.L179
+.L242:
+	addq	$2, %rdx
+	movzwl	(%rdx), %r8d
+	addq	$2, %rcx
+	testw	%r8w, %r8w
+	jne	.L199
+.L210:
+	movslq	160(%rsp), %rdx
+	movb	$-1, 140(%rsp)
+	leaq	(%rax,%rdx,2), %rax
+	movq	%rax, 128(%rsp)
+	movzwl	(%rax), %ecx
+	jmp	.L170
+	.p2align 4,,10
+.L251:
+	movl	$-1, %eax
+	jmp	.L119
+.L374:
+	movq	%r13, %rdi
+	movq	%r12, %rsi
+	movq	%rbp, %rcx
 /APP
  # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsq
  # 0 "" 2
 /NO_APP
-	movq	144(%rsp), %rdx
-	movq	%r13, %rcx
-	call	DeallocateBlock
-	movq	72(%rsp), %rax
 	movq	128(%rsp), %rdx
+	movq	%r12, %rcx
+	call	DeallocateBlock
+	movq	336(%rsp), %rax
+	movq	112(%rsp), %rdx
+	movq	(%rax), %rax
 	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
 	jne	.L119
-	movq	120(%rsp), %rdx
+	movq	104(%rsp), %rdx
 	movq	%rbx, %rcx
+	movl	%eax, 60(%rsp)
 	call	DeallocateBlock
-	movq	72(%rsp), %rcx
+	movq	336(%rsp), %rax
+	movq	(%rax), %rcx
 	call	CommitNumber
-	movq	72(%rsp), %rcx
+	movq	336(%rsp), %rax
+	movq	(%rax), %rcx
+	movl	60(%rsp), %eax
 	testb	$1, (%rcx)
-	je	.L148
+	je	.L119
 	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rcx
-	jmp	.L148
-.L202:
-	movzwl	172(%rsp), %edx
+	movq	336(%rsp), %rax
+	movq	.refptr.number_zero(%rip), %rdx
+	movq	%rdx, (%rax)
+	movl	60(%rsp), %eax
+	jmp	.L119
+.L206:
+	movzwl	152(%rsp), %edx
 	testw	%dx, %dx
-	je	.L206
-	cmpw	%cx, %dx
-	jne	.L166
-	leaq	28(%r12), %rdx
+	je	.L210
+	cmpw	%dx, %cx
+	jne	.L170
+	leaq	24(%rsi), %rdx
 	movq	%rax, %rcx
-	jmp	.L240
+	jmp	.L243
 	.p2align 4,,10
-.L205:
+.L209:
 	cmpw	%r8w, (%rcx)
-	jne	.L175
-.L240:
+	jne	.L179
+.L243:
 	addq	$2, %rdx
 	movzwl	(%rdx), %r8d
 	addq	$2, %rcx
 	testw	%r8w, %r8w
-	jne	.L205
-	jmp	.L206
-.L360:
-	movq	120(%rsp), %rdx
+	jne	.L209
+	jmp	.L210
+.L373:
+	movq	104(%rsp), %rdx
 	movq	%rbx, %rcx
-	movl	%eax, 52(%rsp)
+	movl	%eax, 60(%rsp)
 	call	DeallocateBlock
-	movl	52(%rsp), %eax
+	movl	60(%rsp), %eax
 	jmp	.L119
-.L149:
+.L153:
 	movl	$-5, %eax
 	jmp	.L119
-.L346:
-	movq	88(%rsp), %rdx
-	movq	%rsi, %rcx
+.L360:
+	movq	72(%rsp), %rdx
+	movq	%r12, %rcx
 	call	DeallocateBlock
 	movl	$-5, %eax
 	jmp	.L119
-.L232:
+.L235:
 	movl	$-5, %eax
-	jmp	.L237
+	jmp	.L240
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMC_TryParse
+	.def	PMC_TryParse;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_TryParse
+PMC_TryParse:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$64, %rsp
+	.seh_stackalloc	64
+	.seh_endprologue
+	testq	%r9, %r9
+	movq	%r9, %rbx
+	je	.L380
+	testq	%rcx, %rcx
+	je	.L380
+	leaq	default_number_format_option(%rip), %rax
+	testq	%r8, %r8
+	cmove	%rax, %r8
+	leaq	56(%rsp), %rax
+	movq	%rax, 32(%rsp)
+	leaq	55(%rsp), %r9
+	call	PMC_TryParse_Imp
+	testl	%eax, %eax
+	jne	.L376
+	cmpb	$0, 55(%rsp)
+	movq	56(%rsp), %rcx
+	js	.L381
+	movq	%rcx, (%rbx)
+.L376:
+	addq	$64, %rsp
+	popq	%rbx
+	ret
+.L380:
+	movl	$-1, %eax
+	jmp	.L376
+.L381:
+	call	DeallocateNumber
+	movl	$-2, %eax
+	jmp	.L376
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMC_TryParseForSINT
+	.def	PMC_TryParseForSINT;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_TryParseForSINT
+PMC_TryParseForSINT:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$64, %rsp
+	.seh_stackalloc	64
+	.seh_endprologue
+	movq	112(%rsp), %rbx
+	testq	%rbx, %rbx
+	sete	%r10b
+	testq	%r9, %r9
+	sete	%al
+	orb	%al, %r10b
+	jne	.L385
+	testq	%rcx, %rcx
+	je	.L385
+	leaq	default_number_format_option(%rip), %rax
+	testq	%r8, %r8
+	cmove	%rax, %r8
+	leaq	56(%rsp), %rax
+	movq	%rax, 32(%rsp)
+	call	PMC_TryParse_Imp
+	testl	%eax, %eax
+	jne	.L382
+	movq	56(%rsp), %rdx
+	movq	%rdx, (%rbx)
+.L382:
+	addq	$64, %rsp
+	popq	%rbx
+	ret
+	.p2align 4,,10
+.L385:
+	movl	$-1, %eax
+	jmp	.L382
 	.seh_endproc
 	.section .rdata,"dr"
 	.align 2
@@ -2887,8 +2997,9 @@ PMC_TryParse:
 	.align 2
 .LC1:
 	.ascii ".\0\0\0"
+	.align 2
 .LC2:
-	.ascii "3\0"
+	.ascii "3\0\0\0"
 	.align 2
 .LC3:
 	.ascii "+\0\0\0"
@@ -2919,7 +3030,7 @@ Initialize_Parse:
 	call	*%rbx
 	leaq	.LC2(%rip), %rdx
 	leaq	28+default_number_format_option(%rip), %rcx
-	call	*__imp_lstrcpyA(%rip)
+	call	*%rbx
 	leaq	.LC3(%rip), %rdx
 	leaq	16+default_number_format_option(%rip), %rcx
 	call	*%rbx
@@ -2940,12 +3051,12 @@ Initialize_Parse:
 	ret
 	.seh_endproc
 .lcomm fp_MultiplyAndAdd,8,8
-.lcomm default_number_format_option,40,32
+.lcomm default_number_format_option,52,32
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	AllocateBlock;	.scl	2;	.type	32;	.endef
 	.def	CheckBlockLight;	.scl	2;	.type	32;	.endef
-	.def	DeallocateBlock;	.scl	2;	.type	32;	.endef
 	.def	AllocateNumber;	.scl	2;	.type	32;	.endef
+	.def	DeallocateBlock;	.scl	2;	.type	32;	.endef
 	.def	CommitNumber;	.scl	2;	.type	32;	.endef
 	.def	DeallocateNumber;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr.number_zero, "dr"

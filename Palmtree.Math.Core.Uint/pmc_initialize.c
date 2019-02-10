@@ -121,9 +121,7 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
         entry_points.To_X_I = PMC_To_X_I;
         entry_points.To_X_L = PMC_To_X_L;
         entry_points.FromByteArray = PMC_FromByteArray;
-        entry_points.FromByteArrayForSINT = PMC_FromByteArrayForSINT;
         entry_points.ToByteArray = PMC_ToByteArray;
-        entry_points.ToByteArrayForSINT = PMC_ToByteArrayForSINT;
         entry_points.ToString = PMC_ToString;
         entry_points.TryParse = PMC_TryParse;
         entry_points.Add_I_X = PMC_Add_I_X;
@@ -182,6 +180,10 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
         entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
         entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
         entry_points.Clone_X = PMC_Clone_X;
+
+        entry_points.FromByteArrayForSINT = PMC_FromByteArrayForSINT;
+        entry_points.ToByteArrayForSINT = PMC_ToByteArrayForSINT;
+        entry_points.TryParseForSINT = PMC_TryParseForSINT;
 
         initialized = 1;
     }

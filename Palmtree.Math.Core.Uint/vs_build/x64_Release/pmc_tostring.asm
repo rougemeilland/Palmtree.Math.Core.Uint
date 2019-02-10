@@ -9,10 +9,9 @@ PUBLIC	Initialize_ToString
 PUBLIC	PMC_ToString
 PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13JOFGPIOO@?$AA?4@			; `string'
-PUBLIC	??_C@_01EKENIIDA@3@				; `string'
+PUBLIC	??_C@_13DMCFHHKM@?$AA3@				; `string'
 PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
 PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
-EXTRN	__imp_lstrcpyA:PROC
 EXTRN	__imp_lstrcpyW:PROC
 EXTRN	__imp_lstrlenW:PROC
 EXTRN	AllocateBlock:PROC
@@ -26,7 +25,7 @@ EXTRN	statistics_info:BYTE
 EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
 _BSS	SEGMENT
-default_number_format_option DB 028H DUP (?)
+default_number_format_option DB 034H DUP (?)
 _BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -91,7 +90,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$OutputOneChar DD imagerel OutputOneChar
-	DD	imagerel OutputOneChar+198
+	DD	imagerel OutputOneChar+200
 	DD	imagerel $unwind$OutputOneChar
 pdata	ENDS
 ;	COMDAT pdata
@@ -109,7 +108,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PrintDecimal DD imagerel PrintDecimal
-	DD	imagerel PrintDecimal+2358
+	DD	imagerel PrintDecimal+2374
 	DD	imagerel $unwind$PrintDecimal
 pdata	ENDS
 ;	COMDAT pdata
@@ -132,9 +131,9 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_01EKENIIDA@3@
+;	COMDAT ??_C@_13DMCFHHKM@?$AA3@
 CONST	SEGMENT
-??_C@_01EKENIIDA@3@ DB '3', 00H				; `string'
+??_C@_13DMCFHHKM@?$AA3@ DB '3', 00H, 00H, 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
 CONST	SEGMENT
@@ -1992,7 +1991,7 @@ $LN16@PrintDecim:
 
 	mov	r8, r12
 	mov	QWORD PTR state$[rbp-80], rax
-	movsx	r9d, BYTE PTR [rax]
+	movzx	r9d, WORD PTR [rax]
 	sub	r9d, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-68], r14d
 
@@ -2002,7 +2001,7 @@ $LN16@PrintDecim:
 
 	mov	r14d, DWORD PTR width$[rbp-112]
 
-; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
 	mov	DWORD PTR state$[rbp-72], r9d
 
@@ -2124,6 +2123,7 @@ $LL4@PrintDecim:
 	lea	r10, OFFSET FLAT:decimal_digits
 	movsxd	rcx, DWORD PTR state$[rbp-88]
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	r9d, 1
@@ -2135,14 +2135,14 @@ $LL4@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	r8, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], r8
 	mov	DWORD PTR state$[rbp-68], r9d
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN200@PrintDecim
 
 ; 156  :             {
@@ -2150,9 +2150,9 @@ $LL4@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2252,6 +2252,7 @@ $LN200@PrintDecim:
 	lea	r10, OFFSET FLAT:decimal_digits
 	movsxd	rcx, DWORD PTR state$[rbp-88]
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	r9d, 1
@@ -2263,14 +2264,14 @@ $LN200@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	r8, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], r8
 	mov	DWORD PTR state$[rbp-68], r9d
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN215@PrintDecim
 
 ; 156  :             {
@@ -2278,9 +2279,9 @@ $LN200@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2380,6 +2381,7 @@ $LN215@PrintDecim:
 	lea	r10, OFFSET FLAT:decimal_digits
 	movsxd	rcx, DWORD PTR state$[rbp-88]
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	r9d, 1
@@ -2391,14 +2393,14 @@ $LN215@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	r8, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], r8
 	mov	DWORD PTR state$[rbp-68], r9d
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN230@PrintDecim
 
 ; 156  :             {
@@ -2406,9 +2408,9 @@ $LN215@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2508,6 +2510,7 @@ $LN230@PrintDecim:
 	lea	r10, OFFSET FLAT:decimal_digits
 	movsxd	rcx, DWORD PTR state$[rbp-88]
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	r9d, 1
@@ -2519,14 +2522,14 @@ $LN230@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	r8, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], r8
 	mov	DWORD PTR state$[rbp-68], r9d
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN245@PrintDecim
 
 ; 156  :             {
@@ -2534,9 +2537,9 @@ $LN230@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2640,18 +2643,15 @@ $LN245@PrintDecim:
 	mov	QWORD PTR state$[rbp-64], rdx
 	mov	WORD PTR [rdx], ax
 
-; 151  :             state->OUT_PTR += 1;
-
-	add	QWORD PTR state$[rbp-64], 2
-
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
-	inc	rax
+	add	QWORD PTR state$[rbp-64], 2
+	add	rax, 2
 	mov	DWORD PTR state$[rbp-68], 1
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN260@PrintDecim
 
 ; 156  :             {
@@ -2659,9 +2659,9 @@ $LN245@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2708,7 +2708,7 @@ $LN259@PrintDecim:
 $LN260@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -2763,6 +2763,7 @@ $LN260@PrintDecim:
 	lea	r10, OFFSET FLAT:decimal_digits
 	movsxd	rcx, DWORD PTR state$[rbp-88]
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	r9d, 1
@@ -2774,14 +2775,14 @@ $LN260@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	r8, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], r8
 	mov	DWORD PTR state$[rbp-68], r9d
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN279@PrintDecim
 
 ; 156  :             {
@@ -2789,9 +2790,9 @@ $LN260@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2897,18 +2898,15 @@ $LN279@PrintDecim:
 	mov	QWORD PTR state$[rbp-64], rdx
 	mov	WORD PTR [rdx], ax
 
-; 151  :             state->OUT_PTR += 1;
-
-	add	QWORD PTR state$[rbp-64], 2
-
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
-	inc	rax
+	add	QWORD PTR state$[rbp-64], 2
+	add	rax, 2
 	mov	DWORD PTR state$[rbp-68], 1
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN294@PrintDecim
 
 ; 156  :             {
@@ -2916,9 +2914,9 @@ $LN279@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -2965,7 +2963,7 @@ $LN293@PrintDecim:
 $LN294@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3024,6 +3022,7 @@ $LN294@PrintDecim:
 	mov	QWORD PTR state$[rbp-64], rdx
 	mov	WORD PTR [rdx], ax
 
+; 151  :             state->OUT_PTR += 1;
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 
 	mov	edx, 1
@@ -3031,14 +3030,14 @@ $LN294@PrintDecim:
 
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
 	add	rcx, 2
-	inc	rax
+	add	rax, 2
 	mov	QWORD PTR state$[rbp-64], rcx
 	mov	DWORD PTR state$[rbp-68], edx
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN313@PrintDecim
 
 ; 156  :             {
@@ -3046,9 +3045,9 @@ $LN294@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -3138,18 +3137,15 @@ $LN313@PrintDecim:
 	movzx	eax, WORD PTR [r10+rax*2]
 	mov	WORD PTR [rdx], ax
 
-; 151  :             state->OUT_PTR += 1;
-
-	add	QWORD PTR state$[rbp-64], 2
-
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
-	inc	rax
+	add	QWORD PTR state$[rbp-64], 2
+	add	rax, 2
 	mov	DWORD PTR state$[rbp-68], 1
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN320@PrintDecim
 
 ; 156  :             {
@@ -3157,9 +3153,9 @@ $LN313@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -3208,7 +3204,7 @@ $LN319@PrintDecim:
 $LN320@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3231,7 +3227,6 @@ $LN5@PrintDecim:
 
 	mov	ebx, DWORD PTR [r15]
 	mov	r14, -3689348814741910323		; cccccccccccccccdH
-	npad	1
 $LL332@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -3287,18 +3282,15 @@ $LL332@PrintDecim:
 	mov	QWORD PTR state$[rbp-64], rdx
 	mov	WORD PTR [rdx], ax
 
-; 151  :             state->OUT_PTR += 1;
-
-	add	QWORD PTR state$[rbp-64], 2
-
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp-80]
-	inc	rax
+	add	QWORD PTR state$[rbp-64], 2
+	add	rax, 2
 	mov	DWORD PTR state$[rbp-68], 1
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN346@PrintDecim
 
 ; 156  :             {
@@ -3306,9 +3298,9 @@ $LL332@PrintDecim:
 
 	mov	QWORD PTR state$[rbp-80], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR state$[rbp-72], eax
 
@@ -3355,7 +3347,7 @@ $LN345@PrintDecim:
 $LN346@PrintDecim:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	ebx, edi
@@ -3398,7 +3390,6 @@ $LN393@PrintDecim:
 
 	test	r14d, r14d
 	jle	SHORT $LN7@PrintDecim
-	npad	3
 $LL6@PrintDecim:
 
 ; 287  :             {
@@ -3650,7 +3641,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	lock xadd DWORD PTR statistics_info+12, eax
@@ -3708,7 +3699,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 2
 	lock xadd DWORD PTR statistics_info+12, ecx
@@ -3750,7 +3741,7 @@ ToStringDN_1WORD PROC					; COMDAT
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -3823,7 +3814,7 @@ $LL4@ToStringDN:
 	call	OutputOneChar
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 	mov	r8d, ebx
@@ -3898,18 +3889,16 @@ OutputOneChar PROC					; COMDAT
 	mov	WORD PTR [rcx], ax
 
 ; 151  :             state->OUT_PTR += 1;
-
-	add	QWORD PTR [rbx+48], 2
-
 ; 152  :             state->CURRENT_GROUP_INDEX = 1;
 ; 153  : 
 ; 154  :             // 次のグループが存在すればそのグループに移行する
-; 155  :             if (state->CURRENT_GROUP[1] != '\0')
+; 155  :             if (state->CURRENT_GROUP[1] != L'\0')
 
 	mov	rax, QWORD PTR [rbx+32]
-	inc	rax
+	add	QWORD PTR [rbx+48], 2
+	add	rax, 2
 	mov	DWORD PTR [rbx+44], 1
-	cmp	BYTE PTR [rax], 0
+	cmp	WORD PTR [rax], 0
 	je	SHORT $LN3@OutputOneC
 
 ; 156  :             {
@@ -3917,9 +3906,9 @@ OutputOneChar PROC					; COMDAT
 
 	mov	QWORD PTR [rbx+32], rax
 
-; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 158  :                 state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 
-	movsx	eax, BYTE PTR [rax]
+	movzx	eax, WORD PTR [rax]
 	sub	eax, 48					; 00000030H
 	mov	DWORD PTR [rbx+40], eax
 
@@ -4155,7 +4144,7 @@ $LN5@Initialize:
 ; 118  :     }
 ; 119  : 
 ; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
-; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 ; 122  :     state->CURRENT_GROUP_INDEX = 0;
 ; 123  :     state->OUT_PTR = out_buf;
 ; 124  : }
@@ -4164,7 +4153,7 @@ $LN5@Initialize:
 	lea	rax, QWORD PTR [rsi+28]
 	mov	rsi, QWORD PTR [rsp+64]
 	mov	QWORD PTR [rdi+32], rax
-	movsx	ecx, BYTE PTR [rax]
+	movzx	ecx, WORD PTR [rax]
 	mov	QWORD PTR [rdi+48], rbp
 	sub	ecx, 48					; 00000030H
 	mov	rbp, QWORD PTR [rsp+56]
@@ -4700,11 +4689,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV64Counter PROC					; COMDAT
 
-; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 344  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lock xadd DWORD PTR statistics_info+8, ecx
 
-; 343  :     }
+; 345  :     }
 
 	ret	0
 AddToDIV64Counter ENDP
@@ -4716,11 +4705,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToDIV32Counter PROC					; COMDAT
 
-; 336  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lock xadd DWORD PTR statistics_info+12, ecx
 
-; 337  :     }
+; 339  :     }
 
 	ret	0
 AddToDIV32Counter ENDP
@@ -4731,11 +4720,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 321  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock inc DWORD PTR statistics_info+8
 
-; 320  :     }
+; 322  :     }
 
 	ret	0
 IncrementDIV64Counter ENDP
@@ -4746,11 +4735,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 313  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock inc DWORD PTR statistics_info+12
 
-; 314  :     }
+; 316  :     }
 
 	ret	0
 IncrementDIV32Counter ENDP
@@ -5001,11 +4990,11 @@ $LN4:
 	lea	rcx, OFFSET FLAT:default_number_format_option+10
 	call	QWORD PTR __imp_lstrcpyW
 
-; 559  :     lstrcpy(default_number_format_option.GroupSizes, "3");
+; 559  :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
 
-	lea	rdx, OFFSET FLAT:??_C@_01EKENIIDA@3@
+	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
 	lea	rcx, OFFSET FLAT:default_number_format_option+28
-	call	QWORD PTR __imp_lstrcpyA
+	call	QWORD PTR __imp_lstrcpyW
 
 ; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 

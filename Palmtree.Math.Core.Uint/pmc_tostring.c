@@ -35,7 +35,7 @@ struct TOSTRINGN_OUTPUT_STATE
     wchar_t DECIMAL_SEPARATOR[5];
     int GROUP_SEPARATOR_LENGTH;
     int DECIMAL_SEPARATOR_LENGTH;
-    char* CURRENT_GROUP;
+    wchar_t* CURRENT_GROUP;
     int CURRENT_GROUP_SIZE;
     int CURRENT_GROUP_INDEX;
     wchar_t* OUT_PTR;
@@ -118,7 +118,7 @@ static void InitializeOutputState(struct TOSTRINGN_OUTPUT_STATE* state, wchar_t*
     }
 
     state->CURRENT_GROUP = &format_option->GroupSizes[0];
-    state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+    state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
     state->CURRENT_GROUP_INDEX = 0;
     state->OUT_PTR = out_buf;
 }
@@ -152,10 +152,10 @@ static void OutputOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV 
             state->CURRENT_GROUP_INDEX = 1;
 
             // 次のグループが存在すればそのグループに移行する
-            if (state->CURRENT_GROUP[1] != '\0')
+            if (state->CURRENT_GROUP[1] != L'\0')
             {
                 state->CURRENT_GROUP += 1;
-                state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - '0';
+                state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
             }
         }
         else
@@ -487,7 +487,7 @@ static PMC_STATUS_CODE ToStringX(NUMBER_HEADER* x, wchar_t* buffer, size_t buffe
     {
         // x が 0 ではない場合
         __UNIT_TYPE output_len = _DIVIDE_CEILING_UNIT(x->UNIT_BIT_COUNT, 4);
-        __UNIT_TYPE filling_digit_len;;
+        __UNIT_TYPE filling_digit_len;
         __UNIT_TYPE total_length;
         if (output_len < width)
         {
@@ -556,7 +556,7 @@ PMC_STATUS_CODE Initialize_ToString(PROCESSOR_FEATURES *feature)
     default_number_format_option.DecimalDigits = 2;
     lstrcpyW(default_number_format_option.GroupSeparator, L",");
     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
-    lstrcpy(default_number_format_option.GroupSizes, "3");
+    lstrcpyW(default_number_format_option.GroupSizes, L"3");
     lstrcpyW(default_number_format_option.PositiveSign, L"+");
     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 

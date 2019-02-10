@@ -29,7 +29,7 @@
 
 
 #ifdef _DEBUG
-void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, char format_spec, int width, wchar_t* group_separator, char* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str)
+void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, char format_spec, int width, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str)
 {
     PMC_HANDLE_UINT x;
     static wchar_t actual_str_buffer[4096];
@@ -37,7 +37,7 @@ void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, i
     PMC_STATUS_CODE x_result;
     PMC_NUMBER_FORMAT_OPTION opt;
     lstrcpyW(opt.GroupSeparator, group_separator);
-    lstrcpy(opt.GroupSizes, group_sizes);
+    lstrcpyW(opt.GroupSizes, group_sizes);
     lstrcpyW(opt.DecimalSeparator, decimal_separator);
     opt.DecimalDigits = decimal_digits;
     lstrcpyW(opt.PositiveSign, L"+");

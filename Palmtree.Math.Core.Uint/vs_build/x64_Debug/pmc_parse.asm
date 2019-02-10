@@ -24,13 +24,13 @@ __4CD8546F_pmc_parse@c DB 01H
 msvcjmc	ENDS
 PUBLIC	Initialize_Parse
 PUBLIC	PMC_TryParse
+PUBLIC	PMC_TryParseForSINT
 PUBLIC	__JustMyCode_Default
 PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13JOFGPIOO@?$AA?4@			; `string'
-PUBLIC	??_C@_01EKENIIDA@3@				; `string'
+PUBLIC	??_C@_13DMCFHHKM@?$AA3@				; `string'
 PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
 PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
-EXTRN	__imp_lstrcpyA:PROC
 EXTRN	__imp_lstrcpyW:PROC
 EXTRN	__imp_lstrlenW:PROC
 EXTRN	AllocateBlock:PROC
@@ -51,7 +51,9 @@ EXTRN	statistics_info:BYTE
 EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
 _BSS	SEGMENT
-default_number_format_option DB 028H DUP (?)
+default_number_format_option DB 034H DUP (?)
+	ALIGN	8
+
 fp_MultiplyAndAdd DQ 01H DUP (?)
 _BSS	ENDS
 ;	COMDAT pdata
@@ -62,9 +64,15 @@ $pdata$Initialize_Parse DD imagerel $LN5
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_TryParse DD imagerel $LN12
-	DD	imagerel $LN12+348
+$pdata$PMC_TryParse DD imagerel $LN8
+	DD	imagerel $LN8+253
 	DD	imagerel $unwind$PMC_TryParse
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$PMC_TryParseForSINT DD imagerel $LN8
+	DD	imagerel $LN8+249
+	DD	imagerel $unwind$PMC_TryParseForSINT
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -141,7 +149,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$InitializeParserState DD imagerel InitializeParserState
-	DD	imagerel InitializeParserState+561
+	DD	imagerel InitializeParserState+558
 	DD	imagerel $unwind$InitializeParserState
 pdata	ENDS
 ;	COMDAT pdata
@@ -171,7 +179,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$ParseAsDecimalNumberString DD imagerel ParseAsDecimalNumberString
-	DD	imagerel ParseAsDecimalNumberString+1133
+	DD	imagerel ParseAsDecimalNumberString+1146
 	DD	imagerel $unwind$ParseAsDecimalNumberString
 pdata	ENDS
 ;	COMDAT pdata
@@ -231,7 +239,7 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$TryParseDN DD imagerel TryParseDN
-	DD	imagerel TryParseDN+1559
+	DD	imagerel TryParseDN+1613
 	DD	imagerel $unwind$TryParseDN
 pdata	ENDS
 ;	COMDAT pdata
@@ -261,8 +269,14 @@ pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$TryParseX DD imagerel TryParseX
-	DD	imagerel TryParseX+485
+	DD	imagerel TryParseX+929
 	DD	imagerel $unwind$TryParseX
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$PMC_TryParse_Imp DD imagerel PMC_TryParse_Imp
+	DD	imagerel PMC_TryParse_Imp+278
+	DD	imagerel $unwind$PMC_TryParse_Imp
 pdata	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -280,9 +294,9 @@ CONST	ENDS
 CONST	SEGMENT
 ??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
 CONST	ENDS
-;	COMDAT ??_C@_01EKENIIDA@3@
+;	COMDAT ??_C@_13DMCFHHKM@?$AA3@
 CONST	SEGMENT
-??_C@_01EKENIIDA@3@ DB '3', 00H				; `string'
+??_C@_13DMCFHHKM@?$AA3@ DB '3', 00H, 00H, 00H		; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
 CONST	SEGMENT
@@ -294,9 +308,16 @@ CONST	SEGMENT
 CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$PMC_TryParse_Imp DD 035053801H
+	DD	011c3321H
+	DD	070150027H
+	DD	05014H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$TryParseX DD 025053801H
 	DD	011c2321H
-	DD	07015003dH
+	DD	070150051H
 	DD	05014H
 xdata	ENDS
 ;	COMDAT CONST
@@ -406,7 +427,7 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$TryParseDN DD 035053801H
 	DD	011c3321H
-	DD	070150087H
+	DD	070150083H
 	DD	05014H
 xdata	ENDS
 ;	COMDAT CONST
@@ -490,13 +511,8 @@ TryParseDN$rtcName$3 DB 066H
 	DB	064H
 	DB	073H
 	DB	00H
-TryParseDN$rtcName$4 DB 073H
-	DB	069H
-	DB	067H
-	DB	06eH
-	DB	00H
-	ORG $+7
-TryParseDN$rtcName$5 DB 062H
+	ORG $+4
+TryParseDN$rtcName$4 DB 062H
 	DB	069H
 	DB	06eH
 	DB	05fH
@@ -510,7 +526,7 @@ TryParseDN$rtcName$5 DB 062H
 	DB	065H
 	DB	00H
 	ORG $+3
-TryParseDN$rtcName$6 DB 062H
+TryParseDN$rtcName$5 DB 062H
 	DB	069H
 	DB	06eH
 	DB	05fH
@@ -525,7 +541,7 @@ TryParseDN$rtcName$6 DB 062H
 	DB	073H
 	DB	00H
 	ORG $+2
-TryParseDN$rtcName$7 DB 062H
+TryParseDN$rtcName$6 DB 062H
 	DB	069H
 	DB	06eH
 	DB	05fH
@@ -540,7 +556,7 @@ TryParseDN$rtcName$7 DB 062H
 	DB	074H
 	DB	00H
 	ORG $+2
-TryParseDN$rtcName$8 DB 06eH
+TryParseDN$rtcName$7 DB 06eH
 	DB	06fH
 	DB	05fH
 	DB	06cH
@@ -560,21 +576,18 @@ TryParseDN$rtcName$8 DB 06eH
 	DB	064H
 	DB	065H
 	DB	00H
-	ORG $+4
-TryParseDN$rtcVarDesc DD 0298H
-	DD	08H
-	DQ	FLAT:TryParseDN$rtcName$8
-	DD	0258H
+	ORG $+12
+TryParseDN$rtcVarDesc DD 0278H
 	DD	08H
 	DQ	FLAT:TryParseDN$rtcName$7
-	DD	0218H
+	DD	0238H
 	DD	08H
 	DQ	FLAT:TryParseDN$rtcName$6
 	DD	01f8H
 	DD	08H
 	DQ	FLAT:TryParseDN$rtcName$5
-	DD	0154H
-	DD	04H
+	DD	01d8H
+	DD	08H
 	DQ	FLAT:TryParseDN$rtcName$4
 	DD	0118H
 	DD	08H
@@ -588,8 +601,8 @@ TryParseDN$rtcVarDesc DD 0298H
 	DD	098H
 	DD	08H
 	DQ	FLAT:TryParseDN$rtcName$0
-	ORG $+432
-TryParseDN$rtcFrameData DD 09H
+	ORG $+384
+TryParseDN$rtcFrameData DD 08H
 	DD	00H
 	DQ	FLAT:TryParseDN$rtcVarDesc
 CONST	ENDS
@@ -744,7 +757,7 @@ ParseAsHexNumberString$rtcName$0 DB 073H
 	DB	00H
 	ORG $+10
 ParseAsHexNumberString$rtcVarDesc DD 040H
-	DD	060H
+	DD	058H
 	DQ	FLAT:ParseAsHexNumberString$rtcName$0
 	ORG $+48
 ParseAsHexNumberString$rtcFrameData DD 01H
@@ -770,7 +783,7 @@ ParseAsDecimalNumberString$rtcName$0 DB 073H
 	DB	00H
 	ORG $+10
 ParseAsDecimalNumberString$rtcVarDesc DD 040H
-	DD	060H
+	DD	058H
 	DQ	FLAT:ParseAsDecimalNumberString$rtcName$0
 	ORG $+48
 ParseAsDecimalNumberString$rtcFrameData DD 01H
@@ -898,22 +911,61 @@ $unwind$IncrementMULTI32Counter DD 025051e01H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
-$unwind$PMC_TryParse DD 025053801H
-	DD	011c2321H
-	DD	070150029H
+$unwind$PMC_TryParseForSINT DD 035053801H
+	DD	011c3321H
+	DD	070150027H
 	DD	05014H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
-PMC_TryParse$rtcName$0 DB 06eH
+PMC_TryParseForSINT$rtcName$0 DB 06eH
 	DB	06fH
+	DB	05fH
+	DB	061H
+	DB	062H
+	DB	073H
 	DB	00H
-	ORG $+13
-PMC_TryParse$rtcVarDesc DD 048H
+	ORG $+9
+PMC_TryParseForSINT$rtcVarDesc DD 058H
 	DD	08H
-	DQ	FLAT:PMC_TryParse$rtcName$0
+	DQ	FLAT:PMC_TryParseForSINT$rtcName$0
 	ORG $+48
-PMC_TryParse$rtcFrameData DD 01H
+PMC_TryParseForSINT$rtcFrameData DD 01H
+	DD	00H
+	DQ	FLAT:PMC_TryParseForSINT$rtcVarDesc
+CONST	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$PMC_TryParse DD 035053801H
+	DD	011c3321H
+	DD	07015002bH
+	DD	05014H
+xdata	ENDS
+;	COMDAT CONST
+CONST	SEGMENT
+PMC_TryParse$rtcName$0 DB 06fH
+	DB	05fH
+	DB	073H
+	DB	069H
+	DB	067H
+	DB	06eH
+	DB	00H
+	ORG $+1
+PMC_TryParse$rtcName$1 DB 06fH
+	DB	05fH
+	DB	061H
+	DB	062H
+	DB	073H
+	DB	00H
+	ORG $+2
+PMC_TryParse$rtcVarDesc DD 078H
+	DD	08H
+	DQ	FLAT:PMC_TryParse$rtcName$1
+	DD	054H
+	DD	01H
+	DQ	FLAT:PMC_TryParse$rtcName$0
+	ORG $+96
+PMC_TryParse$rtcFrameData DD 02H
 	DD	00H
 	DQ	FLAT:PMC_TryParse$rtcVarDesc
 CONST	ENDS
@@ -933,6 +985,150 @@ __JustMyCode_Default ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
+;	COMDAT PMC_TryParse_Imp
+_TEXT	SEGMENT
+result$ = 4
+mask$1 = 36
+source$ = 288
+number_styles$ = 296
+format_option$ = 304
+o_sign$ = 312
+o_abs$ = 320
+PMC_TryParse_Imp PROC					; COMDAT
+
+; 1022 : {
+
+	mov	QWORD PTR [rsp+32], r9
+	mov	QWORD PTR [rsp+24], r8
+	mov	DWORD PTR [rsp+16], edx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 312				; 00000138H
+	lea	rbp, QWORD PTR [rsp+48]
+	mov	rdi, rsp
+	mov	ecx, 78					; 0000004eH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+344]
+	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
+	call	__CheckForDebuggerJustMyCode
+
+; 1023 :     PMC_STATUS_CODE result;
+; 1024 :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER)
+
+	mov	eax, DWORD PTR number_styles$[rbp]
+	and	eax, 512				; 00000200H
+	test	eax, eax
+	je	SHORT $LN2@PMC_TryPar
+
+; 1025 :     {
+; 1026 :         // 16進数の場合
+; 1027 : 
+; 1028 :         // 許可されている組み合わせのフラグ
+; 1029 :         _UINT32_T mask = PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER | PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE | PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE;
+
+	mov	DWORD PTR mask$1[rbp], 515		; 00000203H
+
+; 1030 : 
+; 1031 :         // 許可されていないフラグが指定されていればエラー
+; 1032 :         if (number_styles & ~mask)
+
+	mov	eax, DWORD PTR mask$1[rbp]
+	not	eax
+	mov	ecx, DWORD PTR number_styles$[rbp]
+	and	ecx, eax
+	mov	eax, ecx
+	test	eax, eax
+	je	SHORT $LN4@PMC_TryPar
+
+; 1033 :             return (PMC_STATUS_ARGUMENT_ERROR);
+
+	mov	eax, -1
+	jmp	$LN1@PMC_TryPar
+$LN4@PMC_TryPar:
+
+; 1034 : 
+; 1035 :         if ((result = TryParseX(source, number_styles, format_option, o_sign, o_abs)) != PMC_STATUS_OK)
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	mov	r9, QWORD PTR o_sign$[rbp]
+	mov	r8, QWORD PTR format_option$[rbp]
+	mov	edx, DWORD PTR number_styles$[rbp]
+	mov	rcx, QWORD PTR source$[rbp]
+	call	TryParseX
+	mov	DWORD PTR result$[rbp], eax
+	cmp	DWORD PTR result$[rbp], 0
+	je	SHORT $LN5@PMC_TryPar
+
+; 1036 :             return (result);
+
+	mov	eax, DWORD PTR result$[rbp]
+	jmp	SHORT $LN1@PMC_TryPar
+$LN5@PMC_TryPar:
+
+; 1037 :     }
+
+	jmp	SHORT $LN3@PMC_TryPar
+$LN2@PMC_TryPar:
+
+; 1038 :     else
+; 1039 :     {
+; 1040 :         // 10進数の場合
+; 1041 :         if ((result = TryParseDN(source, number_styles, format_option, o_sign, o_abs)) != PMC_STATUS_OK)
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	mov	r9, QWORD PTR o_sign$[rbp]
+	mov	r8, QWORD PTR format_option$[rbp]
+	mov	edx, DWORD PTR number_styles$[rbp]
+	mov	rcx, QWORD PTR source$[rbp]
+	call	TryParseDN
+	mov	DWORD PTR result$[rbp], eax
+	cmp	DWORD PTR result$[rbp], 0
+	je	SHORT $LN6@PMC_TryPar
+
+; 1042 :             return (result);
+
+	mov	eax, DWORD PTR result$[rbp]
+	jmp	SHORT $LN1@PMC_TryPar
+$LN6@PMC_TryPar:
+$LN3@PMC_TryPar:
+
+; 1043 :     }
+; 1044 : #ifdef _DEBUG
+; 1045 :     if ((result = CheckNumber(*o_abs)) != PMC_STATUS_OK)
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	CheckNumber
+	mov	DWORD PTR result$[rbp], eax
+	cmp	DWORD PTR result$[rbp], 0
+	je	SHORT $LN7@PMC_TryPar
+
+; 1046 :         return (result);
+
+	mov	eax, DWORD PTR result$[rbp]
+	jmp	SHORT $LN1@PMC_TryPar
+$LN7@PMC_TryPar:
+
+; 1047 : #endif
+; 1048 :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_TryPar:
+
+; 1049 : }
+
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+PMC_TryParse_Imp ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
 ;	COMDAT TryParseX
 _TEXT	SEGMENT
 result$ = 4
@@ -943,13 +1139,21 @@ int_part_buf$ = 136
 result_parsing$ = 164
 o_bit_count$ = 200
 o_light_check_code$ = 232
-source$ = 480
-number_styles$ = 488
-format_option$ = 496
-o$ = 504
+lzcnt$6 = 260
+padding$7 = 296
+carry$8 = 324
+p$9 = 360
+count$10 = 392
+tv128 = 596
+tv233 = 600
+source$ = 640
+number_styles$ = 648
+format_option$ = 656
+o_sign$ = 664
+o_abs$ = 672
 TryParseX PROC						; COMDAT
 
-; 961  : {
+; 958  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -957,27 +1161,27 @@ TryParseX PROC						; COMDAT
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 488				; 000001e8H
+	sub	rsp, 648				; 00000288H
 	lea	rbp, QWORD PTR [rsp+32]
 	mov	rdi, rsp
-	mov	ecx, 122				; 0000007aH
+	mov	ecx, 162				; 000000a2H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+520]
+	mov	rcx, QWORD PTR [rsp+680]
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 962  :     PMC_STATUS_CODE result;
-; 963  :     __UNIT_TYPE source_len = lstrlenW(source);
+; 959  :     PMC_STATUS_CODE result;
+; 960  :     __UNIT_TYPE source_len = lstrlenW(source);
 
 	mov	rcx, QWORD PTR source$[rbp]
 	call	QWORD PTR __imp_lstrlenW
 	cdqe
 	mov	QWORD PTR source_len$[rbp], rax
 
-; 964  :     __UNIT_TYPE int_part_buf_code;
-; 965  :     __UNIT_TYPE int_part_buf_words;
-; 966  :     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
+; 961  :     __UNIT_TYPE int_part_buf_code;
+; 962  :     __UNIT_TYPE int_part_buf_words;
+; 963  :     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
 
 	mov	rax, QWORD PTR source_len$[rbp]
 	lea	rax, QWORD PTR [rax+rax+2]
@@ -988,18 +1192,18 @@ TryParseX PROC						; COMDAT
 	call	AllocateBlock
 	mov	QWORD PTR int_part_buf$[rbp], rax
 
-; 967  :     if (int_part_buf == NULL)
+; 964  :     if (int_part_buf == NULL)
 
 	cmp	QWORD PTR int_part_buf$[rbp], 0
-	jne	SHORT $LN2@TryParseX
+	jne	SHORT $LN4@TryParseX
 
-; 968  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 965  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@TryParseX
-$LN2@TryParseX:
+$LN4@TryParseX:
 
-; 969  :     int result_parsing = ParseAsHexNumberString(source, number_styles, format_option, int_part_buf);
+; 966  :     int result_parsing = ParseAsHexNumberString(source, number_styles, format_option, int_part_buf);
 
 	mov	r9, QWORD PTR int_part_buf$[rbp]
 	mov	r8, QWORD PTR format_option$[rbp]
@@ -1008,48 +1212,69 @@ $LN2@TryParseX:
 	call	ParseAsHexNumberString
 	mov	DWORD PTR result_parsing$[rbp], eax
 
-; 970  :     if ((result = CheckBlockLight((__UNIT_TYPE*)int_part_buf, int_part_buf_code)) != PMC_STATUS_OK)
+; 967  :     if ((result = CheckBlockLight((__UNIT_TYPE*)int_part_buf, int_part_buf_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR int_part_buf_code$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN3@TryParseX
+	je	SHORT $LN5@TryParseX
 
-; 971  :         return (result);
+; 968  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@TryParseX
-$LN3@TryParseX:
+$LN5@TryParseX:
 
-; 972  :     if (!result_parsing || int_part_buf[0] == L'\0')
+; 969  :     if (!result_parsing || int_part_buf[0] == L'\0')
 
 	cmp	DWORD PTR result_parsing$[rbp], 0
-	je	SHORT $LN5@TryParseX
+	je	SHORT $LN7@TryParseX
 	mov	eax, 2
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	movzx	eax, WORD PTR [rcx+rax]
 	test	eax, eax
-	jne	SHORT $LN4@TryParseX
-$LN5@TryParseX:
+	jne	SHORT $LN6@TryParseX
+$LN7@TryParseX:
 
-; 973  :     {
-; 974  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 970  :     {
+; 971  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 975  :         return (PMC_STATUS_PARSING_ERROR);
+; 972  :         return (PMC_STATUS_PARSING_ERROR);
 
 	mov	eax, 1
 	jmp	$LN1@TryParseX
-$LN4@TryParseX:
+$LN6@TryParseX:
 
-; 976  :     }
-; 977  :     __UNIT_TYPE o_bit_count = lstrlenW(int_part_buf) * 4;
+; 973  :     }
+; 974  : 
+; 975  :     // 先頭 1 文字が 8～F であれば負数とみなす
+; 976  :     *o_sign = Parse1DigitFromHexChar(int_part_buf[0]) >= 8 ? -1 : 1;
+
+	mov	eax, 2
+	imul	rax, rax, 0
+	mov	rcx, QWORD PTR int_part_buf$[rbp]
+	movzx	ecx, WORD PTR [rcx+rax]
+	call	Parse1DigitFromHexChar
+	cmp	eax, 8
+	jb	SHORT $LN14@TryParseX
+	mov	DWORD PTR tv128[rbp], -1
+	jmp	SHORT $LN15@TryParseX
+$LN14@TryParseX:
+	mov	DWORD PTR tv128[rbp], 1
+$LN15@TryParseX:
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movzx	ecx, BYTE PTR tv128[rbp]
+	mov	BYTE PTR [rax], cl
+
+; 977  : 
+; 978  :     __UNIT_TYPE o_bit_count = lstrlenW(int_part_buf) * 4;
 
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	QWORD PTR __imp_lstrlenW
@@ -1057,81 +1282,224 @@ $LN4@TryParseX:
 	cdqe
 	mov	QWORD PTR o_bit_count$[rbp], rax
 
-; 978  :     __UNIT_TYPE o_light_check_code;
-; 979  :     if ((result = AllocateNumber(o, o_bit_count, &o_light_check_code)) != PMC_STATUS_OK)
+; 979  :     __UNIT_TYPE o_light_check_code;
+; 980  :     if ((result = AllocateNumber(o_abs, o_bit_count, &o_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR o_light_check_code$[rbp]
 	mov	rdx, QWORD PTR o_bit_count$[rbp]
-	mov	rcx, QWORD PTR o$[rbp]
+	mov	rcx, QWORD PTR o_abs$[rbp]
 	call	AllocateNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN6@TryParseX
+	je	SHORT $LN8@TryParseX
 
-; 980  :     {
-; 981  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 981  :     {
+; 982  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 982  :         return (result);
+; 983  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@TryParseX
-$LN6@TryParseX:
+	jmp	$LN1@TryParseX
+$LN8@TryParseX:
 
-; 983  :     }
-; 984  :     BuildBinaryFromHexString(int_part_buf, (*o)->BLOCK);
+; 984  :     }
+; 985  :     BuildBinaryFromHexString(int_part_buf, (*o_abs)->BLOCK);
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR [rax+64]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	BuildBinaryFromHexString
 
-; 985  :     if ((result = CheckBlockLight((*o)->BLOCK, o_light_check_code)) != PMC_STATUS_OK)
+; 986  :     if ((result = CheckBlockLight((*o_abs)->BLOCK, o_light_check_code)) != PMC_STATUS_OK)
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR o_light_check_code$[rbp]
 	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN7@TryParseX
+	je	SHORT $LN9@TryParseX
 
-; 986  :         return (result);
+; 987  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@TryParseX
-$LN7@TryParseX:
+	jmp	$LN1@TryParseX
+$LN9@TryParseX:
 
-; 987  :     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 988  :     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 988  :     CommitNumber(*o);
+; 989  :     if (*o_sign < 0)
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	test	eax, eax
+	jge	$LN10@TryParseX
+
+; 990  :     {
+; 991  :         // 負数の場合
+; 992  : 
+; 993  :         int lzcnt = o_bit_count % __UNIT_TYPE_BIT_COUNT;
+
+	xor	edx, edx
+	mov	rax, QWORD PTR o_bit_count$[rbp]
+	mov	ecx, 64					; 00000040H
+	div	rcx
+	mov	rax, rdx
+	mov	DWORD PTR lzcnt$6[rbp], eax
+
+; 994  :         if (lzcnt != 0)
+
+	cmp	DWORD PTR lzcnt$6[rbp], 0
+	je	SHORT $LN11@TryParseX
+
+; 995  :         {
+; 996  :             __UNIT_TYPE padding = (__UNIT_TYPE)-1 << lzcnt;
+
+	mov	eax, DWORD PTR lzcnt$6[rbp]
+	mov	rcx, -1
+	mov	QWORD PTR tv233[rbp], rcx
+	movzx	ecx, al
+	mov	rax, QWORD PTR tv233[rbp]
+	shl	rax, cl
+	mov	QWORD PTR padding$7[rbp], rax
+
+; 997  :             (*o_abs)->BLOCK[(*o_abs)->BLOCK_COUNT - 1] |= padding;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	rcx, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rcx, QWORD PTR [rcx+56]
+	mov	rax, QWORD PTR [rax+64]
+	mov	rdx, QWORD PTR padding$7[rbp]
+	mov	rax, QWORD PTR [rax+rcx*8-8]
+	or	rax, rdx
+	mov	rcx, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR [rcx]
+	mov	rdx, QWORD PTR o_abs$[rbp]
+	mov	rdx, QWORD PTR [rdx]
+	mov	rdx, QWORD PTR [rdx+56]
+	mov	rcx, QWORD PTR [rcx+64]
+	mov	QWORD PTR [rcx+rdx*8-8], rax
+$LN11@TryParseX:
+
+; 998  :         }
+; 999  : 
+; 1000 :         // 配列 (*o_abs)->BLOCK の内容をビット反転してインクリメントする
+; 1001 :         char carry = 1;
+
+	mov	BYTE PTR carry$8[rbp], 1
+
+; 1002 :         __UNIT_TYPE* p = (*o_abs)->BLOCK;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	rax, QWORD PTR [rax+64]
+	mov	QWORD PTR p$9[rbp], rax
+
+; 1003 :         __UNIT_TYPE count = (*o_abs)->BLOCK_COUNT;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	rax, QWORD PTR [rax+56]
+	mov	QWORD PTR count$10[rbp], rax
+$LN2@TryParseX:
+
+; 1004 :         while (count > 0)
+
+	cmp	QWORD PTR count$10[rbp], 0
+	jbe	SHORT $LN3@TryParseX
+
+; 1005 :         {
+; 1006 :             carry = _ADD_UNIT(carry, ~*p, 0, p);
+
+	mov	rax, QWORD PTR p$9[rbp]
+	mov	rax, QWORD PTR [rax]
+	not	rax
+	mov	r9, QWORD PTR p$9[rbp]
+	xor	r8d, r8d
+	mov	rdx, rax
+	movzx	ecx, BYTE PTR carry$8[rbp]
+	call	_ADD_UNIT
+	mov	BYTE PTR carry$8[rbp], al
+
+; 1007 :             ++p;
+
+	mov	rax, QWORD PTR p$9[rbp]
+	add	rax, 8
+	mov	QWORD PTR p$9[rbp], rax
+
+; 1008 :             --count;
+
+	mov	rax, QWORD PTR count$10[rbp]
+	dec	rax
+	mov	QWORD PTR count$10[rbp], rax
+
+; 1009 :         }
+
+	jmp	SHORT $LN2@TryParseX
+$LN3@TryParseX:
+$LN10@TryParseX:
+
+; 1010 :     }
+; 1011 :     CommitNumber(*o_abs);
+
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rcx, QWORD PTR [rax]
 	call	CommitNumber
 
-; 989  :     return (PMC_STATUS_OK);
+; 1012 :     if ((*o_abs)->IS_ZERO)
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	eax, DWORD PTR [rax]
+	and	eax, 1
+	test	eax, eax
+	je	SHORT $LN12@TryParseX
+
+; 1013 :     {
+; 1014 :         DeallocateNumber(*o_abs);
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	DeallocateNumber
+
+; 1015 :         *o_sign = 0;
+
+	mov	rax, QWORD PTR o_sign$[rbp]
+	mov	BYTE PTR [rax], 0
+
+; 1016 :         *o_abs = &number_zero;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	lea	rcx, OFFSET FLAT:number_zero
+	mov	QWORD PTR [rax], rcx
+$LN12@TryParseX:
+
+; 1017 :     }
+; 1018 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@TryParseX:
 
-; 990  : }
+; 1019 : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
 	lea	rdx, OFFSET FLAT:TryParseX$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rax, rdi
-	lea	rsp, QWORD PTR [rbp+456]
+	lea	rsp, QWORD PTR [rbp+616]
 	pop	rdi
 	pop	rbp
 	ret	0
@@ -1151,7 +1519,7 @@ source$ = 384
 out_buf$ = 392
 BuildBinaryFromHexString PROC				; COMDAT
 
-; 940  : {
+; 937  : {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -1167,23 +1535,23 @@ BuildBinaryFromHexString PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 941  :     int word_digit_count = __UNIT_TYPE_BIT_COUNT / 4;
+; 938  :     int word_digit_count = __UNIT_TYPE_BIT_COUNT / 4;
 
 	mov	DWORD PTR word_digit_count$[rbp], 16
 
-; 942  :     __UNIT_TYPE source_count = lstrlenW(source);
+; 939  :     __UNIT_TYPE source_count = lstrlenW(source);
 
 	mov	rcx, QWORD PTR source$[rbp]
 	call	QWORD PTR __imp_lstrlenW
 	cdqe
 	mov	QWORD PTR source_count$[rbp], rax
 
-; 943  :     wchar_t* in_ptr = source;
+; 940  :     wchar_t* in_ptr = source;
 
 	mov	rax, QWORD PTR source$[rbp]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 944  :     __UNIT_TYPE* out_ptr = out_buf + _DIVIDE_CEILING_UNIT(source_count, word_digit_count) - 1;
+; 941  :     __UNIT_TYPE* out_ptr = out_buf + _DIVIDE_CEILING_UNIT(source_count, word_digit_count) - 1;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	rdx, rax
@@ -1193,7 +1561,7 @@ BuildBinaryFromHexString PROC				; COMDAT
 	lea	rax, QWORD PTR [rcx+rax*8-8]
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 945  :     int r = source_count % word_digit_count;
+; 942  :     int r = source_count % word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	QWORD PTR tv74[rbp], rax
@@ -1204,13 +1572,13 @@ BuildBinaryFromHexString PROC				; COMDAT
 	mov	rax, rdx
 	mov	DWORD PTR r$[rbp], eax
 
-; 946  :     if (r > 0)
+; 943  :     if (r > 0)
 
 	cmp	DWORD PTR r$[rbp], 0
 	jle	SHORT $LN4@BuildBinar
 
-; 947  :     {
-; 948  :         *out_ptr-- = BuildLeading1WordFromHexString(in_ptr, r);
+; 944  :     {
+; 945  :         *out_ptr-- = BuildLeading1WordFromHexString(in_ptr, r);
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rdx, rax
@@ -1222,14 +1590,14 @@ BuildBinaryFromHexString PROC				; COMDAT
 	sub	rax, 8
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 949  :         in_ptr += r;
+; 946  :         in_ptr += r;
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 950  :         source_count -= r;
+; 947  :         source_count -= r;
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR source_count$[rbp]
@@ -1239,14 +1607,14 @@ BuildBinaryFromHexString PROC				; COMDAT
 $LN4@BuildBinar:
 $LN2@BuildBinar:
 
-; 951  :     }
-; 952  :     while (source_count > 0)
+; 948  :     }
+; 949  :     while (source_count > 0)
 
 	cmp	QWORD PTR source_count$[rbp], 0
 	jbe	SHORT $LN3@BuildBinar
 
-; 953  :     {
-; 954  :         *out_ptr-- = Build1WordFromHexString(in_ptr);
+; 950  :     {
+; 951  :         *out_ptr-- = Build1WordFromHexString(in_ptr);
 
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	call	Build1WordFromHexString
@@ -1256,14 +1624,14 @@ $LN2@BuildBinar:
 	sub	rax, 8
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 955  :         in_ptr += word_digit_count;
+; 952  :         in_ptr += word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 956  :         source_count -= word_digit_count;
+; 953  :         source_count -= word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	rcx, QWORD PTR source_count$[rbp]
@@ -1271,12 +1639,12 @@ $LN2@BuildBinar:
 	mov	rax, rcx
 	mov	QWORD PTR source_count$[rbp], rax
 
-; 957  :     }
+; 954  :     }
 
 	jmp	SHORT $LN2@BuildBinar
 $LN3@BuildBinar:
 
-; 958  : }
+; 955  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -1308,7 +1676,7 @@ tv66 = 212
 in_ptr$ = 256
 Build1WordFromHexString PROC				; COMDAT
 
-; 907  : {
+; 904  : {
 
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -1323,7 +1691,7 @@ Build1WordFromHexString PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 908  :     __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr++);
+; 905  :     __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1336,14 +1704,14 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	eax, eax
 	mov	QWORD PTR x$[rbp], rax
 
-; 909  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
+; 906  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN2@Build1Word
 
-; 910  :     {
-; 911  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 907  :     {
+; 908  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1359,7 +1727,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 912  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 909  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1375,7 +1743,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 913  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 910  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1391,7 +1759,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 914  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 911  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1407,7 +1775,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 915  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 912  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1423,7 +1791,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 916  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 913  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1439,7 +1807,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 917  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 914  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1455,7 +1823,7 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 918  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 915  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1472,15 +1840,15 @@ Build1WordFromHexString PROC				; COMDAT
 	mov	QWORD PTR x$[rbp], rax
 $LN2@Build1Word:
 
-; 919  :     }
-; 920  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
+; 916  :     }
+; 917  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN3@Build1Word
 
-; 921  :     {
-; 922  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 918  :     {
+; 919  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1496,7 +1864,7 @@ $LN2@Build1Word:
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 923  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 920  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1512,7 +1880,7 @@ $LN2@Build1Word:
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 924  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 921  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1528,7 +1896,7 @@ $LN2@Build1Word:
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 925  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 922  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1545,15 +1913,15 @@ $LN2@Build1Word:
 	mov	QWORD PTR x$[rbp], rax
 $LN3@Build1Word:
 
-; 926  :     }
-; 927  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
+; 923  :     }
+; 924  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN4@Build1Word
 
-; 928  :     {
-; 929  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 925  :     {
+; 926  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1569,7 +1937,7 @@ $LN3@Build1Word:
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 930  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 927  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1586,15 +1954,15 @@ $LN3@Build1Word:
 	mov	QWORD PTR x$[rbp], rax
 $LN4@Build1Word:
 
-; 931  :     }
-; 932  :     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
+; 928  :     }
+; 929  :     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN5@Build1Word
 
-; 933  :     {
-; 934  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+; 930  :     {
+; 931  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -1611,12 +1979,12 @@ $LN4@Build1Word:
 	mov	QWORD PTR x$[rbp], rax
 $LN5@Build1Word:
 
-; 935  :     }
-; 936  :     return (x);
+; 932  :     }
+; 933  :     return (x);
 
 	mov	rax, QWORD PTR x$[rbp]
 
-; 937  : }
+; 934  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -1634,7 +2002,7 @@ in_ptr$ = 256
 count$ = 264
 BuildLeading1WordFromHexString PROC			; COMDAT
 
-; 893  : {
+; 890  : {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -1650,7 +2018,7 @@ BuildLeading1WordFromHexString PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 894  :     __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr);
+; 891  :     __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr);
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	ecx, WORD PTR [rax]
@@ -1658,26 +2026,26 @@ BuildLeading1WordFromHexString PROC			; COMDAT
 	mov	eax, eax
 	mov	QWORD PTR x$[rbp], rax
 
-; 895  :     ++in_ptr;
+; 892  :     ++in_ptr;
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 896  :     --count;
+; 893  :     --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 $LN2@BuildLeadi:
 
-; 897  :     while (count > 0)
+; 894  :     while (count > 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	jbe	SHORT $LN3@BuildLeadi
 
-; 898  :     {
-; 899  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr);
+; 895  :     {
+; 896  :         x = x * 16 + Parse1DigitFromHexChar(*in_ptr);
 
 	imul	rax, QWORD PTR x$[rbp], 16
 	mov	QWORD PTR tv70[rbp], rax
@@ -1690,28 +2058,28 @@ $LN2@BuildLeadi:
 	mov	rax, rcx
 	mov	QWORD PTR x$[rbp], rax
 
-; 900  :         ++in_ptr;
+; 897  :         ++in_ptr;
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 901  :         --count;
+; 898  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 902  :     }
+; 899  :     }
 
 	jmp	SHORT $LN2@BuildLeadi
 $LN3@BuildLeadi:
 
-; 903  :     return (x);
+; 900  :     return (x);
 
 	mov	rax, QWORD PTR x$[rbp]
 
-; 904  : }
+; 901  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -1727,7 +2095,7 @@ tv65 = 192
 c$ = 240
 Parse1DigitFromHexChar PROC				; COMDAT
 
-; 859  : {
+; 856  : {
 
 	mov	WORD PTR [rsp+8], cx
 	push	rbp
@@ -1742,7 +2110,7 @@ Parse1DigitFromHexChar PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 860  :     switch (c)
+; 857  :     switch (c)
 
 	movzx	eax, WORD PTR c$[rbp]
 	mov	DWORD PTR tv65[rbp], eax
@@ -1759,58 +2127,58 @@ Parse1DigitFromHexChar PROC				; COMDAT
 	jmp	rax
 $LN4@Parse1Digi:
 
-; 861  :     {
-; 862  :     case L'0':
-; 863  :     case L'1':
-; 864  :     case L'2':
-; 865  :     case L'3':
-; 866  :     case L'4':
-; 867  :     case L'5':
-; 868  :     case L'6':
-; 869  :     case L'7':
-; 870  :     case L'8':
-; 871  :     case L'9':
-; 872  :         return (c - L'0');
+; 858  :     {
+; 859  :     case L'0':
+; 860  :     case L'1':
+; 861  :     case L'2':
+; 862  :     case L'3':
+; 863  :     case L'4':
+; 864  :     case L'5':
+; 865  :     case L'6':
+; 866  :     case L'7':
+; 867  :     case L'8':
+; 868  :     case L'9':
+; 869  :         return (c - L'0');
 
 	movzx	eax, WORD PTR c$[rbp]
 	sub	eax, 48					; 00000030H
 	jmp	SHORT $LN1@Parse1Digi
 $LN5@Parse1Digi:
 
-; 873  :     case L'a':
-; 874  :     case L'b':
-; 875  :     case L'c':
-; 876  :     case L'd':
-; 877  :     case L'e':
-; 878  :     case L'f':
-; 879  :         return (c - L'a' + 10);
+; 870  :     case L'a':
+; 871  :     case L'b':
+; 872  :     case L'c':
+; 873  :     case L'd':
+; 874  :     case L'e':
+; 875  :     case L'f':
+; 876  :         return (c - L'a' + 10);
 
 	movzx	eax, WORD PTR c$[rbp]
 	sub	eax, 87					; 00000057H
 	jmp	SHORT $LN1@Parse1Digi
 $LN6@Parse1Digi:
 
-; 880  :     case L'A':
-; 881  :     case L'B':
-; 882  :     case L'C':
-; 883  :     case L'D':
-; 884  :     case L'E':
-; 885  :     case L'F':
-; 886  :         return (c - L'A' + 10);
+; 877  :     case L'A':
+; 878  :     case L'B':
+; 879  :     case L'C':
+; 880  :     case L'D':
+; 881  :     case L'E':
+; 882  :     case L'F':
+; 883  :         return (c - L'A' + 10);
 
 	movzx	eax, WORD PTR c$[rbp]
 	sub	eax, 55					; 00000037H
 	jmp	SHORT $LN1@Parse1Digi
 $LN7@Parse1Digi:
 
-; 887  :     default:
-; 888  :         return ((_UINT32_T)-1);
+; 884  :     default:
+; 885  :         return ((_UINT32_T)-1);
 
 	mov	eax, -1					; ffffffffH
 $LN1@Parse1Digi:
 
-; 889  :     }
-; 890  : }
+; 886  :     }
+; 887  : }
 
 	lea	rsp, QWORD PTR [rbp+216]
 	pop	rdi
@@ -1892,25 +2260,25 @@ int_part_buf$ = 168
 frac_part_buf_code$ = 200
 frac_part_buf_words$ = 232
 frac_part_buf$ = 264
-sign$ = 292
-result_parsing$ = 324
-s_ptr$12 = 360
-d_ptr$13 = 392
-frac_ptr$ = 424
-bin_buf_code$ = 456
-bin_buf_words$ = 488
-bin_buf$ = 520
-bin_buf_count$ = 552
-o_bit_count$ = 584
-no_light_check_code$ = 616
-tv202 = 1016
-source$ = 1056
-number_styles$ = 1064
-format_option$ = 1072
-o$ = 1080
+result_parsing$ = 292
+s_ptr$11 = 328
+d_ptr$12 = 360
+frac_ptr$ = 392
+bin_buf_code$ = 424
+bin_buf_words$ = 456
+bin_buf$ = 488
+bin_buf_count$ = 520
+o_bit_count$ = 552
+no_light_check_code$ = 584
+tv193 = 984
+source$ = 1024
+number_styles$ = 1032
+format_option$ = 1040
+o_sign$ = 1048
+o_abs$ = 1056
 TryParseDN PROC						; COMDAT
 
-; 715  : {
+; 716  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -1918,38 +2286,38 @@ TryParseDN PROC						; COMDAT
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 1080				; 00000438H
+	sub	rsp, 1048				; 00000418H
 	lea	rbp, QWORD PTR [rsp+48]
 	mov	rdi, rsp
-	mov	ecx, 270				; 0000010eH
+	mov	ecx, 262				; 00000106H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+1112]
+	mov	rcx, QWORD PTR [rsp+1080]
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 716  :     PMC_STATUS_CODE result;
-; 717  : #ifdef _M_IX86
-; 718  :     int word_digit_count = 9;
-; 719  : #elif defined(_M_IX64)
-; 720  :     int word_digit_count = 19;
+; 717  :     PMC_STATUS_CODE result;
+; 718  : #ifdef _M_IX86
+; 719  :     int word_digit_count = 9;
+; 720  : #elif defined(_M_IX64)
+; 721  :     int word_digit_count = 19;
 
 	mov	DWORD PTR word_digit_count$[rbp], 19
 
-; 721  : #else
-; 722  : #error unknown platform
-; 723  : #endif
-; 724  :     __UNIT_TYPE source_len = lstrlenW(source);
+; 722  : #else
+; 723  : #error unknown platform
+; 724  : #endif
+; 725  :     __UNIT_TYPE source_len = lstrlenW(source);
 
 	mov	rcx, QWORD PTR source$[rbp]
 	call	QWORD PTR __imp_lstrlenW
 	cdqe
 	mov	QWORD PTR source_len$[rbp], rax
 
-; 725  : 
-; 726  :     __UNIT_TYPE int_part_buf_code;
-; 727  :     __UNIT_TYPE int_part_buf_words;
-; 728  :     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
+; 726  : 
+; 727  :     __UNIT_TYPE int_part_buf_code;
+; 728  :     __UNIT_TYPE int_part_buf_words;
+; 729  :     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
 
 	mov	rax, QWORD PTR source_len$[rbp]
 	lea	rax, QWORD PTR [rax+rax+2]
@@ -1960,21 +2328,21 @@ TryParseDN PROC						; COMDAT
 	call	AllocateBlock
 	mov	QWORD PTR int_part_buf$[rbp], rax
 
-; 729  :     if (int_part_buf == NULL)
+; 730  :     if (int_part_buf == NULL)
 
 	cmp	QWORD PTR int_part_buf$[rbp], 0
 	jne	SHORT $LN9@TryParseDN
 
-; 730  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 731  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@TryParseDN
 $LN9@TryParseDN:
 
-; 731  : 
-; 732  :     __UNIT_TYPE frac_part_buf_code;
-; 733  :     __UNIT_TYPE frac_part_buf_words;
-; 734  :     wchar_t* frac_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &frac_part_buf_words, &frac_part_buf_code);
+; 732  : 
+; 733  :     __UNIT_TYPE frac_part_buf_code;
+; 734  :     __UNIT_TYPE frac_part_buf_words;
+; 735  :     wchar_t* frac_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &frac_part_buf_words, &frac_part_buf_code);
 
 	mov	rax, QWORD PTR source_len$[rbp]
 	lea	rax, QWORD PTR [rax+rax+2]
@@ -1985,33 +2353,32 @@ $LN9@TryParseDN:
 	call	AllocateBlock
 	mov	QWORD PTR frac_part_buf$[rbp], rax
 
-; 735  :     if (frac_part_buf == NULL)
+; 736  :     if (frac_part_buf == NULL)
 
 	cmp	QWORD PTR frac_part_buf$[rbp], 0
 	jne	SHORT $LN10@TryParseDN
 
-; 736  :     {
-; 737  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 737  :     {
+; 738  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 738  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 739  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@TryParseDN
 $LN10@TryParseDN:
 
-; 739  :     }
-; 740  :     int sign;
-; 741  :     int result_parsing = ParseAsDecimalNumberString(source, number_styles, format_option, &sign, int_part_buf, frac_part_buf);
+; 740  :     }
+; 741  :     int result_parsing = ParseAsDecimalNumberString(source, number_styles, format_option, o_sign, int_part_buf, frac_part_buf);
 
 	mov	rax, QWORD PTR frac_part_buf$[rbp]
 	mov	QWORD PTR [rsp+40], rax
 	mov	rax, QWORD PTR int_part_buf$[rbp]
 	mov	QWORD PTR [rsp+32], rax
-	lea	r9, QWORD PTR sign$[rbp]
+	mov	r9, QWORD PTR o_sign$[rbp]
 	mov	r8, QWORD PTR format_option$[rbp]
 	mov	edx, DWORD PTR number_styles$[rbp]
 	mov	rcx, QWORD PTR source$[rbp]
@@ -2124,26 +2491,26 @@ $LN14@TryParseDN:
 ; 763  :         wchar_t* s_ptr = int_part_buf;
 
 	mov	rax, QWORD PTR int_part_buf$[rbp]
-	mov	QWORD PTR s_ptr$12[rbp], rax
+	mov	QWORD PTR s_ptr$11[rbp], rax
 
 ; 764  :         wchar_t* d_ptr = int_part_buf;
 
 	mov	rax, QWORD PTR int_part_buf$[rbp]
-	mov	QWORD PTR d_ptr$13[rbp], rax
+	mov	QWORD PTR d_ptr$12[rbp], rax
 $LN2@TryParseDN:
 
 ; 765  :         while (*s_ptr == L'0')
 
-	mov	rax, QWORD PTR s_ptr$12[rbp]
+	mov	rax, QWORD PTR s_ptr$11[rbp]
 	movzx	eax, WORD PTR [rax]
 	cmp	eax, 48					; 00000030H
 	jne	SHORT $LN3@TryParseDN
 
 ; 766  :             ++s_ptr;
 
-	mov	rax, QWORD PTR s_ptr$12[rbp]
+	mov	rax, QWORD PTR s_ptr$11[rbp]
 	add	rax, 2
-	mov	QWORD PTR s_ptr$12[rbp], rax
+	mov	QWORD PTR s_ptr$11[rbp], rax
 	jmp	SHORT $LN2@TryParseDN
 $LN3@TryParseDN:
 $LN4@TryParseDN:
@@ -2152,14 +2519,14 @@ $LN4@TryParseDN:
 ; 768  :         {
 ; 769  :             *d_ptr = *s_ptr;
 
-	mov	rax, QWORD PTR d_ptr$13[rbp]
-	mov	rcx, QWORD PTR s_ptr$12[rbp]
+	mov	rax, QWORD PTR d_ptr$12[rbp]
+	mov	rcx, QWORD PTR s_ptr$11[rbp]
 	movzx	ecx, WORD PTR [rcx]
 	mov	WORD PTR [rax], cx
 
 ; 770  :             if (*s_ptr == L'\0')
 
-	mov	rax, QWORD PTR s_ptr$12[rbp]
+	mov	rax, QWORD PTR s_ptr$11[rbp]
 	movzx	eax, WORD PTR [rax]
 	test	eax, eax
 	jne	SHORT $LN16@TryParseDN
@@ -2171,15 +2538,15 @@ $LN16@TryParseDN:
 
 ; 772  :             ++s_ptr;
 
-	mov	rax, QWORD PTR s_ptr$12[rbp]
+	mov	rax, QWORD PTR s_ptr$11[rbp]
 	add	rax, 2
-	mov	QWORD PTR s_ptr$12[rbp], rax
+	mov	QWORD PTR s_ptr$11[rbp], rax
 
 ; 773  :             ++d_ptr;
 
-	mov	rax, QWORD PTR d_ptr$13[rbp]
+	mov	rax, QWORD PTR d_ptr$12[rbp]
 	add	rax, 2
-	mov	QWORD PTR d_ptr$13[rbp], rax
+	mov	QWORD PTR d_ptr$12[rbp], rax
 
 ; 774  :         }
 
@@ -2258,69 +2625,27 @@ $LN17@TryParseDN:
 
 ; 789  :     }
 ; 790  : 
-; 791  :     if (sign < 0)
+; 791  :     if (int_part_buf[0] == L'\0')
 
-	cmp	DWORD PTR sign$[rbp], 0
-	jge	SHORT $LN18@TryParseDN
+	mov	eax, 2
+	imul	rax, rax, 0
+	mov	rcx, QWORD PTR int_part_buf$[rbp]
+	movzx	eax, WORD PTR [rcx+rax]
+	test	eax, eax
+	jne	SHORT $LN18@TryParseDN
 
 ; 792  :     {
-; 793  :         if (int_part_buf[0] == L'\0')
+; 793  :         // 整数部が空である場合
+; 794  :         
+; 795  :         // 符号を 0 に 修正する
+; 796  :         *o_sign = 0;
 
-	mov	eax, 2
-	imul	rax, rax, 0
-	mov	rcx, QWORD PTR int_part_buf$[rbp]
-	movzx	eax, WORD PTR [rcx+rax]
-	test	eax, eax
-	jne	SHORT $LN19@TryParseDN
+	mov	rax, QWORD PTR o_sign$[rbp]
+	mov	BYTE PTR [rax], 0
 
-; 794  :         {
-; 795  :             // - 符号が与えられていてかつ整数部が 0 であるなら符号を修正する
-; 796  :             sign = 0;
-
-	mov	DWORD PTR sign$[rbp], 0
-
-; 797  :         }
-
-	jmp	SHORT $LN20@TryParseDN
-$LN19@TryParseDN:
-
-; 798  :         else
-; 799  :         {
-; 800  :             // - 符号が与えられていてかつ整数部が 0 ではないなら、エラーとする
-; 801  :             DeallocateBlock((__UNIT_TYPE*)frac_part_buf, frac_part_buf_words);
-
-	mov	rdx, QWORD PTR frac_part_buf_words$[rbp]
-	mov	rcx, QWORD PTR frac_part_buf$[rbp]
-	call	DeallocateBlock
-
-; 802  :             DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
-
-	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
-	mov	rcx, QWORD PTR int_part_buf$[rbp]
-	call	DeallocateBlock
-
-; 803  :             return (PMC_STATUS_OVERFLOW);
-
-	mov	eax, -2
-	jmp	$LN1@TryParseDN
-$LN20@TryParseDN:
-$LN18@TryParseDN:
-
-; 804  :         }
-; 805  :     }
-; 806  : 
-; 807  :     // 整数部が空である場合、1桁の 0 を設定する
-; 808  :     if (int_part_buf[0] == L'\0')
-
-	mov	eax, 2
-	imul	rax, rax, 0
-	mov	rcx, QWORD PTR int_part_buf$[rbp]
-	movzx	eax, WORD PTR [rcx+rax]
-	test	eax, eax
-	jne	SHORT $LN21@TryParseDN
-
-; 809  :     {
-; 810  :         int_part_buf[0] = L'0';
+; 797  : 
+; 798  :         // 整数部に 0 を設定する
+; 799  :         int_part_buf[0] = L'0';
 
 	mov	eax, 2
 	imul	rax, rax, 0
@@ -2328,35 +2653,35 @@ $LN18@TryParseDN:
 	mov	rdx, QWORD PTR int_part_buf$[rbp]
 	mov	WORD PTR [rdx+rax], cx
 
-; 811  :         int_part_buf[1] = L'\0';
+; 800  :         int_part_buf[1] = L'\0';
 
 	mov	eax, 2
 	imul	rax, rax, 1
 	xor	ecx, ecx
 	mov	rdx, QWORD PTR int_part_buf$[rbp]
 	mov	WORD PTR [rdx+rax], cx
-$LN21@TryParseDN:
+$LN18@TryParseDN:
 
-; 812  :     }
-; 813  : 
-; 814  :     // 小数部は捨てる
-; 815  :     DeallocateBlock((__UNIT_TYPE*)frac_part_buf, frac_part_buf_words);
+; 801  :     }
+; 802  : 
+; 803  :     // 小数部は捨てる
+; 804  :     DeallocateBlock((__UNIT_TYPE*)frac_part_buf, frac_part_buf_words);
 
 	mov	rdx, QWORD PTR frac_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR frac_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 816  : 
-; 817  :     __UNIT_TYPE bin_buf_code;
-; 818  :     __UNIT_TYPE bin_buf_words;
-; 819  :     __UNIT_TYPE* bin_buf = AllocateBlock(_DIVIDE_CEILING_SIZE(lstrlenW(int_part_buf), word_digit_count) * __UNIT_TYPE_BIT_COUNT, &bin_buf_words, &bin_buf_code);
+; 805  : 
+; 806  :     __UNIT_TYPE bin_buf_code;
+; 807  :     __UNIT_TYPE bin_buf_words;
+; 808  :     __UNIT_TYPE* bin_buf = AllocateBlock(_DIVIDE_CEILING_SIZE(lstrlenW(int_part_buf), word_digit_count) * __UNIT_TYPE_BIT_COUNT, &bin_buf_words, &bin_buf_code);
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
-	mov	QWORD PTR tv202[rbp], rax
+	mov	QWORD PTR tv193[rbp], rax
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	QWORD PTR __imp_lstrlenW
 	cdqe
-	mov	rcx, QWORD PTR tv202[rbp]
+	mov	rcx, QWORD PTR tv193[rbp]
 	mov	rdx, rcx
 	mov	rcx, rax
 	call	_DIVIDE_CEILING_SIZE
@@ -2367,89 +2692,89 @@ $LN21@TryParseDN:
 	call	AllocateBlock
 	mov	QWORD PTR bin_buf$[rbp], rax
 
-; 820  :     if (bin_buf == NULL)
+; 809  :     if (bin_buf == NULL)
 
 	cmp	QWORD PTR bin_buf$[rbp], 0
-	jne	SHORT $LN22@TryParseDN
+	jne	SHORT $LN19@TryParseDN
 
-; 821  :     {
-; 822  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 810  :     {
+; 811  :         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 823  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 812  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@TryParseDN
-$LN22@TryParseDN:
+$LN19@TryParseDN:
 
-; 824  :     }
-; 825  :     __UNIT_TYPE bin_buf_count;
-; 826  :     BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count);
+; 813  :     }
+; 814  :     __UNIT_TYPE bin_buf_count;
+; 815  :     BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count);
 
 	lea	r8, QWORD PTR bin_buf_count$[rbp]
 	mov	rdx, QWORD PTR bin_buf$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	BuildBinaryFromDecimalString
 
-; 827  :     if ((result = CheckBlockLight(bin_buf, bin_buf_code)) != PMC_STATUS_OK)
+; 816  :     if ((result = CheckBlockLight(bin_buf, bin_buf_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR bin_buf_code$[rbp]
 	mov	rcx, QWORD PTR bin_buf$[rbp]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN23@TryParseDN
+	je	SHORT $LN20@TryParseDN
 
-; 828  :         return (result);
+; 817  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@TryParseDN
-$LN23@TryParseDN:
+$LN20@TryParseDN:
 
-; 829  :     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
+; 818  :     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
 
 	mov	rdx, QWORD PTR int_part_buf_words$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
 	call	DeallocateBlock
 
-; 830  : 
-; 831  :     __UNIT_TYPE o_bit_count = bin_buf_count * __UNIT_TYPE_BIT_COUNT;
+; 819  : 
+; 820  :     __UNIT_TYPE o_bit_count = bin_buf_count * __UNIT_TYPE_BIT_COUNT;
 
 	imul	rax, QWORD PTR bin_buf_count$[rbp], 64	; 00000040H
 	mov	QWORD PTR o_bit_count$[rbp], rax
 
-; 832  :     __UNIT_TYPE no_light_check_code;
-; 833  :     if ((result = AllocateNumber(o, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
+; 821  :     __UNIT_TYPE no_light_check_code;
+; 822  :     if ((result = AllocateNumber(o_abs, o_bit_count, &no_light_check_code)) != PMC_STATUS_OK)
 
 	lea	r8, QWORD PTR no_light_check_code$[rbp]
 	mov	rdx, QWORD PTR o_bit_count$[rbp]
-	mov	rcx, QWORD PTR o$[rbp]
+	mov	rcx, QWORD PTR o_abs$[rbp]
 	call	AllocateNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN24@TryParseDN
+	je	SHORT $LN21@TryParseDN
 
-; 834  :     {
-; 835  :         DeallocateBlock(bin_buf, bin_buf_words);
+; 823  :     {
+; 824  :         DeallocateBlock(bin_buf, bin_buf_words);
 
 	mov	rdx, QWORD PTR bin_buf_words$[rbp]
 	mov	rcx, QWORD PTR bin_buf$[rbp]
 	call	DeallocateBlock
 
-; 836  :         return (result);
+; 825  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	$LN1@TryParseDN
-$LN24@TryParseDN:
+$LN21@TryParseDN:
 
-; 837  :     }
-; 838  : 
-; 839  :     if ((result = ConvertCardinalNumber(bin_buf, bin_buf_count, (*o)->BLOCK)) != PMC_STATUS_OK)
+; 826  :     }
+; 827  : 
+; 828  :     if ((result = ConvertCardinalNumber(bin_buf, bin_buf_count, (*o_abs)->BLOCK)) != PMC_STATUS_OK)
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	r8, QWORD PTR [rax+64]
 	mov	rdx, QWORD PTR bin_buf_count$[rbp]
@@ -2457,94 +2782,155 @@ $LN24@TryParseDN:
 	call	ConvertCardinalNumber
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN25@TryParseDN
+	je	SHORT $LN22@TryParseDN
 
-; 840  :     {
-; 841  :         DeallocateNumber(*o);
+; 829  :     {
+; 830  :         DeallocateNumber(*o_abs);
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rcx, QWORD PTR [rax]
 	call	DeallocateNumber
 
-; 842  :         DeallocateBlock(bin_buf, bin_buf_words);
+; 831  :         DeallocateBlock(bin_buf, bin_buf_words);
 
 	mov	rdx, QWORD PTR bin_buf_words$[rbp]
 	mov	rcx, QWORD PTR bin_buf$[rbp]
 	call	DeallocateBlock
 
-; 843  :         return (result);
+; 832  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@TryParseDN
-$LN25@TryParseDN:
+	jmp	$LN1@TryParseDN
+$LN22@TryParseDN:
 
-; 844  :     }
-; 845  :     if ((result = CheckBlockLight((*o)->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
+; 833  :     }
+; 834  :     if ((result = CheckBlockLight((*o_abs)->BLOCK, no_light_check_code)) != PMC_STATUS_OK)
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rdx, QWORD PTR no_light_check_code$[rbp]
 	mov	rcx, QWORD PTR [rax+64]
 	call	CheckBlockLight
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN26@TryParseDN
+	je	SHORT $LN23@TryParseDN
 
-; 846  :         return (result);
+; 835  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@TryParseDN
-$LN26@TryParseDN:
+	jmp	$LN1@TryParseDN
+$LN23@TryParseDN:
 
-; 847  :     DeallocateBlock(bin_buf, bin_buf_words);
+; 836  :     DeallocateBlock(bin_buf, bin_buf_words);
 
 	mov	rdx, QWORD PTR bin_buf_words$[rbp]
 	mov	rcx, QWORD PTR bin_buf$[rbp]
 	call	DeallocateBlock
 
-; 848  :     CommitNumber(*o);
+; 837  :     CommitNumber(*o_abs);
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rcx, QWORD PTR [rax]
 	call	CommitNumber
 
-; 849  :     if ((*o)->IS_ZERO)
+; 838  :     if ((*o_abs)->IS_ZERO)
 
-	mov	rax, QWORD PTR o$[rbp]
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	eax, DWORD PTR [rax]
+	and	eax, 1
+	test	eax, eax
+	je	SHORT $LN24@TryParseDN
+
+; 839  :     {
+; 840  :         DeallocateNumber(*o_abs);
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR [rax]
+	call	DeallocateNumber
+
+; 841  :         *o_abs = &number_zero;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	lea	rcx, OFFSET FLAT:number_zero
+	mov	QWORD PTR [rax], rcx
+$LN24@TryParseDN:
+
+; 842  :     }
+; 843  : #ifdef _DEBUG
+; 844  :     if (*o_sign != 0 && *o_sign != 1 && *o_sign != -1)
+
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	test	eax, eax
+	je	SHORT $LN25@TryParseDN
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	cmp	eax, 1
+	je	SHORT $LN25@TryParseDN
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	cmp	eax, -1
+	je	SHORT $LN25@TryParseDN
+
+; 845  :         return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffffffffffff00H
+	jmp	SHORT $LN1@TryParseDN
+$LN25@TryParseDN:
+
+; 846  :     if (*o_sign == 0 && !(*o_abs)->IS_ZERO)
+
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	test	eax, eax
+	jne	SHORT $LN26@TryParseDN
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rax, QWORD PTR [rax]
+	mov	eax, DWORD PTR [rax]
+	and	eax, 1
+	test	eax, eax
+	jne	SHORT $LN26@TryParseDN
+
+; 847  :         return (PMC_STATUS_INTERNAL_ERROR);
+
+	mov	eax, -256				; ffffffffffffff00H
+	jmp	SHORT $LN1@TryParseDN
+$LN26@TryParseDN:
+
+; 848  :     if (*o_sign != 0 && (*o_abs)->IS_ZERO)
+
+	mov	rax, QWORD PTR o_sign$[rbp]
+	movsx	eax, BYTE PTR [rax]
+	test	eax, eax
+	je	SHORT $LN27@TryParseDN
+	mov	rax, QWORD PTR o_abs$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	eax, DWORD PTR [rax]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN27@TryParseDN
 
-; 850  :     {
-; 851  :         DeallocateNumber(*o);
+; 849  :         return (PMC_STATUS_INTERNAL_ERROR);
 
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR [rax]
-	call	DeallocateNumber
-
-; 852  :         *o = &number_zero;
-
-	mov	rax, QWORD PTR o$[rbp]
-	lea	rcx, OFFSET FLAT:number_zero
-	mov	QWORD PTR [rax], rcx
+	mov	eax, -256				; ffffffffffffff00H
+	jmp	SHORT $LN1@TryParseDN
 $LN27@TryParseDN:
 
-; 853  :     }
-; 854  :     return (PMC_STATUS_OK);
+; 850  : #endif
+; 851  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@TryParseDN:
 
-; 855  : }
+; 852  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
 	lea	rdx, OFFSET FLAT:TryParseDN$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rax, rdi
-	lea	rsp, QWORD PTR [rbp+1032]
+	lea	rsp, QWORD PTR [rbp+1000]
 	pop	rdi
 	pop	rbp
 	ret	0
@@ -2565,7 +2951,7 @@ in_buf_count$ = 424
 out_buf$ = 432
 ConvertCardinalNumber PROC				; COMDAT
 
-; 687  : {
+; 688  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -2582,10 +2968,10 @@ ConvertCardinalNumber PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 688  :     PMC_STATUS_CODE result;
-; 689  :     __UNIT_TYPE work_buf_code;
-; 690  :     __UNIT_TYPE work_buf_words;
-; 691  :     __UNIT_TYPE* work_buf = AllocateBlock(__UNIT_TYPE_BIT_COUNT * (in_buf_count + 1), &work_buf_words, &work_buf_code);
+; 689  :     PMC_STATUS_CODE result;
+; 690  :     __UNIT_TYPE work_buf_code;
+; 691  :     __UNIT_TYPE work_buf_words;
+; 692  :     __UNIT_TYPE* work_buf = AllocateBlock(__UNIT_TYPE_BIT_COUNT * (in_buf_count + 1), &work_buf_words, &work_buf_code);
 
 	mov	rax, QWORD PTR in_buf_count$[rbp]
 	inc	rax
@@ -2596,23 +2982,23 @@ ConvertCardinalNumber PROC				; COMDAT
 	call	AllocateBlock
 	mov	QWORD PTR work_buf$[rbp], rax
 
-; 692  :     if (work_buf == NULL)
+; 693  :     if (work_buf == NULL)
 
 	cmp	QWORD PTR work_buf$[rbp], 0
 	jne	SHORT $LN4@ConvertCar
 
-; 693  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
+; 694  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
 	mov	eax, -5
 	jmp	$LN1@ConvertCar
 $LN4@ConvertCar:
 
-; 694  : 
-; 695  :     __UNIT_TYPE work_buf_count = 1;
+; 695  : 
+; 696  :     __UNIT_TYPE work_buf_count = 1;
 
 	mov	QWORD PTR work_buf_count$[rbp], 1
 
-; 696  :     work_buf[0] = in_buf[0];
+; 697  :     work_buf[0] = in_buf[0];
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -2623,27 +3009,27 @@ $LN4@ConvertCar:
 	mov	rax, QWORD PTR [r8+rax]
 	mov	QWORD PTR [rdx+rcx], rax
 
-; 697  :     ++in_buf;
+; 698  :     ++in_buf;
 
 	mov	rax, QWORD PTR in_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR in_buf$[rbp], rax
 
-; 698  :     --in_buf_count;
+; 699  :     --in_buf_count;
 
 	mov	rax, QWORD PTR in_buf_count$[rbp]
 	dec	rax
 	mov	QWORD PTR in_buf_count$[rbp], rax
 $LN2@ConvertCar:
 
-; 699  : 
-; 700  :     while (in_buf_count > 0)
+; 700  : 
+; 701  :     while (in_buf_count > 0)
 
 	cmp	QWORD PTR in_buf_count$[rbp], 0
 	jbe	SHORT $LN3@ConvertCar
 
-; 701  :     {
-; 702  :         __UNIT_TYPE* w_tail = (*fp_MultiplyAndAdd)(work_buf, work_buf_count, *in_buf);
+; 702  :     {
+; 703  :         __UNIT_TYPE* w_tail = (*fp_MultiplyAndAdd)(work_buf, work_buf_count, *in_buf);
 
 	mov	rax, QWORD PTR in_buf$[rbp]
 	mov	r8, QWORD PTR [rax]
@@ -2652,7 +3038,7 @@ $LN2@ConvertCar:
 	call	QWORD PTR fp_MultiplyAndAdd
 	mov	QWORD PTR w_tail$5[rbp], rax
 
-; 703  :         work_buf_count = w_tail - work_buf;
+; 704  :         work_buf_count = w_tail - work_buf;
 
 	mov	rax, QWORD PTR work_buf$[rbp]
 	mov	rcx, QWORD PTR w_tail$5[rbp]
@@ -2661,24 +3047,24 @@ $LN2@ConvertCar:
 	sar	rax, 3
 	mov	QWORD PTR work_buf_count$[rbp], rax
 
-; 704  :         ++in_buf;
+; 705  :         ++in_buf;
 
 	mov	rax, QWORD PTR in_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR in_buf$[rbp], rax
 
-; 705  :         --in_buf_count;
+; 706  :         --in_buf_count;
 
 	mov	rax, QWORD PTR in_buf_count$[rbp]
 	dec	rax
 	mov	QWORD PTR in_buf_count$[rbp], rax
 
-; 706  :     }
+; 707  :     }
 
 	jmp	SHORT $LN2@ConvertCar
 $LN3@ConvertCar:
 
-; 707  :     if ((result = CheckBlockLight(work_buf, work_buf_code)) != PMC_STATUS_OK)
+; 708  :     if ((result = CheckBlockLight(work_buf, work_buf_code)) != PMC_STATUS_OK)
 
 	mov	rdx, QWORD PTR work_buf_code$[rbp]
 	mov	rcx, QWORD PTR work_buf$[rbp]
@@ -2687,31 +3073,31 @@ $LN3@ConvertCar:
 	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@ConvertCar
 
-; 708  :         return (result);
+; 709  :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@ConvertCar
 $LN5@ConvertCar:
 
-; 709  :     _COPY_MEMORY_UNIT(out_buf, work_buf, work_buf_count);
+; 710  :     _COPY_MEMORY_UNIT(out_buf, work_buf, work_buf_count);
 
 	mov	r8, QWORD PTR work_buf_count$[rbp]
 	mov	rdx, QWORD PTR work_buf$[rbp]
 	mov	rcx, QWORD PTR out_buf$[rbp]
 	call	_COPY_MEMORY_UNIT
 
-; 710  :     DeallocateBlock(work_buf, work_buf_words);
+; 711  :     DeallocateBlock(work_buf, work_buf_words);
 
 	mov	rdx, QWORD PTR work_buf_words$[rbp]
 	mov	rcx, QWORD PTR work_buf$[rbp]
 	call	DeallocateBlock
 
-; 711  :     return (PMC_STATUS_OK);
+; 712  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@ConvertCar:
 
-; 712  : }
+; 713  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -2735,7 +3121,7 @@ u_count$ = 296
 x$ = 304
 MultiplyAndAdd_using_ADCX_MULX PROC			; COMDAT
 
-; 544  : {
+; 545  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -2752,25 +3138,25 @@ MultiplyAndAdd_using_ADCX_MULX PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 545  :     __UNIT_TYPE k = x;
+; 546  :     __UNIT_TYPE k = x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR k$[rbp], rax
 
-; 546  :     __UNIT_TYPE count = u_count >> 5;
+; 547  :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@MultiplyAn:
 
-; 547  :     while (count > 0)
+; 548  :     while (count > 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	jbe	$LN3@MultiplyAn
 
-; 548  :     {
-; 549  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 549  :     {
+; 550  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -2786,7 +3172,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 550  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
+; 551  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -2802,7 +3188,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 551  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
+; 552  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -2818,7 +3204,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 552  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
+; 553  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -2834,7 +3220,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 553  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
+; 554  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -2850,7 +3236,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 554  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
+; 555  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -2866,7 +3252,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 555  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
+; 556  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -2882,7 +3268,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 556  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
+; 557  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -2898,7 +3284,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 557  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[8], &u_buf[8]);
+; 558  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[8], &u_buf[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -2914,7 +3300,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 558  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[9], &u_buf[9]);
+; 559  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[9], &u_buf[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -2930,7 +3316,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 559  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[10], &u_buf[10]);
+; 560  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[10], &u_buf[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -2946,7 +3332,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 560  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[11], &u_buf[11]);
+; 561  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[11], &u_buf[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -2962,7 +3348,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 561  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[12], &u_buf[12]);
+; 562  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[12], &u_buf[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -2978,7 +3364,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 562  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[13], &u_buf[13]);
+; 563  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[13], &u_buf[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -2994,7 +3380,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 563  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[14], &u_buf[14]);
+; 564  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[14], &u_buf[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -3010,7 +3396,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 564  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[15], &u_buf[15]);
+; 565  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[15], &u_buf[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -3026,7 +3412,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 565  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[16], &u_buf[16]);
+; 566  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[16], &u_buf[16]);
 
 	mov	eax, 8
 	imul	rax, rax, 16
@@ -3042,7 +3428,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 566  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[17], &u_buf[17]);
+; 567  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[17], &u_buf[17]);
 
 	mov	eax, 8
 	imul	rax, rax, 17
@@ -3058,7 +3444,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 567  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[18], &u_buf[18]);
+; 568  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[18], &u_buf[18]);
 
 	mov	eax, 8
 	imul	rax, rax, 18
@@ -3074,7 +3460,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 568  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[19], &u_buf[19]);
+; 569  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[19], &u_buf[19]);
 
 	mov	eax, 8
 	imul	rax, rax, 19
@@ -3090,7 +3476,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 569  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[20], &u_buf[20]);
+; 570  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[20], &u_buf[20]);
 
 	mov	eax, 8
 	imul	rax, rax, 20
@@ -3106,7 +3492,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 570  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[21], &u_buf[21]);
+; 571  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[21], &u_buf[21]);
 
 	mov	eax, 8
 	imul	rax, rax, 21
@@ -3122,7 +3508,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 571  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[22], &u_buf[22]);
+; 572  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[22], &u_buf[22]);
 
 	mov	eax, 8
 	imul	rax, rax, 22
@@ -3138,7 +3524,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 572  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[23], &u_buf[23]);
+; 573  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[23], &u_buf[23]);
 
 	mov	eax, 8
 	imul	rax, rax, 23
@@ -3154,7 +3540,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 573  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[24], &u_buf[24]);
+; 574  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[24], &u_buf[24]);
 
 	mov	eax, 8
 	imul	rax, rax, 24
@@ -3170,7 +3556,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 574  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[25], &u_buf[25]);
+; 575  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[25], &u_buf[25]);
 
 	mov	eax, 8
 	imul	rax, rax, 25
@@ -3186,7 +3572,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 575  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[26], &u_buf[26]);
+; 576  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[26], &u_buf[26]);
 
 	mov	eax, 8
 	imul	rax, rax, 26
@@ -3202,7 +3588,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 576  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[27], &u_buf[27]);
+; 577  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[27], &u_buf[27]);
 
 	mov	eax, 8
 	imul	rax, rax, 27
@@ -3218,7 +3604,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 577  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[28], &u_buf[28]);
+; 578  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[28], &u_buf[28]);
 
 	mov	eax, 8
 	imul	rax, rax, 28
@@ -3234,7 +3620,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 578  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[29], &u_buf[29]);
+; 579  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[29], &u_buf[29]);
 
 	mov	eax, 8
 	imul	rax, rax, 29
@@ -3250,7 +3636,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 579  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[30], &u_buf[30]);
+; 580  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[30], &u_buf[30]);
 
 	mov	eax, 8
 	imul	rax, rax, 30
@@ -3266,7 +3652,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 580  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[31], &u_buf[31]);
+; 581  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[31], &u_buf[31]);
 
 	mov	eax, 8
 	imul	rax, rax, 31
@@ -3282,55 +3668,55 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 581  :         u_buf += 32;
+; 582  :         u_buf += 32;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 582  :         --count;
+; 583  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 583  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 584  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 584  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 585  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@MultiplyAn
 
-; 585  :             AddToMULTI32Counter(32);
+; 586  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN5@MultiplyAn
 $LN4@MultiplyAn:
 
-; 586  :         else
-; 587  :             AddToMULTI64Counter(32);
+; 587  :         else
+; 588  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 $LN5@MultiplyAn:
 
-; 588  : #endif
-; 589  :     }
+; 589  : #endif
+; 590  :     }
 
 	jmp	$LN2@MultiplyAn
 $LN3@MultiplyAn:
 
-; 590  : 
-; 591  :     if (u_count & 0x10)
+; 591  : 
+; 592  :     if (u_count & 0x10)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@MultiplyAn
 
-; 592  :     {
-; 593  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 593  :     {
+; 594  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3346,7 +3732,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 594  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
+; 595  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3362,7 +3748,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 595  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
+; 596  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3378,7 +3764,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 596  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
+; 597  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3394,7 +3780,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 597  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
+; 598  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -3410,7 +3796,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 598  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
+; 599  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -3426,7 +3812,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 599  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
+; 600  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -3442,7 +3828,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 600  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
+; 601  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -3458,7 +3844,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 601  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[8], &u_buf[8]);
+; 602  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[8], &u_buf[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -3474,7 +3860,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 602  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[9], &u_buf[9]);
+; 603  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[9], &u_buf[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -3490,7 +3876,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 603  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[10], &u_buf[10]);
+; 604  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[10], &u_buf[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -3506,7 +3892,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 604  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[11], &u_buf[11]);
+; 605  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[11], &u_buf[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -3522,7 +3908,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 605  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[12], &u_buf[12]);
+; 606  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[12], &u_buf[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -3538,7 +3924,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 606  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[13], &u_buf[13]);
+; 607  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[13], &u_buf[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -3554,7 +3940,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 607  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[14], &u_buf[14]);
+; 608  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[14], &u_buf[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -3570,7 +3956,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 608  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[15], &u_buf[15]);
+; 609  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[15], &u_buf[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -3586,46 +3972,46 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 609  :         u_buf += 16;
+; 610  :         u_buf += 16;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 610  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 611  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 611  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 612  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@MultiplyAn
 
-; 612  :             AddToMULTI32Counter(16);
+; 613  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN8@MultiplyAn
 $LN7@MultiplyAn:
 
-; 613  :         else
-; 614  :             AddToMULTI64Counter(16);
+; 614  :         else
+; 615  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 $LN8@MultiplyAn:
 $LN6@MultiplyAn:
 
-; 615  : #endif
-; 616  :     }
-; 617  : 
-; 618  :     if (u_count & 0x8)
+; 616  : #endif
+; 617  :     }
+; 618  : 
+; 619  :     if (u_count & 0x8)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@MultiplyAn
 
-; 619  :     {
-; 620  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 620  :     {
+; 621  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3641,7 +4027,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 621  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
+; 622  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3657,7 +4043,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 622  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
+; 623  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3673,7 +4059,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 623  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
+; 624  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3689,7 +4075,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 624  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
+; 625  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -3705,7 +4091,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 625  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
+; 626  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -3721,7 +4107,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 626  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
+; 627  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -3737,7 +4123,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 627  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
+; 628  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -3753,46 +4139,46 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 628  :         u_buf += 8;
+; 629  :         u_buf += 8;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 629  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 630  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 630  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 631  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@MultiplyAn
 
-; 631  :             AddToMULTI32Counter(8);
+; 632  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN11@MultiplyAn
 $LN10@MultiplyAn:
 
-; 632  :         else
-; 633  :             AddToMULTI64Counter(8);
+; 633  :         else
+; 634  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 $LN11@MultiplyAn:
 $LN9@MultiplyAn:
 
-; 634  : #endif
-; 635  :     }
-; 636  : 
-; 637  :     if (u_count & 0x4)
+; 635  : #endif
+; 636  :     }
+; 637  : 
+; 638  :     if (u_count & 0x4)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@MultiplyAn
 
-; 638  :     {
-; 639  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 639  :     {
+; 640  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3808,7 +4194,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 640  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
+; 641  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3824,7 +4210,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 641  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
+; 642  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -3840,7 +4226,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 642  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
+; 643  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -3856,46 +4242,46 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 643  :         u_buf += 4;
+; 644  :         u_buf += 4;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 644  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 645  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 645  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 646  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@MultiplyAn
 
-; 646  :             AddToMULTI32Counter(4);
+; 647  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN14@MultiplyAn
 $LN13@MultiplyAn:
 
-; 647  :         else
-; 648  :             AddToMULTI64Counter(4);
+; 648  :         else
+; 649  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 $LN14@MultiplyAn:
 $LN12@MultiplyAn:
 
-; 649  : #endif
-; 650  :     }
-; 651  : 
-; 652  :     if (u_count & 0x2)
+; 650  : #endif
+; 651  :     }
+; 652  : 
+; 653  :     if (u_count & 0x2)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@MultiplyAn
 
-; 653  :     {
-; 654  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 654  :     {
+; 655  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3911,7 +4297,7 @@ $LN12@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 655  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
+; 656  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -3927,46 +4313,46 @@ $LN12@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 656  :         u_buf += 2;
+; 657  :         u_buf += 2;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 657  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 658  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 658  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 659  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@MultiplyAn
 
-; 659  :             AddToMULTI32Counter(2);
+; 660  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN17@MultiplyAn
 $LN16@MultiplyAn:
 
-; 660  :         else
-; 661  :             AddToMULTI64Counter(2);
+; 661  :         else
+; 662  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 $LN17@MultiplyAn:
 $LN15@MultiplyAn:
 
-; 662  : #endif
-; 663  :     }
-; 664  : 
-; 665  :     if (u_count & 0x1)
+; 663  : #endif
+; 664  :     }
+; 665  : 
+; 666  :     if (u_count & 0x1)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@MultiplyAn
 
-; 666  :     {
-; 667  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
+; 667  :     {
+; 668  :         k = MultiplyAndAdd1Word_using_ADCX_MULX(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -3982,42 +4368,42 @@ $LN15@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADCX_MULX
 	mov	QWORD PTR k$[rbp], rax
 
-; 668  :         u_buf += 1;
+; 669  :         u_buf += 1;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 669  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 670  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 670  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 671  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@MultiplyAn
 
-; 671  :             IncrementMULTI32Counter();
+; 672  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 	jmp	SHORT $LN20@MultiplyAn
 $LN19@MultiplyAn:
 
-; 672  :         else
-; 673  :             IncrementMULTI64Counter();
+; 673  :         else
+; 674  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 $LN20@MultiplyAn:
 $LN18@MultiplyAn:
 
-; 674  : #endif
-; 675  :     }
-; 676  : 
-; 677  :     if (k > 0)
+; 675  : #endif
+; 676  :     }
+; 677  : 
+; 678  :     if (k > 0)
 
 	cmp	QWORD PTR k$[rbp], 0
 	jbe	SHORT $LN21@MultiplyAn
 
-; 678  :     {
-; 679  :         u_buf[0] = k;
+; 679  :     {
+; 680  :         u_buf[0] = k;
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4025,20 +4411,20 @@ $LN18@MultiplyAn:
 	mov	rdx, QWORD PTR k$[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 
-; 680  :         u_buf += 1;
+; 681  :         u_buf += 1;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_buf$[rbp], rax
 $LN21@MultiplyAn:
 
-; 681  :     }
-; 682  : 
-; 683  :     return (u_buf);
+; 682  :     }
+; 683  : 
+; 684  :     return (u_buf);
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 
-; 684  : }
+; 685  : }
 
 	lea	rsp, QWORD PTR [rbp+264]
 	pop	rdi
@@ -4057,7 +4443,7 @@ u_count$ = 296
 x$ = 304
 MultiplyAndAdd_using_ADC_MUL PROC			; COMDAT
 
-; 401  : {
+; 402  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -4074,25 +4460,25 @@ MultiplyAndAdd_using_ADC_MUL PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 402  :     __UNIT_TYPE k = x;
+; 403  :     __UNIT_TYPE k = x;
 
 	mov	rax, QWORD PTR x$[rbp]
 	mov	QWORD PTR k$[rbp], rax
 
-; 403  :     __UNIT_TYPE count = u_count >> 5;
+; 404  :     __UNIT_TYPE count = u_count >> 5;
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	shr	rax, 5
 	mov	QWORD PTR count$[rbp], rax
 $LN2@MultiplyAn:
 
-; 404  :     while (count > 0)
+; 405  :     while (count > 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	jbe	$LN3@MultiplyAn
 
-; 405  :     {
-; 406  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 406  :     {
+; 407  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4108,7 +4494,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 407  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
+; 408  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4124,7 +4510,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 408  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
+; 409  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4140,7 +4526,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 409  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
+; 410  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -4156,7 +4542,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 410  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
+; 411  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -4172,7 +4558,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 411  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
+; 412  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -4188,7 +4574,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 412  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
+; 413  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -4204,7 +4590,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 413  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
+; 414  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -4220,7 +4606,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 414  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[8], &u_buf[8]);
+; 415  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[8], &u_buf[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -4236,7 +4622,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 415  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[9], &u_buf[9]);
+; 416  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[9], &u_buf[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -4252,7 +4638,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 416  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[10], &u_buf[10]);
+; 417  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[10], &u_buf[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -4268,7 +4654,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 417  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[11], &u_buf[11]);
+; 418  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[11], &u_buf[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -4284,7 +4670,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 418  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[12], &u_buf[12]);
+; 419  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[12], &u_buf[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -4300,7 +4686,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 419  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[13], &u_buf[13]);
+; 420  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[13], &u_buf[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -4316,7 +4702,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 420  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[14], &u_buf[14]);
+; 421  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[14], &u_buf[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -4332,7 +4718,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 421  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[15], &u_buf[15]);
+; 422  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[15], &u_buf[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -4348,7 +4734,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 422  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[16], &u_buf[16]);
+; 423  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[16], &u_buf[16]);
 
 	mov	eax, 8
 	imul	rax, rax, 16
@@ -4364,7 +4750,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 423  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[17], &u_buf[17]);
+; 424  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[17], &u_buf[17]);
 
 	mov	eax, 8
 	imul	rax, rax, 17
@@ -4380,7 +4766,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 424  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[18], &u_buf[18]);
+; 425  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[18], &u_buf[18]);
 
 	mov	eax, 8
 	imul	rax, rax, 18
@@ -4396,7 +4782,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 425  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[19], &u_buf[19]);
+; 426  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[19], &u_buf[19]);
 
 	mov	eax, 8
 	imul	rax, rax, 19
@@ -4412,7 +4798,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 426  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[20], &u_buf[20]);
+; 427  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[20], &u_buf[20]);
 
 	mov	eax, 8
 	imul	rax, rax, 20
@@ -4428,7 +4814,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 427  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[21], &u_buf[21]);
+; 428  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[21], &u_buf[21]);
 
 	mov	eax, 8
 	imul	rax, rax, 21
@@ -4444,7 +4830,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 428  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[22], &u_buf[22]);
+; 429  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[22], &u_buf[22]);
 
 	mov	eax, 8
 	imul	rax, rax, 22
@@ -4460,7 +4846,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 429  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[23], &u_buf[23]);
+; 430  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[23], &u_buf[23]);
 
 	mov	eax, 8
 	imul	rax, rax, 23
@@ -4476,7 +4862,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 430  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[24], &u_buf[24]);
+; 431  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[24], &u_buf[24]);
 
 	mov	eax, 8
 	imul	rax, rax, 24
@@ -4492,7 +4878,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 431  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[25], &u_buf[25]);
+; 432  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[25], &u_buf[25]);
 
 	mov	eax, 8
 	imul	rax, rax, 25
@@ -4508,7 +4894,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 432  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[26], &u_buf[26]);
+; 433  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[26], &u_buf[26]);
 
 	mov	eax, 8
 	imul	rax, rax, 26
@@ -4524,7 +4910,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 433  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[27], &u_buf[27]);
+; 434  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[27], &u_buf[27]);
 
 	mov	eax, 8
 	imul	rax, rax, 27
@@ -4540,7 +4926,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 434  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[28], &u_buf[28]);
+; 435  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[28], &u_buf[28]);
 
 	mov	eax, 8
 	imul	rax, rax, 28
@@ -4556,7 +4942,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 435  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[29], &u_buf[29]);
+; 436  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[29], &u_buf[29]);
 
 	mov	eax, 8
 	imul	rax, rax, 29
@@ -4572,7 +4958,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 436  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[30], &u_buf[30]);
+; 437  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[30], &u_buf[30]);
 
 	mov	eax, 8
 	imul	rax, rax, 30
@@ -4588,7 +4974,7 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 437  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[31], &u_buf[31]);
+; 438  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[31], &u_buf[31]);
 
 	mov	eax, 8
 	imul	rax, rax, 31
@@ -4604,55 +4990,55 @@ $LN2@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 438  :         u_buf += 32;
+; 439  :         u_buf += 32;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 256				; 00000100H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 439  :         --count;
+; 440  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 440  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 441  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 441  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 442  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN4@MultiplyAn
 
-; 442  :             AddToMULTI32Counter(32);
+; 443  :             AddToMULTI32Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN5@MultiplyAn
 $LN4@MultiplyAn:
 
-; 443  :         else
-; 444  :             AddToMULTI64Counter(32);
+; 444  :         else
+; 445  :             AddToMULTI64Counter(32);
 
 	mov	ecx, 32					; 00000020H
 	call	AddToMULTI64Counter
 $LN5@MultiplyAn:
 
-; 445  : #endif
-; 446  :     }
+; 446  : #endif
+; 447  :     }
 
 	jmp	$LN2@MultiplyAn
 $LN3@MultiplyAn:
 
-; 447  : 
-; 448  :     if (u_count & 0x10)
+; 448  : 
+; 449  :     if (u_count & 0x10)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 16
 	test	rax, rax
 	je	$LN6@MultiplyAn
 
-; 449  :     {
-; 450  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 450  :     {
+; 451  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4668,7 +5054,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 451  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
+; 452  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4684,7 +5070,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 452  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
+; 453  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4700,7 +5086,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 453  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
+; 454  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -4716,7 +5102,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 454  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
+; 455  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -4732,7 +5118,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 455  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
+; 456  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -4748,7 +5134,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 456  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
+; 457  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -4764,7 +5150,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 457  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
+; 458  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -4780,7 +5166,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 458  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[8], &u_buf[8]);
+; 459  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[8], &u_buf[8]);
 
 	mov	eax, 8
 	imul	rax, rax, 8
@@ -4796,7 +5182,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 459  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[9], &u_buf[9]);
+; 460  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[9], &u_buf[9]);
 
 	mov	eax, 8
 	imul	rax, rax, 9
@@ -4812,7 +5198,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 460  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[10], &u_buf[10]);
+; 461  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[10], &u_buf[10]);
 
 	mov	eax, 8
 	imul	rax, rax, 10
@@ -4828,7 +5214,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 461  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[11], &u_buf[11]);
+; 462  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[11], &u_buf[11]);
 
 	mov	eax, 8
 	imul	rax, rax, 11
@@ -4844,7 +5230,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 462  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[12], &u_buf[12]);
+; 463  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[12], &u_buf[12]);
 
 	mov	eax, 8
 	imul	rax, rax, 12
@@ -4860,7 +5246,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 463  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[13], &u_buf[13]);
+; 464  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[13], &u_buf[13]);
 
 	mov	eax, 8
 	imul	rax, rax, 13
@@ -4876,7 +5262,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 464  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[14], &u_buf[14]);
+; 465  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[14], &u_buf[14]);
 
 	mov	eax, 8
 	imul	rax, rax, 14
@@ -4892,7 +5278,7 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 465  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[15], &u_buf[15]);
+; 466  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[15], &u_buf[15]);
 
 	mov	eax, 8
 	imul	rax, rax, 15
@@ -4908,46 +5294,46 @@ $LN3@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 466  :         u_buf += 16;
+; 467  :         u_buf += 16;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 128				; 00000080H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 467  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 468  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 468  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 469  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN7@MultiplyAn
 
-; 469  :             AddToMULTI32Counter(16);
+; 470  :             AddToMULTI32Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN8@MultiplyAn
 $LN7@MultiplyAn:
 
-; 470  :         else
-; 471  :             AddToMULTI64Counter(16);
+; 471  :         else
+; 472  :             AddToMULTI64Counter(16);
 
 	mov	ecx, 16
 	call	AddToMULTI64Counter
 $LN8@MultiplyAn:
 $LN6@MultiplyAn:
 
-; 472  : #endif
-; 473  :     }
-; 474  : 
-; 475  :     if (u_count & 0x8)
+; 473  : #endif
+; 474  :     }
+; 475  : 
+; 476  :     if (u_count & 0x8)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 8
 	test	rax, rax
 	je	$LN9@MultiplyAn
 
-; 476  :     {
-; 477  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 477  :     {
+; 478  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -4963,7 +5349,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 478  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
+; 479  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -4979,7 +5365,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 479  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
+; 480  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -4995,7 +5381,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 480  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
+; 481  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -5011,7 +5397,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 481  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
+; 482  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[4], &u_buf[4]);
 
 	mov	eax, 8
 	imul	rax, rax, 4
@@ -5027,7 +5413,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 482  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
+; 483  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[5], &u_buf[5]);
 
 	mov	eax, 8
 	imul	rax, rax, 5
@@ -5043,7 +5429,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 483  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
+; 484  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[6], &u_buf[6]);
 
 	mov	eax, 8
 	imul	rax, rax, 6
@@ -5059,7 +5445,7 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 484  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
+; 485  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[7], &u_buf[7]);
 
 	mov	eax, 8
 	imul	rax, rax, 7
@@ -5075,46 +5461,46 @@ $LN6@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 485  :         u_buf += 8;
+; 486  :         u_buf += 8;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 64					; 00000040H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 486  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 487  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 487  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 488  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN10@MultiplyAn
 
-; 488  :             AddToMULTI32Counter(8);
+; 489  :             AddToMULTI32Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN11@MultiplyAn
 $LN10@MultiplyAn:
 
-; 489  :         else
-; 490  :             AddToMULTI64Counter(8);
+; 490  :         else
+; 491  :             AddToMULTI64Counter(8);
 
 	mov	ecx, 8
 	call	AddToMULTI64Counter
 $LN11@MultiplyAn:
 $LN9@MultiplyAn:
 
-; 491  : #endif
-; 492  :     }
-; 493  : 
-; 494  :     if (u_count & 0x4)
+; 492  : #endif
+; 493  :     }
+; 494  : 
+; 495  :     if (u_count & 0x4)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 4
 	test	rax, rax
 	je	$LN12@MultiplyAn
 
-; 495  :     {
-; 496  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 496  :     {
+; 497  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5130,7 +5516,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 497  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
+; 498  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -5146,7 +5532,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 498  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
+; 499  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[2], &u_buf[2]);
 
 	mov	eax, 8
 	imul	rax, rax, 2
@@ -5162,7 +5548,7 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 499  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
+; 500  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[3], &u_buf[3]);
 
 	mov	eax, 8
 	imul	rax, rax, 3
@@ -5178,46 +5564,46 @@ $LN9@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 500  :         u_buf += 4;
+; 501  :         u_buf += 4;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 32					; 00000020H
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 501  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 502  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 502  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 503  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN13@MultiplyAn
 
-; 503  :             AddToMULTI32Counter(4);
+; 504  :             AddToMULTI32Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN14@MultiplyAn
 $LN13@MultiplyAn:
 
-; 504  :         else
-; 505  :             AddToMULTI64Counter(4);
+; 505  :         else
+; 506  :             AddToMULTI64Counter(4);
 
 	mov	ecx, 4
 	call	AddToMULTI64Counter
 $LN14@MultiplyAn:
 $LN12@MultiplyAn:
 
-; 506  : #endif
-; 507  :     }
-; 508  : 
-; 509  :     if (u_count & 0x2)
+; 507  : #endif
+; 508  :     }
+; 509  : 
+; 510  :     if (u_count & 0x2)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 2
 	test	rax, rax
 	je	$LN15@MultiplyAn
 
-; 510  :     {
-; 511  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 511  :     {
+; 512  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5233,7 +5619,7 @@ $LN12@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 512  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
+; 513  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[1], &u_buf[1]);
 
 	mov	eax, 8
 	imul	rax, rax, 1
@@ -5249,46 +5635,46 @@ $LN12@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 513  :         u_buf += 2;
+; 514  :         u_buf += 2;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 16
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 514  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 515  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 515  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 516  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN16@MultiplyAn
 
-; 516  :             AddToMULTI32Counter(2);
+; 517  :             AddToMULTI32Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI32Counter
 	jmp	SHORT $LN17@MultiplyAn
 $LN16@MultiplyAn:
 
-; 517  :         else
-; 518  :             AddToMULTI64Counter(2);
+; 518  :         else
+; 519  :             AddToMULTI64Counter(2);
 
 	mov	ecx, 2
 	call	AddToMULTI64Counter
 $LN17@MultiplyAn:
 $LN15@MultiplyAn:
 
-; 519  : #endif
-; 520  :     }
-; 521  : 
-; 522  :     if (u_count & 0x1)
+; 520  : #endif
+; 521  :     }
+; 522  : 
+; 523  :     if (u_count & 0x1)
 
 	mov	rax, QWORD PTR u_count$[rbp]
 	and	rax, 1
 	test	rax, rax
 	je	SHORT $LN18@MultiplyAn
 
-; 523  :     {
-; 524  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
+; 524  :     {
+; 525  :         k = MultiplyAndAdd1Word_using_ADC_MUL(k, u_buf[0], &u_buf[0]);
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5304,42 +5690,42 @@ $LN15@MultiplyAn:
 	call	MultiplyAndAdd1Word_using_ADC_MUL
 	mov	QWORD PTR k$[rbp], rax
 
-; 525  :         u_buf += 1;
+; 526  :         u_buf += 1;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_buf$[rbp], rax
 
-; 526  : #ifdef ENABLED_PERFORMANCE_COUNTER
-; 527  :         if (sizeof(k) == sizeof(_UINT32_T))
+; 527  : #ifdef ENABLED_PERFORMANCE_COUNTER
+; 528  :         if (sizeof(k) == sizeof(_UINT32_T))
 
 	xor	eax, eax
 	test	eax, eax
 	je	SHORT $LN19@MultiplyAn
 
-; 528  :             IncrementMULTI32Counter();
+; 529  :             IncrementMULTI32Counter();
 
 	call	IncrementMULTI32Counter
 	jmp	SHORT $LN20@MultiplyAn
 $LN19@MultiplyAn:
 
-; 529  :         else
-; 530  :             IncrementMULTI64Counter();
+; 530  :         else
+; 531  :             IncrementMULTI64Counter();
 
 	call	IncrementMULTI64Counter
 $LN20@MultiplyAn:
 $LN18@MultiplyAn:
 
-; 531  : #endif
-; 532  :     }
-; 533  : 
-; 534  :     if (k > 0)
+; 532  : #endif
+; 533  :     }
+; 534  : 
+; 535  :     if (k > 0)
 
 	cmp	QWORD PTR k$[rbp], 0
 	jbe	SHORT $LN21@MultiplyAn
 
-; 535  :     {
-; 536  :         u_buf[0] = k;
+; 536  :     {
+; 537  :         u_buf[0] = k;
 
 	mov	eax, 8
 	imul	rax, rax, 0
@@ -5347,20 +5733,20 @@ $LN18@MultiplyAn:
 	mov	rdx, QWORD PTR k$[rbp]
 	mov	QWORD PTR [rcx+rax], rdx
 
-; 537  :         u_buf += 1;
+; 538  :         u_buf += 1;
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 	add	rax, 8
 	mov	QWORD PTR u_buf$[rbp], rax
 $LN21@MultiplyAn:
 
-; 538  :     }
-; 539  : 
-; 540  :     return (u_buf);
+; 539  :     }
+; 540  : 
+; 541  :     return (u_buf);
 
 	mov	rax, QWORD PTR u_buf$[rbp]
 
-; 541  : }
+; 542  : }
 
 	lea	rsp, QWORD PTR [rbp+264]
 	pop	rdi
@@ -5380,7 +5766,7 @@ u$ = 328
 w_buf$ = 336
 MultiplyAndAdd1Word_using_ADCX_MULX PROC		; COMDAT
 
-; 386  : {
+; 387  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -5397,19 +5783,19 @@ MultiplyAndAdd1Word_using_ADCX_MULX PROC		; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 387  : #ifdef _M_IX86
-; 388  :     __UNIT_TYPE base_value = 1000000000U; // 10^9
-; 389  : #elif defined(_M_IX64)
-; 390  :     __UNIT_TYPE base_value = 10000000000000000000UL; // 10^19
+; 388  : #ifdef _M_IX86
+; 389  :     __UNIT_TYPE base_value = 1000000000U; // 10^9
+; 390  : #elif defined(_M_IX64)
+; 391  :     __UNIT_TYPE base_value = 10000000000000000000UL; // 10^19
 
 	mov	rax, -8446744073709551616		; 8ac7230489e80000H
 	mov	QWORD PTR base_value$[rbp], rax
 
-; 391  : #else
-; 392  : #error unknown platform
-; 393  : #endif
-; 394  :     __UNIT_TYPE t_hi;
-; 395  :     __UNIT_TYPE t_lo = _MULTIPLYX_UNIT(u, base_value, &t_hi);
+; 392  : #else
+; 393  : #error unknown platform
+; 394  : #endif
+; 395  :     __UNIT_TYPE t_hi;
+; 396  :     __UNIT_TYPE t_lo = _MULTIPLYX_UNIT(u, base_value, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	rdx, QWORD PTR base_value$[rbp]
@@ -5417,7 +5803,7 @@ MultiplyAndAdd1Word_using_ADCX_MULX PROC		; COMDAT
 	call	_MULTIPLYX_UNIT
 	mov	QWORD PTR t_lo$[rbp], rax
 
-; 396  :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, k, w_buf), t_hi, 0, &k);
+; 397  :     _ADDX_UNIT(_ADDX_UNIT(0, t_lo, k, w_buf), t_hi, 0, &k);
 
 	mov	r9, QWORD PTR w_buf$[rbp]
 	mov	r8, QWORD PTR k$[rbp]
@@ -5430,11 +5816,11 @@ MultiplyAndAdd1Word_using_ADCX_MULX PROC		; COMDAT
 	movzx	ecx, al
 	call	_ADDX_UNIT
 
-; 397  :     return (k);
+; 398  :     return (k);
 
 	mov	rax, QWORD PTR k$[rbp]
 
-; 398  : }
+; 399  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5459,7 +5845,7 @@ u$ = 328
 w_buf$ = 336
 MultiplyAndAdd1Word_using_ADC_MUL PROC			; COMDAT
 
-; 371  : {
+; 372  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -5476,19 +5862,19 @@ MultiplyAndAdd1Word_using_ADC_MUL PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 372  : #ifdef _M_IX86
-; 373  :     __UNIT_TYPE base_value = 1000000000U; // 10^9
-; 374  : #elif defined(_M_IX64)
-; 375  :     __UNIT_TYPE base_value = 10000000000000000000UL; // 10^19
+; 373  : #ifdef _M_IX86
+; 374  :     __UNIT_TYPE base_value = 1000000000U; // 10^9
+; 375  : #elif defined(_M_IX64)
+; 376  :     __UNIT_TYPE base_value = 10000000000000000000UL; // 10^19
 
 	mov	rax, -8446744073709551616		; 8ac7230489e80000H
 	mov	QWORD PTR base_value$[rbp], rax
 
-; 376  : #else
-; 377  : #error unknown platform
-; 378  : #endif
-; 379  :     __UNIT_TYPE t_hi;
-; 380  :     __UNIT_TYPE t_lo = _MULTIPLY_UNIT(u, base_value, &t_hi);
+; 377  : #else
+; 378  : #error unknown platform
+; 379  : #endif
+; 380  :     __UNIT_TYPE t_hi;
+; 381  :     __UNIT_TYPE t_lo = _MULTIPLY_UNIT(u, base_value, &t_hi);
 
 	lea	r8, QWORD PTR t_hi$[rbp]
 	mov	rdx, QWORD PTR base_value$[rbp]
@@ -5496,7 +5882,7 @@ MultiplyAndAdd1Word_using_ADC_MUL PROC			; COMDAT
 	call	_MULTIPLY_UNIT
 	mov	QWORD PTR t_lo$[rbp], rax
 
-; 381  :     _ADD_UNIT(_ADD_UNIT(0, t_lo, k, w_buf), t_hi, 0, &k);
+; 382  :     _ADD_UNIT(_ADD_UNIT(0, t_lo, k, w_buf), t_hi, 0, &k);
 
 	mov	r9, QWORD PTR w_buf$[rbp]
 	mov	r8, QWORD PTR k$[rbp]
@@ -5509,11 +5895,11 @@ MultiplyAndAdd1Word_using_ADC_MUL PROC			; COMDAT
 	movzx	ecx, al
 	call	_ADD_UNIT
 
-; 382  :     return (k);
+; 383  :     return (k);
 
 	mov	rax, QWORD PTR k$[rbp]
 
-; 383  : }
+; 384  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-32]
@@ -5541,7 +5927,7 @@ out_buf$ = 392
 out_buf_count$ = 400
 BuildBinaryFromDecimalString PROC			; COMDAT
 
-; 343  : {
+; 344  : {
 
 	mov	QWORD PTR [rsp+24], r8
 	mov	QWORD PTR [rsp+16], rdx
@@ -5558,34 +5944,34 @@ BuildBinaryFromDecimalString PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 344  : #ifdef _M_IX86
-; 345  :     int word_digit_count = 9;
-; 346  : #elif defined(_M_IX64)
-; 347  :     int word_digit_count = 19;
+; 345  : #ifdef _M_IX86
+; 346  :     int word_digit_count = 9;
+; 347  : #elif defined(_M_IX64)
+; 348  :     int word_digit_count = 19;
 
 	mov	DWORD PTR word_digit_count$[rbp], 19
 
-; 348  : #else
-; 349  : #error unknown platform
-; 350  : #endif
-; 351  :     wchar_t* in_ptr = source;
+; 349  : #else
+; 350  : #error unknown platform
+; 351  : #endif
+; 352  :     wchar_t* in_ptr = source;
 
 	mov	rax, QWORD PTR source$[rbp]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 352  :     __UNIT_TYPE* out_ptr = out_buf;
+; 353  :     __UNIT_TYPE* out_ptr = out_buf;
 
 	mov	rax, QWORD PTR out_buf$[rbp]
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 353  :     __UNIT_TYPE source_count = lstrlenW(source);
+; 354  :     __UNIT_TYPE source_count = lstrlenW(source);
 
 	mov	rcx, QWORD PTR source$[rbp]
 	call	QWORD PTR __imp_lstrlenW
 	cdqe
 	mov	QWORD PTR source_count$[rbp], rax
 
-; 354  :     int r = source_count % word_digit_count;
+; 355  :     int r = source_count % word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	QWORD PTR tv67[rbp], rax
@@ -5596,13 +5982,13 @@ BuildBinaryFromDecimalString PROC			; COMDAT
 	mov	rax, rdx
 	mov	DWORD PTR r$[rbp], eax
 
-; 355  :     if (r > 0)
+; 356  :     if (r > 0)
 
 	cmp	DWORD PTR r$[rbp], 0
 	jle	SHORT $LN4@BuildBinar
 
-; 356  :     {
-; 357  :         *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r);
+; 357  :     {
+; 358  :         *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r);
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rdx, rax
@@ -5614,14 +6000,14 @@ BuildBinaryFromDecimalString PROC			; COMDAT
 	add	rax, 8
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 358  :         in_ptr += r;
+; 359  :         in_ptr += r;
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 359  :         source_count -= r;
+; 360  :         source_count -= r;
 
 	movsxd	rax, DWORD PTR r$[rbp]
 	mov	rcx, QWORD PTR source_count$[rbp]
@@ -5631,14 +6017,14 @@ BuildBinaryFromDecimalString PROC			; COMDAT
 $LN4@BuildBinar:
 $LN2@BuildBinar:
 
-; 360  :     }
-; 361  :     while (source_count > 0)
+; 361  :     }
+; 362  :     while (source_count > 0)
 
 	cmp	QWORD PTR source_count$[rbp], 0
 	jbe	SHORT $LN3@BuildBinar
 
-; 362  :     {
-; 363  :         *out_ptr++ = Build1WordFromDecimalString(in_ptr);
+; 363  :     {
+; 364  :         *out_ptr++ = Build1WordFromDecimalString(in_ptr);
 
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	call	Build1WordFromDecimalString
@@ -5648,14 +6034,14 @@ $LN2@BuildBinar:
 	add	rax, 8
 	mov	QWORD PTR out_ptr$[rbp], rax
 
-; 364  :         in_ptr += word_digit_count;
+; 365  :         in_ptr += word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	rcx, QWORD PTR in_ptr$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 365  :         source_count -= word_digit_count;
+; 366  :         source_count -= word_digit_count;
 
 	movsxd	rax, DWORD PTR word_digit_count$[rbp]
 	mov	rcx, QWORD PTR source_count$[rbp]
@@ -5663,12 +6049,12 @@ $LN2@BuildBinar:
 	mov	rax, rcx
 	mov	QWORD PTR source_count$[rbp], rax
 
-; 366  :     }
+; 367  :     }
 
 	jmp	SHORT $LN2@BuildBinar
 $LN3@BuildBinar:
 
-; 367  :     *out_buf_count = out_ptr - out_buf;
+; 368  :     *out_buf_count = out_ptr - out_buf;
 
 	mov	rax, QWORD PTR out_buf$[rbp]
 	mov	rcx, QWORD PTR out_ptr$[rbp]
@@ -5678,7 +6064,7 @@ $LN3@BuildBinar:
 	mov	rcx, QWORD PTR out_buf_count$[rbp]
 	mov	QWORD PTR [rcx], rax
 
-; 368  : }
+; 369  : }
 
 	lea	rsp, QWORD PTR [rbp+360]
 	pop	rdi
@@ -5694,7 +6080,7 @@ x$ = 8
 in_ptr$ = 256
 Build1WordFromDecimalString PROC			; COMDAT
 
-; 306  : {
+; 307  : {
 
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
@@ -5709,7 +6095,7 @@ Build1WordFromDecimalString PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 307  :     __UNIT_TYPE x = (*in_ptr++ - L'0');
+; 308  :     __UNIT_TYPE x = (*in_ptr++ - L'0');
 
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	movzx	eax, WORD PTR [rax]
@@ -5720,26 +6106,13 @@ Build1WordFromDecimalString PROC			; COMDAT
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 308  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
+; 309  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	$LN2@Build1Word
 
-; 309  :     {
-; 310  :         x = x * 10 + (*in_ptr++ - L'0');
-
-	imul	rax, QWORD PTR x$[rbp], 10
-	mov	rcx, QWORD PTR in_ptr$[rbp]
-	movzx	ecx, WORD PTR [rcx]
-	sub	ecx, 48					; 00000030H
-	movsxd	rcx, ecx
-	add	rax, rcx
-	mov	QWORD PTR x$[rbp], rax
-	mov	rax, QWORD PTR in_ptr$[rbp]
-	add	rax, 2
-	mov	QWORD PTR in_ptr$[rbp], rax
-
+; 310  :     {
 ; 311  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
@@ -5856,17 +6229,8 @@ Build1WordFromDecimalString PROC			; COMDAT
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
-$LN2@Build1Word:
 
-; 320  :     }
-; 321  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
-
-	xor	eax, eax
-	cmp	eax, 1
-	je	$LN3@Build1Word
-
-; 322  :     {
-; 323  :         x = x * 10 + (*in_ptr++ - L'0');
+; 320  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
 	mov	rcx, QWORD PTR in_ptr$[rbp]
@@ -5878,7 +6242,16 @@ $LN2@Build1Word:
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
+$LN2@Build1Word:
 
+; 321  :     }
+; 322  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
+
+	xor	eax, eax
+	cmp	eax, 1
+	je	$LN3@Build1Word
+
+; 323  :     {
 ; 324  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
@@ -5930,17 +6303,30 @@ $LN2@Build1Word:
 	mov	rax, QWORD PTR in_ptr$[rbp]
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
+
+; 328  :         x = x * 10 + (*in_ptr++ - L'0');
+
+	imul	rax, QWORD PTR x$[rbp], 10
+	mov	rcx, QWORD PTR in_ptr$[rbp]
+	movzx	ecx, WORD PTR [rcx]
+	sub	ecx, 48					; 00000030H
+	movsxd	rcx, ecx
+	add	rax, rcx
+	mov	QWORD PTR x$[rbp], rax
+	mov	rax, QWORD PTR in_ptr$[rbp]
+	add	rax, 2
+	mov	QWORD PTR in_ptr$[rbp], rax
 $LN3@Build1Word:
 
-; 328  :     }
-; 329  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
+; 329  :     }
+; 330  :     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN4@Build1Word
 
-; 330  :     {
-; 331  :         x = x * 10 + (*in_ptr++ - L'0');
+; 331  :     {
+; 332  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
 	mov	rcx, QWORD PTR in_ptr$[rbp]
@@ -5953,7 +6339,7 @@ $LN3@Build1Word:
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 332  :         x = x * 10 + (*in_ptr++ - L'0');
+; 333  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
 	mov	rcx, QWORD PTR in_ptr$[rbp]
@@ -5967,15 +6353,15 @@ $LN3@Build1Word:
 	mov	QWORD PTR in_ptr$[rbp], rax
 $LN4@Build1Word:
 
-; 333  :     }
-; 334  :     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
+; 334  :     }
+; 335  :     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
 
 	xor	eax, eax
 	cmp	eax, 1
 	je	SHORT $LN5@Build1Word
 
-; 335  :     {
-; 336  :         x = x * 10 + (*in_ptr++ - L'0');
+; 336  :     {
+; 337  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
 	mov	rcx, QWORD PTR in_ptr$[rbp]
@@ -5989,12 +6375,12 @@ $LN4@Build1Word:
 	mov	QWORD PTR in_ptr$[rbp], rax
 $LN5@Build1Word:
 
-; 337  :     }
-; 338  :     return (x);
+; 338  :     }
+; 339  :     return (x);
 
 	mov	rax, QWORD PTR x$[rbp]
 
-; 339  : }
+; 340  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6011,7 +6397,7 @@ in_ptr$ = 256
 count$ = 264
 BuildLeading1WordFromDecimalString PROC			; COMDAT
 
-; 295  : {
+; 296  : {
 
 	mov	QWORD PTR [rsp+16], rdx
 	mov	QWORD PTR [rsp+8], rcx
@@ -6027,18 +6413,18 @@ BuildLeading1WordFromDecimalString PROC			; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 296  :     __UNIT_TYPE x = 0;
+; 297  :     __UNIT_TYPE x = 0;
 
 	mov	QWORD PTR x$[rbp], 0
 $LN2@BuildLeadi:
 
-; 297  :     while (count > 0)
+; 298  :     while (count > 0)
 
 	cmp	QWORD PTR count$[rbp], 0
 	jbe	SHORT $LN3@BuildLeadi
 
-; 298  :     {
-; 299  :         x = x * 10 + (*in_ptr++ - L'0');
+; 299  :     {
+; 300  :         x = x * 10 + (*in_ptr++ - L'0');
 
 	imul	rax, QWORD PTR x$[rbp], 10
 	mov	rcx, QWORD PTR in_ptr$[rbp]
@@ -6051,22 +6437,22 @@ $LN2@BuildLeadi:
 	add	rax, 2
 	mov	QWORD PTR in_ptr$[rbp], rax
 
-; 300  :         --count;
+; 301  :         --count;
 
 	mov	rax, QWORD PTR count$[rbp]
 	dec	rax
 	mov	QWORD PTR count$[rbp], rax
 
-; 301  :     }
+; 302  :     }
 
 	jmp	SHORT $LN2@BuildLeadi
 $LN3@BuildLeadi:
 
-; 302  :     return (x);
+; 303  :     return (x);
 
 	mov	rax, QWORD PTR x$[rbp]
 
-; 303  : }
+; 304  : }
 
 	lea	rsp, QWORD PTR [rbp+232]
 	pop	rdi
@@ -6086,7 +6472,7 @@ format_option$ = 368
 int_part_buf$ = 376
 ParseAsHexNumberString PROC				; COMDAT
 
-; 280  : {
+; 281  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -6107,8 +6493,8 @@ ParseAsHexNumberString PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 281  :     struct __tag_PARSER_STATE state;
-; 282  :     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, NULL);
+; 282  :     struct __tag_PARSER_STATE state;
+; 283  :     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, NULL);
 
 	mov	QWORD PTR [rsp+40], 0
 	mov	rax, QWORD PTR int_part_buf$[rbp]
@@ -6119,61 +6505,61 @@ ParseAsHexNumberString PROC				; COMDAT
 	lea	rcx, QWORD PTR state$[rbp]
 	call	InitializeParserState
 
-; 283  :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE)
+; 284  :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE)
 
 	mov	eax, DWORD PTR number_styles$[rbp]
 	and	eax, 1
 	test	eax, eax
 	je	SHORT $LN2@ParseAsHex
 
-; 284  :         SkipSpace(&state);
+; 285  :         SkipSpace(&state);
 
 	lea	rcx, QWORD PTR state$[rbp]
 	call	SkipSpace
 $LN2@ParseAsHex:
 
-; 285  :     ParseAsIntegerPartNumberSequence(&state);
+; 286  :     ParseAsIntegerPartNumberSequence(&state);
 
 	lea	rcx, QWORD PTR state$[rbp]
 	call	ParseAsIntegerPartNumberSequence
 
-; 286  :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE)
+; 287  :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE)
 
 	mov	eax, DWORD PTR number_styles$[rbp]
 	and	eax, 2
 	test	eax, eax
 	je	SHORT $LN3@ParseAsHex
 
-; 287  :         SkipSpace(&state);
+; 288  :         SkipSpace(&state);
 
 	lea	rcx, QWORD PTR state$[rbp]
 	call	SkipSpace
 $LN3@ParseAsHex:
 
-; 288  :     if (*state.IN_PTR != L'\0')
+; 289  :     if (*state.IN_PTR != L'\0')
 
 	mov	rax, QWORD PTR state$[rbp]
 	movzx	eax, WORD PTR [rax]
 	test	eax, eax
 	je	SHORT $LN4@ParseAsHex
 
-; 289  :         return (0);
+; 290  :         return (0);
 
 	xor	eax, eax
 	jmp	SHORT $LN1@ParseAsHex
 $LN4@ParseAsHex:
 
-; 290  :     FinalizeParserState(&state);
+; 291  :     FinalizeParserState(&state);
 
 	lea	rcx, QWORD PTR state$[rbp]
 	call	FinalizeParserState
 
-; 291  :     return (1);
+; 292  :     return (1);
 
 	mov	eax, 1
 $LN1@ParseAsHex:
 
-; 292  : }
+; 293  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -6194,6 +6580,7 @@ _TEXT	ENDS
 ;	COMDAT ParseAsDecimalNumberString
 _TEXT	SEGMENT
 state$ = 16
+tv245 = 308
 __$ArrayPad$ = 312
 in_ptr$ = 352
 number_styles$ = 360
@@ -6264,7 +6651,7 @@ $LN2@ParseAsDec:
 ; 189  :     {
 ; 190  :         state.SIGN = -1;
 
-	mov	DWORD PTR state$[rbp+12], -1
+	mov	BYTE PTR state$[rbp+12], -1
 
 ; 191  :         state.IN_PTR += 1;
 
@@ -6295,7 +6682,7 @@ $LN5@ParseAsDec:
 	and	eax, 32					; 00000020H
 	test	eax, eax
 	je	SHORT $LN6@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+40]
+	lea	rdx, QWORD PTR state$[rbp+36]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6304,7 +6691,7 @@ $LN5@ParseAsDec:
 ; 195  :         {
 ; 196  :             state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+48]
+	movsxd	rax, DWORD PTR state$[rbp+44]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6346,7 +6733,7 @@ $LN3@ParseAsDec:
 	and	eax, 4
 	test	eax, eax
 	je	$LN8@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+16]
+	lea	rdx, QWORD PTR state$[rbp+14]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6355,11 +6742,11 @@ $LN3@ParseAsDec:
 ; 204  :     {
 ; 205  :         state.SIGN = 1;
 
-	mov	DWORD PTR state$[rbp+12], 1
+	mov	BYTE PTR state$[rbp+12], 1
 
 ; 206  :         state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+24]
+	movsxd	rax, DWORD PTR state$[rbp+20]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6387,7 +6774,7 @@ $LN10@ParseAsDec:
 	and	eax, 32					; 00000020H
 	test	eax, eax
 	je	SHORT $LN11@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+40]
+	lea	rdx, QWORD PTR state$[rbp+36]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6396,7 +6783,7 @@ $LN10@ParseAsDec:
 ; 210  :         {
 ; 211  :             state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+48]
+	movsxd	rax, DWORD PTR state$[rbp+44]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6419,7 +6806,7 @@ $LN8@ParseAsDec:
 	and	eax, 4
 	test	eax, eax
 	je	$LN12@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+28]
+	lea	rdx, QWORD PTR state$[rbp+24]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6428,11 +6815,11 @@ $LN8@ParseAsDec:
 ; 216  :     {
 ; 217  :         state.SIGN = -1;
 
-	mov	DWORD PTR state$[rbp+12], -1
+	mov	BYTE PTR state$[rbp+12], -1
 
 ; 218  :         state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+36]
+	movsxd	rax, DWORD PTR state$[rbp+32]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6460,7 +6847,7 @@ $LN14@ParseAsDec:
 	and	eax, 32					; 00000020H
 	test	eax, eax
 	je	SHORT $LN15@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+40]
+	lea	rdx, QWORD PTR state$[rbp+36]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6469,7 +6856,7 @@ $LN14@ParseAsDec:
 ; 222  :         {
 ; 223  :             state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+48]
+	movsxd	rax, DWORD PTR state$[rbp+44]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6509,7 +6896,7 @@ $LN12@ParseAsDec:
 	and	eax, 32					; 00000020H
 	test	eax, eax
 	je	SHORT $LN18@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+40]
+	lea	rdx, QWORD PTR state$[rbp+36]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6518,7 +6905,7 @@ $LN12@ParseAsDec:
 ; 231  :         {
 ; 232  :             state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+48]
+	movsxd	rax, DWORD PTR state$[rbp+44]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6536,7 +6923,7 @@ $LN18@ParseAsDec:
 	and	eax, 8
 	test	eax, eax
 	je	SHORT $LN19@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+16]
+	lea	rdx, QWORD PTR state$[rbp+14]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6545,11 +6932,11 @@ $LN18@ParseAsDec:
 ; 236  :         {
 ; 237  :             state.SIGN = 1;
 
-	mov	DWORD PTR state$[rbp+12], 1
+	mov	BYTE PTR state$[rbp+12], 1
 
 ; 238  :             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+24]
+	movsxd	rax, DWORD PTR state$[rbp+20]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6565,7 +6952,7 @@ $LN19@ParseAsDec:
 	and	eax, 8
 	test	eax, eax
 	je	SHORT $LN21@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+28]
+	lea	rdx, QWORD PTR state$[rbp+24]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6574,11 +6961,11 @@ $LN19@ParseAsDec:
 ; 241  :         {
 ; 242  :             state.SIGN = -1;
 
-	mov	DWORD PTR state$[rbp+12], -1
+	mov	BYTE PTR state$[rbp+12], -1
 
 ; 243  :             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+36]
+	movsxd	rax, DWORD PTR state$[rbp+32]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6600,7 +6987,7 @@ $LN16@ParseAsDec:
 	and	eax, 32					; 00000020H
 	test	eax, eax
 	je	$LN23@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+40]
+	lea	rdx, QWORD PTR state$[rbp+36]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6609,7 +6996,7 @@ $LN16@ParseAsDec:
 ; 250  :     {
 ; 251  :         state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+48]
+	movsxd	rax, DWORD PTR state$[rbp+44]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6625,7 +7012,7 @@ $LN16@ParseAsDec:
 	and	eax, 8
 	test	eax, eax
 	je	SHORT $LN25@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+16]
+	lea	rdx, QWORD PTR state$[rbp+14]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6634,11 +7021,11 @@ $LN16@ParseAsDec:
 ; 254  :         {
 ; 255  :             state.SIGN = 1;
 
-	mov	DWORD PTR state$[rbp+12], 1
+	mov	BYTE PTR state$[rbp+12], 1
 
 ; 256  :             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+24]
+	movsxd	rax, DWORD PTR state$[rbp+20]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6654,7 +7041,7 @@ $LN25@ParseAsDec:
 	and	eax, 8
 	test	eax, eax
 	je	SHORT $LN27@ParseAsDec
-	lea	rdx, QWORD PTR state$[rbp+28]
+	lea	rdx, QWORD PTR state$[rbp+24]
 	mov	rcx, QWORD PTR state$[rbp]
 	call	StartsWith
 	test	eax, eax
@@ -6663,11 +7050,11 @@ $LN25@ParseAsDec:
 ; 259  :         {
 ; 260  :             state.SIGN = -1;
 
-	mov	DWORD PTR state$[rbp+12], -1
+	mov	BYTE PTR state$[rbp+12], -1
 
 ; 261  :             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
 
-	movsxd	rax, DWORD PTR state$[rbp+36]
+	movsxd	rax, DWORD PTR state$[rbp+32]
 	mov	rcx, QWORD PTR state$[rbp]
 	lea	rax, QWORD PTR [rcx+rax*2]
 	mov	QWORD PTR state$[rbp], rax
@@ -6725,18 +7112,27 @@ $LN30@ParseAsDec:
 	lea	rcx, QWORD PTR state$[rbp]
 	call	FinalizeParserState
 
-; 274  :     *sign = state.SIGN;
+; 274  :     // 明示的に負の符号が与えられていた場合は負数、そうではない場合は正数とみなす
+; 275  :     *sign = state.SIGN < 0 ? -1 : 1;
 
+	movsx	eax, BYTE PTR state$[rbp+12]
+	test	eax, eax
+	jge	SHORT $LN32@ParseAsDec
+	mov	DWORD PTR tv245[rbp], -1
+	jmp	SHORT $LN33@ParseAsDec
+$LN32@ParseAsDec:
+	mov	DWORD PTR tv245[rbp], 1
+$LN33@ParseAsDec:
 	mov	rax, QWORD PTR sign$[rbp]
-	mov	ecx, DWORD PTR state$[rbp+12]
-	mov	DWORD PTR [rax], ecx
+	movzx	ecx, BYTE PTR tv245[rbp]
+	mov	BYTE PTR [rax], cl
 
-; 275  :     return (1);
+; 276  :     return (1);
 
 	mov	eax, 1
 $LN1@ParseAsDec:
 
-; 276  : }
+; 277  : }
 
 	mov	rdi, rax
 	lea	rcx, QWORD PTR [rbp-48]
@@ -6796,17 +7192,17 @@ $LN2@ParseAsFra:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+88]
+	mov	rcx, QWORD PTR [rcx+80]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 161  :             state->FRAC_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+88]
+	mov	rax, QWORD PTR [rax+80]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+88], rax
+	mov	QWORD PTR [rcx+80], rax
 
 ; 162  :             state->IN_PTR += 1;
 
@@ -6845,17 +7241,17 @@ $LN5@ParseAsFra:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+88]
+	mov	rcx, QWORD PTR [rcx+80]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 167  :             state->FRAC_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+88]
+	mov	rax, QWORD PTR [rax+80]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+88], rax
+	mov	QWORD PTR [rcx+80], rax
 
 ; 168  :             state->IN_PTR += 1;
 
@@ -6894,17 +7290,17 @@ $LN7@ParseAsFra:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+88]
+	mov	rcx, QWORD PTR [rcx+80]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 173  :             state->FRAC_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+88]
+	mov	rax, QWORD PTR [rax+80]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+88], rax
+	mov	QWORD PTR [rcx+80], rax
 
 ; 174  :             state->IN_PTR += 1;
 
@@ -6984,17 +7380,17 @@ $LN2@ParseAsInt:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+80]
+	mov	rcx, QWORD PTR [rcx+72]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 130  :             state->INT_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+80]
+	mov	rax, QWORD PTR [rax+72]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+80], rax
+	mov	QWORD PTR [rcx+72], rax
 
 ; 131  :             state->IN_PTR += 1;
 
@@ -7033,17 +7429,17 @@ $LN5@ParseAsInt:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+80]
+	mov	rcx, QWORD PTR [rcx+72]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 136  :             state->INT_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+80]
+	mov	rax, QWORD PTR [rax+72]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+80], rax
+	mov	QWORD PTR [rcx+72], rax
 
 ; 137  :             state->IN_PTR += 1;
 
@@ -7082,17 +7478,17 @@ $LN7@ParseAsInt:
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rax, QWORD PTR [rax]
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	rcx, QWORD PTR [rcx+80]
+	mov	rcx, QWORD PTR [rcx+72]
 	movzx	eax, WORD PTR [rax]
 	mov	WORD PTR [rcx], ax
 
 ; 142  :             state->INT_PART_PTR += 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+80]
+	mov	rax, QWORD PTR [rax+72]
 	add	rax, 2
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	QWORD PTR [rcx+80], rax
+	mov	QWORD PTR [rcx+72], rax
 
 ; 143  :             state->IN_PTR += 1;
 
@@ -7115,7 +7511,7 @@ $LN9@ParseAsInt:
 	test	eax, eax
 	je	SHORT $LN11@ParseAsInt
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 52					; 00000034H
+	add	rax, 48					; 00000030H
 	mov	rdx, rax
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -7126,7 +7522,7 @@ $LN9@ParseAsInt:
 ; 146  :             state->IN_PTR += state->GROUP_SEPARATOR_LENGTH;
 
 	mov	rax, QWORD PTR state$[rbp]
-	movsxd	rax, DWORD PTR [rax+60]
+	movsxd	rax, DWORD PTR [rax+56]
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR [rcx]
 	lea	rax, QWORD PTR [rcx+rax*2]
@@ -7143,10 +7539,10 @@ $LN11@ParseAsInt:
 	test	eax, eax
 	je	SHORT $LN13@ParseAsInt
 	mov	rax, QWORD PTR state$[rbp]
-	cmp	DWORD PTR [rax+72], 0
+	cmp	DWORD PTR [rax+68], 0
 	jle	SHORT $LN13@ParseAsInt
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 64					; 00000040H
+	add	rax, 60					; 0000003cH
 	mov	rdx, rax
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR [rax]
@@ -7157,7 +7553,7 @@ $LN11@ParseAsInt:
 ; 148  :             state->IN_PTR += state->SECONDARY_GROUP_SEPARATOR_LENGTH;
 
 	mov	rax, QWORD PTR state$[rbp]
-	movsxd	rax, DWORD PTR [rax+72]
+	movsxd	rax, DWORD PTR [rax+68]
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR [rcx]
 	lea	rax, QWORD PTR [rcx+rax*2]
@@ -7296,7 +7692,7 @@ FinalizeParserState PROC				; COMDAT
 ; 96   :     *state->INT_PART_PTR = L'\0';
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+80]
+	mov	rax, QWORD PTR [rax+72]
 	xor	ecx, ecx
 	mov	WORD PTR [rax], cx
 
@@ -7311,7 +7707,7 @@ FinalizeParserState PROC				; COMDAT
 ; 98   :         *state->FRAC_PART_PTR = L'\0';
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	rax, QWORD PTR [rax+88]
+	mov	rax, QWORD PTR [rax+80]
 	xor	ecx, ecx
 	mov	WORD PTR [rax], cx
 $LN2@FinalizePa:
@@ -7369,92 +7765,92 @@ InitializeParserState PROC				; COMDAT
 ; 70   :     state->SIGN = 0;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rax+12], 0
+	mov	BYTE PTR [rax+12], 0
 
 ; 71   :     lstrcpyW(state->POSITIVE_SIGN, format_option->PositiveSign);
 
 	mov	rax, QWORD PTR format_option$[rbp]
 	add	rax, 16
 	mov	rcx, QWORD PTR state$[rbp]
-	add	rcx, 16
+	add	rcx, 14
 	mov	rdx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 72   :     state->POSITIVE_SIGN_LENGTH = lstrlenW(state->POSITIVE_SIGN);
 
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 16
+	add	rax, 14
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rcx+24], eax
+	mov	DWORD PTR [rcx+20], eax
 
 ; 73   :     lstrcpyW(state->NEGATIVE_SIGN, format_option->NegativeSign);
 
 	mov	rax, QWORD PTR format_option$[rbp]
 	add	rax, 22
 	mov	rcx, QWORD PTR state$[rbp]
-	add	rcx, 28
+	add	rcx, 24
 	mov	rdx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 74   :     state->NEGATIVE_SIGN_LENGTH = lstrlenW(state->NEGATIVE_SIGN);
 
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 28
+	add	rax, 24
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rcx+36], eax
+	mov	DWORD PTR [rcx+32], eax
 
 ; 75   :     lstrcpyW(state->DECIMAL_SEPARATOR, format_option->DecimalSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
 	add	rax, 10
 	mov	rcx, QWORD PTR state$[rbp]
-	add	rcx, 40					; 00000028H
+	add	rcx, 36					; 00000024H
 	mov	rdx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 76   :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(state->DECIMAL_SEPARATOR);
 
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 40					; 00000028H
+	add	rax, 36					; 00000024H
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rcx+48], eax
+	mov	DWORD PTR [rcx+44], eax
 
 ; 77   :     lstrcpyW(state->GROUP_SEPARATOR, format_option->GroupSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
 	add	rax, 4
 	mov	rcx, QWORD PTR state$[rbp]
-	add	rcx, 52					; 00000034H
+	add	rcx, 48					; 00000030H
 	mov	rdx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 78   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(state->GROUP_SEPARATOR);
 
 	mov	rax, QWORD PTR state$[rbp]
-	add	rax, 52					; 00000034H
+	add	rax, 48					; 00000030H
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rcx+60], eax
+	mov	DWORD PTR [rcx+56], eax
 
 ; 79   :     if (state->GROUP_SEPARATOR[0] == L'\xa0' && state->GROUP_SEPARATOR[1] == L'\0')
 
 	mov	eax, 2
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR state$[rbp]
-	movzx	eax, WORD PTR [rcx+rax+52]
+	movzx	eax, WORD PTR [rcx+rax+48]
 	cmp	eax, 160				; 000000a0H
 	jne	SHORT $LN2@Initialize
 	mov	eax, 2
 	imul	rax, rax, 1
 	mov	rcx, QWORD PTR state$[rbp]
-	movzx	eax, WORD PTR [rcx+rax+52]
+	movzx	eax, WORD PTR [rcx+rax+48]
 	test	eax, eax
 	jne	SHORT $LN2@Initialize
 
@@ -7465,7 +7861,7 @@ InitializeParserState PROC				; COMDAT
 	imul	rax, rax, 0
 	mov	ecx, 32					; 00000020H
 	mov	rdx, QWORD PTR state$[rbp]
-	mov	WORD PTR [rdx+rax+64], cx
+	mov	WORD PTR [rdx+rax+60], cx
 
 ; 82   :         state->SECONDARY_GROUP_SEPARATOR[1] = L'\0';
 
@@ -7473,12 +7869,12 @@ InitializeParserState PROC				; COMDAT
 	imul	rax, rax, 1
 	xor	ecx, ecx
 	mov	rdx, QWORD PTR state$[rbp]
-	mov	WORD PTR [rdx+rax+64], cx
+	mov	WORD PTR [rdx+rax+60], cx
 
 ; 83   :         state->SECONDARY_GROUP_SEPARATOR_LENGTH = 1;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rax+72], 1
+	mov	DWORD PTR [rax+68], 1
 
 ; 84   :     }
 
@@ -7493,12 +7889,12 @@ $LN2@Initialize:
 	imul	rax, rax, 0
 	xor	ecx, ecx
 	mov	rdx, QWORD PTR state$[rbp]
-	mov	WORD PTR [rdx+rax+64], cx
+	mov	WORD PTR [rdx+rax+60], cx
 
 ; 88   :         state->SECONDARY_GROUP_SEPARATOR_LENGTH = 0;
 
 	mov	rax, QWORD PTR state$[rbp]
-	mov	DWORD PTR [rax+72], 0
+	mov	DWORD PTR [rax+68], 0
 $LN3@Initialize:
 
 ; 89   :     }
@@ -7506,13 +7902,13 @@ $LN3@Initialize:
 
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR int_part_buf$[rbp]
-	mov	QWORD PTR [rax+80], rcx
+	mov	QWORD PTR [rax+72], rcx
 
 ; 91   :     state->FRAC_PART_PTR = frac_part_buf;
 
 	mov	rax, QWORD PTR state$[rbp]
 	mov	rcx, QWORD PTR frac_part_buf$[rbp]
-	mov	QWORD PTR [rax+88], rcx
+	mov	QWORD PTR [rax+80], rcx
 
 ; 92   : }
 
@@ -7966,7 +8362,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI64Counter PROC				; COMDAT
 
-; 353  :     {
+; 355  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -7981,13 +8377,13 @@ AddToMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 356  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 355  :     }
+; 357  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8002,7 +8398,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToMULTI32Counter PROC				; COMDAT
 
-; 347  :     {
+; 349  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -8017,13 +8413,13 @@ AddToMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 350  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 349  :     }
+; 351  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8037,7 +8433,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 330  :     {
+; 332  :     {
 
 	push	rbp
 	push	rdi
@@ -8050,12 +8446,12 @@ IncrementMULTI64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 333  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lea	rax, OFFSET FLAT:statistics_info
 	lock inc DWORD PTR [rax]
 
-; 332  :     }
+; 334  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8069,7 +8465,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 324  :     {
+; 326  :     {
 
 	push	rbp
 	push	rdi
@@ -8082,12 +8478,12 @@ IncrementMULTI32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 325  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 327  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lea	rax, OFFSET FLAT:statistics_info+4
 	lock inc DWORD PTR [rax]
 
-; 326  :     }
+; 328  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -8097,178 +8493,247 @@ IncrementMULTI32Counter ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
-;	COMDAT PMC_TryParse
+;	COMDAT PMC_TryParseForSINT
 _TEXT	SEGMENT
 result$ = 4
-no$ = 40
-mask$4 = 68
-source$ = 320
-number_styles$ = 328
-format_option$ = 336
-o$ = 344
-PMC_TryParse PROC					; COMDAT
+no_abs$ = 40
+source$ = 288
+number_styles$ = 296
+format_option$ = 304
+o_sign$ = 312
+o_abs$ = 320
+PMC_TryParseForSINT PROC				; COMDAT
 
-; 993  : {
+; 1075 : {
 
-$LN12:
+$LN8:
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
 	mov	DWORD PTR [rsp+16], edx
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 328				; 00000148H
-	lea	rbp, QWORD PTR [rsp+32]
+	sub	rsp, 312				; 00000138H
+	lea	rbp, QWORD PTR [rsp+48]
 	mov	rdi, rsp
-	mov	ecx, 82					; 00000052H
+	mov	ecx, 78					; 0000004eH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+360]
+	mov	rcx, QWORD PTR [rsp+344]
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 994  :     PMC_STATUS_CODE result;
-; 995  :     if (source == NULL)
+; 1076 :     PMC_STATUS_CODE result;
+; 1077 :     if (source == NULL)
 
 	cmp	QWORD PTR source$[rbp], 0
 	jne	SHORT $LN2@PMC_TryPar
 
-; 996  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1078 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
 	jmp	$LN1@PMC_TryPar
 $LN2@PMC_TryPar:
 
-; 997  :     if (o == NULL)
+; 1079 :     if (o_sign == NULL)
+
+	cmp	QWORD PTR o_sign$[rbp], 0
+	jne	SHORT $LN3@PMC_TryPar
+
+; 1080 :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	mov	eax, -1
+	jmp	SHORT $LN1@PMC_TryPar
+$LN3@PMC_TryPar:
+
+; 1081 :     if (o_abs == NULL)
+
+	cmp	QWORD PTR o_abs$[rbp], 0
+	jne	SHORT $LN4@PMC_TryPar
+
+; 1082 :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	mov	eax, -1
+	jmp	SHORT $LN1@PMC_TryPar
+$LN4@PMC_TryPar:
+
+; 1083 :     if (format_option == NULL)
+
+	cmp	QWORD PTR format_option$[rbp], 0
+	jne	SHORT $LN5@PMC_TryPar
+
+; 1084 :         format_option = &default_number_format_option;
+
+	lea	rax, OFFSET FLAT:default_number_format_option
+	mov	QWORD PTR format_option$[rbp], rax
+$LN5@PMC_TryPar:
+
+; 1085 :     NUMBER_HEADER* no_abs;
+; 1086 :     if ((result = PMC_TryParse_Imp(source, number_styles, format_option, o_sign, &no_abs)) != PMC_STATUS_OK)
+
+	lea	rax, QWORD PTR no_abs$[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	mov	r9, QWORD PTR o_sign$[rbp]
+	mov	r8, QWORD PTR format_option$[rbp]
+	mov	edx, DWORD PTR number_styles$[rbp]
+	mov	rcx, QWORD PTR source$[rbp]
+	call	PMC_TryParse_Imp
+	mov	DWORD PTR result$[rbp], eax
+	cmp	DWORD PTR result$[rbp], 0
+	je	SHORT $LN6@PMC_TryPar
+
+; 1087 :         return (result);
+
+	mov	eax, DWORD PTR result$[rbp]
+	jmp	SHORT $LN1@PMC_TryPar
+$LN6@PMC_TryPar:
+
+; 1088 :     *o_abs = (PMC_HANDLE_UINT)no_abs;
+
+	mov	rax, QWORD PTR o_abs$[rbp]
+	mov	rcx, QWORD PTR no_abs$[rbp]
+	mov	QWORD PTR [rax], rcx
+
+; 1089 :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_TryPar:
+
+; 1090 : }
+
+	mov	rdi, rax
+	lea	rcx, QWORD PTR [rbp-48]
+	lea	rdx, OFFSET FLAT:PMC_TryParseForSINT$rtcFrameData
+	call	_RTC_CheckStackVars
+	mov	rax, rdi
+	lea	rsp, QWORD PTR [rbp+264]
+	pop	rdi
+	pop	rbp
+	ret	0
+PMC_TryParseForSINT ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_parse.c
+;	COMDAT PMC_TryParse
+_TEXT	SEGMENT
+result$ = 4
+o_sign$ = 36
+o_abs$ = 72
+source$ = 320
+number_styles$ = 328
+format_option$ = 336
+o$ = 344
+PMC_TryParse PROC					; COMDAT
+
+; 1052 : {
+
+$LN8:
+	mov	QWORD PTR [rsp+32], r9
+	mov	QWORD PTR [rsp+24], r8
+	mov	DWORD PTR [rsp+16], edx
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 344				; 00000158H
+	lea	rbp, QWORD PTR [rsp+48]
+	mov	rdi, rsp
+	mov	ecx, 86					; 00000056H
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+376]
+	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
+	call	__CheckForDebuggerJustMyCode
+
+; 1053 :     PMC_STATUS_CODE result;
+; 1054 :     if (source == NULL)
+
+	cmp	QWORD PTR source$[rbp], 0
+	jne	SHORT $LN2@PMC_TryPar
+
+; 1055 :         return (PMC_STATUS_ARGUMENT_ERROR);
+
+	mov	eax, -1
+	jmp	$LN1@PMC_TryPar
+$LN2@PMC_TryPar:
+
+; 1056 :     if (o == NULL)
 
 	cmp	QWORD PTR o$[rbp], 0
 	jne	SHORT $LN3@PMC_TryPar
 
-; 998  :         return (PMC_STATUS_ARGUMENT_ERROR);
+; 1057 :         return (PMC_STATUS_ARGUMENT_ERROR);
 
 	mov	eax, -1
-	jmp	$LN1@PMC_TryPar
+	jmp	SHORT $LN1@PMC_TryPar
 $LN3@PMC_TryPar:
 
-; 999  :     if (format_option == NULL)
+; 1058 :     if (format_option == NULL)
 
 	cmp	QWORD PTR format_option$[rbp], 0
 	jne	SHORT $LN4@PMC_TryPar
 
-; 1000 :         format_option = &default_number_format_option;
+; 1059 :         format_option = &default_number_format_option;
 
 	lea	rax, OFFSET FLAT:default_number_format_option
 	mov	QWORD PTR format_option$[rbp], rax
 $LN4@PMC_TryPar:
 
-; 1001 :     NUMBER_HEADER* no;
-; 1002 :     if (number_styles & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER)
+; 1060 :     char o_sign;
+; 1061 :     NUMBER_HEADER* o_abs;
+; 1062 :     if ((result = PMC_TryParse_Imp(source, number_styles, format_option, &o_sign, &o_abs)) != PMC_STATUS_OK)
 
-	mov	eax, DWORD PTR number_styles$[rbp]
-	and	eax, 512				; 00000200H
-	test	eax, eax
+	lea	rax, QWORD PTR o_abs$[rbp]
+	mov	QWORD PTR [rsp+32], rax
+	lea	r9, QWORD PTR o_sign$[rbp]
+	mov	r8, QWORD PTR format_option$[rbp]
+	mov	edx, DWORD PTR number_styles$[rbp]
+	mov	rcx, QWORD PTR source$[rbp]
+	call	PMC_TryParse_Imp
+	mov	DWORD PTR result$[rbp], eax
+	cmp	DWORD PTR result$[rbp], 0
 	je	SHORT $LN5@PMC_TryPar
 
-; 1003 :     {
-; 1004 :         // 許可されている組み合わせのフラグ
-; 1005 :         _UINT32_T mask = PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER | PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE | PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE;
-
-	mov	DWORD PTR mask$4[rbp], 515		; 00000203H
-
-; 1006 : 
-; 1007 :         // 許可されていないフラグが指定されていればエラー
-; 1008 :         if (number_styles & ~mask)
-
-	mov	eax, DWORD PTR mask$4[rbp]
-	not	eax
-	mov	ecx, DWORD PTR number_styles$[rbp]
-	and	ecx, eax
-	mov	eax, ecx
-	test	eax, eax
-	je	SHORT $LN7@PMC_TryPar
-
-; 1009 :             return (PMC_STATUS_ARGUMENT_ERROR);
-
-	mov	eax, -1
-	jmp	$LN1@PMC_TryPar
-$LN7@PMC_TryPar:
-
-; 1010 : 
-; 1011 :         if ((result = TryParseX(source, number_styles, format_option, &no)) != PMC_STATUS_OK)
-
-	lea	r9, QWORD PTR no$[rbp]
-	mov	r8, QWORD PTR format_option$[rbp]
-	mov	edx, DWORD PTR number_styles$[rbp]
-	mov	rcx, QWORD PTR source$[rbp]
-	call	TryParseX
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN8@PMC_TryPar
-
-; 1012 :             return (result);
+; 1063 :         return (result);
 
 	mov	eax, DWORD PTR result$[rbp]
 	jmp	SHORT $LN1@PMC_TryPar
-$LN8@PMC_TryPar:
-
-; 1013 :     }
-
-	jmp	SHORT $LN6@PMC_TryPar
 $LN5@PMC_TryPar:
 
-; 1014 :     else
-; 1015 :     {
-; 1016 :         if ((result = TryParseDN(source, number_styles, format_option, &no)) != PMC_STATUS_OK)
+; 1064 :     if (o_sign < 0)
 
-	lea	r9, QWORD PTR no$[rbp]
-	mov	r8, QWORD PTR format_option$[rbp]
-	mov	edx, DWORD PTR number_styles$[rbp]
-	mov	rcx, QWORD PTR source$[rbp]
-	call	TryParseDN
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN9@PMC_TryPar
+	movsx	eax, BYTE PTR o_sign$[rbp]
+	test	eax, eax
+	jge	SHORT $LN6@PMC_TryPar
 
-; 1017 :             return (result);
+; 1065 :     {
+; 1066 :         // 負数は表現できないのでエラーとする
+; 1067 :         DeallocateNumber(o_abs);
 
-	mov	eax, DWORD PTR result$[rbp]
+	mov	rcx, QWORD PTR o_abs$[rbp]
+	call	DeallocateNumber
+
+; 1068 :         return (PMC_STATUS_OVERFLOW);
+
+	mov	eax, -2
 	jmp	SHORT $LN1@PMC_TryPar
-$LN9@PMC_TryPar:
 $LN6@PMC_TryPar:
 
-; 1018 :     }
-; 1019 :     *o = (PMC_HANDLE_UINT)no;
+; 1069 :     }
+; 1070 :     *o = (PMC_HANDLE_UINT)o_abs;
 
 	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR no$[rbp]
+	mov	rcx, QWORD PTR o_abs$[rbp]
 	mov	QWORD PTR [rax], rcx
 
-; 1020 : #ifdef _DEBUG
-; 1021 :     if ((result = CheckNumber((NUMBER_HEADER*)*o)) != PMC_STATUS_OK)
-
-	mov	rax, QWORD PTR o$[rbp]
-	mov	rcx, QWORD PTR [rax]
-	call	CheckNumber
-	mov	DWORD PTR result$[rbp], eax
-	cmp	DWORD PTR result$[rbp], 0
-	je	SHORT $LN10@PMC_TryPar
-
-; 1022 :         return (result);
-
-	mov	eax, DWORD PTR result$[rbp]
-	jmp	SHORT $LN1@PMC_TryPar
-$LN10@PMC_TryPar:
-
-; 1023 : #endif
-; 1024 :     return (PMC_STATUS_OK);
+; 1071 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 $LN1@PMC_TryPar:
 
-; 1025 : }
+; 1072 : }
 
 	mov	rdi, rax
-	lea	rcx, QWORD PTR [rbp-32]
+	lea	rcx, QWORD PTR [rbp-48]
 	lea	rdx, OFFSET FLAT:PMC_TryParse$rtcFrameData
 	call	_RTC_CheckStackVars
 	mov	rax, rdi
@@ -8285,7 +8750,7 @@ _TEXT	SEGMENT
 feature$ = 224
 Initialize_Parse PROC					; COMDAT
 
-; 1028 : {
+; 1093 : {
 
 $LN5:
 	mov	QWORD PTR [rsp+8], rcx
@@ -8301,42 +8766,42 @@ $LN5:
 	lea	rcx, OFFSET FLAT:__4CD8546F_pmc_parse@c
 	call	__CheckForDebuggerJustMyCode
 
-; 1029 :     default_number_format_option.DecimalDigits = 2;
+; 1094 :     default_number_format_option.DecimalDigits = 2;
 
 	mov	DWORD PTR default_number_format_option, 2
 
-; 1030 :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
+; 1095 :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
 
 	lea	rdx, OFFSET FLAT:??_C@_13DEFPDAGF@?$AA?0@
 	lea	rcx, OFFSET FLAT:default_number_format_option+4
 	call	QWORD PTR __imp_lstrcpyW
 
-; 1031 :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
+; 1096 :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
 
 	lea	rdx, OFFSET FLAT:??_C@_13JOFGPIOO@?$AA?4@
 	lea	rcx, OFFSET FLAT:default_number_format_option+10
 	call	QWORD PTR __imp_lstrcpyW
 
-; 1032 :     lstrcpy(default_number_format_option.GroupSizes, "3");
+; 1097 :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
 
-	lea	rdx, OFFSET FLAT:??_C@_01EKENIIDA@3@
+	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
 	lea	rcx, OFFSET FLAT:default_number_format_option+28
-	call	QWORD PTR __imp_lstrcpyA
+	call	QWORD PTR __imp_lstrcpyW
 
-; 1033 :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
+; 1098 :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
 
 	lea	rdx, OFFSET FLAT:??_C@_13KJIIAINM@?$AA?$CL@
 	lea	rcx, OFFSET FLAT:default_number_format_option+16
 	call	QWORD PTR __imp_lstrcpyW
 
-; 1034 :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
+; 1099 :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
 
 	lea	rdx, OFFSET FLAT:??_C@_13IMODFHAA@?$AA?9@
 	lea	rcx, OFFSET FLAT:default_number_format_option+22
 	call	QWORD PTR __imp_lstrcpyW
 
-; 1035 : 
-; 1036 :     if (feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2)
+; 1100 : 
+; 1101 :     if (feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2)
 
 	mov	rax, QWORD PTR feature$[rbp]
 	mov	eax, DWORD PTR [rax]
@@ -8351,26 +8816,26 @@ $LN5:
 	test	eax, eax
 	je	SHORT $LN2@Initialize
 
-; 1037 :         fp_MultiplyAndAdd = MultiplyAndAdd_using_ADCX_MULX;
+; 1102 :         fp_MultiplyAndAdd = MultiplyAndAdd_using_ADCX_MULX;
 
 	lea	rax, OFFSET FLAT:MultiplyAndAdd_using_ADCX_MULX
 	mov	QWORD PTR fp_MultiplyAndAdd, rax
 	jmp	SHORT $LN3@Initialize
 $LN2@Initialize:
 
-; 1038 :     else
-; 1039 :         fp_MultiplyAndAdd = MultiplyAndAdd_using_ADC_MUL;
+; 1103 :     else
+; 1104 :         fp_MultiplyAndAdd = MultiplyAndAdd_using_ADC_MUL;
 
 	lea	rax, OFFSET FLAT:MultiplyAndAdd_using_ADC_MUL
 	mov	QWORD PTR fp_MultiplyAndAdd, rax
 $LN3@Initialize:
 
-; 1040 : 
-; 1041 :     return (PMC_STATUS_OK);
+; 1105 : 
+; 1106 :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
 
-; 1042 : }
+; 1107 : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi

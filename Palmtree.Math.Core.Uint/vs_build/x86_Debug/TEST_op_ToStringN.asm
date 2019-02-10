@@ -28,7 +28,6 @@ msvcjmc	ENDS
 PUBLIC	_TEST_PMC_ToStringN
 PUBLIC	__JustMyCode_Default
 EXTRN	__imp__lstrcmpW@8:PROC
-EXTRN	__imp__lstrcpyA@8:PROC
 EXTRN	__imp__lstrcpyW@8:PROC
 EXTRN	_TEST_Assert:PROC
 EXTRN	_FormatTestLabel:PROC
@@ -52,31 +51,31 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG94990 DB	'+', 00H, 00H, 00H
-$SG94991 DB	'-', 00H, 00H, 00H
-$SG94992 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94622 DB	'+', 00H, 00H, 00H
+$SG94623 DB	'-', 00H, 00H, 00H
+$SG94624 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94993 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94625 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
-$SG94994 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94626 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'n'
 	DB	'0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H
 	DB	'_', 01aH, 090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')'
 	DB	00H, 00H, 00H
-$SG94995 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94627 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
-$SG94996 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG94628 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94997 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94629 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
@@ -94,10 +93,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_tostringn.c
 _TEXT	SEGMENT
-tv150 = -84						; size = 4
-tv137 = -80						; size = 4
-tv84 = -76						; size = 4
-_opt$ = -68						; size = 40
+tv150 = -96						; size = 4
+tv137 = -92						; size = 4
+tv84 = -88						; size = 4
+_opt$ = -80						; size = 52
 _x_result$ = -24					; size = 4
 _result$ = -20						; size = 4
 _x$ = -12						; size = 4
@@ -120,11 +119,11 @@ _TEST_PMC_ToStringN PROC
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 84					; 00000054H
+	sub	esp, 96					; 00000060H
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-84]
-	mov	ecx, 21					; 00000015H
+	lea	edi, DWORD PTR [ebp-96]
+	mov	ecx, 24					; 00000018H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	eax, DWORD PTR ___security_cookie
@@ -149,14 +148,14 @@ _TEST_PMC_ToStringN PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 40   :     lstrcpy(opt.GroupSizes, group_sizes);
+; 40   :     lstrcpyW(opt.GroupSizes, group_sizes);
 
 	mov	esi, esp
 	mov	edx, DWORD PTR _group_sizes$[ebp]
 	push	edx
 	lea	eax, DWORD PTR _opt$[ebp+28]
 	push	eax
-	call	DWORD PTR __imp__lstrcpyA@8
+	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
@@ -179,7 +178,7 @@ _TEST_PMC_ToStringN PROC
 ; 43   :     lstrcpyW(opt.PositiveSign, L"+");
 
 	mov	esi, esp
-	push	OFFSET $SG94990
+	push	OFFSET $SG94622
 	lea	ecx, DWORD PTR _opt$[ebp+16]
 	push	ecx
 	call	DWORD PTR __imp__lstrcpyW@8
@@ -189,7 +188,7 @@ _TEST_PMC_ToStringN PROC
 ; 44   :     lstrcpyW(opt.NegativeSign, L"-");
 
 	mov	esi, esp
-	push	OFFSET $SG94991
+	push	OFFSET $SG94623
 	lea	edx, DWORD PTR _opt$[ebp+22]
 	push	edx
 	call	DWORD PTR __imp__lstrcpyW@8
@@ -220,7 +219,7 @@ $LN4@TEST_PMC_T:
 $LN5@TEST_PMC_T:
 	mov	edx, DWORD PTR _x_result$[ebp]
 	push	edx
-	push	OFFSET $SG94992
+	push	OFFSET $SG94624
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -229,7 +228,7 @@ $LN5@TEST_PMC_T:
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94993
+	push	OFFSET $SG94625
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -252,7 +251,7 @@ $LN5@TEST_PMC_T:
 	mov	eax, DWORD PTR _x$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _ep$[ebp]
-	mov	edx, DWORD PTR [ecx+52]
+	mov	edx, DWORD PTR [ecx+44]
 	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
@@ -266,7 +265,7 @@ $LN6@TEST_PMC_T:
 $LN7@TEST_PMC_T:
 	mov	eax, DWORD PTR _result$[ebp]
 	push	eax
-	push	OFFSET $SG94994
+	push	OFFSET $SG94626
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
@@ -275,7 +274,7 @@ $LN7@TEST_PMC_T:
 	push	2
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94995
+	push	OFFSET $SG94627
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -300,13 +299,13 @@ $LN7@TEST_PMC_T:
 $LN8@TEST_PMC_T:
 	mov	DWORD PTR tv150[ebp], 0
 $LN9@TEST_PMC_T:
-	push	OFFSET $SG94996
+	push	OFFSET $SG94628
 	mov	edx, DWORD PTR tv150[ebp]
 	push	edx
 	push	3
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94997
+	push	OFFSET $SG94629
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -346,7 +345,7 @@ $LN1@TEST_PMC_T:
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 84					; 00000054H
+	add	esp, 96					; 00000060H
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
@@ -359,8 +358,8 @@ $LN12@TEST_PMC_T:
 	DD	-12					; fffffff4H
 	DD	4
 	DD	$LN10@TEST_PMC_T
-	DD	-68					; ffffffbcH
-	DD	40					; 00000028H
+	DD	-80					; ffffffb0H
+	DD	52					; 00000034H
 	DD	$LN11@TEST_PMC_T
 $LN11@TEST_PMC_T:
 	DB	111					; 0000006fH

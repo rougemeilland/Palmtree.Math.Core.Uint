@@ -48,6 +48,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
             b = b + b;
             b = b + b;
             b = b + b;
+            b = b + b;
             _string_source = new[]
             {
                 "{0}{1}",
@@ -59,20 +60,20 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
             {
                 b.Substring(0, 4),
                 b.Substring(0, 7),
-                b.Substring(0, 8),
-                b.Substring(0, 9),
+                b.Substring(5, 8),
+                b.Substring(10, 9),
                 b.Substring(0, 15),
-                b.Substring(0, 16),
-                b.Substring(0, 17),
+                b.Substring(5, 16),
+                b.Substring(10, 17),
                 b.Substring(0, 31),
-                b.Substring(0, 32),
-                b.Substring(0, 33),
+                b.Substring(5, 32),
+                b.Substring(10, 33),
                 b.Substring(0, 63),
-                b.Substring(0, 64),
-                b.Substring(0, 65),
+                b.Substring(5, 64),
+                b.Substring(10, 65),
                 b.Substring(0, 127),
-                b.Substring(0, 128),
-                b.Substring(0, 129),
+                b.Substring(5, 128),
+                b.Substring(10, 129),
             }, (format, i) => new { format, i })
             .SelectMany(item => new[]
             {
@@ -83,6 +84,12 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
                 "00000000",
                 "0000000000000000",
                 "00000000000000000000000000000000",
+                "f",
+                "ff",
+                "ffff",
+                "ffffffff",
+                "ffffffffffffffff",
+                "ffffffffffffffffffffffffffffffff",
             }, (item, zero) => new { item.format, item.i, zero })
             .Select(item => string.Format(item.format, item.zero, item.i))
             .SelectMany(item => new[] { item.ToLower(), item.ToUpper() })
@@ -128,13 +135,28 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
                         BigInteger x;
                         var ret = BigInteger.TryParse(item.str.StringValue, styles, null, out x);
                         if (ret)
-                            return (new
+                        {
+                            if (x >= 0)
                             {
-                                item.str,
-                                item.style,
-                                desired_result_code = new OutputTestData(_id, new[] { item.str, item.style }, false, true, PMC_STATUS_CODE.PMC_STATUS_OK),
-                                desired_value = new OutputTestData(_id, new[] { item.str, item.style }, true, true, x),
-                            });
+                                return (new
+                                {
+                                    item.str,
+                                    item.style,
+                                    desired_result_code = new OutputTestData(_id, new[] { item.str, item.style }, false, true, PMC_STATUS_CODE.PMC_STATUS_OK),
+                                    desired_value = new OutputTestData(_id, new[] { item.str, item.style }, true, true, x),
+                                });
+                            }
+                            else
+                            {
+                                return (new
+                                {
+                                    item.str,
+                                    item.style,
+                                    desired_result_code = new OutputTestData(_id, new[] { item.str, item.style }, false, false, PMC_STATUS_CODE.PMC_STATUS_OVERFLOW),
+                                    desired_value = new OutputTestData(_id, new[] { item.str, item.style }, false, false, x),
+                                });
+                            }
+                        }
                         else
                             return (new
                             {

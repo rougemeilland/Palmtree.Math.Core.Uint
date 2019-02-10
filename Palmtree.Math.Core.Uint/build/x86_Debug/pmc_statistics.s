@@ -73,7 +73,7 @@ Letext0:
 	.file 29 "../pmc.h"
 	.section	.debug_info,"dr"
 Ldebug_info0:
-	.long	0x4d17
+	.long	0x4d1b
 	.word	0x4
 	.secrel32	Ldebug_abbrev0
 	.byte	0x4
@@ -4012,34 +4012,34 @@ Ldebug_info0:
 	.ascii "__tag_PMC_STATISTICS_INFO\0"
 	.byte	0x10
 	.byte	0x1d
-	.byte	0x91
+	.byte	0x6a
 	.byte	0x10
 	.long	0x4c8b
 	.uleb128 0x11
 	.ascii "COUNT_MULTI64\0"
 	.byte	0x1d
-	.byte	0x93
+	.byte	0x6c
 	.byte	0xa
 	.long	0x109
 	.byte	0
 	.uleb128 0x11
 	.ascii "COUNT_MULTI32\0"
 	.byte	0x1d
-	.byte	0x94
+	.byte	0x6d
 	.byte	0xa
 	.long	0x109
 	.byte	0x4
 	.uleb128 0x11
 	.ascii "COUNT_DIV64\0"
 	.byte	0x1d
-	.byte	0x95
+	.byte	0x6e
 	.byte	0xa
 	.long	0x109
 	.byte	0x8
 	.uleb128 0x11
 	.ascii "COUNT_DIV32\0"
 	.byte	0x1d
-	.byte	0x96
+	.byte	0x6f
 	.byte	0xa
 	.long	0x109
 	.byte	0xc
@@ -4047,12 +4047,9 @@ Ldebug_info0:
 	.uleb128 0x3
 	.ascii "PMC_STATISTICS_INFO\0"
 	.byte	0x1d
-	.byte	0x97
+	.byte	0x70
 	.byte	0x3
 	.long	0x4c0f
-	.uleb128 0x6
-	.byte	0x4
-	.long	0x4c8b
 	.uleb128 0x1a
 	.ascii "statistics_info\0"
 	.byte	0x1
@@ -4072,16 +4069,20 @@ Ldebug_info0:
 	.long	LFE71-LFB71
 	.uleb128 0x1
 	.byte	0x9c
+	.long	0x4d18
 	.uleb128 0x1c
 	.ascii "buffer\0"
 	.byte	0x1
 	.byte	0x21
 	.byte	0x4e
-	.long	0x4ca7
+	.long	0x4d18
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
+	.uleb128 0x6
+	.byte	0x4
+	.long	0x4c8b
 	.byte	0
 	.section	.debug_abbrev,"dr"
 Ldebug_abbrev0:
@@ -4458,6 +4459,8 @@ Ldebug_abbrev0:
 	.uleb128 0x18
 	.uleb128 0x2117
 	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x1c

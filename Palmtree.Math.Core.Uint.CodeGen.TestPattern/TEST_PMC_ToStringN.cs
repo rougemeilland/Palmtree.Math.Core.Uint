@@ -103,7 +103,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
                                                                item.format.StringValue.ToQuotedChar(),
                                                                item.width.IntegerValue,
                                                                "L\"" + cultures[item.locale.StringValue].NumberFormat.NumberGroupSeparator + "\"",
-                                                               "\"" + string.Concat(cultures[item.locale.StringValue].NumberFormat.NumberGroupSizes.Select(n => n.ToString())) + "\"",
+                                                               "L\"" + string.Concat(cultures[item.locale.StringValue].NumberFormat.NumberGroupSizes.Select(n => n.ToString())) + "\"",
                                                                "L\"" + cultures[item.locale.StringValue].NumberFormat.NumberDecimalSeparator + "\"",
                                                                cultures[item.locale.StringValue].NumberFormat.NumberDecimalDigits,
                                                                item.desired_s.StringValue.ToQuotedWideCharString()))));

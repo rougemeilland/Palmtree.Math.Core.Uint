@@ -30,7 +30,6 @@ PUBLIC	??_C@_1CM@MENGOFBF@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AA
 PUBLIC	??_C@_1EA@HONIIPBB@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAn?$PP?$KJ?$AA0@ ; `string'
 PUBLIC	??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@ ; `string'
 EXTRN	__imp_lstrcmpW:PROC
-EXTRN	__imp_lstrcpyA:PROC
 EXTRN	__imp_lstrcpyW:PROC
 EXTRN	TEST_Assert:PROC
 EXTRN	FormatTestLabel:PROC
@@ -103,10 +102,10 @@ CONST	ENDS
 xdata	SEGMENT
 $unwind$TEST_PMC_ToStringN DD 035054a19H
 	DD	011d3322H
-	DD	070160035H
+	DD	070160037H
 	DD	05015H
 	DD	imagerel __GSHandlerCheck
-	DD	0190H
+	DD	01a0H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -119,7 +118,7 @@ TEST_PMC_ToStringN$rtcName$1 DB 06fH
 	DB	00H
 	ORG $+8
 TEST_PMC_ToStringN$rtcVarDesc DD 098H
-	DD	028H
+	DD	034H
 	DQ	FLAT:TEST_PMC_ToStringN$rtcName$1
 	DD	038H
 	DD	08H
@@ -144,24 +143,24 @@ x$ = 8
 result$ = 36
 x_result$ = 68
 opt$ = 104
-tv150 = 340
-tv137 = 340
-tv84 = 340
-tv92 = 344
-tv64 = 344
-__$ArrayPad$ = 352
-env$ = 400
-ep$ = 408
-no$ = 416
-buf$ = 424
-buf_size$ = 432
-format_spec$ = 440
-width$ = 448
-group_separator$ = 456
-group_sizes$ = 464
-decimal_separator$ = 472
-decimal_digits$ = 480
-desired_str$ = 488
+tv150 = 356
+tv137 = 356
+tv84 = 356
+tv92 = 360
+tv64 = 360
+__$ArrayPad$ = 368
+env$ = 416
+ep$ = 424
+no$ = 432
+buf$ = 440
+buf_size$ = 448
+format_spec$ = 456
+width$ = 464
+group_separator$ = 472
+group_sizes$ = 480
+decimal_separator$ = 488
+decimal_digits$ = 496
+desired_str$ = 504
 TEST_PMC_ToStringN PROC					; COMDAT
 
 ; 33   : {
@@ -173,13 +172,13 @@ $LN10:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 424				; 000001a8H
+	sub	rsp, 440				; 000001b8H
 	lea	rbp, QWORD PTR [rsp+48]
 	mov	rdi, rsp
-	mov	ecx, 106				; 0000006aH
+	mov	ecx, 110				; 0000006eH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+456]
+	mov	rcx, QWORD PTR [rsp+472]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
@@ -197,11 +196,11 @@ $LN10:
 	lea	rcx, QWORD PTR opt$[rbp+4]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 40   :     lstrcpy(opt.GroupSizes, group_sizes);
+; 40   :     lstrcpyW(opt.GroupSizes, group_sizes);
 
 	mov	rdx, QWORD PTR group_sizes$[rbp]
 	lea	rcx, QWORD PTR opt$[rbp+28]
-	call	QWORD PTR __imp_lstrcpyA
+	call	QWORD PTR __imp_lstrcpyW
 
 ; 41   :     lstrcpyW(opt.DecimalSeparator, decimal_separator);
 
@@ -267,7 +266,7 @@ $LN5@TEST_PMC_T:
 	lea	rdx, OFFSET FLAT:?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+104]
+	call	QWORD PTR [rax+88]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_T
@@ -333,7 +332,7 @@ $LN2@TEST_PMC_T:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+376]
+	lea	rsp, QWORD PTR [rbp+392]
 	pop	rdi
 	pop	rbp
 	ret	0
