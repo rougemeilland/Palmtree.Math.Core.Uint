@@ -9,13 +9,19 @@
 INCLUDELIB MSVCRT
 INCLUDELIB OLDNAMES
 
+PUBLIC	_InitializeNumberFormatoInfo
 PUBLIC	_Initialize_ToString
+PUBLIC	_PMC_InitializeNumberFormatInfo@4
 PUBLIC	_PMC_ToString@24
-PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13JOFGPIOO@?$AA?4@			; `string'
+PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13DMCFHHKM@?$AA3@				; `string'
-PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
+PUBLIC	??_C@_13BMLCKOLB@?$PP?$KE@			; `string'
+PUBLIC	??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@ ; `string'
 PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
+PUBLIC	??_C@_13EJFHHPOP@?$AA?$CF@			; `string'
+PUBLIC	??_C@_13BGNNJOKC@?$AA0@				; `string'
+PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
 EXTRN	__imp__lstrcpyW@8:PROC
 EXTRN	__imp__lstrlenW@4:PROC
 EXTRN	_AllocateBlock:PROC
@@ -29,27 +35,45 @@ EXTRN	__aulldvrm:PROC
 EXTRN	_statistics_info:BYTE
 EXTRN	___security_cookie:DWORD
 _BSS	SEGMENT
-_default_number_format_option DB 034H DUP (?)
+_default_number_format_option DB 0c0H DUP (?)
 _BSS	ENDS
+;	COMDAT ??_C@_13KJIIAINM@?$AA?$CL@
+CONST	SEGMENT
+??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13BGNNJOKC@?$AA0@
+CONST	SEGMENT
+??_C@_13BGNNJOKC@?$AA0@ DB '0 ', 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13EJFHHPOP@?$AA?$CF@
+CONST	SEGMENT
+??_C@_13EJFHHPOP@?$AA?$CF@ DB '%', 00H, 00H, 00H	; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_13IMODFHAA@?$AA?9@
 CONST	SEGMENT
 ??_C@_13IMODFHAA@?$AA?9@ DB '-', 00H, 00H, 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_13KJIIAINM@?$AA?$CL@
+;	COMDAT ??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@
 CONST	SEGMENT
-??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
+??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@ DB '0'
+	DB	00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H, '5', 00H, '6', 00H
+	DB	'7', 00H, '8', 00H, '9', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13BMLCKOLB@?$PP?$KE@
+CONST	SEGMENT
+??_C@_13BMLCKOLB@?$PP?$KE@ DB 0a4H, 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_13DMCFHHKM@?$AA3@
 CONST	SEGMENT
 ??_C@_13DMCFHHKM@?$AA3@ DB '3', 00H, 00H, 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
-CONST	SEGMENT
-??_C@_13JOFGPIOO@?$AA?4@ DB '.', 00H, 00H, 00H		; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_13DEFPDAGF@?$AA?0@
 CONST	SEGMENT
 ??_C@_13DEFPDAGF@?$AA?0@ DB ',', 00H, 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
+CONST	SEGMENT
+??_C@_13JOFGPIOO@?$AA?4@ DB '.', 00H, 00H, 00H		; `string'
 CONST	ENDS
 _DATA	SEGMENT
 _decimal_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H, '5', 00H
@@ -1066,15 +1090,15 @@ $LN10@ToStringDN:
 
 ; 339  :             else
 ; 340  :             {
-; 341  :                 lstrcpyW(&buffer[1], format_option->DecimalSeparator);
+; 341  :                 lstrcpyW(&buffer[1], format_option->Number.DecimalSeparator);
 
 	mov	esi, DWORD PTR _format_option$[ebp]
-	add	esi, 10					; 0000000aH
+	add	esi, 58					; 0000003aH
 	push	esi
 	push	ecx
 	call	DWORD PTR __imp__lstrcpyW@8
 
-; 342  :                 int decimal_separator_len = lstrlenW(format_option->DecimalSeparator);
+; 342  :                 int decimal_separator_len = lstrlenW(format_option->Number.DecimalSeparator);
 
 	push	esi
 	call	DWORD PTR __imp__lstrlenW@4
@@ -1740,14 +1764,14 @@ _PrintDecimal PROC					; COMDAT
 	mov	BYTE PTR _state$[ebp], bl
 
 ; 97   : 
-; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->GroupSeparator);
+; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->Number.GroupSeparator);
 
-	lea	esi, DWORD PTR [edi+4]
+	lea	esi, DWORD PTR [edi+52]
 	push	esi
 	call	DWORD PTR __imp__lstrlenW@4
 	mov	DWORD PTR _state$[ebp+24], eax
 
-; 99   :     wchar_t* in_ptr = format_option->GroupSeparator;
+; 99   :     wchar_t* in_ptr = format_option->Number.GroupSeparator;
 ; 100  :     wchar_t* out_ptr = state->GROUP_SEPARATOR + state->GROUP_SEPARATOR_LENGTH;
 
 	lea	ecx, DWORD PTR _state$[ebp+2]
@@ -1784,14 +1808,14 @@ $LN14@PrintDecim:
 
 ; 107  :     }
 ; 108  : 
-; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->DecimalSeparator);
+; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->Number.DecimalSeparator);
 
-	lea	esi, DWORD PTR [edi+10]
+	lea	esi, DWORD PTR [edi+58]
 	push	esi
 	call	DWORD PTR __imp__lstrlenW@4
 	mov	DWORD PTR _state$[ebp+28], eax
 
-; 110  :     in_ptr = format_option->DecimalSeparator;
+; 110  :     in_ptr = format_option->Number.DecimalSeparator;
 ; 111  :     out_ptr = state->DECIMAL_SEPARATOR + state->DECIMAL_SEPARATOR_LENGTH;
 
 	lea	ecx, DWORD PTR _state$[ebp+12]
@@ -1828,13 +1852,13 @@ $LN16@PrintDecim:
 
 ; 118  :     }
 ; 119  : 
-; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
+; 120  :     state->CURRENT_GROUP = &format_option->Number.GroupSizes[0];
 ; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
 ; 122  :     state->CURRENT_GROUP_INDEX = 0;
 ; 123  :     state->OUT_PTR = out_buf;
 
 	mov	ecx, DWORD PTR _out_buf$[ebp]
-	lea	eax, DWORD PTR [edi+28]
+	lea	eax, DWORD PTR [edi+64]
 	mov	DWORD PTR _state$[ebp+32], eax
 	movzx	eax, WORD PTR [eax]
 	sub	eax, 48					; 00000030H
@@ -2064,7 +2088,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 5
 	mov	ecx, OFFSET _statistics_info+12
@@ -2131,7 +2155,7 @@ $LL4@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, 2
 	mov	ecx, OFFSET _statistics_info+12
@@ -2175,7 +2199,7 @@ $LL4@PrintDecim:
 	add	esp, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2232,7 +2256,7 @@ $LL199@PrintDecim:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2483,7 +2507,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 5
 	mov	eax, OFFSET _statistics_info+12
@@ -2532,7 +2556,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	ecx, 2
 	mov	eax, OFFSET _statistics_info+12
@@ -2566,7 +2590,7 @@ _ToStringDN_1WORD PROC					; COMDAT
 	add	esp, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 	pop	edi
@@ -2633,7 +2657,7 @@ $LL4@ToStringDN:
 	add	esp, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
@@ -2878,19 +2902,19 @@ _InitializeOutputState PROC				; COMDAT
 	push	ebx
 
 ; 97   : 
-; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->GroupSeparator);
+; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->Number.GroupSeparator);
 
 	mov	ebx, DWORD PTR _format_option$[ebp]
 	push	esi
 	push	edi
 	mov	edi, DWORD PTR _state$[ebp]
-	lea	esi, DWORD PTR [ebx+4]
+	lea	esi, DWORD PTR [ebx+52]
 	push	esi
 	mov	BYTE PTR [edi], al
 	call	DWORD PTR __imp__lstrlenW@4
 	mov	DWORD PTR [edi+24], eax
 
-; 99   :     wchar_t* in_ptr = format_option->GroupSeparator;
+; 99   :     wchar_t* in_ptr = format_option->Number.GroupSeparator;
 ; 100  :     wchar_t* out_ptr = state->GROUP_SEPARATOR + state->GROUP_SEPARATOR_LENGTH;
 
 	lea	ecx, DWORD PTR [edi+eax*2]
@@ -2926,14 +2950,14 @@ $LN3@Initialize:
 
 ; 107  :     }
 ; 108  : 
-; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->DecimalSeparator);
+; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->Number.DecimalSeparator);
 
-	lea	esi, DWORD PTR [ebx+10]
+	lea	esi, DWORD PTR [ebx+58]
 	push	esi
 	call	DWORD PTR __imp__lstrlenW@4
 	mov	DWORD PTR [edi+28], eax
 
-; 110  :     in_ptr = format_option->DecimalSeparator;
+; 110  :     in_ptr = format_option->Number.DecimalSeparator;
 ; 111  :     out_ptr = state->DECIMAL_SEPARATOR + state->DECIMAL_SEPARATOR_LENGTH;
 
 	lea	ecx, DWORD PTR [edi+eax*2]
@@ -2970,9 +2994,9 @@ $LN5@Initialize:
 
 ; 118  :     }
 ; 119  : 
-; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
+; 120  :     state->CURRENT_GROUP = &format_option->Number.GroupSizes[0];
 
-	lea	eax, DWORD PTR [ebx+28]
+	lea	eax, DWORD PTR [ebx+64]
 	mov	DWORD PTR [edi+32], eax
 
 ; 121  :     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
@@ -3545,18 +3569,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC					; COMDAT
 
-; 343  :     {
+; 347  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 344  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 345  :     }
+; 349  :     }
 
 	pop	ebp
 	ret	0
@@ -3569,18 +3593,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC					; COMDAT
 
-; 337  :     {
+; 341  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 339  :     }
+; 343  :     }
 
 	pop	ebp
 	ret	0
@@ -3592,11 +3616,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC				; COMDAT
 
-; 321  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 322  :     }
+; 326  :     }
 
 	ret	0
 _IncrementDIV64Counter ENDP
@@ -3607,11 +3631,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC				; COMDAT
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 316  :     }
+; 320  :     }
 
 	ret	0
 _IncrementDIV32Counter ENDP
@@ -3682,12 +3706,12 @@ $LN8@PMC_ToStri:
 ; 538  :     {
 ; 539  :     case 'n':
 ; 540  :     case 'N':
-; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->DecimalDigits, format_option));
+; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->Number.DecimalDigits, format_option));
 
 	mov	eax, DWORD PTR _width$[ebp]
 	test	eax, eax
 	jns	SHORT $LN15@PMC_ToStri
-	mov	eax, DWORD PTR [edi]
+	mov	eax, DWORD PTR [edi+48]
 $LN15@PMC_ToStri:
 	push	edi
 	push	eax
@@ -3783,7 +3807,6 @@ $LN1@PMC_ToStri:
 	pop	ebx
 	pop	ebp
 	ret	24					; 00000018H
-	npad	1
 $LN20@PMC_ToStri:
 	DD	$LN11@PMC_ToStri
 	DD	$LN8@PMC_ToStri
@@ -3848,57 +3871,198 @@ _PMC_ToString@24 ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+;	COMDAT _PMC_InitializeNumberFormatInfo@4
+_TEXT	SEGMENT
+_info$ = 8						; size = 4
+_PMC_InitializeNumberFormatInfo@4 PROC			; COMDAT
+
+; 586  : {
+
+	push	ebp
+	mov	ebp, esp
+
+; 587  :     InitializeNumberFormatoInfo(info);
+
+	push	DWORD PTR _info$[ebp]
+	call	_InitializeNumberFormatoInfo
+	add	esp, 4
+
+; 588  : }
+
+	pop	ebp
+	ret	4
+_PMC_InitializeNumberFormatInfo@4 ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 ;	COMDAT _Initialize_ToString
 _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_ToString PROC				; COMDAT
 
-; 555  : {
+; 592  :     InitializeNumberFormatoInfo(&default_number_format_option);
 
-	push	esi
+	push	OFFSET _default_number_format_option
+	call	_InitializeNumberFormatoInfo
+	add	esp, 4
 
-; 556  :     default_number_format_option.DecimalDigits = 2;
-; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
-
-	mov	esi, DWORD PTR __imp__lstrcpyW@8
-	push	OFFSET ??_C@_13DEFPDAGF@?$AA?0@
-	push	OFFSET _default_number_format_option+4
-	mov	DWORD PTR _default_number_format_option, 2
-	call	esi
-
-; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
-
-	push	OFFSET ??_C@_13JOFGPIOO@?$AA?4@
-	push	OFFSET _default_number_format_option+10
-	call	esi
-
-; 559  :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
-
-	push	OFFSET ??_C@_13DMCFHHKM@?$AA3@
-	push	OFFSET _default_number_format_option+28
-	call	esi
-
-; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
-
-	push	OFFSET ??_C@_13KJIIAINM@?$AA?$CL@
-	push	OFFSET _default_number_format_option+16
-	call	esi
-
-; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
-
-	push	OFFSET ??_C@_13IMODFHAA@?$AA?9@
-	push	OFFSET _default_number_format_option+22
-	call	esi
-
-; 562  : 
-; 563  :     return (PMC_STATUS_OK);
+; 593  : 
+; 594  :     return (PMC_STATUS_OK);
 
 	xor	eax, eax
-	pop	esi
 
-; 564  : }
+; 595  : }
 
 	ret	0
 _Initialize_ToString ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+;	COMDAT _InitializeNumberFormatoInfo
+_TEXT	SEGMENT
+_info$ = 8						; size = 4
+_InitializeNumberFormatoInfo PROC			; COMDAT
+
+; 555  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	esi
+
+; 556  :     info->Currency.DecimalDigits = 2;
+; 557  :     lstrcpyW(info->Currency.DecimalSeparator, L".");
+
+	mov	esi, DWORD PTR __imp__lstrcpyW@8
+	push	edi
+	mov	edi, DWORD PTR _info$[ebp]
+	push	OFFSET ??_C@_13JOFGPIOO@?$AA?4@
+	lea	eax, DWORD PTR [edi+4]
+	mov	DWORD PTR [edi], 2
+	push	eax
+	call	esi
+
+; 558  :     lstrcpyW(info->Currency.GroupSeparator, L",");
+
+	push	OFFSET ??_C@_13DEFPDAGF@?$AA?0@
+	lea	eax, DWORD PTR [edi+10]
+	push	eax
+	call	esi
+
+; 559  :     lstrcpyW(info->Currency.GroupSizes, L"3");
+
+	push	OFFSET ??_C@_13DMCFHHKM@?$AA3@
+	lea	eax, DWORD PTR [edi+16]
+	push	eax
+	call	esi
+
+; 560  :     info->Currency.NegativePattern = 0;
+; 561  :     info->Currency.PositivePattern = 0;
+; 562  : 
+; 563  :     lstrcpyW(info->CurrencySymbol, L"\u00a4");
+
+	push	OFFSET ??_C@_13BMLCKOLB@?$PP?$KE@
+	lea	eax, DWORD PTR [edi+140]
+	mov	DWORD PTR [edi+40], 0
+	push	eax
+	mov	DWORD PTR [edi+44], 0
+	call	esi
+
+; 564  :     lstrcpyW(info->NativeDigits, L"0123456789");
+
+	push	OFFSET ??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@
+	lea	eax, DWORD PTR [edi+146]
+	push	eax
+	call	esi
+
+; 565  :     lstrcpyW(info->NegativeSign, L"-");
+
+	push	OFFSET ??_C@_13IMODFHAA@?$AA?9@
+	lea	eax, DWORD PTR [edi+168]
+	push	eax
+	call	esi
+
+; 566  : 
+; 567  :     info->Number.DecimalDigits = 2;
+; 568  :     lstrcpyW(info->Number.DecimalSeparator, L".");
+
+	push	OFFSET ??_C@_13JOFGPIOO@?$AA?4@
+	lea	eax, DWORD PTR [edi+58]
+	mov	DWORD PTR [edi+48], 2
+	push	eax
+	call	esi
+
+; 569  :     lstrcpyW(info->Number.GroupSeparator, L",");
+
+	push	OFFSET ??_C@_13DEFPDAGF@?$AA?0@
+	lea	eax, DWORD PTR [edi+52]
+	push	eax
+	call	esi
+
+; 570  :     lstrcpyW(info->Number.GroupSizes, L"3");
+
+	push	OFFSET ??_C@_13DMCFHHKM@?$AA3@
+	lea	eax, DWORD PTR [edi+64]
+	push	eax
+	call	esi
+
+; 571  :     info->Number.NegativePattern = 1;
+; 572  : 
+; 573  :     info->Percent.DecimalDigits = 2;
+; 574  :     lstrcpyW(info->Percent.DecimalSeparator, L".");
+
+	push	OFFSET ??_C@_13JOFGPIOO@?$AA?4@
+	lea	eax, DWORD PTR [edi+102]
+	mov	DWORD PTR [edi+88], 1
+	push	eax
+	mov	DWORD PTR [edi+92], 2
+	call	esi
+
+; 575  :     lstrcpyW(info->Percent.GroupSeparator, L",");
+
+	push	OFFSET ??_C@_13DEFPDAGF@?$AA?0@
+	lea	eax, DWORD PTR [edi+96]
+	push	eax
+	call	esi
+
+; 576  :     lstrcpyW(info->Percent.GroupSizes, L"3");
+
+	push	OFFSET ??_C@_13DMCFHHKM@?$AA3@
+	lea	eax, DWORD PTR [edi+108]
+	push	eax
+	call	esi
+
+; 577  :     info->Percent.NegativePattern = 0;
+; 578  :     info->Percent.PositivePattern = 0;
+; 579  : 
+; 580  :     lstrcpyW(info->PercentSymbol, L"%");
+
+	push	OFFSET ??_C@_13EJFHHPOP@?$AA?$CF@
+	lea	eax, DWORD PTR [edi+180]
+	mov	DWORD PTR [edi+132], 0
+	push	eax
+	mov	DWORD PTR [edi+136], 0
+	call	esi
+
+; 581  :     lstrcpyW(info->PerMilleSymbol, L"\u2030");
+
+	push	OFFSET ??_C@_13BGNNJOKC@?$AA0@
+	lea	eax, DWORD PTR [edi+186]
+	push	eax
+	call	esi
+
+; 582  :     lstrcpyW(info->PositiveSign, L"+");
+
+	push	OFFSET ??_C@_13KJIIAINM@?$AA?$CL@
+	lea	eax, DWORD PTR [edi+174]
+	push	eax
+	call	esi
+	pop	edi
+	pop	esi
+
+; 583  : }
+
+	pop	ebp
+	ret	0
+_InitializeNumberFormatoInfo ENDP
 _TEXT	ENDS
 END

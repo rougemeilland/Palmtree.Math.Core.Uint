@@ -146,6 +146,10 @@ extern "C" {
 
     // 多倍長整数の大小比較を行う。
     extern _INT32_T Compare_Imp(__UNIT_TYPE* u, __UNIT_TYPE* v, __UNIT_TYPE count);
+
+    // 与えられた PMC_NUMBER_FORMAT_INFO 構造体を既定値に初期化する。
+    extern void InitializeNumberFormatoInfo(PMC_NUMBER_FORMAT_INFO* info);
+
 #pragma endregion
 
 
@@ -227,9 +231,9 @@ extern "C" {
     extern PMC_STATUS_CODE __PMC_CALL PMC_To_X_I(PMC_HANDLE_UINT p, _UINT32_T* o);
     extern PMC_STATUS_CODE __PMC_CALL PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
-    extern PMC_STATUS_CODE __PMC_CALL PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
-
-    extern PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
+    extern void __PMC_CALL PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
     extern PMC_STATUS_CODE __PMC_CALL PMC_Add_L_X(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -301,7 +305,7 @@ extern "C" {
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
     extern PMC_STATUS_CODE __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-    extern PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
 #ifdef _DEBUG
     extern int(_cdecl * __DEBUG_LOG)(const wchar_t*, ...);
     extern void DumpBinary_UNIT(__UNIT_TYPE* buf, __UNIT_TYPE count);

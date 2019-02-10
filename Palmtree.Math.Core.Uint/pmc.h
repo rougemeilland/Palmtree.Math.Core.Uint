@@ -66,6 +66,7 @@ extern "C" {
 #define PMC_NUMBER_STYLE_ALLOW_PARENTHESES      (0x0010)    // 数値文字列にその数値を囲む一組の括弧を使用できることを示す。括弧は解析対象の文字列が負の値を表すことを示す。
 #define PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT    (0x0020)    // 数値文字列に小数点を使用できることを示す。
 #define PMC_NUMBER_STYLE_ALLOW_THOUSANDS        (0x0040)    // 先行する空白文字を解析対象の文字列に使用できることを示す。
+#define PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL  (0x0100)    // 数字文字列に通貨記号を含めることができることを示す。
 #define PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER    (0x0200)    // 数値文字列が16進数を表すことを示す。
 #pragma endregion
 
@@ -105,21 +106,53 @@ typedef int PMC_NUMBER_STYLE_CODE;
 
 typedef struct __tag_PMC_STATISTICS_INFO
 {
-    long COUNT_MULTI64;                  // 32bit * 32bit => 64bitの乗算の回数
-    long COUNT_MULTI32;                  // 16bit * 16bit => 32bitの乗算の回数
-    long COUNT_DIV64;                    // 64bit / 32bit => 32bitの除算の回数
-    long COUNT_DIV32;                    // 32bit / 16bit => 16bitの除算の回数
+    long COUNT_MULTI64; // 32bit * 32bit => 64bitの乗算の回数
+    long COUNT_MULTI32; // 16bit * 16bit => 32bitの乗算の回数
+    long COUNT_DIV64;   // 64bit / 32bit => 32bitの除算の回数
+    long COUNT_DIV32;   // 32bit / 16bit => 16bitの除算の回数
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
+typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+{
+    int         DecimalDigits;          // 書式 C の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
+    wchar_t     DecimalSeparator[3];    // 書式 C の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
+    wchar_t     GroupSeparator[3];      // 書式 C の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
+    wchar_t     GroupSizes[11];         // 書式 C の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
+    int         NegativePattern;        // 書式 C で負数を表示する場合のパターンを示す番号。既定値は 0。
+    int         PositivePattern;        // 書式 C で正数を表示する場合のパターンを示す番号。既定値は 0。
+} PMC_CURRENCY_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
 {
     int         DecimalDigits;          // 書式 N の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
     wchar_t     GroupSeparator[3];      // 書式 N の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
     wchar_t     DecimalSeparator[3];    // 書式 N の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
-    wchar_t     PositiveSign[3];        // 書式 D または N の場合に正の符号を表す文字として解釈される。既定値は "+"。
-    wchar_t     NegativeSign[3];        // 書式 D または N の場合に負の符号を表す文字として解釈される。既定値は "-"。
     wchar_t     GroupSizes[11];         // 書式 N の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
-} PMC_NUMBER_FORMAT_OPTION;
+    int         NegativePattern;        // 書式 N で負数を表示する場合のパターンを示す番号。既定値は 1。
+} PMC_GENERIC_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
+{
+    int         DecimalDigits;          // 書式 P の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
+    wchar_t     GroupSeparator[3];      // 書式 P の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
+    wchar_t     DecimalSeparator[3];    // 書式 P の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
+    wchar_t     GroupSizes[11];         // 書式 P の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
+    int         NegativePattern;        // 書式 P で負数を表示する場合のパターンを示す番号。既定値は 0。
+    int         PositivePattern;        // 書式 P で正数を表示する場合のパターンを示す番号。既定値は 0。
+} PMC_PERCENT_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_NUMBER_FORMAT_INFO
+{
+    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;           // 通貨量の数値を表示する場合に使用される情報。
+    PMC_GENERIC_NUMBER_FORMAT_INFO  Number;             // 一般的な数値を表示する場合に使用される情報。
+    PMC_PERCENT_NUMBER_FORMAT_INFO  Percent;            // パーセント値を表示する場合に使用される情報。
+    wchar_t                         CurrencySymbol[3];  // 通貨記号として使用される文字列。既定値は "¤"。
+    wchar_t                         NativeDigits[11];   // 西洋数字 0 ～ 9 に対応するネイティブ数字の文字列配列。既定値は "0123456789"。
+    wchar_t                         NegativeSign[3];    // 負数であることを示す文字列。既定値は "-"。            
+    wchar_t                         PositiveSign[3];    // 正数であることを示す文字列。既定値は "+"。
+    wchar_t                         PercentSymbol[3];   // パーセント記号として使用する文字列。既定値は "%"。
+    wchar_t                         PerMilleSymbol[3];  // パーミル記号として使用する文字列。既定値は "\u2030"。
+} PMC_NUMBER_FORMAT_INFO;
 #pragma endregion
 
 

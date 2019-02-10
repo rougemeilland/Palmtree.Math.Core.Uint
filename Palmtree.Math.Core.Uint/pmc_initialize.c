@@ -122,6 +122,7 @@ PMC_EXPORT PMC_UINT_ENTRY_POINTS* __PMC_CALL PMC_UINT_Initialize(PMC_CONFIGURATI
         entry_points.To_X_L = PMC_To_X_L;
         entry_points.FromByteArray = PMC_FromByteArray;
         entry_points.ToByteArray = PMC_ToByteArray;
+        entry_points.InitializeNumberFormatInfo = PMC_InitializeNumberFormatInfo;
         entry_points.ToString = PMC_ToString;
         entry_points.TryParse = PMC_TryParse;
         entry_points.Add_I_X = PMC_Add_I_X;

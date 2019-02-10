@@ -39,6 +39,14 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 
         protected abstract string Id { get; }
 
+        protected virtual int GroupNumber
+        {
+            get
+            {
+                return (1);
+            }
+        }
+
         protected virtual IEnumerable<BigInteger> CreateAdditionalInputTestData()
         {
             return (new BigInteger[0]);
@@ -128,6 +136,14 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
             get
             {
                 return (Id);
+            }
+        }
+
+        int ITestPattern.GroupNumber
+        {
+            get
+            {
+                return (GroupNumber);
             }
         }
 

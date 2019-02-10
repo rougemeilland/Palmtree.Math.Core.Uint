@@ -33,6 +33,9 @@ struct __tag_PARSER_STATE
     wchar_t* IN_PTR;
     _UINT32_T NUMBER_STYLES;
     char SIGN;
+    wchar_t CURRENCY_SYMBOL[3];
+    int CURRENCY_SYMBOL_LENGTH;
+    wchar_t NATIVE_DIGITS[11];
     wchar_t POSITIVE_SIGN[3];
     int POSITIVE_SIGN_LENGTH;
     wchar_t NEGATIVE_SIGN[3];
@@ -47,7 +50,7 @@ struct __tag_PARSER_STATE
     wchar_t* FRAC_PART_PTR;
 };
 
-static PMC_NUMBER_FORMAT_OPTION default_number_format_option;
+static PMC_NUMBER_FORMAT_INFO default_number_format_option;
 static __UNIT_TYPE* (*fp_MultiplyAndAdd)(__UNIT_TYPE* u_buf, __UNIT_TYPE u_count, __UNIT_TYPE x);
 
 
@@ -63,18 +66,21 @@ static int StartsWith(wchar_t* a, wchar_t* b)
     return (1);
 }
 
-static void InitializeParserState(struct __tag_PARSER_STATE* state, wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, wchar_t* int_part_buf, wchar_t* frac_part_buf)
+static void InitializeParserState(struct __tag_PARSER_STATE* state, wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* int_part_buf, wchar_t* frac_part_buf)
 {
     state->IN_PTR = in_ptr;
     state->NUMBER_STYLES = number_styles;
     state->SIGN = 0;
+    lstrcpyW(state->CURRENCY_SYMBOL, format_option->CurrencySymbol);
+    state->CURRENCY_SYMBOL_LENGTH = lstrlenW(state->CURRENCY_SYMBOL);
+    lstrcpyW(state->NATIVE_DIGITS, format_option->NativeDigits);
     lstrcpyW(state->POSITIVE_SIGN, format_option->PositiveSign);
     state->POSITIVE_SIGN_LENGTH = lstrlenW(state->POSITIVE_SIGN);
     lstrcpyW(state->NEGATIVE_SIGN, format_option->NegativeSign);
     state->NEGATIVE_SIGN_LENGTH = lstrlenW(state->NEGATIVE_SIGN);
-    lstrcpyW(state->DECIMAL_SEPARATOR, format_option->DecimalSeparator);
+    lstrcpyW(state->DECIMAL_SEPARATOR, number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL ? format_option->Currency.DecimalSeparator : format_option->Number.DecimalSeparator);
     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(state->DECIMAL_SEPARATOR);
-    lstrcpyW(state->GROUP_SEPARATOR, format_option->GroupSeparator);
+    lstrcpyW(state->GROUP_SEPARATOR, number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL ? format_option->Currency.GroupSeparator: format_option->Number.GroupSeparator);
     state->GROUP_SEPARATOR_LENGTH = lstrlenW(state->GROUP_SEPARATOR);
     if (state->GROUP_SEPARATOR[0] == L'\xa0' && state->GROUP_SEPARATOR[1] == L'\0')
     {
@@ -120,23 +126,57 @@ static void SkipSpace(struct __tag_PARSER_STATE* state)
     }
 }
 
+static int ParseDecimalDigit(wchar_t c, wchar_t* native_digits)
+{
+    if (c >= L'0' && c <= L'9')
+        return (c - L'0');
+    if (c == native_digits[0])
+        return (0);
+    if (c == native_digits[1])
+        return (1);
+    if (c == native_digits[2])
+        return (2);
+    if (c == native_digits[3])
+        return (3);
+    if (c == native_digits[4])
+        return (4);
+    if (c == native_digits[5])
+        return (5);
+    if (c == native_digits[6])
+        return (6);
+    if (c == native_digits[7])
+        return (7);
+    if (c == native_digits[8])
+        return (8);
+    if (c == native_digits[9])
+        return (9);
+    return (-1);
+}
+
+static int ParseHexDigit(wchar_t c)
+{
+    if (c >= L'0' && c <= L'9')
+        return (c - L'0');
+
+    if (c >= L'a' && c <= L'f')
+        return (c - L'a' + 10);
+
+    if (c >= L'A' && c <= L'F')
+        return (c - L'A' + 10);
+    return (-1);
+}
+
 static void ParseAsIntegerPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (*state->IN_PTR >= L'0' && *state->IN_PTR <= L'9')
+        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
         {
             *state->INT_PART_PTR = *state->IN_PTR;
             state->INT_PART_PTR += 1;
             state->IN_PTR += 1;
         }
-        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && *state->IN_PTR >= L'a' && *state->IN_PTR <= L'f')
-        {
-            *state->INT_PART_PTR = *state->IN_PTR;
-            state->INT_PART_PTR += 1;
-            state->IN_PTR += 1;
-        }
-        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && *state->IN_PTR >= L'A' && *state->IN_PTR <= L'F')
+        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && ParseHexDigit(*state->IN_PTR) >= 0)
         {
             *state->INT_PART_PTR = *state->IN_PTR;
             state->INT_PART_PTR += 1;
@@ -155,19 +195,13 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (*state->IN_PTR >= L'0' && *state->IN_PTR <= L'9')
+        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
         {
             *state->FRAC_PART_PTR = *state->IN_PTR;
             state->FRAC_PART_PTR += 1;
             state->IN_PTR += 1;
         }
-        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && *state->IN_PTR >= L'a' && *state->IN_PTR <= L'f')
-        {
-            *state->FRAC_PART_PTR = *state->IN_PTR;
-            state->FRAC_PART_PTR += 1;
-            state->IN_PTR += 1;
-        }
-        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && *state->IN_PTR >= L'A' && *state->IN_PTR <= L'F')
+        else if (state->NUMBER_STYLES & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER && ParseHexDigit( *state->IN_PTR) >= 0)
         {
             *state->FRAC_PART_PTR = *state->IN_PTR;
             state->FRAC_PART_PTR += 1;
@@ -178,23 +212,124 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
     }
 }
 
-// 10進数の数値を表す文字列を符号、整数部、小数部に分解する。数値が明らかに正である場合は *flag に 1、明らかに負である場合は *flag に 0 が格納され、数値が正か 0 か明らかには判断できない場合は *flag に 0 が格納される。
-static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* sign, wchar_t* int_part_buf, wchar_t* frac_part_buf)
+// 10進数の数値を表す文字列を符号、整数部、小数部に分解する。数値が明らかに正である場合は *flag に 1、明らかに負である場合は *flag に -1 が格納され、数値が正か 0 か明らかには判断できない場合は *flag に 1 が格納される。
+static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* sign, wchar_t* int_part_buf, wchar_t* frac_part_buf)
 {
+    /*
+      想定している書式：
+
+        $ -n
+        $ n
+        $-n
+        $n
+        $n-
+        ($ n)
+        ($n)
+        (n $)
+        (n)
+        -$ n
+        -$n
+        -n
+        -n $
+        -n$
+        n $
+        n $-
+        n -
+        n$
+        n$-
+        n-
+        n-$
+    */
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, frac_part_buf);
     if (number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE)
         SkipSpace(&state);
-    if ((number_styles & PMC_NUMBER_STYLE_ALLOW_PARENTHESES) && *state.IN_PTR == L'(')
+    if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+    {
+        state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
+            state.IN_PTR += 1;
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+        {
+            state.SIGN = 1;
+            state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+        }
+        else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+        {
+            state.SIGN = -1;
+            state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+        }
+        else
+        {
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+            {
+                state.SIGN = 1;
+                state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            }
+            else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+            {
+                state.SIGN = -1;
+                state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            }
+            else
+            {
+            }
+        }
+    }
+    else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_PARENTHESES) && *state.IN_PTR == L'(')
     {
         state.SIGN = -1;
         state.IN_PTR += 1;
-        if (*state.IN_PTR >= L'0' && *state.IN_PTR <= L'9')
-            ParseAsIntegerPartNumberSequence(&state);
-        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
         {
-            state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
-            ParseAsFractionPartNumberSequence(&state);
+            state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
+                state.IN_PTR += 1;
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+        }
+        else
+        {
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE) && *state.IN_PTR == L' ')
+            {
+                state.IN_PTR += 1;
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                    state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            }
         }
         if (*state.IN_PTR != L')')
             return (0);
@@ -204,27 +339,81 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
     {
         state.SIGN = 1;
         state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
-        if (*state.IN_PTR >= L'0' && *state.IN_PTR <= L'9')
-            ParseAsIntegerPartNumberSequence(&state);
-        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
         {
-            state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
-            ParseAsFractionPartNumberSequence(&state);
+            state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
+                state.IN_PTR += 1;
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+        }
+        else
+        {
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE) && *state.IN_PTR == L' ')
+            {
+                state.IN_PTR += 1;
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                    state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            }
+            else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            else
+            {
+            }
         }
     }
     else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
     {
         state.SIGN = -1;
-        state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
-        if (*state.IN_PTR >= L'0' && *state.IN_PTR <= L'9')
-            ParseAsIntegerPartNumberSequence(&state);
-        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+        state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
         {
-            state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
-            ParseAsFractionPartNumberSequence(&state);
+            state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
+                state.IN_PTR += 1;
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+        }
+        else
+        {
+            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+                ParseAsIntegerPartNumberSequence(&state);
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
+            {
+                state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
+                ParseAsFractionPartNumberSequence(&state);
+            }
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE) && *state.IN_PTR == L' ')
+            {
+                state.IN_PTR += 1;
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                    state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            }
+            else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            else
+            {
+            }
         }
     }
-    else if (*state.IN_PTR >= L'0' && *state.IN_PTR <= L'9')
+    else if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
     {
         ParseAsIntegerPartNumberSequence(&state);
         if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
@@ -232,15 +421,73 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
             ParseAsFractionPartNumberSequence(&state);
         }
-        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE) && *state.IN_PTR == L' ')
+        {
+            state.IN_PTR += 1;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+            {
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+                {
+                    state.SIGN = 1;
+                    state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+                }
+                else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+                {
+                    state.SIGN = -1;
+                    state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+                {
+                    state.SIGN = 1;
+                    state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+                }
+                else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+                {
+                    state.SIGN = -1;
+                    state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+                }
+                else
+                {
+                }
+            }
+        }
+        else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+        {
+            state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+            {
+                state.SIGN = 1;
+                state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            }
+            else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+            {
+                state.SIGN = -1;
+                state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            }
+            else
+            {
+            }
+        }
+        else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
         {
             state.SIGN = 1;
             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
         }
         else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
         {
             state.SIGN = -1;
             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
         }
         else
         {
@@ -250,15 +497,73 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
     {
         state.IN_PTR += state.DECIMAL_SEPARATOR_LENGTH;
         ParseAsFractionPartNumberSequence(&state);
-        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+        if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE) && *state.IN_PTR == L' ')
+        {
+            state.IN_PTR += 1;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+            {
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+                {
+                    state.SIGN = 1;
+                    state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+                }
+                else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+                {
+                    state.SIGN = -1;
+                    state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+                {
+                    state.SIGN = 1;
+                    state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+                }
+                else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+                {
+                    state.SIGN = -1;
+                    state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+                }
+                else
+                {
+                }
+            }
+        }
+        else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+        {
+            state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
+            {
+                state.SIGN = 1;
+                state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            }
+            else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
+            {
+                state.SIGN = -1;
+                state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            }
+            else
+            {
+            }
+        }
+        else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.POSITIVE_SIGN))
         {
             state.SIGN = 1;
             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
         }
         else if ((number_styles & PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN) && StartsWith(state.IN_PTR, state.NEGATIVE_SIGN))
         {
             state.SIGN = -1;
             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
+            if ((number_styles & PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL) && StartsWith(state.IN_PTR, state.CURRENCY_SYMBOL))
+                state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
         }
         else
         {
@@ -277,7 +582,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
 }
 
 // 16進数の数値を表す文字列から整数部を抽出する。
-static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, wchar_t* int_part_buf)
+static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* int_part_buf)
 {
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, NULL);
@@ -292,55 +597,55 @@ static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_
     return (1);
 }
 
-static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count)
+static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count, wchar_t* native_digits)
 {
     __UNIT_TYPE x = 0;
     while (count > 0)
     {
-        x = x * 10 + (*in_ptr++ - L'0');
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
         --count;
     }
     return (x);
 }
 
-static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr)
+static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr, wchar_t* native_digits)
 {
-    __UNIT_TYPE x = (*in_ptr++ - L'0');
+    __UNIT_TYPE x = ParseDecimalDigit(*in_ptr++, native_digits);
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
     {
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
     {
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
     {
-        x = x * 10 + (*in_ptr++ - L'0');
-        x = x * 10 + (*in_ptr++ - L'0');
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
     {
-        x = x * 10 + (*in_ptr++ - L'0');
+        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
     }
     return (x);
 }
 
 // 10進整数を表す文字列を、word_digit_count 毎に 1 ワードずつ分割してバイナリー化し、out_buf に格納する。
-static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count)
+static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count, wchar_t* native_digits)
 {
 #ifdef _M_IX86
     int word_digit_count = 9;
@@ -355,13 +660,13 @@ static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, 
     int r = source_count % word_digit_count;
     if (r > 0)
     {
-        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r);
+        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r, native_digits);
         in_ptr += r;
         source_count -= r;
     }
     while (source_count > 0)
     {
-        *out_ptr++ = Build1WordFromDecimalString(in_ptr);
+        *out_ptr++ = Build1WordFromDecimalString(in_ptr, native_digits);
         in_ptr += word_digit_count;
         source_count -= word_digit_count;
     }
@@ -712,7 +1017,7 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE* in_buf, __UNIT_TYPE in
     return (PMC_STATUS_OK);
 }
 
-static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
+static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
 #ifdef _M_IX86
@@ -812,7 +1117,7 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
     }
     __UNIT_TYPE bin_buf_count;
-    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count);
+    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count, format_option->NativeDigits);
     if ((result = CheckBlockLight(bin_buf, bin_buf_code)) != PMC_STATUS_OK)
         return (result);
     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
@@ -851,49 +1156,14 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     return (PMC_STATUS_OK);
 }
 
-
-static _UINT32_T Parse1DigitFromHexChar(wchar_t c)
-{
-    switch (c)
-    {
-    case L'0':
-    case L'1':
-    case L'2':
-    case L'3':
-    case L'4':
-    case L'5':
-    case L'6':
-    case L'7':
-    case L'8':
-    case L'9':
-        return (c - L'0');
-    case L'a':
-    case L'b':
-    case L'c':
-    case L'd':
-    case L'e':
-    case L'f':
-        return (c - L'a' + 10);
-    case L'A':
-    case L'B':
-    case L'C':
-    case L'D':
-    case L'E':
-    case L'F':
-        return (c - L'A' + 10);
-    default:
-        return ((_UINT32_T)-1);
-    }
-}
-
 static __UNIT_TYPE BuildLeading1WordFromHexString(wchar_t* in_ptr, __UNIT_TYPE count)
 {
-    __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr);
+    __UNIT_TYPE x = ParseHexDigit(*in_ptr);
     ++in_ptr;
     --count;
     while (count > 0)
     {
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr);
+        x = x * 16 + ParseHexDigit(*in_ptr);
         ++in_ptr;
         --count;
     }
@@ -902,33 +1172,33 @@ static __UNIT_TYPE BuildLeading1WordFromHexString(wchar_t* in_ptr, __UNIT_TYPE c
 
 static __UNIT_TYPE Build1WordFromHexString(wchar_t* in_ptr)
 {
-    __UNIT_TYPE x = Parse1DigitFromHexChar(*in_ptr++);
+    __UNIT_TYPE x = ParseHexDigit(*in_ptr++);
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
     {
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
     {
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
     {
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
     {
-        x = x * 16 + Parse1DigitFromHexChar(*in_ptr++);
+        x = x * 16 + ParseHexDigit(*in_ptr++);
     }
     return (x);
 }
@@ -954,7 +1224,7 @@ static void BuildBinaryFromHexString(wchar_t* source, __UNIT_TYPE* out_buf)
     }
 }
 
-static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
+static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
     __UNIT_TYPE source_len = lstrlenW(source);
@@ -973,7 +1243,7 @@ static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_N
     }
 
     // 先頭 1 文字が 8～F であれば負数とみなす
-    *o_sign = Parse1DigitFromHexChar(int_part_buf[0]) >= 8 ? -1 : 1;
+    *o_sign = ParseHexDigit(int_part_buf[0]) >= 8 ? -1 : 1;
 
     __UNIT_TYPE o_bit_count = lstrlenW(int_part_buf) * 4;
     __UNIT_TYPE o_light_check_code;
@@ -1018,7 +1288,7 @@ static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_N
     return (PMC_STATUS_OK);
 }
 
-static PMC_STATUS_CODE PMC_TryParse_Imp(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, NUMBER_HEADER** o_abs)
+static PMC_STATUS_CODE PMC_TryParse_Imp(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, NUMBER_HEADER** o_abs)
 {
     PMC_STATUS_CODE result;
     if (number_styles & PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER)
@@ -1048,7 +1318,7 @@ static PMC_STATUS_CODE PMC_TryParse_Imp(wchar_t* source, PMC_NUMBER_STYLE_CODE n
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o)
+PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o)
 {
     PMC_STATUS_CODE result;
     if (source == NULL)
@@ -1071,7 +1341,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE n
     return (PMC_STATUS_OK);
 }
 
-PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs)
+PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs)
 {
     PMC_STATUS_CODE result;
     if (source == NULL)
@@ -1091,12 +1361,7 @@ PMC_STATUS_CODE __PMC_CALL PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE
 
 PMC_STATUS_CODE Initialize_Parse(PROCESSOR_FEATURES* feature)
 {
-    default_number_format_option.DecimalDigits = 2;
-    lstrcpyW(default_number_format_option.GroupSeparator, L",");
-    lstrcpyW(default_number_format_option.DecimalSeparator, L".");
-    lstrcpyW(default_number_format_option.GroupSizes, L"3");
-    lstrcpyW(default_number_format_option.PositiveSign, L"+");
-    lstrcpyW(default_number_format_option.NegativeSign, L"-");
+    InitializeNumberFormatoInfo(&default_number_format_option);
 
     if (feature->PROCESSOR_FEATURE_ADX && feature->PROCESSOR_FEATURE_BMI2)
         fp_MultiplyAndAdd = MultiplyAndAdd_using_ADCX_MULX;

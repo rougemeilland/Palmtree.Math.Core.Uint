@@ -51,31 +51,29 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG94622 DB	'+', 00H, 00H, 00H
-$SG94623 DB	'-', 00H, 00H, 00H
-$SG94624 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94673 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94625 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94674 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
-$SG94626 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94675 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'n'
 	DB	'0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H
 	DB	'_', 01aH, 090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')'
 	DB	00H, 00H, 00H
-$SG94627 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94676 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
-$SG94628 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG94677 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94629 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94678 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'N'
 	DB	00H, ' ', 00H, '(', 00H, '%', 00H, 'd', 00H, '.', 00H, '%', 00H
 	DB	'd', 00H, ')', 00H, 00H, 00H
@@ -93,10 +91,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_tostringn.c
 _TEXT	SEGMENT
-tv150 = -96						; size = 4
-tv137 = -92						; size = 4
-tv84 = -88						; size = 4
-_opt$ = -80						; size = 52
+tv148 = -236						; size = 4
+tv135 = -232						; size = 4
+tv82 = -228						; size = 4
+_opt$ = -220						; size = 192
 _x_result$ = -24					; size = 4
 _result$ = -20						; size = 4
 _x$ = -12						; size = 4
@@ -119,11 +117,11 @@ _TEST_PMC_ToStringN PROC
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 96					; 00000060H
+	sub	esp, 236				; 000000ecH
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-96]
-	mov	ecx, 24					; 00000018H
+	lea	edi, DWORD PTR [ebp-236]
+	mov	ecx, 59					; 0000003bH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	eax, DWORD PTR ___security_cookie
@@ -136,145 +134,90 @@ _TEST_PMC_ToStringN PROC
 ; 35   :     static wchar_t actual_str_buffer[4096];
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE x_result;
-; 38   :     PMC_NUMBER_FORMAT_OPTION opt;
-; 39   :     lstrcpyW(opt.GroupSeparator, group_separator);
-
-	mov	esi, esp
-	mov	eax, DWORD PTR _group_separator$[ebp]
-	push	eax
-	lea	ecx, DWORD PTR _opt$[ebp+4]
-	push	ecx
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-
-; 40   :     lstrcpyW(opt.GroupSizes, group_sizes);
-
-	mov	esi, esp
-	mov	edx, DWORD PTR _group_sizes$[ebp]
-	push	edx
-	lea	eax, DWORD PTR _opt$[ebp+28]
-	push	eax
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-
-; 41   :     lstrcpyW(opt.DecimalSeparator, decimal_separator);
-
-	mov	esi, esp
-	mov	ecx, DWORD PTR _decimal_separator$[ebp]
-	push	ecx
-	lea	edx, DWORD PTR _opt$[ebp+10]
-	push	edx
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-
-; 42   :     opt.DecimalDigits = decimal_digits;
-
-	mov	eax, DWORD PTR _decimal_digits$[ebp]
-	mov	DWORD PTR _opt$[ebp], eax
-
-; 43   :     lstrcpyW(opt.PositiveSign, L"+");
-
-	mov	esi, esp
-	push	OFFSET $SG94622
-	lea	ecx, DWORD PTR _opt$[ebp+16]
-	push	ecx
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-
-; 44   :     lstrcpyW(opt.NegativeSign, L"-");
-
-	mov	esi, esp
-	push	OFFSET $SG94623
-	lea	edx, DWORD PTR _opt$[ebp+22]
-	push	edx
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-
-; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
-
-	mov	esi, esp
-	lea	eax, DWORD PTR _x$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _buf_size$[ebp]
-	push	ecx
-	mov	edx, DWORD PTR _buf$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
-	call	ecx
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-	mov	DWORD PTR _x_result$[ebp], eax
-	cmp	DWORD PTR _x_result$[ebp], 0
-	jne	SHORT $LN4@TEST_PMC_T
-	mov	DWORD PTR tv84[ebp], 1
-	jmp	SHORT $LN5@TEST_PMC_T
-$LN4@TEST_PMC_T:
-	mov	DWORD PTR tv84[ebp], 0
-$LN5@TEST_PMC_T:
-	mov	edx, DWORD PTR _x_result$[ebp]
-	push	edx
-	push	OFFSET $SG94624
-	call	_FormatTestMesssage
-	add	esp, 8
-	push	eax
-	mov	eax, DWORD PTR tv84[ebp]
-	push	eax
-	push	1
-	mov	ecx, DWORD PTR _no$[ebp]
-	push	ecx
-	push	OFFSET $SG94625
-	call	_FormatTestLabel
-	add	esp, 12					; 0000000cH
-	push	eax
-	mov	edx, DWORD PTR _env$[ebp]
-	push	edx
-	call	_TEST_Assert
-	add	esp, 16					; 00000010H
-
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+; 38   :     PMC_NUMBER_FORMAT_INFO opt;
+; 39   :     ep->InitializeNumberFormatInfo(&opt);
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _opt$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _width$[ebp]
-	push	ecx
-	movzx	edx, BYTE PTR _format_spec$[ebp]
-	push	edx
-	push	8192					; 00002000H
-	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
-	mov	eax, DWORD PTR _x$[ebp]
 	push	eax
 	mov	ecx, DWORD PTR _ep$[ebp]
 	mov	edx, DWORD PTR [ecx+44]
 	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
-	mov	DWORD PTR _result$[ebp], eax
-	cmp	DWORD PTR _result$[ebp], 0
-	jne	SHORT $LN6@TEST_PMC_T
-	mov	DWORD PTR tv137[ebp], 1
-	jmp	SHORT $LN7@TEST_PMC_T
-$LN6@TEST_PMC_T:
-	mov	DWORD PTR tv137[ebp], 0
-$LN7@TEST_PMC_T:
-	mov	eax, DWORD PTR _result$[ebp]
+
+; 40   :     lstrcpyW(opt.Number.GroupSeparator, group_separator);
+
+	mov	esi, esp
+	mov	eax, DWORD PTR _group_separator$[ebp]
 	push	eax
-	push	OFFSET $SG94626
+	lea	ecx, DWORD PTR _opt$[ebp+52]
+	push	ecx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 41   :     lstrcpyW(opt.Number.GroupSizes, group_sizes);
+
+	mov	esi, esp
+	mov	edx, DWORD PTR _group_sizes$[ebp]
+	push	edx
+	lea	eax, DWORD PTR _opt$[ebp+64]
+	push	eax
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 42   :     lstrcpyW(opt.Number.DecimalSeparator, decimal_separator);
+
+	mov	esi, esp
+	mov	ecx, DWORD PTR _decimal_separator$[ebp]
+	push	ecx
+	lea	edx, DWORD PTR _opt$[ebp+58]
+	push	edx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 43   :     opt.Number.DecimalDigits = decimal_digits;
+
+	mov	eax, DWORD PTR _decimal_digits$[ebp]
+	mov	DWORD PTR _opt$[ebp+48], eax
+
+; 44   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+
+	mov	esi, esp
+	lea	ecx, DWORD PTR _x$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _buf_size$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _buf$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _ep$[ebp]
+	mov	edx, DWORD PTR [ecx+24]
+	call	edx
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	mov	DWORD PTR _x_result$[ebp], eax
+	cmp	DWORD PTR _x_result$[ebp], 0
+	jne	SHORT $LN4@TEST_PMC_T
+	mov	DWORD PTR tv82[ebp], 1
+	jmp	SHORT $LN5@TEST_PMC_T
+$LN4@TEST_PMC_T:
+	mov	DWORD PTR tv82[ebp], 0
+$LN5@TEST_PMC_T:
+	mov	eax, DWORD PTR _x_result$[ebp]
+	push	eax
+	push	OFFSET $SG94673
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
-	mov	ecx, DWORD PTR tv137[ebp]
+	mov	ecx, DWORD PTR tv82[ebp]
 	push	ecx
-	push	2
+	push	1
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94627
+	push	OFFSET $SG94674
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -283,29 +226,44 @@ $LN7@TEST_PMC_T:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 47   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
+; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
-	mov	ecx, DWORD PTR _desired_str$[ebp]
+	lea	ecx, DWORD PTR _opt$[ebp]
 	push	ecx
+	mov	edx, DWORD PTR _width$[ebp]
+	push	edx
+	movzx	eax, BYTE PTR _format_spec$[ebp]
+	push	eax
+	push	8192					; 00002000H
 	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
-	call	DWORD PTR __imp__lstrcmpW@8
+	mov	ecx, DWORD PTR _x$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _ep$[ebp]
+	mov	eax, DWORD PTR [edx+48]
+	call	eax
 	cmp	esi, esp
 	call	__RTC_CheckEsp
-	test	eax, eax
-	jne	SHORT $LN8@TEST_PMC_T
-	mov	DWORD PTR tv150[ebp], 1
-	jmp	SHORT $LN9@TEST_PMC_T
-$LN8@TEST_PMC_T:
-	mov	DWORD PTR tv150[ebp], 0
-$LN9@TEST_PMC_T:
-	push	OFFSET $SG94628
-	mov	edx, DWORD PTR tv150[ebp]
+	mov	DWORD PTR _result$[ebp], eax
+	cmp	DWORD PTR _result$[ebp], 0
+	jne	SHORT $LN6@TEST_PMC_T
+	mov	DWORD PTR tv135[ebp], 1
+	jmp	SHORT $LN7@TEST_PMC_T
+$LN6@TEST_PMC_T:
+	mov	DWORD PTR tv135[ebp], 0
+$LN7@TEST_PMC_T:
+	mov	ecx, DWORD PTR _result$[ebp]
+	push	ecx
+	push	OFFSET $SG94675
+	call	_FormatTestMesssage
+	add	esp, 8
+	push	eax
+	mov	edx, DWORD PTR tv135[ebp]
 	push	edx
-	push	3
+	push	2
 	mov	eax, DWORD PTR _no$[ebp]
 	push	eax
-	push	OFFSET $SG94629
+	push	OFFSET $SG94676
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -314,24 +272,55 @@ $LN9@TEST_PMC_T:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 48   :     if (x_result == PMC_STATUS_OK)
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
+
+	mov	esi, esp
+	mov	edx, DWORD PTR _desired_str$[ebp]
+	push	edx
+	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
+	call	DWORD PTR __imp__lstrcmpW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	test	eax, eax
+	jne	SHORT $LN8@TEST_PMC_T
+	mov	DWORD PTR tv148[ebp], 1
+	jmp	SHORT $LN9@TEST_PMC_T
+$LN8@TEST_PMC_T:
+	mov	DWORD PTR tv148[ebp], 0
+$LN9@TEST_PMC_T:
+	push	OFFSET $SG94677
+	mov	eax, DWORD PTR tv148[ebp]
+	push	eax
+	push	3
+	mov	ecx, DWORD PTR _no$[ebp]
+	push	ecx
+	push	OFFSET $SG94678
+	call	_FormatTestLabel
+	add	esp, 12					; 0000000cH
+	push	eax
+	mov	edx, DWORD PTR _env$[ebp]
+	push	edx
+	call	_TEST_Assert
+	add	esp, 16					; 00000010H
+
+; 47   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_T
 
-; 49   :         ep->Dispose(x);
+; 48   :         ep->Dispose(x);
 
 	mov	esi, esp
-	mov	edx, DWORD PTR _x$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+16]
-	call	ecx
+	mov	eax, DWORD PTR _x$[ebp]
+	push	eax
+	mov	ecx, DWORD PTR _ep$[ebp]
+	mov	edx, DWORD PTR [ecx+16]
+	call	edx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_T:
 
-; 50   : }
+; 49   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -345,12 +334,13 @@ $LN1@TEST_PMC_T:
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 96					; 00000060H
+	add	esp, 236				; 000000ecH
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
+	npad	1
 $LN13@TEST_PMC_T:
 	DD	2
 	DD	$LN12@TEST_PMC_T
@@ -358,8 +348,8 @@ $LN12@TEST_PMC_T:
 	DD	-12					; fffffff4H
 	DD	4
 	DD	$LN10@TEST_PMC_T
-	DD	-80					; ffffffb0H
-	DD	52					; 00000034H
+	DD	-220					; ffffff24H
+	DD	192					; 000000c0H
 	DD	$LN11@TEST_PMC_T
 $LN11@TEST_PMC_T:
 	DB	111					; 0000006fH

@@ -31,6 +31,7 @@ using System.Linq;
 
 namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 {
+    // カルチャの違いによる動作に着目
     class TEST_PMC_ParseDN1
         : TestPatternBase
     {

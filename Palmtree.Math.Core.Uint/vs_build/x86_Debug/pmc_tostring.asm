@@ -26,7 +26,9 @@ __BB6D3116_pmc_uint_internal@h DB 01H
 __8CA3E54E_pmc_inline_func@h DB 01H
 __493E81D3_pmc_tostring@c DB 01H
 msvcjmc	ENDS
+PUBLIC	_InitializeNumberFormatoInfo
 PUBLIC	_Initialize_ToString
+PUBLIC	_PMC_InitializeNumberFormatInfo@4
 PUBLIC	_PMC_ToString@24
 PUBLIC	__JustMyCode_Default
 EXTRN	__imp__lstrcpyW@8:PROC
@@ -48,7 +50,7 @@ EXTRN	__aullrem:PROC
 EXTRN	_statistics_info:BYTE
 EXTRN	___security_cookie:DWORD
 _BSS	SEGMENT
-_default_number_format_option DB 034H DUP (?)
+_default_number_format_option DB 0c0H DUP (?)
 _BSS	ENDS
 ;	COMDAT rtc$TMZ
 rtc$TMZ	SEGMENT
@@ -70,11 +72,23 @@ _hexadecimal_upper_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H
 	DB	'5', 00H, '6', 00H, '7', 00H, '8', 00H, '9', 00H, 'A', 00H, 'B'
 	DB	00H, 'C', 00H, 'D', 00H, 'E', 00H, 'F', 00H, 00H, 00H
 	ORG $+2
-$SG94846 DB	',', 00H, 00H, 00H
-$SG94847 DB	'.', 00H, 00H, 00H
-$SG94848 DB	'3', 00H, 00H, 00H
-$SG94849 DB	'+', 00H, 00H, 00H
-$SG94850 DB	'-', 00H, 00H, 00H
+$SG94881 DB	'.', 00H, 00H, 00H
+$SG94882 DB	',', 00H, 00H, 00H
+$SG94883 DB	'3', 00H, 00H, 00H
+$SG94884 DB	0a4H, 00H, 00H, 00H
+$SG94885 DB	'0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H, '5', 00H
+	DB	'6', 00H, '7', 00H, '8', 00H, '9', 00H, 00H, 00H
+	ORG $+2
+$SG94886 DB	'-', 00H, 00H, 00H
+$SG94887 DB	'.', 00H, 00H, 00H
+$SG94888 DB	',', 00H, 00H, 00H
+$SG94889 DB	'3', 00H, 00H, 00H
+$SG94890 DB	'.', 00H, 00H, 00H
+$SG94891 DB	',', 00H, 00H, 00H
+$SG94892 DB	'3', 00H, 00H, 00H
+$SG94893 DB	'%', 00H, 00H, 00H
+$SG94894 DB	'0 ', 00H, 00H
+$SG94895 DB	'+', 00H, 00H, 00H
 _DATA	ENDS
 ; Function compile flags: /Odt
 ;	COMDAT __JustMyCode_Default
@@ -1203,10 +1217,10 @@ $LN10@ToStringDN:
 
 ; 339  :             else
 ; 340  :             {
-; 341  :                 lstrcpyW(&buffer[1], format_option->DecimalSeparator);
+; 341  :                 lstrcpyW(&buffer[1], format_option->Number.DecimalSeparator);
 
 	mov	eax, DWORD PTR _format_option$[ebp]
-	add	eax, 10					; 0000000aH
+	add	eax, 58					; 0000003aH
 	mov	esi, esp
 	push	eax
 	mov	ecx, 2
@@ -1217,10 +1231,10 @@ $LN10@ToStringDN:
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 342  :                 int decimal_separator_len = lstrlenW(format_option->DecimalSeparator);
+; 342  :                 int decimal_separator_len = lstrlenW(format_option->Number.DecimalSeparator);
 
 	mov	edx, DWORD PTR _format_option$[ebp]
-	add	edx, 10					; 0000000aH
+	add	edx, 58					; 0000003aH
 	mov	esi, esp
 	push	edx
 	call	DWORD PTR __imp__lstrlenW@4
@@ -2941,10 +2955,10 @@ _InitializeOutputState PROC
 	mov	BYTE PTR [eax], cl
 
 ; 97   : 
-; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->GroupSeparator);
+; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->Number.GroupSeparator);
 
 	mov	edx, DWORD PTR _format_option$[ebp]
-	add	edx, 4
+	add	edx, 52					; 00000034H
 	mov	esi, esp
 	push	edx
 	call	DWORD PTR __imp__lstrlenW@4
@@ -2953,10 +2967,10 @@ _InitializeOutputState PROC
 	mov	ecx, DWORD PTR _state$[ebp]
 	mov	DWORD PTR [ecx+24], eax
 
-; 99   :     wchar_t* in_ptr = format_option->GroupSeparator;
+; 99   :     wchar_t* in_ptr = format_option->Number.GroupSeparator;
 
 	mov	edx, DWORD PTR _format_option$[ebp]
-	add	edx, 4
+	add	edx, 52					; 00000034H
 	mov	DWORD PTR _in_ptr$[ebp], edx
 
 ; 100  :     wchar_t* out_ptr = state->GROUP_SEPARATOR + state->GROUP_SEPARATOR_LENGTH;
@@ -3010,10 +3024,10 @@ $LN2@Initialize:
 $LN3@Initialize:
 
 ; 108  : 
-; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->DecimalSeparator);
+; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->Number.DecimalSeparator);
 
 	mov	edx, DWORD PTR _format_option$[ebp]
-	add	edx, 10					; 0000000aH
+	add	edx, 58					; 0000003aH
 	mov	esi, esp
 	push	edx
 	call	DWORD PTR __imp__lstrlenW@4
@@ -3022,10 +3036,10 @@ $LN3@Initialize:
 	mov	ecx, DWORD PTR _state$[ebp]
 	mov	DWORD PTR [ecx+28], eax
 
-; 110  :     in_ptr = format_option->DecimalSeparator;
+; 110  :     in_ptr = format_option->Number.DecimalSeparator;
 
 	mov	edx, DWORD PTR _format_option$[ebp]
-	add	edx, 10					; 0000000aH
+	add	edx, 58					; 0000003aH
 	mov	DWORD PTR _in_ptr$[ebp], edx
 
 ; 111  :     out_ptr = state->DECIMAL_SEPARATOR + state->DECIMAL_SEPARATOR_LENGTH;
@@ -3079,12 +3093,12 @@ $LN4@Initialize:
 $LN5@Initialize:
 
 ; 119  : 
-; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
+; 120  :     state->CURRENT_GROUP = &format_option->Number.GroupSizes[0];
 
 	mov	edx, 2
 	imul	eax, edx, 0
 	mov	ecx, DWORD PTR _format_option$[ebp]
-	lea	edx, DWORD PTR [ecx+eax+28]
+	lea	edx, DWORD PTR [ecx+eax+64]
 	mov	eax, DWORD PTR _state$[ebp]
 	mov	DWORD PTR [eax+32], edx
 
@@ -3874,20 +3888,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV64Counter PROC
 
-; 343  :     {
+; 347  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 344  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+8
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 345  :     }
+; 349  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3901,20 +3915,20 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToDIV32Counter PROC
 
-; 337  :     {
+; 341  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+12
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 339  :     }
+; 343  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3927,18 +3941,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV64Counter PROC
 
-; 320  :     {
+; 324  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 321  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lock	 inc	 (null) PTR _statistics_info+8
 
-; 322  :     }
+; 326  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -3951,18 +3965,18 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementDIV32Counter PROC
 
-; 314  :     {
+; 318  :     {
 
 	push	ebp
 	mov	ebp, esp
 	mov	ecx, OFFSET __BB6D3116_pmc_uint_internal@h
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lock	 inc	 (null) PTR _statistics_info+12
 
-; 316  :     }
+; 320  :     }
 
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
@@ -4075,7 +4089,7 @@ $LN8@PMC_ToStri:
 ; 538  :     {
 ; 539  :     case 'n':
 ; 540  :     case 'N':
-; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->DecimalDigits, format_option));
+; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->Number.DecimalDigits, format_option));
 
 	cmp	DWORD PTR _width$[ebp], 0
 	jl	SHORT $LN14@PMC_ToStri
@@ -4084,7 +4098,7 @@ $LN8@PMC_ToStri:
 	jmp	SHORT $LN15@PMC_ToStri
 $LN14@PMC_ToStri:
 	mov	ecx, DWORD PTR _format_option$[ebp]
-	mov	edx, DWORD PTR [ecx]
+	mov	edx, DWORD PTR [ecx+48]
 	mov	DWORD PTR tv76[ebp], edx
 $LN15@PMC_ToStri:
 	mov	eax, DWORD PTR _format_option$[ebp]
@@ -4200,6 +4214,7 @@ $LN1@PMC_ToStri:
 	mov	esp, ebp
 	pop	ebp
 	ret	24					; 00000018H
+	npad	3
 $LN23@PMC_ToStri:
 	DD	$LN11@PMC_ToStri
 	DD	$LN8@PMC_ToStri
@@ -4265,8 +4280,68 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 _TEXT	SEGMENT
+_info$ = 8						; size = 4
+_PMC_InitializeNumberFormatInfo@4 PROC
+
+; 586  : {
+
+	push	ebp
+	mov	ebp, esp
+	mov	ecx, OFFSET __493E81D3_pmc_tostring@c
+	call	@__CheckForDebuggerJustMyCode@4
+
+; 587  :     InitializeNumberFormatoInfo(info);
+
+	mov	eax, DWORD PTR _info$[ebp]
+	push	eax
+	call	_InitializeNumberFormatoInfo
+	add	esp, 4
+
+; 588  : }
+
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	pop	ebp
+	ret	4
+_PMC_InitializeNumberFormatInfo@4 ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+_TEXT	SEGMENT
 _feature$ = 8						; size = 4
 _Initialize_ToString PROC
+
+; 591  : {
+
+	push	ebp
+	mov	ebp, esp
+	mov	ecx, OFFSET __493E81D3_pmc_tostring@c
+	call	@__CheckForDebuggerJustMyCode@4
+
+; 592  :     InitializeNumberFormatoInfo(&default_number_format_option);
+
+	push	OFFSET _default_number_format_option
+	call	_InitializeNumberFormatoInfo
+	add	esp, 4
+
+; 593  : 
+; 594  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+
+; 595  : }
+
+	cmp	ebp, esp
+	call	__RTC_CheckEsp
+	pop	ebp
+	ret	0
+_Initialize_ToString ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+_TEXT	SEGMENT
+_info$ = 8						; size = 4
+_InitializeNumberFormatoInfo PROC
 
 ; 555  : {
 
@@ -4276,67 +4351,222 @@ _Initialize_ToString PROC
 	mov	ecx, OFFSET __493E81D3_pmc_tostring@c
 	call	@__CheckForDebuggerJustMyCode@4
 
-; 556  :     default_number_format_option.DecimalDigits = 2;
+; 556  :     info->Currency.DecimalDigits = 2;
 
-	mov	DWORD PTR _default_number_format_option, 2
+	mov	eax, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [eax], 2
 
-; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
+; 557  :     lstrcpyW(info->Currency.DecimalSeparator, L".");
 
 	mov	esi, esp
-	push	OFFSET $SG94846
-	push	OFFSET _default_number_format_option+4
+	push	OFFSET $SG94881
+	mov	ecx, DWORD PTR _info$[ebp]
+	add	ecx, 4
+	push	ecx
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
+; 558  :     lstrcpyW(info->Currency.GroupSeparator, L",");
 
 	mov	esi, esp
-	push	OFFSET $SG94847
-	push	OFFSET _default_number_format_option+10
+	push	OFFSET $SG94882
+	mov	edx, DWORD PTR _info$[ebp]
+	add	edx, 10					; 0000000aH
+	push	edx
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 559  :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
+; 559  :     lstrcpyW(info->Currency.GroupSizes, L"3");
 
 	mov	esi, esp
-	push	OFFSET $SG94848
-	push	OFFSET _default_number_format_option+28
+	push	OFFSET $SG94883
+	mov	eax, DWORD PTR _info$[ebp]
+	add	eax, 16					; 00000010H
+	push	eax
 	call	DWORD PTR __imp__lstrcpyW@8
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
+; 560  :     info->Currency.NegativePattern = 0;
 
-	mov	esi, esp
-	push	OFFSET $SG94849
-	push	OFFSET _default_number_format_option+16
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
+	mov	ecx, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [ecx+40], 0
 
-; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
+; 561  :     info->Currency.PositivePattern = 0;
 
-	mov	esi, esp
-	push	OFFSET $SG94850
-	push	OFFSET _default_number_format_option+22
-	call	DWORD PTR __imp__lstrcpyW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
+	mov	edx, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [edx+44], 0
 
 ; 562  : 
-; 563  :     return (PMC_STATUS_OK);
+; 563  :     lstrcpyW(info->CurrencySymbol, L"\u00a4");
 
-	xor	eax, eax
+	mov	esi, esp
+	push	OFFSET $SG94884
+	mov	eax, DWORD PTR _info$[ebp]
+	add	eax, 140				; 0000008cH
+	push	eax
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
 
-; 564  : }
+; 564  :     lstrcpyW(info->NativeDigits, L"0123456789");
+
+	mov	esi, esp
+	push	OFFSET $SG94885
+	mov	ecx, DWORD PTR _info$[ebp]
+	add	ecx, 146				; 00000092H
+	push	ecx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 565  :     lstrcpyW(info->NegativeSign, L"-");
+
+	mov	esi, esp
+	push	OFFSET $SG94886
+	mov	edx, DWORD PTR _info$[ebp]
+	add	edx, 168				; 000000a8H
+	push	edx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 566  : 
+; 567  :     info->Number.DecimalDigits = 2;
+
+	mov	eax, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [eax+48], 2
+
+; 568  :     lstrcpyW(info->Number.DecimalSeparator, L".");
+
+	mov	esi, esp
+	push	OFFSET $SG94887
+	mov	ecx, DWORD PTR _info$[ebp]
+	add	ecx, 58					; 0000003aH
+	push	ecx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 569  :     lstrcpyW(info->Number.GroupSeparator, L",");
+
+	mov	esi, esp
+	push	OFFSET $SG94888
+	mov	edx, DWORD PTR _info$[ebp]
+	add	edx, 52					; 00000034H
+	push	edx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 570  :     lstrcpyW(info->Number.GroupSizes, L"3");
+
+	mov	esi, esp
+	push	OFFSET $SG94889
+	mov	eax, DWORD PTR _info$[ebp]
+	add	eax, 64					; 00000040H
+	push	eax
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 571  :     info->Number.NegativePattern = 1;
+
+	mov	ecx, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [ecx+88], 1
+
+; 572  : 
+; 573  :     info->Percent.DecimalDigits = 2;
+
+	mov	edx, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [edx+92], 2
+
+; 574  :     lstrcpyW(info->Percent.DecimalSeparator, L".");
+
+	mov	esi, esp
+	push	OFFSET $SG94890
+	mov	eax, DWORD PTR _info$[ebp]
+	add	eax, 102				; 00000066H
+	push	eax
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 575  :     lstrcpyW(info->Percent.GroupSeparator, L",");
+
+	mov	esi, esp
+	push	OFFSET $SG94891
+	mov	ecx, DWORD PTR _info$[ebp]
+	add	ecx, 96					; 00000060H
+	push	ecx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 576  :     lstrcpyW(info->Percent.GroupSizes, L"3");
+
+	mov	esi, esp
+	push	OFFSET $SG94892
+	mov	edx, DWORD PTR _info$[ebp]
+	add	edx, 108				; 0000006cH
+	push	edx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 577  :     info->Percent.NegativePattern = 0;
+
+	mov	eax, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [eax+132], 0
+
+; 578  :     info->Percent.PositivePattern = 0;
+
+	mov	ecx, DWORD PTR _info$[ebp]
+	mov	DWORD PTR [ecx+136], 0
+
+; 579  : 
+; 580  :     lstrcpyW(info->PercentSymbol, L"%");
+
+	mov	esi, esp
+	push	OFFSET $SG94893
+	mov	edx, DWORD PTR _info$[ebp]
+	add	edx, 180				; 000000b4H
+	push	edx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 581  :     lstrcpyW(info->PerMilleSymbol, L"\u2030");
+
+	mov	esi, esp
+	push	OFFSET $SG94894
+	mov	eax, DWORD PTR _info$[ebp]
+	add	eax, 186				; 000000baH
+	push	eax
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 582  :     lstrcpyW(info->PositiveSign, L"+");
+
+	mov	esi, esp
+	push	OFFSET $SG94895
+	mov	ecx, DWORD PTR _info$[ebp]
+	add	ecx, 174				; 000000aeH
+	push	ecx
+	call	DWORD PTR __imp__lstrcpyW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+
+; 583  : }
 
 	pop	esi
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	pop	ebp
 	ret	0
-_Initialize_ToString ENDP
+_InitializeNumberFormatoInfo ENDP
 _TEXT	ENDS
 END

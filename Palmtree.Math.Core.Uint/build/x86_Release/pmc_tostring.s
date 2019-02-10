@@ -322,7 +322,7 @@ L22:
 	movzbl	52(%esp), %eax
 	movb	%al, 96(%esp)
 	movl	184(%esp), %eax
-	leal	4(%eax), %ebx
+	leal	52(%eax), %ebx
 	movl	%ebx, (%esp)
 	call	*%esi
 	.cfi_def_cfa_offset 172
@@ -333,7 +333,7 @@ L22:
 	leal	-2(%eax), %edx
 	movw	%bp, (%eax)
 	movl	184(%esp), %eax
-	movzwl	4(%eax), %eax
+	movzwl	52(%eax), %eax
 	testw	%ax, %ax
 	je	L32
 	.p2align 4,,10
@@ -347,7 +347,7 @@ L29:
 L32:
 	movl	184(%esp), %eax
 	xorl	%edi, %edi
-	leal	10(%eax), %ebx
+	leal	58(%eax), %ebx
 	movl	%ebx, (%esp)
 	call	*%esi
 	.cfi_def_cfa_offset 172
@@ -358,7 +358,7 @@ L32:
 	leal	-2(%eax), %edx
 	movw	%di, (%eax)
 	movl	184(%esp), %eax
-	movzwl	10(%eax), %eax
+	movzwl	58(%eax), %eax
 	testw	%ax, %ax
 	je	L31
 	.p2align 4,,10
@@ -372,10 +372,10 @@ L30:
 L31:
 	movl	184(%esp), %eax
 	movl	$0, 136(%esp)
-	addl	$28, %eax
+	addl	$64, %eax
 	movl	%eax, 128(%esp)
 	movl	184(%esp), %eax
-	movzwl	28(%eax), %eax
+	movzwl	64(%eax), %eax
 	subl	$48, %eax
 	cmpb	$78, 52(%esp)
 	movl	%eax, 132(%esp)
@@ -603,7 +603,7 @@ L44:
 L15:
 	movl	36(%esp), %esi
 	movl	184(%esp), %eax
-	leal	10(%eax), %ebx
+	leal	58(%eax), %ebx
 	leal	2(%esi), %eax
 	movl	%ebx, 4(%esp)
 	movl	%eax, (%esp)
@@ -694,7 +694,7 @@ LFE5501:
 	.p2align 4,,15
 	.def	_ToStringX.isra.2;	.scl	3;	.type	32;	.endef
 _ToStringX.isra.2:
-LFB5508:
+LFB5510:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1071,7 +1071,7 @@ L97:
 	movl	$-4, %eax
 	jmp	L79
 	.cfi_endproc
-LFE5508:
+LFE5510:
 	.p2align 4,,15
 	.globl	_PMC_ToString@24
 	.def	_PMC_ToString@24;	.scl	2;	.type	32;	.endef
@@ -1174,7 +1174,7 @@ L128:
 	movl	64(%esp), %eax
 	testl	%eax, %eax
 	jns	L132
-	movl	0(%ebp), %eax
+	movl	48(%ebp), %eax
 L132:
 	movl	%eax, 4(%esp)
 	movl	56(%esp), %ecx
@@ -1274,73 +1274,214 @@ LFE5504:
 	.section .rdata,"dr"
 	.align 2
 LC0:
-	.ascii ",\0\0\0"
+	.ascii ".\0\0\0"
 	.align 2
 LC1:
-	.ascii ".\0\0\0"
+	.ascii ",\0\0\0"
 	.align 2
 LC2:
 	.ascii "3\0\0\0"
 	.align 2
 LC3:
-	.ascii "+\0\0\0"
+	.ascii "\244\0\0\0"
 	.align 2
 LC4:
+	.ascii "0\0"
+	.ascii "1\0"
+	.ascii "2\0"
+	.ascii "3\0"
+	.ascii "4\0"
+	.ascii "5\0"
+	.ascii "6\0"
+	.ascii "7\0"
+	.ascii "8\0"
+	.ascii "9\0\0\0"
+	.align 2
+LC5:
 	.ascii "-\0\0\0"
+	.align 2
+LC6:
+	.ascii "%\0\0\0"
+	.align 2
+LC7:
+	.ascii "0 \0\0"
+	.align 2
+LC8:
+	.ascii "+\0\0\0"
 	.text
 	.p2align 4,,15
-	.globl	_Initialize_ToString
-	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
-_Initialize_ToString:
+	.globl	_InitializeNumberFormatoInfo
+	.def	_InitializeNumberFormatoInfo;	.scl	2;	.type	32;	.endef
+_InitializeNumberFormatoInfo:
 LFB5505:
 	.cfi_startproc
-	pushl	%ebx
+	pushl	%esi
 	.cfi_def_cfa_offset 8
-	.cfi_offset 3, -8
-	subl	$24, %esp
+	.cfi_offset 6, -8
+	pushl	%ebx
+	.cfi_def_cfa_offset 12
+	.cfi_offset 3, -12
+	subl	$20, %esp
 	.cfi_def_cfa_offset 32
-	movl	__imp__lstrcpyW@8, %ebx
-	movl	$2, _default_number_format_option
+	movl	__imp__lstrcpyW@8, %esi
+	movl	32(%esp), %ebx
+	leal	4(%ebx), %eax
+	movl	$2, (%ebx)
 	movl	$LC0, 4(%esp)
-	movl	$_default_number_format_option+4, (%esp)
-	call	*%ebx
+	movl	%eax, (%esp)
+	call	*%esi
 	.cfi_def_cfa_offset 24
+	leal	10(%ebx), %eax
 	subl	$8, %esp
 	.cfi_def_cfa_offset 32
 	movl	$LC1, 4(%esp)
-	movl	$_default_number_format_option+10, (%esp)
-	call	*%ebx
+	movl	%eax, (%esp)
+	call	*%esi
 	.cfi_def_cfa_offset 24
+	leal	16(%ebx), %eax
 	subl	$8, %esp
 	.cfi_def_cfa_offset 32
 	movl	$LC2, 4(%esp)
-	movl	$_default_number_format_option+28, (%esp)
-	call	*%ebx
+	movl	%eax, (%esp)
+	call	*%esi
 	.cfi_def_cfa_offset 24
+	leal	140(%ebx), %eax
+	movl	$0, 40(%ebx)
 	subl	$8, %esp
 	.cfi_def_cfa_offset 32
+	movl	$0, 44(%ebx)
 	movl	$LC3, 4(%esp)
-	movl	$_default_number_format_option+16, (%esp)
-	call	*%ebx
+	movl	%eax, (%esp)
+	call	*%esi
 	.cfi_def_cfa_offset 24
+	leal	146(%ebx), %eax
 	subl	$8, %esp
 	.cfi_def_cfa_offset 32
 	movl	$LC4, 4(%esp)
-	movl	$_default_number_format_option+22, (%esp)
-	call	*%ebx
+	movl	%eax, (%esp)
+	call	*%esi
 	.cfi_def_cfa_offset 24
-	xorl	%eax, %eax
+	leal	168(%ebx), %eax
 	subl	$8, %esp
 	.cfi_def_cfa_offset 32
-	addl	$24, %esp
-	.cfi_def_cfa_offset 8
+	movl	$LC5, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	58(%ebx), %eax
+	movl	$2, 48(%ebx)
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC0, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	52(%ebx), %eax
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC1, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	64(%ebx), %eax
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC2, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	102(%ebx), %eax
+	movl	$1, 88(%ebx)
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$2, 92(%ebx)
+	movl	$LC0, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	96(%ebx), %eax
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC1, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	108(%ebx), %eax
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC2, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	180(%ebx), %eax
+	movl	$0, 132(%ebx)
+	movl	$0, 136(%ebx)
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC6, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	leal	186(%ebx), %eax
+	addl	$174, %ebx
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	$LC7, 4(%esp)
+	movl	%eax, (%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	movl	%ebx, (%esp)
+	movl	$LC8, 4(%esp)
+	call	*%esi
+	.cfi_def_cfa_offset 24
+	subl	$8, %esp
+	.cfi_def_cfa_offset 32
+	addl	$20, %esp
+	.cfi_def_cfa_offset 12
 	popl	%ebx
 	.cfi_restore 3
+	.cfi_def_cfa_offset 8
+	popl	%esi
+	.cfi_restore 6
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
 LFE5505:
-.lcomm _default_number_format_option,52,32
+	.p2align 4,,15
+	.globl	_PMC_InitializeNumberFormatInfo@4
+	.def	_PMC_InitializeNumberFormatInfo@4;	.scl	2;	.type	32;	.endef
+_PMC_InitializeNumberFormatInfo@4:
+LFB5506:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	32(%esp), %eax
+	movl	%eax, (%esp)
+	call	_InitializeNumberFormatoInfo
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret	$4
+	.cfi_endproc
+LFE5506:
+	.p2align 4,,15
+	.globl	_Initialize_ToString
+	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
+_Initialize_ToString:
+LFB5507:
+	.cfi_startproc
+	subl	$28, %esp
+	.cfi_def_cfa_offset 32
+	movl	$_default_number_format_option, (%esp)
+	call	_InitializeNumberFormatoInfo
+	xorl	%eax, %eax
+	addl	$28, %esp
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE5507:
+.lcomm _default_number_format_option,192,32
 	.data
 	.align 32
 _hexadecimal_upper_digits:

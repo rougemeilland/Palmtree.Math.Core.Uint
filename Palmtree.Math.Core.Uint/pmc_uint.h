@@ -87,11 +87,10 @@ extern "C" {
         PMC_STATUS_CODE (__PMC_CALL * To_X_I)(PMC_HANDLE_UINT p, _UINT32_T* o);
         PMC_STATUS_CODE (__PMC_CALL * To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
-        // 文字列化
-        PMC_STATUS_CODE (__PMC_CALL * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
-
-        // 文字列の解析
-        PMC_STATUS_CODE (__PMC_CALL * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
+        // 文字列化/文字列の解析
+        void (__PMC_CALL * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
+         PMC_STATUS_CODE (__PMC_CALL * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+        PMC_STATUS_CODE (__PMC_CALL * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
         // Add 関数
         PMC_STATUS_CODE (__PMC_CALL * Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -178,7 +177,7 @@ extern "C" {
         // 非公開関数
         PMC_STATUS_CODE (__PMC_CALL * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
         PMC_STATUS_CODE (__PMC_CALL * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-        PMC_STATUS_CODE (__PMC_CALL * TryParseForSINT)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
+        PMC_STATUS_CODE (__PMC_CALL * TryParseForSINT)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
     } PMC_UINT_ENTRY_POINTS;
 #pragma endregion
 

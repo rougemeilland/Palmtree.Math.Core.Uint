@@ -34,6 +34,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
     interface ITestPattern
     {
         string Id { get; }
+        int GroupNumber { get; }
         IEnumerable<string> RenderTestDataSource();
         IEnumerable<string> RenderTestCode();
     }

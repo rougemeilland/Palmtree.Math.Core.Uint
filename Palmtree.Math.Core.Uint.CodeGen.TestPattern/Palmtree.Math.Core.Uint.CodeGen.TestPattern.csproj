@@ -65,6 +65,7 @@
     <Compile Include="TEST_PMC_BitwiseOr.cs" />
     <Compile Include="TEST_PMC_Clone.cs" />
     <Compile Include="TEST_PMC_Compare.cs" />
+    <Compile Include="TEST_PMC_ParseDN3.cs" />
     <Compile Include="TEST_PMC_Remainder.cs" />
     <Compile Include="TEST_PMC_DivRem.cs" />
     <Compile Include="TEST_PMC_Equals.cs" />

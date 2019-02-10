@@ -35,13 +35,8 @@ void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, i
     static wchar_t actual_str_buffer[4096];
     PMC_STATUS_CODE result;
     PMC_STATUS_CODE x_result;
-    PMC_NUMBER_FORMAT_OPTION opt;
-    lstrcpyW(opt.GroupSeparator, L",");
-    lstrcpyW(opt.GroupSizes, L"3");
-    lstrcpyW(opt.DecimalSeparator, L".");
-    opt.DecimalDigits = 2;
-    lstrcpyW(opt.PositiveSign, L"+");
-    lstrcpyW(opt.NegativeSign, L"-");
+    PMC_NUMBER_FORMAT_INFO opt;
+    ep->InitializeNumberFormatInfo(&opt);
     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, min_width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"ToStringX (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");

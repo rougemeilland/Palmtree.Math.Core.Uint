@@ -13,21 +13,28 @@ namespace Palmtree.Math.Experiment
 
             //DivRemの障害調査コード();
 
-            foreach (var x in new[] { 50, 100, 200, 300,  -50, -100, -200, -300 }.Select(x => new BigInteger(x)))
-            {
-                var s1 = x.ToString("x");
-                var s2 = x.ToString("x15");
-                var v1 = BigInteger.Parse(s1, NumberStyles.AllowHexSpecifier);
-                var v2 = BigInteger.Parse(s2, NumberStyles.AllowHexSpecifier);
-                if (v1 != x)
-                    throw new ApplicationException();
-                if (v2 != x)
-                    throw new ApplicationException();
-                Console.WriteLine(string.Format("{0:x}, {0:x15}", x));
+            //NativeDigitsにUTF16で複数文字から構成される文字を持つカルチャが存在しないことの確認();
 
-            }
+            var text = "¤ +12,345";
+            var value1 = BigInteger.Parse(text, NumberStyles.AllowCurrencySymbol| NumberStyles.AllowLeadingWhite| NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture);
+            var value2 = BigInteger.Parse(text, NumberStyles.AllowLeadingSign | NumberStyles.AllowParentheses, CultureInfo.InvariantCulture);
+
 
             Console.ReadLine();
+        }
+
+        private static void NativeDigitsにUTF16で複数文字から構成される文字を持つカルチャが存在しないことの確認()
+        {
+            var NativeDigitが0123456789ではないカルチャの一覧 = CultureInfo.GetCultures(CultureTypes.AllCultures)
+                    .Select(culture => new { name = culture.Name, digits = string.Concat(culture.NumberFormat.NativeDigits) })
+                    .Where(item => item.digits != "0123456789")
+                    .Select(item => new
+                    {
+                        text = string.Format("{0}: {1}({2})", item.name, item.digits, string.Join(", ", item.digits.Select(c => string.Format("U+{0:x4}", (int)c)))),
+                        digits = item.digits,
+                    });
+            foreach (var item in NativeDigitが0123456789ではないカルチャの一覧.Where(item => item.digits.Length != 10))
+                Console.WriteLine(item.text);
         }
 
         private static void DivRemの障害調査コード()

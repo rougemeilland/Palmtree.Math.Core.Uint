@@ -22,14 +22,20 @@ __BB6D3116_pmc_uint_internal@h DB 01H
 __8CA3E54E_pmc_inline_func@h DB 01H
 __493E81D3_pmc_tostring@c DB 01H
 msvcjmc	ENDS
+PUBLIC	InitializeNumberFormatoInfo
 PUBLIC	Initialize_ToString
+PUBLIC	PMC_InitializeNumberFormatInfo
 PUBLIC	PMC_ToString
 PUBLIC	__JustMyCode_Default
-PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13JOFGPIOO@?$AA?4@			; `string'
+PUBLIC	??_C@_13DEFPDAGF@?$AA?0@			; `string'
 PUBLIC	??_C@_13DMCFHHKM@?$AA3@				; `string'
-PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
+PUBLIC	??_C@_13BMLCKOLB@?$PP?$KE@			; `string'
+PUBLIC	??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@ ; `string'
 PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
+PUBLIC	??_C@_13EJFHHPOP@?$AA?$CF@			; `string'
+PUBLIC	??_C@_13BGNNJOKC@?$AA0@				; `string'
+PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
 EXTRN	__imp_lstrcpyW:PROC
 EXTRN	__imp_lstrlenW:PROC
 EXTRN	AllocateBlock:PROC
@@ -47,13 +53,25 @@ EXTRN	statistics_info:BYTE
 EXTRN	__ImageBase:BYTE
 EXTRN	__security_cookie:QWORD
 _BSS	SEGMENT
-default_number_format_option DB 034H DUP (?)
+default_number_format_option DB 0c0H DUP (?)
 _BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
+$pdata$InitializeNumberFormatoInfo DD imagerel $LN3
+	DD	imagerel $LN3+598
+	DD	imagerel $unwind$InitializeNumberFormatoInfo
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
 $pdata$Initialize_ToString DD imagerel $LN3
-	DD	imagerel $LN3+176
+	DD	imagerel $LN3+78
 	DD	imagerel $unwind$Initialize_ToString
+pdata	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$PMC_InitializeNumberFormatInfo DD imagerel $LN3
+	DD	imagerel $LN3+76
+	DD	imagerel $unwind$PMC_InitializeNumberFormatInfo
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
@@ -207,25 +225,43 @@ rtc$TMZ	ENDS
 rtc$IMZ	SEGMENT
 _RTC_InitBase.rtc$IMZ DQ FLAT:_RTC_InitBase
 rtc$IMZ	ENDS
+;	COMDAT ??_C@_13KJIIAINM@?$AA?$CL@
+CONST	SEGMENT
+??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13BGNNJOKC@?$AA0@
+CONST	SEGMENT
+??_C@_13BGNNJOKC@?$AA0@ DB '0 ', 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13EJFHHPOP@?$AA?$CF@
+CONST	SEGMENT
+??_C@_13EJFHHPOP@?$AA?$CF@ DB '%', 00H, 00H, 00H	; `string'
+CONST	ENDS
 ;	COMDAT ??_C@_13IMODFHAA@?$AA?9@
 CONST	SEGMENT
 ??_C@_13IMODFHAA@?$AA?9@ DB '-', 00H, 00H, 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_13KJIIAINM@?$AA?$CL@
+;	COMDAT ??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@
 CONST	SEGMENT
-??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
+??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@ DB '0'
+	DB	00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H, '5', 00H, '6', 00H
+	DB	'7', 00H, '8', 00H, '9', 00H, 00H, 00H	; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13BMLCKOLB@?$PP?$KE@
+CONST	SEGMENT
+??_C@_13BMLCKOLB@?$PP?$KE@ DB 0a4H, 00H, 00H, 00H	; `string'
 CONST	ENDS
 ;	COMDAT ??_C@_13DMCFHHKM@?$AA3@
 CONST	SEGMENT
 ??_C@_13DMCFHHKM@?$AA3@ DB '3', 00H, 00H, 00H		; `string'
 CONST	ENDS
-;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
-CONST	SEGMENT
-??_C@_13JOFGPIOO@?$AA?4@ DB '.', 00H, 00H, 00H		; `string'
-CONST	ENDS
 ;	COMDAT ??_C@_13DEFPDAGF@?$AA?0@
 CONST	SEGMENT
 ??_C@_13DEFPDAGF@?$AA?0@ DB ',', 00H, 00H, 00H		; `string'
+CONST	ENDS
+;	COMDAT ??_C@_13JOFGPIOO@?$AA?4@
+CONST	SEGMENT
+??_C@_13JOFGPIOO@?$AA?4@ DB '.', 00H, 00H, 00H		; `string'
 CONST	ENDS
 _DATA	SEGMENT
 decimal_digits DB '0', 00H, '1', 00H, '2', 00H, '3', 00H, '4', 00H, '5', 00H
@@ -672,7 +708,21 @@ $unwind$PMC_ToString DD 035053901H
 xdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
+$unwind$PMC_InitializeNumberFormatInfo DD 025052a01H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
 $unwind$Initialize_ToString DD 025052a01H
+	DD	010e2313H
+	DD	07007001dH
+	DD	05006H
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$InitializeNumberFormatoInfo DD 025052a01H
 	DD	010e2313H
 	DD	07007001dH
 	DD	05006H
@@ -1746,10 +1796,10 @@ $LN10@ToStringDN:
 
 ; 339  :             else
 ; 340  :             {
-; 341  :                 lstrcpyW(&buffer[1], format_option->DecimalSeparator);
+; 341  :                 lstrcpyW(&buffer[1], format_option->Number.DecimalSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 10
+	add	rax, 58					; 0000003aH
 	mov	ecx, 2
 	imul	rcx, rcx, 1
 	mov	rdx, QWORD PTR buffer$[rbp]
@@ -1758,10 +1808,10 @@ $LN10@ToStringDN:
 	mov	rdx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
-; 342  :                 int decimal_separator_len = lstrlenW(format_option->DecimalSeparator);
+; 342  :                 int decimal_separator_len = lstrlenW(format_option->Number.DecimalSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 10
+	add	rax, 58					; 0000003aH
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	DWORD PTR decimal_separator_len$9[rbp], eax
@@ -3195,19 +3245,19 @@ InitializeOutputState PROC				; COMDAT
 	mov	BYTE PTR [rax], cl
 
 ; 97   : 
-; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->GroupSeparator);
+; 98   :     state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->Number.GroupSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 4
+	add	rax, 52					; 00000034H
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	DWORD PTR [rcx+24], eax
 
-; 99   :     wchar_t* in_ptr = format_option->GroupSeparator;
+; 99   :     wchar_t* in_ptr = format_option->Number.GroupSeparator;
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 4
+	add	rax, 52					; 00000034H
 	mov	QWORD PTR in_ptr$[rbp], rax
 
 ; 100  :     wchar_t* out_ptr = state->GROUP_SEPARATOR + state->GROUP_SEPARATOR_LENGTH;
@@ -3261,19 +3311,19 @@ $LN2@Initialize:
 $LN3@Initialize:
 
 ; 108  : 
-; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->DecimalSeparator);
+; 109  :     state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->Number.DecimalSeparator);
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 10
+	add	rax, 58					; 0000003aH
 	mov	rcx, rax
 	call	QWORD PTR __imp_lstrlenW
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	DWORD PTR [rcx+28], eax
 
-; 110  :     in_ptr = format_option->DecimalSeparator;
+; 110  :     in_ptr = format_option->Number.DecimalSeparator;
 
 	mov	rax, QWORD PTR format_option$[rbp]
-	add	rax, 10
+	add	rax, 58					; 0000003aH
 	mov	QWORD PTR in_ptr$[rbp], rax
 
 ; 111  :     out_ptr = state->DECIMAL_SEPARATOR + state->DECIMAL_SEPARATOR_LENGTH;
@@ -3327,12 +3377,12 @@ $LN4@Initialize:
 $LN5@Initialize:
 
 ; 119  : 
-; 120  :     state->CURRENT_GROUP = &format_option->GroupSizes[0];
+; 120  :     state->CURRENT_GROUP = &format_option->Number.GroupSizes[0];
 
 	mov	eax, 2
 	imul	rax, rax, 0
 	mov	rcx, QWORD PTR format_option$[rbp]
-	lea	rax, QWORD PTR [rcx+rax+28]
+	lea	rax, QWORD PTR [rcx+rax+64]
 	mov	rcx, QWORD PTR state$[rbp]
 	mov	QWORD PTR [rcx+32], rax
 
@@ -4053,7 +4103,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV64Counter PROC					; COMDAT
 
-; 343  :     {
+; 347  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4068,13 +4118,13 @@ AddToDIV64Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 344  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
+; 348  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV64, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 345  :     }
+; 349  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4089,7 +4139,7 @@ _TEXT	SEGMENT
 value$ = 224
 AddToDIV32Counter PROC					; COMDAT
 
-; 337  :     {
+; 341  :     {
 
 	mov	DWORD PTR [rsp+8], ecx
 	push	rbp
@@ -4104,13 +4154,13 @@ AddToDIV32Counter PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 338  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
+; 342  :         _InterlockedExchangeAdd(&statistics_info.COUNT_DIV32, value);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	mov	ecx, DWORD PTR value$[rbp]
 	lock add DWORD PTR [rax], ecx
 
-; 339  :     }
+; 343  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4124,7 +4174,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV64Counter PROC				; COMDAT
 
-; 320  :     {
+; 324  :     {
 
 	push	rbp
 	push	rdi
@@ -4137,12 +4187,12 @@ IncrementDIV64Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 321  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
+; 325  :         _InterlockedIncrement(&statistics_info.COUNT_DIV64);
 
 	lea	rax, OFFSET FLAT:statistics_info+8
 	lock inc DWORD PTR [rax]
 
-; 322  :     }
+; 326  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4156,7 +4206,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementDIV32Counter PROC				; COMDAT
 
-; 314  :     {
+; 318  :     {
 
 	push	rbp
 	push	rdi
@@ -4169,12 +4219,12 @@ IncrementDIV32Counter PROC				; COMDAT
 	lea	rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
 	call	__CheckForDebuggerJustMyCode
 
-; 315  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
+; 319  :         _InterlockedIncrement(&statistics_info.COUNT_DIV32);
 
 	lea	rax, OFFSET FLAT:statistics_info+12
 	lock inc DWORD PTR [rax]
 
-; 316  :     }
+; 320  :     }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -4293,7 +4343,7 @@ $LN8@PMC_ToStri:
 ; 538  :     {
 ; 539  :     case 'n':
 ; 540  :     case 'N':
-; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->DecimalDigits, format_option));
+; 541  :         return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->Number.DecimalDigits, format_option));
 
 	cmp	DWORD PTR width$[rbp], 0
 	jl	SHORT $LN14@PMC_ToStri
@@ -4302,7 +4352,7 @@ $LN8@PMC_ToStri:
 	jmp	SHORT $LN15@PMC_ToStri
 $LN14@PMC_ToStri:
 	mov	rax, QWORD PTR format_option$[rbp]
-	mov	eax, DWORD PTR [rax]
+	mov	eax, DWORD PTR [rax+48]
 	mov	DWORD PTR tv76[rbp], eax
 $LN15@PMC_ToStri:
 	mov	rax, QWORD PTR format_option$[rbp]
@@ -4398,7 +4448,6 @@ $LN1@PMC_ToStri:
 	pop	rdi
 	pop	rbp
 	ret	0
-	npad	1
 $LN23@PMC_ToStri:
 	DD	$LN11@PMC_ToStri
 	DD	$LN8@PMC_ToStri
@@ -4463,10 +4512,87 @@ PMC_ToString ENDP
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu /ZI
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+;	COMDAT PMC_InitializeNumberFormatInfo
+_TEXT	SEGMENT
+info$ = 224
+PMC_InitializeNumberFormatInfo PROC			; COMDAT
+
+; 586  : {
+
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	mov	rdi, rsp
+	mov	ecx, 58					; 0000003aH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+264]
+	lea	rcx, OFFSET FLAT:__493E81D3_pmc_tostring@c
+	call	__CheckForDebuggerJustMyCode
+
+; 587  :     InitializeNumberFormatoInfo(info);
+
+	mov	rcx, QWORD PTR info$[rbp]
+	call	InitializeNumberFormatoInfo
+
+; 588  : }
+
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+PMC_InitializeNumberFormatInfo ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
 ;	COMDAT Initialize_ToString
 _TEXT	SEGMENT
 feature$ = 224
 Initialize_ToString PROC				; COMDAT
+
+; 591  : {
+
+$LN3:
+	mov	QWORD PTR [rsp+8], rcx
+	push	rbp
+	push	rdi
+	sub	rsp, 232				; 000000e8H
+	lea	rbp, QWORD PTR [rsp+32]
+	mov	rdi, rsp
+	mov	ecx, 58					; 0000003aH
+	mov	eax, -858993460				; ccccccccH
+	rep stosd
+	mov	rcx, QWORD PTR [rsp+264]
+	lea	rcx, OFFSET FLAT:__493E81D3_pmc_tostring@c
+	call	__CheckForDebuggerJustMyCode
+
+; 592  :     InitializeNumberFormatoInfo(&default_number_format_option);
+
+	lea	rcx, OFFSET FLAT:default_number_format_option
+	call	InitializeNumberFormatoInfo
+
+; 593  : 
+; 594  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+
+; 595  : }
+
+	lea	rsp, QWORD PTR [rbp+200]
+	pop	rdi
+	pop	rbp
+	ret	0
+Initialize_ToString ENDP
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu /ZI
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_tostring.c
+;	COMDAT InitializeNumberFormatoInfo
+_TEXT	SEGMENT
+info$ = 224
+InitializeNumberFormatoInfo PROC			; COMDAT
 
 ; 555  : {
 
@@ -4484,51 +4610,176 @@ $LN3:
 	lea	rcx, OFFSET FLAT:__493E81D3_pmc_tostring@c
 	call	__CheckForDebuggerJustMyCode
 
-; 556  :     default_number_format_option.DecimalDigits = 2;
+; 556  :     info->Currency.DecimalDigits = 2;
 
-	mov	DWORD PTR default_number_format_option, 2
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax], 2
 
-; 557  :     lstrcpyW(default_number_format_option.GroupSeparator, L",");
+; 557  :     lstrcpyW(info->Currency.DecimalSeparator, L".");
 
-	lea	rdx, OFFSET FLAT:??_C@_13DEFPDAGF@?$AA?0@
-	lea	rcx, OFFSET FLAT:default_number_format_option+4
-	call	QWORD PTR __imp_lstrcpyW
-
-; 558  :     lstrcpyW(default_number_format_option.DecimalSeparator, L".");
-
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 4
 	lea	rdx, OFFSET FLAT:??_C@_13JOFGPIOO@?$AA?4@
-	lea	rcx, OFFSET FLAT:default_number_format_option+10
+	mov	rcx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
-; 559  :     lstrcpyW(default_number_format_option.GroupSizes, L"3");
+; 558  :     lstrcpyW(info->Currency.GroupSeparator, L",");
 
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 10
+	lea	rdx, OFFSET FLAT:??_C@_13DEFPDAGF@?$AA?0@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 559  :     lstrcpyW(info->Currency.GroupSizes, L"3");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 16
 	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
-	lea	rcx, OFFSET FLAT:default_number_format_option+28
+	mov	rcx, rax
 	call	QWORD PTR __imp_lstrcpyW
 
-; 560  :     lstrcpyW(default_number_format_option.PositiveSign, L"+");
+; 560  :     info->Currency.NegativePattern = 0;
 
-	lea	rdx, OFFSET FLAT:??_C@_13KJIIAINM@?$AA?$CL@
-	lea	rcx, OFFSET FLAT:default_number_format_option+16
-	call	QWORD PTR __imp_lstrcpyW
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+40], 0
 
-; 561  :     lstrcpyW(default_number_format_option.NegativeSign, L"-");
+; 561  :     info->Currency.PositivePattern = 0;
 
-	lea	rdx, OFFSET FLAT:??_C@_13IMODFHAA@?$AA?9@
-	lea	rcx, OFFSET FLAT:default_number_format_option+22
-	call	QWORD PTR __imp_lstrcpyW
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+44], 0
 
 ; 562  : 
-; 563  :     return (PMC_STATUS_OK);
+; 563  :     lstrcpyW(info->CurrencySymbol, L"\u00a4");
 
-	xor	eax, eax
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 140				; 0000008cH
+	lea	rdx, OFFSET FLAT:??_C@_13BMLCKOLB@?$PP?$KE@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
 
-; 564  : }
+; 564  :     lstrcpyW(info->NativeDigits, L"0123456789");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 146				; 00000092H
+	lea	rdx, OFFSET FLAT:??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 565  :     lstrcpyW(info->NegativeSign, L"-");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 168				; 000000a8H
+	lea	rdx, OFFSET FLAT:??_C@_13IMODFHAA@?$AA?9@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 566  : 
+; 567  :     info->Number.DecimalDigits = 2;
+
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+48], 2
+
+; 568  :     lstrcpyW(info->Number.DecimalSeparator, L".");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 58					; 0000003aH
+	lea	rdx, OFFSET FLAT:??_C@_13JOFGPIOO@?$AA?4@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 569  :     lstrcpyW(info->Number.GroupSeparator, L",");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 52					; 00000034H
+	lea	rdx, OFFSET FLAT:??_C@_13DEFPDAGF@?$AA?0@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 570  :     lstrcpyW(info->Number.GroupSizes, L"3");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 64					; 00000040H
+	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 571  :     info->Number.NegativePattern = 1;
+
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+88], 1
+
+; 572  : 
+; 573  :     info->Percent.DecimalDigits = 2;
+
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+92], 2
+
+; 574  :     lstrcpyW(info->Percent.DecimalSeparator, L".");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 102				; 00000066H
+	lea	rdx, OFFSET FLAT:??_C@_13JOFGPIOO@?$AA?4@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 575  :     lstrcpyW(info->Percent.GroupSeparator, L",");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 96					; 00000060H
+	lea	rdx, OFFSET FLAT:??_C@_13DEFPDAGF@?$AA?0@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 576  :     lstrcpyW(info->Percent.GroupSizes, L"3");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 108				; 0000006cH
+	lea	rdx, OFFSET FLAT:??_C@_13DMCFHHKM@?$AA3@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 577  :     info->Percent.NegativePattern = 0;
+
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+132], 0
+
+; 578  :     info->Percent.PositivePattern = 0;
+
+	mov	rax, QWORD PTR info$[rbp]
+	mov	DWORD PTR [rax+136], 0
+
+; 579  : 
+; 580  :     lstrcpyW(info->PercentSymbol, L"%");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 180				; 000000b4H
+	lea	rdx, OFFSET FLAT:??_C@_13EJFHHPOP@?$AA?$CF@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 581  :     lstrcpyW(info->PerMilleSymbol, L"\u2030");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 186				; 000000baH
+	lea	rdx, OFFSET FLAT:??_C@_13BGNNJOKC@?$AA0@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 582  :     lstrcpyW(info->PositiveSign, L"+");
+
+	mov	rax, QWORD PTR info$[rbp]
+	add	rax, 174				; 000000aeH
+	lea	rdx, OFFSET FLAT:??_C@_13KJIIAINM@?$AA?$CL@
+	mov	rcx, rax
+	call	QWORD PTR __imp_lstrcpyW
+
+; 583  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
 	pop	rbp
 	ret	0
-Initialize_ToString ENDP
+InitializeNumberFormatoInfo ENDP
 _TEXT	ENDS
 END

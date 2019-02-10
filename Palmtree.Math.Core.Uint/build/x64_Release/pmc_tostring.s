@@ -256,7 +256,7 @@ ToStringDN:
 	movzbl	68(%rsp), %eax
 	movb	%al, 144(%rsp)
 	movq	328(%rsp), %rax
-	leaq	4(%rax), %rsi
+	leaq	52(%rax), %rsi
 	movq	%rsi, %rcx
 	call	*%rbp
 	xorl	%r11d, %r11d
@@ -266,7 +266,7 @@ ToStringDN:
 	leaq	-2(%rax), %rdx
 	movw	%r11w, (%rax)
 	movq	328(%rsp), %rax
-	movzwl	4(%rax), %eax
+	movzwl	52(%rax), %eax
 	testw	%ax, %ax
 	je	.L31
 	.p2align 4,,10
@@ -279,7 +279,7 @@ ToStringDN:
 	jne	.L28
 .L31:
 	movq	328(%rsp), %rax
-	leaq	10(%rax), %rsi
+	leaq	58(%rax), %rsi
 	movq	%rsi, %rcx
 	call	*%rbp
 	xorl	%r10d, %r10d
@@ -289,7 +289,7 @@ ToStringDN:
 	leaq	-2(%rax), %rdx
 	movw	%r10w, (%rax)
 	movq	328(%rsp), %rax
-	movzwl	10(%rax), %eax
+	movzwl	58(%rax), %eax
 	testw	%ax, %ax
 	je	.L30
 	.p2align 4,,10
@@ -303,10 +303,10 @@ ToStringDN:
 .L30:
 	movq	328(%rsp), %rax
 	movl	$0, 188(%rsp)
-	addq	$28, %rax
+	addq	$64, %rax
 	movq	%rax, 176(%rsp)
 	movq	328(%rsp), %rax
-	movzwl	28(%rax), %eax
+	movzwl	64(%rax), %eax
 	subl	$48, %eax
 	cmpb	$78, 68(%rsp)
 	movl	%eax, 184(%rsp)
@@ -624,7 +624,7 @@ ToStringDN:
 .L14:
 	movq	328(%rsp), %rax
 	leaq	2(%rdx), %rcx
-	leaq	10(%rax), %rbx
+	leaq	58(%rax), %rbx
 	movq	%rbx, %rdx
 	call	*__imp_lstrcpyW(%rip)
 	movq	%rbx, %rcx
@@ -1240,7 +1240,7 @@ PMC_ToString:
 .L123:
 	testl	%ebp, %ebp
 	jns	.L127
-	movl	(%rsi), %ebp
+	movl	48(%rsi), %ebp
 .L127:
 	movq	%rsi, 136(%rsp)
 	movl	$78, %r9d
@@ -1257,53 +1257,134 @@ PMC_ToString:
 	.section .rdata,"dr"
 	.align 2
 .LC0:
-	.ascii ",\0\0\0"
+	.ascii ".\0\0\0"
 	.align 2
 .LC1:
-	.ascii ".\0\0\0"
+	.ascii ",\0\0\0"
 	.align 2
 .LC2:
 	.ascii "3\0\0\0"
 	.align 2
 .LC3:
-	.ascii "+\0\0\0"
+	.ascii "\244\0\0\0"
 	.align 2
 .LC4:
+	.ascii "0\0"
+	.ascii "1\0"
+	.ascii "2\0"
+	.ascii "3\0"
+	.ascii "4\0"
+	.ascii "5\0"
+	.ascii "6\0"
+	.ascii "7\0"
+	.ascii "8\0"
+	.ascii "9\0\0\0"
+	.align 2
+.LC5:
 	.ascii "-\0\0\0"
+	.align 2
+.LC6:
+	.ascii "%\0\0\0"
+	.align 2
+.LC7:
+	.ascii "0 \0\0"
+	.align 2
+.LC8:
+	.ascii "+\0\0\0"
 	.text
+	.p2align 4,,15
+	.globl	InitializeNumberFormatoInfo
+	.def	InitializeNumberFormatoInfo;	.scl	2;	.type	32;	.endef
+	.seh_proc	InitializeNumberFormatoInfo
+InitializeNumberFormatoInfo:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
+	movq	__imp_lstrcpyW(%rip), %rsi
+	leaq	.LC0(%rip), %rdx
+	movq	%rcx, %rbx
+	movl	$2, (%rcx)
+	leaq	4(%rcx), %rcx
+	call	*%rsi
+	leaq	10(%rbx), %rcx
+	leaq	.LC1(%rip), %rdx
+	call	*%rsi
+	leaq	16(%rbx), %rcx
+	leaq	.LC2(%rip), %rdx
+	call	*%rsi
+	leaq	140(%rbx), %rcx
+	movq	$0, 40(%rbx)
+	leaq	.LC3(%rip), %rdx
+	call	*%rsi
+	leaq	146(%rbx), %rcx
+	leaq	.LC4(%rip), %rdx
+	call	*%rsi
+	leaq	168(%rbx), %rcx
+	leaq	.LC5(%rip), %rdx
+	call	*%rsi
+	leaq	58(%rbx), %rcx
+	movl	$2, 48(%rbx)
+	leaq	.LC0(%rip), %rdx
+	call	*%rsi
+	leaq	52(%rbx), %rcx
+	leaq	.LC1(%rip), %rdx
+	call	*%rsi
+	leaq	64(%rbx), %rcx
+	leaq	.LC2(%rip), %rdx
+	call	*%rsi
+	leaq	102(%rbx), %rcx
+	movabsq	$8589934593, %rax
+	movq	%rax, 88(%rbx)
+	leaq	.LC0(%rip), %rdx
+	call	*%rsi
+	leaq	96(%rbx), %rcx
+	leaq	.LC1(%rip), %rdx
+	call	*%rsi
+	leaq	108(%rbx), %rcx
+	leaq	.LC2(%rip), %rdx
+	call	*%rsi
+	leaq	180(%rbx), %rcx
+	movq	$0, 132(%rbx)
+	leaq	.LC6(%rip), %rdx
+	call	*%rsi
+	leaq	186(%rbx), %rcx
+	leaq	.LC7(%rip), %rdx
+	call	*%rsi
+	leaq	174(%rbx), %rcx
+	movq	%rsi, %rax
+	leaq	.LC8(%rip), %rdx
+	addq	$40, %rsp
+	popq	%rbx
+	popq	%rsi
+	rex.W jmp	*%rax
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMC_InitializeNumberFormatInfo
+	.def	PMC_InitializeNumberFormatInfo;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_InitializeNumberFormatInfo
+PMC_InitializeNumberFormatInfo:
+	.seh_endprologue
+	jmp	InitializeNumberFormatoInfo
+	.seh_endproc
 	.p2align 4,,15
 	.globl	Initialize_ToString
 	.def	Initialize_ToString;	.scl	2;	.type	32;	.endef
 	.seh_proc	Initialize_ToString
 Initialize_ToString:
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$32, %rsp
-	.seh_stackalloc	32
+	subq	$40, %rsp
+	.seh_stackalloc	40
 	.seh_endprologue
-	movq	__imp_lstrcpyW(%rip), %rbx
-	leaq	.LC0(%rip), %rdx
-	movl	$2, default_number_format_option(%rip)
-	leaq	4+default_number_format_option(%rip), %rcx
-	call	*%rbx
-	leaq	.LC1(%rip), %rdx
-	leaq	10+default_number_format_option(%rip), %rcx
-	call	*%rbx
-	leaq	.LC2(%rip), %rdx
-	leaq	28+default_number_format_option(%rip), %rcx
-	call	*%rbx
-	leaq	.LC3(%rip), %rdx
-	leaq	16+default_number_format_option(%rip), %rcx
-	call	*%rbx
-	leaq	.LC4(%rip), %rdx
-	leaq	22+default_number_format_option(%rip), %rcx
-	call	*%rbx
+	leaq	default_number_format_option(%rip), %rcx
+	call	InitializeNumberFormatoInfo
 	xorl	%eax, %eax
-	addq	$32, %rsp
-	popq	%rbx
+	addq	$40, %rsp
 	ret
 	.seh_endproc
-.lcomm default_number_format_option,52,32
+.lcomm default_number_format_option,192,32
 	.data
 	.align 32
 hexadecimal_upper_digits:

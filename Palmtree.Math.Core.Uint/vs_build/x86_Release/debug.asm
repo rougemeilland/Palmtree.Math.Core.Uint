@@ -17,43 +17,43 @@ _TEXT	SEGMENT
 _env$ = 8						; size = 4
 _DoDebug@4 PROC						; COMDAT
 
-; 67   : #ifdef _DEBUG
-; 68   :     PMC_CONFIGURATION_INFO conf;
-; 69   :     conf.MEMORY_VERIFICATION_ENABLED = FALSE;
-; 70   :     PMC_UINT_ENTRY_POINTS* ep = PMC_UINT_Initialize(&conf);
-; 71   :     if (ep == NULL)
-; 72   :     {
-; 73   :          env->log(L"PMC_UINT_Initialize failed");
-; 74   :          return;
-; 75   :     }
-; 76   : #ifdef _M_IX86
-; 77   :     wchar_t* platform = L"x86";
-; 78   : #elif defined(_M_IX64)
-; 79   :     wchar_t* platform = L"x64";
-; 80   : #else
-; 81   : #error unknown platform
-; 82   : #endif
-; 83   : #ifdef _MSC_VER
-; 84   :     wchar_t* compiler = L"MSC";
-; 85   : #elif defined(__GNUC__)
-; 86   :     wchar_t* compiler = L"GNUC";
-; 87   : #else
-; 88   : #error unknown platform
-; 89   : #endif
-; 90   : 
-; 91   :     env->log(L"PLATFORM: %s\n", platform);
-; 92   :     env->log(L"COMPILER: %s\n", compiler);
-; 93   :     env->log(L"CPU-INFO: POPCNT=%d, ADX=%d, BMI1=%d, BMI2=%d, ABM=%d\n",
-; 94   :              ep->PROCESSOR_FEATURE_POPCNT,
-; 95   :              ep->PROCESSOR_FEATURE_ADX,
-; 96   :              ep->PROCESSOR_FEATURE_BMI1,
-; 97   :              ep->PROCESSOR_FEATURE_BMI2,
-; 98   :              ep->PROCESSOR_FEATURE_ABM);
-; 99   : 
-; 100  :     //CalculateCriticalDataOfDivision(env);
-; 101  :     DoTest(env, ep);
-; 102  : #endif
-; 103  : }
+; 68   : #ifdef _DEBUG
+; 69   :     PMC_CONFIGURATION_INFO conf;
+; 70   :     conf.MEMORY_VERIFICATION_ENABLED = FALSE;
+; 71   :     PMC_UINT_ENTRY_POINTS* ep = PMC_UINT_Initialize(&conf);
+; 72   :     if (ep == NULL)
+; 73   :     {
+; 74   :          env->log(L"PMC_UINT_Initialize failed");
+; 75   :          return;
+; 76   :     }
+; 77   : #ifdef _M_IX86
+; 78   :     wchar_t* platform = L"x86";
+; 79   : #elif defined(_M_IX64)
+; 80   :     wchar_t* platform = L"x64";
+; 81   : #else
+; 82   : #error unknown platform
+; 83   : #endif
+; 84   : #ifdef _MSC_VER
+; 85   :     wchar_t* compiler = L"MSC";
+; 86   : #elif defined(__GNUC__)
+; 87   :     wchar_t* compiler = L"GNUC";
+; 88   : #else
+; 89   : #error unknown platform
+; 90   : #endif
+; 91   : 
+; 92   :     env->log(L"PLATFORM: %s\n", platform);
+; 93   :     env->log(L"COMPILER: %s\n", compiler);
+; 94   :     env->log(L"CPU-INFO: POPCNT=%d, ADX=%d, BMI1=%d, BMI2=%d, ABM=%d\n",
+; 95   :              ep->PROCESSOR_FEATURE_POPCNT,
+; 96   :              ep->PROCESSOR_FEATURE_ADX,
+; 97   :              ep->PROCESSOR_FEATURE_BMI1,
+; 98   :              ep->PROCESSOR_FEATURE_BMI2,
+; 99   :              ep->PROCESSOR_FEATURE_ABM);
+; 100  : 
+; 101  :     //CalculateCriticalDataOfDivision(env);
+; 102  :     DoTest(env, ep);
+; 103  : #endif
+; 104  : }
 
 	ret	4
 _DoDebug@4 ENDP

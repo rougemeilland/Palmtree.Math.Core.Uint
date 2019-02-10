@@ -31,6 +31,7 @@ using System.Linq;
 
 namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 {
+    // 基本的な文字列⇒整数変換に着目
     class TEST_PMC_ParseDN2
         : TestPatternBase
     {

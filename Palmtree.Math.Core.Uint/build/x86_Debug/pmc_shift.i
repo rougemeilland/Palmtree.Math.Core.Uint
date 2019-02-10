@@ -48758,14 +48758,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 70 "../pmc.h"
+# 71 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 83 "../pmc.h"
+# 84 "../pmc.h"
 
-# 83 "../pmc.h"
+# 84 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48797,15 +48797,47 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
+typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+{
+    int DecimalDigits;
+    wchar_t DecimalSeparator[3];
+    wchar_t GroupSeparator[3];
+    wchar_t GroupSizes[11];
+    int NegativePattern;
+    int PositivePattern;
+} PMC_CURRENCY_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t GroupSeparator[3];
     wchar_t DecimalSeparator[3];
-    wchar_t PositiveSign[3];
-    wchar_t NegativeSign[3];
     wchar_t GroupSizes[11];
-} PMC_NUMBER_FORMAT_OPTION;
+    int NegativePattern;
+} PMC_GENERIC_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
+{
+    int DecimalDigits;
+    wchar_t GroupSeparator[3];
+    wchar_t DecimalSeparator[3];
+    wchar_t GroupSizes[11];
+    int NegativePattern;
+    int PositivePattern;
+} PMC_PERCENT_NUMBER_FORMAT_INFO;
+
+typedef struct __tag_PMC_NUMBER_FORMAT_INFO
+{
+    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
+    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
+    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    wchar_t CurrencySymbol[3];
+    wchar_t NativeDigits[11];
+    wchar_t NegativeSign[3];
+    wchar_t PositiveSign[3];
+    wchar_t PercentSymbol[3];
+    wchar_t PerMilleSymbol[3];
+} PMC_NUMBER_FORMAT_INFO;
 #pragma endregion
 # 30 "../pmc_uint.h" 2
 
@@ -48869,10 +48901,9 @@ typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * To_X_L)(PMC_HANDLE_UINT p, _UINT64_T* o);
 
 
-        PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
-
-
-        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
+        void (__attribute__((__stdcall__)) * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
+         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * Add_I_X)(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -48959,7 +48990,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
 
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParseForSINT)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
+        PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParseForSINT)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
     } PMC_UINT_ENTRY_POINTS;
 #pragma endregion
 
@@ -48967,7 +48998,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_OPTION
 #pragma region 宣言
     PMC_UINT_ENTRY_POINTS* __attribute__((__stdcall__)) PMC_UINT_Initialize(PMC_CONFIGURATION_INFO*);
 #pragma endregion
-# 197 "../pmc_uint.h"
+# 196 "../pmc_uint.h"
        
 # 32 "../pmc_uint_internal.h" 2
 # 1 "../pmc_internal.h" 1
@@ -49136,6 +49167,10 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
     extern _INT32_T Compare_Imp(__UNIT_TYPE* u, __UNIT_TYPE* v, __UNIT_TYPE count);
+
+
+    extern void InitializeNumberFormatoInfo(PMC_NUMBER_FORMAT_INFO* info);
+
 #pragma endregion
 
 
@@ -49217,9 +49252,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_To_X_I(PMC_HANDLE_UINT p, _UINT32_T* o);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_OPTION* format_option);
-
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, PMC_HANDLE_UINT* o);
+    extern void __attribute__((__stdcall__)) PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Add_L_X(_UINT64_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -49291,7 +49326,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign, PMC_HANDLE_UINT* o_abs);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size, size_t *count);
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_OPTION* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParseForSINT(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs);
 
     extern int(__attribute__((__cdecl__)) * __DEBUG_LOG)(const wchar_t*, ...);
     extern void DumpBinary_UNIT(__UNIT_TYPE* buf, __UNIT_TYPE count);
@@ -49350,9 +49385,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 362 "../pmc_uint_internal.h" 3 4
+# 366 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 362 "../pmc_uint_internal.h"
+# 366 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -49364,9 +49399,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 372 "../pmc_uint_internal.h" 3 4
+# 376 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 372 "../pmc_uint_internal.h"
+# 376 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -49380,16 +49415,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 384 "../pmc_uint_internal.h" 3 4
+# 388 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 384 "../pmc_uint_internal.h"
+# 388 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 387 "../pmc_uint_internal.h" 3
+# 391 "../pmc_uint_internal.h" 3
                                                       long long
-# 387 "../pmc_uint_internal.h"
+# 391 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else

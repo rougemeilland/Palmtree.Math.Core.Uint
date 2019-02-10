@@ -23,8 +23,6 @@ __A0D25937_test_op_tostringn@c DB 01H
 msvcjmc	ENDS
 PUBLIC	TEST_PMC_ToStringN
 PUBLIC	__JustMyCode_Default
-PUBLIC	??_C@_13KJIIAINM@?$AA?$CL@			; `string'
-PUBLIC	??_C@_13IMODFHAA@?$AA?9@			; `string'
 PUBLIC	??_C@_1EK@HDEICNAJ@?$AAP?$AAM?$AAC?$AA_?$AAF?$AAr?$AAo?$AAm?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr@ ; `string'
 PUBLIC	??_C@_1CM@MENGOFBF@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAN?$AA?5?$AA?$CI@ ; `string'
 PUBLIC	??_C@_1EA@HONIIPBB@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAn?$PP?$KJ?$AA0@ ; `string'
@@ -47,7 +45,7 @@ _BSS	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$TEST_PMC_ToStringN DD imagerel $LN10
-	DD	imagerel $LN10+643
+	DD	imagerel $LN10+632
 	DD	imagerel $unwind$TEST_PMC_ToStringN
 pdata	ENDS
 ;	COMDAT rtc$TMZ
@@ -90,22 +88,14 @@ CONST	SEGMENT
 	DB	0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H ; `string'
 CONST	ENDS
-;	COMDAT ??_C@_13IMODFHAA@?$AA?9@
-CONST	SEGMENT
-??_C@_13IMODFHAA@?$AA?9@ DB '-', 00H, 00H, 00H		; `string'
-CONST	ENDS
-;	COMDAT ??_C@_13KJIIAINM@?$AA?$CL@
-CONST	SEGMENT
-??_C@_13KJIIAINM@?$AA?$CL@ DB '+', 00H, 00H, 00H	; `string'
-CONST	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$TEST_PMC_ToStringN DD 035054a19H
 	DD	011d3322H
-	DD	070160037H
+	DD	070160049H
 	DD	05015H
 	DD	imagerel __GSHandlerCheck
-	DD	01a0H
+	DD	0230H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -117,8 +107,8 @@ TEST_PMC_ToStringN$rtcName$1 DB 06fH
 	DB	074H
 	DB	00H
 	ORG $+8
-TEST_PMC_ToStringN$rtcVarDesc DD 098H
-	DD	034H
+TEST_PMC_ToStringN$rtcVarDesc DD 0a0H
+	DD	0c0H
 	DQ	FLAT:TEST_PMC_ToStringN$rtcName$1
 	DD	038H
 	DD	08H
@@ -142,25 +132,25 @@ _TEXT	SEGMENT
 x$ = 8
 result$ = 36
 x_result$ = 68
-opt$ = 104
-tv150 = 356
-tv137 = 356
-tv84 = 356
-tv92 = 360
-tv64 = 360
-__$ArrayPad$ = 368
-env$ = 416
-ep$ = 424
-no$ = 432
-buf$ = 440
-buf_size$ = 448
-format_spec$ = 456
-width$ = 464
-group_separator$ = 472
-group_sizes$ = 480
-decimal_separator$ = 488
-decimal_digits$ = 496
-desired_str$ = 504
+opt$ = 112
+tv148 = 500
+tv135 = 500
+tv82 = 500
+tv90 = 504
+tv66 = 504
+__$ArrayPad$ = 512
+env$ = 560
+ep$ = 568
+no$ = 576
+buf$ = 584
+buf_size$ = 592
+format_spec$ = 600
+width$ = 608
+group_separator$ = 616
+group_sizes$ = 624
+decimal_separator$ = 632
+decimal_digits$ = 640
+desired_str$ = 648
 TEST_PMC_ToStringN PROC					; COMDAT
 
 ; 33   : {
@@ -172,13 +162,13 @@ $LN10:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 440				; 000001b8H
+	sub	rsp, 584				; 00000248H
 	lea	rbp, QWORD PTR [rsp+48]
 	mov	rdi, rsp
-	mov	ecx, 110				; 0000006eH
+	mov	ecx, 146				; 00000092H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+472]
+	mov	rcx, QWORD PTR [rsp+616]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
@@ -189,43 +179,37 @@ $LN10:
 ; 35   :     static wchar_t actual_str_buffer[4096];
 ; 36   :     PMC_STATUS_CODE result;
 ; 37   :     PMC_STATUS_CODE x_result;
-; 38   :     PMC_NUMBER_FORMAT_OPTION opt;
-; 39   :     lstrcpyW(opt.GroupSeparator, group_separator);
+; 38   :     PMC_NUMBER_FORMAT_INFO opt;
+; 39   :     ep->InitializeNumberFormatInfo(&opt);
+
+	lea	rcx, QWORD PTR opt$[rbp]
+	mov	rax, QWORD PTR ep$[rbp]
+	call	QWORD PTR [rax+88]
+
+; 40   :     lstrcpyW(opt.Number.GroupSeparator, group_separator);
 
 	mov	rdx, QWORD PTR group_separator$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+4]
+	lea	rcx, QWORD PTR opt$[rbp+52]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 40   :     lstrcpyW(opt.GroupSizes, group_sizes);
+; 41   :     lstrcpyW(opt.Number.GroupSizes, group_sizes);
 
 	mov	rdx, QWORD PTR group_sizes$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+28]
+	lea	rcx, QWORD PTR opt$[rbp+64]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 41   :     lstrcpyW(opt.DecimalSeparator, decimal_separator);
+; 42   :     lstrcpyW(opt.Number.DecimalSeparator, decimal_separator);
 
 	mov	rdx, QWORD PTR decimal_separator$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+10]
+	lea	rcx, QWORD PTR opt$[rbp+58]
 	call	QWORD PTR __imp_lstrcpyW
 
-; 42   :     opt.DecimalDigits = decimal_digits;
+; 43   :     opt.Number.DecimalDigits = decimal_digits;
 
 	mov	eax, DWORD PTR decimal_digits$[rbp]
-	mov	DWORD PTR opt$[rbp], eax
+	mov	DWORD PTR opt$[rbp+48], eax
 
-; 43   :     lstrcpyW(opt.PositiveSign, L"+");
-
-	lea	rdx, OFFSET FLAT:??_C@_13KJIIAINM@?$AA?$CL@
-	lea	rcx, QWORD PTR opt$[rbp+16]
-	call	QWORD PTR __imp_lstrcpyW
-
-; 44   :     lstrcpyW(opt.NegativeSign, L"-");
-
-	lea	rdx, OFFSET FLAT:??_C@_13IMODFHAA@?$AA?9@
-	lea	rcx, QWORD PTR opt$[rbp+22]
-	call	QWORD PTR __imp_lstrcpyW
-
-; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 44   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	lea	r8, QWORD PTR x$[rbp]
 	mov	rdx, QWORD PTR buf_size$[rbp]
@@ -235,27 +219,27 @@ $LN10:
 	mov	DWORD PTR x_result$[rbp], eax
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN4@TEST_PMC_T
-	mov	DWORD PTR tv84[rbp], 1
+	mov	DWORD PTR tv82[rbp], 1
 	jmp	SHORT $LN5@TEST_PMC_T
 $LN4@TEST_PMC_T:
-	mov	DWORD PTR tv84[rbp], 0
+	mov	DWORD PTR tv82[rbp], 0
 $LN5@TEST_PMC_T:
 	mov	edx, DWORD PTR x_result$[rbp]
 	lea	rcx, OFFSET FLAT:??_C@_1EK@HDEICNAJ@?$AAP?$AAM?$AAC?$AA_?$AAF?$AAr?$AAo?$AAm?$AAB?$AAy?$AAt?$AAe?$AAA?$AAr?$AAr@
 	call	FormatTestMesssage
-	mov	QWORD PTR tv64[rbp], rax
+	mov	QWORD PTR tv66[rbp], rax
 	mov	r8d, 1
 	mov	edx, DWORD PTR no$[rbp]
 	lea	rcx, OFFSET FLAT:??_C@_1CM@MENGOFBF@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAN?$AA?5?$AA?$CI@
 	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv64[rbp]
+	mov	rcx, QWORD PTR tv66[rbp]
 	mov	r9, rcx
-	mov	r8d, DWORD PTR tv84[rbp]
+	mov	r8d, DWORD PTR tv82[rbp]
 	mov	rdx, rax
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
 
 	lea	rax, QWORD PTR opt$[rbp]
 	mov	QWORD PTR [rsp+40], rax
@@ -266,65 +250,65 @@ $LN5@TEST_PMC_T:
 	lea	rdx, OFFSET FLAT:?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
-	call	QWORD PTR [rax+88]
+	call	QWORD PTR [rax+96]
 	mov	DWORD PTR result$[rbp], eax
 	cmp	DWORD PTR result$[rbp], 0
 	jne	SHORT $LN6@TEST_PMC_T
-	mov	DWORD PTR tv137[rbp], 1
+	mov	DWORD PTR tv135[rbp], 1
 	jmp	SHORT $LN7@TEST_PMC_T
 $LN6@TEST_PMC_T:
-	mov	DWORD PTR tv137[rbp], 0
+	mov	DWORD PTR tv135[rbp], 0
 $LN7@TEST_PMC_T:
 	mov	edx, DWORD PTR result$[rbp]
 	lea	rcx, OFFSET FLAT:??_C@_1EA@HONIIPBB@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAn?$PP?$KJ?$AA0@
 	call	FormatTestMesssage
-	mov	QWORD PTR tv92[rbp], rax
+	mov	QWORD PTR tv90[rbp], rax
 	mov	r8d, 2
 	mov	edx, DWORD PTR no$[rbp]
 	lea	rcx, OFFSET FLAT:??_C@_1CM@MENGOFBF@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAN?$AA?5?$AA?$CI@
 	call	FormatTestLabel
-	mov	rcx, QWORD PTR tv92[rbp]
+	mov	rcx, QWORD PTR tv90[rbp]
 	mov	r9, rcx
-	mov	r8d, DWORD PTR tv137[rbp]
+	mov	r8d, DWORD PTR tv135[rbp]
 	mov	rdx, rax
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 47   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
+; 46   :     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
 
 	mov	rdx, QWORD PTR desired_str$[rbp]
 	lea	rcx, OFFSET FLAT:?actual_str_buffer@?1??TEST_PMC_ToStringN@@9@9
 	call	QWORD PTR __imp_lstrcmpW
 	test	eax, eax
 	jne	SHORT $LN8@TEST_PMC_T
-	mov	DWORD PTR tv150[rbp], 1
+	mov	DWORD PTR tv148[rbp], 1
 	jmp	SHORT $LN9@TEST_PMC_T
 $LN8@TEST_PMC_T:
-	mov	DWORD PTR tv150[rbp], 0
+	mov	DWORD PTR tv148[rbp], 0
 $LN9@TEST_PMC_T:
 	mov	r8d, 3
 	mov	edx, DWORD PTR no$[rbp]
 	lea	rcx, OFFSET FLAT:??_C@_1CM@MENGOFBF@?$AAP?$AAM?$AAC?$AA_?$AAT?$AAo?$AAS?$AAt?$AAr?$AAi?$AAn?$AAg?$AAN?$AA?5?$AA?$CI@
 	call	FormatTestLabel
 	lea	r9, OFFSET FLAT:??_C@_1BK@CBDJCOBM@?$PP?G?$PP?$PM?$PP?$LP?$AAn?$PP?$IF?$PP?$LJ?$AAL?$AA?$AA?$PP?t?$AAW?$AAj?$AAD@
-	mov	r8d, DWORD PTR tv150[rbp]
+	mov	r8d, DWORD PTR tv148[rbp]
 	mov	rdx, rax
 	mov	rcx, QWORD PTR env$[rbp]
 	call	TEST_Assert
 
-; 48   :     if (x_result == PMC_STATUS_OK)
+; 47   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR x_result$[rbp], 0
 	jne	SHORT $LN2@TEST_PMC_T
 
-; 49   :         ep->Dispose(x);
+; 48   :         ep->Dispose(x);
 
 	mov	rcx, QWORD PTR x$[rbp]
 	mov	rax, QWORD PTR ep$[rbp]
 	call	QWORD PTR [rax+32]
 $LN2@TEST_PMC_T:
 
-; 50   : }
+; 49   : }
 
 	lea	rcx, QWORD PTR [rbp-48]
 	lea	rdx, OFFSET FLAT:TEST_PMC_ToStringN$rtcFrameData
@@ -332,7 +316,7 @@ $LN2@TEST_PMC_T:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+392]
+	lea	rsp, QWORD PTR [rbp+536]
 	pop	rdi
 	pop	rbp
 	ret	0
