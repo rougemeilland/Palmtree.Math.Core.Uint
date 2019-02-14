@@ -72,22 +72,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x86_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x64_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x86_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x64_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

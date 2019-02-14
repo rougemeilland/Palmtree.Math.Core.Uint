@@ -65,23 +65,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x86_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
     <LibraryPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\x86_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
     <LibraryPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x86;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)\vs_dist\x64_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
     <LibraryPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)\vs_dist\x64_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
     <LibraryPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x64;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
