@@ -48779,14 +48779,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 72 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48818,7 +48818,7 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t DecimalSeparator[3];
@@ -48826,34 +48826,14 @@ typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
     wchar_t GroupSizes[11];
     int NegativePattern;
     int PositivePattern;
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-    int PositivePattern;
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
-    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
-    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Currency;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Number;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Percent;
     wchar_t CurrencySymbol[3];
-    wchar_t NativeDigits[11];
     wchar_t NegativeSign[3];
     wchar_t PositiveSign[3];
     wchar_t PercentSymbol[3];
@@ -48922,7 +48902,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 
 
         void (__attribute__((__stdcall__)) * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
@@ -49037,11 +49017,11 @@ typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 
 
 #pragma region 宣言
-# 149 "../pmc_uint_debug.h"
+# 155 "../pmc_uint_debug.h"
 #pragma endregion
 
 
 #pragma region インライン関数の定義
-# 169 "../pmc_uint_debug.h"
+# 175 "../pmc_uint_debug.h"
 #pragma endregion
 # 29 "../TEST_op_Clone.c" 2

@@ -8,10 +8,10 @@ LFB5493:
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
-	leal	10(%eax), %ebp
 	pushl	%edi
 	.cfi_def_cfa_offset 12
 	.cfi_offset 7, -12
+	leal	10(%eax), %edi
 	pushl	%esi
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -22,66 +22,58 @@ LFB5493:
 	subl	$44, %esp
 	.cfi_def_cfa_offset 64
 	movl	%ecx, 4(%eax)
-	movl	__imp__lstrcpyW@8, %edi
+	movl	__imp__lstrcpyW@8, %ebp
 	movl	64(%esp), %esi
 	movl	%edx, (%eax)
 	movb	$0, 8(%eax)
-	leal	140(%esi), %eax
+	leal	144(%esi), %eax
 	movl	%ecx, 28(%esp)
-	movl	%ebp, (%esp)
+	movl	%edi, (%esp)
 	movl	%eax, 4(%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
-	movl	%ebp, (%esp)
-	movl	__imp__lstrlenW@4, %ebp
-	call	*%ebp
+	movl	%edi, (%esp)
+	movl	__imp__lstrlenW@4, %edi
+	call	*%edi
 	.cfi_def_cfa_offset 60
+	leal	20(%ebx), %edx
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
 	movl	%eax, 16(%ebx)
-	leal	146(%esi), %eax
-	movl	%eax, 4(%esp)
-	leal	20(%ebx), %eax
-	movl	%eax, (%esp)
-	call	*%edi
-	.cfi_def_cfa_offset 56
-	leal	42(%ebx), %edx
-	leal	174(%esi), %eax
-	subl	$8, %esp
-	.cfi_def_cfa_offset 64
+	leal	156(%esi), %eax
 	movl	%edx, (%esp)
 	movl	%edx, 24(%esp)
 	movl	%eax, 4(%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
 	movl	24(%esp), %edx
 	movl	%edx, (%esp)
-	call	*%ebp
+	call	*%edi
 	.cfi_def_cfa_offset 60
-	leal	52(%ebx), %edx
+	leal	32(%ebx), %edx
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
-	movl	%eax, 48(%ebx)
-	leal	168(%esi), %eax
+	movl	%eax, 28(%ebx)
+	leal	150(%esi), %eax
 	movl	%edx, (%esp)
 	movl	%edx, 24(%esp)
 	movl	%eax, 4(%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
 	movl	24(%esp), %edx
 	movl	%edx, (%esp)
-	call	*%ebp
+	call	*%edi
 	.cfi_def_cfa_offset 60
-	leal	64(%ebx), %edx
+	leal	44(%ebx), %edx
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
-	movl	%eax, 60(%ebx)
+	movl	%eax, 40(%ebx)
 	movl	28(%esp), %ecx
 	andb	$1, %ch
 	je	L2
@@ -89,42 +81,42 @@ LFB5493:
 	movl	%edx, (%esp)
 	movl	%edx, 24(%esp)
 	movl	%eax, 4(%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
 	movl	24(%esp), %edx
 	movl	%edx, (%esp)
-	call	*%ebp
+	call	*%edi
 	.cfi_def_cfa_offset 60
-	movl	%eax, 72(%ebx)
+	movl	%eax, 52(%ebx)
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
 	leal	10(%esi), %eax
 L3:
-	leal	76(%ebx), %esi
+	leal	56(%ebx), %esi
 	movl	%eax, 4(%esp)
 	movl	%esi, (%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
 	movl	%esi, (%esp)
-	call	*%ebp
+	call	*%edi
 	.cfi_def_cfa_offset 60
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
-	cmpl	$160, 76(%ebx)
-	movl	%eax, 84(%ebx)
+	cmpl	$160, 56(%ebx)
+	movl	%eax, 64(%ebx)
 	je	L8
 	xorl	%eax, %eax
-	movl	$0, 96(%ebx)
-	movw	%ax, 88(%ebx)
+	movl	$0, 76(%ebx)
+	movw	%ax, 68(%ebx)
 L5:
 	movl	68(%esp), %eax
-	movl	%eax, 100(%ebx)
+	movl	%eax, 80(%ebx)
 	movl	72(%esp), %eax
-	movl	%eax, 104(%ebx)
+	movl	%eax, 84(%ebx)
 	addl	$44, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -144,27 +136,27 @@ L5:
 	.p2align 4,,10
 L2:
 	.cfi_restore_state
-	leal	58(%esi), %eax
+	leal	52(%esi), %eax
 	movl	%edx, (%esp)
 	movl	%edx, 24(%esp)
 	movl	%eax, 4(%esp)
-	call	*%edi
+	call	*%ebp
 	.cfi_def_cfa_offset 56
 	subl	$8, %esp
 	.cfi_def_cfa_offset 64
 	movl	24(%esp), %edx
 	movl	%edx, (%esp)
-	call	*%ebp
+	call	*%edi
 	.cfi_def_cfa_offset 60
-	movl	%eax, 72(%ebx)
+	movl	%eax, 52(%ebx)
 	subl	$4, %esp
 	.cfi_def_cfa_offset 64
-	leal	52(%esi), %eax
+	leal	58(%esi), %eax
 	jmp	L3
 	.p2align 4,,10
 L8:
-	movl	$32, 88(%ebx)
-	movl	$1, 96(%ebx)
+	movl	$32, 68(%ebx)
+	movl	$1, 76(%ebx)
 	jmp	L5
 	.cfi_endproc
 LFE5493:
@@ -1971,76 +1963,6 @@ L53:
 	.cfi_endproc
 LFE5508:
 	.p2align 4,,15
-	.def	_ParseDecimalDigit;	.scl	3;	.type	32;	.endef
-_ParseDecimalDigit:
-LFB5496:
-	.cfi_startproc
-	movl	%eax, %ecx
-	leal	-48(%eax), %eax
-	cmpw	$9, %ax
-	jbe	L92
-	xorl	%eax, %eax
-	cmpw	%cx, (%edx)
-	je	L79
-	movl	$1, %eax
-	cmpw	%cx, 2(%edx)
-	je	L79
-	cmpw	%cx, 4(%edx)
-	je	L84
-	cmpw	%cx, 6(%edx)
-	je	L85
-	cmpw	%cx, 8(%edx)
-	je	L86
-	cmpw	%cx, 10(%edx)
-	je	L87
-	cmpw	%cx, 12(%edx)
-	je	L88
-	cmpw	%cx, 14(%edx)
-	je	L89
-	cmpw	16(%edx), %cx
-	je	L90
-	cmpw	%cx, 18(%edx)
-	movl	$9, %eax
-	movl	$-1, %ecx
-	cmovne	%ecx, %eax
-	ret
-	.p2align 4,,10
-L90:
-	movl	$8, %eax
-L79:
-	ret
-	.p2align 4,,10
-L92:
-	movzwl	%cx, %ecx
-	leal	-48(%ecx), %eax
-	ret
-	.p2align 4,,10
-L84:
-	movl	$2, %eax
-	ret
-	.p2align 4,,10
-L89:
-	movl	$7, %eax
-	ret
-	.p2align 4,,10
-L85:
-	movl	$3, %eax
-	ret
-	.p2align 4,,10
-L86:
-	movl	$4, %eax
-	ret
-	.p2align 4,,10
-L87:
-	movl	$5, %eax
-	ret
-	.p2align 4,,10
-L88:
-	movl	$6, %eax
-	ret
-	.cfi_endproc
-LFE5496:
-	.p2align 4,,15
 	.def	_ParseHexDigit;	.scl	3;	.type	32;	.endef
 _ParseHexDigit:
 LFB5497:
@@ -2048,10 +1970,10 @@ LFB5497:
 	leal	-48(%eax), %ecx
 	movzwl	%ax, %edx
 	cmpw	$9, %cx
-	jbe	L98
+	jbe	L84
 	leal	-97(%eax), %ecx
 	cmpw	$5, %cx
-	jbe	L99
+	jbe	L85
 	subl	$65, %eax
 	subl	$55, %edx
 	cmpw	$6, %ax
@@ -2059,11 +1981,11 @@ LFB5497:
 	cmovb	%edx, %eax
 	ret
 	.p2align 4,,10
-L99:
+L85:
 	leal	-87(%edx), %eax
 	ret
 	.p2align 4,,10
-L98:
+L84:
 	leal	-48(%edx), %eax
 	ret
 	.cfi_endproc
@@ -2079,56 +2001,53 @@ LFB5498:
 	pushl	%edi
 	.cfi_def_cfa_offset 12
 	.cfi_offset 7, -12
+	movl	%eax, %edi
 	pushl	%esi
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	%eax, %esi
-	leal	20(%eax), %eax
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
-	subl	$12, %esp
-	.cfi_def_cfa_offset 32
-	movl	(%esi), %ebx
-	movl	%eax, (%esp)
-	movl	4(%esi), %eax
-	movl	%eax, %ecx
-	andl	$64, %eax
-	andl	$512, %ecx
-	movl	%eax, 8(%esp)
-	movl	%ecx, 4(%esp)
+	subl	$4, %esp
+	.cfi_def_cfa_offset 24
+	movl	4(%eax), %esi
+	movl	(%eax), %ebx
+	movl	%esi, %ebp
+	andl	$64, %esi
+	movl	%esi, (%esp)
+	andl	$512, %ebp
 	.p2align 4,,10
-L101:
-	movzwl	(%ebx), %ebp
-	movl	(%esp), %edx
-	movl	%ebp, %eax
-	movl	%ebp, %edi
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L102
-L128:
-	movl	100(%esi), %eax
-	addl	$2, %ebx
-	movw	%di, (%eax)
-	addl	$2, %eax
-	movl	%eax, 100(%esi)
-	movl	%ebx, (%esi)
-	jmp	L101
-	.p2align 4,,10
-L102:
-	movl	4(%esp), %edx
-	testl	%edx, %edx
-	je	L104
-	movl	%ebp, %eax
+L87:
+	movzwl	(%ebx), %esi
+	leal	-48(%esi), %eax
+	cmpw	$9, %ax
+	jbe	L113
+	testl	%ebp, %ebp
+	je	L90
+L115:
+	movzwl	%si, %eax
 	call	_ParseHexDigit
 	testl	%eax, %eax
-	jns	L128
-L104:
-	movl	8(%esp), %eax
+	js	L90
+L113:
+	movl	80(%edi), %eax
+	addl	$2, %ebx
+	movw	%si, (%eax)
+	movzwl	(%ebx), %esi
+	addl	$2, %eax
+	movl	%eax, 80(%edi)
+	leal	-48(%esi), %eax
+	movl	%ebx, (%edi)
+	cmpw	$9, %ax
+	jbe	L113
+	testl	%ebp, %ebp
+	jne	L115
+L90:
+	movl	(%esp), %eax
 	testl	%eax, %eax
-	jne	L129
-L100:
-	addl	$12, %esp
+	jne	L116
+L86:
+	addl	$4, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
 	popl	%ebx
@@ -2145,54 +2064,54 @@ L100:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L129:
+L116:
 	.cfi_restore_state
-	movzwl	76(%esi), %eax
+	movzwl	56(%edi), %eax
 	testw	%ax, %ax
-	je	L106
-	cmpw	%ax, %di
-	jne	L107
+	je	L92
+	cmpw	%ax, %si
+	jne	L93
 	movl	$2, %eax
-	jmp	L108
+	jmp	L94
 	.p2align 4,,10
-L109:
+L95:
 	addl	$2, %eax
-	cmpw	-2(%ebx,%eax), %dx
-	jne	L107
-L108:
-	movzwl	76(%esi,%eax), %edx
-	testw	%dx, %dx
-	jne	L109
-L106:
-	movl	84(%esi), %eax
+	cmpw	%cx, -2(%ebx,%eax)
+	jne	L93
+L94:
+	movzwl	56(%edi,%eax), %ecx
+	testw	%cx, %cx
+	jne	L95
+L92:
+	movl	64(%edi), %eax
 	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, (%esi)
-	jmp	L101
+	movl	%ebx, (%edi)
+	jmp	L87
 	.p2align 4,,10
-L107:
-	movl	96(%esi), %ecx
+L93:
+	movl	76(%edi), %ecx
 	testl	%ecx, %ecx
-	jle	L100
-	movzwl	88(%esi), %eax
+	jle	L86
+	movzwl	68(%edi), %eax
 	testw	%ax, %ax
-	je	L110
-	cmpw	%ax, %di
-	jne	L100
+	je	L96
+	cmpw	%ax, %si
+	jne	L86
 	movl	$2, %eax
-	jmp	L111
+	jmp	L97
 	.p2align 4,,10
-L112:
+L98:
 	addl	$2, %eax
 	cmpw	%dx, -2(%ebx,%eax)
-	jne	L100
-L111:
-	movzwl	88(%esi,%eax), %edx
+	jne	L86
+L97:
+	movzwl	68(%edi,%eax), %edx
 	testw	%dx, %dx
-	jne	L112
-L110:
+	jne	L98
+L96:
 	leal	(%ebx,%ecx,2), %ebx
-	movl	%ebx, (%esi)
-	jmp	L101
+	movl	%ebx, (%edi)
+	jmp	L87
 	.cfi_endproc
 LFE5498:
 	.p2align 4,,15
@@ -2210,44 +2129,34 @@ LFB5499:
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movl	%eax, %esi
-	leal	20(%eax), %eax
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
-	subl	$8, %esp
-	.cfi_def_cfa_offset 28
-	movl	%eax, (%esp)
-	movl	4(%esi), %eax
-	andl	$512, %eax
-	movl	%eax, 4(%esp)
-	jmp	L131
+	movl	4(%eax), %edi
+	andl	$512, %edi
+	jmp	L118
 	.p2align 4,,10
-L139:
-	movl	104(%esi), %eax
-	addl	$2, %ebx
-	movw	%di, (%eax)
-	addl	$2, %eax
-	movl	%eax, 104(%esi)
-	movl	%ebx, (%esi)
-L131:
-	movl	(%esi), %ebx
-	movl	(%esp), %edx
-	movzwl	(%ebx), %ebp
-	movl	%ebp, %eax
-	movl	%ebp, %edi
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	jns	L139
-	movl	4(%esp), %eax
-	testl	%eax, %eax
-	je	L130
-	movl	%ebp, %eax
+L127:
+	movzwl	%bp, %eax
 	call	_ParseHexDigit
 	testl	%eax, %eax
-	jns	L139
-L130:
-	addl	$8, %esp
-	.cfi_def_cfa_offset 20
+	js	L117
+L126:
+	movl	84(%esi), %eax
+	addl	$2, %ebx
+	movw	%bp, (%eax)
+	addl	$2, %eax
+	movl	%eax, 84(%esi)
+	movl	%ebx, (%esi)
+L118:
+	movl	(%esi), %ebx
+	movzwl	(%ebx), %ebp
+	leal	-48(%ebp), %eax
+	cmpw	$9, %ax
+	jbe	L126
+	testl	%edi, %edi
+	jne	L127
+L117:
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
@@ -2277,181 +2186,181 @@ LFB5515:
 	pushl	%esi
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	movl	%edx, %esi
+	movl	%eax, %esi
+	movl	%edx, %eax
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
-	movl	%eax, %ebx
-	movl	%edx, %eax
-	subl	$204, %esp
-	.cfi_def_cfa_offset 224
+	movl	%edx, %ebx
+	subl	$188, %esp
+	.cfi_def_cfa_offset 208
 	andl	$512, %eax
-	movl	%ecx, 20(%esp)
-	movl	%eax, 28(%esp)
-	je	L141
+	movl	%ecx, 24(%esp)
+	movl	%eax, 32(%esp)
+	je	L129
 	testl	$-516, %edx
-	jne	L438
-	movl	%ebx, (%esp)
+	jne	L444
+	movl	%esi, (%esp)
 	movl	__imp__lstrlenW@4, %ebp
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
+	.cfi_def_cfa_offset 208
 	addl	$1, %eax
-	leal	76(%esp), %edx
+	leal	80(%esp), %edx
 	sall	$4, %eax
 	movl	%edx, 8(%esp)
-	leal	80(%esp), %edx
+	leal	84(%esp), %edx
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_AllocateBlock
 	movl	%eax, %edi
 	testl	%eax, %eax
-	je	L172
-	movl	20(%esp), %edx
+	je	L160
+	movl	24(%esp), %ecx
 	movl	%edi, 4(%esp)
-	leal	84(%esp), %eax
-	movl	%esi, %ecx
+	leal	88(%esp), %eax
+	movl	%esi, %edx
 	movl	$0, 8(%esp)
-	movl	%edx, (%esp)
-	movl	%ebx, %edx
-	movl	%eax, 16(%esp)
+	movl	%ecx, (%esp)
+	movl	%ebx, %ecx
+	movl	%eax, 20(%esp)
 	call	_InitializeParserState
-	testl	$1, %esi
-	je	L144
-	movl	84(%esp), %eax
-	movzwl	(%eax), %ebx
-	leal	-9(%ebx), %ecx
+	testb	$1, %bl
+	je	L132
+	movl	88(%esp), %eax
+	movzwl	(%eax), %ecx
+	subl	$9, %ecx
 	cmpw	$23, %cx
-	ja	L144
+	ja	L132
 	movl	$1, %edx
 	addl	$2, %eax
 	sall	%cl, %edx
 	movl	%edx, %ecx
 	movl	$1, %edx
 	andl	$8388639, %ecx
-	je	L144
-	movl	%esi, 20(%esp)
-	jmp	L146
+	je	L132
+	movl	%ebx, 24(%esp)
+	jmp	L134
 	.p2align 4,,10
-L147:
-	movl	%edx, %esi
+L135:
+	movl	%edx, %ebx
 	addl	$2, %eax
-	sall	%cl, %esi
-	movl	%esi, %ecx
+	sall	%cl, %ebx
+	movl	%ebx, %ecx
 	andl	$8388639, %ecx
-	je	L808
-L146:
+	je	L825
+L134:
 	movzwl	(%eax), %ecx
-	movl	%eax, %ebx
+	movl	%eax, %esi
 	subl	$9, %ecx
 	cmpw	$23, %cx
-	jbe	L147
-	movl	%eax, 84(%esp)
-	movl	20(%esp), %esi
-L144:
-	movl	16(%esp), %eax
+	jbe	L135
+	movl	%eax, 88(%esp)
+	movl	24(%esp), %ebx
+L132:
+	movl	20(%esp), %eax
 	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %eax
-	andl	$2, %esi
+	movl	88(%esp), %eax
+	andl	$2, %ebx
 	movzwl	(%eax), %edx
-	jne	L148
-L149:
-	movl	76(%esp), %eax
+	jne	L136
+L137:
+	movl	80(%esp), %eax
 	testw	%dx, %dx
-	jne	L433
-	movl	184(%esp), %edx
+	jne	L439
+	movl	168(%esp), %edx
 	xorl	%ebx, %ebx
 	movw	%bx, (%edx)
-	testb	$32, 88(%esp)
-	je	L800
-	movl	188(%esp), %edx
+	testb	$32, 92(%esp)
+	je	L817
+	movl	172(%esp), %edx
 	xorl	%ecx, %ecx
 	movw	%cx, (%edx)
-L800:
+L817:
 	movl	%eax, 4(%esp)
 	movl	%edi, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L140
+	jne	L128
 	movzwl	(%edi), %eax
 	testw	%ax, %ax
-	je	L156
+	je	L144
 	call	_ParseHexDigit
-	movl	224(%esp), %ebx
+	movl	208(%esp), %ecx
 	cmpl	$7, %eax
 	setle	%al
 	leal	-1(%eax,%eax), %eax
-	movb	%al, (%ebx)
+	movb	%al, (%ecx)
 	movl	%edi, (%esp)
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
+	.cfi_def_cfa_offset 208
 	sall	$2, %eax
-	movl	%eax, 24(%esp)
-	movl	16(%esp), %ebx
+	movl	%eax, 28(%esp)
+	movl	20(%esp), %ecx
 	movl	%eax, 4(%esp)
-	movl	228(%esp), %eax
-	movl	%ebx, 8(%esp)
+	movl	212(%esp), %eax
+	movl	%ecx, 8(%esp)
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L809
-	movl	228(%esp), %eax
+	jne	L826
+	movl	212(%esp), %eax
 	movl	(%eax), %eax
 	movl	36(%eax), %ebx
 	movl	%edi, (%esp)
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
+	.cfi_def_cfa_offset 208
 	movl	%eax, %ecx
-	movl	%eax, 16(%esp)
+	movl	%eax, 20(%esp)
 	leal	7(%eax), %eax
 	shrl	$3, %eax
 	andl	$7, %ecx
 	leal	-4(%ebx,%eax,4), %ebp
-	movl	%ecx, 20(%esp)
+	movl	%ecx, 24(%esp)
 	movl	%edi, %ebx
-	je	L161
+	je	L149
 	movzwl	(%edi), %eax
 	leal	-4(%ebp), %ebx
 	leal	2(%edi), %esi
-	movl	%ebx, 28(%esp)
+	movl	%ebx, 32(%esp)
 	call	_ParseHexDigit
 	movl	%eax, %ebx
-	movl	20(%esp), %eax
+	movl	24(%esp), %eax
 	subl	$1, %eax
-	je	L162
-	movl	%edi, 32(%esp)
+	je	L150
+	movl	%edi, 36(%esp)
 	movl	%esi, %edi
 	movl	%eax, %esi
 	.p2align 4,,10
-L163:
+L151:
 	movzwl	(%edi), %eax
 	sall	$4, %ebx
 	addl	$2, %edi
 	call	_ParseHexDigit
 	addl	%eax, %ebx
 	subl	$1, %esi
-	jne	L163
-	movl	32(%esp), %edi
-L162:
-	movl	20(%esp), %eax
-	subl	%eax, 16(%esp)
+	jne	L151
+	movl	36(%esp), %edi
+L150:
+	movl	24(%esp), %eax
+	subl	%eax, 20(%esp)
 	movl	%ebx, 0(%ebp)
-	movl	28(%esp), %ebp
+	movl	32(%esp), %ebp
 	leal	(%edi,%eax,2), %ebx
-L161:
-	movl	16(%esp), %esi
+L149:
+	movl	20(%esp), %esi
 	testl	%esi, %esi
-	je	L166
-	movl	%edi, 20(%esp)
+	je	L154
+	movl	%edi, 24(%esp)
 	movl	%ebp, %edi
-	movl	16(%esp), %ebp
+	movl	20(%esp), %ebp
 	.p2align 4,,10
-L164:
+L152:
 	movzwl	(%ebx), %eax
 	subl	$4, %edi
 	addl	$16, %ebx
@@ -2487,40 +2396,40 @@ L164:
 	addl	%eax, %esi
 	movl	%esi, 4(%edi)
 	subl	$8, %ebp
-	jne	L164
-	movl	20(%esp), %edi
-L166:
-	movl	84(%esp), %eax
+	jne	L152
+	movl	24(%esp), %edi
+L154:
+	movl	88(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	(%eax), %eax
 	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L140
-	movl	80(%esp), %edx
+	jne	L128
+	movl	84(%esp), %edx
 	movl	%edi, (%esp)
-	movl	%eax, 16(%esp)
+	movl	%eax, 20(%esp)
 	movl	%edx, 4(%esp)
 	call	_DeallocateBlock
-	movl	224(%esp), %eax
-	movl	228(%esp), %ebx
+	movl	208(%esp), %eax
+	movl	212(%esp), %edi
 	cmpb	$0, (%eax)
-	movl	(%ebx), %edx
-	movl	16(%esp), %eax
-	js	L810
-L169:
+	movl	(%edi), %edx
+	movl	20(%esp), %eax
+	js	L827
+L157:
 	movl	%edx, (%esp)
-	movl	%eax, 16(%esp)
+	movl	%eax, 20(%esp)
 	call	_CommitNumber
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	(%eax), %edx
-	movl	16(%esp), %eax
+	movl	20(%esp), %eax
 	testb	$1, (%edx)
-	jne	L811
-L140:
-	addl	$204, %esp
+	jne	L828
+L128:
+	addl	$188, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
 	popl	%ebx
@@ -2537,304 +2446,300 @@ L140:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L148:
+L136:
 	.cfi_restore_state
 	leal	-9(%edx), %ecx
 	cmpw	$23, %cx
-	ja	L149
+	ja	L137
 	movl	$1, %edx
 	sall	%cl, %edx
 	andl	$8388639, %edx
-	je	L150
+	je	L138
 	addl	$2, %eax
 	movl	$1, %ebx
-	jmp	L151
+	jmp	L139
 	.p2align 4,,10
-L152:
+L140:
 	movl	%ebx, %edx
 	addl	$2, %eax
 	sall	%cl, %edx
 	andl	$8388639, %edx
-	je	L150
-L151:
+	je	L138
+L139:
 	movzwl	(%eax), %edx
 	leal	-9(%edx), %ecx
 	cmpw	$23, %cx
-	jbe	L152
-	movl	%eax, 84(%esp)
-	jmp	L149
+	jbe	L140
+	movl	%eax, 88(%esp)
+	jmp	L137
 	.p2align 4,,10
-L141:
-	movl	%ebx, (%esp)
+L129:
+	movl	%esi, (%esp)
 	movl	__imp__lstrlenW@4, %ebp
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
+	.cfi_def_cfa_offset 208
 	leal	1(%eax), %edi
-	leal	52(%esp), %eax
+	leal	56(%esp), %eax
 	sall	$4, %edi
 	movl	%eax, 8(%esp)
-	leal	56(%esp), %eax
+	leal	60(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	%edi, (%esp)
 	call	_AllocateBlock
-	movl	%eax, 24(%esp)
+	movl	%eax, 28(%esp)
 	testl	%eax, %eax
-	je	L172
-	leal	60(%esp), %eax
+	je	L160
+	leal	64(%esp), %eax
 	movl	%edi, (%esp)
 	movl	%eax, 8(%esp)
-	leal	64(%esp), %eax
+	leal	68(%esp), %eax
 	movl	%eax, 4(%esp)
 	call	_AllocateBlock
-	movl	%eax, 32(%esp)
+	movl	%eax, 36(%esp)
 	testl	%eax, %eax
-	je	L805
-	movl	32(%esp), %edx
-	movl	24(%esp), %ecx
-	leal	84(%esp), %eax
-	movl	%eax, 16(%esp)
-	movl	%edx, 8(%esp)
-	movl	20(%esp), %edx
-	movl	%ecx, 4(%esp)
-	movl	%esi, %ecx
-	movl	%edx, (%esp)
-	movl	%ebx, %edx
+	je	L822
+	movl	36(%esp), %edi
+	leal	88(%esp), %eax
+	movl	%esi, %edx
+	movl	%ebx, %ecx
+	movl	%eax, 20(%esp)
+	movl	%edi, 8(%esp)
+	movl	28(%esp), %edi
+	movl	%edi, 4(%esp)
+	movl	24(%esp), %edi
+	movl	%edi, (%esp)
 	call	_InitializeParserState
-	movl	%esi, %eax
-	movl	84(%esp), %edi
+	movl	%ebx, %eax
+	movl	88(%esp), %edx
 	andl	$1, %eax
 	movl	%eax, 40(%esp)
-	je	L175
-	movzwl	(%edi), %eax
+	je	L163
+	movzwl	(%edx), %eax
 	leal	-9(%eax), %ecx
 	cmpw	$23, %cx
-	ja	L175
+	ja	L163
 	movl	$1, %eax
-	movl	$1, %edx
+	movl	$1, %esi
 	sall	%cl, %eax
 	movl	%eax, %ecx
-	leal	2(%edi), %eax
+	leal	2(%edx), %eax
 	andl	$8388639, %ecx
-	jne	L177
-	jmp	L175
+	jne	L165
+	jmp	L163
 	.p2align 4,,10
-L178:
-	movl	%edx, %ebx
-	leal	2(%edi), %eax
-	sall	%cl, %ebx
-	movl	%ebx, %ecx
+L166:
+	movl	%esi, %edi
+	leal	2(%edx), %eax
+	sall	%cl, %edi
+	movl	%edi, %ecx
 	andl	$8388639, %ecx
-	je	L801
-L177:
-	movl	%eax, %edi
+	je	L818
+L165:
+	movl	%eax, %edx
 	movzwl	(%eax), %eax
 	leal	-9(%eax), %ecx
 	cmpw	$23, %cx
-	jbe	L178
-L801:
-	movl	%edi, 84(%esp)
-L175:
-	movl	%esi, %eax
+	jbe	L166
+L818:
+	movl	%edx, 88(%esp)
+L163:
+	movl	%ebx, %eax
 	andl	$256, %eax
-	movl	%eax, 36(%esp)
-	je	L179
-	movzwl	94(%esp), %eax
+	movl	%eax, 24(%esp)
+	je	L167
+	movzwl	98(%esp), %eax
 	testw	%ax, %ax
-	je	L180
-	cmpw	%ax, (%edi)
-	jne	L179
+	je	L168
+	cmpw	%ax, (%edx)
+	jne	L167
 	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L181
+	leal	100(%esp), %ecx
+	jmp	L169
 	.p2align 4,,10
-L182:
+L170:
 	addl	$2, %eax
-	cmpw	%cx, (%edi,%eax)
-	jne	L179
-L181:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L182
-L180:
-	movl	100(%esp), %eax
-	leal	(%edi,%eax,2), %ebx
+	cmpw	%si, (%edx,%eax)
+	jne	L167
+L169:
+	movzwl	(%ecx,%eax), %esi
+	testw	%si, %si
+	jne	L170
+L168:
+	movl	104(%esp), %eax
 	movl	40(%esp), %edi
-	movl	%ebx, 84(%esp)
+	leal	(%edx,%eax,2), %eax
+	movl	%eax, 88(%esp)
 	testl	%edi, %edi
-	je	L183
-	cmpw	$32, (%ebx)
-	jne	L183
-	addl	$2, %ebx
-	movl	%ebx, 84(%esp)
-	.p2align 4,,10
-L183:
-	testl	$4, %esi
-	jne	L812
-	movzwl	(%ebx), %eax
-L194:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L200
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L200:
-	testl	$32, %esi
-	je	L201
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L202
-	cmpw	%ax, (%ebx)
-	jne	L201
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L203
-	.p2align 4,,10
-L204:
-	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L201
-L203:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L204
-L202:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-	.p2align 4,,10
-L201:
-	movl	%esi, %edi
-	andl	$2, %edi
-	andl	$8, %esi
-	je	L189
-	movzwl	126(%esp), %eax
-	testw	%ax, %ax
-	je	L363
-	movzwl	(%ebx), %esi
-	cmpw	%ax, %si
-	jne	L206
-	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L207
-	.p2align 4,,10
-L208:
+	je	L171
+	cmpw	$32, (%eax)
+	jne	L171
 	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L206
-L207:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L208
-L363:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
+	movl	%eax, 88(%esp)
 	.p2align 4,,10
+L171:
+	testb	$4, %bl
+	jne	L829
+	movzwl	(%eax), %esi
+L182:
+	subl	$48, %esi
+	cmpw	$9, %si
+	jbe	L830
+L397:
+	testb	$32, %bl
+	je	L188
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L189
+	cmpw	(%eax), %dx
+	jne	L188
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L190
+	.p2align 4,,10
+L191:
+	addl	$2, %edx
+	cmpw	%si, (%eax,%edx)
+	jne	L188
+L190:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L191
 L189:
-	movzwl	(%ebx), %eax
-	testl	%edi, %edi
-	jne	L435
-L375:
-	testw	%ax, %ax
-	jne	L434
-	movl	184(%esp), %eax
-	xorl	%esi, %esi
-	movw	%si, (%eax)
-	testb	$32, 88(%esp)
-	je	L378
-	movl	188(%esp), %eax
-	xorl	%ebx, %ebx
-	movw	%bx, (%eax)
-L378:
-	movzbl	92(%esp), %eax
-	movl	224(%esp), %ebx
-	movl	$1, 28(%esp)
-	sarb	$7, %al
-	orl	$1, %eax
-	movb	%al, (%ebx)
-L434:
-	movl	52(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	24(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L140
-	movl	60(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	32(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L140
-	movl	28(%esp), %ecx
-	testl	%ecx, %ecx
-	je	L383
-	movl	24(%esp), %eax
-	movzwl	(%eax), %eax
-	testw	%ax, %ax
-	jne	L382
-	movl	32(%esp), %eax
-	cmpw	$0, (%eax)
-	je	L383
-L386:
-	movl	32(%esp), %ebx
-	movl	%ebx, (%esp)
-	call	*%ebp
-	.cfi_def_cfa_offset 220
-	leal	(%ebx,%eax,2), %eax
-	subl	$4, %esp
-	.cfi_def_cfa_offset 224
-	cmpl	%eax, %ebx
-	jnb	L385
-	cmpw	$48, -2(%eax)
-	jne	L385
-	movl	32(%esp), %edx
-	jmp	L389
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
 	.p2align 4,,10
-L813:
-	cmpw	$48, -2(%eax)
-	jne	L385
-L389:
-	subl	$2, %eax
-	cmpl	%eax, %edx
-	jb	L813
-L385:
-	movl	32(%esp), %ebx
+L188:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	andl	$8, %ebx
+	je	L177
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L343
+	movzwl	(%eax), %esi
+	cmpw	%si, %dx
+	jne	L193
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L194
+	.p2align 4,,10
+L195:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L193
+L194:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L195
+L343:
+	movl	116(%esp), %edx
+	movb	$1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	.p2align 4,,10
+L177:
+	movzwl	(%eax), %edx
+	testl	%edi, %edi
+	jne	L441
+L355:
+	testw	%dx, %dx
+	jne	L440
+	movl	168(%esp), %eax
 	xorl	%edx, %edx
 	movw	%dx, (%eax)
-	movl	64(%esp), %eax
-	cmpw	$0, (%ebx)
-	jne	L814
-	movl	24(%esp), %ebx
-	cmpw	$0, (%ebx)
-	jne	L391
-	movl	224(%esp), %ecx
-	movb	$0, (%ecx)
-	movl	$48, (%ebx)
-L391:
+	testb	$32, 92(%esp)
+	je	L358
+	movl	172(%esp), %eax
+	xorl	%edi, %edi
+	movw	%di, (%eax)
+L358:
+	movzbl	96(%esp), %eax
+	movl	208(%esp), %edi
+	movl	$1, 32(%esp)
+	sarb	$7, %al
+	orl	$1, %eax
+	movb	%al, (%edi)
+L440:
+	movl	56(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	32(%esp), %eax
+	movl	28(%esp), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L128
+	movl	64(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%esp), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L128
+	movl	32(%esp), %esi
+	testl	%esi, %esi
+	je	L363
+	movl	28(%esp), %eax
+	movzwl	(%eax), %eax
+	testw	%ax, %ax
+	jne	L362
+	movl	36(%esp), %eax
+	cmpw	$0, (%eax)
+	je	L363
+L366:
+	movl	36(%esp), %edi
+	movl	%edi, (%esp)
+	call	*%ebp
+	.cfi_def_cfa_offset 204
+	leal	(%edi,%eax,2), %eax
+	subl	$4, %esp
+	.cfi_def_cfa_offset 208
+	cmpl	%eax, %edi
+	jnb	L365
+	cmpw	$48, -2(%eax)
+	jne	L365
+	movl	36(%esp), %edx
+	jmp	L369
+	.p2align 4,,10
+L831:
+	cmpw	$48, -2(%eax)
+	jne	L365
+L369:
+	subl	$2, %eax
+	cmpl	%eax, %edx
+	jb	L831
+L365:
+	movl	36(%esp), %edi
+	xorl	%ebx, %ebx
+	movw	%bx, (%eax)
+	movl	68(%esp), %eax
+	cmpw	$0, (%edi)
+	jne	L832
+	movl	28(%esp), %edi
+	cmpw	$0, (%edi)
+	jne	L371
+	movl	208(%esp), %ecx
+	movb	$0, (%ecx)
+	movl	$48, (%edi)
+L371:
+	movl	%eax, 4(%esp)
+	movl	36(%esp), %eax
 	movl	$954437177, %ebx
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	movl	24(%esp), %eax
+	movl	28(%esp), %eax
 	movl	%eax, (%esp)
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
-	leal	68(%esp), %edx
-	movl	%edx, 8(%esp)
+	.cfi_def_cfa_offset 208
 	leal	72(%esp), %edx
+	movl	%edx, 8(%esp)
+	leal	76(%esp), %edx
 	movl	%edx, 4(%esp)
 	leal	8(%eax), %edx
 	movl	%edx, %eax
@@ -2843,155 +2748,182 @@ L391:
 	sall	$5, %edx
 	movl	%edx, (%esp)
 	call	_AllocateBlock
-	movl	%eax, 28(%esp)
+	movl	%eax, 24(%esp)
 	testl	%eax, %eax
-	je	L805
-	movl	24(%esp), %edi
-	movl	20(%esp), %esi
+	je	L822
+	movl	28(%esp), %edi
 	movl	%edi, (%esp)
-	addl	$146, %esi
 	call	*%ebp
-	.cfi_def_cfa_offset 220
+	.cfi_def_cfa_offset 204
 	subl	$4, %esp
-	.cfi_def_cfa_offset 224
+	.cfi_def_cfa_offset 208
 	movl	%eax, %ecx
 	movl	%eax, 32(%esp)
 	mull	%ebx
-	movl	%ecx, %ebx
 	shrl	%edx
 	leal	(%edx,%edx,8), %eax
-	subl	%eax, %ebx
-	movl	%ebx, %eax
-	movl	%ebx, 20(%esp)
-	je	L452
-	movl	28(%esp), %ebx
+	movl	%ecx, %edx
+	subl	%eax, %edx
+	movl	24(%esp), %eax
+	je	L458
+	addl	$4, %eax
+	movl	%edi, %esi
+	xorl	%ecx, %ecx
+	movl	$-1, %ebp
+	movl	%eax, 36(%esp)
+	leal	(%edi,%edx,2), %eax
+	.p2align 4,,10
+L375:
+	addl	$2, %esi
+	leal	(%ecx,%ecx,4), %ebx
+	movzwl	-2(%esi), %ecx
+	movl	%ecx, %edi
+	subl	$48, %ecx
+	subl	$48, %edi
+	cmpw	$10, %di
+	cmovnb	%ebp, %ecx
+	leal	(%ecx,%ebx,2), %ecx
+	cmpl	%eax, %esi
+	jne	L375
+	movl	24(%esp), %edi
+	subl	%edx, 32(%esp)
+	movl	%ecx, (%edi)
+L373:
+	movl	32(%esp), %edi
+	testl	%edi, %edi
+	je	L376
 	movl	%edi, %ebp
-	addl	$4, %ebx
-	movl	%ebx, 36(%esp)
-	leal	(%edi,%eax,2), %ebx
-	xorl	%edi, %edi
+	movl	36(%esp), %edi
+	movl	$-1, %ecx
 	.p2align 4,,10
-L394:
-	addl	$2, %ebp
-	movzwl	-2(%ebp), %eax
-	leal	(%edi,%edi,4), %edi
-	movl	%esi, %edx
-	addl	%edi, %edi
-	call	_ParseDecimalDigit
-	addl	%eax, %edi
-	cmpl	%ebx, %ebp
-	jne	L394
-	movl	28(%esp), %eax
-	movl	20(%esp), %ecx
-	subl	%ecx, 32(%esp)
-	movl	%edi, (%eax)
-L393:
-	movl	32(%esp), %eax
-	testl	%eax, %eax
-	je	L395
-	movl	%eax, 20(%esp)
-	movl	36(%esp), %ebp
-	.p2align 4,,10
-L396:
-	movzwl	(%ebx), %eax
-	movl	%esi, %edx
-	addl	$4, %ebp
-	addl	$18, %ebx
-	call	_ParseDecimalDigit
-	leal	(%eax,%eax,4), %edi
-	movzwl	-16(%ebx), %eax
-	addl	%edi, %edi
-	call	_ParseDecimalDigit
-	addl	%eax, %edi
-	movzwl	-14(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-12(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-10(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-8(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-6(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-4(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	movzwl	-2(%ebx), %eax
-	leal	(%edi,%edi,4), %edi
-	call	_ParseDecimalDigit
-	addl	%edi, %edi
-	addl	%eax, %edi
-	subl	$9, 20(%esp)
-	movl	%edi, -4(%ebp)
-	jne	L396
+L386:
+	movzwl	(%eax), %ebx
+	addl	$4, %edi
+	movl	%ebx, %edx
+	subl	$48, %edx
+	cmpw	$9, %dx
+	ja	L460
+	leal	-240(%ebx,%ebx,4), %edx
+	leal	(%edx,%edx), %ebx
+L377:
+	movzwl	2(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	addl	%ebx, %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	4(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	6(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	8(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	10(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	12(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	14(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	leal	(%edx,%ebx,2), %edx
+	leal	(%edx,%edx,4), %ebx
+	movzwl	16(%eax), %edx
+	movl	%edx, %esi
+	subl	$48, %edx
+	subl	$48, %esi
+	cmpw	$10, %si
+	cmovnb	%ecx, %edx
+	addl	$18, %eax
+	leal	(%edx,%ebx,2), %edx
+	movl	%edx, -4(%edi)
+	subl	$9, %ebp
+	jne	L386
 	imull	$-477218588, 32(%esp), %eax
 	addl	%eax, 36(%esp)
-L395:
-	movl	68(%esp), %eax
-	movl	28(%esp), %ebx
+L376:
+	movl	72(%esp), %eax
+	movl	24(%esp), %edi
 	movl	%eax, 4(%esp)
-	movl	%ebx, (%esp)
+	movl	%edi, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L140
-	movl	56(%esp), %eax
+	jne	L128
+	movl	60(%esp), %eax
 	movl	36(%esp), %esi
 	movl	%eax, 4(%esp)
-	movl	24(%esp), %eax
-	subl	%ebx, %esi
+	movl	28(%esp), %eax
+	subl	%edi, %esi
 	sarl	$2, %esi
 	movl	%eax, (%esp)
 	movl	%esi, %ebx
 	sall	$5, %ebx
 	call	_DeallocateBlock
-	leal	76(%esp), %eax
+	leal	80(%esp), %eax
 	movl	%ebx, 4(%esp)
 	movl	%eax, 8(%esp)
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	%eax, (%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L815
-	movl	228(%esp), %eax
+	jne	L833
+	movl	212(%esp), %eax
 	addl	$32, %ebx
 	movl	(%eax), %eax
 	movl	36(%eax), %eax
 	movl	%ebx, (%esp)
-	movl	%eax, 20(%esp)
-	leal	80(%esp), %eax
+	movl	%eax, 28(%esp)
+	leal	84(%esp), %eax
 	movl	%eax, 8(%esp)
-	movl	16(%esp), %eax
+	movl	20(%esp), %eax
 	movl	%eax, 4(%esp)
 	call	_AllocateBlock
 	movl	%eax, %ebp
 	testl	%eax, %eax
-	je	L398
-	movl	28(%esp), %ebx
-	movl	(%ebx), %eax
-	leal	4(%ebx), %edi
+	je	L388
+	movl	24(%esp), %edi
 	movl	$1, %ebx
+	movl	(%edi), %eax
+	addl	$4, %edi
 	movl	%eax, 0(%ebp)
 	subl	$1, %esi
-	je	L399
+	je	L389
 	.p2align 4,,10
-L400:
+L390:
 	movl	(%edi), %eax
 	movl	%ebx, 4(%esp)
 	addl	$4, %edi
@@ -3002,148 +2934,144 @@ L400:
 	movl	%eax, %ebx
 	sarl	$2, %ebx
 	subl	$1, %esi
-	jne	L400
-L399:
-	movl	80(%esp), %eax
+	jne	L390
+L389:
+	movl	84(%esp), %eax
 	movl	%ebp, (%esp)
 	movl	%eax, 4(%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	je	L816
-L403:
-	movl	%eax, 16(%esp)
-	movl	228(%esp), %eax
+	je	L834
+L393:
+	movl	%eax, 20(%esp)
+	movl	212(%esp), %eax
 	movl	(%eax), %edx
 	movl	%edx, (%esp)
 	call	_DeallocateNumber
-L806:
-	movl	28(%esp), %eax
-	movl	72(%esp), %edx
+L823:
+	movl	24(%esp), %eax
+	movl	76(%esp), %edx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
 	call	_DeallocateBlock
-	movl	16(%esp), %eax
-	jmp	L140
+	movl	20(%esp), %eax
+	jmp	L128
 	.p2align 4,,10
-L179:
-	testl	$16, %esi
-	je	L211
-	cmpw	$40, (%edi)
-	je	L817
-L211:
-	testl	$4, %esi
-	je	L235
-	movzwl	126(%esp), %eax
+L167:
+	testb	$16, %bl
+	je	L198
+	cmpw	$40, (%edx)
+	je	L835
+L198:
+	testb	$4, %bl
+	je	L220
+	movzwl	108(%esp), %eax
 	testw	%ax, %ax
-	je	L236
-	movzwl	(%edi), %ebx
-	cmpw	%bx, %ax
-	jne	L237
+	je	L221
+	movzwl	(%edx), %esi
+	cmpw	%ax, %si
+	jne	L222
 	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L238
+	leal	110(%esp), %ecx
+	jmp	L223
 	.p2align 4,,10
-L239:
+L224:
 	addl	$2, %eax
-	cmpw	%cx, (%edi,%eax)
-	jne	L237
-L238:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L239
-L236:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	(%edi,%eax,2), %ebx
-	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	jne	L430
-	movzwl	(%ebx), %eax
-L240:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L248
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L248:
-	testl	$32, %esi
-	je	L249
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L250
-	cmpw	(%ebx), %ax
-	jne	L249
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L251
-	.p2align 4,,10
-L252:
-	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L249
-L251:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L252
-L250:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-	.p2align 4,,10
-L249:
-	andl	$2, %esi
-	movl	%esi, %edi
-	je	L253
-	movzwl	(%ebx), %eax
-	cmpw	$32, %ax
-	je	L818
-	movl	36(%esp), %edx
+	cmpw	%di, (%edx,%eax)
+	jne	L222
+L223:
+	movzwl	(%ecx,%eax), %edi
+	testw	%di, %di
+	jne	L224
+L221:
+	movl	116(%esp), %eax
+	movb	$1, 96(%esp)
+	leal	(%edx,%eax,2), %eax
+	movl	24(%esp), %edx
+	movl	%eax, 88(%esp)
 	testl	%edx, %edx
-	je	L435
-L437:
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L332
-	cmpw	(%ebx), %ax
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L261
+	jne	L436
+	movzwl	(%eax), %edi
+L225:
+	subl	$48, %edi
+	cmpw	$9, %di
+	jbe	L836
+L411:
+	testb	$32, %bl
+	je	L232
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L233
+	cmpw	%dx, (%eax)
+	jne	L232
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L234
 	.p2align 4,,10
-L262:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L261:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L262
-L332:
-	movl	100(%esp), %eax
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	jmp	L189
+L235:
+	addl	$2, %edx
+	cmpw	%si, (%eax,%edx)
+	jne	L232
+L234:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L235
+L233:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
 	.p2align 4,,10
-L150:
-	movl	76(%esp), %eax
-L433:
+L232:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	je	L236
+	movzwl	(%eax), %edx
+	cmpw	$32, %dx
+	je	L837
+	movl	24(%esp), %ecx
+	testl	%ecx, %ecx
+	je	L441
+L443:
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L312
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L244
+	.p2align 4,,10
+L245:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L244:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L245
+L312:
+	movl	104(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	jmp	L177
+	.p2align 4,,10
+L138:
+	movl	80(%esp), %eax
+L439:
 	movl	%eax, 4(%esp)
 	movl	%edi, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L140
-L156:
-	movl	80(%esp), %eax
+	jne	L128
+L144:
+	movl	84(%esp), %eax
 	movl	%edi, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DeallocateBlock
-	addl	$204, %esp
+	addl	$188, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
 	movl	$1, %eax
@@ -3161,398 +3089,387 @@ L156:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L235:
+L220:
 	.cfi_restore_state
-	movzwl	(%edi), %ebx
-L263:
-	leal	104(%esp), %edx
-	movzwl	%bx, %eax
-	call	_ParseDecimalDigit
-	movl	%esi, %edx
-	andl	$32, %edx
-	testl	%eax, %eax
-	jns	L819
-	testl	%edx, %edx
-	je	L434
-	movzwl	148(%esp), %eax
+	movzwl	(%edx), %esi
+L246:
+	movl	%ebx, %edi
+	leal	-48(%esi), %eax
+	andl	$32, %edi
+	cmpw	$9, %ax
+	jbe	L838
+	testl	%edi, %edi
+	je	L440
+	movzwl	132(%esp), %eax
 	testw	%ax, %ax
-	je	L333
-	cmpw	%bx, %ax
-	jne	L434
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L334
+	je	L313
+	cmpw	%si, %ax
+	jne	L440
+	xorl	%eax, %eax
+	leal	134(%esp), %ecx
+	jmp	L314
 	.p2align 4,,10
-L335:
-	addl	$2, %edx
-	cmpw	%cx, (%edi,%edx)
-	jne	L434
-L334:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L335
-L333:
-	movl	156(%esp), %eax
-	leal	(%edi,%eax,2), %eax
-	movl	%esi, %edi
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
+L315:
+	addl	$2, %eax
+	cmpw	%si, (%edx,%eax)
+	jne	L440
+L314:
+	movzwl	(%ecx,%eax), %esi
+	testw	%si, %si
+	jne	L315
+L313:
+	movl	140(%esp), %eax
+	movl	%ebx, %edi
+	leal	(%edx,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
 	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
+	movl	88(%esp), %eax
 	andl	$2, %edi
+	je	L316
+	cmpw	$32, (%eax)
+	je	L839
+L316:
+	movl	24(%esp), %ecx
+	testl	%ecx, %ecx
+	je	L335
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
 	je	L336
-	cmpw	$32, (%ebx)
-	je	L820
+	cmpw	%dx, (%eax)
+	jne	L335
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L337
+	.p2align 4,,10
+L338:
+	addl	$2, %edx
+	cmpw	%si, (%eax,%edx)
+	jne	L335
+L337:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L338
 L336:
-	movl	36(%esp), %eax
-	testl	%eax, %eax
-	je	L355
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L356
-	cmpw	%ax, (%ebx)
-	jne	L355
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L357
+	movl	104(%esp), %edx
+	andl	$8, %ebx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	je	L177
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L343
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L429
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L339
 	.p2align 4,,10
-L358:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L355
-L357:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L358
-L356:
-	movl	100(%esp), %eax
-	andl	$8, %esi
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	je	L189
-	movzwl	126(%esp), %eax
-	testw	%ax, %ax
-	je	L363
-	movzwl	(%ebx), %esi
-	cmpw	%ax, %si
-	jne	L425
-	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L359
+L342:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L429
+L339:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L342
+	jmp	L343
 	.p2align 4,,10
-L362:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L425
-L359:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L362
-	jmp	L363
-	.p2align 4,,10
-L809:
-	movl	80(%esp), %edx
+L826:
+	movl	84(%esp), %edx
 	movl	%edi, (%esp)
-	movl	%eax, 16(%esp)
+	movl	%eax, 20(%esp)
 	movl	%edx, 4(%esp)
 	call	_DeallocateBlock
-	movl	16(%esp), %eax
-	jmp	L140
+	movl	20(%esp), %eax
+	jmp	L128
 	.p2align 4,,10
-L808:
-	movl	20(%esp), %esi
-	movl	%ebx, 84(%esp)
-	jmp	L144
+L825:
+	movl	24(%esp), %ebx
+	movl	%esi, 88(%esp)
+	jmp	L132
 	.p2align 4,,10
-L237:
-	movzwl	136(%esp), %eax
+L222:
+	movzwl	120(%esp), %eax
 	testw	%ax, %ax
-	je	L265
-	cmpw	%bx, %ax
-	jne	L263
+	je	L248
+	cmpw	%si, %ax
+	jne	L246
 	xorl	%eax, %eax
-	leal	138(%esp), %edx
-	jmp	L429
+	leal	122(%esp), %ecx
+	jmp	L435
 	.p2align 4,,10
-L264:
+L247:
 	addl	$2, %eax
-	cmpw	%cx, (%edi,%eax)
-	jne	L263
-L429:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L264
-L265:
-	movl	132(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	(%edi,%eax,2), %ebx
-	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	jne	L427
-	movzwl	(%ebx), %eax
-L266:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L274
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L274:
-	testl	$32, %esi
-	je	L275
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L276
-	cmpw	%ax, (%ebx)
-	jne	L275
+	cmpw	%di, (%edx,%eax)
+	jne	L246
+L435:
+	movzwl	(%ecx,%eax), %edi
+	testw	%di, %di
+	jne	L247
+L248:
+	movl	116(%esp), %eax
+	movl	24(%esp), %ecx
+	movb	$-1, 96(%esp)
+	leal	(%edx,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	testl	%ecx, %ecx
+	jne	L433
+	movzwl	(%eax), %edi
+L249:
+	subl	$48, %edi
+	cmpw	$9, %di
+	jbe	L840
+L416:
+	testb	$32, %bl
+	je	L256
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L257
+	cmpw	%dx, (%eax)
+	jne	L256
 	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L277
+	leal	134(%esp), %ecx
+	jmp	L258
 	.p2align 4,,10
-L278:
+L259:
 	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L275
-L277:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L278
-L276:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
+	cmpw	%si, (%eax,%edx)
+	jne	L256
+L258:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L259
+L257:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
 	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
+	movl	88(%esp), %eax
 	.p2align 4,,10
-L275:
-	andl	$2, %esi
-	movl	%esi, %edi
-	je	L279
-	movzwl	(%ebx), %eax
-	cmpw	$32, %ax
-	je	L821
-	movl	36(%esp), %esi
+L256:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	je	L260
+	movzwl	(%eax), %edx
+	cmpw	$32, %dx
+	je	L841
+	movl	24(%esp), %esi
 	testl	%esi, %esi
-	je	L435
-L436:
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L332
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L286
+	je	L441
+L442:
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L312
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L267
 	.p2align 4,,10
-L287:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L286:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L287
-	jmp	L332
+L268:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L267:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L268
+	jmp	L312
 	.p2align 4,,10
-L382:
+L362:
 	cmpw	$48, %ax
-	jne	L386
-	movl	24(%esp), %eax
+	jne	L366
+	movl	28(%esp), %eax
 	.p2align 4,,10
-L387:
+L367:
 	addl	$2, %eax
 	movzwl	(%eax), %edx
 	cmpw	$48, %dx
-	je	L387
-	movl	24(%esp), %ebx
+	je	L367
+	movl	28(%esp), %ebx
 	movw	%dx, (%ebx)
 	testw	%dx, %dx
-	je	L386
+	je	L366
 	movl	$2, %edx
 	.p2align 4,,10
-L388:
+L368:
 	movzwl	(%eax,%edx), %ecx
 	movw	%cx, (%ebx,%edx)
 	addl	$2, %edx
 	testw	%cx, %cx
-	jne	L388
-	jmp	L386
+	jne	L368
+	jmp	L366
 	.p2align 4,,10
-L817:
-	movl	36(%esp), %ecx
-	leal	2(%edi), %ebx
-	movb	$-1, 92(%esp)
-	movl	%ebx, 84(%esp)
-	testl	%ecx, %ecx
-	je	L212
-	movzwl	94(%esp), %edx
-	testw	%dx, %dx
-	je	L213
-	movzwl	2(%edi), %eax
-	movw	%ax, 46(%esp)
-	cmpw	%dx, %ax
-	jne	L214
-	xorl	%ecx, %ecx
-	leal	96(%esp), %edx
-	jmp	L215
-	.p2align 4,,10
-L216:
-	addl	$2, %ecx
-	cmpw	%ax, 2(%edi,%ecx)
-	jne	L214
-L215:
-	movzwl	(%edx,%ecx), %eax
-	testw	%ax, %ax
-	jne	L216
-L213:
-	movl	100(%esp), %eax
-	movl	40(%esp), %edi
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	testl	%edi, %edi
-	je	L217
-	cmpw	$32, %ax
-	jne	L217
-	leal	2(%ebx), %edx
-	movzwl	2(%ebx), %eax
-	movl	%edx, 84(%esp)
-	movl	%edx, %ebx
-	.p2align 4,,10
-L217:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L218
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L218:
-	testl	$32, %esi
-	je	L802
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L220
-	movzwl	(%ebx), %ecx
-	cmpw	%ax, %cx
-	jne	L221
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L222
-	.p2align 4,,10
-L223:
-	addl	$2, %edx
-	cmpw	%di, (%ebx,%edx)
-	jne	L221
-L222:
-	movzwl	(%eax,%edx), %edi
-	testw	%di, %di
-	jne	L223
-L220:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-L802:
-	movzwl	(%ebx), %ecx
-	.p2align 4,,10
-L221:
-	cmpw	$41, %cx
-	jne	L434
-	addl	$2, %ebx
-	andl	$2, %esi
-	movl	%ebx, 84(%esp)
-	movl	%esi, %edi
-	jmp	L189
-	.p2align 4,,10
-L812:
-	movzwl	126(%esp), %edx
-	testw	%dx, %dx
-	je	L185
-	movzwl	(%ebx), %eax
-	cmpw	%ax, %dx
-	jne	L186
-	xorl	%ecx, %ecx
-	leal	128(%esp), %edx
-	jmp	L187
-	.p2align 4,,10
-L188:
-	addl	$2, %ecx
-	cmpw	%di, (%ebx,%ecx)
-	jne	L186
-L187:
-	movzwl	(%edx,%ecx), %edi
-	testw	%di, %di
-	jne	L188
-L185:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	104(%esp), %edx
-	leal	(%ebx,%eax,2), %ebx
-	movzwl	(%ebx), %eax
-	movl	%ebx, 84(%esp)
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L409
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L409:
-	movl	%esi, %edi
-	andl	$2, %edi
-	andl	$32, %esi
-	je	L189
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L271
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L191
-	.p2align 4,,10
-L193:
-	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L192
-L191:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L193
-L271:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-	jmp	L189
-	.p2align 4,,10
-L810:
+L835:
 	movl	24(%esp), %ecx
+	leal	2(%edx), %eax
+	movb	$-1, 96(%esp)
+	movl	%eax, 88(%esp)
+	testl	%ecx, %ecx
+	je	L199
+	movzwl	98(%esp), %ecx
+	testw	%cx, %cx
+	je	L200
+	movzwl	2(%edx), %edi
+	movw	%di, 46(%esp)
+	cmpw	%cx, %di
+	jne	L201
+	xorl	%esi, %esi
+	leal	100(%esp), %ecx
+	jmp	L202
+	.p2align 4,,10
+L203:
+	addl	$2, %esi
+	cmpw	%di, 2(%edx,%esi)
+	jne	L201
+L202:
+	movzwl	(%ecx,%esi), %edi
+	testw	%di, %di
+	jne	L203
+L200:
+	movl	104(%esp), %edx
+	movl	40(%esp), %ecx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	testl	%ecx, %ecx
+	je	L204
+	cmpw	$32, %dx
+	jne	L204
+	leal	2(%eax), %ecx
+	movzwl	2(%eax), %edx
+	movl	%ecx, 88(%esp)
+	movl	%ecx, %eax
+	.p2align 4,,10
+L204:
+	subl	$48, %edx
+	cmpw	$9, %dx
+	jbe	L842
+L404:
+	testb	$32, %bl
+	je	L819
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L206
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L207
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L208
+	.p2align 4,,10
+L209:
+	addl	$2, %edx
+	cmpw	%di, (%eax,%edx)
+	jne	L207
+L208:
+	movzwl	(%ecx,%edx), %edi
+	testw	%di, %di
+	jne	L209
+L206:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
+L819:
+	movzwl	(%eax), %esi
+	.p2align 4,,10
+L207:
+	cmpw	$41, %si
+	jne	L440
+	addl	$2, %eax
+	movl	%ebx, %edi
+	movl	%eax, 88(%esp)
+	andl	$2, %edi
+	jmp	L177
+	.p2align 4,,10
+L829:
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L173
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L174
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L175
+	.p2align 4,,10
+L176:
+	addl	$2, %edx
+	cmpw	%di, (%eax,%edx)
+	jne	L174
+L175:
+	movzwl	(%ecx,%edx), %edi
+	testw	%di, %di
+	jne	L176
+L173:
+	movl	116(%esp), %edx
+	movb	$1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %eax
+	subl	$48, %eax
+	cmpw	$9, %ax
+	ja	L401
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+L401:
+	movl	%ebx, %edi
+	movl	88(%esp), %eax
+	andl	$2, %edi
+	andl	$32, %ebx
+	je	L177
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L253
+	cmpw	(%eax), %dx
+	jne	L177
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L179
+	.p2align 4,,10
+L181:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L179:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L181
+L253:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L177
+	.p2align 4,,10
+L827:
+	movl	28(%esp), %ecx
 	movl	36(%edx), %ebx
 	movl	32(%edx), %esi
 	andl	$31, %ecx
-	je	L168
+	je	L156
 	movl	$-1, %edi
 	sall	%cl, %edi
 	orl	%edi, -4(%ebx,%esi,4)
 	movl	32(%edx), %esi
-L168:
+L156:
 	testl	%esi, %esi
-	je	L169
+	je	L157
 	movl	$1, %edi
 	xorl	%ecx, %ecx
 	movl	%edi, %edx
 	movl	%ebx, %edi
 	movl	%edx, %ebx
 	.p2align 4,,10
-L170:
+L158:
 	movl	(%edi), %edx
 	addb	$-1, %bl
 	notl	%edx
@@ -3561,558 +3478,552 @@ L170:
 	movl	%edx, (%edi)
 	addl	$4, %edi
 	subl	$1, %esi
-	jne	L170
-	movl	228(%esp), %ebx
-	movl	(%ebx), %edx
-	jmp	L169
+	jne	L158
+	movl	212(%esp), %edi
+	movl	(%edi), %edx
+	jmp	L157
 	.p2align 4,,10
-L430:
-	movzwl	94(%esp), %edx
+L436:
+	movzwl	98(%esp), %edx
 	testw	%dx, %dx
-	je	L242
-	movzwl	(%ebx), %eax
-	cmpw	%ax, %dx
-	jne	L240
-	xorl	%ecx, %ecx
-	leal	96(%esp), %edx
-	jmp	L431
-	.p2align 4,,10
-L241:
-	addl	$2, %ecx
-	cmpw	%di, (%ebx,%ecx)
-	jne	L240
-L431:
-	movzwl	(%edx,%ecx), %edi
-	testw	%di, %di
-	jne	L241
-L242:
-	movl	100(%esp), %eax
-	movl	40(%esp), %ecx
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	testl	%ecx, %ecx
-	je	L243
-	cmpw	$32, %ax
-	jne	L243
-	leal	2(%ebx), %edx
-	movzwl	2(%ebx), %eax
-	movl	%edx, 84(%esp)
-	movl	%edx, %ebx
-	.p2align 4,,10
-L243:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L244
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L244:
-	movl	%esi, %edi
-	andl	$2, %edi
-	andl	$32, %esi
-	je	L189
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L271
-	cmpw	%ax, (%ebx)
-	jne	L189
+	je	L227
+	movzwl	(%eax), %edi
+	cmpw	%dx, %di
+	jne	L225
 	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L246
+	leal	100(%esp), %ecx
+	jmp	L437
 	.p2align 4,,10
-L247:
+L226:
 	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L192
-L246:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L247
-	jmp	L271
+	cmpw	%si, (%eax,%edx)
+	jne	L225
+L437:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L226
+L227:
+	movl	104(%esp), %edx
+	movl	40(%esp), %edi
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	testl	%edi, %edi
+	je	L228
+	cmpw	$32, %dx
+	jne	L228
+	leal	2(%eax), %ecx
+	movzwl	2(%eax), %edx
+	movl	%ecx, 88(%esp)
+	movl	%ecx, %eax
 	.p2align 4,,10
-L811:
+L228:
+	subl	$48, %edx
+	cmpw	$9, %dx
+	jbe	L843
+L409:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	andl	$32, %ebx
+	je	L177
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L253
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L230
+	.p2align 4,,10
+L231:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L230:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L231
+	jmp	L253
+	.p2align 4,,10
+L828:
 	movl	%edx, (%esp)
 	call	_DeallocateNumber
-	movl	224(%esp), %eax
+	movl	208(%esp), %eax
 	movb	$0, (%eax)
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	$_number_zero, (%eax)
-	movl	16(%esp), %eax
-	jmp	L140
+	movl	20(%esp), %eax
+	jmp	L128
 	.p2align 4,,10
-L192:
+L180:
 	testl	%edi, %edi
-	je	L434
-	movl	84(%esp), %ebx
-L803:
-	movzwl	(%ebx), %eax
+	je	L440
+	movl	88(%esp), %eax
+L820:
+	movzwl	(%eax), %edx
 	.p2align 4,,10
-L435:
-	leal	-9(%eax), %ecx
+L441:
+	leal	-9(%edx), %ecx
 	cmpw	$23, %cx
-	ja	L375
-	movl	$1, %eax
-	sall	%cl, %eax
-	testl	$8388639, %eax
-	je	L434
-	addl	$2, %ebx
+	ja	L355
 	movl	$1, %edx
-	jmp	L376
+	sall	%cl, %edx
+	andl	$8388639, %edx
+	je	L440
+	addl	$2, %eax
+	movl	$1, %ebx
+	jmp	L356
 	.p2align 4,,10
-L377:
-	movl	%edx, %eax
-	addl	$2, %ebx
-	sall	%cl, %eax
-	testl	$8388639, %eax
-	je	L434
-L376:
-	movzwl	(%ebx), %eax
-	leal	-9(%eax), %ecx
+L357:
+	movl	%ebx, %edx
+	addl	$2, %eax
+	sall	%cl, %edx
+	andl	$8388639, %edx
+	je	L440
+L356:
+	movzwl	(%eax), %edx
+	leal	-9(%edx), %ecx
 	cmpw	$23, %cx
-	jbe	L377
-	movl	%ebx, 84(%esp)
-	jmp	L375
+	jbe	L357
+	movl	%eax, 88(%esp)
+	jmp	L355
 	.p2align 4,,10
-L819:
-	movl	16(%esp), %eax
-	movl	%edx, 40(%esp)
+L838:
+	movl	20(%esp), %eax
 	call	_ParseAsIntegerPartNumberSequence
-	movl	40(%esp), %edx
-	movl	84(%esp), %ebx
-	testl	%edx, %edx
-	je	L291
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L290
-	cmpw	%ax, (%ebx)
-	jne	L291
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L292
-	.p2align 4,,10
-L293:
-	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L291
-L292:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L293
-L290:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-	.p2align 4,,10
-L291:
-	movl	%esi, %edi
-	andl	$2, %edi
-	je	L294
-	cmpw	$32, (%ebx)
-	je	L822
-L294:
-	movl	36(%esp), %eax
-	testl	%eax, %eax
-	je	L313
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L314
-	cmpw	%ax, (%ebx)
-	jne	L313
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L315
-	.p2align 4,,10
-L316:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L313
-L315:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L316
-L314:
-	movl	100(%esp), %eax
-	andl	$8, %esi
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	je	L189
-	movzwl	126(%esp), %eax
-	testw	%ax, %ax
-	je	L363
-	movzwl	(%ebx), %esi
-	cmpw	%ax, %si
-	jne	L419
-	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L317
-	.p2align 4,,10
-L320:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L419
-L317:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L320
-	jmp	L363
-	.p2align 4,,10
-L212:
-	movzwl	2(%edi), %eax
-	movw	%ax, 46(%esp)
-L214:
-	movzwl	46(%esp), %eax
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L224
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L224:
-	testl	$32, %esi
-	je	L225
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L226
-	movzwl	(%ebx), %ecx
-	cmpw	%ax, %cx
-	jne	L227
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L228
-	.p2align 4,,10
-L229:
-	addl	$2, %edx
-	cmpw	%di, (%ebx,%edx)
-	jne	L227
-L228:
-	movzwl	(%eax,%edx), %edi
-	testw	%di, %di
-	jne	L229
-L226:
-	movl	156(%esp), %eax
-	leal	(%ebx,%eax,2), %eax
-	movl	%eax, 84(%esp)
-	movl	16(%esp), %eax
-	call	_ParseAsFractionPartNumberSequence
-	movl	84(%esp), %ebx
-	movzwl	(%ebx), %ecx
-	.p2align 4,,10
-L227:
-	testl	$2, %esi
-	je	L221
-	cmpw	$32, %cx
-	jne	L221
-	movl	36(%esp), %edx
-	leal	2(%ebx), %eax
-	movl	%eax, 40(%esp)
-	movl	%eax, 84(%esp)
-	testl	%edx, %edx
-	jne	L230
-	movzwl	2(%ebx), %ecx
-	movl	%eax, %ebx
-	jmp	L221
-	.p2align 4,,10
-L186:
-	movzwl	136(%esp), %edx
-	testw	%dx, %dx
-	je	L196
-	cmpw	%ax, %dx
-	jne	L194
-	xorl	%ecx, %ecx
-	leal	138(%esp), %edx
-	jmp	L410
-	.p2align 4,,10
-L195:
-	addl	$2, %ecx
-	cmpw	%di, (%ebx,%ecx)
-	jne	L194
-L410:
-	movzwl	(%edx,%ecx), %edi
-	testw	%di, %di
-	jne	L195
-L196:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	104(%esp), %edx
-	leal	(%ebx,%eax,2), %ebx
-	movzwl	(%ebx), %eax
-	movl	%ebx, 84(%esp)
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L407
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L407:
-	movl	%esi, %edi
-	andl	$2, %edi
-	andl	$32, %esi
-	je	L189
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
+	movl	88(%esp), %eax
+	testl	%edi, %edi
 	je	L271
-	cmpw	(%ebx), %ax
-	jne	L189
-	xorl	%edx, %edx
-	leal	150(%esp), %eax
-	jmp	L198
-	.p2align 4,,10
-L199:
-	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L192
-L198:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
-	jne	L199
-	jmp	L271
-	.p2align 4,,10
-L383:
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	32(%esp), %eax
-L807:
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	movl	56(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	24(%esp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateBlock
-	movl	$1, %eax
-	jmp	L140
-	.p2align 4,,10
-L313:
-	andl	$8, %esi
-	je	L189
-	movzwl	126(%esp), %eax
-	testw	%ax, %ax
-	je	L323
-	movzwl	(%ebx), %esi
-	cmpw	%ax, %si
-	jne	L324
-	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L325
-	.p2align 4,,10
-L326:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L324
-L325:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L326
-L323:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
-	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	je	L189
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L332
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L417
-	.p2align 4,,10
-L327:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L417:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L327
-	jmp	L332
-	.p2align 4,,10
-L452:
-	movl	28(%esp), %eax
-	movl	24(%esp), %ebx
-	movl	%eax, 36(%esp)
-	jmp	L393
-	.p2align 4,,10
-L253:
-	movl	36(%esp), %eax
-	testl	%eax, %eax
-	jne	L437
-L804:
-	movzwl	(%ebx), %eax
-	jmp	L375
-	.p2align 4,,10
-L427:
-	movzwl	94(%esp), %edx
+	movzwl	132(%esp), %edx
 	testw	%dx, %dx
-	je	L268
-	movzwl	(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L266
-	xorl	%ecx, %ecx
-	leal	96(%esp), %edx
-	jmp	L428
-	.p2align 4,,10
-L267:
-	addl	$2, %ecx
-	cmpw	%di, (%ebx,%ecx)
-	jne	L266
-L428:
-	movzwl	(%edx,%ecx), %edi
-	testw	%di, %di
-	jne	L267
-L268:
-	movl	100(%esp), %eax
-	movl	40(%esp), %edx
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	testl	%edx, %edx
-	je	L269
-	cmpw	$32, %ax
-	jne	L269
-	leal	2(%ebx), %edx
-	movzwl	2(%ebx), %eax
-	movl	%edx, 84(%esp)
-	movl	%edx, %ebx
-L269:
-	leal	104(%esp), %edx
-	call	_ParseDecimalDigit
-	testl	%eax, %eax
-	js	L270
-	movl	16(%esp), %eax
-	call	_ParseAsIntegerPartNumberSequence
-	movl	84(%esp), %ebx
-L270:
-	movl	%esi, %edi
-	andl	$2, %edi
-	andl	$32, %esi
-	je	L189
-	movzwl	148(%esp), %eax
-	testw	%ax, %ax
-	je	L271
-	cmpw	%ax, (%ebx)
-	jne	L189
+	je	L270
+	cmpw	%dx, (%eax)
+	jne	L271
 	xorl	%edx, %edx
-	leal	150(%esp), %eax
+	leal	134(%esp), %ecx
 	jmp	L272
 	.p2align 4,,10
 L273:
 	addl	$2, %edx
-	cmpw	%cx, (%ebx,%edx)
-	jne	L192
+	cmpw	%si, (%eax,%edx)
+	jne	L271
 L272:
-	movzwl	(%eax,%edx), %ecx
-	testw	%cx, %cx
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
 	jne	L273
-	jmp	L271
+L270:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
 	.p2align 4,,10
-L206:
-	movzwl	136(%esp), %eax
-	testw	%ax, %ax
-	je	L318
-	cmpw	%ax, %si
-	jne	L189
-	xorl	%eax, %eax
-	leal	138(%esp), %edx
-	jmp	L405
+L271:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	je	L274
+	cmpw	$32, (%eax)
+	je	L844
+L274:
+	movl	24(%esp), %edx
+	testl	%edx, %edx
+	je	L293
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L294
+	cmpw	%dx, (%eax)
+	jne	L293
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L295
 	.p2align 4,,10
-L209:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L405:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L209
-L318:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	jmp	L189
+L296:
+	addl	$2, %edx
+	cmpw	%si, (%eax,%edx)
+	jne	L293
+L295:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L296
+L294:
+	movl	104(%esp), %edx
+	andl	$8, %ebx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	je	L177
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L343
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L423
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L297
 	.p2align 4,,10
-L225:
-	movzwl	(%ebx), %ecx
-	jmp	L227
+L300:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L423
+L297:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L300
+	jmp	L343
 	.p2align 4,,10
-L814:
+L199:
+	movzwl	2(%edx), %edi
+	movw	%di, 46(%esp)
+L201:
+	movzwl	46(%esp), %edx
+	subl	$48, %edx
+	cmpw	$9, %dx
+	jbe	L845
+L406:
+	testb	$32, %bl
+	je	L210
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L211
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L212
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L213
+	.p2align 4,,10
+L214:
+	addl	$2, %edx
+	cmpw	%di, (%eax,%edx)
+	jne	L212
+L213:
+	movzwl	(%ecx,%edx), %edi
+	testw	%di, %di
+	jne	L214
+L211:
+	movl	140(%esp), %edx
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movl	20(%esp), %eax
+	call	_ParseAsFractionPartNumberSequence
+	movl	88(%esp), %eax
+	movzwl	(%eax), %esi
+	.p2align 4,,10
+L212:
+	testb	$2, %bl
+	je	L207
+	cmpw	$32, %si
+	jne	L207
+	movl	24(%esp), %edx
+	leal	2(%eax), %edi
+	movl	%edi, 40(%esp)
+	movl	%edi, 88(%esp)
+	testl	%edx, %edx
+	jne	L215
+	movzwl	2(%eax), %esi
+	movl	%edi, %eax
+	jmp	L207
+	.p2align 4,,10
+L174:
+	movzwl	120(%esp), %edx
+	testw	%dx, %dx
+	je	L184
+	cmpw	%si, %dx
+	jne	L182
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L402
+	.p2align 4,,10
+L183:
+	addl	$2, %edx
+	cmpw	%di, (%eax,%edx)
+	jne	L182
+L402:
+	movzwl	(%ecx,%edx), %edi
+	testw	%di, %di
+	jne	L183
+L184:
+	movl	128(%esp), %edx
+	movb	$-1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %eax
+	subl	$48, %eax
+	cmpw	$9, %ax
+	ja	L399
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+L399:
+	movl	%ebx, %edi
+	movl	88(%esp), %eax
+	andl	$2, %edi
+	andl	$32, %ebx
+	je	L177
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L253
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L186
+	.p2align 4,,10
+L187:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L186:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L187
+	jmp	L253
+	.p2align 4,,10
+L363:
+	movl	68(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	%ebx, %eax
-	jmp	L807
-	.p2align 4,,10
-L279:
-	movl	36(%esp), %ecx
-	testl	%ecx, %ecx
-	je	L804
-	jmp	L436
-	.p2align 4,,10
-L438:
-	movl	$-1, %eax
-	jmp	L140
-	.p2align 4,,10
-L355:
-	andl	$8, %esi
-	je	L189
-	movzwl	126(%esp), %eax
-	testw	%ax, %ax
-	je	L365
-	movzwl	(%ebx), %esi
-	cmpw	%ax, %si
-	jne	L366
-	xorl	%eax, %eax
-	leal	128(%esp), %edx
-	jmp	L367
-	.p2align 4,,10
-L368:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L366
-L367:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L368
-L365:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
 	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	je	L189
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L374
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L424
+L824:
+	movl	%eax, (%esp)
+	call	_DeallocateBlock
+	movl	60(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	28(%esp), %eax
+	movl	%eax, (%esp)
+	call	_DeallocateBlock
+	movl	$1, %eax
+	jmp	L128
 	.p2align 4,,10
-L369:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L424:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L369
-L374:
-	movl	100(%esp), %eax
-	addl	%eax, %eax
-	addl	%eax, %ebx
-	movl	%ebx, 84(%esp)
-	jmp	L189
-L816:
-	movl	20(%esp), %edi
+L458:
+	movl	%eax, 36(%esp)
+	movl	28(%esp), %eax
+	jmp	L373
+	.p2align 4,,10
+L293:
+	andl	$8, %ebx
+	je	L177
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L303
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L304
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L305
+	.p2align 4,,10
+L306:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L304
+L305:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L306
+L303:
+	movl	116(%esp), %edx
+	movb	$1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	24(%esp), %edx
+	movl	%eax, 88(%esp)
+	testl	%edx, %edx
+	je	L177
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L312
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L422
+	.p2align 4,,10
+L307:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L422:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L307
+	jmp	L312
+	.p2align 4,,10
+L236:
+	movl	24(%esp), %edx
+	testl	%edx, %edx
+	jne	L443
+L821:
+	movzwl	(%eax), %edx
+	jmp	L355
+	.p2align 4,,10
+L433:
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L251
+	movzwl	(%eax), %edi
+	cmpw	%dx, %di
+	jne	L249
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L434
+	.p2align 4,,10
+L250:
+	addl	$2, %edx
+	cmpw	%si, (%eax,%edx)
+	jne	L249
+L434:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L250
+L251:
+	movl	104(%esp), %edx
+	movl	40(%esp), %esi
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	testl	%esi, %esi
+	je	L252
+	cmpw	$32, %dx
+	jne	L252
+	leal	2(%eax), %ecx
+	movzwl	2(%eax), %edx
+	movl	%ecx, 88(%esp)
+	movl	%ecx, %eax
+L252:
+	subl	$48, %edx
+	cmpw	$9, %dx
+	jbe	L846
+L414:
+	movl	%ebx, %edi
+	andl	$2, %edi
+	andl	$32, %ebx
+	je	L177
+	movzwl	132(%esp), %edx
+	testw	%dx, %dx
+	je	L253
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	134(%esp), %ecx
+	jmp	L254
+	.p2align 4,,10
+L255:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L254:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L255
+	jmp	L253
+	.p2align 4,,10
+L460:
+	movl	$-10, %ebx
+	jmp	L377
+	.p2align 4,,10
+L193:
+	movzwl	120(%esp), %edx
+	testw	%dx, %dx
+	je	L298
+	cmpw	%si, %dx
+	jne	L177
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L395
+	.p2align 4,,10
+L196:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L395:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L196
+L298:
+	movl	128(%esp), %edx
+	movb	$-1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	jmp	L177
+	.p2align 4,,10
+L335:
+	andl	$8, %ebx
+	je	L177
+	movzwl	108(%esp), %edx
+	testw	%dx, %dx
+	je	L345
+	movzwl	(%eax), %esi
+	cmpw	%dx, %si
+	jne	L346
+	xorl	%edx, %edx
+	leal	110(%esp), %ecx
+	jmp	L347
+	.p2align 4,,10
+L348:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L346
+L347:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L348
+L345:
+	movl	116(%esp), %edx
+	movl	24(%esp), %ebx
+	movb	$1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	testl	%ebx, %ebx
+	je	L177
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L354
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L428
+	.p2align 4,,10
+L349:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L428:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L349
+L354:
+	movl	104(%esp), %edx
+	addl	%edx, %edx
+	addl	%edx, %eax
+	movl	%eax, 88(%esp)
+	jmp	L177
+	.p2align 4,,10
+L210:
+	movzwl	(%eax), %esi
+	jmp	L212
+	.p2align 4,,10
+L832:
+	movl	%eax, 4(%esp)
+	movl	%edi, %eax
+	jmp	L824
+	.p2align 4,,10
+L830:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L397
+	.p2align 4,,10
+L260:
+	movl	24(%esp), %ebx
+	testl	%ebx, %ebx
+	je	L821
+	jmp	L442
+	.p2align 4,,10
+L444:
+	movl	$-1, %eax
+	jmp	L128
+L834:
+	movl	28(%esp), %edi
 	movl	%ebp, %esi
 	movl	%ebx, %ecx
 /APP
@@ -4120,536 +4031,560 @@ L816:
 	rep movsd
  # 0 "" 2
 /NO_APP
-	movl	84(%esp), %eax
+	movl	88(%esp), %eax
 	movl	%ebp, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DeallocateBlock
-	movl	76(%esp), %eax
+	movl	80(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	(%eax), %eax
 	movl	36(%eax), %eax
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L140
-	movl	72(%esp), %edx
-	movl	%eax, 16(%esp)
-	movl	28(%esp), %eax
+	jne	L128
+	movl	76(%esp), %edx
+	movl	%eax, 20(%esp)
+	movl	24(%esp), %eax
 	movl	%edx, 4(%esp)
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	(%eax), %edx
 	movl	%edx, (%esp)
 	call	_CommitNumber
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	(%eax), %edx
-	movl	16(%esp), %eax
+	movl	20(%esp), %eax
 	testb	$1, (%edx)
-	je	L140
+	je	L128
 	movl	%edx, (%esp)
 	call	_DeallocateNumber
-	movl	228(%esp), %eax
+	movl	212(%esp), %eax
 	movl	$_number_zero, (%eax)
-	movl	16(%esp), %eax
-	jmp	L140
-L324:
-	movzwl	136(%esp), %eax
-	testw	%ax, %ax
-	je	L330
-	cmpw	%ax, %si
-	jne	L189
-	xorl	%eax, %eax
-	leal	138(%esp), %edx
-	jmp	L418
+	movl	20(%esp), %eax
+	jmp	L128
 	.p2align 4,,10
-L329:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L418:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L329
-L330:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
-	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	je	L189
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L332
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
+L836:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L411
+L845:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L406
+L833:
+	movl	%eax, 20(%esp)
+	jmp	L823
+L160:
+	movl	$-6, %eax
+	jmp	L128
+L840:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
 	jmp	L416
-	.p2align 4,,10
-L331:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L416:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L331
-	jmp	L332
-L815:
-	movl	%eax, 16(%esp)
-	jmp	L806
-L172:
-	movl	$-5, %eax
-	jmp	L140
-L822:
-	movl	36(%esp), %eax
-	leal	2(%ebx), %edi
-	movl	%edi, 84(%esp)
-	testl	%eax, %eax
-	je	L295
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L296
-	cmpw	%ax, 2(%ebx)
-	jne	L295
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L297
-	.p2align 4,,10
-L298:
-	addl	$2, %eax
-	cmpw	%cx, 2(%ebx,%eax)
-	jne	L295
-L297:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L298
-L296:
-	movl	100(%esp), %eax
-	andl	$8, %esi
-	leal	(%edi,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	je	L803
-	movzwl	126(%esp), %edx
+L304:
+	movzwl	120(%esp), %edx
 	testw	%dx, %dx
-	je	L345
-	movzwl	(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L415
-	xorl	%ecx, %ecx
-	leal	128(%esp), %edx
-	jmp	L299
-L302:
-	addl	$2, %ecx
-	cmpw	%si, (%ebx,%ecx)
-	jne	L415
-L299:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
-	jne	L302
-L345:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	addl	%eax, %eax
-	addl	%eax, %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L818:
-	movl	36(%esp), %eax
-	leal	2(%ebx), %edi
-	movl	%edi, 84(%esp)
-	testl	%eax, %eax
-	je	L255
-	movzwl	94(%esp), %edx
-	testw	%dx, %dx
-	je	L282
-	movzwl	2(%ebx), %eax
-	cmpw	%ax, %dx
-	jne	L450
-	xorl	%ecx, %ecx
-	leal	96(%esp), %edx
-	jmp	L258
+	je	L310
+	cmpw	%dx, %si
+	jne	L177
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L421
 	.p2align 4,,10
-L259:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L450
-L258:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
-	jne	L259
-L282:
-	movl	100(%esp), %eax
-	leal	(%edi,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-	.p2align 4,,10
-L255:
-	movzwl	2(%ebx), %eax
-	movl	%edi, %ebx
-	jmp	L435
-L295:
-	andl	$8, %esi
-	je	L255
-	movzwl	126(%esp), %edx
+L309:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L421:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L309
+L310:
+	movl	128(%esp), %edx
+	movl	24(%esp), %ecx
+	movb	$-1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	testl	%ecx, %ecx
+	je	L177
+	movzwl	98(%esp), %edx
 	testw	%dx, %dx
-	je	L306
-	movzwl	2(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L307
-	xorl	%ecx, %ecx
-	leal	128(%esp), %edx
-	jmp	L308
+	je	L312
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L420
 	.p2align 4,,10
 L311:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L307
-L308:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L420:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
 	jne	L311
-L306:
-	movl	132(%esp), %eax
-	movb	$1, 92(%esp)
-	leal	(%edi,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L366:
-	movzwl	136(%esp), %eax
-	testw	%ax, %ax
-	je	L372
-	cmpw	%ax, %si
-	jne	L189
-	xorl	%eax, %eax
-	leal	138(%esp), %edx
-	jmp	L423
-	.p2align 4,,10
-L371:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L423:
-	movzwl	(%edx,%eax), %ecx
+	jmp	L312
+L837:
+	movl	24(%esp), %esi
+	leal	2(%eax), %edi
+	movl	%edi, 88(%esp)
+	testl	%esi, %esi
+	je	L238
+	movzwl	98(%esp), %ecx
 	testw	%cx, %cx
-	jne	L371
-L372:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	(%ebx,%eax,2), %ebx
-	movl	36(%esp), %eax
-	movl	%ebx, 84(%esp)
-	testl	%eax, %eax
-	je	L189
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L374
-	cmpw	%ax, (%ebx)
-	jne	L189
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L422
-L373:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L422:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L373
-	jmp	L374
-L821:
-	movl	36(%esp), %eax
-	leal	2(%ebx), %edi
-	movl	%edi, 84(%esp)
-	testl	%eax, %eax
-	je	L255
-	movzwl	94(%esp), %edx
-	testw	%dx, %dx
-	je	L282
-	movzwl	2(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L450
-	xorl	%ecx, %ecx
-	leal	96(%esp), %edx
-	jmp	L283
+	je	L263
+	movzwl	2(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L456
+	xorl	%ebx, %ebx
+	leal	100(%esp), %ecx
+	jmp	L241
 	.p2align 4,,10
-L284:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L450
-L283:
-	movzwl	(%edx,%ecx), %esi
+L242:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L456
+L241:
+	movzwl	(%ecx,%ebx), %esi
 	testw	%si, %si
-	jne	L284
-	jmp	L282
-L450:
-	movl	%edi, %ebx
-	jmp	L435
-L820:
-	movl	36(%esp), %eax
-	leal	2(%ebx), %edi
-	movl	%edi, 84(%esp)
-	testl	%eax, %eax
-	je	L337
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L338
-	cmpw	%ax, 2(%ebx)
-	jne	L337
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L339
-	.p2align 4,,10
-L340:
-	addl	$2, %eax
-	cmpw	%cx, 2(%ebx,%eax)
-	jne	L337
-L339:
-	movzwl	(%edx,%eax), %ecx
-	testw	%cx, %cx
-	jne	L340
-L338:
-	movl	100(%esp), %ebx
-	addl	%ebx, %ebx
-	addl	%edi, %ebx
-	andl	$8, %esi
-	movl	%ebx, 84(%esp)
-	je	L803
-	movzwl	126(%esp), %edx
+	jne	L242
+L263:
+	movl	104(%esp), %eax
+	leal	(%edi,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L238:
+	movzwl	2(%eax), %edx
+	movl	%edi, %eax
+	jmp	L441
+L844:
+	movl	24(%esp), %ecx
+	leal	2(%eax), %edi
+	movl	%edi, 88(%esp)
+	testl	%ecx, %ecx
+	je	L275
+	movzwl	98(%esp), %edx
 	testw	%dx, %dx
-	je	L345
-	movzwl	(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L421
-	xorl	%esi, %esi
-	leal	128(%esp), %edx
-	jmp	L341
-L344:
-	addl	$2, %esi
-	cmpw	%cx, (%ebx,%esi)
-	jne	L421
-L341:
-	movzwl	(%edx,%esi), %ecx
-	testw	%cx, %cx
-	jne	L344
-	jmp	L345
+	je	L276
+	cmpw	%dx, 2(%eax)
+	jne	L275
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L277
 	.p2align 4,,10
-L337:
-	andl	$8, %esi
-	je	L255
-	movzwl	126(%esp), %edx
+L278:
+	addl	$2, %edx
+	cmpw	%si, 2(%eax,%edx)
+	jne	L275
+L277:
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L278
+L276:
+	movl	104(%esp), %eax
+	andl	$8, %ebx
+	leal	(%edi,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	je	L820
+	movzwl	108(%esp), %ecx
+	testw	%cx, %cx
+	je	L325
+	movzwl	(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L419
+	xorl	%ebx, %ebx
+	leal	110(%esp), %ecx
+	jmp	L279
+L282:
+	addl	$2, %ebx
+	cmpw	%si, (%eax,%ebx)
+	jne	L419
+L279:
+	movzwl	(%ecx,%ebx), %esi
+	testw	%si, %si
+	jne	L282
+L325:
+	movl	116(%esp), %edx
+	movb	$1, 96(%esp)
+	addl	%edx, %edx
+	addl	%edx, %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L346:
+	movzwl	120(%esp), %edx
 	testw	%dx, %dx
-	je	L348
-	movzwl	2(%ebx), %eax
-	cmpw	%dx, %ax
-	jne	L349
-	xorl	%ecx, %ecx
-	leal	128(%esp), %edx
-	jmp	L350
+	je	L352
+	cmpw	%dx, %si
+	jne	L177
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L427
+	.p2align 4,,10
+L351:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L427:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L351
+L352:
+	movl	128(%esp), %edx
+	movl	24(%esp), %esi
+	movb	$-1, 96(%esp)
+	leal	(%eax,%edx,2), %eax
+	movl	%eax, 88(%esp)
+	testl	%esi, %esi
+	je	L177
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L354
+	cmpw	%dx, (%eax)
+	jne	L177
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L426
 	.p2align 4,,10
 L353:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L349
-L350:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L426:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
 	jne	L353
-L348:
-	movl	132(%esp), %ebx
-	movb	$1, 92(%esp)
-	addl	%ebx, %ebx
-	addl	%edi, %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L230:
-	movzwl	94(%esp), %eax
-	testw	%ax, %ax
-	je	L231
-	movzwl	2(%ebx), %ecx
-	cmpw	%ax, %cx
-	jne	L442
-	xorl	%eax, %eax
-	leal	96(%esp), %edx
-	jmp	L232
+	jmp	L354
+L841:
+	movl	24(%esp), %ebx
+	leal	2(%eax), %edi
+	movl	%edi, 88(%esp)
+	testl	%ebx, %ebx
+	je	L238
+	movzwl	98(%esp), %ecx
+	testw	%cx, %cx
+	je	L263
+	movzwl	2(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L456
+	xorl	%ebx, %ebx
+	leal	100(%esp), %ecx
+	jmp	L264
 	.p2align 4,,10
-L233:
-	addl	$2, %eax
-	cmpw	%di, 2(%ebx,%eax)
-	jne	L442
-L232:
-	movzwl	(%edx,%eax), %edi
-	testw	%di, %di
-	jne	L233
-L231:
-	movl	100(%esp), %eax
-	movl	40(%esp), %ebx
-	leal	(%ebx,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %ecx
-	jmp	L221
-L419:
-	movzwl	136(%esp), %eax
-	testw	%ax, %ax
+L265:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L456
+L264:
+	movzwl	(%ecx,%ebx), %esi
+	testw	%si, %si
+	jne	L265
+	jmp	L263
+L275:
+	andl	$8, %ebx
+	je	L238
+	movzwl	108(%esp), %ecx
+	testw	%cx, %cx
+	je	L286
+	movzwl	2(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L287
+	xorl	%ebx, %ebx
+	leal	110(%esp), %ecx
+	jmp	L288
+	.p2align 4,,10
+L291:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L287
+L288:
+	movzwl	(%ecx,%ebx), %esi
+	testw	%si, %si
+	jne	L291
+L286:
+	movl	116(%esp), %eax
+	movb	$1, 96(%esp)
+	leal	(%edi,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L839:
+	movl	24(%esp), %esi
+	leal	2(%eax), %edi
+	movl	%edi, 88(%esp)
+	testl	%esi, %esi
+	je	L317
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
 	je	L318
-	cmpw	%ax, %si
-	jne	L189
-	xorl	%eax, %eax
-	leal	138(%esp), %edx
+	cmpw	%dx, 2(%eax)
+	jne	L317
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
 	jmp	L319
 	.p2align 4,,10
-L322:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
+L320:
+	addl	$2, %edx
+	cmpw	%si, 2(%eax,%edx)
+	jne	L317
 L319:
-	movzwl	(%edx,%eax), %ecx
+	movzwl	(%ecx,%edx), %esi
+	testw	%si, %si
+	jne	L320
+L318:
+	movl	104(%esp), %eax
+	andl	$8, %ebx
+	leal	(%edi,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	je	L820
+	movzwl	108(%esp), %ecx
 	testw	%cx, %cx
-	jne	L322
-	jmp	L318
-L805:
-	movl	56(%esp), %eax
+	je	L325
+	movzwl	(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L425
+	xorl	%esi, %esi
+	leal	110(%esp), %ecx
+	jmp	L321
+L324:
+	addl	$2, %esi
+	cmpw	%bx, (%eax,%esi)
+	jne	L425
+L321:
+	movzwl	(%ecx,%esi), %ebx
+	testw	%bx, %bx
+	jne	L324
+	jmp	L325
+	.p2align 4,,10
+L456:
+	movl	%edi, %eax
+	jmp	L441
+L843:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L409
+L842:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L404
+L317:
+	andl	$8, %ebx
+	je	L238
+	movzwl	108(%esp), %ecx
+	testw	%cx, %cx
+	je	L328
+	movzwl	2(%eax), %edx
+	cmpw	%cx, %dx
+	jne	L329
+	xorl	%ebx, %ebx
+	leal	110(%esp), %ecx
+	jmp	L330
+	.p2align 4,,10
+L333:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L329
+L330:
+	movzwl	(%ecx,%ebx), %esi
+	testw	%si, %si
+	jne	L333
+L328:
+	movl	116(%esp), %eax
+	movb	$1, 96(%esp)
+	addl	%eax, %eax
+	addl	%edi, %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L846:
+	movl	20(%esp), %eax
+	call	_ParseAsIntegerPartNumberSequence
+	movl	88(%esp), %eax
+	jmp	L414
+L215:
+	movzwl	98(%esp), %edx
+	testw	%dx, %dx
+	je	L216
+	movzwl	2(%eax), %esi
+	cmpw	%dx, %si
+	jne	L448
+	xorl	%edx, %edx
+	leal	100(%esp), %ecx
+	jmp	L217
+	.p2align 4,,10
+L218:
+	addl	$2, %edx
+	cmpw	%di, 2(%eax,%edx)
+	jne	L448
+L217:
+	movzwl	(%ecx,%edx), %edi
+	testw	%di, %di
+	jne	L218
+L216:
+	movl	104(%esp), %eax
+	movl	40(%esp), %edi
+	leal	(%edi,%eax,2), %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %esi
+	jmp	L207
+L423:
+	movzwl	120(%esp), %edx
+	testw	%dx, %dx
+	je	L298
+	cmpw	%dx, %si
+	jne	L177
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L299
+	.p2align 4,,10
+L302:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L299:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L302
+	jmp	L298
+L822:
+	movl	60(%esp), %eax
 	movl	%eax, 4(%esp)
-	movl	24(%esp), %eax
+	movl	28(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	movl	$-5, %eax
-	jmp	L140
-L307:
-	movzwl	136(%esp), %edx
+	movl	$-6, %eax
+	jmp	L128
+L429:
+	movzwl	120(%esp), %edx
 	testw	%dx, %dx
-	je	L309
-	cmpw	%dx, %ax
-	jne	L450
-	xorl	%ecx, %ecx
-	leal	138(%esp), %edx
-	jmp	L310
+	je	L340
+	cmpw	%dx, %si
+	jne	L177
+	xorl	%edx, %edx
+	leal	122(%esp), %ecx
+	jmp	L341
 	.p2align 4,,10
-L312:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L450
-L310:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
-	jne	L312
-L309:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	leal	(%edi,%eax,2), %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L442:
-	movl	40(%esp), %ebx
-	jmp	L221
-L425:
-	movzwl	136(%esp), %eax
-	testw	%ax, %ax
-	je	L360
-	cmpw	%ax, %si
-	jne	L189
-	xorl	%eax, %eax
-	leal	138(%esp), %edx
-	jmp	L361
-	.p2align 4,,10
-L364:
-	addl	$2, %eax
-	cmpw	%cx, (%ebx,%eax)
-	jne	L192
-L361:
-	movzwl	(%edx,%eax), %ecx
+L344:
+	addl	$2, %edx
+	cmpw	%bx, (%eax,%edx)
+	jne	L180
+L341:
+	movzwl	(%ecx,%edx), %ebx
+	testw	%bx, %bx
+	jne	L344
+L340:
+	movl	128(%esp), %edx
+	movb	$-1, 96(%esp)
+	addl	%edx, %edx
+	addl	%edx, %eax
+	movl	%eax, 88(%esp)
+	jmp	L177
+L448:
+	movl	40(%esp), %eax
+	jmp	L207
+L287:
+	movzwl	120(%esp), %ecx
 	testw	%cx, %cx
-	jne	L364
-L360:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
-	addl	%eax, %eax
-	addl	%eax, %ebx
-	movl	%ebx, 84(%esp)
-	jmp	L189
-L349:
-	movzwl	136(%esp), %edx
-	testw	%dx, %dx
-	je	L351
-	cmpw	%ax, %dx
-	jne	L450
-	xorl	%ecx, %ecx
-	leal	138(%esp), %edx
-	jmp	L352
+	je	L331
+	cmpw	%cx, %dx
+	jne	L456
+	xorl	%ebx, %ebx
+	leal	122(%esp), %ecx
+	jmp	L290
 	.p2align 4,,10
-L354:
-	addl	$2, %ecx
-	cmpw	%si, 2(%ebx,%ecx)
-	jne	L450
-L352:
-	movzwl	(%edx,%ecx), %esi
+L292:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L456
+L290:
+	movzwl	(%ecx,%ebx), %esi
 	testw	%si, %si
-	jne	L354
-L351:
-	movl	144(%esp), %ebx
-	movb	$-1, 92(%esp)
-	addl	%ebx, %ebx
-	addl	%edi, %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L415:
-	movzwl	136(%esp), %edx
-	testw	%dx, %dx
-	je	L342
-	cmpw	%dx, %ax
-	jne	L435
-	xorl	%ecx, %ecx
-	leal	138(%esp), %edx
-	jmp	L301
-	.p2align 4,,10
-L304:
-	addl	$2, %ecx
-	cmpw	%si, (%ebx,%ecx)
-	jne	L435
-L301:
-	movzwl	(%edx,%ecx), %esi
-	testw	%si, %si
-	jne	L304
-L342:
-	movl	144(%esp), %eax
-	movb	$-1, 92(%esp)
+	jne	L292
+L331:
+	movl	128(%esp), %eax
+	movb	$-1, 96(%esp)
 	addl	%eax, %eax
-	addl	%eax, %ebx
-	movl	%ebx, 84(%esp)
-	movzwl	(%ebx), %eax
-	jmp	L435
-L421:
-	movzwl	136(%esp), %edx
-	testw	%dx, %dx
-	je	L342
-	cmpw	%dx, %ax
-	jne	L435
+	addl	%edi, %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L329:
+	movzwl	120(%esp), %ecx
+	testw	%cx, %cx
+	je	L331
+	cmpw	%dx, %cx
+	jne	L456
+	xorl	%ebx, %ebx
+	leal	122(%esp), %ecx
+	jmp	L332
+	.p2align 4,,10
+L334:
+	addl	$2, %ebx
+	cmpw	%si, 2(%eax,%ebx)
+	jne	L456
+L332:
+	movzwl	(%ecx,%ebx), %esi
+	testw	%si, %si
+	jne	L334
+	jmp	L331
+L419:
+	movzwl	120(%esp), %ecx
+	testw	%cx, %cx
+	je	L322
+	cmpw	%cx, %dx
+	jne	L441
 	xorl	%esi, %esi
-	leal	138(%esp), %edx
-	jmp	L343
+	leal	122(%esp), %ecx
+	jmp	L281
 	.p2align 4,,10
-L346:
+L284:
 	addl	$2, %esi
-	cmpw	%cx, (%ebx,%esi)
-	jne	L435
-L343:
-	movzwl	(%edx,%esi), %ecx
+	cmpw	%bx, (%eax,%esi)
+	jne	L441
+L281:
+	movzwl	(%ecx,%esi), %ebx
+	testw	%bx, %bx
+	jne	L284
+L322:
+	movl	128(%esp), %edx
+	movb	$-1, 96(%esp)
+	addl	%edx, %edx
+	addl	%edx, %eax
+	movl	%eax, 88(%esp)
+	movzwl	(%eax), %edx
+	jmp	L441
+L425:
+	movzwl	120(%esp), %ecx
 	testw	%cx, %cx
-	jne	L346
-	jmp	L342
-L398:
-	movl	$-5, %eax
-	jmp	L403
+	je	L322
+	cmpw	%cx, %dx
+	jne	L441
+	xorl	%esi, %esi
+	leal	122(%esp), %ecx
+	jmp	L323
+	.p2align 4,,10
+L326:
+	addl	$2, %esi
+	cmpw	%bx, (%eax,%esi)
+	jne	L441
+L323:
+	movzwl	(%ecx,%esi), %ebx
+	testw	%bx, %bx
+	jne	L326
+	jmp	L322
+L388:
+	movl	$-6, %eax
+	jmp	L393
 	.cfi_endproc
 LFE5515:
 	.p2align 4,,15
@@ -4667,9 +4602,9 @@ LFB5516:
 	movl	48(%esp), %eax
 	movl	56(%esp), %ecx
 	testl	%ebx, %ebx
-	je	L827
+	je	L851
 	testl	%eax, %eax
-	je	L827
+	je	L851
 	testl	%ecx, %ecx
 	movl	$_default_number_format_option, %edx
 	cmove	%edx, %ecx
@@ -4680,12 +4615,12 @@ LFB5516:
 	movl	52(%esp), %edx
 	call	_PMC_TryParse_Imp
 	testl	%eax, %eax
-	jne	L823
+	jne	L847
 	cmpb	$0, 27(%esp)
 	movl	28(%esp), %edx
-	js	L829
+	js	L853
 	movl	%edx, (%ebx)
-L823:
+L847:
 	addl	$40, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 8
@@ -4693,15 +4628,15 @@ L823:
 	.cfi_restore 3
 	.cfi_def_cfa_offset 4
 	ret	$16
-L827:
+L851:
 	.cfi_restore_state
 	movl	$-1, %eax
-	jmp	L823
-L829:
+	jmp	L847
+L853:
 	movl	%edx, (%esp)
 	call	_DeallocateNumber
 	movl	$-2, %eax
-	jmp	L823
+	jmp	L847
 	.cfi_endproc
 LFE5516:
 	.p2align 4,,15
@@ -4734,10 +4669,10 @@ LFB5517:
 	sete	%bl
 	movl	%edi, %eax
 	orb	%bl, %al
-	jne	L833
+	jne	L857
 	movl	64(%esp), %eax
 	testl	%eax, %eax
-	je	L833
+	je	L857
 	testl	%ecx, %ecx
 	movl	$_default_number_format_option, %esi
 	movl	%edx, (%esp)
@@ -4748,10 +4683,10 @@ LFB5517:
 	movl	%esi, 4(%esp)
 	call	_PMC_TryParse_Imp
 	testl	%eax, %eax
-	jne	L830
+	jne	L854
 	movl	28(%esp), %edx
 	movl	%edx, 0(%ebp)
-L830:
+L854:
 	addl	$44, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -4769,10 +4704,10 @@ L830:
 	.cfi_def_cfa_offset 4
 	ret	$20
 	.p2align 4,,10
-L833:
+L857:
 	.cfi_restore_state
 	movl	$-1, %eax
-	jmp	L830
+	jmp	L854
 	.cfi_endproc
 LFE5517:
 	.p2align 4,,15
@@ -4800,7 +4735,7 @@ LFB5518:
 	.cfi_endproc
 LFE5518:
 .lcomm _fp_MultiplyAndAdd,4,4
-.lcomm _default_number_format_option,192,32
+.lcomm _default_number_format_option,176,32
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
 	.def	_AllocateBlock;	.scl	2;	.type	32;	.endef
 	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef

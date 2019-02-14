@@ -89,7 +89,7 @@ extern "C" {
 
         // 文字列化/文字列の解析
         void (__PMC_CALL * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE (__PMC_CALL * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE (__PMC_CALL * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE (__PMC_CALL * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
         // Add 関数

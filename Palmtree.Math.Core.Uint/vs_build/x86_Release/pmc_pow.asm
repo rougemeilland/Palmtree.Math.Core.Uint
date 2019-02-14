@@ -288,7 +288,7 @@ $LN45@PMC_Pow_X_:
 
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp

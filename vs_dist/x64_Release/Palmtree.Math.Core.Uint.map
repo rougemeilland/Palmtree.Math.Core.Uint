@@ -1,1014 +1,1055 @@
  Palmtree.Math.Core.Uint
 
- Timestamp is 5c603c2f (Sun Feb 10 23:58:55 2019)
+ Timestamp is 5c657d49 (Thu Feb 14 23:38:01 2019)
 
  Preferred load address is 0000000180000000
 
  Start         Length     Name                   Class
- 0001:00000000 00014990H .text$mn                CODE
- 0001:00014990 00000012H .text$mn$00             CODE
- 0001:000149a2 00000081H .text$x                 CODE
- 0002:00000000 00000140H .idata$5                DATA
- 0002:00000140 00000010H .00cfg                  DATA
- 0002:00000150 00000008H .CRT$XCA                DATA
- 0002:00000158 00000008H .CRT$XCZ                DATA
- 0002:00000160 00000008H .CRT$XIA                DATA
- 0002:00000168 00000008H .CRT$XIZ                DATA
- 0002:00000170 00000008H .CRT$XPA                DATA
- 0002:00000178 00000008H .CRT$XPZ                DATA
- 0002:00000180 00000008H .CRT$XTA                DATA
- 0002:00000188 00000008H .CRT$XTZ                DATA
- 0002:00000190 00000000H .gfids$y                DATA
- 0002:00000190 000001b0H .rdata                  DATA
- 0002:00000340 000002e0H .rdata$zzzdbg           DATA
- 0002:00000620 00000008H .rtc$IAA                DATA
- 0002:00000628 00000008H .rtc$IZZ                DATA
- 0002:00000630 00000008H .rtc$TAA                DATA
- 0002:00000638 00000008H .rtc$TZZ                DATA
- 0002:00000640 00000f10H .xdata                  DATA
- 0002:00001550 00000074H .edata                  DATA
- 0002:000015c4 0000003cH .idata$2                DATA
- 0002:00001600 00000018H .idata$3                DATA
- 0002:00001618 00000140H .idata$4                DATA
- 0002:00001758 00000332H .idata$6                DATA
- 0003:00000000 000000c0H .data                   DATA
- 0003:000000c0 00000ad0H .bss                    DATA
- 0004:00000000 00000b1cH .pdata                  DATA
+ 0001:00000000 00016050H .text$mn                CODE
+ 0001:00016050 00000012H .text$mn$00             CODE
+ 0001:00016062 00000081H .text$x                 CODE
+ 0002:00000000 00000150H .idata$5                DATA
+ 0002:00000150 00000010H .00cfg                  DATA
+ 0002:00000160 00000008H .CRT$XCA                DATA
+ 0002:00000168 00000008H .CRT$XCZ                DATA
+ 0002:00000170 00000008H .CRT$XIA                DATA
+ 0002:00000178 00000008H .CRT$XIZ                DATA
+ 0002:00000180 00000008H .CRT$XPA                DATA
+ 0002:00000188 00000008H .CRT$XPZ                DATA
+ 0002:00000190 00000008H .CRT$XTA                DATA
+ 0002:00000198 00000008H .CRT$XTZ                DATA
+ 0002:000001a0 00000000H .gfids$y                DATA
+ 0002:000001a0 000001b0H .rdata                  DATA
+ 0002:00000350 000002e0H .rdata$zzzdbg           DATA
+ 0002:00000630 00000008H .rtc$IAA                DATA
+ 0002:00000638 00000008H .rtc$IZZ                DATA
+ 0002:00000640 00000008H .rtc$TAA                DATA
+ 0002:00000648 00000008H .rtc$TZZ                DATA
+ 0002:00000650 00000fe0H .xdata                  DATA
+ 0002:00001630 00000074H .edata                  DATA
+ 0002:000016a4 0000003cH .idata$2                DATA
+ 0002:000016e0 00000018H .idata$3                DATA
+ 0002:000016f8 00000150H .idata$4                DATA
+ 0002:00001848 0000034eH .idata$6                DATA
+ 0003:00000000 000000a0H .data                   DATA
+ 0003:000000a0 00000ab0H .bss                    DATA
+ 0004:00000000 00000b88H .pdata                  DATA
  0005:00000000 000000a0H .rsrc$01                DATA
  0005:000000a0 000004a0H .rsrc$02                DATA
 
   Address         Publics by Value              Rva+Base               Lib:Object
 
- 0000:00000000       __guard_longjmp_count      0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
  0000:00000000       __guard_iat_count          0000000000000000     <absolute>
  0000:00000000       __dynamic_value_reloc_table 0000000000000000     <absolute>
  0000:00000000       __guard_longjmp_table      0000000000000000     <absolute>
- 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
- 0000:00000000       __guard_iat_table          0000000000000000     <absolute>
- 0000:00000000       __volatile_metadata        0000000000000000     <absolute>
- 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
- 0000:00000000       ___safe_se_handler_table   0000000000000000     <absolute>
+ 0000:00000000       __guard_longjmp_count      0000000000000000     <absolute>
  0000:00000000       __hybrid_code_map_count    0000000000000000     <absolute>
- 0000:00000000       __hybrid_auxiliary_iat     0000000000000000     <absolute>
  0000:00000000       __hybrid_code_map          0000000000000000     <absolute>
- 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       ___safe_se_handler_count   0000000000000000     <absolute>
  0000:00000000       __enclave_config           0000000000000000     <absolute>
+ 0000:00000000       __guard_iat_table          0000000000000000     <absolute>
+ 0000:00000000       __hybrid_auxiliary_iat     0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_count         0000000000000000     <absolute>
+ 0000:00000000       __guard_fids_table         0000000000000000     <absolute>
+ 0000:00000000       __volatile_metadata        0000000000000000     <absolute>
  0000:00000100       __guard_flags              0000000000000100     <absolute>
  0000:00000000       __ImageBase                0000000180000000     <linker-defined>
  0001:00000000       GetCPUInfo                 0000000180001000 f   cpuid.obj
  0001:000000b0       DoDebug                    00000001800010b0 f   debug.obj
  0001:000000c0       DllMain                    00000001800010c0 f   dllmain.obj
  0001:00000100       AllocateBlock              0000000180001100 f   pmc_memory.obj
- 0001:00000180       AllocateHeapArea           0000000180001180 f   pmc_memory.obj
- 0001:000001b0       AllocateNumber             00000001800011b0 f   pmc_memory.obj
- 0001:00000220       AttatchNumber              0000000180001220 f   pmc_memory.obj
- 0001:000004d0       CheckBlockLight            00000001800014d0 f   pmc_memory.obj
- 0001:000004e0       CheckNumber                00000001800014e0 f   pmc_memory.obj
- 0001:00000560       CommitNumber               0000000180001560 f   pmc_memory.obj
- 0001:000006c0       DeallocateBlock            00000001800016c0 f   pmc_memory.obj
- 0001:00000710       DeallocateHeapArea         0000000180001710 f   pmc_memory.obj
- 0001:00000740       DeallocateNumber           0000000180001740 f   pmc_memory.obj
- 0001:000007a0       DetatchNumber              00000001800017a0 f   pmc_memory.obj
- 0001:000007b0       DuplicateNumber            00000001800017b0 f   pmc_memory.obj
- 0001:00000940       Initialize_Memory          0000000180001940 f   pmc_memory.obj
- 0001:00000ab0       PMC_Dispose                0000000180001ab0 f   pmc_memory.obj
- 0001:00000b30       PMC_GetConstantValue_I     0000000180001b30 f   pmc_memory.obj
- 0001:000011a0       Initialize_Add             00000001800021a0 f   pmc_add.obj
- 0001:000011c0       PMC_Add_I_X                00000001800021c0 f   pmc_add.obj
- 0001:00001220       PMC_Add_L_X                0000000180002220 f   pmc_add.obj
- 0001:00001280       PMC_Add_X_I                0000000180002280 f   pmc_add.obj
- 0001:00001420       PMC_Add_X_L                0000000180002420 f   pmc_add.obj
- 0001:000015c0       PMC_Add_X_X                00000001800025c0 f   pmc_add.obj
- 0001:00001ed0       Initialize_BitwiseAnd      0000000180002ed0 f   pmc_bitwiseand.obj
- 0001:00001ee0       PMC_BitwiseAnd_I_X         0000000180002ee0 f   pmc_bitwiseand.obj
- 0001:00001f60       PMC_BitwiseAnd_L_X         0000000180002f60 f   pmc_bitwiseand.obj
- 0001:00001ff0       PMC_BitwiseAnd_X_I         0000000180002ff0 f   pmc_bitwiseand.obj
- 0001:00002070       PMC_BitwiseAnd_X_L         0000000180003070 f   pmc_bitwiseand.obj
- 0001:000020f0       PMC_BitwiseAnd_X_X         00000001800030f0 f   pmc_bitwiseand.obj
- 0001:00002530       Initialize_BitwiseOr       0000000180003530 f   pmc_bitwiseor.obj
- 0001:00002540       PMC_BitwiseOr_I_X          0000000180003540 f   pmc_bitwiseor.obj
- 0001:000025a0       PMC_BitwiseOr_L_X          00000001800035a0 f   pmc_bitwiseor.obj
- 0001:00002600       PMC_BitwiseOr_X_I          0000000180003600 f   pmc_bitwiseor.obj
- 0001:00002750       PMC_BitwiseOr_X_L          0000000180003750 f   pmc_bitwiseor.obj
- 0001:000028b0       PMC_BitwiseOr_X_X          00000001800038b0 f   pmc_bitwiseor.obj
- 0001:00002a20       PMC_FromByteArray          0000000180003a20 f   pmc_bytes.obj
- 0001:00002b00       PMC_FromByteArrayForSINT   0000000180003b00 f   pmc_bytes.obj
- 0001:00002be0       PMC_ToByteArray            0000000180003be0 f   pmc_bytes.obj
- 0001:00002c90       PMC_ToByteArrayForSINT     0000000180003c90 f   pmc_bytes.obj
- 0001:00002d70       Initialize_Clone           0000000180003d70 f   pmc_clone.obj
- 0001:00002d80       PMC_Clone_X                0000000180003d80 f   pmc_clone.obj
- 0001:00002e00       Compare_Imp                0000000180003e00 f   pmc_compare.obj
- 0001:00002e50       Initialize_Compare         0000000180003e50 f   pmc_compare.obj
- 0001:00002e60       PMC_Compare_I_X            0000000180003e60 f   pmc_compare.obj
- 0001:00002f50       PMC_Compare_L_X            0000000180003f50 f   pmc_compare.obj
- 0001:00003040       PMC_Compare_X_I            0000000180004040 f   pmc_compare.obj
- 0001:000030e0       PMC_Compare_X_L            00000001800040e0 f   pmc_compare.obj
- 0001:00003180       PMC_Compare_X_X            0000000180004180 f   pmc_compare.obj
- 0001:00003980       DivRem_X_1W                0000000180004980 f   pmc_divrem.obj
- 0001:00003fa0       DivRem_X_X                 0000000180004fa0 f   pmc_divrem.obj
- 0001:00004690       Initialize_DivRem          0000000180005690 f   pmc_divrem.obj
- 0001:000046c0       PMC_DivRem_I_X             00000001800056c0 f   pmc_divrem.obj
- 0001:000047a0       PMC_DivRem_L_X             00000001800057a0 f   pmc_divrem.obj
- 0001:00004a40       PMC_DivRem_X_I             0000000180005a40 f   pmc_divrem.obj
- 0001:00004c00       PMC_DivRem_X_L             0000000180005c00 f   pmc_divrem.obj
- 0001:00004fc0       PMC_DivRem_X_X             0000000180005fc0 f   pmc_divrem.obj
- 0001:00005450       Rem_X_1W                   0000000180006450 f   pmc_divrem.obj
- 0001:00007490       Initialize_Equals          0000000180008490 f   pmc_equals.obj
- 0001:000074a0       PMC_Equals_I_X             00000001800084a0 f   pmc_equals.obj
- 0001:00007500       PMC_Equals_L_X             0000000180008500 f   pmc_equals.obj
- 0001:00007570       PMC_Equals_X_I             0000000180008570 f   pmc_equals.obj
- 0001:000075d0       PMC_Equals_X_L             00000001800085d0 f   pmc_equals.obj
- 0001:00007630       PMC_Equals_X_X             0000000180008630 f   pmc_equals.obj
- 0001:00007a50       Initialize_ExclusiveOr     0000000180008a50 f   pmc_exclusiveor.obj
- 0001:00007a60       PMC_ExclusiveOr_I_X        0000000180008a60 f   pmc_exclusiveor.obj
- 0001:00007ac0       PMC_ExclusiveOr_L_X        0000000180008ac0 f   pmc_exclusiveor.obj
- 0001:00007b20       PMC_ExclusiveOr_X_I        0000000180008b20 f   pmc_exclusiveor.obj
- 0001:00007c90       PMC_ExclusiveOr_X_L        0000000180008c90 f   pmc_exclusiveor.obj
- 0001:00007e10       PMC_ExclusiveOr_X_X        0000000180008e10 f   pmc_exclusiveor.obj
- 0001:00007f60       From_I_Imp                 0000000180008f60 f   pmc_from.obj
- 0001:00007fc0       From_L_Imp                 0000000180008fc0 f   pmc_from.obj
- 0001:00008020       Initialize_From            0000000180009020 f   pmc_from.obj
- 0001:00008030       PMC_From_I                 0000000180009030 f   pmc_from.obj
- 0001:000080b0       PMC_From_L                 00000001800090b0 f   pmc_from.obj
- 0001:00008230       Initialize_GreatestCommonDivisor 0000000180009230 f   pmc_greatestcommondivisor.obj
- 0001:00008240       PMC_GreatestCommonDivisor_I_X 0000000180009240 f   pmc_greatestcommondivisor.obj
- 0001:000082a0       PMC_GreatestCommonDivisor_L_X 00000001800092a0 f   pmc_greatestcommondivisor.obj
- 0001:00008300       PMC_GreatestCommonDivisor_X_I 0000000180009300 f   pmc_greatestcommondivisor.obj
- 0001:000085e0       PMC_GreatestCommonDivisor_X_L 00000001800095e0 f   pmc_greatestcommondivisor.obj
- 0001:000088b0       PMC_GreatestCommonDivisor_X_X 00000001800098b0 f   pmc_greatestcommondivisor.obj
- 0001:00008b40       PMC_UINT_Initialize        0000000180009b40 f   pmc_initialize.obj
- 0001:00009110       Initialize_ModPow          000000018000a110 f   pmc_modpow.obj
- 0001:00009770       PMC_ModPow_X_X_X           000000018000a770 f   pmc_modpow.obj
- 0001:000099b0       Initialize_Multiply        000000018000a9b0 f   pmc_multiply.obj
- 0001:0000b320       Multiply_X_X_Imp           000000018000c320 f   pmc_multiply.obj
- 0001:0000b450       PMC_Multiply_I_X           000000018000c450 f   pmc_multiply.obj
- 0001:0000b4b0       PMC_Multiply_L_X           000000018000c4b0 f   pmc_multiply.obj
- 0001:0000b510       PMC_Multiply_X_I           000000018000c510 f   pmc_multiply.obj
- 0001:0000b670       PMC_Multiply_X_L           000000018000c670 f   pmc_multiply.obj
- 0001:0000b7d0       PMC_Multiply_X_X           000000018000c7d0 f   pmc_multiply.obj
- 0001:0000c420       Initialize_Parse           000000018000d420 f   pmc_parse.obj
- 0001:0000d780       PMC_TryParse               000000018000e780 f   pmc_parse.obj
- 0001:0000d820       PMC_TryParseForSINT        000000018000e820 f   pmc_parse.obj
- 0001:0000f2a0       Initialize_Pow             00000001800102a0 f   pmc_pow.obj
- 0001:0000f2b0       PMC_Pow_X_I                00000001800102b0 f   pmc_pow.obj
- 0001:0000f5e0       Initialize_Shift           00000001800105e0 f   pmc_shift.obj
- 0001:0000f5f0       LeftShift_Imp              00000001800105f0 f   pmc_shift.obj
- 0001:0000fdd0       LeftShift_Imp_DIV          0000000180010dd0 f   pmc_shift.obj
- 0001:00010400       PMC_LeftShift_X_I          0000000180011400 f   pmc_shift.obj
- 0001:00010520       PMC_RightShift_X_I         0000000180011520 f   pmc_shift.obj
- 0001:00010640       RightShift_Imp             0000000180011640 f   pmc_shift.obj
- 0001:00010e20       RightShift_Imp_DIV         0000000180011e20 f   pmc_shift.obj
- 0001:00011460       PMC_GetStatisticsInfo      0000000180012460 f   pmc_statistics.obj
- 0001:00011490       Initialize_Subtruct        0000000180012490 f   pmc_subtruct.obj
- 0001:000114a0       PMC_Subtruct_I_X           00000001800124a0 f   pmc_subtruct.obj
- 0001:00011580       PMC_Subtruct_L_X           0000000180012580 f   pmc_subtruct.obj
- 0001:00011650       PMC_Subtruct_X_I           0000000180012650 f   pmc_subtruct.obj
- 0001:000117e0       PMC_Subtruct_X_L           00000001800127e0 f   pmc_subtruct.obj
- 0001:00011970       PMC_Subtruct_X_X           0000000180012970 f   pmc_subtruct.obj
- 0001:00011af0       Subtruct_Imp               0000000180012af0 f   pmc_subtruct.obj
- 0001:00012020       Initialize_To              0000000180013020 f   pmc_to.obj
- 0001:00012030       PMC_To_X_I                 0000000180013030 f   pmc_to.obj
- 0001:00012090       PMC_To_X_L                 0000000180013090 f   pmc_to.obj
- 0001:000120f0       InitializeNumberFormatoInfo 00000001800130f0 f   pmc_tostring.obj
- 0001:00012250       Initialize_ToString        0000000180013250 f   pmc_tostring.obj
- 0001:00012340       PMC_InitializeNumberFormatInfo 0000000180013340 f   pmc_tostring.obj
- 0001:00012350       PMC_ToString               0000000180013350 f   pmc_tostring.obj
- 0001:0001357e       HeapCreate                 000000018001457e f   kernel32:KERNEL32.dll
- 0001:00013584       HeapDestroy                0000000180014584 f   kernel32:KERNEL32.dll
- 0001:0001358a       HeapAlloc                  000000018001458a f   kernel32:KERNEL32.dll
- 0001:00013590       HeapFree                   0000000180014590 f   kernel32:KERNEL32.dll
- 0001:00013596       lstrcpyW                   0000000180014596 f   kernel32:KERNEL32.dll
- 0001:0001359c       lstrlenW                   000000018001459c f   kernel32:KERNEL32.dll
- 0001:000135a4       __GSHandlerCheck           00000001800145a4 f   MSVCRT:gshandler.obj
- 0001:000135c4       __GSHandlerCheckCommon     00000001800145c4 f   MSVCRT:gshandler.obj
- 0001:00013630       __security_check_cookie    0000000180014630 f   MSVCRT:amdsecgs.obj
- 0001:000139a0       _CRT_INIT                  00000001800149a0 f   MSVCRT:dll_dllmain.obj
- 0001:000139a8       _DllMainCRTStartup         00000001800149a8 f   MSVCRT:dll_dllmain.obj
- 0001:000139e8       __raise_securityfailure    00000001800149e8 f   MSVCRT:gs_report.obj
- 0001:00013a1c       __report_gsfailure         0000000180014a1c f   MSVCRT:gs_report.obj
- 0001:00013af0       __report_rangecheckfailure 0000000180014af0 f   MSVCRT:gs_report.obj
- 0001:00013b04       __report_securityfailure   0000000180014b04 f   MSVCRT:gs_report.obj
- 0001:00013ba0       __report_securityfailureEx 0000000180014ba0 f   MSVCRT:gs_report.obj
- 0001:00013e00       __security_init_cookie     0000000180014e00 f   MSVCRT:gs_support.obj
- 0001:00013eac       ?__scrt_initialize_type_info@@YAXXZ 0000000180014eac f   MSVCRT:tncleanup.obj
- 0001:00013ebc       ?__scrt_uninitialize_type_info@@YAXXZ 0000000180014ebc f   MSVCRT:tncleanup.obj
- 0001:00013ec8       __local_stdio_printf_options 0000000180014ec8 f i MSVCRT:default_local_stdio_options.obj
- 0001:00013ed0       __local_stdio_scanf_options 0000000180014ed0 f i MSVCRT:default_local_stdio_options.obj
- 0001:00013ed8       __scrt_initialize_default_local_stdio_options 0000000180014ed8 f   MSVCRT:default_local_stdio_options.obj
- 0001:00013ef4       ??$__crt_fast_decode_pointer@PEAP6AXXZ@@YAPEAP6AXXZQEAP6AXXZ@Z 0000000180014ef4 f i MSVCRT:utility.obj
- 0001:00013f0c       ??$__crt_fast_encode_pointer@PEAP6AXXZ@@YAPEAP6AXXZQEAP6AXXZ@Z 0000000180014f0c f i MSVCRT:utility.obj
- 0001:00013f2c       ?__crt_rotate_pointer_value@@YA_K_KH@Z 0000000180014f2c f i MSVCRT:utility.obj
- 0001:00013f38       ?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 0000000180014f38 f i MSVCRT:utility.obj
- 0001:00013f98       ?initialize_environment@__scrt_narrow_environment_policy@@SAHXZ 0000000180014f98 f i MSVCRT:utility.obj
- 0001:00013fd0       NtCurrentTeb               0000000180014fd0 f i MSVCRT:utility.obj
- 0001:00013fdc       __scrt_acquire_startup_lock 0000000180014fdc f   MSVCRT:utility.obj
- 0001:00014018       __scrt_dllmain_after_initialize_c 0000000180015018 f   MSVCRT:utility.obj
- 0001:0001404c       __scrt_dllmain_before_initialize_c 000000018001504c f   MSVCRT:utility.obj
- 0001:00014064       __scrt_dllmain_crt_thread_attach 0000000180015064 f   MSVCRT:utility.obj
- 0001:0001408c       __scrt_dllmain_crt_thread_detach 000000018001508c f   MSVCRT:utility.obj
- 0001:000140a4       __scrt_dllmain_exception_filter 00000001800150a4 f   MSVCRT:utility.obj
- 0001:00014104       __scrt_dllmain_uninitialize_c 0000000180015104 f   MSVCRT:utility.obj
- 0001:00014134       __scrt_dllmain_uninitialize_critical 0000000180015134 f   MSVCRT:utility.obj
- 0001:00014148       __scrt_initialize_crt      0000000180015148 f   MSVCRT:utility.obj
- 0001:00014194       __scrt_initialize_onexit_tables 0000000180015194 f   MSVCRT:utility.obj
- 0001:0001426c       __scrt_is_nonwritable_in_current_image 000000018001526c f   MSVCRT:utility.obj
- 0001:00014308       __scrt_release_startup_lock 0000000180015308 f   MSVCRT:utility.obj
- 0001:0001432c       __scrt_uninitialize_crt    000000018001532c f   MSVCRT:utility.obj
- 0001:00014358       _onexit                    0000000180015358 f   MSVCRT:utility.obj
- 0001:000143a8       at_quick_exit              00000001800153a8 f   MSVCRT:utility.obj
- 0001:000143e0       atexit                     00000001800153e0 f   MSVCRT:utility.obj
- 0001:000143f8       __scrt_get_dyn_tls_init_callback 00000001800153f8 f   MSVCRT:dyn_tls_init.obj
- 0001:00014400       __crt_debugger_hook        0000000180015400 f   MSVCRT:utility_desktop.obj
- 0001:00014408       __scrt_fastfail            0000000180015408 f   MSVCRT:utility_desktop.obj
- 0001:00014554       __scrt_get_show_window_mode 0000000180015554 f   MSVCRT:utility_desktop.obj
- 0001:00014590       __scrt_initialize_mta      0000000180015590 f   MSVCRT:utility_desktop.obj
- 0001:00014598       __scrt_initialize_winrt    0000000180015598 f   MSVCRT:utility_desktop.obj
- 0001:0001459c       __scrt_is_managed_app      000000018001559c f   MSVCRT:utility_desktop.obj
- 0001:000145f0       __scrt_set_unhandled_exception_filter 00000001800155f0 f   MSVCRT:utility_desktop.obj
- 0001:00014600       __scrt_stub_for_initialize_mta 0000000180015600 f   MSVCRT:utility_desktop.obj
- 0001:00014600       __scrt_exe_initialize_mta  0000000180015600 f   MSVCRT:utility_desktop.obj
- 0001:00014604       __scrt_unhandled_exception_filter 0000000180015604 f   MSVCRT:utility_desktop.obj
- 0001:0001463c       _RTC_Initialize            000000018001563c f   MSVCRT:initsect.obj
- 0001:00014678       _RTC_Terminate             0000000180015678 f   MSVCRT:initsect.obj
- 0001:000146b4       _guard_check_icall_nop     00000001800156b4 f i MSVCRT:guard_support.obj
- 0001:000146b8       ReadNoFence64              00000001800156b8 f i MSVCRT:guard_support.obj
- 0001:000146bc       ReadPointerNoFence         00000001800156bc f i MSVCRT:guard_support.obj
- 0001:000146c0       _guard_icall_checks_enforced 00000001800156c0 f i MSVCRT:guard_support.obj
- 0001:000146d8       _guard_rf_checks_enforced  00000001800156d8 f i MSVCRT:guard_support.obj
- 0001:000146dc       __isa_available_init       00000001800156dc f   MSVCRT:cpu_disp.obj
- 0001:00014898       _get_startup_argv_mode     0000000180015898 f   MSVCRT:argv_mode.obj
- 0001:000148a0       __scrt_is_ucrt_dll_in_use  00000001800158a0 f   MSVCRT:ucrt_detection.obj
- 0001:000148b0       __C_specific_handler       00000001800158b0 f   vcruntime:VCRUNTIME140.dll
- 0001:000148b6       __std_type_info_destroy_list 00000001800158b6 f   vcruntime:VCRUNTIME140.dll
- 0001:000148bc       memset                     00000001800158bc f   vcruntime:VCRUNTIME140.dll
- 0001:000148c2       _initterm                  00000001800158c2 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148c8       _initterm_e                00000001800158c8 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148ce       _seh_filter_dll            00000001800158ce f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148d4       _configure_narrow_argv     00000001800158d4 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148da       _initialize_narrow_environment 00000001800158da f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148e0       _initialize_onexit_table   00000001800158e0 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148e6       _register_onexit_function  00000001800158e6 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148ec       _execute_onexit_table      00000001800158ec f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148f2       _crt_atexit                00000001800158f2 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148f8       _crt_at_quick_exit         00000001800158f8 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:000148fe       _cexit                     00000001800158fe f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:00014904       terminate                  0000000180015904 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0001:0001490a       RtlCaptureContext          000000018001590a f   kernel32:KERNEL32.dll
- 0001:00014910       RtlLookupFunctionEntry     0000000180015910 f   kernel32:KERNEL32.dll
- 0001:00014916       RtlVirtualUnwind           0000000180015916 f   kernel32:KERNEL32.dll
- 0001:0001491c       UnhandledExceptionFilter   000000018001591c f   kernel32:KERNEL32.dll
- 0001:00014922       SetUnhandledExceptionFilter 0000000180015922 f   kernel32:KERNEL32.dll
- 0001:00014928       GetCurrentProcess          0000000180015928 f   kernel32:KERNEL32.dll
- 0001:0001492e       TerminateProcess           000000018001592e f   kernel32:KERNEL32.dll
- 0001:00014934       IsProcessorFeaturePresent  0000000180015934 f   kernel32:KERNEL32.dll
- 0001:0001493a       QueryPerformanceCounter    000000018001593a f   kernel32:KERNEL32.dll
- 0001:00014940       GetCurrentProcessId        0000000180015940 f   kernel32:KERNEL32.dll
- 0001:00014946       GetCurrentThreadId         0000000180015946 f   kernel32:KERNEL32.dll
- 0001:0001494c       GetSystemTimeAsFileTime    000000018001594c f   kernel32:KERNEL32.dll
- 0001:00014952       InitializeSListHead        0000000180015952 f   kernel32:KERNEL32.dll
- 0001:00014958       IsDebuggerPresent          0000000180015958 f   kernel32:KERNEL32.dll
- 0001:0001495e       GetStartupInfoW            000000018001595e f   kernel32:KERNEL32.dll
- 0001:00014964       GetModuleHandleW           0000000180015964 f   kernel32:KERNEL32.dll
- 0001:0001496c       __acrt_initialize          000000018001596c f   MSVCRT:ucrt_stubs.obj
- 0001:0001496c       __scrt_stub_for_acrt_initialize 000000018001596c f   MSVCRT:ucrt_stubs.obj
- 0001:0001496c       __vcrt_initialize          000000018001596c f   MSVCRT:ucrt_stubs.obj
- 0001:00014970       __scrt_stub_for_acrt_thread_attach 0000000180015970 f   MSVCRT:ucrt_stubs.obj
- 0001:00014970       __vcrt_thread_attach       0000000180015970 f   MSVCRT:ucrt_stubs.obj
- 0001:00014970       __acrt_thread_attach       0000000180015970 f   MSVCRT:ucrt_stubs.obj
- 0001:00014974       __acrt_thread_detach       0000000180015974 f   MSVCRT:ucrt_stubs.obj
- 0001:00014974       __vcrt_thread_detach       0000000180015974 f   MSVCRT:ucrt_stubs.obj
- 0001:00014974       __scrt_stub_for_acrt_thread_detach 0000000180015974 f   MSVCRT:ucrt_stubs.obj
- 0001:00014978       __scrt_stub_for_acrt_uninitialize 0000000180015978 f   MSVCRT:ucrt_stubs.obj
- 0001:00014978       __acrt_uninitialize        0000000180015978 f   MSVCRT:ucrt_stubs.obj
- 0001:00014978       __vcrt_uninitialize        0000000180015978 f   MSVCRT:ucrt_stubs.obj
- 0001:0001497c       __acrt_uninitialize_critical 000000018001597c f   MSVCRT:ucrt_stubs.obj
- 0001:0001497c       __vcrt_uninitialize_critical 000000018001597c f   MSVCRT:ucrt_stubs.obj
- 0001:0001497c       __scrt_stub_for_acrt_uninitialize_critical 000000018001597c f   MSVCRT:ucrt_stubs.obj
- 0001:00014980       _is_c_termination_complete 0000000180015980 f   MSVCRT:ucrt_stubs.obj
- 0001:00014980       __scrt_stub_for_is_c_termination_complete 0000000180015980 f   MSVCRT:ucrt_stubs.obj
- 0001:000149a0       _guard_dispatch_icall_nop  00000001800159a0 f   MSVCRT:guard_dispatch.obj
- 0002:00000000       __imp_HeapCreate           0000000180016000     kernel32:KERNEL32.dll
- 0002:00000008       __imp_HeapDestroy          0000000180016008     kernel32:KERNEL32.dll
- 0002:00000010       __imp_HeapAlloc            0000000180016010     kernel32:KERNEL32.dll
- 0002:00000018       __imp_HeapFree             0000000180016018     kernel32:KERNEL32.dll
- 0002:00000020       __imp_lstrcpyW             0000000180016020     kernel32:KERNEL32.dll
- 0002:00000028       __imp_lstrlenW             0000000180016028     kernel32:KERNEL32.dll
- 0002:00000030       __imp_GetStartupInfoW      0000000180016030     kernel32:KERNEL32.dll
- 0002:00000038       __imp_IsDebuggerPresent    0000000180016038     kernel32:KERNEL32.dll
- 0002:00000040       __imp_InitializeSListHead  0000000180016040     kernel32:KERNEL32.dll
- 0002:00000048       __imp_GetSystemTimeAsFileTime 0000000180016048     kernel32:KERNEL32.dll
- 0002:00000050       __imp_GetCurrentThreadId   0000000180016050     kernel32:KERNEL32.dll
- 0002:00000058       __imp_GetCurrentProcessId  0000000180016058     kernel32:KERNEL32.dll
- 0002:00000060       __imp_QueryPerformanceCounter 0000000180016060     kernel32:KERNEL32.dll
- 0002:00000068       __imp_IsProcessorFeaturePresent 0000000180016068     kernel32:KERNEL32.dll
- 0002:00000070       __imp_TerminateProcess     0000000180016070     kernel32:KERNEL32.dll
- 0002:00000078       __imp_GetCurrentProcess    0000000180016078     kernel32:KERNEL32.dll
- 0002:00000080       __imp_SetUnhandledExceptionFilter 0000000180016080     kernel32:KERNEL32.dll
- 0002:00000088       __imp_UnhandledExceptionFilter 0000000180016088     kernel32:KERNEL32.dll
- 0002:00000090       __imp_RtlVirtualUnwind     0000000180016090     kernel32:KERNEL32.dll
- 0002:00000098       __imp_RtlLookupFunctionEntry 0000000180016098     kernel32:KERNEL32.dll
- 0002:000000a0       __imp_GetModuleHandleW     00000001800160a0     kernel32:KERNEL32.dll
- 0002:000000a8       __imp_RtlCaptureContext    00000001800160a8     kernel32:KERNEL32.dll
- 0002:000000b0       \177KERNEL32_NULL_THUNK_DATA 00000001800160b0     kernel32:KERNEL32.dll
- 0002:000000b8       __imp___C_specific_handler 00000001800160b8     vcruntime:VCRUNTIME140.dll
- 0002:000000c0       __imp_memset               00000001800160c0     vcruntime:VCRUNTIME140.dll
- 0002:000000c8       __imp___std_type_info_destroy_list 00000001800160c8     vcruntime:VCRUNTIME140.dll
- 0002:000000d0       \177VCRUNTIME140_NULL_THUNK_DATA 00000001800160d0     vcruntime:VCRUNTIME140.dll
- 0002:000000d8       __imp__register_onexit_function 00000001800160d8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:000000e0       __imp__initialize_onexit_table 00000001800160e0     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:000000e8       __imp__crt_atexit          00000001800160e8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:000000f0       __imp__configure_narrow_argv 00000001800160f0     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:000000f8       __imp__seh_filter_dll      00000001800160f8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000100       __imp__initterm_e          0000000180016100     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000108       __imp__initterm            0000000180016108     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000110       __imp__execute_onexit_table 0000000180016110     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000118       __imp__cexit               0000000180016118     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000120       __imp__initialize_narrow_environment 0000000180016120     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000128       __imp_terminate            0000000180016128     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000130       __imp__crt_at_quick_exit   0000000180016130     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000138       \177api-ms-win-crt-runtime-l1-1-0_NULL_THUNK_DATA 0000000180016138     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00000140       __guard_check_icall_fptr   0000000180016140     MSVCRT:guard_support.obj
- 0002:00000148       __guard_dispatch_icall_fptr 0000000180016148     MSVCRT:guard_support.obj
- 0002:00000150       __xc_a                     0000000180016150     MSVCRT:initializers.obj
- 0002:00000158       __xc_z                     0000000180016158     MSVCRT:initializers.obj
- 0002:00000160       __xi_a                     0000000180016160     MSVCRT:initializers.obj
- 0002:00000168       __xi_z                     0000000180016168     MSVCRT:initializers.obj
- 0002:00000170       __xp_a                     0000000180016170     MSVCRT:initializers.obj
- 0002:00000178       __xp_z                     0000000180016178     MSVCRT:initializers.obj
- 0002:00000180       __xt_a                     0000000180016180     MSVCRT:initializers.obj
- 0002:00000188       __xt_z                     0000000180016188     MSVCRT:initializers.obj
- 0002:00000190       ??_C@_13JOFGPIOO@?$AA?4@   0000000180016190     pmc_tostring.obj
- 0002:00000194       ??_C@_13DEFPDAGF@?$AA?0@   0000000180016194     pmc_tostring.obj
- 0002:00000198       ??_C@_13DMCFHHKM@?$AA3@    0000000180016198     pmc_tostring.obj
- 0002:0000019c       ??_C@_13BMLCKOLB@?$PP?$KE@ 000000018001619c     pmc_tostring.obj
- 0002:000001a0       ??_C@_1BG@PGBNDIAE@?$AA0?$AA1?$AA2?$AA3?$AA4?$AA5?$AA6?$AA7?$AA8?$AA9@ 00000001800161a0     pmc_tostring.obj
- 0002:000001b8       ??_C@_13IMODFHAA@?$AA?9@   00000001800161b8     pmc_tostring.obj
- 0002:000001bc       ??_C@_13EJFHHPOP@?$AA?$CF@ 00000001800161bc     pmc_tostring.obj
- 0002:000001c0       ??_C@_13BGNNJOKC@?$AA0@    00000001800161c0     pmc_tostring.obj
- 0002:000001c4       ??_C@_13KJIIAINM@?$AA?$CL@ 00000001800161c4     pmc_tostring.obj
- 0002:000001c8       _pDefaultRawDllMain        00000001800161c8     MSVCRT:dll_dllmain.obj
- 0002:000001c8       _pRawDllMain               00000001800161c8     MSVCRT:dll_dllmain.obj
- 0002:00000240       _load_config_used          0000000180016240     MSVCRT:loadcfg.obj
- 0002:00000620       __rtc_iaa                  0000000180016620     MSVCRT:initsect.obj
- 0002:00000628       __rtc_izz                  0000000180016628     MSVCRT:initsect.obj
- 0002:00000630       __rtc_taa                  0000000180016630     MSVCRT:initsect.obj
- 0002:00000638       __rtc_tzz                  0000000180016638     MSVCRT:initsect.obj
- 0002:000015c4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800175c4     kernel32:KERNEL32.dll
- 0002:000015d8       __IMPORT_DESCRIPTOR_VCRUNTIME140 00000001800175d8     vcruntime:VCRUNTIME140.dll
- 0002:000015ec       __IMPORT_DESCRIPTOR_api-ms-win-crt-runtime-l1-1-0 00000001800175ec     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:00001600       __NULL_IMPORT_DESCRIPTOR   0000000180017600     kernel32:KERNEL32.dll
- 0003:00000070       __security_cookie_complement 0000000180018070     MSVCRT:gs_cookie.obj
- 0003:00000078       __security_cookie          0000000180018078     MSVCRT:gs_cookie.obj
- 0003:00000080       __scrt_native_dllmain_reason 0000000180018080     MSVCRT:utility.obj
- 0003:00000088       __isa_available            0000000180018088     MSVCRT:cpu_disp.obj
- 0003:0000008c       __isa_enabled              000000018001808c     MSVCRT:cpu_disp.obj
- 0003:00000090       __memcpy_nt_iters          0000000180018090     MSVCRT:cpu_disp.obj
- 0003:000000a0       __scrt_ucrt_dll_is_in_use  00000001800180a0     MSVCRT:ucrt_stubs.obj
- 0003:00000a40       ?__type_info_root_node@@3U__type_info_node@@A 0000000180018a40     MSVCRT:tncleanup.obj
- 0003:00000a50       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 0000000180018a50     MSVCRT:default_local_stdio_options.obj
- 0003:00000a58       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 0000000180018a58     MSVCRT:default_local_stdio_options.obj
- 0003:00000a60       __scrt_current_native_startup_state 0000000180018a60     MSVCRT:utility.obj
- 0003:00000a68       __scrt_native_startup_lock 0000000180018a68     MSVCRT:utility.obj
- 0003:00000aa8       __scrt_debugger_hook_flag  0000000180018aa8     MSVCRT:utility_desktop.obj
- 0003:00000aac       __favor                    0000000180018aac     MSVCRT:cpu_disp.obj
- 0003:00000ab0       statistics_info            0000000180018ab0     <common>
- 0003:00000ac0       configuration_info         0000000180018ac0     <common>
- 0003:00000ac8       hLocalHeap                 0000000180018ac8     <common>
- 0003:00000ae0       number_one                 0000000180018ae0     <common>
- 0003:00000b40       number_zero                0000000180018b40     <common>
- 0003:00000b88       __dyn_tls_init_callback    0000000180018b88     <common>
+ 0001:00000180       AllocateChainedBuffer      0000000180001180 f   pmc_memory.obj
+ 0001:00000210       AllocateHeapArea           0000000180001210 f   pmc_memory.obj
+ 0001:00000240       AllocateNumber             0000000180001240 f   pmc_memory.obj
+ 0001:000002b0       AttatchNumber              00000001800012b0 f   pmc_memory.obj
+ 0001:00000560       CheckBlockLight            0000000180001560 f   pmc_memory.obj
+ 0001:00000570       CheckChainedBuffer         0000000180001570 f   pmc_memory.obj
+ 0001:00000580       CheckNumber                0000000180001580 f   pmc_memory.obj
+ 0001:000005a0       CleanUpChainBuffer         00000001800015a0 f   pmc_memory.obj
+ 0001:00000650       CommitNumber               0000000180001650 f   pmc_memory.obj
+ 0001:000007b0       DeallocateBlock            00000001800017b0 f   pmc_memory.obj
+ 0001:00000800       DeallocateChainedBuffer    0000000180001800 f   pmc_memory.obj
+ 0001:00000850       DeallocateHeapArea         0000000180001850 f   pmc_memory.obj
+ 0001:00000880       DeallocateNumber           0000000180001880 f   pmc_memory.obj
+ 0001:000008e0       DetatchNumber              00000001800018e0 f   pmc_memory.obj
+ 0001:000008f0       DuplicateNumber            00000001800018f0 f   pmc_memory.obj
+ 0001:000009c0       InitializeChainBuffer      00000001800019c0 f   pmc_memory.obj
+ 0001:00000a90       Initialize_Memory          0000000180001a90 f   pmc_memory.obj
+ 0001:00000c00       PMC_Dispose                0000000180001c00 f   pmc_memory.obj
+ 0001:00000c80       PMC_GetConstantValue_I     0000000180001c80 f   pmc_memory.obj
+ 0001:000012f0       Initialize_Add             00000001800022f0 f   pmc_add.obj
+ 0001:00001310       PMC_Add_I_X                0000000180002310 f   pmc_add.obj
+ 0001:00001370       PMC_Add_L_X                0000000180002370 f   pmc_add.obj
+ 0001:000013d0       PMC_Add_X_I                00000001800023d0 f   pmc_add.obj
+ 0001:00001570       PMC_Add_X_L                0000000180002570 f   pmc_add.obj
+ 0001:00001710       PMC_Add_X_X                0000000180002710 f   pmc_add.obj
+ 0001:00002020       Initialize_BitwiseAnd      0000000180003020 f   pmc_bitwiseand.obj
+ 0001:00002030       PMC_BitwiseAnd_I_X         0000000180003030 f   pmc_bitwiseand.obj
+ 0001:000020b0       PMC_BitwiseAnd_L_X         00000001800030b0 f   pmc_bitwiseand.obj
+ 0001:00002140       PMC_BitwiseAnd_X_I         0000000180003140 f   pmc_bitwiseand.obj
+ 0001:000021c0       PMC_BitwiseAnd_X_L         00000001800031c0 f   pmc_bitwiseand.obj
+ 0001:00002240       PMC_BitwiseAnd_X_X         0000000180003240 f   pmc_bitwiseand.obj
+ 0001:00002680       Initialize_BitwiseOr       0000000180003680 f   pmc_bitwiseor.obj
+ 0001:00002690       PMC_BitwiseOr_I_X          0000000180003690 f   pmc_bitwiseor.obj
+ 0001:000026f0       PMC_BitwiseOr_L_X          00000001800036f0 f   pmc_bitwiseor.obj
+ 0001:00002750       PMC_BitwiseOr_X_I          0000000180003750 f   pmc_bitwiseor.obj
+ 0001:000028a0       PMC_BitwiseOr_X_L          00000001800038a0 f   pmc_bitwiseor.obj
+ 0001:00002a00       PMC_BitwiseOr_X_X          0000000180003a00 f   pmc_bitwiseor.obj
+ 0001:00002b70       PMC_FromByteArray          0000000180003b70 f   pmc_bytes.obj
+ 0001:00002c50       PMC_FromByteArrayForSINT   0000000180003c50 f   pmc_bytes.obj
+ 0001:00002d30       PMC_ToByteArray            0000000180003d30 f   pmc_bytes.obj
+ 0001:00002de0       PMC_ToByteArrayForSINT     0000000180003de0 f   pmc_bytes.obj
+ 0001:00002ec0       Initialize_Clone           0000000180003ec0 f   pmc_clone.obj
+ 0001:00002ed0       PMC_Clone_X                0000000180003ed0 f   pmc_clone.obj
+ 0001:00002f50       Compare_Imp                0000000180003f50 f   pmc_compare.obj
+ 0001:00002fa0       Initialize_Compare         0000000180003fa0 f   pmc_compare.obj
+ 0001:00002fb0       PMC_Compare_I_X            0000000180003fb0 f   pmc_compare.obj
+ 0001:000030a0       PMC_Compare_L_X            00000001800040a0 f   pmc_compare.obj
+ 0001:00003190       PMC_Compare_X_I            0000000180004190 f   pmc_compare.obj
+ 0001:00003230       PMC_Compare_X_L            0000000180004230 f   pmc_compare.obj
+ 0001:000032d0       PMC_Compare_X_X            00000001800042d0 f   pmc_compare.obj
+ 0001:00003ad0       DivRem_X_1W                0000000180004ad0 f   pmc_divrem.obj
+ 0001:000040f0       DivRem_X_X                 00000001800050f0 f   pmc_divrem.obj
+ 0001:000047e0       Initialize_DivRem          00000001800057e0 f   pmc_divrem.obj
+ 0001:00004810       PMC_DivRem_I_X             0000000180005810 f   pmc_divrem.obj
+ 0001:000048f0       PMC_DivRem_L_X             00000001800058f0 f   pmc_divrem.obj
+ 0001:00004b90       PMC_DivRem_X_I             0000000180005b90 f   pmc_divrem.obj
+ 0001:00004d50       PMC_DivRem_X_L             0000000180005d50 f   pmc_divrem.obj
+ 0001:00005110       PMC_DivRem_X_X             0000000180006110 f   pmc_divrem.obj
+ 0001:000055a0       Rem_X_1W                   00000001800065a0 f   pmc_divrem.obj
+ 0001:000075e0       Initialize_Equals          00000001800085e0 f   pmc_equals.obj
+ 0001:000075f0       PMC_Equals_I_X             00000001800085f0 f   pmc_equals.obj
+ 0001:00007650       PMC_Equals_L_X             0000000180008650 f   pmc_equals.obj
+ 0001:000076c0       PMC_Equals_X_I             00000001800086c0 f   pmc_equals.obj
+ 0001:00007720       PMC_Equals_X_L             0000000180008720 f   pmc_equals.obj
+ 0001:00007780       PMC_Equals_X_X             0000000180008780 f   pmc_equals.obj
+ 0001:00007ba0       Initialize_ExclusiveOr     0000000180008ba0 f   pmc_exclusiveor.obj
+ 0001:00007bb0       PMC_ExclusiveOr_I_X        0000000180008bb0 f   pmc_exclusiveor.obj
+ 0001:00007c10       PMC_ExclusiveOr_L_X        0000000180008c10 f   pmc_exclusiveor.obj
+ 0001:00007c70       PMC_ExclusiveOr_X_I        0000000180008c70 f   pmc_exclusiveor.obj
+ 0001:00007de0       PMC_ExclusiveOr_X_L        0000000180008de0 f   pmc_exclusiveor.obj
+ 0001:00007f60       PMC_ExclusiveOr_X_X        0000000180008f60 f   pmc_exclusiveor.obj
+ 0001:000080b0       From_I_Imp                 00000001800090b0 f   pmc_from.obj
+ 0001:00008110       From_L_Imp                 0000000180009110 f   pmc_from.obj
+ 0001:00008170       Initialize_From            0000000180009170 f   pmc_from.obj
+ 0001:00008180       PMC_From_I                 0000000180009180 f   pmc_from.obj
+ 0001:00008200       PMC_From_L                 0000000180009200 f   pmc_from.obj
+ 0001:00008380       Initialize_GreatestCommonDivisor 0000000180009380 f   pmc_greatestcommondivisor.obj
+ 0001:00008390       PMC_GreatestCommonDivisor_I_X 0000000180009390 f   pmc_greatestcommondivisor.obj
+ 0001:000083f0       PMC_GreatestCommonDivisor_L_X 00000001800093f0 f   pmc_greatestcommondivisor.obj
+ 0001:00008450       PMC_GreatestCommonDivisor_X_I 0000000180009450 f   pmc_greatestcommondivisor.obj
+ 0001:00008730       PMC_GreatestCommonDivisor_X_L 0000000180009730 f   pmc_greatestcommondivisor.obj
+ 0001:00008a00       PMC_GreatestCommonDivisor_X_X 0000000180009a00 f   pmc_greatestcommondivisor.obj
+ 0001:00008c90       PMC_UINT_Initialize        0000000180009c90 f   pmc_initialize.obj
+ 0001:00009260       Initialize_ModPow          000000018000a260 f   pmc_modpow.obj
+ 0001:000098c0       PMC_ModPow_X_X_X           000000018000a8c0 f   pmc_modpow.obj
+ 0001:00009b00       Initialize_Multiply        000000018000ab00 f   pmc_multiply.obj
+ 0001:0000b470       Multiply_X_X_Imp           000000018000c470 f   pmc_multiply.obj
+ 0001:0000b5a0       PMC_Multiply_I_X           000000018000c5a0 f   pmc_multiply.obj
+ 0001:0000b600       PMC_Multiply_L_X           000000018000c600 f   pmc_multiply.obj
+ 0001:0000b660       PMC_Multiply_X_I           000000018000c660 f   pmc_multiply.obj
+ 0001:0000b6c0       PMC_Multiply_X_I_Imp       000000018000c6c0 f   pmc_multiply.obj
+ 0001:0000b7c0       PMC_Multiply_X_L           000000018000c7c0 f   pmc_multiply.obj
+ 0001:0000b920       PMC_Multiply_X_X           000000018000c920 f   pmc_multiply.obj
+ 0001:0000c4d0       Initialize_Parse           000000018000d4d0 f   pmc_parse.obj
+ 0001:0000d830       PMC_TryParse               000000018000e830 f   pmc_parse.obj
+ 0001:0000d8d0       PMC_TryParseForSINT        000000018000e8d0 f   pmc_parse.obj
+ 0001:0000f8a0       Initialize_Pow             00000001800108a0 f   pmc_pow.obj
+ 0001:0000f8b0       PMC_Pow_X_I                00000001800108b0 f   pmc_pow.obj
+ 0001:0000fbe0       Initialize_Shift           0000000180010be0 f   pmc_shift.obj
+ 0001:0000fbf0       LeftShift_Imp              0000000180010bf0 f   pmc_shift.obj
+ 0001:000103d0       LeftShift_Imp_DIV          00000001800113d0 f   pmc_shift.obj
+ 0001:00010a00       PMC_LeftShift_X_I          0000000180011a00 f   pmc_shift.obj
+ 0001:00010b20       PMC_RightShift_X_I         0000000180011b20 f   pmc_shift.obj
+ 0001:00010c40       RightShift_Imp             0000000180011c40 f   pmc_shift.obj
+ 0001:00011420       RightShift_Imp_DIV         0000000180012420 f   pmc_shift.obj
+ 0001:00011a60       PMC_GetStatisticsInfo      0000000180012a60 f   pmc_statistics.obj
+ 0001:00011a90       Initialize_Subtruct        0000000180012a90 f   pmc_subtruct.obj
+ 0001:00011aa0       PMC_Subtruct_I_X           0000000180012aa0 f   pmc_subtruct.obj
+ 0001:00011b80       PMC_Subtruct_L_X           0000000180012b80 f   pmc_subtruct.obj
+ 0001:00011c50       PMC_Subtruct_X_I           0000000180012c50 f   pmc_subtruct.obj
+ 0001:00011de0       PMC_Subtruct_X_L           0000000180012de0 f   pmc_subtruct.obj
+ 0001:00011f70       PMC_Subtruct_X_X           0000000180012f70 f   pmc_subtruct.obj
+ 0001:000120f0       Subtruct_Imp               00000001800130f0 f   pmc_subtruct.obj
+ 0001:00012620       Initialize_To              0000000180013620 f   pmc_to.obj
+ 0001:00012630       PMC_To_X_I                 0000000180013630 f   pmc_to.obj
+ 0001:00012690       PMC_To_X_L                 0000000180013690 f   pmc_to.obj
+ 0001:00012e90       InitializeNumberFormatoInfo 0000000180013e90 f   pmc_tostring.obj
+ 0001:00012fe0       Initialize_ToString        0000000180013fe0 f   pmc_tostring.obj
+ 0001:00013b30       PMC_InitializeNumberFormatInfo 0000000180014b30 f   pmc_tostring.obj
+ 0001:00013b40       PMC_ToString               0000000180014b40 f   pmc_tostring.obj
+ 0001:00014c2e       HeapCreate                 0000000180015c2e f   kernel32:KERNEL32.dll
+ 0001:00014c34       HeapDestroy                0000000180015c34 f   kernel32:KERNEL32.dll
+ 0001:00014c3a       HeapAlloc                  0000000180015c3a f   kernel32:KERNEL32.dll
+ 0001:00014c40       HeapFree                   0000000180015c40 f   kernel32:KERNEL32.dll
+ 0001:00014c46       GetTickCount               0000000180015c46 f   kernel32:KERNEL32.dll
+ 0001:00014c4c       lstrcpyW                   0000000180015c4c f   kernel32:KERNEL32.dll
+ 0001:00014c52       lstrlenW                   0000000180015c52 f   kernel32:KERNEL32.dll
+ 0001:00014c58       lstrcatW                   0000000180015c58 f   kernel32:KERNEL32.dll
+ 0001:00014c60       __GSHandlerCheck           0000000180015c60 f   MSVCRT:gshandler.obj
+ 0001:00014c80       __GSHandlerCheckCommon     0000000180015c80 f   MSVCRT:gshandler.obj
+ 0001:00014cf0       __security_check_cookie    0000000180015cf0 f   MSVCRT:amdsecgs.obj
+ 0001:00015060       _CRT_INIT                  0000000180016060 f   MSVCRT:dll_dllmain.obj
+ 0001:00015068       _DllMainCRTStartup         0000000180016068 f   MSVCRT:dll_dllmain.obj
+ 0001:000150a8       __raise_securityfailure    00000001800160a8 f   MSVCRT:gs_report.obj
+ 0001:000150dc       __report_gsfailure         00000001800160dc f   MSVCRT:gs_report.obj
+ 0001:000151b0       __report_rangecheckfailure 00000001800161b0 f   MSVCRT:gs_report.obj
+ 0001:000151c4       __report_securityfailure   00000001800161c4 f   MSVCRT:gs_report.obj
+ 0001:00015260       __report_securityfailureEx 0000000180016260 f   MSVCRT:gs_report.obj
+ 0001:000154c0       __security_init_cookie     00000001800164c0 f   MSVCRT:gs_support.obj
+ 0001:0001556c       ?__scrt_initialize_type_info@@YAXXZ 000000018001656c f   MSVCRT:tncleanup.obj
+ 0001:0001557c       ?__scrt_uninitialize_type_info@@YAXXZ 000000018001657c f   MSVCRT:tncleanup.obj
+ 0001:00015588       __local_stdio_printf_options 0000000180016588 f i MSVCRT:default_local_stdio_options.obj
+ 0001:00015590       __local_stdio_scanf_options 0000000180016590 f i MSVCRT:default_local_stdio_options.obj
+ 0001:00015598       __scrt_initialize_default_local_stdio_options 0000000180016598 f   MSVCRT:default_local_stdio_options.obj
+ 0001:000155b4       ??$__crt_fast_decode_pointer@PEAP6AXXZ@@YAPEAP6AXXZQEAP6AXXZ@Z 00000001800165b4 f i MSVCRT:utility.obj
+ 0001:000155cc       ??$__crt_fast_encode_pointer@PEAP6AXXZ@@YAPEAP6AXXZQEAP6AXXZ@Z 00000001800165cc f i MSVCRT:utility.obj
+ 0001:000155ec       ?__crt_rotate_pointer_value@@YA_K_KH@Z 00000001800165ec f i MSVCRT:utility.obj
+ 0001:000155f8       ?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 00000001800165f8 f i MSVCRT:utility.obj
+ 0001:00015658       ?initialize_environment@__scrt_narrow_environment_policy@@SAHXZ 0000000180016658 f i MSVCRT:utility.obj
+ 0001:00015690       NtCurrentTeb               0000000180016690 f i MSVCRT:utility.obj
+ 0001:0001569c       __scrt_acquire_startup_lock 000000018001669c f   MSVCRT:utility.obj
+ 0001:000156d8       __scrt_dllmain_after_initialize_c 00000001800166d8 f   MSVCRT:utility.obj
+ 0001:0001570c       __scrt_dllmain_before_initialize_c 000000018001670c f   MSVCRT:utility.obj
+ 0001:00015724       __scrt_dllmain_crt_thread_attach 0000000180016724 f   MSVCRT:utility.obj
+ 0001:0001574c       __scrt_dllmain_crt_thread_detach 000000018001674c f   MSVCRT:utility.obj
+ 0001:00015764       __scrt_dllmain_exception_filter 0000000180016764 f   MSVCRT:utility.obj
+ 0001:000157c4       __scrt_dllmain_uninitialize_c 00000001800167c4 f   MSVCRT:utility.obj
+ 0001:000157f4       __scrt_dllmain_uninitialize_critical 00000001800167f4 f   MSVCRT:utility.obj
+ 0001:00015808       __scrt_initialize_crt      0000000180016808 f   MSVCRT:utility.obj
+ 0001:00015854       __scrt_initialize_onexit_tables 0000000180016854 f   MSVCRT:utility.obj
+ 0001:0001592c       __scrt_is_nonwritable_in_current_image 000000018001692c f   MSVCRT:utility.obj
+ 0001:000159c8       __scrt_release_startup_lock 00000001800169c8 f   MSVCRT:utility.obj
+ 0001:000159ec       __scrt_uninitialize_crt    00000001800169ec f   MSVCRT:utility.obj
+ 0001:00015a18       _onexit                    0000000180016a18 f   MSVCRT:utility.obj
+ 0001:00015a68       at_quick_exit              0000000180016a68 f   MSVCRT:utility.obj
+ 0001:00015aa0       atexit                     0000000180016aa0 f   MSVCRT:utility.obj
+ 0001:00015ab8       __scrt_get_dyn_tls_init_callback 0000000180016ab8 f   MSVCRT:dyn_tls_init.obj
+ 0001:00015ac0       __crt_debugger_hook        0000000180016ac0 f   MSVCRT:utility_desktop.obj
+ 0001:00015ac8       __scrt_fastfail            0000000180016ac8 f   MSVCRT:utility_desktop.obj
+ 0001:00015c14       __scrt_get_show_window_mode 0000000180016c14 f   MSVCRT:utility_desktop.obj
+ 0001:00015c50       __scrt_initialize_mta      0000000180016c50 f   MSVCRT:utility_desktop.obj
+ 0001:00015c58       __scrt_initialize_winrt    0000000180016c58 f   MSVCRT:utility_desktop.obj
+ 0001:00015c5c       __scrt_is_managed_app      0000000180016c5c f   MSVCRT:utility_desktop.obj
+ 0001:00015cb0       __scrt_set_unhandled_exception_filter 0000000180016cb0 f   MSVCRT:utility_desktop.obj
+ 0001:00015cc0       __scrt_exe_initialize_mta  0000000180016cc0 f   MSVCRT:utility_desktop.obj
+ 0001:00015cc0       __scrt_stub_for_initialize_mta 0000000180016cc0 f   MSVCRT:utility_desktop.obj
+ 0001:00015cc4       __scrt_unhandled_exception_filter 0000000180016cc4 f   MSVCRT:utility_desktop.obj
+ 0001:00015cfc       _RTC_Initialize            0000000180016cfc f   MSVCRT:initsect.obj
+ 0001:00015d38       _RTC_Terminate             0000000180016d38 f   MSVCRT:initsect.obj
+ 0001:00015d74       _guard_check_icall_nop     0000000180016d74 f i MSVCRT:guard_support.obj
+ 0001:00015d78       ReadNoFence64              0000000180016d78 f i MSVCRT:guard_support.obj
+ 0001:00015d7c       ReadPointerNoFence         0000000180016d7c f i MSVCRT:guard_support.obj
+ 0001:00015d80       _guard_icall_checks_enforced 0000000180016d80 f i MSVCRT:guard_support.obj
+ 0001:00015d98       _guard_rf_checks_enforced  0000000180016d98 f i MSVCRT:guard_support.obj
+ 0001:00015d9c       __isa_available_init       0000000180016d9c f   MSVCRT:cpu_disp.obj
+ 0001:00015f58       _get_startup_argv_mode     0000000180016f58 f   MSVCRT:argv_mode.obj
+ 0001:00015f60       __scrt_is_ucrt_dll_in_use  0000000180016f60 f   MSVCRT:ucrt_detection.obj
+ 0001:00015f70       __C_specific_handler       0000000180016f70 f   vcruntime:VCRUNTIME140.dll
+ 0001:00015f76       __std_type_info_destroy_list 0000000180016f76 f   vcruntime:VCRUNTIME140.dll
+ 0001:00015f7c       memset                     0000000180016f7c f   vcruntime:VCRUNTIME140.dll
+ 0001:00015f82       _initterm                  0000000180016f82 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015f88       _initterm_e                0000000180016f88 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015f8e       _seh_filter_dll            0000000180016f8e f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015f94       _configure_narrow_argv     0000000180016f94 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015f9a       _initialize_narrow_environment 0000000180016f9a f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fa0       _initialize_onexit_table   0000000180016fa0 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fa6       _register_onexit_function  0000000180016fa6 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fac       _execute_onexit_table      0000000180016fac f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fb2       _crt_atexit                0000000180016fb2 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fb8       _crt_at_quick_exit         0000000180016fb8 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fbe       _cexit                     0000000180016fbe f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fc4       terminate                  0000000180016fc4 f   ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0001:00015fca       RtlCaptureContext          0000000180016fca f   kernel32:KERNEL32.dll
+ 0001:00015fd0       RtlLookupFunctionEntry     0000000180016fd0 f   kernel32:KERNEL32.dll
+ 0001:00015fd6       RtlVirtualUnwind           0000000180016fd6 f   kernel32:KERNEL32.dll
+ 0001:00015fdc       UnhandledExceptionFilter   0000000180016fdc f   kernel32:KERNEL32.dll
+ 0001:00015fe2       SetUnhandledExceptionFilter 0000000180016fe2 f   kernel32:KERNEL32.dll
+ 0001:00015fe8       GetCurrentProcess          0000000180016fe8 f   kernel32:KERNEL32.dll
+ 0001:00015fee       TerminateProcess           0000000180016fee f   kernel32:KERNEL32.dll
+ 0001:00015ff4       IsProcessorFeaturePresent  0000000180016ff4 f   kernel32:KERNEL32.dll
+ 0001:00015ffa       QueryPerformanceCounter    0000000180016ffa f   kernel32:KERNEL32.dll
+ 0001:00016000       GetCurrentProcessId        0000000180017000 f   kernel32:KERNEL32.dll
+ 0001:00016006       GetCurrentThreadId         0000000180017006 f   kernel32:KERNEL32.dll
+ 0001:0001600c       GetSystemTimeAsFileTime    000000018001700c f   kernel32:KERNEL32.dll
+ 0001:00016012       InitializeSListHead        0000000180017012 f   kernel32:KERNEL32.dll
+ 0001:00016018       IsDebuggerPresent          0000000180017018 f   kernel32:KERNEL32.dll
+ 0001:0001601e       GetStartupInfoW            000000018001701e f   kernel32:KERNEL32.dll
+ 0001:00016024       GetModuleHandleW           0000000180017024 f   kernel32:KERNEL32.dll
+ 0001:0001602c       __scrt_stub_for_acrt_initialize 000000018001702c f   MSVCRT:ucrt_stubs.obj
+ 0001:0001602c       __acrt_initialize          000000018001702c f   MSVCRT:ucrt_stubs.obj
+ 0001:0001602c       __vcrt_initialize          000000018001702c f   MSVCRT:ucrt_stubs.obj
+ 0001:00016030       __vcrt_thread_attach       0000000180017030 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016030       __scrt_stub_for_acrt_thread_attach 0000000180017030 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016030       __acrt_thread_attach       0000000180017030 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016034       __vcrt_thread_detach       0000000180017034 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016034       __scrt_stub_for_acrt_thread_detach 0000000180017034 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016034       __acrt_thread_detach       0000000180017034 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016038       __scrt_stub_for_acrt_uninitialize 0000000180017038 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016038       __vcrt_uninitialize        0000000180017038 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016038       __acrt_uninitialize        0000000180017038 f   MSVCRT:ucrt_stubs.obj
+ 0001:0001603c       __scrt_stub_for_acrt_uninitialize_critical 000000018001703c f   MSVCRT:ucrt_stubs.obj
+ 0001:0001603c       __acrt_uninitialize_critical 000000018001703c f   MSVCRT:ucrt_stubs.obj
+ 0001:0001603c       __vcrt_uninitialize_critical 000000018001703c f   MSVCRT:ucrt_stubs.obj
+ 0001:00016040       __scrt_stub_for_is_c_termination_complete 0000000180017040 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016040       _is_c_termination_complete 0000000180017040 f   MSVCRT:ucrt_stubs.obj
+ 0001:00016060       _guard_dispatch_icall_nop  0000000180017060 f   MSVCRT:guard_dispatch.obj
+ 0002:00000000       __imp_HeapCreate           0000000180018000     kernel32:KERNEL32.dll
+ 0002:00000008       __imp_HeapDestroy          0000000180018008     kernel32:KERNEL32.dll
+ 0002:00000010       __imp_HeapAlloc            0000000180018010     kernel32:KERNEL32.dll
+ 0002:00000018       __imp_HeapFree             0000000180018018     kernel32:KERNEL32.dll
+ 0002:00000020       __imp_GetTickCount         0000000180018020     kernel32:KERNEL32.dll
+ 0002:00000028       __imp_lstrcpyW             0000000180018028     kernel32:KERNEL32.dll
+ 0002:00000030       __imp_lstrlenW             0000000180018030     kernel32:KERNEL32.dll
+ 0002:00000038       __imp_lstrcatW             0000000180018038     kernel32:KERNEL32.dll
+ 0002:00000040       __imp_GetStartupInfoW      0000000180018040     kernel32:KERNEL32.dll
+ 0002:00000048       __imp_IsDebuggerPresent    0000000180018048     kernel32:KERNEL32.dll
+ 0002:00000050       __imp_InitializeSListHead  0000000180018050     kernel32:KERNEL32.dll
+ 0002:00000058       __imp_GetSystemTimeAsFileTime 0000000180018058     kernel32:KERNEL32.dll
+ 0002:00000060       __imp_GetCurrentThreadId   0000000180018060     kernel32:KERNEL32.dll
+ 0002:00000068       __imp_GetCurrentProcessId  0000000180018068     kernel32:KERNEL32.dll
+ 0002:00000070       __imp_QueryPerformanceCounter 0000000180018070     kernel32:KERNEL32.dll
+ 0002:00000078       __imp_IsProcessorFeaturePresent 0000000180018078     kernel32:KERNEL32.dll
+ 0002:00000080       __imp_TerminateProcess     0000000180018080     kernel32:KERNEL32.dll
+ 0002:00000088       __imp_GetCurrentProcess    0000000180018088     kernel32:KERNEL32.dll
+ 0002:00000090       __imp_SetUnhandledExceptionFilter 0000000180018090     kernel32:KERNEL32.dll
+ 0002:00000098       __imp_UnhandledExceptionFilter 0000000180018098     kernel32:KERNEL32.dll
+ 0002:000000a0       __imp_RtlVirtualUnwind     00000001800180a0     kernel32:KERNEL32.dll
+ 0002:000000a8       __imp_GetModuleHandleW     00000001800180a8     kernel32:KERNEL32.dll
+ 0002:000000b0       __imp_RtlLookupFunctionEntry 00000001800180b0     kernel32:KERNEL32.dll
+ 0002:000000b8       __imp_RtlCaptureContext    00000001800180b8     kernel32:KERNEL32.dll
+ 0002:000000c0       \177KERNEL32_NULL_THUNK_DATA 00000001800180c0     kernel32:KERNEL32.dll
+ 0002:000000c8       __imp___C_specific_handler 00000001800180c8     vcruntime:VCRUNTIME140.dll
+ 0002:000000d0       __imp_memset               00000001800180d0     vcruntime:VCRUNTIME140.dll
+ 0002:000000d8       __imp___std_type_info_destroy_list 00000001800180d8     vcruntime:VCRUNTIME140.dll
+ 0002:000000e0       \177VCRUNTIME140_NULL_THUNK_DATA 00000001800180e0     vcruntime:VCRUNTIME140.dll
+ 0002:000000e8       __imp__register_onexit_function 00000001800180e8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:000000f0       __imp__initialize_onexit_table 00000001800180f0     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:000000f8       __imp__crt_at_quick_exit   00000001800180f8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000100       __imp__configure_narrow_argv 0000000180018100     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000108       __imp__seh_filter_dll      0000000180018108     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000110       __imp__initterm_e          0000000180018110     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000118       __imp__initterm            0000000180018118     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000120       __imp__execute_onexit_table 0000000180018120     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000128       __imp__cexit               0000000180018128     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000130       __imp__initialize_narrow_environment 0000000180018130     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000138       __imp_terminate            0000000180018138     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000140       __imp__crt_atexit          0000000180018140     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000148       \177api-ms-win-crt-runtime-l1-1-0_NULL_THUNK_DATA 0000000180018148     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:00000150       __guard_check_icall_fptr   0000000180018150     MSVCRT:guard_support.obj
+ 0002:00000158       __guard_dispatch_icall_fptr 0000000180018158     MSVCRT:guard_support.obj
+ 0002:00000160       __xc_a                     0000000180018160     MSVCRT:initializers.obj
+ 0002:00000168       __xc_z                     0000000180018168     MSVCRT:initializers.obj
+ 0002:00000170       __xi_a                     0000000180018170     MSVCRT:initializers.obj
+ 0002:00000178       __xi_z                     0000000180018178     MSVCRT:initializers.obj
+ 0002:00000180       __xp_a                     0000000180018180     MSVCRT:initializers.obj
+ 0002:00000188       __xp_z                     0000000180018188     MSVCRT:initializers.obj
+ 0002:00000190       __xt_a                     0000000180018190     MSVCRT:initializers.obj
+ 0002:00000198       __xt_z                     0000000180018198     MSVCRT:initializers.obj
+ 0002:000001a0       ??_C@_13HOIJIPNN@?$AA?5@   00000001800181a0     pmc_tostring.obj
+ 0002:000001a4       ??_C@_13LLDNKHDC@?$AA?$CI@ 00000001800181a4     pmc_tostring.obj
+ 0002:000001a8       ??_C@_13DIBMAFH@?$AA?$CJ@  00000001800181a8     pmc_tostring.obj
+ 0002:000001ac       ??_C@_13JOFGPIOO@?$AA?4@   00000001800181ac     pmc_tostring.obj
+ 0002:000001b0       ??_C@_13DEFPDAGF@?$AA?0@   00000001800181b0     pmc_tostring.obj
+ 0002:000001b4       ??_C@_13DMCFHHKM@?$AA3@    00000001800181b4     pmc_tostring.obj
+ 0002:000001b8       ??_C@_13BMLCKOLB@?$PP?$KE@ 00000001800181b8     pmc_tostring.obj
+ 0002:000001bc       ??_C@_13IMODFHAA@?$AA?9@   00000001800181bc     pmc_tostring.obj
+ 0002:000001c0       ??_C@_13EJFHHPOP@?$AA?$CF@ 00000001800181c0     pmc_tostring.obj
+ 0002:000001c4       ??_C@_13BGNNJOKC@?$AA0@    00000001800181c4     pmc_tostring.obj
+ 0002:000001c8       ??_C@_13KJIIAINM@?$AA?$CL@ 00000001800181c8     pmc_tostring.obj
+ 0002:000001d0       _pDefaultRawDllMain        00000001800181d0     MSVCRT:dll_dllmain.obj
+ 0002:000001d0       _pRawDllMain               00000001800181d0     MSVCRT:dll_dllmain.obj
+ 0002:00000250       _load_config_used          0000000180018250     MSVCRT:loadcfg.obj
+ 0002:00000630       __rtc_iaa                  0000000180018630     MSVCRT:initsect.obj
+ 0002:00000638       __rtc_izz                  0000000180018638     MSVCRT:initsect.obj
+ 0002:00000640       __rtc_taa                  0000000180018640     MSVCRT:initsect.obj
+ 0002:00000648       __rtc_tzz                  0000000180018648     MSVCRT:initsect.obj
+ 0002:000016a4       __IMPORT_DESCRIPTOR_KERNEL32 00000001800196a4     kernel32:KERNEL32.dll
+ 0002:000016b8       __IMPORT_DESCRIPTOR_VCRUNTIME140 00000001800196b8     vcruntime:VCRUNTIME140.dll
+ 0002:000016cc       __IMPORT_DESCRIPTOR_api-ms-win-crt-runtime-l1-1-0 00000001800196cc     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:000016e0       __NULL_IMPORT_DESCRIPTOR   00000001800196e0     kernel32:KERNEL32.dll
+ 0003:00000050       __security_cookie_complement 000000018001a050     MSVCRT:gs_cookie.obj
+ 0003:00000058       __security_cookie          000000018001a058     MSVCRT:gs_cookie.obj
+ 0003:00000060       __scrt_native_dllmain_reason 000000018001a060     MSVCRT:utility.obj
+ 0003:00000068       __isa_available            000000018001a068     MSVCRT:cpu_disp.obj
+ 0003:0000006c       __isa_enabled              000000018001a06c     MSVCRT:cpu_disp.obj
+ 0003:00000070       __memcpy_nt_iters          000000018001a070     MSVCRT:cpu_disp.obj
+ 0003:00000080       __scrt_ucrt_dll_is_in_use  000000018001a080     MSVCRT:ucrt_stubs.obj
+ 0003:00000a00       ?__type_info_root_node@@3U__type_info_node@@A 000000018001aa00     MSVCRT:tncleanup.obj
+ 0003:00000a10       ?_OptionsStorage@?1??__local_stdio_printf_options@@9@4_KA 000000018001aa10     MSVCRT:default_local_stdio_options.obj
+ 0003:00000a18       ?_OptionsStorage@?1??__local_stdio_scanf_options@@9@4_KA 000000018001aa18     MSVCRT:default_local_stdio_options.obj
+ 0003:00000a20       __scrt_current_native_startup_state 000000018001aa20     MSVCRT:utility.obj
+ 0003:00000a28       __scrt_native_startup_lock 000000018001aa28     MSVCRT:utility.obj
+ 0003:00000a68       __scrt_debugger_hook_flag  000000018001aa68     MSVCRT:utility_desktop.obj
+ 0003:00000a6c       __favor                    000000018001aa6c     MSVCRT:cpu_disp.obj
+ 0003:00000a70       statistics_info            000000018001aa70     <common>
+ 0003:00000a80       configuration_info         000000018001aa80     <common>
+ 0003:00000a88       hLocalHeap                 000000018001aa88     <common>
+ 0003:00000aa0       number_one                 000000018001aaa0     <common>
+ 0003:00000b00       number_zero                000000018001ab00     <common>
+ 0003:00000b48       __dyn_tls_init_callback    000000018001ab48     <common>
 
- entry point at        0001:000139a8
+ entry point at        0001:00015068
 
  Static symbols
 
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0002:fffea000       __guard_fids_?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180000000     MSVCRT:dll_dllmain.obj
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0002:fffea000       __guard_fids___scrt_set_unhandled_exception_filter 0000000180000000     MSVCRT:utility_desktop.obj
- 0000:fffe4000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     Palmtree.Math.Core.Uint.exp
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
- 0000:fffe4000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0000:fffe4000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0002:fffea000       __guard_fids__             0000000180000000     MSVCRT:guard_support.obj
- 0000:fffe4000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
- 0002:fffea000       __guard_fids__guard_icall_checks_enforced 0000000180000000     MSVCRT:guard_support.obj
- 0001:00000240       CalculateCheckCode         0000000180001240 f   pmc_memory.obj
- 0001:00000500       CleanUpNumber              0000000180001500 f   pmc_memory.obj
- 0001:00000880       InitializeNumber           0000000180001880 f   pmc_memory.obj
- 0001:00000b60       Add_Imp_using_ADC          0000000180001b60 f   pmc_add.obj
- 0001:00000f50       Add_Imp_using_ADCX         0000000180001f50 f   pmc_add.obj
- 0001:00001130       DoCarry                    0000000180002130 f   pmc_add.obj
- 0001:000012e0       PMC_Add_X_I_Imp            00000001800022e0 f   pmc_add.obj
- 0001:00001480       PMC_Add_X_L_Imp            0000000180002480 f   pmc_add.obj
- 0001:00001760       _ADD_16WORDS_ADC           0000000180002760 f   pmc_add.obj
- 0001:00001830       _ADD_16WORDS_ADCX          0000000180002830 f   pmc_add.obj
- 0001:00001930       _ADD_32WORDS_ADCX          0000000180002930 f   pmc_add.obj
- 0001:00001bb0       BitwiseAnd_X_X             0000000180002bb0 f   pmc_bitwiseand.obj
- 0001:000021f0       BitwiseOr_X_X              00000001800031f0 f   pmc_bitwiseor.obj
- 0001:00002660       PMC_BitwiseOr_X_I_Imp      0000000180003660 f   pmc_bitwiseor.obj
- 0001:000027b0       PMC_BitwiseOr_X_L_Imp      00000001800037b0 f   pmc_bitwiseor.obj
- 0001:000029d0       CountActualBitsFromBuffer  00000001800039d0 f   pmc_bytes.obj
- 0001:00003280       AddOneLine                 0000000180004280 f   pmc_divrem.obj
- 0001:000035e0       AddOneLineX                00000001800045e0 f   pmc_divrem.obj
- 0001:000040b0       DivRem_X_X_using_ADC_MUL   00000001800050b0 f   pmc_divrem.obj
- 0001:000043a0       DivRem_X_X_using_ADX_MULX  00000001800053a0 f   pmc_divrem.obj
- 0001:00005940       SubtructOneLine            0000000180006940 f   pmc_divrem.obj
- 0001:000065c0       SubtructOneLineX           00000001800075c0 f   pmc_divrem.obj
- 0001:00007300       _ADD_16WORDS_ADCX_DIV      0000000180008300 f   pmc_divrem.obj
- 0001:000073f0       Equals_X_I_Imp             00000001800083f0 f   pmc_equals.obj
- 0001:00007440       Equals_X_L_Imp             0000000180008440 f   pmc_equals.obj
- 0001:00007710       ExclusiveOr_X_X            0000000180008710 f   pmc_exclusiveor.obj
- 0001:00007b80       PMC_ExclusiveOr_X_I_Imp    0000000180008b80 f   pmc_exclusiveor.obj
- 0001:00007cf0       PMC_ExclusiveOr_X_L_Imp    0000000180008cf0 f   pmc_exclusiveor.obj
- 0001:00008130       GreatestCommonDivisor_Imp  0000000180009130 f   pmc_greatestcommondivisor.obj
- 0001:00008360       PMC_GreatestCommonDivisor_X_I_Imp 0000000180009360 f   pmc_greatestcommondivisor.obj
- 0001:00008640       PMC_GreatestCommonDivisor_X_L_Imp 0000000180009640 f   pmc_greatestcommondivisor.obj
- 0001:00009120       ModulePower                000000018000a120 f   pmc_modpow.obj
- 0001:00009800       PMC_ModPow_X_X_X_Imp       000000018000a800 f   pmc_modpow.obj
- 0001:00009a10       Multiply_WORD_using_MULX_ADCX 000000018000aa10 f   pmc_multiply.obj
- 0001:0000a690       Multiply_WORD_using_MUL_ADC 000000018000b690 f   pmc_multiply.obj
- 0001:0000b240       Multiply_X_1W_using_MULX_ADCX 000000018000c240 f   pmc_multiply.obj
- 0001:0000b250       Multiply_X_1W_using_MUL_ADC 000000018000c250 f   pmc_multiply.obj
- 0001:0000b260       Multiply_X_2W_using_MULX_ADCX 000000018000c260 f   pmc_multiply.obj
- 0001:0000b2c0       Multiply_X_2W_using_MUL_ADC 000000018000c2c0 f   pmc_multiply.obj
- 0001:0000b330       Multiply_X_X_using_MULX_ADCX 000000018000c330 f   pmc_multiply.obj
- 0001:0000b3c0       Multiply_X_X_using_MUL_ADC 000000018000c3c0 f   pmc_multiply.obj
- 0001:0000b570       PMC_Multiply_X_I_Imp       000000018000c570 f   pmc_multiply.obj
- 0001:0000b6d0       PMC_Multiply_X_L_Imp       000000018000c6d0 f   pmc_multiply.obj
- 0001:0000b950       Build1WordFromDecimalString 000000018000c950 f   pmc_parse.obj
- 0001:0000baf0       Build1WordFromHexString    000000018000caf0 f   pmc_parse.obj
- 0001:0000c010       BuildBinaryFromDecimalString 000000018000d010 f   pmc_parse.obj
- 0001:0000c190       BuildBinaryFromHexString   000000018000d190 f   pmc_parse.obj
- 0001:0000c2d0       InitializeParserState      000000018000d2d0 f   pmc_parse.obj
- 0001:0000c460       MultiplyAndAdd_using_ADCX_MULX 000000018000d460 f   pmc_parse.obj
- 0001:0000ce10       MultiplyAndAdd_using_ADC_MUL 000000018000de10 f   pmc_parse.obj
- 0001:0000d8a0       ParseAsDecimalNumberString 000000018000e8a0 f   pmc_parse.obj
- 0001:0000e9f0       ParseAsFractionPartNumberSequence 000000018000f9f0 f   pmc_parse.obj
- 0001:0000eaa0       ParseAsIntegerPartNumberSequence 000000018000faa0 f   pmc_parse.obj
- 0001:0000ebe0       ParseDecimalDigit          000000018000fbe0 f   pmc_parse.obj
- 0001:0000ec70       ParseHexDigit              000000018000fc70 f   pmc_parse.obj
- 0001:0000ecb0       TryParseDN                 000000018000fcb0 f   pmc_parse.obj
- 0001:0000f020       TryParseX                  0000000180010020 f   pmc_parse.obj
- 0001:0000f310       PMC_Pow_X_I_Imp            0000000180010310 f   pmc_pow.obj
- 0001:00011ed0       Subtruct_X_1W              0000000180012ed0 f   pmc_subtruct.obj
- 0001:00011f50       _SUBTRUCT_16WORDS_SBB      0000000180012f50 f   pmc_subtruct.obj
- 0001:00012270       OutputOneChar              0000000180013270 f   pmc_tostring.obj
- 0001:00012498       $LN17                      0000000180013498     pmc_tostring.obj
- 0001:000124ac       $LN16                      00000001800134ac     pmc_tostring.obj
- 0001:000124f0       PrintDecimal               00000001800134f0 f   pmc_tostring.obj
- 0001:00012e40       ToStringDN                 0000000180013e40 f   pmc_tostring.obj
- 0001:00013190       ToStringX                  0000000180014190 f   pmc_tostring.obj
- 0001:000132c0       ToStringX_1WORD            00000001800142c0 f   pmc_tostring.obj
- 0001:00013620       $$000000                   0000000180014620     MSVCRT:amdsecgs.obj
- 0001:00013654       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180014654 f   MSVCRT:dll_dllmain.obj
- 0001:000136a4       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 00000001800146a4 f   MSVCRT:dll_dllmain.obj
- 0001:000137c0       ?dllmain_crt_process_detach@@YAH_N@Z 00000001800147c0 f   MSVCRT:dll_dllmain.obj
- 0001:00013850       ?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180014850 f   MSVCRT:dll_dllmain.obj
- 0001:00013984       ?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180014984 f   MSVCRT:dll_dllmain.obj
- 0001:00013cb0       capture_current_context    0000000180014cb0 f   MSVCRT:gs_report.obj
- 0001:00013d20       capture_previous_context   0000000180014d20 f   MSVCRT:gs_report.obj
- 0001:00013d94       __get_entropy              0000000180014d94 f   MSVCRT:gs_support.obj
- 0001:00013f4c       ?find_pe_section@@YAPEAU_IMAGE_SECTION_HEADER@@QEAE_K@Z 0000000180014f4c f   MSVCRT:utility.obj
- 0001:00013fa0       ?is_potentially_valid_image_base@@YA_NQEAX@Z 0000000180014fa0 f   MSVCRT:utility.obj
- 0001:00014990       $$000000                   0000000180015990     MSVCRT:guard_dispatch.obj
- 0001:000149a2       ?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 00000001800159a2 f   MSVCRT:dll_dllmain.obj
- 0001:000149b9       ?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 00000001800159b9 f   MSVCRT:dll_dllmain.obj
- 0001:000149d5       ?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 00000001800159d5 f   MSVCRT:dll_dllmain.obj
- 0001:00014a0b       __scrt_is_nonwritable_in_current_image$filt$0 0000000180015a0b f   MSVCRT:utility.obj
- 0002:000001d0       GS_ExceptionPointers       00000001800161d0     MSVCRT:gs_report.obj
- 0002:00000640       $unwind$GetCPUInfo         0000000180016640     cpuid.obj
- 0002:0000064c       $unwind$DllMain            000000018001664c     dllmain.obj
- 0002:00000654       $unwind$AllocateHeapArea   0000000180016654     pmc_memory.obj
- 0002:0000065c       $unwind$DeallocateHeapArea 000000018001665c     pmc_memory.obj
- 0002:00000664       $unwind$AllocateBlock      0000000180016664     pmc_memory.obj
- 0002:00000674       $unwind$DeallocateBlock    0000000180016674     pmc_memory.obj
- 0002:0000067c       $chain$0$DeallocateBlock   000000018001667c     pmc_memory.obj
- 0002:00000690       $chain$1$DeallocateBlock   0000000180016690     pmc_memory.obj
- 0002:000006a0       $unwind$AttatchNumber      00000001800166a0     pmc_memory.obj
- 0002:000006a8       $unwind$AllocateNumber     00000001800166a8     pmc_memory.obj
- 0002:000006bc       $unwind$DeallocateNumber   00000001800166bc     pmc_memory.obj
- 0002:000006c4       $unwind$CommitNumber       00000001800166c4     pmc_memory.obj
- 0002:000006cc       $unwind$DuplicateNumber    00000001800166cc     pmc_memory.obj
- 0002:000006e0       $unwind$Initialize_Memory  00000001800166e0     pmc_memory.obj
- 0002:000006ec       $unwind$PMC_Dispose        00000001800166ec     pmc_memory.obj
- 0002:000006f4       $unwind$InitializeNumber   00000001800166f4     pmc_memory.obj
- 0002:00000708       $unwind$CleanUpNumber      0000000180016708     pmc_memory.obj
- 0002:00000710       $chain$0$CleanUpNumber     0000000180016710     pmc_memory.obj
- 0002:00000724       $chain$1$CleanUpNumber     0000000180016724     pmc_memory.obj
- 0002:00000734       $unwind$PMC_Add_I_X        0000000180016734     pmc_add.obj
- 0002:00000744       $unwind$PMC_Add_L_X        0000000180016744     pmc_add.obj
- 0002:00000754       $unwind$PMC_Add_X_I        0000000180016754     pmc_add.obj
- 0002:00000764       $unwind$PMC_Add_X_L        0000000180016764     pmc_add.obj
- 0002:00000774       $unwind$PMC_Add_X_X        0000000180016774     pmc_add.obj
- 0002:00000784       $unwind$Add_Imp_using_ADC  0000000180016784     pmc_add.obj
- 0002:00000790       $unwind$Add_Imp_using_ADCX 0000000180016790     pmc_add.obj
- 0002:0000079c       $unwind$PMC_Add_X_I_Imp    000000018001679c     pmc_add.obj
- 0002:000007ac       $unwind$PMC_Add_X_L_Imp    00000001800167ac     pmc_add.obj
- 0002:000007bc       $unwind$PMC_BitwiseAnd_I_X 00000001800167bc     pmc_bitwiseand.obj
- 0002:000007cc       $unwind$PMC_BitwiseAnd_L_X 00000001800167cc     pmc_bitwiseand.obj
- 0002:000007dc       $unwind$PMC_BitwiseAnd_X_I 00000001800167dc     pmc_bitwiseand.obj
- 0002:000007ec       $unwind$PMC_BitwiseAnd_X_L 00000001800167ec     pmc_bitwiseand.obj
- 0002:000007fc       $unwind$PMC_BitwiseAnd_X_X 00000001800167fc     pmc_bitwiseand.obj
- 0002:00000808       $chain$0$PMC_BitwiseAnd_X_X 0000000180016808     pmc_bitwiseand.obj
- 0002:0000081c       $chain$1$PMC_BitwiseAnd_X_X 000000018001681c     pmc_bitwiseand.obj
- 0002:0000082c       $unwind$BitwiseAnd_X_X     000000018001682c     pmc_bitwiseand.obj
- 0002:00000834       $chain$2$BitwiseAnd_X_X    0000000180016834     pmc_bitwiseand.obj
- 0002:00000850       $chain$3$BitwiseAnd_X_X    0000000180016850     pmc_bitwiseand.obj
- 0002:00000864       $chain$4$BitwiseAnd_X_X    0000000180016864     pmc_bitwiseand.obj
- 0002:00000874       $unwind$PMC_BitwiseOr_I_X  0000000180016874     pmc_bitwiseor.obj
- 0002:00000884       $unwind$PMC_BitwiseOr_L_X  0000000180016884     pmc_bitwiseor.obj
- 0002:00000894       $unwind$PMC_BitwiseOr_X_I  0000000180016894     pmc_bitwiseor.obj
- 0002:000008a4       $unwind$PMC_BitwiseOr_X_L  00000001800168a4     pmc_bitwiseor.obj
- 0002:000008b4       $unwind$PMC_BitwiseOr_X_X  00000001800168b4     pmc_bitwiseor.obj
- 0002:000008c0       $chain$0$PMC_BitwiseOr_X_X 00000001800168c0     pmc_bitwiseor.obj
- 0002:000008d4       $chain$1$PMC_BitwiseOr_X_X 00000001800168d4     pmc_bitwiseor.obj
- 0002:000008e4       $chain$2$PMC_BitwiseOr_X_X 00000001800168e4     pmc_bitwiseor.obj
- 0002:000008f8       $chain$3$PMC_BitwiseOr_X_X 00000001800168f8     pmc_bitwiseor.obj
- 0002:00000908       $unwind$BitwiseOr_X_X      0000000180016908     pmc_bitwiseor.obj
- 0002:0000091c       $unwind$PMC_BitwiseOr_X_I_Imp 000000018001691c     pmc_bitwiseor.obj
- 0002:00000930       $unwind$PMC_BitwiseOr_X_L_Imp 0000000180016930     pmc_bitwiseor.obj
- 0002:00000944       $unwind$PMC_FromByteArray  0000000180016944     pmc_bytes.obj
- 0002:00000954       $unwind$PMC_ToByteArray    0000000180016954     pmc_bytes.obj
- 0002:00000968       $unwind$PMC_FromByteArrayForSINT 0000000180016968     pmc_bytes.obj
- 0002:0000097c       $unwind$PMC_ToByteArrayForSINT 000000018001697c     pmc_bytes.obj
- 0002:00000990       $chain$0$PMC_ToByteArrayForSINT 0000000180016990     pmc_bytes.obj
- 0002:000009a4       $chain$1$PMC_ToByteArrayForSINT 00000001800169a4     pmc_bytes.obj
- 0002:000009b4       $unwind$PMC_Clone_X        00000001800169b4     pmc_clone.obj
- 0002:000009c0       $unwind$PMC_Compare_I_X    00000001800169c0     pmc_compare.obj
- 0002:000009d0       $unwind$PMC_Compare_L_X    00000001800169d0     pmc_compare.obj
- 0002:000009e0       $unwind$PMC_Compare_X_I    00000001800169e0     pmc_compare.obj
- 0002:000009f0       $unwind$PMC_Compare_X_L    00000001800169f0     pmc_compare.obj
- 0002:00000a00       $unwind$PMC_Compare_X_X    0000000180016a00     pmc_compare.obj
- 0002:00000a10       $unwind$DivRem_X_X         0000000180016a10     pmc_divrem.obj
- 0002:00000a1c       $unwind$PMC_DivRem_I_X     0000000180016a1c     pmc_divrem.obj
- 0002:00000a30       $unwind$PMC_DivRem_L_X     0000000180016a30     pmc_divrem.obj
- 0002:00000a4c       $unwind$PMC_DivRem_X_I     0000000180016a4c     pmc_divrem.obj
- 0002:00000a60       $unwind$PMC_DivRem_X_L     0000000180016a60     pmc_divrem.obj
- 0002:00000a70       $chain$1$PMC_DivRem_X_L    0000000180016a70     pmc_divrem.obj
- 0002:00000a88       $chain$2$PMC_DivRem_X_L    0000000180016a88     pmc_divrem.obj
- 0002:00000a98       $chain$3$PMC_DivRem_X_L    0000000180016a98     pmc_divrem.obj
- 0002:00000ab0       $chain$4$PMC_DivRem_X_L    0000000180016ab0     pmc_divrem.obj
- 0002:00000ac0       $unwind$PMC_DivRem_X_X     0000000180016ac0     pmc_divrem.obj
- 0002:00000ad4       $chain$0$PMC_DivRem_X_X    0000000180016ad4     pmc_divrem.obj
- 0002:00000ae8       $chain$1$PMC_DivRem_X_X    0000000180016ae8     pmc_divrem.obj
- 0002:00000af8       $chain$2$PMC_DivRem_X_X    0000000180016af8     pmc_divrem.obj
- 0002:00000b0c       $chain$3$PMC_DivRem_X_X    0000000180016b0c     pmc_divrem.obj
- 0002:00000b1c       $unwind$SubtructOneLine    0000000180016b1c     pmc_divrem.obj
- 0002:00000b34       $unwind$SubtructOneLineX   0000000180016b34     pmc_divrem.obj
- 0002:00000b4c       $unwind$AddOneLine         0000000180016b4c     pmc_divrem.obj
- 0002:00000b54       $unwind$AddOneLineX        0000000180016b54     pmc_divrem.obj
- 0002:00000b60       $unwind$DivRem_X_X_using_ADC_MUL 0000000180016b60     pmc_divrem.obj
- 0002:00000b78       $unwind$DivRem_X_X_using_ADX_MULX 0000000180016b78     pmc_divrem.obj
- 0002:00000b90       $unwind$PMC_Equals_I_X     0000000180016b90     pmc_equals.obj
- 0002:00000ba0       $unwind$PMC_Equals_L_X     0000000180016ba0     pmc_equals.obj
- 0002:00000bb0       $unwind$PMC_Equals_X_I     0000000180016bb0     pmc_equals.obj
- 0002:00000bc0       $unwind$PMC_Equals_X_L     0000000180016bc0     pmc_equals.obj
- 0002:00000bd0       $unwind$PMC_Equals_X_X     0000000180016bd0     pmc_equals.obj
- 0002:00000be0       $unwind$PMC_ExclusiveOr_I_X 0000000180016be0     pmc_exclusiveor.obj
- 0002:00000bf0       $unwind$PMC_ExclusiveOr_L_X 0000000180016bf0     pmc_exclusiveor.obj
- 0002:00000c00       $unwind$PMC_ExclusiveOr_X_I 0000000180016c00     pmc_exclusiveor.obj
- 0002:00000c10       $unwind$PMC_ExclusiveOr_X_L 0000000180016c10     pmc_exclusiveor.obj
- 0002:00000c20       $unwind$PMC_ExclusiveOr_X_X 0000000180016c20     pmc_exclusiveor.obj
- 0002:00000c2c       $chain$0$PMC_ExclusiveOr_X_X 0000000180016c2c     pmc_exclusiveor.obj
- 0002:00000c40       $chain$1$PMC_ExclusiveOr_X_X 0000000180016c40     pmc_exclusiveor.obj
- 0002:00000c50       $chain$2$PMC_ExclusiveOr_X_X 0000000180016c50     pmc_exclusiveor.obj
- 0002:00000c64       $chain$4$PMC_ExclusiveOr_X_X 0000000180016c64     pmc_exclusiveor.obj
- 0002:00000c78       $chain$5$PMC_ExclusiveOr_X_X 0000000180016c78     pmc_exclusiveor.obj
- 0002:00000c88       $unwind$ExclusiveOr_X_X    0000000180016c88     pmc_exclusiveor.obj
- 0002:00000c9c       $unwind$PMC_ExclusiveOr_X_I_Imp 0000000180016c9c     pmc_exclusiveor.obj
- 0002:00000cb0       $unwind$PMC_ExclusiveOr_X_L_Imp 0000000180016cb0     pmc_exclusiveor.obj
- 0002:00000cc4       $unwind$From_I_Imp         0000000180016cc4     pmc_from.obj
- 0002:00000cd0       $unwind$From_L_Imp         0000000180016cd0     pmc_from.obj
- 0002:00000cdc       $unwind$PMC_From_I         0000000180016cdc     pmc_from.obj
- 0002:00000ce8       $unwind$PMC_From_L         0000000180016ce8     pmc_from.obj
- 0002:00000cf4       $unwind$PMC_GreatestCommonDivisor_I_X 0000000180016cf4     pmc_greatestcommondivisor.obj
- 0002:00000d04       $unwind$PMC_GreatestCommonDivisor_L_X 0000000180016d04     pmc_greatestcommondivisor.obj
- 0002:00000d14       $unwind$PMC_GreatestCommonDivisor_X_I 0000000180016d14     pmc_greatestcommondivisor.obj
- 0002:00000d24       $unwind$PMC_GreatestCommonDivisor_X_L 0000000180016d24     pmc_greatestcommondivisor.obj
- 0002:00000d34       $unwind$PMC_GreatestCommonDivisor_X_X 0000000180016d34     pmc_greatestcommondivisor.obj
- 0002:00000d4c       $unwind$GreatestCommonDivisor_Imp 0000000180016d4c     pmc_greatestcommondivisor.obj
- 0002:00000d64       $unwind$PMC_GreatestCommonDivisor_X_I_Imp 0000000180016d64     pmc_greatestcommondivisor.obj
- 0002:00000d78       $chain$0$PMC_GreatestCommonDivisor_X_I_Imp 0000000180016d78     pmc_greatestcommondivisor.obj
- 0002:00000d8c       $chain$1$PMC_GreatestCommonDivisor_X_I_Imp 0000000180016d8c     pmc_greatestcommondivisor.obj
- 0002:00000d9c       $unwind$PMC_GreatestCommonDivisor_X_L_Imp 0000000180016d9c     pmc_greatestcommondivisor.obj
- 0002:00000db0       $chain$0$PMC_GreatestCommonDivisor_X_L_Imp 0000000180016db0     pmc_greatestcommondivisor.obj
- 0002:00000dc4       $chain$1$PMC_GreatestCommonDivisor_X_L_Imp 0000000180016dc4     pmc_greatestcommondivisor.obj
- 0002:00000dd4       $unwind$PMC_UINT_Initialize 0000000180016dd4     pmc_initialize.obj
- 0002:00000de0       $chain$0$PMC_UINT_Initialize 0000000180016de0     pmc_initialize.obj
- 0002:00000df4       $chain$1$PMC_UINT_Initialize 0000000180016df4     pmc_initialize.obj
- 0002:00000e04       $unwind$PMC_ModPow_X_X_X   0000000180016e04     pmc_modpow.obj
- 0002:00000e18       $unwind$ModulePower        0000000180016e18     pmc_modpow.obj
- 0002:00000e34       $chain$2$ModulePower       0000000180016e34     pmc_modpow.obj
- 0002:00000e48       $chain$3$ModulePower       0000000180016e48     pmc_modpow.obj
- 0002:00000e58       $unwind$PMC_ModPow_X_X_X_Imp 0000000180016e58     pmc_modpow.obj
- 0002:00000e6c       $unwind$PMC_Multiply_I_X   0000000180016e6c     pmc_multiply.obj
- 0002:00000e7c       $unwind$PMC_Multiply_L_X   0000000180016e7c     pmc_multiply.obj
- 0002:00000e8c       $unwind$PMC_Multiply_X_I   0000000180016e8c     pmc_multiply.obj
- 0002:00000e9c       $unwind$PMC_Multiply_X_L   0000000180016e9c     pmc_multiply.obj
- 0002:00000eac       $unwind$PMC_Multiply_X_X   0000000180016eac     pmc_multiply.obj
- 0002:00000ebc       $unwind$Multiply_WORD_using_MUL_ADC 0000000180016ebc     pmc_multiply.obj
- 0002:00000ed4       $unwind$Multiply_WORD_using_MULX_ADCX 0000000180016ed4     pmc_multiply.obj
- 0002:00000eec       $unwind$Multiply_X_2W_using_MUL_ADC 0000000180016eec     pmc_multiply.obj
- 0002:00000f00       $unwind$Multiply_X_2W_using_MULX_ADCX 0000000180016f00     pmc_multiply.obj
- 0002:00000f14       $unwind$Multiply_X_X_using_MUL_ADC 0000000180016f14     pmc_multiply.obj
- 0002:00000f2c       $unwind$Multiply_X_X_using_MULX_ADCX 0000000180016f2c     pmc_multiply.obj
- 0002:00000f44       $unwind$PMC_Multiply_X_I_Imp 0000000180016f44     pmc_multiply.obj
- 0002:00000f54       $unwind$PMC_Multiply_X_L_Imp 0000000180016f54     pmc_multiply.obj
- 0002:00000f64       $unwind$Initialize_Parse   0000000180016f64     pmc_parse.obj
- 0002:00000f6c       $unwind$PMC_TryParse       0000000180016f6c     pmc_parse.obj
- 0002:00000f74       $unwind$PMC_TryParseForSINT 0000000180016f74     pmc_parse.obj
- 0002:00000f7c       $unwind$InitializeParserState 0000000180016f7c     pmc_parse.obj
- 0002:00000f90       $unwind$ParseAsDecimalNumberString 0000000180016f90     pmc_parse.obj
- 0002:00000fac       $unwind$Build1WordFromDecimalString 0000000180016fac     pmc_parse.obj
- 0002:00000fb4       $unwind$BuildBinaryFromDecimalString 0000000180016fb4     pmc_parse.obj
- 0002:00000fcc       $unwind$MultiplyAndAdd_using_ADC_MUL 0000000180016fcc     pmc_parse.obj
- 0002:00000fd8       $unwind$MultiplyAndAdd_using_ADCX_MULX 0000000180016fd8     pmc_parse.obj
- 0002:00000fe8       $unwind$TryParseDN         0000000180016fe8     pmc_parse.obj
- 0002:00001000       $chain$0$TryParseDN        0000000180017000     pmc_parse.obj
- 0002:00001014       $chain$1$TryParseDN        0000000180017014     pmc_parse.obj
- 0002:00001024       $unwind$BuildBinaryFromHexString 0000000180017024     pmc_parse.obj
- 0002:00001030       $chain$0$BuildBinaryFromHexString 0000000180017030     pmc_parse.obj
- 0002:00001044       $chain$1$BuildBinaryFromHexString 0000000180017044     pmc_parse.obj
- 0002:00001054       $unwind$TryParseX          0000000180017054     pmc_parse.obj
- 0002:00001070       $chain$0$TryParseX         0000000180017070     pmc_parse.obj
- 0002:00001084       $chain$1$TryParseX         0000000180017084     pmc_parse.obj
- 0002:00001094       $unwind$PMC_Pow_X_I        0000000180017094     pmc_pow.obj
- 0002:000010a4       $unwind$PMC_Pow_X_I_Imp    00000001800170a4     pmc_pow.obj
- 0002:000010b8       $chain$1$PMC_Pow_X_I_Imp   00000001800170b8     pmc_pow.obj
- 0002:000010d0       $chain$2$PMC_Pow_X_I_Imp   00000001800170d0     pmc_pow.obj
- 0002:000010e0       $unwind$RightShift_Imp_DIV 00000001800170e0     pmc_shift.obj
- 0002:000010f0       $chain$0$RightShift_Imp_DIV 00000001800170f0     pmc_shift.obj
- 0002:00001104       $chain$1$RightShift_Imp_DIV 0000000180017104     pmc_shift.obj
- 0002:00001118       $chain$2$RightShift_Imp_DIV 0000000180017118     pmc_shift.obj
- 0002:00001128       $chain$3$RightShift_Imp_DIV 0000000180017128     pmc_shift.obj
- 0002:00001138       $unwind$RightShift_Imp     0000000180017138     pmc_shift.obj
- 0002:0000114c       $chain$0$RightShift_Imp    000000018001714c     pmc_shift.obj
- 0002:00001160       $chain$1$RightShift_Imp    0000000180017160     pmc_shift.obj
- 0002:00001170       $unwind$LeftShift_Imp_DIV  0000000180017170     pmc_shift.obj
- 0002:00001184       $chain$0$LeftShift_Imp_DIV 0000000180017184     pmc_shift.obj
- 0002:00001198       $chain$1$LeftShift_Imp_DIV 0000000180017198     pmc_shift.obj
- 0002:000011a8       $unwind$LeftShift_Imp      00000001800171a8     pmc_shift.obj
- 0002:000011bc       $chain$0$LeftShift_Imp     00000001800171bc     pmc_shift.obj
- 0002:000011d0       $chain$1$LeftShift_Imp     00000001800171d0     pmc_shift.obj
- 0002:000011e0       $unwind$PMC_RightShift_X_I 00000001800171e0     pmc_shift.obj
- 0002:000011f0       $unwind$PMC_LeftShift_X_I  00000001800171f0     pmc_shift.obj
- 0002:00001200       $unwind$Subtruct_Imp       0000000180017200     pmc_subtruct.obj
- 0002:00001208       $unwind$PMC_Subtruct_I_X   0000000180017208     pmc_subtruct.obj
- 0002:00001218       $unwind$PMC_Subtruct_L_X   0000000180017218     pmc_subtruct.obj
- 0002:00001228       $unwind$PMC_Subtruct_X_I   0000000180017228     pmc_subtruct.obj
- 0002:00001238       $unwind$PMC_Subtruct_X_L   0000000180017238     pmc_subtruct.obj
- 0002:00001248       $unwind$PMC_Subtruct_X_X   0000000180017248     pmc_subtruct.obj
- 0002:00001258       $unwind$PMC_To_X_I         0000000180017258     pmc_to.obj
- 0002:00001264       $unwind$PMC_To_X_L         0000000180017264     pmc_to.obj
- 0002:00001270       $unwind$InitializeNumberFormatoInfo 0000000180017270     pmc_tostring.obj
- 0002:0000127c       $unwind$Initialize_ToString 000000018001727c     pmc_tostring.obj
- 0002:00001284       $unwind$PMC_ToString       0000000180017284     pmc_tostring.obj
- 0002:0000129c       $unwind$OutputOneChar      000000018001729c     pmc_tostring.obj
- 0002:000012a8       $unwind$PrintDecimal       00000001800172a8     pmc_tostring.obj
- 0002:000012cc       $unwind$ToStringDN         00000001800172cc     pmc_tostring.obj
- 0002:000012e8       $unwind$ToStringX          00000001800172e8     pmc_tostring.obj
- 0002:000012fc       $unwind$__GSHandlerCheckCommon 00000001800172fc     MSVCRT:gshandler.obj
- 0002:00001304       $unwind$__GSHandlerCheck   0000000180017304     MSVCRT:gshandler.obj
- 0002:00001310       $xdatasym                  0000000180017310     MSVCRT:amdsecgs.obj
- 0002:00001314       $unwind$?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180017314     MSVCRT:dll_dllmain.obj
- 0002:00001350       $unwind$?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 0000000180017350     MSVCRT:dll_dllmain.obj
- 0002:00001358       $unwind$?dllmain_crt_process_detach@@YAH_N@Z 0000000180017358     MSVCRT:dll_dllmain.obj
- 0002:00001390       $unwind$?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 0000000180017390     MSVCRT:dll_dllmain.obj
- 0002:00001398       $unwind$?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180017398     MSVCRT:dll_dllmain.obj
- 0002:000013a0       $unwind$?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 00000001800173a0     MSVCRT:dll_dllmain.obj
- 0002:000013c8       $unwind$?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 00000001800173c8     MSVCRT:dll_dllmain.obj
- 0002:000013d0       $unwind$_DllMainCRTStartup 00000001800173d0     MSVCRT:dll_dllmain.obj
- 0002:000013e0       $unwind$__report_securityfailure 00000001800173e0     MSVCRT:gs_report.obj
- 0002:000013e8       $unwind$__report_securityfailureEx 00000001800173e8     MSVCRT:gs_report.obj
- 0002:000013f0       $unwind$__report_rangecheckfailure 00000001800173f0     MSVCRT:gs_report.obj
- 0002:000013f8       $unwind$__report_gsfailure 00000001800173f8     MSVCRT:gs_report.obj
- 0002:00001400       $unwind$capture_current_context 0000000180017400     MSVCRT:gs_report.obj
- 0002:0000140c       $unwind$capture_previous_context 000000018001740c     MSVCRT:gs_report.obj
- 0002:00001418       $unwind$__raise_securityfailure 0000000180017418     MSVCRT:gs_report.obj
- 0002:00001420       $unwind$__security_init_cookie 0000000180017420     MSVCRT:gs_support.obj
- 0002:0000142c       $unwind$__get_entropy      000000018001742c     MSVCRT:gs_support.obj
- 0002:00001434       $unwind$__scrt_initialize_default_local_stdio_options 0000000180017434     MSVCRT:default_local_stdio_options.obj
- 0002:0000143c       $unwind$atexit             000000018001743c     MSVCRT:utility.obj
- 0002:00001444       $unwind$_onexit            0000000180017444     MSVCRT:utility.obj
- 0002:0000144c       $unwind$__scrt_is_nonwritable_in_current_image 000000018001744c     MSVCRT:utility.obj
- 0002:0000146c       $unwind$__scrt_is_nonwritable_in_current_image$filt$0 000000018001746c     MSVCRT:utility.obj
- 0002:00001474       $unwind$__scrt_acquire_startup_lock 0000000180017474     MSVCRT:utility.obj
- 0002:0000147c       $unwind$__scrt_release_startup_lock 000000018001747c     MSVCRT:utility.obj
- 0002:00001484       $unwind$__scrt_initialize_crt 0000000180017484     MSVCRT:utility.obj
- 0002:0000148c       $unwind$__scrt_uninitialize_crt 000000018001748c     MSVCRT:utility.obj
- 0002:00001494       $unwind$__scrt_initialize_onexit_tables 0000000180017494     MSVCRT:utility.obj
- 0002:0000149c       $unwind$__scrt_dllmain_exception_filter 000000018001749c     MSVCRT:utility.obj
- 0002:000014b0       $unwind$__scrt_dllmain_before_initialize_c 00000001800174b0     MSVCRT:utility.obj
- 0002:000014b8       $unwind$__scrt_dllmain_after_initialize_c 00000001800174b8     MSVCRT:utility.obj
- 0002:000014c0       $unwind$__scrt_dllmain_uninitialize_c 00000001800174c0     MSVCRT:utility.obj
- 0002:000014c8       $unwind$__scrt_dllmain_uninitialize_critical 00000001800174c8     MSVCRT:utility.obj
- 0002:000014d0       $unwind$__scrt_dllmain_crt_thread_attach 00000001800174d0     MSVCRT:utility.obj
- 0002:000014d8       $unwind$__scrt_dllmain_crt_thread_detach 00000001800174d8     MSVCRT:utility.obj
- 0002:000014e0       $unwind$?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 00000001800174e0     MSVCRT:utility.obj
- 0002:000014e8       $unwind$__scrt_get_show_window_mode 00000001800174e8     MSVCRT:utility_desktop.obj
- 0002:000014f0       $unwind$__scrt_is_managed_app 00000001800174f0     MSVCRT:utility_desktop.obj
- 0002:000014f8       $unwind$__scrt_fastfail    00000001800174f8     MSVCRT:utility_desktop.obj
- 0002:00001508       $unwind$__scrt_unhandled_exception_filter 0000000180017508     MSVCRT:utility_desktop.obj
- 0002:00001510       $unwind$_RTC_Initialize    0000000180017510     MSVCRT:initsect.obj
- 0002:0000151c       $unwind$_RTC_Terminate     000000018001751c     MSVCRT:initsect.obj
- 0002:00001528       $unwind$__isa_available_init 0000000180017528     MSVCRT:cpu_disp.obj
- 0002:00001540       $xdatasym                  0000000180017540     MSVCRT:guard_dispatch.obj
- 0002:00001550       .edata                     0000000180017550     Palmtree.Math.Core.Uint.exp
- 0002:00001578       rgpv                       0000000180017578     Palmtree.Math.Core.Uint.exp
- 0002:00001580       rgszName                   0000000180017580     Palmtree.Math.Core.Uint.exp
- 0002:00001588       rgwOrd                     0000000180017588     Palmtree.Math.Core.Uint.exp
- 0002:0000158c       szName                     000000018001758c     Palmtree.Math.Core.Uint.exp
- 0002:000015a8       $N00001                    00000001800175a8     Palmtree.Math.Core.Uint.exp
- 0002:000015b0       $N00002                    00000001800175b0     Palmtree.Math.Core.Uint.exp
- 0002:000017a4       .idata$6                   00000001800177a4     kernel32:KERNEL32.dll
- 0002:000017f4       .idata$6                   00000001800177f4     vcruntime:VCRUNTIME140.dll
- 0002:000018f8       .idata$6                   00000001800178f8     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
- 0003:00000000       decimal_digits             0000000180018000     pmc_tostring.obj
- 0003:00000018       hexadecimal_lower_digits   0000000180018018     pmc_tostring.obj
- 0003:00000040       hexadecimal_upper_digits   0000000180018040     pmc_tostring.obj
- 0003:000000c0       fp_Add_Imp                 00000001800180c0     pmc_add.obj
- 0003:000000c8       fp_DivRem_X_X              00000001800180c8     pmc_divrem.obj
- 0003:000000d0       entry_points               00000001800180d0     pmc_initialize.obj
- 0003:00000308       initialized                0000000180018308     pmc_initialize.obj
- 0003:00000310       fp_Multiply_X_1W           0000000180018310     pmc_multiply.obj
- 0003:00000318       fp_Multiply_X_2W           0000000180018318     pmc_multiply.obj
- 0003:00000320       fp_Multiply_X_X            0000000180018320     pmc_multiply.obj
- 0003:00000330       default_number_format_option 0000000180018330     pmc_parse.obj
- 0003:000003f0       fp_MultiplyAndAdd          00000001800183f0     pmc_parse.obj
- 0003:00000400       default_number_format_option 0000000180018400     pmc_tostring.obj
- 0003:000004c0       ?__proc_attached@@3HA      00000001800184c0     MSVCRT:dll_dllmain.obj
- 0003:000004d0       GS_ExceptionRecord         00000001800184d0     MSVCRT:gs_report.obj
- 0003:00000570       GS_ContextRecord           0000000180018570     MSVCRT:gs_report.obj
- 0003:00000a70       ?is_initialized_as_dll@@3_NA 0000000180018a70     MSVCRT:utility.obj
- 0003:00000a71       ?module_local_atexit_table_initialized@@3_NA 0000000180018a71     MSVCRT:utility.obj
- 0003:00000a78       ?module_local_atexit_table@@3U_onexit_table_t@@A 0000000180018a78     MSVCRT:utility.obj
- 0003:00000a90       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 0000000180018a90     MSVCRT:utility.obj
- 0004:00000000       $pdata$GetCPUInfo          0000000180019000     cpuid.obj
- 0004:0000000c       $pdata$DllMain             000000018001900c     dllmain.obj
- 0004:00000018       $pdata$AllocateHeapArea    0000000180019018     pmc_memory.obj
- 0004:00000024       $pdata$DeallocateHeapArea  0000000180019024     pmc_memory.obj
- 0004:00000030       $pdata$AllocateBlock       0000000180019030     pmc_memory.obj
- 0004:0000003c       $pdata$DeallocateBlock     000000018001903c     pmc_memory.obj
- 0004:00000048       $pdata$0$DeallocateBlock   0000000180019048     pmc_memory.obj
- 0004:00000054       $pdata$1$DeallocateBlock   0000000180019054     pmc_memory.obj
- 0004:00000060       $pdata$AttatchNumber       0000000180019060     pmc_memory.obj
- 0004:0000006c       $pdata$AllocateNumber      000000018001906c     pmc_memory.obj
- 0004:00000078       $pdata$DeallocateNumber    0000000180019078     pmc_memory.obj
- 0004:00000084       $pdata$CommitNumber        0000000180019084     pmc_memory.obj
- 0004:00000090       $pdata$DuplicateNumber     0000000180019090     pmc_memory.obj
- 0004:0000009c       $pdata$Initialize_Memory   000000018001909c     pmc_memory.obj
- 0004:000000a8       $pdata$PMC_Dispose         00000001800190a8     pmc_memory.obj
- 0004:000000b4       $pdata$InitializeNumber    00000001800190b4     pmc_memory.obj
- 0004:000000c0       $pdata$CleanUpNumber       00000001800190c0     pmc_memory.obj
- 0004:000000cc       $pdata$0$CleanUpNumber     00000001800190cc     pmc_memory.obj
- 0004:000000d8       $pdata$1$CleanUpNumber     00000001800190d8     pmc_memory.obj
- 0004:000000e4       $pdata$PMC_Add_I_X         00000001800190e4     pmc_add.obj
- 0004:000000f0       $pdata$PMC_Add_L_X         00000001800190f0     pmc_add.obj
- 0004:000000fc       $pdata$PMC_Add_X_I         00000001800190fc     pmc_add.obj
- 0004:00000108       $pdata$PMC_Add_X_L         0000000180019108     pmc_add.obj
- 0004:00000114       $pdata$PMC_Add_X_X         0000000180019114     pmc_add.obj
- 0004:00000120       $pdata$Add_Imp_using_ADC   0000000180019120     pmc_add.obj
- 0004:0000012c       $pdata$Add_Imp_using_ADCX  000000018001912c     pmc_add.obj
- 0004:00000138       $pdata$PMC_Add_X_I_Imp     0000000180019138     pmc_add.obj
- 0004:00000144       $pdata$PMC_Add_X_L_Imp     0000000180019144     pmc_add.obj
- 0004:00000150       $pdata$PMC_BitwiseAnd_I_X  0000000180019150     pmc_bitwiseand.obj
- 0004:0000015c       $pdata$PMC_BitwiseAnd_L_X  000000018001915c     pmc_bitwiseand.obj
- 0004:00000168       $pdata$PMC_BitwiseAnd_X_I  0000000180019168     pmc_bitwiseand.obj
- 0004:00000174       $pdata$PMC_BitwiseAnd_X_L  0000000180019174     pmc_bitwiseand.obj
- 0004:00000180       $pdata$PMC_BitwiseAnd_X_X  0000000180019180     pmc_bitwiseand.obj
- 0004:0000018c       $pdata$0$PMC_BitwiseAnd_X_X 000000018001918c     pmc_bitwiseand.obj
- 0004:00000198       $pdata$1$PMC_BitwiseAnd_X_X 0000000180019198     pmc_bitwiseand.obj
- 0004:000001a4       $pdata$BitwiseAnd_X_X      00000001800191a4     pmc_bitwiseand.obj
- 0004:000001b0       $pdata$2$BitwiseAnd_X_X    00000001800191b0     pmc_bitwiseand.obj
- 0004:000001bc       $pdata$3$BitwiseAnd_X_X    00000001800191bc     pmc_bitwiseand.obj
- 0004:000001c8       $pdata$4$BitwiseAnd_X_X    00000001800191c8     pmc_bitwiseand.obj
- 0004:000001d4       $pdata$PMC_BitwiseOr_I_X   00000001800191d4     pmc_bitwiseor.obj
- 0004:000001e0       $pdata$PMC_BitwiseOr_L_X   00000001800191e0     pmc_bitwiseor.obj
- 0004:000001ec       $pdata$PMC_BitwiseOr_X_I   00000001800191ec     pmc_bitwiseor.obj
- 0004:000001f8       $pdata$PMC_BitwiseOr_X_L   00000001800191f8     pmc_bitwiseor.obj
- 0004:00000204       $pdata$PMC_BitwiseOr_X_X   0000000180019204     pmc_bitwiseor.obj
- 0004:00000210       $pdata$0$PMC_BitwiseOr_X_X 0000000180019210     pmc_bitwiseor.obj
- 0004:0000021c       $pdata$1$PMC_BitwiseOr_X_X 000000018001921c     pmc_bitwiseor.obj
- 0004:00000228       $pdata$2$PMC_BitwiseOr_X_X 0000000180019228     pmc_bitwiseor.obj
- 0004:00000234       $pdata$3$PMC_BitwiseOr_X_X 0000000180019234     pmc_bitwiseor.obj
- 0004:00000240       $pdata$BitwiseOr_X_X       0000000180019240     pmc_bitwiseor.obj
- 0004:0000024c       $pdata$PMC_BitwiseOr_X_I_Imp 000000018001924c     pmc_bitwiseor.obj
- 0004:00000258       $pdata$PMC_BitwiseOr_X_L_Imp 0000000180019258     pmc_bitwiseor.obj
- 0004:00000264       $pdata$PMC_FromByteArray   0000000180019264     pmc_bytes.obj
- 0004:00000270       $pdata$PMC_ToByteArray     0000000180019270     pmc_bytes.obj
- 0004:0000027c       $pdata$PMC_FromByteArrayForSINT 000000018001927c     pmc_bytes.obj
- 0004:00000288       $pdata$PMC_ToByteArrayForSINT 0000000180019288     pmc_bytes.obj
- 0004:00000294       $pdata$0$PMC_ToByteArrayForSINT 0000000180019294     pmc_bytes.obj
- 0004:000002a0       $pdata$1$PMC_ToByteArrayForSINT 00000001800192a0     pmc_bytes.obj
- 0004:000002ac       $pdata$PMC_Clone_X         00000001800192ac     pmc_clone.obj
- 0004:000002b8       $pdata$PMC_Compare_I_X     00000001800192b8     pmc_compare.obj
- 0004:000002c4       $pdata$PMC_Compare_L_X     00000001800192c4     pmc_compare.obj
- 0004:000002d0       $pdata$PMC_Compare_X_I     00000001800192d0     pmc_compare.obj
- 0004:000002dc       $pdata$PMC_Compare_X_L     00000001800192dc     pmc_compare.obj
- 0004:000002e8       $pdata$PMC_Compare_X_X     00000001800192e8     pmc_compare.obj
- 0004:000002f4       $pdata$DivRem_X_X          00000001800192f4     pmc_divrem.obj
- 0004:00000300       $pdata$PMC_DivRem_I_X      0000000180019300     pmc_divrem.obj
- 0004:0000030c       $pdata$PMC_DivRem_L_X      000000018001930c     pmc_divrem.obj
- 0004:00000318       $pdata$PMC_DivRem_X_I      0000000180019318     pmc_divrem.obj
- 0004:00000324       $pdata$PMC_DivRem_X_L      0000000180019324     pmc_divrem.obj
- 0004:00000330       $pdata$1$PMC_DivRem_X_L    0000000180019330     pmc_divrem.obj
- 0004:0000033c       $pdata$2$PMC_DivRem_X_L    000000018001933c     pmc_divrem.obj
- 0004:00000348       $pdata$3$PMC_DivRem_X_L    0000000180019348     pmc_divrem.obj
- 0004:00000354       $pdata$4$PMC_DivRem_X_L    0000000180019354     pmc_divrem.obj
- 0004:00000360       $pdata$PMC_DivRem_X_X      0000000180019360     pmc_divrem.obj
- 0004:0000036c       $pdata$0$PMC_DivRem_X_X    000000018001936c     pmc_divrem.obj
- 0004:00000378       $pdata$1$PMC_DivRem_X_X    0000000180019378     pmc_divrem.obj
- 0004:00000384       $pdata$2$PMC_DivRem_X_X    0000000180019384     pmc_divrem.obj
- 0004:00000390       $pdata$3$PMC_DivRem_X_X    0000000180019390     pmc_divrem.obj
- 0004:0000039c       $pdata$SubtructOneLine     000000018001939c     pmc_divrem.obj
- 0004:000003a8       $pdata$SubtructOneLineX    00000001800193a8     pmc_divrem.obj
- 0004:000003b4       $pdata$AddOneLine          00000001800193b4     pmc_divrem.obj
- 0004:000003c0       $pdata$AddOneLineX         00000001800193c0     pmc_divrem.obj
- 0004:000003cc       $pdata$DivRem_X_X_using_ADC_MUL 00000001800193cc     pmc_divrem.obj
- 0004:000003d8       $pdata$DivRem_X_X_using_ADX_MULX 00000001800193d8     pmc_divrem.obj
- 0004:000003e4       $pdata$PMC_Equals_I_X      00000001800193e4     pmc_equals.obj
- 0004:000003f0       $pdata$PMC_Equals_L_X      00000001800193f0     pmc_equals.obj
- 0004:000003fc       $pdata$PMC_Equals_X_I      00000001800193fc     pmc_equals.obj
- 0004:00000408       $pdata$PMC_Equals_X_L      0000000180019408     pmc_equals.obj
- 0004:00000414       $pdata$PMC_Equals_X_X      0000000180019414     pmc_equals.obj
- 0004:00000420       $pdata$PMC_ExclusiveOr_I_X 0000000180019420     pmc_exclusiveor.obj
- 0004:0000042c       $pdata$PMC_ExclusiveOr_L_X 000000018001942c     pmc_exclusiveor.obj
- 0004:00000438       $pdata$PMC_ExclusiveOr_X_I 0000000180019438     pmc_exclusiveor.obj
- 0004:00000444       $pdata$PMC_ExclusiveOr_X_L 0000000180019444     pmc_exclusiveor.obj
- 0004:00000450       $pdata$PMC_ExclusiveOr_X_X 0000000180019450     pmc_exclusiveor.obj
- 0004:0000045c       $pdata$0$PMC_ExclusiveOr_X_X 000000018001945c     pmc_exclusiveor.obj
- 0004:00000468       $pdata$1$PMC_ExclusiveOr_X_X 0000000180019468     pmc_exclusiveor.obj
- 0004:00000474       $pdata$2$PMC_ExclusiveOr_X_X 0000000180019474     pmc_exclusiveor.obj
- 0004:00000480       $pdata$4$PMC_ExclusiveOr_X_X 0000000180019480     pmc_exclusiveor.obj
- 0004:0000048c       $pdata$5$PMC_ExclusiveOr_X_X 000000018001948c     pmc_exclusiveor.obj
- 0004:00000498       $pdata$ExclusiveOr_X_X     0000000180019498     pmc_exclusiveor.obj
- 0004:000004a4       $pdata$PMC_ExclusiveOr_X_I_Imp 00000001800194a4     pmc_exclusiveor.obj
- 0004:000004b0       $pdata$PMC_ExclusiveOr_X_L_Imp 00000001800194b0     pmc_exclusiveor.obj
- 0004:000004bc       $pdata$From_I_Imp          00000001800194bc     pmc_from.obj
- 0004:000004c8       $pdata$From_L_Imp          00000001800194c8     pmc_from.obj
- 0004:000004d4       $pdata$PMC_From_I          00000001800194d4     pmc_from.obj
- 0004:000004e0       $pdata$PMC_From_L          00000001800194e0     pmc_from.obj
- 0004:000004ec       $pdata$PMC_GreatestCommonDivisor_I_X 00000001800194ec     pmc_greatestcommondivisor.obj
- 0004:000004f8       $pdata$PMC_GreatestCommonDivisor_L_X 00000001800194f8     pmc_greatestcommondivisor.obj
- 0004:00000504       $pdata$PMC_GreatestCommonDivisor_X_I 0000000180019504     pmc_greatestcommondivisor.obj
- 0004:00000510       $pdata$PMC_GreatestCommonDivisor_X_L 0000000180019510     pmc_greatestcommondivisor.obj
- 0004:0000051c       $pdata$PMC_GreatestCommonDivisor_X_X 000000018001951c     pmc_greatestcommondivisor.obj
- 0004:00000528       $pdata$GreatestCommonDivisor_Imp 0000000180019528     pmc_greatestcommondivisor.obj
- 0004:00000534       $pdata$PMC_GreatestCommonDivisor_X_I_Imp 0000000180019534     pmc_greatestcommondivisor.obj
- 0004:00000540       $pdata$0$PMC_GreatestCommonDivisor_X_I_Imp 0000000180019540     pmc_greatestcommondivisor.obj
- 0004:0000054c       $pdata$1$PMC_GreatestCommonDivisor_X_I_Imp 000000018001954c     pmc_greatestcommondivisor.obj
- 0004:00000558       $pdata$PMC_GreatestCommonDivisor_X_L_Imp 0000000180019558     pmc_greatestcommondivisor.obj
- 0004:00000564       $pdata$0$PMC_GreatestCommonDivisor_X_L_Imp 0000000180019564     pmc_greatestcommondivisor.obj
- 0004:00000570       $pdata$1$PMC_GreatestCommonDivisor_X_L_Imp 0000000180019570     pmc_greatestcommondivisor.obj
- 0004:0000057c       $pdata$PMC_UINT_Initialize 000000018001957c     pmc_initialize.obj
- 0004:00000588       $pdata$0$PMC_UINT_Initialize 0000000180019588     pmc_initialize.obj
- 0004:00000594       $pdata$1$PMC_UINT_Initialize 0000000180019594     pmc_initialize.obj
- 0004:000005a0       $pdata$PMC_ModPow_X_X_X    00000001800195a0     pmc_modpow.obj
- 0004:000005ac       $pdata$ModulePower         00000001800195ac     pmc_modpow.obj
- 0004:000005b8       $pdata$2$ModulePower       00000001800195b8     pmc_modpow.obj
- 0004:000005c4       $pdata$3$ModulePower       00000001800195c4     pmc_modpow.obj
- 0004:000005d0       $pdata$PMC_ModPow_X_X_X_Imp 00000001800195d0     pmc_modpow.obj
- 0004:000005dc       $pdata$PMC_Multiply_I_X    00000001800195dc     pmc_multiply.obj
- 0004:000005e8       $pdata$PMC_Multiply_L_X    00000001800195e8     pmc_multiply.obj
- 0004:000005f4       $pdata$PMC_Multiply_X_I    00000001800195f4     pmc_multiply.obj
- 0004:00000600       $pdata$PMC_Multiply_X_L    0000000180019600     pmc_multiply.obj
- 0004:0000060c       $pdata$PMC_Multiply_X_X    000000018001960c     pmc_multiply.obj
- 0004:00000618       $pdata$Multiply_WORD_using_MUL_ADC 0000000180019618     pmc_multiply.obj
- 0004:00000624       $pdata$Multiply_WORD_using_MULX_ADCX 0000000180019624     pmc_multiply.obj
- 0004:00000630       $pdata$Multiply_X_2W_using_MUL_ADC 0000000180019630     pmc_multiply.obj
- 0004:0000063c       $pdata$Multiply_X_2W_using_MULX_ADCX 000000018001963c     pmc_multiply.obj
- 0004:00000648       $pdata$Multiply_X_X_using_MUL_ADC 0000000180019648     pmc_multiply.obj
- 0004:00000654       $pdata$Multiply_X_X_using_MULX_ADCX 0000000180019654     pmc_multiply.obj
- 0004:00000660       $pdata$PMC_Multiply_X_I_Imp 0000000180019660     pmc_multiply.obj
- 0004:0000066c       $pdata$PMC_Multiply_X_L_Imp 000000018001966c     pmc_multiply.obj
- 0004:00000678       $pdata$Initialize_Parse    0000000180019678     pmc_parse.obj
- 0004:00000684       $pdata$PMC_TryParse        0000000180019684     pmc_parse.obj
- 0004:00000690       $pdata$PMC_TryParseForSINT 0000000180019690     pmc_parse.obj
- 0004:0000069c       $pdata$InitializeParserState 000000018001969c     pmc_parse.obj
- 0004:000006a8       $pdata$ParseAsDecimalNumberString 00000001800196a8     pmc_parse.obj
- 0004:000006b4       $pdata$Build1WordFromDecimalString 00000001800196b4     pmc_parse.obj
- 0004:000006c0       $pdata$BuildBinaryFromDecimalString 00000001800196c0     pmc_parse.obj
- 0004:000006cc       $pdata$MultiplyAndAdd_using_ADC_MUL 00000001800196cc     pmc_parse.obj
- 0004:000006d8       $pdata$MultiplyAndAdd_using_ADCX_MULX 00000001800196d8     pmc_parse.obj
- 0004:000006e4       $pdata$TryParseDN          00000001800196e4     pmc_parse.obj
- 0004:000006f0       $pdata$0$TryParseDN        00000001800196f0     pmc_parse.obj
- 0004:000006fc       $pdata$1$TryParseDN        00000001800196fc     pmc_parse.obj
- 0004:00000708       $pdata$BuildBinaryFromHexString 0000000180019708     pmc_parse.obj
- 0004:00000714       $pdata$0$BuildBinaryFromHexString 0000000180019714     pmc_parse.obj
- 0004:00000720       $pdata$1$BuildBinaryFromHexString 0000000180019720     pmc_parse.obj
- 0004:0000072c       $pdata$TryParseX           000000018001972c     pmc_parse.obj
- 0004:00000738       $pdata$0$TryParseX         0000000180019738     pmc_parse.obj
- 0004:00000744       $pdata$1$TryParseX         0000000180019744     pmc_parse.obj
- 0004:00000750       $pdata$PMC_Pow_X_I         0000000180019750     pmc_pow.obj
- 0004:0000075c       $pdata$PMC_Pow_X_I_Imp     000000018001975c     pmc_pow.obj
- 0004:00000768       $pdata$1$PMC_Pow_X_I_Imp   0000000180019768     pmc_pow.obj
- 0004:00000774       $pdata$2$PMC_Pow_X_I_Imp   0000000180019774     pmc_pow.obj
- 0004:00000780       $pdata$RightShift_Imp_DIV  0000000180019780     pmc_shift.obj
- 0004:0000078c       $pdata$0$RightShift_Imp_DIV 000000018001978c     pmc_shift.obj
- 0004:00000798       $pdata$1$RightShift_Imp_DIV 0000000180019798     pmc_shift.obj
- 0004:000007a4       $pdata$2$RightShift_Imp_DIV 00000001800197a4     pmc_shift.obj
- 0004:000007b0       $pdata$3$RightShift_Imp_DIV 00000001800197b0     pmc_shift.obj
- 0004:000007bc       $pdata$RightShift_Imp      00000001800197bc     pmc_shift.obj
- 0004:000007c8       $pdata$0$RightShift_Imp    00000001800197c8     pmc_shift.obj
- 0004:000007d4       $pdata$1$RightShift_Imp    00000001800197d4     pmc_shift.obj
- 0004:000007e0       $pdata$LeftShift_Imp_DIV   00000001800197e0     pmc_shift.obj
- 0004:000007ec       $pdata$0$LeftShift_Imp_DIV 00000001800197ec     pmc_shift.obj
- 0004:000007f8       $pdata$1$LeftShift_Imp_DIV 00000001800197f8     pmc_shift.obj
- 0004:00000804       $pdata$LeftShift_Imp       0000000180019804     pmc_shift.obj
- 0004:00000810       $pdata$0$LeftShift_Imp     0000000180019810     pmc_shift.obj
- 0004:0000081c       $pdata$1$LeftShift_Imp     000000018001981c     pmc_shift.obj
- 0004:00000828       $pdata$PMC_RightShift_X_I  0000000180019828     pmc_shift.obj
- 0004:00000834       $pdata$PMC_LeftShift_X_I   0000000180019834     pmc_shift.obj
- 0004:00000840       $pdata$Subtruct_Imp        0000000180019840     pmc_subtruct.obj
- 0004:0000084c       $pdata$PMC_Subtruct_I_X    000000018001984c     pmc_subtruct.obj
- 0004:00000858       $pdata$PMC_Subtruct_L_X    0000000180019858     pmc_subtruct.obj
- 0004:00000864       $pdata$PMC_Subtruct_X_I    0000000180019864     pmc_subtruct.obj
- 0004:00000870       $pdata$PMC_Subtruct_X_L    0000000180019870     pmc_subtruct.obj
- 0004:0000087c       $pdata$PMC_Subtruct_X_X    000000018001987c     pmc_subtruct.obj
- 0004:00000888       $pdata$PMC_To_X_I          0000000180019888     pmc_to.obj
- 0004:00000894       $pdata$PMC_To_X_L          0000000180019894     pmc_to.obj
- 0004:000008a0       $pdata$InitializeNumberFormatoInfo 00000001800198a0     pmc_tostring.obj
- 0004:000008ac       $pdata$Initialize_ToString 00000001800198ac     pmc_tostring.obj
- 0004:000008b8       $pdata$PMC_ToString        00000001800198b8     pmc_tostring.obj
- 0004:000008c4       $pdata$OutputOneChar       00000001800198c4     pmc_tostring.obj
- 0004:000008d0       $pdata$PrintDecimal        00000001800198d0     pmc_tostring.obj
- 0004:000008dc       $pdata$ToStringDN          00000001800198dc     pmc_tostring.obj
- 0004:000008e8       $pdata$ToStringX           00000001800198e8     pmc_tostring.obj
- 0004:000008f4       $pdata$__GSHandlerCheckCommon 00000001800198f4     MSVCRT:gshandler.obj
- 0004:00000900       $pdata$__GSHandlerCheck    0000000180019900     MSVCRT:gshandler.obj
- 0004:00000918       $pdata$?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180019918     MSVCRT:dll_dllmain.obj
- 0004:00000924       $pdata$?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 0000000180019924     MSVCRT:dll_dllmain.obj
- 0004:00000930       $pdata$?dllmain_crt_process_detach@@YAH_N@Z 0000000180019930     MSVCRT:dll_dllmain.obj
- 0004:0000093c       $pdata$?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018001993c     MSVCRT:dll_dllmain.obj
- 0004:00000948       $pdata$?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180019948     MSVCRT:dll_dllmain.obj
- 0004:00000954       $pdata$?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180019954     MSVCRT:dll_dllmain.obj
- 0004:00000960       $pdata$?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 0000000180019960     MSVCRT:dll_dllmain.obj
- 0004:0000096c       $pdata$_DllMainCRTStartup  000000018001996c     MSVCRT:dll_dllmain.obj
- 0004:00000978       $pdata$__report_securityfailure 0000000180019978     MSVCRT:gs_report.obj
- 0004:00000984       $pdata$__report_securityfailureEx 0000000180019984     MSVCRT:gs_report.obj
- 0004:00000990       $pdata$__report_rangecheckfailure 0000000180019990     MSVCRT:gs_report.obj
- 0004:0000099c       $pdata$__report_gsfailure  000000018001999c     MSVCRT:gs_report.obj
- 0004:000009a8       $pdata$capture_current_context 00000001800199a8     MSVCRT:gs_report.obj
- 0004:000009b4       $pdata$capture_previous_context 00000001800199b4     MSVCRT:gs_report.obj
- 0004:000009c0       $pdata$__raise_securityfailure 00000001800199c0     MSVCRT:gs_report.obj
- 0004:000009cc       $pdata$__security_init_cookie 00000001800199cc     MSVCRT:gs_support.obj
- 0004:000009d8       $pdata$__get_entropy       00000001800199d8     MSVCRT:gs_support.obj
- 0004:000009e4       $pdata$__scrt_initialize_default_local_stdio_options 00000001800199e4     MSVCRT:default_local_stdio_options.obj
- 0004:000009f0       $pdata$atexit              00000001800199f0     MSVCRT:utility.obj
- 0004:000009fc       $pdata$_onexit             00000001800199fc     MSVCRT:utility.obj
- 0004:00000a08       $pdata$__scrt_is_nonwritable_in_current_image 0000000180019a08     MSVCRT:utility.obj
- 0004:00000a14       $pdata$__scrt_is_nonwritable_in_current_image$filt$0 0000000180019a14     MSVCRT:utility.obj
- 0004:00000a20       $pdata$__scrt_acquire_startup_lock 0000000180019a20     MSVCRT:utility.obj
- 0004:00000a2c       $pdata$__scrt_release_startup_lock 0000000180019a2c     MSVCRT:utility.obj
- 0004:00000a38       $pdata$__scrt_initialize_crt 0000000180019a38     MSVCRT:utility.obj
- 0004:00000a44       $pdata$__scrt_uninitialize_crt 0000000180019a44     MSVCRT:utility.obj
- 0004:00000a50       $pdata$__scrt_initialize_onexit_tables 0000000180019a50     MSVCRT:utility.obj
- 0004:00000a5c       $pdata$__scrt_dllmain_exception_filter 0000000180019a5c     MSVCRT:utility.obj
- 0004:00000a68       $pdata$__scrt_dllmain_before_initialize_c 0000000180019a68     MSVCRT:utility.obj
- 0004:00000a74       $pdata$__scrt_dllmain_after_initialize_c 0000000180019a74     MSVCRT:utility.obj
- 0004:00000a80       $pdata$__scrt_dllmain_uninitialize_c 0000000180019a80     MSVCRT:utility.obj
- 0004:00000a8c       $pdata$__scrt_dllmain_uninitialize_critical 0000000180019a8c     MSVCRT:utility.obj
- 0004:00000a98       $pdata$__scrt_dllmain_crt_thread_attach 0000000180019a98     MSVCRT:utility.obj
- 0004:00000aa4       $pdata$__scrt_dllmain_crt_thread_detach 0000000180019aa4     MSVCRT:utility.obj
- 0004:00000ab0       $pdata$?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 0000000180019ab0     MSVCRT:utility.obj
- 0004:00000abc       $pdata$__scrt_get_show_window_mode 0000000180019abc     MSVCRT:utility_desktop.obj
- 0004:00000ac8       $pdata$__scrt_is_managed_app 0000000180019ac8     MSVCRT:utility_desktop.obj
- 0004:00000ad4       $pdata$__scrt_fastfail     0000000180019ad4     MSVCRT:utility_desktop.obj
- 0004:00000ae0       $pdata$__scrt_unhandled_exception_filter 0000000180019ae0     MSVCRT:utility_desktop.obj
- 0004:00000aec       $pdata$_RTC_Initialize     0000000180019aec     MSVCRT:initsect.obj
- 0004:00000af8       $pdata$_RTC_Terminate      0000000180019af8     MSVCRT:initsect.obj
- 0004:00000b04       $pdata$__isa_available_init 0000000180019b04     MSVCRT:cpu_disp.obj
- 0005:000000a0       $R000000                   000000018001a0a0     Palmtree.Math.Core.Uint.res
- 0005:000003c0       $R000320                   000000018001a3c0     Palmtree.Math.Core.Uint.res
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0002:fffe8000       __guard_fids__             0000000180000000     MSVCRT:guard_support.obj
+ 0000:fffe2000       .debug$S                   0000000180000000     Palmtree.Math.Core.Uint.exp
+ 0002:fffe8000       __guard_fids__guard_icall_checks_enforced 0000000180000000     MSVCRT:guard_support.obj
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     kernel32:KERNEL32.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0002:fffe8000       __guard_fids_?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180000000     MSVCRT:dll_dllmain.obj
+ 0000:fffe2000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0000:fffe2000       .debug$S                   0000000180000000     vcruntime:VCRUNTIME140.dll
+ 0002:fffe8000       __guard_fids___scrt_set_unhandled_exception_filter 0000000180000000     MSVCRT:utility_desktop.obj
+ 0001:000002d0       CalculateCheckCode         00000001800012d0 f   pmc_memory.obj
+ 0001:000005f0       CleanUpNumber              00000001800015f0 f   pmc_memory.obj
+ 0001:000009d0       InitializeNumber           00000001800019d0 f   pmc_memory.obj
+ 0001:00000cb0       Add_Imp_using_ADC          0000000180001cb0 f   pmc_add.obj
+ 0001:000010a0       Add_Imp_using_ADCX         00000001800020a0 f   pmc_add.obj
+ 0001:00001280       DoCarry                    0000000180002280 f   pmc_add.obj
+ 0001:00001430       PMC_Add_X_I_Imp            0000000180002430 f   pmc_add.obj
+ 0001:000015d0       PMC_Add_X_L_Imp            00000001800025d0 f   pmc_add.obj
+ 0001:000018b0       _ADD_16WORDS_ADC           00000001800028b0 f   pmc_add.obj
+ 0001:00001980       _ADD_16WORDS_ADCX          0000000180002980 f   pmc_add.obj
+ 0001:00001a80       _ADD_32WORDS_ADCX          0000000180002a80 f   pmc_add.obj
+ 0001:00001d00       BitwiseAnd_X_X             0000000180002d00 f   pmc_bitwiseand.obj
+ 0001:00002340       BitwiseOr_X_X              0000000180003340 f   pmc_bitwiseor.obj
+ 0001:000027b0       PMC_BitwiseOr_X_I_Imp      00000001800037b0 f   pmc_bitwiseor.obj
+ 0001:00002900       PMC_BitwiseOr_X_L_Imp      0000000180003900 f   pmc_bitwiseor.obj
+ 0001:00002b20       CountActualBitsFromBuffer  0000000180003b20 f   pmc_bytes.obj
+ 0001:000033d0       AddOneLine                 00000001800043d0 f   pmc_divrem.obj
+ 0001:00003730       AddOneLineX                0000000180004730 f   pmc_divrem.obj
+ 0001:00004200       DivRem_X_X_using_ADC_MUL   0000000180005200 f   pmc_divrem.obj
+ 0001:000044f0       DivRem_X_X_using_ADX_MULX  00000001800054f0 f   pmc_divrem.obj
+ 0001:00005a90       SubtructOneLine            0000000180006a90 f   pmc_divrem.obj
+ 0001:00006710       SubtructOneLineX           0000000180007710 f   pmc_divrem.obj
+ 0001:00007450       _ADD_16WORDS_ADCX_DIV      0000000180008450 f   pmc_divrem.obj
+ 0001:00007540       Equals_X_I_Imp             0000000180008540 f   pmc_equals.obj
+ 0001:00007590       Equals_X_L_Imp             0000000180008590 f   pmc_equals.obj
+ 0001:00007860       ExclusiveOr_X_X            0000000180008860 f   pmc_exclusiveor.obj
+ 0001:00007cd0       PMC_ExclusiveOr_X_I_Imp    0000000180008cd0 f   pmc_exclusiveor.obj
+ 0001:00007e40       PMC_ExclusiveOr_X_L_Imp    0000000180008e40 f   pmc_exclusiveor.obj
+ 0001:00008280       GreatestCommonDivisor_Imp  0000000180009280 f   pmc_greatestcommondivisor.obj
+ 0001:000084b0       PMC_GreatestCommonDivisor_X_I_Imp 00000001800094b0 f   pmc_greatestcommondivisor.obj
+ 0001:00008790       PMC_GreatestCommonDivisor_X_L_Imp 0000000180009790 f   pmc_greatestcommondivisor.obj
+ 0001:00009270       ModulePower                000000018000a270 f   pmc_modpow.obj
+ 0001:00009950       PMC_ModPow_X_X_X_Imp       000000018000a950 f   pmc_modpow.obj
+ 0001:00009b60       Multiply_WORD_using_MULX_ADCX 000000018000ab60 f   pmc_multiply.obj
+ 0001:0000a7e0       Multiply_WORD_using_MUL_ADC 000000018000b7e0 f   pmc_multiply.obj
+ 0001:0000b390       Multiply_X_1W_using_MULX_ADCX 000000018000c390 f   pmc_multiply.obj
+ 0001:0000b3a0       Multiply_X_1W_using_MUL_ADC 000000018000c3a0 f   pmc_multiply.obj
+ 0001:0000b3b0       Multiply_X_2W_using_MULX_ADCX 000000018000c3b0 f   pmc_multiply.obj
+ 0001:0000b410       Multiply_X_2W_using_MUL_ADC 000000018000c410 f   pmc_multiply.obj
+ 0001:0000b480       Multiply_X_X_using_MULX_ADCX 000000018000c480 f   pmc_multiply.obj
+ 0001:0000b510       Multiply_X_X_using_MUL_ADC 000000018000c510 f   pmc_multiply.obj
+ 0001:0000b820       PMC_Multiply_X_L_Imp       000000018000c820 f   pmc_multiply.obj
+ 0001:0000baa0       Build1WordFromDecimalString 000000018000caa0 f   pmc_parse.obj
+ 0001:0000bd30       Build1WordFromHexString    000000018000cd30 f   pmc_parse.obj
+ 0001:0000c250       BuildBinaryFromHexString   000000018000d250 f   pmc_parse.obj
+ 0001:0000c390       InitializeParserState      000000018000d390 f   pmc_parse.obj
+ 0001:0000c510       MultiplyAndAdd_using_ADCX_MULX 000000018000d510 f   pmc_parse.obj
+ 0001:0000cec0       MultiplyAndAdd_using_ADC_MUL 000000018000dec0 f   pmc_parse.obj
+ 0001:0000d950       ParseAsDecimalNumberString 000000018000e950 f   pmc_parse.obj
+ 0001:0000f0d0       ParseAsIntegerPartNumberSequence 00000001800100d0 f   pmc_parse.obj
+ 0001:0000f1d0       ParseHexDigit              00000001800101d0 f   pmc_parse.obj
+ 0001:0000f210       TryParseDN                 0000000180010210 f   pmc_parse.obj
+ 0001:0000f620       TryParseX                  0000000180010620 f   pmc_parse.obj
+ 0001:0000f910       PMC_Pow_X_I_Imp            0000000180010910 f   pmc_pow.obj
+ 0001:000124d0       Subtruct_X_1W              00000001800134d0 f   pmc_subtruct.obj
+ 0001:00012550       _SUBTRUCT_16WORDS_SBB      0000000180013550 f   pmc_subtruct.obj
+ 0001:000126f0       AppendDecimalNumberSequence 00000001800136f0 f   pmc_tostring.obj
+ 0001:00012cb4       $LN157                     0000000180013cb4     pmc_tostring.obj
+ 0001:00012cc8       $LN156                     0000000180013cc8     pmc_tostring.obj
+ 0001:00012cec       $LN155                     0000000180013cec     pmc_tostring.obj
+ 0001:00012d08       $LN154                     0000000180013d08     pmc_tostring.obj
+ 0001:00012d30       FinalizeDecimalNumberSequenceOutputStateOfFormatC 0000000180013d30 f   pmc_tostring.obj
+ 0001:00012de0       GetDigitCount              0000000180013de0 f   pmc_tostring.obj
+ 0001:00013000       OutputDecimalNumberSequence 0000000180014000 f   pmc_tostring.obj
+ 0001:00013870       OutputHexNumberSequenceOneWord 0000000180014870 f   pmc_tostring.obj
+ 0001:00013bc0       ToStringC                  0000000180014bc0 f   pmc_tostring.obj
+ 0001:00013dd4       $LN58                      0000000180014dd4     pmc_tostring.obj
+ 0001:00013e10       $LN57                      0000000180014e10     pmc_tostring.obj
+ 0001:00013e50       ToStringD                  0000000180014e50 f   pmc_tostring.obj
+ 0001:00013ee0       ToStringE                  0000000180014ee0 f   pmc_tostring.obj
+ 0001:000142d0       ToStringP                  00000001800152d0 f   pmc_tostring.obj
+ 0001:000144e4       $LN51                      00000001800154e4     pmc_tostring.obj
+ 0001:00014510       $LN50                      0000000180015510     pmc_tostring.obj
+ 0001:00014540       ToStringX                  0000000180015540 f   pmc_tostring.obj
+ 0001:000147f0       ToString_Imp               00000001800157f0 f   pmc_tostring.obj
+ 0001:00014bd4       $LN94                      0000000180015bd4     pmc_tostring.obj
+ 0001:00014bf8       $LN93                      0000000180015bf8     pmc_tostring.obj
+ 0001:00014ce0       $$000000                   0000000180015ce0     MSVCRT:amdsecgs.obj
+ 0001:00014d14       ?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180015d14 f   MSVCRT:dll_dllmain.obj
+ 0001:00014d64       ?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 0000000180015d64 f   MSVCRT:dll_dllmain.obj
+ 0001:00014e80       ?dllmain_crt_process_detach@@YAH_N@Z 0000000180015e80 f   MSVCRT:dll_dllmain.obj
+ 0001:00014f10       ?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180015f10 f   MSVCRT:dll_dllmain.obj
+ 0001:00015044       ?dllmain_raw@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180016044 f   MSVCRT:dll_dllmain.obj
+ 0001:00015370       capture_current_context    0000000180016370 f   MSVCRT:gs_report.obj
+ 0001:000153e0       capture_previous_context   00000001800163e0 f   MSVCRT:gs_report.obj
+ 0001:00015454       __get_entropy              0000000180016454 f   MSVCRT:gs_support.obj
+ 0001:0001560c       ?find_pe_section@@YAPEAU_IMAGE_SECTION_HEADER@@QEAE_K@Z 000000018001660c f   MSVCRT:utility.obj
+ 0001:00015660       ?is_potentially_valid_image_base@@YA_NQEAX@Z 0000000180016660 f   MSVCRT:utility.obj
+ 0001:00016050       $$000000                   0000000180017050     MSVCRT:guard_dispatch.obj
+ 0001:00016062       ?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 0000000180017062 f   MSVCRT:dll_dllmain.obj
+ 0001:00016079       ?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 0000000180017079 f   MSVCRT:dll_dllmain.obj
+ 0001:00016095       ?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 0000000180017095 f   MSVCRT:dll_dllmain.obj
+ 0001:000160cb       __scrt_is_nonwritable_in_current_image$filt$0 00000001800170cb f   MSVCRT:utility.obj
+ 0002:000001d8       GS_ExceptionPointers       00000001800181d8     MSVCRT:gs_report.obj
+ 0002:00000650       $unwind$GetCPUInfo         0000000180018650     cpuid.obj
+ 0002:0000065c       $unwind$DllMain            000000018001865c     dllmain.obj
+ 0002:00000664       $unwind$AllocateHeapArea   0000000180018664     pmc_memory.obj
+ 0002:0000066c       $unwind$DeallocateHeapArea 000000018001866c     pmc_memory.obj
+ 0002:00000674       $unwind$AllocateBlock      0000000180018674     pmc_memory.obj
+ 0002:00000684       $unwind$DeallocateBlock    0000000180018684     pmc_memory.obj
+ 0002:0000068c       $chain$0$DeallocateBlock   000000018001868c     pmc_memory.obj
+ 0002:000006a0       $chain$1$DeallocateBlock   00000001800186a0     pmc_memory.obj
+ 0002:000006b0       $unwind$AttatchNumber      00000001800186b0     pmc_memory.obj
+ 0002:000006b8       $unwind$AllocateNumber     00000001800186b8     pmc_memory.obj
+ 0002:000006cc       $unwind$DeallocateNumber   00000001800186cc     pmc_memory.obj
+ 0002:000006d4       $unwind$CommitNumber       00000001800186d4     pmc_memory.obj
+ 0002:000006dc       $unwind$DuplicateNumber    00000001800186dc     pmc_memory.obj
+ 0002:000006f0       $unwind$CleanUpChainBuffer 00000001800186f0     pmc_memory.obj
+ 0002:000006f8       $unwind$AllocateChainedBuffer 00000001800186f8     pmc_memory.obj
+ 0002:00000708       $unwind$Initialize_Memory  0000000180018708     pmc_memory.obj
+ 0002:00000714       $unwind$PMC_Dispose        0000000180018714     pmc_memory.obj
+ 0002:0000071c       $unwind$InitializeNumber   000000018001871c     pmc_memory.obj
+ 0002:00000730       $unwind$CleanUpNumber      0000000180018730     pmc_memory.obj
+ 0002:00000738       $chain$0$CleanUpNumber     0000000180018738     pmc_memory.obj
+ 0002:0000074c       $chain$1$CleanUpNumber     000000018001874c     pmc_memory.obj
+ 0002:0000075c       $unwind$PMC_Add_I_X        000000018001875c     pmc_add.obj
+ 0002:0000076c       $unwind$PMC_Add_L_X        000000018001876c     pmc_add.obj
+ 0002:0000077c       $unwind$PMC_Add_X_I        000000018001877c     pmc_add.obj
+ 0002:0000078c       $unwind$PMC_Add_X_L        000000018001878c     pmc_add.obj
+ 0002:0000079c       $unwind$PMC_Add_X_X        000000018001879c     pmc_add.obj
+ 0002:000007ac       $unwind$Add_Imp_using_ADC  00000001800187ac     pmc_add.obj
+ 0002:000007b8       $unwind$Add_Imp_using_ADCX 00000001800187b8     pmc_add.obj
+ 0002:000007c4       $unwind$PMC_Add_X_I_Imp    00000001800187c4     pmc_add.obj
+ 0002:000007d4       $unwind$PMC_Add_X_L_Imp    00000001800187d4     pmc_add.obj
+ 0002:000007e4       $unwind$PMC_BitwiseAnd_I_X 00000001800187e4     pmc_bitwiseand.obj
+ 0002:000007f4       $unwind$PMC_BitwiseAnd_L_X 00000001800187f4     pmc_bitwiseand.obj
+ 0002:00000804       $unwind$PMC_BitwiseAnd_X_I 0000000180018804     pmc_bitwiseand.obj
+ 0002:00000814       $unwind$PMC_BitwiseAnd_X_L 0000000180018814     pmc_bitwiseand.obj
+ 0002:00000824       $unwind$PMC_BitwiseAnd_X_X 0000000180018824     pmc_bitwiseand.obj
+ 0002:00000830       $chain$0$PMC_BitwiseAnd_X_X 0000000180018830     pmc_bitwiseand.obj
+ 0002:00000844       $chain$1$PMC_BitwiseAnd_X_X 0000000180018844     pmc_bitwiseand.obj
+ 0002:00000854       $unwind$BitwiseAnd_X_X     0000000180018854     pmc_bitwiseand.obj
+ 0002:0000085c       $chain$2$BitwiseAnd_X_X    000000018001885c     pmc_bitwiseand.obj
+ 0002:00000878       $chain$3$BitwiseAnd_X_X    0000000180018878     pmc_bitwiseand.obj
+ 0002:0000088c       $chain$4$BitwiseAnd_X_X    000000018001888c     pmc_bitwiseand.obj
+ 0002:0000089c       $unwind$PMC_BitwiseOr_I_X  000000018001889c     pmc_bitwiseor.obj
+ 0002:000008ac       $unwind$PMC_BitwiseOr_L_X  00000001800188ac     pmc_bitwiseor.obj
+ 0002:000008bc       $unwind$PMC_BitwiseOr_X_I  00000001800188bc     pmc_bitwiseor.obj
+ 0002:000008cc       $unwind$PMC_BitwiseOr_X_L  00000001800188cc     pmc_bitwiseor.obj
+ 0002:000008dc       $unwind$PMC_BitwiseOr_X_X  00000001800188dc     pmc_bitwiseor.obj
+ 0002:000008e8       $chain$0$PMC_BitwiseOr_X_X 00000001800188e8     pmc_bitwiseor.obj
+ 0002:000008fc       $chain$1$PMC_BitwiseOr_X_X 00000001800188fc     pmc_bitwiseor.obj
+ 0002:0000090c       $chain$2$PMC_BitwiseOr_X_X 000000018001890c     pmc_bitwiseor.obj
+ 0002:00000920       $chain$3$PMC_BitwiseOr_X_X 0000000180018920     pmc_bitwiseor.obj
+ 0002:00000930       $unwind$BitwiseOr_X_X      0000000180018930     pmc_bitwiseor.obj
+ 0002:00000944       $unwind$PMC_BitwiseOr_X_I_Imp 0000000180018944     pmc_bitwiseor.obj
+ 0002:00000958       $unwind$PMC_BitwiseOr_X_L_Imp 0000000180018958     pmc_bitwiseor.obj
+ 0002:0000096c       $unwind$PMC_FromByteArray  000000018001896c     pmc_bytes.obj
+ 0002:0000097c       $unwind$PMC_ToByteArray    000000018001897c     pmc_bytes.obj
+ 0002:00000990       $unwind$PMC_FromByteArrayForSINT 0000000180018990     pmc_bytes.obj
+ 0002:000009a4       $unwind$PMC_ToByteArrayForSINT 00000001800189a4     pmc_bytes.obj
+ 0002:000009b8       $chain$0$PMC_ToByteArrayForSINT 00000001800189b8     pmc_bytes.obj
+ 0002:000009cc       $chain$1$PMC_ToByteArrayForSINT 00000001800189cc     pmc_bytes.obj
+ 0002:000009dc       $unwind$PMC_Clone_X        00000001800189dc     pmc_clone.obj
+ 0002:000009e8       $unwind$PMC_Compare_I_X    00000001800189e8     pmc_compare.obj
+ 0002:000009f8       $unwind$PMC_Compare_L_X    00000001800189f8     pmc_compare.obj
+ 0002:00000a08       $unwind$PMC_Compare_X_I    0000000180018a08     pmc_compare.obj
+ 0002:00000a18       $unwind$PMC_Compare_X_L    0000000180018a18     pmc_compare.obj
+ 0002:00000a28       $unwind$PMC_Compare_X_X    0000000180018a28     pmc_compare.obj
+ 0002:00000a38       $unwind$DivRem_X_X         0000000180018a38     pmc_divrem.obj
+ 0002:00000a44       $unwind$PMC_DivRem_I_X     0000000180018a44     pmc_divrem.obj
+ 0002:00000a58       $unwind$PMC_DivRem_L_X     0000000180018a58     pmc_divrem.obj
+ 0002:00000a74       $unwind$PMC_DivRem_X_I     0000000180018a74     pmc_divrem.obj
+ 0002:00000a88       $unwind$PMC_DivRem_X_L     0000000180018a88     pmc_divrem.obj
+ 0002:00000a98       $chain$1$PMC_DivRem_X_L    0000000180018a98     pmc_divrem.obj
+ 0002:00000ab0       $chain$2$PMC_DivRem_X_L    0000000180018ab0     pmc_divrem.obj
+ 0002:00000ac0       $chain$3$PMC_DivRem_X_L    0000000180018ac0     pmc_divrem.obj
+ 0002:00000ad8       $chain$4$PMC_DivRem_X_L    0000000180018ad8     pmc_divrem.obj
+ 0002:00000ae8       $unwind$PMC_DivRem_X_X     0000000180018ae8     pmc_divrem.obj
+ 0002:00000afc       $chain$0$PMC_DivRem_X_X    0000000180018afc     pmc_divrem.obj
+ 0002:00000b10       $chain$1$PMC_DivRem_X_X    0000000180018b10     pmc_divrem.obj
+ 0002:00000b20       $chain$2$PMC_DivRem_X_X    0000000180018b20     pmc_divrem.obj
+ 0002:00000b34       $chain$3$PMC_DivRem_X_X    0000000180018b34     pmc_divrem.obj
+ 0002:00000b44       $unwind$SubtructOneLine    0000000180018b44     pmc_divrem.obj
+ 0002:00000b5c       $unwind$SubtructOneLineX   0000000180018b5c     pmc_divrem.obj
+ 0002:00000b74       $unwind$AddOneLine         0000000180018b74     pmc_divrem.obj
+ 0002:00000b7c       $unwind$AddOneLineX        0000000180018b7c     pmc_divrem.obj
+ 0002:00000b88       $unwind$DivRem_X_X_using_ADC_MUL 0000000180018b88     pmc_divrem.obj
+ 0002:00000ba0       $unwind$DivRem_X_X_using_ADX_MULX 0000000180018ba0     pmc_divrem.obj
+ 0002:00000bb8       $unwind$PMC_Equals_I_X     0000000180018bb8     pmc_equals.obj
+ 0002:00000bc8       $unwind$PMC_Equals_L_X     0000000180018bc8     pmc_equals.obj
+ 0002:00000bd8       $unwind$PMC_Equals_X_I     0000000180018bd8     pmc_equals.obj
+ 0002:00000be8       $unwind$PMC_Equals_X_L     0000000180018be8     pmc_equals.obj
+ 0002:00000bf8       $unwind$PMC_Equals_X_X     0000000180018bf8     pmc_equals.obj
+ 0002:00000c08       $unwind$PMC_ExclusiveOr_I_X 0000000180018c08     pmc_exclusiveor.obj
+ 0002:00000c18       $unwind$PMC_ExclusiveOr_L_X 0000000180018c18     pmc_exclusiveor.obj
+ 0002:00000c28       $unwind$PMC_ExclusiveOr_X_I 0000000180018c28     pmc_exclusiveor.obj
+ 0002:00000c38       $unwind$PMC_ExclusiveOr_X_L 0000000180018c38     pmc_exclusiveor.obj
+ 0002:00000c48       $unwind$PMC_ExclusiveOr_X_X 0000000180018c48     pmc_exclusiveor.obj
+ 0002:00000c54       $chain$0$PMC_ExclusiveOr_X_X 0000000180018c54     pmc_exclusiveor.obj
+ 0002:00000c68       $chain$1$PMC_ExclusiveOr_X_X 0000000180018c68     pmc_exclusiveor.obj
+ 0002:00000c78       $chain$2$PMC_ExclusiveOr_X_X 0000000180018c78     pmc_exclusiveor.obj
+ 0002:00000c8c       $chain$4$PMC_ExclusiveOr_X_X 0000000180018c8c     pmc_exclusiveor.obj
+ 0002:00000ca0       $chain$5$PMC_ExclusiveOr_X_X 0000000180018ca0     pmc_exclusiveor.obj
+ 0002:00000cb0       $unwind$ExclusiveOr_X_X    0000000180018cb0     pmc_exclusiveor.obj
+ 0002:00000cc4       $unwind$PMC_ExclusiveOr_X_I_Imp 0000000180018cc4     pmc_exclusiveor.obj
+ 0002:00000cd8       $unwind$PMC_ExclusiveOr_X_L_Imp 0000000180018cd8     pmc_exclusiveor.obj
+ 0002:00000cec       $unwind$From_I_Imp         0000000180018cec     pmc_from.obj
+ 0002:00000cf8       $unwind$From_L_Imp         0000000180018cf8     pmc_from.obj
+ 0002:00000d04       $unwind$PMC_From_I         0000000180018d04     pmc_from.obj
+ 0002:00000d10       $unwind$PMC_From_L         0000000180018d10     pmc_from.obj
+ 0002:00000d1c       $unwind$PMC_GreatestCommonDivisor_I_X 0000000180018d1c     pmc_greatestcommondivisor.obj
+ 0002:00000d2c       $unwind$PMC_GreatestCommonDivisor_L_X 0000000180018d2c     pmc_greatestcommondivisor.obj
+ 0002:00000d3c       $unwind$PMC_GreatestCommonDivisor_X_I 0000000180018d3c     pmc_greatestcommondivisor.obj
+ 0002:00000d4c       $unwind$PMC_GreatestCommonDivisor_X_L 0000000180018d4c     pmc_greatestcommondivisor.obj
+ 0002:00000d5c       $unwind$PMC_GreatestCommonDivisor_X_X 0000000180018d5c     pmc_greatestcommondivisor.obj
+ 0002:00000d74       $unwind$GreatestCommonDivisor_Imp 0000000180018d74     pmc_greatestcommondivisor.obj
+ 0002:00000d8c       $unwind$PMC_GreatestCommonDivisor_X_I_Imp 0000000180018d8c     pmc_greatestcommondivisor.obj
+ 0002:00000da0       $chain$0$PMC_GreatestCommonDivisor_X_I_Imp 0000000180018da0     pmc_greatestcommondivisor.obj
+ 0002:00000db4       $chain$1$PMC_GreatestCommonDivisor_X_I_Imp 0000000180018db4     pmc_greatestcommondivisor.obj
+ 0002:00000dc4       $unwind$PMC_GreatestCommonDivisor_X_L_Imp 0000000180018dc4     pmc_greatestcommondivisor.obj
+ 0002:00000dd8       $chain$0$PMC_GreatestCommonDivisor_X_L_Imp 0000000180018dd8     pmc_greatestcommondivisor.obj
+ 0002:00000dec       $chain$1$PMC_GreatestCommonDivisor_X_L_Imp 0000000180018dec     pmc_greatestcommondivisor.obj
+ 0002:00000dfc       $unwind$PMC_UINT_Initialize 0000000180018dfc     pmc_initialize.obj
+ 0002:00000e08       $chain$0$PMC_UINT_Initialize 0000000180018e08     pmc_initialize.obj
+ 0002:00000e1c       $chain$1$PMC_UINT_Initialize 0000000180018e1c     pmc_initialize.obj
+ 0002:00000e2c       $unwind$PMC_ModPow_X_X_X   0000000180018e2c     pmc_modpow.obj
+ 0002:00000e40       $unwind$ModulePower        0000000180018e40     pmc_modpow.obj
+ 0002:00000e5c       $chain$2$ModulePower       0000000180018e5c     pmc_modpow.obj
+ 0002:00000e70       $chain$3$ModulePower       0000000180018e70     pmc_modpow.obj
+ 0002:00000e80       $unwind$PMC_ModPow_X_X_X_Imp 0000000180018e80     pmc_modpow.obj
+ 0002:00000e94       $unwind$PMC_Multiply_X_I_Imp 0000000180018e94     pmc_multiply.obj
+ 0002:00000ea4       $unwind$PMC_Multiply_I_X   0000000180018ea4     pmc_multiply.obj
+ 0002:00000eb4       $unwind$PMC_Multiply_L_X   0000000180018eb4     pmc_multiply.obj
+ 0002:00000ec4       $unwind$PMC_Multiply_X_I   0000000180018ec4     pmc_multiply.obj
+ 0002:00000ed4       $unwind$PMC_Multiply_X_L   0000000180018ed4     pmc_multiply.obj
+ 0002:00000ee4       $unwind$PMC_Multiply_X_X   0000000180018ee4     pmc_multiply.obj
+ 0002:00000ef4       $unwind$Multiply_WORD_using_MUL_ADC 0000000180018ef4     pmc_multiply.obj
+ 0002:00000f0c       $unwind$Multiply_WORD_using_MULX_ADCX 0000000180018f0c     pmc_multiply.obj
+ 0002:00000f24       $unwind$Multiply_X_2W_using_MUL_ADC 0000000180018f24     pmc_multiply.obj
+ 0002:00000f38       $unwind$Multiply_X_2W_using_MULX_ADCX 0000000180018f38     pmc_multiply.obj
+ 0002:00000f4c       $unwind$Multiply_X_X_using_MUL_ADC 0000000180018f4c     pmc_multiply.obj
+ 0002:00000f64       $unwind$Multiply_X_X_using_MULX_ADCX 0000000180018f64     pmc_multiply.obj
+ 0002:00000f7c       $unwind$PMC_Multiply_X_L_Imp 0000000180018f7c     pmc_multiply.obj
+ 0002:00000f8c       $unwind$Initialize_Parse   0000000180018f8c     pmc_parse.obj
+ 0002:00000f94       $unwind$PMC_TryParse       0000000180018f94     pmc_parse.obj
+ 0002:00000f9c       $unwind$PMC_TryParseForSINT 0000000180018f9c     pmc_parse.obj
+ 0002:00000fa4       $unwind$InitializeParserState 0000000180018fa4     pmc_parse.obj
+ 0002:00000fb8       $unwind$ParseAsDecimalNumberString 0000000180018fb8     pmc_parse.obj
+ 0002:00000fd4       $unwind$MultiplyAndAdd_using_ADC_MUL 0000000180018fd4     pmc_parse.obj
+ 0002:00000fe0       $unwind$MultiplyAndAdd_using_ADCX_MULX 0000000180018fe0     pmc_parse.obj
+ 0002:00000ff0       $unwind$TryParseDN         0000000180018ff0     pmc_parse.obj
+ 0002:00001008       $chain$0$TryParseDN        0000000180019008     pmc_parse.obj
+ 0002:0000101c       $chain$1$TryParseDN        000000018001901c     pmc_parse.obj
+ 0002:0000102c       $unwind$BuildBinaryFromHexString 000000018001902c     pmc_parse.obj
+ 0002:00001038       $chain$0$BuildBinaryFromHexString 0000000180019038     pmc_parse.obj
+ 0002:0000104c       $chain$1$BuildBinaryFromHexString 000000018001904c     pmc_parse.obj
+ 0002:0000105c       $unwind$TryParseX          000000018001905c     pmc_parse.obj
+ 0002:00001078       $chain$0$TryParseX         0000000180019078     pmc_parse.obj
+ 0002:0000108c       $chain$1$TryParseX         000000018001908c     pmc_parse.obj
+ 0002:0000109c       $unwind$PMC_Pow_X_I        000000018001909c     pmc_pow.obj
+ 0002:000010ac       $unwind$PMC_Pow_X_I_Imp    00000001800190ac     pmc_pow.obj
+ 0002:000010c0       $chain$1$PMC_Pow_X_I_Imp   00000001800190c0     pmc_pow.obj
+ 0002:000010d8       $chain$2$PMC_Pow_X_I_Imp   00000001800190d8     pmc_pow.obj
+ 0002:000010e8       $unwind$RightShift_Imp_DIV 00000001800190e8     pmc_shift.obj
+ 0002:000010f8       $chain$0$RightShift_Imp_DIV 00000001800190f8     pmc_shift.obj
+ 0002:0000110c       $chain$1$RightShift_Imp_DIV 000000018001910c     pmc_shift.obj
+ 0002:00001120       $chain$2$RightShift_Imp_DIV 0000000180019120     pmc_shift.obj
+ 0002:00001130       $chain$3$RightShift_Imp_DIV 0000000180019130     pmc_shift.obj
+ 0002:00001140       $unwind$RightShift_Imp     0000000180019140     pmc_shift.obj
+ 0002:00001154       $chain$0$RightShift_Imp    0000000180019154     pmc_shift.obj
+ 0002:00001168       $chain$1$RightShift_Imp    0000000180019168     pmc_shift.obj
+ 0002:00001178       $unwind$LeftShift_Imp_DIV  0000000180019178     pmc_shift.obj
+ 0002:0000118c       $chain$0$LeftShift_Imp_DIV 000000018001918c     pmc_shift.obj
+ 0002:000011a0       $chain$1$LeftShift_Imp_DIV 00000001800191a0     pmc_shift.obj
+ 0002:000011b0       $unwind$LeftShift_Imp      00000001800191b0     pmc_shift.obj
+ 0002:000011c4       $chain$0$LeftShift_Imp     00000001800191c4     pmc_shift.obj
+ 0002:000011d8       $chain$1$LeftShift_Imp     00000001800191d8     pmc_shift.obj
+ 0002:000011e8       $unwind$PMC_RightShift_X_I 00000001800191e8     pmc_shift.obj
+ 0002:000011f8       $unwind$PMC_LeftShift_X_I  00000001800191f8     pmc_shift.obj
+ 0002:00001208       $unwind$Subtruct_Imp       0000000180019208     pmc_subtruct.obj
+ 0002:00001210       $unwind$PMC_Subtruct_I_X   0000000180019210     pmc_subtruct.obj
+ 0002:00001220       $unwind$PMC_Subtruct_L_X   0000000180019220     pmc_subtruct.obj
+ 0002:00001230       $unwind$PMC_Subtruct_X_I   0000000180019230     pmc_subtruct.obj
+ 0002:00001240       $unwind$PMC_Subtruct_X_L   0000000180019240     pmc_subtruct.obj
+ 0002:00001250       $unwind$PMC_Subtruct_X_X   0000000180019250     pmc_subtruct.obj
+ 0002:00001260       $unwind$PMC_To_X_I         0000000180019260     pmc_to.obj
+ 0002:0000126c       $unwind$PMC_To_X_L         000000018001926c     pmc_to.obj
+ 0002:00001278       $unwind$InitializeNumberFormatoInfo 0000000180019278     pmc_tostring.obj
+ 0002:00001284       $unwind$Initialize_ToString 0000000180019284     pmc_tostring.obj
+ 0002:0000128c       $unwind$PMC_ToString       000000018001928c     pmc_tostring.obj
+ 0002:000012a0       $unwind$OutputDecimalNumberSequence 00000001800192a0     pmc_tostring.obj
+ 0002:000012c4       $unwind$FinalizeDecimalNumberSequenceOutputStateOfFormatC 00000001800192c4     pmc_tostring.obj
+ 0002:000012d4       $unwind$AppendDecimalNumberSequence 00000001800192d4     pmc_tostring.obj
+ 0002:000012f0       $unwind$ToStringC          00000001800192f0     pmc_tostring.obj
+ 0002:0000130c       $unwind$ToStringD          000000018001930c     pmc_tostring.obj
+ 0002:00001324       $unwind$GetDigitCount      0000000180019324     pmc_tostring.obj
+ 0002:0000133c       $unwind$ToStringE          000000018001933c     pmc_tostring.obj
+ 0002:0000135c       $unwind$ToStringP          000000018001935c     pmc_tostring.obj
+ 0002:00001378       $unwind$ToStringX          0000000180019378     pmc_tostring.obj
+ 0002:00001390       $unwind$ToString_Imp       0000000180019390     pmc_tostring.obj
+ 0002:000013a0       $chain$1$ToString_Imp      00000001800193a0     pmc_tostring.obj
+ 0002:000013b8       $chain$3$ToString_Imp      00000001800193b8     pmc_tostring.obj
+ 0002:000013d0       $chain$4$ToString_Imp      00000001800193d0     pmc_tostring.obj
+ 0002:000013e0       $unwind$__GSHandlerCheckCommon 00000001800193e0     MSVCRT:gshandler.obj
+ 0002:000013e8       $unwind$__GSHandlerCheck   00000001800193e8     MSVCRT:gshandler.obj
+ 0002:000013f0       $xdatasym                  00000001800193f0     MSVCRT:amdsecgs.obj
+ 0002:000013f4       $unwind$?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 00000001800193f4     MSVCRT:dll_dllmain.obj
+ 0002:00001430       $unwind$?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 0000000180019430     MSVCRT:dll_dllmain.obj
+ 0002:00001438       $unwind$?dllmain_crt_process_detach@@YAH_N@Z 0000000180019438     MSVCRT:dll_dllmain.obj
+ 0002:00001470       $unwind$?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 0000000180019470     MSVCRT:dll_dllmain.obj
+ 0002:00001478       $unwind$?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180019478     MSVCRT:dll_dllmain.obj
+ 0002:00001480       $unwind$?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 0000000180019480     MSVCRT:dll_dllmain.obj
+ 0002:000014a8       $unwind$?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 00000001800194a8     MSVCRT:dll_dllmain.obj
+ 0002:000014b0       $unwind$_DllMainCRTStartup 00000001800194b0     MSVCRT:dll_dllmain.obj
+ 0002:000014c0       $unwind$__report_securityfailure 00000001800194c0     MSVCRT:gs_report.obj
+ 0002:000014c8       $unwind$__report_securityfailureEx 00000001800194c8     MSVCRT:gs_report.obj
+ 0002:000014d0       $unwind$__report_rangecheckfailure 00000001800194d0     MSVCRT:gs_report.obj
+ 0002:000014d8       $unwind$__report_gsfailure 00000001800194d8     MSVCRT:gs_report.obj
+ 0002:000014e0       $unwind$capture_current_context 00000001800194e0     MSVCRT:gs_report.obj
+ 0002:000014ec       $unwind$capture_previous_context 00000001800194ec     MSVCRT:gs_report.obj
+ 0002:000014f8       $unwind$__raise_securityfailure 00000001800194f8     MSVCRT:gs_report.obj
+ 0002:00001500       $unwind$__security_init_cookie 0000000180019500     MSVCRT:gs_support.obj
+ 0002:0000150c       $unwind$__get_entropy      000000018001950c     MSVCRT:gs_support.obj
+ 0002:00001514       $unwind$__scrt_initialize_default_local_stdio_options 0000000180019514     MSVCRT:default_local_stdio_options.obj
+ 0002:0000151c       $unwind$atexit             000000018001951c     MSVCRT:utility.obj
+ 0002:00001524       $unwind$_onexit            0000000180019524     MSVCRT:utility.obj
+ 0002:0000152c       $unwind$__scrt_is_nonwritable_in_current_image 000000018001952c     MSVCRT:utility.obj
+ 0002:0000154c       $unwind$__scrt_is_nonwritable_in_current_image$filt$0 000000018001954c     MSVCRT:utility.obj
+ 0002:00001554       $unwind$__scrt_acquire_startup_lock 0000000180019554     MSVCRT:utility.obj
+ 0002:0000155c       $unwind$__scrt_release_startup_lock 000000018001955c     MSVCRT:utility.obj
+ 0002:00001564       $unwind$__scrt_initialize_crt 0000000180019564     MSVCRT:utility.obj
+ 0002:0000156c       $unwind$__scrt_uninitialize_crt 000000018001956c     MSVCRT:utility.obj
+ 0002:00001574       $unwind$__scrt_initialize_onexit_tables 0000000180019574     MSVCRT:utility.obj
+ 0002:0000157c       $unwind$__scrt_dllmain_exception_filter 000000018001957c     MSVCRT:utility.obj
+ 0002:00001590       $unwind$__scrt_dllmain_before_initialize_c 0000000180019590     MSVCRT:utility.obj
+ 0002:00001598       $unwind$__scrt_dllmain_after_initialize_c 0000000180019598     MSVCRT:utility.obj
+ 0002:000015a0       $unwind$__scrt_dllmain_uninitialize_c 00000001800195a0     MSVCRT:utility.obj
+ 0002:000015a8       $unwind$__scrt_dllmain_uninitialize_critical 00000001800195a8     MSVCRT:utility.obj
+ 0002:000015b0       $unwind$__scrt_dllmain_crt_thread_attach 00000001800195b0     MSVCRT:utility.obj
+ 0002:000015b8       $unwind$__scrt_dllmain_crt_thread_detach 00000001800195b8     MSVCRT:utility.obj
+ 0002:000015c0       $unwind$?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 00000001800195c0     MSVCRT:utility.obj
+ 0002:000015c8       $unwind$__scrt_get_show_window_mode 00000001800195c8     MSVCRT:utility_desktop.obj
+ 0002:000015d0       $unwind$__scrt_is_managed_app 00000001800195d0     MSVCRT:utility_desktop.obj
+ 0002:000015d8       $unwind$__scrt_fastfail    00000001800195d8     MSVCRT:utility_desktop.obj
+ 0002:000015e8       $unwind$__scrt_unhandled_exception_filter 00000001800195e8     MSVCRT:utility_desktop.obj
+ 0002:000015f0       $unwind$_RTC_Initialize    00000001800195f0     MSVCRT:initsect.obj
+ 0002:000015fc       $unwind$_RTC_Terminate     00000001800195fc     MSVCRT:initsect.obj
+ 0002:00001608       $unwind$__isa_available_init 0000000180019608     MSVCRT:cpu_disp.obj
+ 0002:00001620       $xdatasym                  0000000180019620     MSVCRT:guard_dispatch.obj
+ 0002:00001630       .edata                     0000000180019630     Palmtree.Math.Core.Uint.exp
+ 0002:00001658       rgpv                       0000000180019658     Palmtree.Math.Core.Uint.exp
+ 0002:00001660       rgszName                   0000000180019660     Palmtree.Math.Core.Uint.exp
+ 0002:00001668       rgwOrd                     0000000180019668     Palmtree.Math.Core.Uint.exp
+ 0002:0000166c       szName                     000000018001966c     Palmtree.Math.Core.Uint.exp
+ 0002:00001688       $N00001                    0000000180019688     Palmtree.Math.Core.Uint.exp
+ 0002:00001690       $N00002                    0000000180019690     Palmtree.Math.Core.Uint.exp
+ 0002:000018b0       .idata$6                   00000001800198b0     kernel32:KERNEL32.dll
+ 0002:00001900       .idata$6                   0000000180019900     vcruntime:VCRUNTIME140.dll
+ 0002:00001a04       .idata$6                   0000000180019a04     ucrt:api-ms-win-crt-runtime-l1-1-0.dll
+ 0003:00000000       hexadecimal_lower_digits   000000018001a000     pmc_tostring.obj
+ 0003:00000028       hexadecimal_upper_digits   000000018001a028     pmc_tostring.obj
+ 0003:000000a0       fp_Add_Imp                 000000018001a0a0     pmc_add.obj
+ 0003:000000a8       fp_DivRem_X_X              000000018001a0a8     pmc_divrem.obj
+ 0003:000000b0       entry_points               000000018001a0b0     pmc_initialize.obj
+ 0003:000002e8       initialized                000000018001a2e8     pmc_initialize.obj
+ 0003:000002f0       fp_Multiply_X_1W           000000018001a2f0     pmc_multiply.obj
+ 0003:000002f8       fp_Multiply_X_2W           000000018001a2f8     pmc_multiply.obj
+ 0003:00000300       fp_Multiply_X_X            000000018001a300     pmc_multiply.obj
+ 0003:00000310       default_number_format_option 000000018001a310     pmc_parse.obj
+ 0003:000003c0       fp_MultiplyAndAdd          000000018001a3c0     pmc_parse.obj
+ 0003:000003d0       default_number_format_option 000000018001a3d0     pmc_tostring.obj
+ 0003:00000480       ?__proc_attached@@3HA      000000018001a480     MSVCRT:dll_dllmain.obj
+ 0003:00000490       GS_ExceptionRecord         000000018001a490     MSVCRT:gs_report.obj
+ 0003:00000530       GS_ContextRecord           000000018001a530     MSVCRT:gs_report.obj
+ 0003:00000a30       ?is_initialized_as_dll@@3_NA 000000018001aa30     MSVCRT:utility.obj
+ 0003:00000a31       ?module_local_atexit_table_initialized@@3_NA 000000018001aa31     MSVCRT:utility.obj
+ 0003:00000a38       ?module_local_atexit_table@@3U_onexit_table_t@@A 000000018001aa38     MSVCRT:utility.obj
+ 0003:00000a50       ?module_local_at_quick_exit_table@@3U_onexit_table_t@@A 000000018001aa50     MSVCRT:utility.obj
+ 0004:00000000       $pdata$GetCPUInfo          000000018001b000     cpuid.obj
+ 0004:0000000c       $pdata$DllMain             000000018001b00c     dllmain.obj
+ 0004:00000018       $pdata$AllocateHeapArea    000000018001b018     pmc_memory.obj
+ 0004:00000024       $pdata$DeallocateHeapArea  000000018001b024     pmc_memory.obj
+ 0004:00000030       $pdata$AllocateBlock       000000018001b030     pmc_memory.obj
+ 0004:0000003c       $pdata$DeallocateBlock     000000018001b03c     pmc_memory.obj
+ 0004:00000048       $pdata$0$DeallocateBlock   000000018001b048     pmc_memory.obj
+ 0004:00000054       $pdata$1$DeallocateBlock   000000018001b054     pmc_memory.obj
+ 0004:00000060       $pdata$AttatchNumber       000000018001b060     pmc_memory.obj
+ 0004:0000006c       $pdata$AllocateNumber      000000018001b06c     pmc_memory.obj
+ 0004:00000078       $pdata$DeallocateNumber    000000018001b078     pmc_memory.obj
+ 0004:00000084       $pdata$CommitNumber        000000018001b084     pmc_memory.obj
+ 0004:00000090       $pdata$DuplicateNumber     000000018001b090     pmc_memory.obj
+ 0004:0000009c       $pdata$CleanUpChainBuffer  000000018001b09c     pmc_memory.obj
+ 0004:000000a8       $pdata$AllocateChainedBuffer 000000018001b0a8     pmc_memory.obj
+ 0004:000000b4       $pdata$Initialize_Memory   000000018001b0b4     pmc_memory.obj
+ 0004:000000c0       $pdata$PMC_Dispose         000000018001b0c0     pmc_memory.obj
+ 0004:000000cc       $pdata$InitializeNumber    000000018001b0cc     pmc_memory.obj
+ 0004:000000d8       $pdata$CleanUpNumber       000000018001b0d8     pmc_memory.obj
+ 0004:000000e4       $pdata$0$CleanUpNumber     000000018001b0e4     pmc_memory.obj
+ 0004:000000f0       $pdata$1$CleanUpNumber     000000018001b0f0     pmc_memory.obj
+ 0004:000000fc       $pdata$PMC_Add_I_X         000000018001b0fc     pmc_add.obj
+ 0004:00000108       $pdata$PMC_Add_L_X         000000018001b108     pmc_add.obj
+ 0004:00000114       $pdata$PMC_Add_X_I         000000018001b114     pmc_add.obj
+ 0004:00000120       $pdata$PMC_Add_X_L         000000018001b120     pmc_add.obj
+ 0004:0000012c       $pdata$PMC_Add_X_X         000000018001b12c     pmc_add.obj
+ 0004:00000138       $pdata$Add_Imp_using_ADC   000000018001b138     pmc_add.obj
+ 0004:00000144       $pdata$Add_Imp_using_ADCX  000000018001b144     pmc_add.obj
+ 0004:00000150       $pdata$PMC_Add_X_I_Imp     000000018001b150     pmc_add.obj
+ 0004:0000015c       $pdata$PMC_Add_X_L_Imp     000000018001b15c     pmc_add.obj
+ 0004:00000168       $pdata$PMC_BitwiseAnd_I_X  000000018001b168     pmc_bitwiseand.obj
+ 0004:00000174       $pdata$PMC_BitwiseAnd_L_X  000000018001b174     pmc_bitwiseand.obj
+ 0004:00000180       $pdata$PMC_BitwiseAnd_X_I  000000018001b180     pmc_bitwiseand.obj
+ 0004:0000018c       $pdata$PMC_BitwiseAnd_X_L  000000018001b18c     pmc_bitwiseand.obj
+ 0004:00000198       $pdata$PMC_BitwiseAnd_X_X  000000018001b198     pmc_bitwiseand.obj
+ 0004:000001a4       $pdata$0$PMC_BitwiseAnd_X_X 000000018001b1a4     pmc_bitwiseand.obj
+ 0004:000001b0       $pdata$1$PMC_BitwiseAnd_X_X 000000018001b1b0     pmc_bitwiseand.obj
+ 0004:000001bc       $pdata$BitwiseAnd_X_X      000000018001b1bc     pmc_bitwiseand.obj
+ 0004:000001c8       $pdata$2$BitwiseAnd_X_X    000000018001b1c8     pmc_bitwiseand.obj
+ 0004:000001d4       $pdata$3$BitwiseAnd_X_X    000000018001b1d4     pmc_bitwiseand.obj
+ 0004:000001e0       $pdata$4$BitwiseAnd_X_X    000000018001b1e0     pmc_bitwiseand.obj
+ 0004:000001ec       $pdata$PMC_BitwiseOr_I_X   000000018001b1ec     pmc_bitwiseor.obj
+ 0004:000001f8       $pdata$PMC_BitwiseOr_L_X   000000018001b1f8     pmc_bitwiseor.obj
+ 0004:00000204       $pdata$PMC_BitwiseOr_X_I   000000018001b204     pmc_bitwiseor.obj
+ 0004:00000210       $pdata$PMC_BitwiseOr_X_L   000000018001b210     pmc_bitwiseor.obj
+ 0004:0000021c       $pdata$PMC_BitwiseOr_X_X   000000018001b21c     pmc_bitwiseor.obj
+ 0004:00000228       $pdata$0$PMC_BitwiseOr_X_X 000000018001b228     pmc_bitwiseor.obj
+ 0004:00000234       $pdata$1$PMC_BitwiseOr_X_X 000000018001b234     pmc_bitwiseor.obj
+ 0004:00000240       $pdata$2$PMC_BitwiseOr_X_X 000000018001b240     pmc_bitwiseor.obj
+ 0004:0000024c       $pdata$3$PMC_BitwiseOr_X_X 000000018001b24c     pmc_bitwiseor.obj
+ 0004:00000258       $pdata$BitwiseOr_X_X       000000018001b258     pmc_bitwiseor.obj
+ 0004:00000264       $pdata$PMC_BitwiseOr_X_I_Imp 000000018001b264     pmc_bitwiseor.obj
+ 0004:00000270       $pdata$PMC_BitwiseOr_X_L_Imp 000000018001b270     pmc_bitwiseor.obj
+ 0004:0000027c       $pdata$PMC_FromByteArray   000000018001b27c     pmc_bytes.obj
+ 0004:00000288       $pdata$PMC_ToByteArray     000000018001b288     pmc_bytes.obj
+ 0004:00000294       $pdata$PMC_FromByteArrayForSINT 000000018001b294     pmc_bytes.obj
+ 0004:000002a0       $pdata$PMC_ToByteArrayForSINT 000000018001b2a0     pmc_bytes.obj
+ 0004:000002ac       $pdata$0$PMC_ToByteArrayForSINT 000000018001b2ac     pmc_bytes.obj
+ 0004:000002b8       $pdata$1$PMC_ToByteArrayForSINT 000000018001b2b8     pmc_bytes.obj
+ 0004:000002c4       $pdata$PMC_Clone_X         000000018001b2c4     pmc_clone.obj
+ 0004:000002d0       $pdata$PMC_Compare_I_X     000000018001b2d0     pmc_compare.obj
+ 0004:000002dc       $pdata$PMC_Compare_L_X     000000018001b2dc     pmc_compare.obj
+ 0004:000002e8       $pdata$PMC_Compare_X_I     000000018001b2e8     pmc_compare.obj
+ 0004:000002f4       $pdata$PMC_Compare_X_L     000000018001b2f4     pmc_compare.obj
+ 0004:00000300       $pdata$PMC_Compare_X_X     000000018001b300     pmc_compare.obj
+ 0004:0000030c       $pdata$DivRem_X_X          000000018001b30c     pmc_divrem.obj
+ 0004:00000318       $pdata$PMC_DivRem_I_X      000000018001b318     pmc_divrem.obj
+ 0004:00000324       $pdata$PMC_DivRem_L_X      000000018001b324     pmc_divrem.obj
+ 0004:00000330       $pdata$PMC_DivRem_X_I      000000018001b330     pmc_divrem.obj
+ 0004:0000033c       $pdata$PMC_DivRem_X_L      000000018001b33c     pmc_divrem.obj
+ 0004:00000348       $pdata$1$PMC_DivRem_X_L    000000018001b348     pmc_divrem.obj
+ 0004:00000354       $pdata$2$PMC_DivRem_X_L    000000018001b354     pmc_divrem.obj
+ 0004:00000360       $pdata$3$PMC_DivRem_X_L    000000018001b360     pmc_divrem.obj
+ 0004:0000036c       $pdata$4$PMC_DivRem_X_L    000000018001b36c     pmc_divrem.obj
+ 0004:00000378       $pdata$PMC_DivRem_X_X      000000018001b378     pmc_divrem.obj
+ 0004:00000384       $pdata$0$PMC_DivRem_X_X    000000018001b384     pmc_divrem.obj
+ 0004:00000390       $pdata$1$PMC_DivRem_X_X    000000018001b390     pmc_divrem.obj
+ 0004:0000039c       $pdata$2$PMC_DivRem_X_X    000000018001b39c     pmc_divrem.obj
+ 0004:000003a8       $pdata$3$PMC_DivRem_X_X    000000018001b3a8     pmc_divrem.obj
+ 0004:000003b4       $pdata$SubtructOneLine     000000018001b3b4     pmc_divrem.obj
+ 0004:000003c0       $pdata$SubtructOneLineX    000000018001b3c0     pmc_divrem.obj
+ 0004:000003cc       $pdata$AddOneLine          000000018001b3cc     pmc_divrem.obj
+ 0004:000003d8       $pdata$AddOneLineX         000000018001b3d8     pmc_divrem.obj
+ 0004:000003e4       $pdata$DivRem_X_X_using_ADC_MUL 000000018001b3e4     pmc_divrem.obj
+ 0004:000003f0       $pdata$DivRem_X_X_using_ADX_MULX 000000018001b3f0     pmc_divrem.obj
+ 0004:000003fc       $pdata$PMC_Equals_I_X      000000018001b3fc     pmc_equals.obj
+ 0004:00000408       $pdata$PMC_Equals_L_X      000000018001b408     pmc_equals.obj
+ 0004:00000414       $pdata$PMC_Equals_X_I      000000018001b414     pmc_equals.obj
+ 0004:00000420       $pdata$PMC_Equals_X_L      000000018001b420     pmc_equals.obj
+ 0004:0000042c       $pdata$PMC_Equals_X_X      000000018001b42c     pmc_equals.obj
+ 0004:00000438       $pdata$PMC_ExclusiveOr_I_X 000000018001b438     pmc_exclusiveor.obj
+ 0004:00000444       $pdata$PMC_ExclusiveOr_L_X 000000018001b444     pmc_exclusiveor.obj
+ 0004:00000450       $pdata$PMC_ExclusiveOr_X_I 000000018001b450     pmc_exclusiveor.obj
+ 0004:0000045c       $pdata$PMC_ExclusiveOr_X_L 000000018001b45c     pmc_exclusiveor.obj
+ 0004:00000468       $pdata$PMC_ExclusiveOr_X_X 000000018001b468     pmc_exclusiveor.obj
+ 0004:00000474       $pdata$0$PMC_ExclusiveOr_X_X 000000018001b474     pmc_exclusiveor.obj
+ 0004:00000480       $pdata$1$PMC_ExclusiveOr_X_X 000000018001b480     pmc_exclusiveor.obj
+ 0004:0000048c       $pdata$2$PMC_ExclusiveOr_X_X 000000018001b48c     pmc_exclusiveor.obj
+ 0004:00000498       $pdata$4$PMC_ExclusiveOr_X_X 000000018001b498     pmc_exclusiveor.obj
+ 0004:000004a4       $pdata$5$PMC_ExclusiveOr_X_X 000000018001b4a4     pmc_exclusiveor.obj
+ 0004:000004b0       $pdata$ExclusiveOr_X_X     000000018001b4b0     pmc_exclusiveor.obj
+ 0004:000004bc       $pdata$PMC_ExclusiveOr_X_I_Imp 000000018001b4bc     pmc_exclusiveor.obj
+ 0004:000004c8       $pdata$PMC_ExclusiveOr_X_L_Imp 000000018001b4c8     pmc_exclusiveor.obj
+ 0004:000004d4       $pdata$From_I_Imp          000000018001b4d4     pmc_from.obj
+ 0004:000004e0       $pdata$From_L_Imp          000000018001b4e0     pmc_from.obj
+ 0004:000004ec       $pdata$PMC_From_I          000000018001b4ec     pmc_from.obj
+ 0004:000004f8       $pdata$PMC_From_L          000000018001b4f8     pmc_from.obj
+ 0004:00000504       $pdata$PMC_GreatestCommonDivisor_I_X 000000018001b504     pmc_greatestcommondivisor.obj
+ 0004:00000510       $pdata$PMC_GreatestCommonDivisor_L_X 000000018001b510     pmc_greatestcommondivisor.obj
+ 0004:0000051c       $pdata$PMC_GreatestCommonDivisor_X_I 000000018001b51c     pmc_greatestcommondivisor.obj
+ 0004:00000528       $pdata$PMC_GreatestCommonDivisor_X_L 000000018001b528     pmc_greatestcommondivisor.obj
+ 0004:00000534       $pdata$PMC_GreatestCommonDivisor_X_X 000000018001b534     pmc_greatestcommondivisor.obj
+ 0004:00000540       $pdata$GreatestCommonDivisor_Imp 000000018001b540     pmc_greatestcommondivisor.obj
+ 0004:0000054c       $pdata$PMC_GreatestCommonDivisor_X_I_Imp 000000018001b54c     pmc_greatestcommondivisor.obj
+ 0004:00000558       $pdata$0$PMC_GreatestCommonDivisor_X_I_Imp 000000018001b558     pmc_greatestcommondivisor.obj
+ 0004:00000564       $pdata$1$PMC_GreatestCommonDivisor_X_I_Imp 000000018001b564     pmc_greatestcommondivisor.obj
+ 0004:00000570       $pdata$PMC_GreatestCommonDivisor_X_L_Imp 000000018001b570     pmc_greatestcommondivisor.obj
+ 0004:0000057c       $pdata$0$PMC_GreatestCommonDivisor_X_L_Imp 000000018001b57c     pmc_greatestcommondivisor.obj
+ 0004:00000588       $pdata$1$PMC_GreatestCommonDivisor_X_L_Imp 000000018001b588     pmc_greatestcommondivisor.obj
+ 0004:00000594       $pdata$PMC_UINT_Initialize 000000018001b594     pmc_initialize.obj
+ 0004:000005a0       $pdata$0$PMC_UINT_Initialize 000000018001b5a0     pmc_initialize.obj
+ 0004:000005ac       $pdata$1$PMC_UINT_Initialize 000000018001b5ac     pmc_initialize.obj
+ 0004:000005b8       $pdata$PMC_ModPow_X_X_X    000000018001b5b8     pmc_modpow.obj
+ 0004:000005c4       $pdata$ModulePower         000000018001b5c4     pmc_modpow.obj
+ 0004:000005d0       $pdata$2$ModulePower       000000018001b5d0     pmc_modpow.obj
+ 0004:000005dc       $pdata$3$ModulePower       000000018001b5dc     pmc_modpow.obj
+ 0004:000005e8       $pdata$PMC_ModPow_X_X_X_Imp 000000018001b5e8     pmc_modpow.obj
+ 0004:000005f4       $pdata$PMC_Multiply_X_I_Imp 000000018001b5f4     pmc_multiply.obj
+ 0004:00000600       $pdata$PMC_Multiply_I_X    000000018001b600     pmc_multiply.obj
+ 0004:0000060c       $pdata$PMC_Multiply_L_X    000000018001b60c     pmc_multiply.obj
+ 0004:00000618       $pdata$PMC_Multiply_X_I    000000018001b618     pmc_multiply.obj
+ 0004:00000624       $pdata$PMC_Multiply_X_L    000000018001b624     pmc_multiply.obj
+ 0004:00000630       $pdata$PMC_Multiply_X_X    000000018001b630     pmc_multiply.obj
+ 0004:0000063c       $pdata$Multiply_WORD_using_MUL_ADC 000000018001b63c     pmc_multiply.obj
+ 0004:00000648       $pdata$Multiply_WORD_using_MULX_ADCX 000000018001b648     pmc_multiply.obj
+ 0004:00000654       $pdata$Multiply_X_2W_using_MUL_ADC 000000018001b654     pmc_multiply.obj
+ 0004:00000660       $pdata$Multiply_X_2W_using_MULX_ADCX 000000018001b660     pmc_multiply.obj
+ 0004:0000066c       $pdata$Multiply_X_X_using_MUL_ADC 000000018001b66c     pmc_multiply.obj
+ 0004:00000678       $pdata$Multiply_X_X_using_MULX_ADCX 000000018001b678     pmc_multiply.obj
+ 0004:00000684       $pdata$PMC_Multiply_X_L_Imp 000000018001b684     pmc_multiply.obj
+ 0004:00000690       $pdata$Initialize_Parse    000000018001b690     pmc_parse.obj
+ 0004:0000069c       $pdata$PMC_TryParse        000000018001b69c     pmc_parse.obj
+ 0004:000006a8       $pdata$PMC_TryParseForSINT 000000018001b6a8     pmc_parse.obj
+ 0004:000006b4       $pdata$InitializeParserState 000000018001b6b4     pmc_parse.obj
+ 0004:000006c0       $pdata$ParseAsDecimalNumberString 000000018001b6c0     pmc_parse.obj
+ 0004:000006cc       $pdata$MultiplyAndAdd_using_ADC_MUL 000000018001b6cc     pmc_parse.obj
+ 0004:000006d8       $pdata$MultiplyAndAdd_using_ADCX_MULX 000000018001b6d8     pmc_parse.obj
+ 0004:000006e4       $pdata$TryParseDN          000000018001b6e4     pmc_parse.obj
+ 0004:000006f0       $pdata$0$TryParseDN        000000018001b6f0     pmc_parse.obj
+ 0004:000006fc       $pdata$1$TryParseDN        000000018001b6fc     pmc_parse.obj
+ 0004:00000708       $pdata$BuildBinaryFromHexString 000000018001b708     pmc_parse.obj
+ 0004:00000714       $pdata$0$BuildBinaryFromHexString 000000018001b714     pmc_parse.obj
+ 0004:00000720       $pdata$1$BuildBinaryFromHexString 000000018001b720     pmc_parse.obj
+ 0004:0000072c       $pdata$TryParseX           000000018001b72c     pmc_parse.obj
+ 0004:00000738       $pdata$0$TryParseX         000000018001b738     pmc_parse.obj
+ 0004:00000744       $pdata$1$TryParseX         000000018001b744     pmc_parse.obj
+ 0004:00000750       $pdata$PMC_Pow_X_I         000000018001b750     pmc_pow.obj
+ 0004:0000075c       $pdata$PMC_Pow_X_I_Imp     000000018001b75c     pmc_pow.obj
+ 0004:00000768       $pdata$1$PMC_Pow_X_I_Imp   000000018001b768     pmc_pow.obj
+ 0004:00000774       $pdata$2$PMC_Pow_X_I_Imp   000000018001b774     pmc_pow.obj
+ 0004:00000780       $pdata$RightShift_Imp_DIV  000000018001b780     pmc_shift.obj
+ 0004:0000078c       $pdata$0$RightShift_Imp_DIV 000000018001b78c     pmc_shift.obj
+ 0004:00000798       $pdata$1$RightShift_Imp_DIV 000000018001b798     pmc_shift.obj
+ 0004:000007a4       $pdata$2$RightShift_Imp_DIV 000000018001b7a4     pmc_shift.obj
+ 0004:000007b0       $pdata$3$RightShift_Imp_DIV 000000018001b7b0     pmc_shift.obj
+ 0004:000007bc       $pdata$RightShift_Imp      000000018001b7bc     pmc_shift.obj
+ 0004:000007c8       $pdata$0$RightShift_Imp    000000018001b7c8     pmc_shift.obj
+ 0004:000007d4       $pdata$1$RightShift_Imp    000000018001b7d4     pmc_shift.obj
+ 0004:000007e0       $pdata$LeftShift_Imp_DIV   000000018001b7e0     pmc_shift.obj
+ 0004:000007ec       $pdata$0$LeftShift_Imp_DIV 000000018001b7ec     pmc_shift.obj
+ 0004:000007f8       $pdata$1$LeftShift_Imp_DIV 000000018001b7f8     pmc_shift.obj
+ 0004:00000804       $pdata$LeftShift_Imp       000000018001b804     pmc_shift.obj
+ 0004:00000810       $pdata$0$LeftShift_Imp     000000018001b810     pmc_shift.obj
+ 0004:0000081c       $pdata$1$LeftShift_Imp     000000018001b81c     pmc_shift.obj
+ 0004:00000828       $pdata$PMC_RightShift_X_I  000000018001b828     pmc_shift.obj
+ 0004:00000834       $pdata$PMC_LeftShift_X_I   000000018001b834     pmc_shift.obj
+ 0004:00000840       $pdata$Subtruct_Imp        000000018001b840     pmc_subtruct.obj
+ 0004:0000084c       $pdata$PMC_Subtruct_I_X    000000018001b84c     pmc_subtruct.obj
+ 0004:00000858       $pdata$PMC_Subtruct_L_X    000000018001b858     pmc_subtruct.obj
+ 0004:00000864       $pdata$PMC_Subtruct_X_I    000000018001b864     pmc_subtruct.obj
+ 0004:00000870       $pdata$PMC_Subtruct_X_L    000000018001b870     pmc_subtruct.obj
+ 0004:0000087c       $pdata$PMC_Subtruct_X_X    000000018001b87c     pmc_subtruct.obj
+ 0004:00000888       $pdata$PMC_To_X_I          000000018001b888     pmc_to.obj
+ 0004:00000894       $pdata$PMC_To_X_L          000000018001b894     pmc_to.obj
+ 0004:000008a0       $pdata$InitializeNumberFormatoInfo 000000018001b8a0     pmc_tostring.obj
+ 0004:000008ac       $pdata$Initialize_ToString 000000018001b8ac     pmc_tostring.obj
+ 0004:000008b8       $pdata$PMC_ToString        000000018001b8b8     pmc_tostring.obj
+ 0004:000008c4       $pdata$OutputDecimalNumberSequence 000000018001b8c4     pmc_tostring.obj
+ 0004:000008d0       $pdata$FinalizeDecimalNumberSequenceOutputStateOfFormatC 000000018001b8d0     pmc_tostring.obj
+ 0004:000008dc       $pdata$AppendDecimalNumberSequence 000000018001b8dc     pmc_tostring.obj
+ 0004:000008e8       $pdata$ToStringC           000000018001b8e8     pmc_tostring.obj
+ 0004:000008f4       $pdata$ToStringD           000000018001b8f4     pmc_tostring.obj
+ 0004:00000900       $pdata$GetDigitCount       000000018001b900     pmc_tostring.obj
+ 0004:0000090c       $pdata$ToStringE           000000018001b90c     pmc_tostring.obj
+ 0004:00000918       $pdata$ToStringP           000000018001b918     pmc_tostring.obj
+ 0004:00000924       $pdata$ToStringX           000000018001b924     pmc_tostring.obj
+ 0004:00000930       $pdata$ToString_Imp        000000018001b930     pmc_tostring.obj
+ 0004:0000093c       $pdata$1$ToString_Imp      000000018001b93c     pmc_tostring.obj
+ 0004:00000948       $pdata$3$ToString_Imp      000000018001b948     pmc_tostring.obj
+ 0004:00000954       $pdata$4$ToString_Imp      000000018001b954     pmc_tostring.obj
+ 0004:00000960       $pdata$__GSHandlerCheckCommon 000000018001b960     MSVCRT:gshandler.obj
+ 0004:0000096c       $pdata$__GSHandlerCheck    000000018001b96c     MSVCRT:gshandler.obj
+ 0004:00000984       $pdata$?dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z 000000018001b984     MSVCRT:dll_dllmain.obj
+ 0004:00000990       $pdata$?fin$0@?0??dllmain_crt_process_attach@@YAHQEAUHINSTANCE__@@QEAX@Z@4HA 000000018001b990     MSVCRT:dll_dllmain.obj
+ 0004:0000099c       $pdata$?dllmain_crt_process_detach@@YAH_N@Z 000000018001b99c     MSVCRT:dll_dllmain.obj
+ 0004:000009a8       $pdata$?fin$0@?0??dllmain_crt_process_detach@@YAH_N@Z@4HA 000000018001b9a8     MSVCRT:dll_dllmain.obj
+ 0004:000009b4       $pdata$?dllmain_crt_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 000000018001b9b4     MSVCRT:dll_dllmain.obj
+ 0004:000009c0       $pdata$?dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z 000000018001b9c0     MSVCRT:dll_dllmain.obj
+ 0004:000009cc       $pdata$?filt$0@?0??dllmain_dispatch@@YAHQEAUHINSTANCE__@@KQEAX@Z@4HA 000000018001b9cc     MSVCRT:dll_dllmain.obj
+ 0004:000009d8       $pdata$_DllMainCRTStartup  000000018001b9d8     MSVCRT:dll_dllmain.obj
+ 0004:000009e4       $pdata$__report_securityfailure 000000018001b9e4     MSVCRT:gs_report.obj
+ 0004:000009f0       $pdata$__report_securityfailureEx 000000018001b9f0     MSVCRT:gs_report.obj
+ 0004:000009fc       $pdata$__report_rangecheckfailure 000000018001b9fc     MSVCRT:gs_report.obj
+ 0004:00000a08       $pdata$__report_gsfailure  000000018001ba08     MSVCRT:gs_report.obj
+ 0004:00000a14       $pdata$capture_current_context 000000018001ba14     MSVCRT:gs_report.obj
+ 0004:00000a20       $pdata$capture_previous_context 000000018001ba20     MSVCRT:gs_report.obj
+ 0004:00000a2c       $pdata$__raise_securityfailure 000000018001ba2c     MSVCRT:gs_report.obj
+ 0004:00000a38       $pdata$__security_init_cookie 000000018001ba38     MSVCRT:gs_support.obj
+ 0004:00000a44       $pdata$__get_entropy       000000018001ba44     MSVCRT:gs_support.obj
+ 0004:00000a50       $pdata$__scrt_initialize_default_local_stdio_options 000000018001ba50     MSVCRT:default_local_stdio_options.obj
+ 0004:00000a5c       $pdata$atexit              000000018001ba5c     MSVCRT:utility.obj
+ 0004:00000a68       $pdata$_onexit             000000018001ba68     MSVCRT:utility.obj
+ 0004:00000a74       $pdata$__scrt_is_nonwritable_in_current_image 000000018001ba74     MSVCRT:utility.obj
+ 0004:00000a80       $pdata$__scrt_is_nonwritable_in_current_image$filt$0 000000018001ba80     MSVCRT:utility.obj
+ 0004:00000a8c       $pdata$__scrt_acquire_startup_lock 000000018001ba8c     MSVCRT:utility.obj
+ 0004:00000a98       $pdata$__scrt_release_startup_lock 000000018001ba98     MSVCRT:utility.obj
+ 0004:00000aa4       $pdata$__scrt_initialize_crt 000000018001baa4     MSVCRT:utility.obj
+ 0004:00000ab0       $pdata$__scrt_uninitialize_crt 000000018001bab0     MSVCRT:utility.obj
+ 0004:00000abc       $pdata$__scrt_initialize_onexit_tables 000000018001babc     MSVCRT:utility.obj
+ 0004:00000ac8       $pdata$__scrt_dllmain_exception_filter 000000018001bac8     MSVCRT:utility.obj
+ 0004:00000ad4       $pdata$__scrt_dllmain_before_initialize_c 000000018001bad4     MSVCRT:utility.obj
+ 0004:00000ae0       $pdata$__scrt_dllmain_after_initialize_c 000000018001bae0     MSVCRT:utility.obj
+ 0004:00000aec       $pdata$__scrt_dllmain_uninitialize_c 000000018001baec     MSVCRT:utility.obj
+ 0004:00000af8       $pdata$__scrt_dllmain_uninitialize_critical 000000018001baf8     MSVCRT:utility.obj
+ 0004:00000b04       $pdata$__scrt_dllmain_crt_thread_attach 000000018001bb04     MSVCRT:utility.obj
+ 0004:00000b10       $pdata$__scrt_dllmain_crt_thread_detach 000000018001bb10     MSVCRT:utility.obj
+ 0004:00000b1c       $pdata$?configure_argv@__scrt_narrow_argv_policy@@SAHXZ 000000018001bb1c     MSVCRT:utility.obj
+ 0004:00000b28       $pdata$__scrt_get_show_window_mode 000000018001bb28     MSVCRT:utility_desktop.obj
+ 0004:00000b34       $pdata$__scrt_is_managed_app 000000018001bb34     MSVCRT:utility_desktop.obj
+ 0004:00000b40       $pdata$__scrt_fastfail     000000018001bb40     MSVCRT:utility_desktop.obj
+ 0004:00000b4c       $pdata$__scrt_unhandled_exception_filter 000000018001bb4c     MSVCRT:utility_desktop.obj
+ 0004:00000b58       $pdata$_RTC_Initialize     000000018001bb58     MSVCRT:initsect.obj
+ 0004:00000b64       $pdata$_RTC_Terminate      000000018001bb64     MSVCRT:initsect.obj
+ 0004:00000b70       $pdata$__isa_available_init 000000018001bb70     MSVCRT:cpu_disp.obj
+ 0005:000000a0       $R000000                   000000018001c0a0     Palmtree.Math.Core.Uint.res
+ 0005:000003c0       $R000320                   000000018001c3c0     Palmtree.Math.Core.Uint.res

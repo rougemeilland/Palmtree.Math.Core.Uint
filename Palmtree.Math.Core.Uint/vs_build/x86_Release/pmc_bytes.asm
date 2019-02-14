@@ -297,7 +297,7 @@ $LN18@PMC_ToByte:
 
 	pop	ebx
 	pop	edi
-	mov	eax, -4					; fffffffcH
+	mov	eax, -5					; fffffffbH
 	pop	esi
 
 ; 185  : }
@@ -736,7 +736,7 @@ $LN10@PMC_ToByte:
 
 	pop	ebx
 	pop	edi
-	mov	eax, -4					; fffffffcH
+	mov	eax, -5					; fffffffbH
 	pop	esi
 
 ; 210  : }

@@ -150,6 +150,7 @@ static __UNIT_TYPE CalculateCheckCode(__UNIT_TYPE* p, __UNIT_TYPE words)
 #pragma endregion
 
 
+#pragma region __UNIT_TYPEの配列としてメモリを獲得する関数
 // 多倍長整数をバイト列として格納するためのメモリ領域を獲得する。
 // 引数には格納可能な多倍長整数の合計ワード数が渡される。
 __UNIT_TYPE* AllocateBlock(size_t bits, __UNIT_TYPE* allocated_block_words, __UNIT_TYPE* code)
@@ -573,6 +574,114 @@ void __PMC_CALL PMC_Dispose(PMC_HANDLE_UINT p)
     DeallocateNumber(np);
     return;
 }
+#pragma endregion
+
+#pragma region チェーンされたメモリ管理
+struct __tag_CHAIN_BUFFER_HEADER
+{
+    __CHAIN_BUFFER_TAG  tag;
+    union __tag_CHAIN_BUFFER_HEADER_BODY
+    {
+        struct __tag_CHAIN_BUFFER_HEADER_BODY2
+        {
+            size_t      user_data_size;
+            _UINT32_T   check_code;
+
+        } body;
+        _UINT64_T   dummt_align;
+    } header;
+};
+
+static void CheckChainedBuffer_Imp(struct __tag_CHAIN_BUFFER_HEADER* header)
+{
+#ifdef _DEBUG
+    size_t user_data_size = header->header.body.user_data_size;
+    _UINT32_T code1 = header->header.body.check_code;
+    _UINT32_T code2 = *(_UINT32_T*)((unsigned char*)header + sizeof(*header) + user_data_size);
+    if (code1 != code2)
+    {
+        // コードが一致していない場合 ≒ バッファオーバーランが発生している場合
+
+        __UNIT_TYPE_DIV temp_r;
+        _DIVREM_UNIT(0, 1, 0, &temp_r);// 故意にゼロ除算例外を発生させる
+    }
+#endif
+}
+
+static void DeallocateChainedBuffer_Imp(struct __tag_CHAIN_BUFFER_HEADER* header)
+{
+    __CHAIN_BUFFER_TAG* tag = &header->tag;
+    tag->next->prev = tag->prev;
+    tag->prev->next = tag->next;
+#ifdef _DEBUG
+    _FILL_MEMORY_32((_UINT32_T*)header, 0xcccccccc, (sizeof(*header) + header->header.body.user_data_size + sizeof(_UINT32_T)) / sizeof(_UINT32_T));
+#endif
+    HeapFree(hLocalHeap, 0, tag);
+}
+
+void InitializeChainBuffer(CHAIN_BUFFER_ROOT* root)
+{
+    root->tag.next = &root->tag;
+    root->tag.prev = &root->tag;
+}
+
+void CleanUpChainBuffer(CHAIN_BUFFER_ROOT* root)
+{
+    __CHAIN_BUFFER_TAG* root_tag = &root->tag;
+    while (root_tag->next != root_tag)
+    {
+        __CHAIN_BUFFER_TAG* p = root_tag->next;
+        CheckChainedBuffer_Imp((struct __tag_CHAIN_BUFFER_HEADER*)p);
+        DeallocateChainedBuffer_Imp((struct __tag_CHAIN_BUFFER_HEADER*)p);
+    }
+}
+
+void* AllocateChainedBuffer(CHAIN_BUFFER_ROOT* root, size_t size)
+{
+    size_t user_data_size = _DIVIDE_CEILING_SIZE(size, sizeof(_UINT32_T)) * sizeof(_UINT32_T);
+    void* buffer = HeapAlloc(hLocalHeap, HEAP_ZERO_MEMORY, sizeof(struct __tag_CHAIN_BUFFER_HEADER) + user_data_size + sizeof(_UINT32_T));
+    if (buffer == NULL)
+        return (NULL);
+    _UINT32_T code = GetTickCount();
+    struct __tag_CHAIN_BUFFER_HEADER* buffer_header = (struct __tag_CHAIN_BUFFER_HEADER*)buffer;
+    buffer_header->tag.prev = &root->tag;
+    buffer_header->tag.next = root->tag.next;
+    root->tag.next->prev = &buffer_header->tag;
+    root->tag.next = &buffer_header->tag;
+    buffer_header->header.body.check_code = code;
+    buffer_header->header.body.user_data_size = user_data_size;
+    *(_UINT32_T*)&((unsigned char*)buffer)[sizeof(struct __tag_CHAIN_BUFFER_HEADER) + user_data_size] = code;
+    return (&((struct __tag_CHAIN_BUFFER_HEADER*)buffer)[1]);
+}
+
+void CheckChainedBuffer(void* buffer)
+{
+    CheckChainedBuffer_Imp((struct __tag_CHAIN_BUFFER_HEADER*)buffer - 1);
+}
+
+void DeallocateChainedBuffer(CHAIN_BUFFER_ROOT* root, void* buffer)
+{
+    struct __tag_CHAIN_BUFFER_HEADER* header = (struct __tag_CHAIN_BUFFER_HEADER*)buffer - 1;
+    CheckChainedBuffer_Imp(header);
+
+    for (__CHAIN_BUFFER_TAG* tag = root->tag.next; tag != &root->tag; tag = tag->next)
+    {
+        if (tag == (__CHAIN_BUFFER_TAG*)header)
+        {
+            DeallocateChainedBuffer_Imp(header);
+            return;
+        }
+    }
+    // 指定された領域のポインタがチェーンの中に見つからなかった場合
+    // 主原因は与えられたポインタが誤っているかあるいは二重解放であること
+
+    {
+        __UNIT_TYPE_DIV temp_r;
+        _DIVREM_UNIT(0, 1, 0, &temp_r);// 故意にゼロ除算例外を発生させる
+    }
+}
+#pragma endregion
+
 
 PMC_STATUS_CODE Initialize_Memory(PROCESSOR_FEATURES* feature)
 {
@@ -608,7 +717,6 @@ PMC_STATUS_CODE Initialize_Memory(PROCESSOR_FEATURES* feature)
         if (number_one_ok)
             DetatchNumber(&number_one);
     }
-
     return (result);
 }
 
@@ -628,6 +736,7 @@ void DeallocateHeapArea()
         hLocalHeap = NULL;
     }
 }
+
 
 /*
  * END OF FILE

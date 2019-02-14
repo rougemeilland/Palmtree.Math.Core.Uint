@@ -439,7 +439,7 @@ L12:
 	leal	120(%esp), %edx
 	movl	%edx, 4(%esp)
 	call	_AllocateBlock
-	movl	$-5, %edx
+	movl	$-6, %edx
 	movl	%eax, %ebp
 	testl	%eax, %eax
 	je	L1
@@ -681,7 +681,7 @@ L111:
 	movl	%ebp, (%esp)
 	movl	%eax, 4(%esp)
 	call	_DeallocateBlock
-	movl	$-5, %edx
+	movl	$-6, %edx
 	jmp	L1
 L106:
 	movl	120(%esp), %eax
@@ -708,7 +708,7 @@ L99:
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
 L100:
-	movl	$-5, %edx
+	movl	$-6, %edx
 	jmp	L1
 L46:
 	movl	%ebp, %eax

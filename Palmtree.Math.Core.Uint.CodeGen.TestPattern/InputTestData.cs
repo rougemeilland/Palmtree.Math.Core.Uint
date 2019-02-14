@@ -104,6 +104,8 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
         {
             get
             {
+                if (_value == null)
+                    return (null);
                 if (!(_value is string))
                     throw new ApplicationException();
                 return ((string)_value);

@@ -5302,7 +5302,7 @@ PMC_DivRem_X_X:
 	movq	$0, 80(%rsp)
 	jmp	.L413
 .L439:
-	movl	$-5, %eax
+	movl	$-6, %eax
 	.p2align 4,,10
 .L442:
 	movl	%eax, %ebx
@@ -5489,7 +5489,7 @@ PMC_DivRem_X_X:
 .L479:
 	movq	80(%rsp), %rcx
 	call	DeallocateNumber
-	movl	$-5, %eax
+	movl	$-6, %eax
 	movl	%eax, %ebx
 	jmp	.L406
 	.seh_endproc

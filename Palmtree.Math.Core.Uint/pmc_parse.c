@@ -35,7 +35,6 @@ struct __tag_PARSER_STATE
     char SIGN;
     wchar_t CURRENCY_SYMBOL[3];
     int CURRENCY_SYMBOL_LENGTH;
-    wchar_t NATIVE_DIGITS[11];
     wchar_t POSITIVE_SIGN[3];
     int POSITIVE_SIGN_LENGTH;
     wchar_t NEGATIVE_SIGN[3];
@@ -73,7 +72,6 @@ static void InitializeParserState(struct __tag_PARSER_STATE* state, wchar_t* in_
     state->SIGN = 0;
     lstrcpyW(state->CURRENCY_SYMBOL, format_option->CurrencySymbol);
     state->CURRENCY_SYMBOL_LENGTH = lstrlenW(state->CURRENCY_SYMBOL);
-    lstrcpyW(state->NATIVE_DIGITS, format_option->NativeDigits);
     lstrcpyW(state->POSITIVE_SIGN, format_option->PositiveSign);
     state->POSITIVE_SIGN_LENGTH = lstrlenW(state->POSITIVE_SIGN);
     lstrcpyW(state->NEGATIVE_SIGN, format_option->NegativeSign);
@@ -126,30 +124,10 @@ static void SkipSpace(struct __tag_PARSER_STATE* state)
     }
 }
 
-static int ParseDecimalDigit(wchar_t c, wchar_t* native_digits)
+static int ParseDecimalDigit(wchar_t c)
 {
     if (c >= L'0' && c <= L'9')
         return (c - L'0');
-    if (c == native_digits[0])
-        return (0);
-    if (c == native_digits[1])
-        return (1);
-    if (c == native_digits[2])
-        return (2);
-    if (c == native_digits[3])
-        return (3);
-    if (c == native_digits[4])
-        return (4);
-    if (c == native_digits[5])
-        return (5);
-    if (c == native_digits[6])
-        return (6);
-    if (c == native_digits[7])
-        return (7);
-    if (c == native_digits[8])
-        return (8);
-    if (c == native_digits[9])
-        return (9);
     return (-1);
 }
 
@@ -170,7 +148,7 @@ static void ParseAsIntegerPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
+        if (ParseDecimalDigit(*state->IN_PTR) >= 0)
         {
             *state->INT_PART_PTR = *state->IN_PTR;
             state->INT_PART_PTR += 1;
@@ -195,7 +173,7 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
+        if (ParseDecimalDigit(*state->IN_PTR) >= 0)
         {
             *state->FRAC_PART_PTR = *state->IN_PTR;
             state->FRAC_PART_PTR += 1;
@@ -253,7 +231,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         {
             state.SIGN = 1;
             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -265,7 +243,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         {
             state.SIGN = -1;
             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -275,7 +253,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -307,7 +285,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -317,7 +295,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -344,7 +322,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -354,7 +332,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -383,7 +361,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -393,7 +371,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -413,7 +391,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             }
         }
     }
-    else if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+    else if (ParseDecimalDigit(*state.IN_PTR) >= 0)
     {
         ParseAsIntegerPartNumberSequence(&state);
         if ((number_styles & PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
@@ -597,55 +575,55 @@ static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_
     return (1);
 }
 
-static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count, wchar_t* native_digits)
+static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count)
 {
     __UNIT_TYPE x = 0;
     while (count > 0)
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
         --count;
     }
     return (x);
 }
 
-static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr, wchar_t* native_digits)
+static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr)
 {
-    __UNIT_TYPE x = ParseDecimalDigit(*in_ptr++, native_digits);
+    __UNIT_TYPE x = ParseDecimalDigit(*in_ptr++);
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     return (x);
 }
 
 // 10進整数を表す文字列を、word_digit_count 毎に 1 ワードずつ分割してバイナリー化し、out_buf に格納する。
-static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count, wchar_t* native_digits)
+static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count)
 {
 #ifdef _M_IX86
     int word_digit_count = 9;
@@ -660,13 +638,13 @@ static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, 
     int r = source_count % word_digit_count;
     if (r > 0)
     {
-        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r, native_digits);
+        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r);
         in_ptr += r;
         source_count -= r;
     }
     while (source_count > 0)
     {
-        *out_ptr++ = Build1WordFromDecimalString(in_ptr, native_digits);
+        *out_ptr++ = Build1WordFromDecimalString(in_ptr);
         in_ptr += word_digit_count;
         source_count -= word_digit_count;
     }
@@ -1117,7 +1095,7 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
     }
     __UNIT_TYPE bin_buf_count;
-    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count, format_option->NativeDigits);
+    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count);
     if ((result = CheckBlockLight(bin_buf, bin_buf_code)) != PMC_STATUS_OK)
         return (result);
     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);

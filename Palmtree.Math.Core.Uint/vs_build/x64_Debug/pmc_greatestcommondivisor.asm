@@ -1170,7 +1170,7 @@ $LN7@PMC_Greate:
 
 ; 271  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN14@PMC_Greate:
 
@@ -1199,7 +1199,7 @@ $LN14@PMC_Greate:
 
 ; 279  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN15@PMC_Greate:
 
@@ -1457,7 +1457,7 @@ $LN12@PMC_Greate:
 
 ; 325  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN23@PMC_Greate:
 
@@ -1486,7 +1486,7 @@ $LN23@PMC_Greate:
 
 ; 333  :                         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN24@PMC_Greate:
 
@@ -1783,7 +1783,7 @@ $LN10@PMC_Greate:
 
 ; 385  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN33@PMC_Greate:
 
@@ -1812,7 +1812,7 @@ $LN33@PMC_Greate:
 
 ; 393  :                     return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN34@PMC_Greate:
 
@@ -2228,7 +2228,7 @@ $LN7@PMC_Greate:
 
 ; 120  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN10@PMC_Greate:
 
@@ -2257,7 +2257,7 @@ $LN10@PMC_Greate:
 
 ; 128  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN11@PMC_Greate:
 
@@ -3415,7 +3415,7 @@ $LN12@PMC_Greate:
 
 ; 543  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN15@PMC_Greate:
 
@@ -3444,7 +3444,7 @@ $LN15@PMC_Greate:
 
 ; 551  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN16@PMC_Greate:
 

@@ -388,7 +388,7 @@ PMC_ModPow_X_X_X:
 	leaq	192(%rsp), %rdx
 	leaq	184(%rsp), %r8
 	call	AllocateBlock
-	movl	$-5, %r10d
+	movl	$-6, %r10d
 	testq	%rax, %rax
 	movq	%rax, %rbx
 	je	.L1
@@ -583,7 +583,7 @@ PMC_ModPow_X_X_X:
 	movq	192(%rsp), %rdx
 	movq	%rbx, %rcx
 	call	DeallocateBlock
-	movl	$-5, %r10d
+	movl	$-6, %r10d
 	jmp	.L1
 .L105:
 	movq	192(%rsp), %rdx
@@ -602,7 +602,7 @@ PMC_ModPow_X_X_X:
 	movq	80(%rsp), %rcx
 	call	DeallocateBlock
 .L99:
-	movl	$-5, %r10d
+	movl	$-6, %r10d
 	jmp	.L1
 .L46:
 	movq	%r15, %rax

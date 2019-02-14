@@ -6,6 +6,7 @@ INCLUDELIB MSVCRT
 INCLUDELIB OLDNAMES
 
 PUBLIC	Multiply_X_X_Imp
+PUBLIC	PMC_Multiply_X_I_Imp
 PUBLIC	Initialize_Multiply
 PUBLIC	PMC_Multiply_I_X
 PUBLIC	PMC_Multiply_L_X
@@ -26,6 +27,12 @@ fp_Multiply_X_1W DQ 01H DUP (?)
 fp_Multiply_X_2W DQ 01H DUP (?)
 fp_Multiply_X_X DQ 01H DUP (?)
 _BSS	ENDS
+;	COMDAT pdata
+pdata	SEGMENT
+$pdata$PMC_Multiply_X_I_Imp DD imagerel $LN22
+	DD	imagerel $LN22+248
+	DD	imagerel $unwind$PMC_Multiply_X_I_Imp
+pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
 $pdata$PMC_Multiply_I_X DD imagerel $LN10
@@ -94,12 +101,6 @@ $pdata$Multiply_X_X_using_MULX_ADCX DD imagerel Multiply_X_X_using_MULX_ADCX
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$PMC_Multiply_X_I_Imp DD imagerel PMC_Multiply_X_I_Imp
-	DD	imagerel PMC_Multiply_X_I_Imp+248
-	DD	imagerel $unwind$PMC_Multiply_X_I_Imp
-pdata	ENDS
-;	COMDAT pdata
-pdata	SEGMENT
 $pdata$PMC_Multiply_X_L_Imp DD imagerel PMC_Multiply_X_L_Imp
 	DD	imagerel PMC_Multiply_X_L_Imp+254
 	DD	imagerel $unwind$PMC_Multiply_X_L_Imp
@@ -107,13 +108,6 @@ pdata	ENDS
 ;	COMDAT xdata
 xdata	SEGMENT
 $unwind$PMC_Multiply_X_L_Imp DD 060f01H
-	DD	08640fH
-	DD	07340fH
-	DD	0700b320fH
-xdata	ENDS
-;	COMDAT xdata
-xdata	SEGMENT
-$unwind$PMC_Multiply_X_I_Imp DD 060f01H
 	DD	08640fH
 	DD	07340fH
 	DD	0700b320fH
@@ -203,6 +197,13 @@ xdata	SEGMENT
 $unwind$PMC_Multiply_I_X DD 060f01H
 	DD	07640fH
 	DD	06340fH
+	DD	0700b320fH
+xdata	ENDS
+;	COMDAT xdata
+xdata	SEGMENT
+$unwind$PMC_Multiply_X_I_Imp DD 060f01H
+	DD	08640fH
+	DD	07340fH
 	DD	0700b320fH
 xdata	ENDS
 ; Function compile flags: /Ogtpy
@@ -473,232 +474,6 @@ $LN1@PMC_Multip:
 	pop	rdi
 	ret	0
 PMC_Multiply_X_L_Imp ENDP
-_TEXT	ENDS
-; Function compile flags: /Ogtpy
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-;	COMDAT PMC_Multiply_X_I_Imp
-_TEXT	SEGMENT
-w_light_check_code$1 = 48
-u$ = 48
-v$ = 56
-w$ = 64
-PMC_Multiply_X_I_Imp PROC				; COMDAT
-
-; 432  : {
-
-	mov	QWORD PTR [rsp+16], rbx
-	mov	QWORD PTR [rsp+24], rsi
-	push	rdi
-	sub	rsp, 32					; 00000020H
-
-; 433  :     PMC_STATUS_CODE result;
-; 434  :     if (u->IS_ZERO)
-
-	mov	eax, DWORD PTR [rcx]
-	mov	rbx, r8
-	mov	edi, edx
-	mov	rsi, rcx
-	test	al, 1
-	jne	SHORT $LN20@PMC_Multip
-
-; 435  :     {
-; 436  :         // u が 0 である場合
-; 437  : 
-; 438  :         // v の値にかかわらず 0 を返す。
-; 439  :         *w = &number_zero;
-; 440  :     }
-; 441  :     else if (u->IS_ONE)
-
-	test	al, 2
-	je	SHORT $LN4@PMC_Multip
-
-; 442  :     {
-; 443  :         // u が 1 である場合
-; 444  :         if (v == 0)
-
-	test	edx, edx
-	je	SHORT $LN20@PMC_Multip
-
-; 445  :         {
-; 446  :             // v が 0 である場合
-; 447  : 
-; 448  :             //  0  を返す。
-; 449  :             *w = &number_zero;
-; 450  :         }
-; 451  :         else
-; 452  :         {
-; 453  :             // y が 0 ではない場合
-; 454  : 
-; 455  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 456  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
-
-	mov	rdx, rbx
-	mov	ecx, edi
-	call	From_I_Imp
-	test	eax, eax
-	je	$LN12@PMC_Multip
-
-; 497  : }
-
-	mov	rbx, QWORD PTR [rsp+56]
-	mov	rsi, QWORD PTR [rsp+64]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN4@PMC_Multip:
-
-; 457  :                 return (result);
-; 458  :         }
-; 459  :     }
-; 460  :     else
-; 461  :     {
-; 462  :         // u が 0 と 1 のどちらでもない場合
-; 463  : 
-; 464  :         if (v == 0)
-
-	test	edx, edx
-	jne	SHORT $LN9@PMC_Multip
-$LN20@PMC_Multip:
-
-; 494  :         }
-; 495  :     }
-; 496  :     return (PMC_STATUS_OK);
-
-	lea	rax, OFFSET FLAT:number_zero
-	mov	QWORD PTR [r8], rax
-	xor	eax, eax
-
-; 497  : }
-
-	mov	rbx, QWORD PTR [rsp+56]
-	mov	rsi, QWORD PTR [rsp+64]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN9@PMC_Multip:
-
-; 465  :         {
-; 466  :             // v が 0 である場合
-; 467  : 
-; 468  :             //  0  を返す。
-; 469  :             *w = &number_zero;
-; 470  :         }
-; 471  :         else if (v == 1)
-
-	cmp	edi, 1
-	jne	SHORT $LN11@PMC_Multip
-
-; 472  :         {
-; 473  :             // v が 1 である場合
-; 474  : 
-; 475  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 476  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
-
-	mov	rdx, rbx
-	call	DuplicateNumber
-	test	eax, eax
-	je	SHORT $LN12@PMC_Multip
-
-; 497  : }
-
-	mov	rbx, QWORD PTR [rsp+56]
-	mov	rsi, QWORD PTR [rsp+64]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-$LN11@PMC_Multip:
-
-; 477  :                 return (result);
-; 478  :         }
-; 479  :         else
-; 480  :         {
-; 481  :             // u と v がともに 0 、1 のどちらでもない場合
-; 482  : 
-; 483  :             // u と v の積を計算する
-; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
-
-	mov	rdx, QWORD PTR [rcx+24]
-
-; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
-; 487  :             __UNIT_TYPE w_light_check_code;
-; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
-
-	lea	r8, QWORD PTR w_light_check_code$1[rsp]
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-
-; 595  :         _BitScanReverse(&pos, x);
-
-	bsr	eax, edi
-
-; 596  : #elif defined(__GNUC__)
-; 597  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
-; 598  : #else
-; 599  : #error unknown compiler
-; 600  : #endif
-; 601  :         return (sizeof(x) * 8 - 1 - pos);
-
-	mov	ecx, 31
-	sub	ecx, eax
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-
-; 485  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
-
-	movsxd	rax, ecx
-
-; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
-; 487  :             __UNIT_TYPE w_light_check_code;
-; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
-
-	mov	rcx, rbx
-	sub	rdx, rax
-	add	rdx, 32					; 00000020H
-	call	AllocateNumber
-	test	eax, eax
-	jne	SHORT $LN1@PMC_Multip
-
-; 489  :                 return (result);
-; 490  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
-
-	mov	r9, QWORD PTR [rbx]
-	mov	r8, rdi
-	mov	rdx, QWORD PTR [rsi+16]
-	mov	rcx, QWORD PTR [rsi+64]
-	mov	r9, QWORD PTR [r9+64]
-	call	QWORD PTR fp_Multiply_X_1W
-
-; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
-
-	mov	rcx, QWORD PTR [rbx]
-	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
-	mov	rcx, QWORD PTR [rcx+64]
-	call	CheckBlockLight
-	test	eax, eax
-	jne	SHORT $LN1@PMC_Multip
-
-; 492  :                 return (result);
-; 493  :             CommitNumber(*w);
-
-	mov	rcx, QWORD PTR [rbx]
-	call	CommitNumber
-$LN12@PMC_Multip:
-
-; 494  :         }
-; 495  :     }
-; 496  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_Multip:
-
-; 497  : }
-
-	mov	rbx, QWORD PTR [rsp+56]
-	mov	rsi, QWORD PTR [rsp+64]
-	add	rsp, 32					; 00000020H
-	pop	rdi
-	ret	0
-PMC_Multiply_X_I_Imp ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2151,7 +1926,7 @@ $LL2@Multiply_W:
 	add	rcx, QWORD PTR [r9+248]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2193,7 +1968,7 @@ $LL2@Multiply_W:
 	mov	QWORD PTR t_hi$63[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2619,7 +2394,7 @@ $LN3@Multiply_W:
 	add	rcx, QWORD PTR [r9+120]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2661,7 +2436,7 @@ $LN3@Multiply_W:
 	mov	QWORD PTR t_hi$95[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN605@Multiply_W:
@@ -2868,7 +2643,7 @@ $LN605@Multiply_W:
 	add	rcx, QWORD PTR [r9+56]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2910,7 +2685,7 @@ $LN605@Multiply_W:
 	mov	QWORD PTR t_hi$111[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN705@Multiply_W:
@@ -3013,7 +2788,7 @@ $LN705@Multiply_W:
 	add	rcx, QWORD PTR [r9+24]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3055,7 +2830,7 @@ $LN705@Multiply_W:
 	mov	QWORD PTR t_hi$119[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN757@Multiply_W:
@@ -3106,7 +2881,7 @@ $LN757@Multiply_W:
 	add	rcx, QWORD PTR [r9+8]
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3148,7 +2923,7 @@ $LN757@Multiply_W:
 	mov	QWORD PTR t_hi$123[rbp-256], r10
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, eax
 $LN785@Multiply_W:
@@ -3198,7 +2973,7 @@ $LN785@Multiply_W:
 	mov	QWORD PTR t_lo$124[rbp-256], r8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 337  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 367  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -4561,7 +4336,7 @@ $LL2@Multiply_W:
 	add	r9, 256					; 00000100H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 32					; 00000020H
 	lock xadd DWORD PTR statistics_info, eax
@@ -5101,7 +4876,7 @@ $LN3@Multiply_W:
 	sub	r9, -128				; ffffffffffffff80H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 16
 	lock xadd DWORD PTR statistics_info, eax
@@ -5376,7 +5151,7 @@ $LN605@Multiply_W:
 	add	r9, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 8
 	lock xadd DWORD PTR statistics_info, eax
@@ -5536,7 +5311,7 @@ $LN705@Multiply_W:
 	add	r9, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 4
 	lock xadd DWORD PTR statistics_info, eax
@@ -5630,7 +5405,7 @@ $LN757@Multiply_W:
 	add	r9, 16
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, 2
 	lock xadd DWORD PTR statistics_info, eax
@@ -5673,7 +5448,7 @@ $LN785@Multiply_W:
 	add	r9, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 337  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 367  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 $LN801@Multiply_W:
@@ -6057,11 +5832,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI64Counter PROC				; COMDAT
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	lock xadd DWORD PTR statistics_info, ecx
 
-; 361  :     }
+; 391  :     }
 
 	ret	0
 AddToMULTI64Counter ENDP
@@ -6073,11 +5848,11 @@ _TEXT	SEGMENT
 value$ = 8
 AddToMULTI32Counter PROC				; COMDAT
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock xadd DWORD PTR statistics_info+4, ecx
 
-; 355  :     }
+; 385  :     }
 
 	ret	0
 AddToMULTI32Counter ENDP
@@ -6088,11 +5863,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI64Counter PROC				; COMDAT
 
-; 337  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 367  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock inc DWORD PTR statistics_info
 
-; 338  :     }
+; 368  :     }
 
 	ret	0
 IncrementMULTI64Counter ENDP
@@ -6103,11 +5878,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 IncrementMULTI32Counter PROC				; COMDAT
 
-; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 361  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock inc DWORD PTR statistics_info+4
 
-; 332  :     }
+; 362  :     }
 
 	ret	0
 IncrementMULTI32Counter ENDP
@@ -6808,6 +6583,233 @@ Initialize_Multiply PROC				; COMDAT
 
 	ret	0
 Initialize_Multiply ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtpy
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+;	COMDAT PMC_Multiply_X_I_Imp
+_TEXT	SEGMENT
+w_light_check_code$1 = 48
+u$ = 48
+v$ = 56
+w$ = 64
+PMC_Multiply_X_I_Imp PROC				; COMDAT
+
+; 432  : {
+
+$LN22:
+	mov	QWORD PTR [rsp+16], rbx
+	mov	QWORD PTR [rsp+24], rsi
+	push	rdi
+	sub	rsp, 32					; 00000020H
+
+; 433  :     PMC_STATUS_CODE result;
+; 434  :     if (u->IS_ZERO)
+
+	mov	eax, DWORD PTR [rcx]
+	mov	rbx, r8
+	mov	edi, edx
+	mov	rsi, rcx
+	test	al, 1
+	jne	SHORT $LN20@PMC_Multip
+
+; 435  :     {
+; 436  :         // u が 0 である場合
+; 437  : 
+; 438  :         // v の値にかかわらず 0 を返す。
+; 439  :         *w = &number_zero;
+; 440  :     }
+; 441  :     else if (u->IS_ONE)
+
+	test	al, 2
+	je	SHORT $LN4@PMC_Multip
+
+; 442  :     {
+; 443  :         // u が 1 である場合
+; 444  :         if (v == 0)
+
+	test	edx, edx
+	je	SHORT $LN20@PMC_Multip
+
+; 445  :         {
+; 446  :             // v が 0 である場合
+; 447  : 
+; 448  :             //  0  を返す。
+; 449  :             *w = &number_zero;
+; 450  :         }
+; 451  :         else
+; 452  :         {
+; 453  :             // y が 0 ではない場合
+; 454  : 
+; 455  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 456  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
+
+	mov	rdx, rbx
+	mov	ecx, edi
+	call	From_I_Imp
+	test	eax, eax
+	je	$LN12@PMC_Multip
+
+; 497  : }
+
+	mov	rbx, QWORD PTR [rsp+56]
+	mov	rsi, QWORD PTR [rsp+64]
+	add	rsp, 32					; 00000020H
+	pop	rdi
+	ret	0
+$LN4@PMC_Multip:
+
+; 457  :                 return (result);
+; 458  :         }
+; 459  :     }
+; 460  :     else
+; 461  :     {
+; 462  :         // u が 0 と 1 のどちらでもない場合
+; 463  : 
+; 464  :         if (v == 0)
+
+	test	edx, edx
+	jne	SHORT $LN9@PMC_Multip
+$LN20@PMC_Multip:
+
+; 494  :         }
+; 495  :     }
+; 496  :     return (PMC_STATUS_OK);
+
+	lea	rax, OFFSET FLAT:number_zero
+	mov	QWORD PTR [r8], rax
+	xor	eax, eax
+
+; 497  : }
+
+	mov	rbx, QWORD PTR [rsp+56]
+	mov	rsi, QWORD PTR [rsp+64]
+	add	rsp, 32					; 00000020H
+	pop	rdi
+	ret	0
+$LN9@PMC_Multip:
+
+; 465  :         {
+; 466  :             // v が 0 である場合
+; 467  : 
+; 468  :             //  0  を返す。
+; 469  :             *w = &number_zero;
+; 470  :         }
+; 471  :         else if (v == 1)
+
+	cmp	edi, 1
+	jne	SHORT $LN11@PMC_Multip
+
+; 472  :         {
+; 473  :             // v が 1 である場合
+; 474  : 
+; 475  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 476  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+
+	mov	rdx, rbx
+	call	DuplicateNumber
+	test	eax, eax
+	je	SHORT $LN12@PMC_Multip
+
+; 497  : }
+
+	mov	rbx, QWORD PTR [rsp+56]
+	mov	rsi, QWORD PTR [rsp+64]
+	add	rsp, 32					; 00000020H
+	pop	rdi
+	ret	0
+$LN11@PMC_Multip:
+
+; 477  :                 return (result);
+; 478  :         }
+; 479  :         else
+; 480  :         {
+; 481  :             // u と v がともに 0 、1 のどちらでもない場合
+; 482  : 
+; 483  :             // u と v の積を計算する
+; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+
+	mov	rdx, QWORD PTR [rcx+24]
+
+; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
+; 487  :             __UNIT_TYPE w_light_check_code;
+; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+
+	lea	r8, QWORD PTR w_light_check_code$1[rsp]
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+
+; 595  :         _BitScanReverse(&pos, x);
+
+	bsr	eax, edi
+
+; 596  : #elif defined(__GNUC__)
+; 597  :         __asm__("bsrl %1, %0" : "=r"(pos) : "rm"(x));
+; 598  : #else
+; 599  : #error unknown compiler
+; 600  : #endif
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
+
+	mov	ecx, 31
+	sub	ecx, eax
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+
+; 485  :             __UNIT_TYPE v_bit_count = sizeof(v) * 8 - _LZCNT_ALT_32(v);
+
+	movsxd	rax, ecx
+
+; 486  :             __UNIT_TYPE w_bit_count = u_bit_count + v_bit_count;
+; 487  :             __UNIT_TYPE w_light_check_code;
+; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+
+	mov	rcx, rbx
+	sub	rdx, rax
+	add	rdx, 32					; 00000020H
+	call	AllocateNumber
+	test	eax, eax
+	jne	SHORT $LN1@PMC_Multip
+
+; 489  :                 return (result);
+; 490  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
+
+	mov	r9, QWORD PTR [rbx]
+	mov	r8, rdi
+	mov	rdx, QWORD PTR [rsi+16]
+	mov	rcx, QWORD PTR [rsi+64]
+	mov	r9, QWORD PTR [r9+64]
+	call	QWORD PTR fp_Multiply_X_1W
+
+; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+
+	mov	rcx, QWORD PTR [rbx]
+	mov	rdx, QWORD PTR w_light_check_code$1[rsp]
+	mov	rcx, QWORD PTR [rcx+64]
+	call	CheckBlockLight
+	test	eax, eax
+	jne	SHORT $LN1@PMC_Multip
+
+; 492  :                 return (result);
+; 493  :             CommitNumber(*w);
+
+	mov	rcx, QWORD PTR [rbx]
+	call	CommitNumber
+$LN12@PMC_Multip:
+
+; 494  :         }
+; 495  :     }
+; 496  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_Multip:
+
+; 497  : }
+
+	mov	rbx, QWORD PTR [rsp+56]
+	mov	rsi, QWORD PTR [rsp+64]
+	add	rsp, 32					; 00000020H
+	pop	rdi
+	ret	0
+PMC_Multiply_X_I_Imp ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c

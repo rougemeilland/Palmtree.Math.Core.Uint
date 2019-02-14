@@ -37,6 +37,18 @@ extern "C" {
 #endif
 
 #pragma region 型の定義
+    typedef struct __tag___CHAIN_BUFFER_TAG
+    {
+        struct __tag___CHAIN_BUFFER_TAG* next;
+        struct __tag___CHAIN_BUFFER_TAG* prev;
+
+    } __CHAIN_BUFFER_TAG;
+
+    typedef struct __tag_CHAIN_BUFFER_ROOT
+    {
+        __CHAIN_BUFFER_TAG  tag;
+    } CHAIN_BUFFER_ROOT;
+
     typedef struct __tag_NUMBER_HEADER
     {
         unsigned IS_ZERO : 1;               // データが 0 なら TRUE
@@ -111,6 +123,21 @@ extern "C" {
     // 与えられた NUMBER_HEADER 構造体を複製する。p が指す NUMBER_HEADER 構造体は 0 値であってはならない。
     extern PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* p, NUMBER_HEADER** op);
 
+    // 一括して解放可能なチェーンを初期化する
+    extern void InitializeChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+    // チェーンされている領域をすべて解放する
+    extern void CleanUpChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+    // メモリ領域を獲得しチェーンに追加する
+    extern void* AllocateChainedBuffer(CHAIN_BUFFER_ROOT* root, size_t size);
+
+    // メモリ領域をチェックする(主にバッファオーバーランの観点で)
+    extern void CheckChainedBuffer(void* buffer);
+
+    // メモリ領域をチェーンから外して解放する
+    extern void DeallocateChainedBuffer(CHAIN_BUFFER_ROOT* root, void* buffer);
+
     // 32bit 整数 x から NUMBER_HEADER 構造体を構築し、そのポインタを o が指す領域に格納して返す。x は 0 であってはならない。
     extern PMC_STATUS_CODE From_I_Imp(_UINT32_T x, NUMBER_HEADER** o);
 
@@ -135,6 +162,9 @@ extern "C" {
     // 多倍長整数の乗算を行う。u と v はどちらも 0 であってはならない。
     extern void Multiply_X_X_Imp(__UNIT_TYPE* u, __UNIT_TYPE u_count, __UNIT_TYPE* v, __UNIT_TYPE v_count, __UNIT_TYPE* w);
 
+    // 多倍長整数と整数の乗算を行う。
+    extern PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w);
+    
     // 多倍長整数を 1 ワードで除算を行う。
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
 
@@ -232,7 +262,7 @@ extern "C" {
     extern PMC_STATUS_CODE __PMC_CALL PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
     extern void __PMC_CALL PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
-    extern PMC_STATUS_CODE __PMC_CALL PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE __PMC_CALL PMC_ToString(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
     extern PMC_STATUS_CODE __PMC_CALL PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __PMC_CALL PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);

@@ -29,7 +29,7 @@
 
 
 #ifdef _DEBUG
-void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char*buf, size_t buf_size, char format_spec, int width, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str)
+void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, /*wchar_t* native_digits,*/ wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str)
 {
     PMC_HANDLE_UINT x;
     static wchar_t actual_str_buffer[4096];
@@ -37,12 +37,13 @@ void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, i
     PMC_STATUS_CODE x_result;
     PMC_NUMBER_FORMAT_INFO opt;
     ep->InitializeNumberFormatInfo(&opt);
+    //lstrcpyW(opt.NativeDigits, native_digits);
     lstrcpyW(opt.Number.GroupSeparator, group_separator);
     lstrcpyW(opt.Number.GroupSizes, group_sizes);
     lstrcpyW(opt.Number.DecimalSeparator, decimal_separator);
     opt.Number.DecimalDigits = decimal_digits;
-    TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
-    TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 1), (x_result = ep->From_L(x_value, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+    TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 2), (result = ep->ToString(x, format, &opt, actual_str_buffer, sizeof(actual_str_buffer))) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
     TEST_Assert(env, FormatTestLabel(L"PMC_ToStringN (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
     if (x_result == PMC_STATUS_OK)
         ep->Dispose(x);

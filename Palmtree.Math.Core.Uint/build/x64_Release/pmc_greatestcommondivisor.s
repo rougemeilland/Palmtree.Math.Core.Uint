@@ -145,7 +145,7 @@ PMC_GreatestCommonDivisor_X_I_Imp:
 	movq	24(%rcx), %r8
 	movl	$31, %eax
 	movl	$32, %ebp
-	movl	$-5, %edi
+	movl	$-6, %edi
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl %edx, %edx
@@ -338,7 +338,7 @@ PMC_GreatestCommonDivisor_X_L_Imp:
 	movq	24(%rcx), %r8
 	movl	$63, %eax
 	movl	$64, %ebp
-	movl	$-5, %edi
+	movl	$-6, %edi
 /APP
  # 641 "../pmc_inline_func.h" 1
 	bsrq %rdx, %rdx
@@ -741,7 +741,7 @@ PMC_GreatestCommonDivisor_X_X:
 .L68:
 	movq	24(%rbx), %r12
 	leaq	88(%rsp), %rdx
-	movl	$-5, %esi
+	movl	$-6, %esi
 	cmpq	%r12, 24(%rdi)
 	leaq	80(%rsp), %r8
 	cmovnb	24(%rdi), %r12

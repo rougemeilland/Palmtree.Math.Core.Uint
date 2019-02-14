@@ -222,8 +222,14 @@
     <ClCompile Include="TEST_op_Remainder.c" />
     <ClCompile Include="TEST_op_Shift.c" />
     <ClCompile Include="TEST_op_Subtruct.c" />
+    <ClCompile Include="TEST_op_ToStringE.c" />
     <ClCompile Include="TEST_op_ToStringD.c" />
+    <ClCompile Include="TEST_op_ToStringC.c" />
+    <ClCompile Include="TEST_op_ToStringF.c" />
+    <ClCompile Include="TEST_op_ToStringG.c" />
     <ClCompile Include="TEST_op_ToStringN.c" />
+    <ClCompile Include="TEST_op_ToStringP.c" />
+    <ClCompile Include="TEST_op_ToStringR.c" />
     <ClCompile Include="TEST_op_ToStringX.c" />
   </ItemGroup>
   <ItemGroup>

@@ -2448,108 +2448,6 @@ L86:
 	.cfi_endproc
 LFE5502:
 	.p2align 4,,15
-	.def	_PMC_Multiply_X_I_Imp;	.scl	3;	.type	32;	.endef
-_PMC_Multiply_X_I_Imp:
-LFB5503:
-	.cfi_startproc
-	pushl	%edi
-	.cfi_def_cfa_offset 8
-	.cfi_offset 7, -8
-	pushl	%esi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 6, -12
-	pushl	%ebx
-	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	subl	$48, %esp
-	.cfi_def_cfa_offset 64
-	movzbl	(%eax), %ebx
-	testb	$1, %bl
-	jne	L94
-	andl	$2, %ebx
-	movl	%ecx, %esi
-	movl	%eax, %edi
-	je	L93
-	testl	%edx, %edx
-	jne	L104
-L94:
-	movl	$_number_zero, (%ecx)
-	xorl	%eax, %eax
-L90:
-	addl	$48, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 16
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret
-	.p2align 4,,10
-L93:
-	.cfi_restore_state
-	testl	%edx, %edx
-	je	L94
-	cmpl	$1, %edx
-	je	L105
-	leal	44(%esp), %eax
-	movl	%edx, 28(%esp)
-	movl	%eax, 8(%esp)
-	movl	16(%edi), %eax
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edx, %ecx
- # 0 "" 2
-/NO_APP
-	leal	1(%ecx,%eax), %eax
-	movl	%esi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L90
-	movl	(%esi), %eax
-	movl	28(%esp), %edx
-	movl	36(%eax), %eax
-	movl	%edx, 8(%esp)
-	movl	%eax, 12(%esp)
-	movl	12(%edi), %eax
-	movl	%eax, 4(%esp)
-	movl	36(%edi), %eax
-	movl	%eax, (%esp)
-	call	*_fp_Multiply_X_1W
-	movl	44(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	(%esi), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L90
-	movl	(%esi), %edx
-	movl	%eax, 28(%esp)
-	movl	%edx, (%esp)
-	call	_CommitNumber
-	movl	28(%esp), %eax
-	jmp	L90
-	.p2align 4,,10
-L104:
-	movl	%ecx, 4(%esp)
-	movl	%edx, (%esp)
-	call	_From_I_Imp
-	jmp	L90
-	.p2align 4,,10
-L105:
-	movl	%ecx, 4(%esp)
-	movl	%eax, (%esp)
-	call	_DuplicateNumber
-	jmp	L90
-	.cfi_endproc
-LFE5503:
-	.p2align 4,,15
 	.def	_PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
 _PMC_Multiply_X_L_Imp:
 LFB5506:
@@ -2571,17 +2469,17 @@ LFB5506:
 	movzbl	(%eax), %esi
 	movl	96(%esp), %ebx
 	testl	$1, %esi
-	jne	L110
+	jne	L94
 	andl	$2, %esi
 	movl	%eax, %edi
 	movl	%ecx, %eax
-	je	L109
+	je	L93
 	orl	%edx, %eax
-	jne	L128
-L110:
+	jne	L112
+L94:
 	movl	$_number_zero, (%ebx)
 	xorl	%eax, %eax
-L106:
+L90:
 	addl	$76, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -2599,27 +2497,27 @@ L106:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L109:
+L93:
 	.cfi_restore_state
 	orl	%edx, %eax
-	je	L110
+	je	L94
 	movl	%edx, %eax
 	xorl	$1, %eax
 	orl	%ecx, %eax
-	je	L129
+	je	L113
 	movl	16(%edi), %eax
 	testl	%ecx, %ecx
-	jne	L112
+	jne	L96
 	leal	32(%eax), %ecx
 	testl	%edx, %edx
-	je	L113
+	je	L97
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl %edx, %eax
  # 0 "" 2
 /NO_APP
 	leal	-31(%ecx,%eax), %eax
-L113:
+L97:
 	leal	60(%esp), %ecx
 	movl	%eax, 4(%esp)
 	movl	%ecx, 8(%esp)
@@ -2627,7 +2525,7 @@ L113:
 	movl	%edx, 40(%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L106
+	jne	L90
 	movl	(%ebx), %eax
 	movl	40(%esp), %edx
 	movl	36(%eax), %eax
@@ -2638,7 +2536,7 @@ L113:
 	movl	36(%edi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_1W
-L127:
+L111:
 	movl	60(%esp), %eax
 	movl	%eax, 4(%esp)
 	movl	(%ebx), %eax
@@ -2646,21 +2544,21 @@ L127:
 	movl	%eax, (%esp)
 	call	_CheckBlockLight
 	testl	%eax, %eax
-	jne	L106
+	jne	L90
 	movl	(%ebx), %eax
 	movl	%eax, (%esp)
 	call	_CommitNumber
 	xorl	%eax, %eax
-	jmp	L106
+	jmp	L90
 	.p2align 4,,10
-L128:
+L112:
 	movl	%ebx, 8(%esp)
 	movl	%edx, (%esp)
 	movl	%ecx, 4(%esp)
 	call	_From_L_Imp
-	jmp	L106
+	jmp	L90
 	.p2align 4,,10
-L112:
+L96:
 /APP
  # 597 "../pmc_inline_func.h" 1
 	bsrl %ecx, %esi
@@ -2675,7 +2573,7 @@ L112:
 	movl	%ecx, 40(%esp)
 	call	_AllocateNumber
 	testl	%eax, %eax
-	jne	L106
+	jne	L90
 	movl	(%ebx), %eax
 	movl	44(%esp), %edx
 	movl	40(%esp), %ecx
@@ -2688,13 +2586,13 @@ L112:
 	movl	36(%edi), %eax
 	movl	%eax, (%esp)
 	call	*_fp_Multiply_X_2W
-	jmp	L127
+	jmp	L111
 	.p2align 4,,10
-L129:
+L113:
 	movl	%ebx, 4(%esp)
 	movl	%edi, (%esp)
 	call	_DuplicateNumber
-	jmp	L106
+	jmp	L90
 	.cfi_endproc
 LFE5506:
 	.p2align 4,,15
@@ -2706,6 +2604,105 @@ LFB5492:
 	jmp	*_fp_Multiply_X_X
 	.cfi_endproc
 LFE5492:
+	.p2align 4,,15
+	.globl	_PMC_Multiply_X_I_Imp
+	.def	_PMC_Multiply_X_I_Imp;	.scl	2;	.type	32;	.endef
+_PMC_Multiply_X_I_Imp:
+LFB5503:
+	.cfi_startproc
+	pushl	%esi
+	.cfi_def_cfa_offset 8
+	.cfi_offset 6, -8
+	pushl	%ebx
+	.cfi_def_cfa_offset 12
+	.cfi_offset 3, -12
+	subl	$52, %esp
+	.cfi_def_cfa_offset 64
+	movl	64(%esp), %ebx
+	movl	72(%esp), %esi
+	movzbl	(%ebx), %eax
+	testb	$1, %al
+	jne	L119
+	testb	$2, %al
+	je	L118
+	movl	68(%esp), %edx
+	testl	%edx, %edx
+	jne	L129
+L119:
+	movl	$_number_zero, (%esi)
+	xorl	%eax, %eax
+L115:
+	addl	$52, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 12
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 8
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 4
+	ret
+	.p2align 4,,10
+L118:
+	.cfi_restore_state
+	movl	68(%esp), %eax
+	testl	%eax, %eax
+	je	L119
+	cmpl	$1, 68(%esp)
+	je	L130
+	leal	44(%esp), %eax
+	movl	%eax, 8(%esp)
+	movl	16(%ebx), %eax
+/APP
+ # 597 "../pmc_inline_func.h" 1
+	bsrl 68(%esp), %edx
+ # 0 "" 2
+/NO_APP
+	leal	1(%edx,%eax), %eax
+	movl	%esi, (%esp)
+	movl	%eax, 4(%esp)
+	call	_AllocateNumber
+	testl	%eax, %eax
+	jne	L115
+	movl	(%esi), %eax
+	movl	36(%eax), %eax
+	movl	%eax, 12(%esp)
+	movl	68(%esp), %eax
+	movl	%eax, 8(%esp)
+	movl	12(%ebx), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%ebx), %eax
+	movl	%eax, (%esp)
+	call	*_fp_Multiply_X_1W
+	movl	44(%esp), %eax
+	movl	%eax, 4(%esp)
+	movl	(%esi), %eax
+	movl	36(%eax), %eax
+	movl	%eax, (%esp)
+	call	_CheckBlockLight
+	testl	%eax, %eax
+	jne	L115
+	movl	(%esi), %edx
+	movl	%eax, 28(%esp)
+	movl	%edx, (%esp)
+	call	_CommitNumber
+	movl	28(%esp), %eax
+	jmp	L115
+	.p2align 4,,10
+L129:
+	movl	68(%esp), %eax
+	movl	%esi, 4(%esp)
+	movl	%eax, (%esp)
+	call	_From_I_Imp
+	jmp	L115
+	.p2align 4,,10
+L130:
+	movl	%esi, 4(%esp)
+	movl	%ebx, (%esp)
+	call	_DuplicateNumber
+	jmp	L115
+	.cfi_endproc
+LFE5503:
 	.p2align 4,,15
 	.globl	_PMC_Multiply_I_X@12
 	.def	_PMC_Multiply_I_X@12;	.scl	2;	.type	32;	.endef
@@ -2730,9 +2727,10 @@ LFB5504:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L131
-	movl	32(%esp), %edx
-	movl	%esi, %ecx
-	movl	%ebx, %eax
+	movl	32(%esp), %eax
+	movl	%esi, 8(%esp)
+	movl	%ebx, (%esp)
+	movl	%eax, 4(%esp)
 	call	_PMC_Multiply_X_I_Imp
 L131:
 	addl	$20, %esp
@@ -2776,9 +2774,10 @@ LFB5505:
 	call	_CheckNumber
 	testl	%eax, %eax
 	jne	L135
-	movl	36(%esp), %edx
-	movl	%esi, %ecx
-	movl	%ebx, %eax
+	movl	36(%esp), %eax
+	movl	%esi, 8(%esp)
+	movl	%ebx, (%esp)
+	movl	%eax, 4(%esp)
 	call	_PMC_Multiply_X_I_Imp
 L135:
 	addl	$20, %esp
@@ -3103,7 +3102,7 @@ LFE5510:
 	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
 	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef
 	.def	_CommitNumber;	.scl	2;	.type	32;	.endef
-	.def	_From_I_Imp;	.scl	2;	.type	32;	.endef
-	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
 	.def	_From_L_Imp;	.scl	2;	.type	32;	.endef
+	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
+	.def	_From_I_Imp;	.scl	2;	.type	32;	.endef
 	.def	_CheckNumber;	.scl	2;	.type	32;	.endef

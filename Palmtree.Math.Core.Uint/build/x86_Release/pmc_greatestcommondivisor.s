@@ -186,7 +186,7 @@ L20:
 	cmovnb	16(%eax), %ebx
 	movl	%edx, 48(%esp)
 	leal	72(%esp), %eax
-	movl	$-5, %edi
+	movl	$-6, %edi
 	movl	%eax, 8(%esp)
 	leal	76(%esp), %eax
 	movl	%eax, 4(%esp)
@@ -412,7 +412,7 @@ L34:
 L38:
 	leal	72(%esp), %eax
 	movl	%ebp, (%esp)
-	movl	$-5, %edi
+	movl	$-6, %edi
 	movl	%eax, 8(%esp)
 	leal	76(%esp), %eax
 	movl	%eax, 4(%esp)
@@ -552,7 +552,7 @@ L37:
 /NO_APP
 	addl	$33, %eax
 	movl	%ecx, 52(%esp)
-	movl	$-5, %edi
+	movl	$-6, %edi
 	cmpl	%ebp, %eax
 	cmovnb	%eax, %ebp
 	leal	72(%esp), %eax
@@ -1069,7 +1069,7 @@ L99:
 	movl	16(%ebx), %ebp
 	leal	56(%esp), %eax
 	cmpl	%ebp, 16(%edi)
-	movl	$-5, %esi
+	movl	$-6, %esi
 	cmovnb	16(%edi), %ebp
 	movl	%eax, 8(%esp)
 	leal	60(%esp), %eax

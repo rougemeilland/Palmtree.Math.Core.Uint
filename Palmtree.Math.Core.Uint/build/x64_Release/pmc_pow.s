@@ -80,7 +80,7 @@ PMC_Pow_X_I:
 	call	AllocateBlock
 	movq	%rax, %rcx
 	movq	%rax, 48(%rsp)
-	movl	$-5, %eax
+	movl	$-6, %eax
 	testq	%rcx, %rcx
 	je	.L1
 	leaq	112(%rsp), %rdx
@@ -236,7 +236,7 @@ PMC_Pow_X_I:
 	movq	112(%rsp), %rdx
 	movq	64(%rsp), %rcx
 	call	DeallocateBlock
-	movl	$-5, %eax
+	movl	$-6, %eax
 	jmp	.L1
 .L18:
 	movq	48(%rsp), %rsi

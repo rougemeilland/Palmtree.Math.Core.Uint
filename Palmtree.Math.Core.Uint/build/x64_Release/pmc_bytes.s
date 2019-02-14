@@ -319,7 +319,7 @@ PMC_ToByteArrayForSINT:
 	movl	$-1, %eax
 	jmp	.L50
 .L58:
-	movl	$-4, %eax
+	movl	$-5, %eax
 	jmp	.L50
 .L61:
 	movl	$-256, %eax
@@ -394,7 +394,7 @@ PMC_ToByteArray:
 	movl	$-1, %eax
 	jmp	.L65
 .L72:
-	movl	$-4, %eax
+	movl	$-5, %eax
 	jmp	.L65
 	.seh_endproc
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"

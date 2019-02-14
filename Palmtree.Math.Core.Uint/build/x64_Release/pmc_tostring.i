@@ -100693,14 +100693,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 72 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100732,7 +100732,7 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t DecimalSeparator[3];
@@ -100740,34 +100740,14 @@ typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
     wchar_t GroupSizes[11];
     int NegativePattern;
     int PositivePattern;
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-    int PositivePattern;
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
-    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
-    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Currency;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Number;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Percent;
     wchar_t CurrencySymbol[3];
-    wchar_t NativeDigits[11];
     wchar_t NegativeSign[3];
     wchar_t PositiveSign[3];
     wchar_t PercentSymbol[3];
@@ -100837,7 +100817,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 
 
         void ( * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE ( * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE ( * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE ( * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
@@ -100995,6 +100975,18 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #pragma region 型の定義
+    typedef struct __tag___CHAIN_BUFFER_TAG
+    {
+        struct __tag___CHAIN_BUFFER_TAG* next;
+        struct __tag___CHAIN_BUFFER_TAG* prev;
+
+    } __CHAIN_BUFFER_TAG;
+
+    typedef struct __tag_CHAIN_BUFFER_ROOT
+    {
+        __CHAIN_BUFFER_TAG tag;
+    } CHAIN_BUFFER_ROOT;
+
     typedef struct __tag_NUMBER_HEADER
     {
         unsigned IS_ZERO : 1;
@@ -101070,6 +101062,21 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* p, NUMBER_HEADER** op);
 
 
+    extern void InitializeChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void CleanUpChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void* AllocateChainedBuffer(CHAIN_BUFFER_ROOT* root, size_t size);
+
+
+    extern void CheckChainedBuffer(void* buffer);
+
+
+    extern void DeallocateChainedBuffer(CHAIN_BUFFER_ROOT* root, void* buffer);
+
+
     extern PMC_STATUS_CODE From_I_Imp(_UINT32_T x, NUMBER_HEADER** o);
 
 
@@ -101092,6 +101099,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
     extern void Multiply_X_X_Imp(__UNIT_TYPE* u, __UNIT_TYPE u_count, __UNIT_TYPE* v, __UNIT_TYPE v_count, __UNIT_TYPE* w);
+
+
+    extern PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w);
 
 
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
@@ -101190,7 +101200,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
     extern void PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
-    extern PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
     extern PMC_STATUS_CODE PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -101330,12 +101340,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 383 "../pmc_uint_internal.h"
+# 413 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 397 "../pmc_uint_internal.h"
+# 427 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../pmc_tostring.c" 2
@@ -102956,26 +102966,26 @@ void __writemsr(unsigned long msr, unsigned long long Value)
 # 29 "../pmc_tostring.c" 2
 
 
-struct TOSTRINGN_OUTPUT_STATE
+typedef struct __tag_DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE
 {
-    char FORMAT;
+    wchar_t FORMAT;
+    unsigned IS_SUPPORTED_THOUSAND : 1;
     wchar_t GROUP_SEPARATOR[5];
-    wchar_t DECIMAL_SEPARATOR[5];
     int GROUP_SEPARATOR_LENGTH;
+    wchar_t DECIMAL_SEPARATOR[5];
     int DECIMAL_SEPARATOR_LENGTH;
     wchar_t* CURRENT_GROUP;
     int CURRENT_GROUP_SIZE;
     int CURRENT_GROUP_INDEX;
     wchar_t* OUT_PTR;
-};
+} DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE;
 
 
-static wchar_t decimal_digits[] = L"0123456789";
 static wchar_t hexadecimal_lower_digits[] = L"0123456789abcdef";
 static wchar_t hexadecimal_upper_digits[] = L"0123456789ABCDEF";
 static PMC_NUMBER_FORMAT_INFO default_number_format_option;
 
-
+#pragma region _10進整数文字列の作成
 static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE_DIV* x_buf, __UNIT_TYPE x_buf_size, __UNIT_TYPE x_bit_count, __UNIT_TYPE_DIV base_value, __UNIT_TYPE_DIV* r_buf, __UNIT_TYPE* r_buf_count)
 {
     PMC_STATUS_CODE result;
@@ -102987,7 +102997,7 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE_DIV* x_buf, __UNIT_TYPE
                      ((void *)0)
 # 57 "../pmc_tostring.c"
                          )
-        return ((-5));
+        return ((-6));
     __UNIT_TYPE work_buf_2_code;
     __UNIT_TYPE work_buf_2_words;
     __UNIT_TYPE_DIV* work_buf_2 = (__UNIT_TYPE_DIV*)AllocateBlock(x_bit_count + (sizeof(__UNIT_TYPE) * 8), &work_buf_2_words, &work_buf_2_code);
@@ -102998,7 +103008,7 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE_DIV* x_buf, __UNIT_TYPE
                          )
     {
         DeallocateBlock((__UNIT_TYPE*)work_buf_1, work_buf_1_words);
-        return ((-5));
+        return ((-6));
     }
     __UNIT_TYPE_DIV* u_ptr = work_buf_1;
     __UNIT_TYPE_DIV* q_ptr = work_buf_2;
@@ -103027,12 +103037,50 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE_DIV* x_buf, __UNIT_TYPE
     return ((0));
 }
 
-static void InitializeOutputState(struct TOSTRINGN_OUTPUT_STATE* state, wchar_t* out_buf, char format, PMC_NUMBER_FORMAT_INFO* format_option)
+static void InitializeDecimalNumberSequenceOutputState(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state, wchar_t* out_buf, wchar_t format, PMC_NUMBER_FORMAT_INFO* format_option)
 {
     state->FORMAT = format;
 
-    state->GROUP_SEPARATOR_LENGTH = lstrlenW(format_option->Number.GroupSeparator);
-    wchar_t* in_ptr = format_option->Number.GroupSeparator;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO* decimal_info;
+    if (format == L'C')
+    {
+        decimal_info = &format_option->Currency;
+        state->IS_SUPPORTED_THOUSAND = 
+# 102 "../pmc_tostring.c" 3
+                                      1
+# 102 "../pmc_tostring.c"
+                                          ;
+    }
+    else if (format == L'P')
+    {
+        decimal_info = &format_option->Percent;
+        state->IS_SUPPORTED_THOUSAND = 
+# 107 "../pmc_tostring.c" 3
+                                      1
+# 107 "../pmc_tostring.c"
+                                          ;
+    }
+    else if (format == L'N')
+    {
+        decimal_info = &format_option->Number;
+        state->IS_SUPPORTED_THOUSAND = 
+# 112 "../pmc_tostring.c" 3
+                                      1
+# 112 "../pmc_tostring.c"
+                                          ;
+    }
+    else
+    {
+        decimal_info = &format_option->Number;
+        state->IS_SUPPORTED_THOUSAND = 
+# 117 "../pmc_tostring.c" 3
+                                      0
+# 117 "../pmc_tostring.c"
+                                           ;
+    }
+
+    state->GROUP_SEPARATOR_LENGTH = lstrlenW(decimal_info->GroupSeparator);
+    wchar_t* in_ptr = decimal_info->GroupSeparator;
     wchar_t* out_ptr = state->GROUP_SEPARATOR + state->GROUP_SEPARATOR_LENGTH;
     *out_ptr-- = '\0';
     while (*in_ptr != L'\0')
@@ -103042,8 +103090,8 @@ static void InitializeOutputState(struct TOSTRINGN_OUTPUT_STATE* state, wchar_t*
         ++in_ptr;
     }
 
-    state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(format_option->Number.DecimalSeparator);
-    in_ptr = format_option->Number.DecimalSeparator;
+    state->DECIMAL_SEPARATOR_LENGTH = lstrlenW(decimal_info->DecimalSeparator);
+    in_ptr = decimal_info->DecimalSeparator;
     out_ptr = state->DECIMAL_SEPARATOR + state->DECIMAL_SEPARATOR_LENGTH;
     *out_ptr-- = '\0';
     while (*in_ptr != L'\0')
@@ -103053,27 +103101,27 @@ static void InitializeOutputState(struct TOSTRINGN_OUTPUT_STATE* state, wchar_t*
         ++in_ptr;
     }
 
-    state->CURRENT_GROUP = &format_option->Number.GroupSizes[0];
+    state->CURRENT_GROUP = &decimal_info->GroupSizes[0];
     state->CURRENT_GROUP_SIZE = *state->CURRENT_GROUP - L'0';
     state->CURRENT_GROUP_INDEX = 0;
     state->OUT_PTR = out_buf;
 }
 
-static void OutputDecimalSeparator(struct TOSTRINGN_OUTPUT_STATE* state)
+static void OutputDecimalNumberSequenceDecimalSeparater(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state)
 {
     lstrcpyW(state->OUT_PTR, state->DECIMAL_SEPARATOR);
     state->OUT_PTR += state->DECIMAL_SEPARATOR_LENGTH;
 }
 
-static void OutputUngroupedOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
+static void OutputDecimalNumberSequenceUngroupedOneChar(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
 {
-    *state->OUT_PTR = decimal_digits[x];
+    *state->OUT_PTR = L'0' + x;
     state->OUT_PTR += 1;
 }
 
-static void OutputOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
+static void OutputDecimalNumberSequenceOneDigit(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
 {
-    if (state->FORMAT == 'N')
+    if (state->IS_SUPPORTED_THOUSAND)
     {
 
         if (state->CURRENT_GROUP_SIZE > 0 && state->CURRENT_GROUP_INDEX >= state->CURRENT_GROUP_SIZE)
@@ -103083,7 +103131,7 @@ static void OutputOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV 
 
             lstrcpyW(state->OUT_PTR, state->GROUP_SEPARATOR);
             state->OUT_PTR += state->GROUP_SEPARATOR_LENGTH;
-            *state->OUT_PTR = decimal_digits[x];
+            *state->OUT_PTR = L'0' + x;
             state->OUT_PTR += 1;
             state->CURRENT_GROUP_INDEX = 1;
 
@@ -103097,7 +103145,7 @@ static void OutputOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV 
         else
         {
 
-            *state->OUT_PTR = decimal_digits[x];
+            *state->OUT_PTR = L'0' + x;
             state->OUT_PTR += 1;
             state->CURRENT_GROUP_INDEX += 1;
         }
@@ -103106,19 +103154,19 @@ static void OutputOneChar(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV 
     {
 
 
-        *state->OUT_PTR = decimal_digits[x];
+        *state->OUT_PTR = L'0' + x;
         state->OUT_PTR += 1;
     }
 }
 
 
-static void ToStringDN_LEADING_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
+static void OutputDecimalNumberSequenceLeadingOneWord(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
 {
     __UNIT_TYPE_DIV r;
     do
     {
         x = _DIVREM_UNIT(0, x, 10, &r);
-        OutputOneChar(state, r);
+        OutputDecimalNumberSequenceOneDigit(state, r);
 
         if (sizeof(r) == sizeof(_UINT64_T))
             IncrementDIV64Counter();
@@ -103129,21 +103177,21 @@ static void ToStringDN_LEADING_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNI
 }
 
 
-static void ToStringDN_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
+static void OutputDecimalNumberSequenceTrailingWord(DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE* state, __UNIT_TYPE_DIV x)
 {
     __UNIT_TYPE_DIV r;
     if (sizeof(__UNIT_TYPE_DIV) >= sizeof(_UINT64_T))
     {
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
 
         if (sizeof(r) == sizeof(_UINT64_T))
             AddToDIV64Counter(10);
@@ -103153,11 +103201,11 @@ static void ToStringDN_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_D
     }
     if (sizeof(__UNIT_TYPE_DIV) >= sizeof(_UINT32_T))
     {
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
 
         if (sizeof(r) == sizeof(_UINT64_T))
             AddToDIV64Counter(5);
@@ -103167,8 +103215,8 @@ static void ToStringDN_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_D
     }
     if (sizeof(__UNIT_TYPE_DIV) >= sizeof(_UINT16_T))
     {
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
 
         if (sizeof(r) == sizeof(_UINT64_T))
             AddToDIV64Counter(2);
@@ -103178,8 +103226,8 @@ static void ToStringDN_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_D
     }
     if (sizeof(__UNIT_TYPE_DIV) >= sizeof(_BYTE_T))
     {
-        x = _DIVREM_UNIT(0, x, 10, &r); OutputOneChar(state, r);
-        OutputOneChar(state, x);
+        x = _DIVREM_UNIT(0, x, 10, &r); OutputDecimalNumberSequenceOneDigit(state, r);
+        OutputDecimalNumberSequenceOneDigit(state, x);
 
         if (sizeof(r) == sizeof(_UINT64_T))
             IncrementDIV64Counter();
@@ -103189,52 +103237,31 @@ static void ToStringDN_1WORD(struct TOSTRINGN_OUTPUT_STATE* state, __UNIT_TYPE_D
     }
 }
 
-static void PrintDecimal(__UNIT_TYPE_DIV* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf, __UNIT_TYPE* out_buf_count, char format, _UINT32_T width, PMC_NUMBER_FORMAT_INFO* format_option)
+static void OutputDecimalNumberSequence(__UNIT_TYPE_DIV* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf, __UNIT_TYPE* out_buf_count, wchar_t format_type, PMC_NUMBER_FORMAT_INFO* format_option)
 {
-    struct TOSTRINGN_OUTPUT_STATE state;
-    InitializeOutputState(&state, out_buf, format, format_option);
-    if (format == 'N' && width > 0)
-    {
-        _UINT32_T count = width;
-        while (count > 0)
-        {
-            OutputUngroupedOneChar(&state, 0);
-            --count;
-        }
-        OutputDecimalSeparator(&state);
-    }
+    DECIMAL_NUMBER_SEQUENCE_OUTPUT_STATE state;
+    InitializeDecimalNumberSequenceOutputState(&state, out_buf, format_type, format_option);
     __UNIT_TYPE_DIV* in_ptr = in_buf;
     __UNIT_TYPE in_count = in_buf_count - 1;
     while (in_count != 0)
     {
-        ToStringDN_1WORD(&state, *in_ptr);
+        OutputDecimalNumberSequenceTrailingWord(&state, *in_ptr);
         ++in_ptr;
         --in_count;
     }
-    ToStringDN_LEADING_1WORD(&state, *in_ptr);
+    OutputDecimalNumberSequenceLeadingOneWord(&state, *in_ptr);
     ++in_ptr;
     --in_count;
-    if (format == 'D')
-    {
-        if (state.OUT_PTR < out_buf + width)
-        {
-            int count = width - (int)(state.OUT_PTR - out_buf);
-            while (count > 0)
-            {
-                OutputOneChar(&state, 0);
-                --count;
-            }
-        }
-    }
     *out_buf_count = state.OUT_PTR - out_buf;
     *state.OUT_PTR = '\0';
 }
 
-
-static void ToStringDN_Finalize(wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf, __UNIT_TYPE out_buf_count)
+static void FinalizeDecimalNumberSequenceOutputState(wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
 {
     wchar_t* in_ptr = in_buf + in_buf_count - 1;
     wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
     __UNIT_TYPE count = in_buf_count;
     while (count > 0)
     {
@@ -103244,7 +103271,143 @@ static void ToStringDN_Finalize(wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar
     *out_ptr = L'\0';
 }
 
-static PMC_STATUS_CODE ToStringDN(NUMBER_HEADER* x, wchar_t* buffer, size_t buffer_size, char format, _UINT32_T width, PMC_NUMBER_FORMAT_INFO* format_option)
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatC(unsigned int precision, wchar_t* decimal_point, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+    __UNIT_TYPE count = in_buf_count;
+    while (count > 0)
+    {
+        *out_ptr++ = *in_ptr--;
+        --count;
+    }
+    if (precision > 0)
+    {
+        lstrcpyW(out_ptr, decimal_point);
+        out_ptr += lstrlenW(decimal_point);
+        _FILL_MEMORY_16(out_ptr, L'0', precision);
+        out_ptr += precision;
+    }
+    *out_ptr = L'\0';
+}
+
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatD(unsigned int precision, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+
+    __UNIT_TYPE count = in_buf_count < precision ? precision - in_buf_count : 0;
+    _FILL_MEMORY_16(out_ptr, L'0', count);
+    out_ptr += count;
+
+    count = in_buf_count;
+    while (count > 0)
+    {
+        *out_ptr++ = *in_ptr--;
+        --count;
+    }
+    *out_ptr = L'\0';
+}
+
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatE(unsigned int precision, wchar_t* decimal_point, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+    __UNIT_TYPE count = in_buf_count > precision + 1 ? precision + 1 : in_buf_count;
+
+    *out_ptr++ = *in_ptr--;
+    --count;
+    if (precision > 0)
+    {
+        lstrcpyW(out_ptr, decimal_point);
+        out_ptr += lstrlenW(decimal_point);
+
+        while (count > 0)
+        {
+            *out_ptr++ = *in_ptr--;
+            --count;
+            --precision;
+        }
+
+        _FILL_MEMORY_16(out_ptr, L'0', precision);
+        out_ptr += precision;
+    }
+    *out_ptr++ = L'\0';
+}
+
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatF(unsigned int precision, wchar_t* decimal_point, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+    __UNIT_TYPE count = in_buf_count;
+    while (count > 0)
+    {
+        *out_ptr++ = *in_ptr--;
+        --count;
+    }
+    if (precision > 0)
+    {
+        lstrcpyW(out_ptr, decimal_point);
+        out_ptr += lstrlenW(decimal_point);
+        _FILL_MEMORY_16(out_ptr, L'0', precision);
+        out_ptr += precision;
+    }
+    *out_ptr = L'\0';
+}
+
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatN(unsigned int precision, wchar_t* decimal_point, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+    __UNIT_TYPE count = in_buf_count;
+    while (count > 0)
+    {
+        *out_ptr++ = *in_ptr--;
+        --count;
+    }
+    if (precision > 0)
+    {
+        lstrcpyW(out_ptr, decimal_point);
+        out_ptr += lstrlenW(decimal_point);
+        _FILL_MEMORY_16(out_ptr, L'0', precision);
+        out_ptr += precision;
+    }
+    *out_ptr = L'\0';
+}
+
+static void FinalizeDecimalNumberSequenceOutputStateOfFormatP(unsigned int precision, wchar_t* decimal_point, wchar_t* in_buf, __UNIT_TYPE in_buf_count, wchar_t* out_buf)
+{
+    wchar_t* in_ptr = in_buf + in_buf_count - 1;
+    wchar_t* out_ptr = out_buf;
+    while (*out_ptr != L'\0')
+        ++out_ptr;
+    __UNIT_TYPE count = in_buf_count;
+    while (count > 0)
+    {
+        *out_ptr++ = *in_ptr--;
+        --count;
+    }
+    if (precision > 0)
+    {
+        lstrcpyW(out_ptr, decimal_point);
+        out_ptr += lstrlenW(decimal_point);
+        _FILL_MEMORY_16(out_ptr, L'0', precision);
+        out_ptr += precision;
+    }
+    *out_ptr = L'\0';
+}
+
+static PMC_STATUS_CODE AppendDecimalNumberSequence(NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer)
 {
     __UNIT_TYPE_DIV base_value;
     int word_digit_count;
@@ -103259,56 +103422,89 @@ static PMC_STATUS_CODE ToStringDN(NUMBER_HEADER* x, wchar_t* buffer, size_t buff
         word_digit_count = 19;
     }
     else
-        return ((-6));
+        return ((-7));
 
-    if (x->IS_ZERO)
+    if (x_abs->IS_ZERO)
     {
 
-        if (format == 'N')
+
+        wchar_t* str_p = buffer + lstrlenW(buffer);
+        switch (format_type)
         {
+        case L'C':
 
-
-
-            buffer[0] = '0';
-            if (width == 0)
-                buffer[1] = L'\0';
-            else
+            *str_p++ = L'0';
+            if (precision > 0)
             {
-                lstrcpyW(&buffer[1], format_option->Number.DecimalSeparator);
-                int decimal_separator_len = lstrlenW(format_option->Number.DecimalSeparator);
-                _FILL_MEMORY_16(buffer + 1 + decimal_separator_len, L'0', width);
-                buffer[1 + decimal_separator_len + width] = L'\0';
+                lstrcpyW(str_p, format_option->Currency.DecimalSeparator);
+                str_p += lstrlenW(format_option->Currency.DecimalSeparator);
+                _FILL_MEMORY_16(str_p, L'0', precision);
+                str_p += precision;
             }
-        }
-        else
-        {
+            *str_p++ = L'\0';
+            break;
 
+        case L'P':
 
+            *str_p++ = L'0';
+            if (precision > 0)
+            {
+                lstrcpyW(str_p, format_option->Percent.DecimalSeparator);
+                str_p += lstrlenW(format_option->Percent.DecimalSeparator);
+                _FILL_MEMORY_16(str_p, L'0', precision);
+                str_p += precision;
+            }
+            *str_p++ = L'\0';
+            break;
 
-            if (width < 1)
-                width = 1;
-            if (buffer_size < width + 1)
-                return ((-4));
-            _FILL_MEMORY_16(buffer, L'0', width);
-            buffer[width] = L'\0';
+        case L'E':
+        case L'e':
+        case L'F':
+        case L'N':
+
+            *str_p++ = L'0';
+            if (precision > 0)
+            {
+                lstrcpyW(str_p, format_option->Number.DecimalSeparator);
+                str_p += lstrlenW(format_option->Number.DecimalSeparator);
+                _FILL_MEMORY_16(str_p, L'0', precision);
+                str_p += precision;
+            }
+            *str_p++ = L'\0';
+            break;
+
+        case L'D':
+
+            _FILL_MEMORY_16(buffer, L'0', precision);
+            buffer[precision] = L'\0';
+            break;
+
+        default:
+            buffer[0] = L'0';
+            buffer[1] = L'\0';
+            break;
         }
     }
     else
     {
 
+
         PMC_STATUS_CODE result;
         __UNIT_TYPE r_buf_code;
         __UNIT_TYPE r_buf_words;
 
-        __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(x->UNIT_BIT_COUNT + (x->UNIT_BIT_COUNT >> 3) + (sizeof(__UNIT_TYPE) * 8), &r_buf_words, &r_buf_code);
+        __UNIT_TYPE r_buf_bit_count = x_abs->UNIT_BIT_COUNT + (x_abs->UNIT_BIT_COUNT >> 3) + (sizeof(__UNIT_TYPE) * 8);
+        __UNIT_TYPE_DIV* r_buf = (__UNIT_TYPE_DIV*)AllocateBlock(r_buf_bit_count, &r_buf_words, &r_buf_code);
         if (r_buf == 
-# 368 "../pmc_tostring.c" 3 4
+# 536 "../pmc_tostring.c" 3 4
                     ((void *)0)
-# 368 "../pmc_tostring.c"
+# 536 "../pmc_tostring.c"
                         )
-            return ((-5));
+            return ((-6));
         __UNIT_TYPE r_buf_count;
-        if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x->BLOCK, x->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != (0))
+
+
+        if ((result = ConvertCardinalNumber((__UNIT_TYPE_DIV*)x_abs->BLOCK, x_abs->UNIT_WORD_COUNT * sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV), x_abs->UNIT_BIT_COUNT, base_value, r_buf, &r_buf_count)) != (0))
         {
             DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
             return (result);
@@ -103319,65 +103515,68 @@ static PMC_STATUS_CODE ToStringDN(NUMBER_HEADER* x, wchar_t* buffer, size_t buff
         __UNIT_TYPE rev_str_buf_code;
         __UNIT_TYPE rev_str_buf_words;
 
-        wchar_t* rev_str_buf = (wchar_t*)AllocateBlock((
-# 382 "../pmc_tostring.c" 3
-                                                       (((
-# 382 "../pmc_tostring.c"
-                                                       r_buf_count * word_digit_count
-# 382 "../pmc_tostring.c" 3
-                                                       ) > (
-# 382 "../pmc_tostring.c"
-                                                       width
-# 382 "../pmc_tostring.c" 3
-                                                       )) ? (
-# 382 "../pmc_tostring.c"
-                                                       r_buf_count * word_digit_count
-# 382 "../pmc_tostring.c" 3
-                                                       ) : (
-# 382 "../pmc_tostring.c"
-                                                       width
-# 382 "../pmc_tostring.c" 3
-                                                       )) 
-# 382 "../pmc_tostring.c"
-                                                                                                  * 2 + width + 2) * sizeof(wchar_t) * 8, &rev_str_buf_words, &rev_str_buf_code);
+        wchar_t* rev_str_buf = (wchar_t*)AllocateBlock(r_buf_count * word_digit_count * 2 * sizeof(wchar_t) * 8, &rev_str_buf_words, &rev_str_buf_code);
         if (r_buf == 
-# 383 "../pmc_tostring.c" 3 4
+# 553 "../pmc_tostring.c" 3 4
                     ((void *)0)
-# 383 "../pmc_tostring.c"
+# 553 "../pmc_tostring.c"
                         )
         {
             DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
-            return ((-5));
+            return ((-6));
         }
         __UNIT_TYPE rev_str_buf_count;
-        PrintDecimal(r_buf, r_buf_count, rev_str_buf, &rev_str_buf_count, format, width, format_option);
+        OutputDecimalNumberSequence(r_buf, r_buf_count, rev_str_buf, &rev_str_buf_count, format_type, format_option);
         if ((result = CheckBlockLight((__UNIT_TYPE*)rev_str_buf, rev_str_buf_code)) != (0))
             return (result);
         DeallocateBlock((__UNIT_TYPE*)r_buf, r_buf_words);
-        if (rev_str_buf_count + 1 > buffer_size)
+        switch (format_type)
         {
-            DeallocateBlock((__UNIT_TYPE*)rev_str_buf, rev_str_buf_words);
-            return ((-4));
+        case L'C':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatC(precision, format_option->Currency.DecimalSeparator, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        case L'D':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatD(precision, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        case L'e':
+        case L'E':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatE(precision, format_option->Number.DecimalSeparator, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        case L'F':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatF(precision, format_option->Number.DecimalSeparator, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        case L'N':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatN(precision, format_option->Number.DecimalSeparator, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        case L'P':
+            FinalizeDecimalNumberSequenceOutputStateOfFormatC(precision, format_option->Percent.DecimalSeparator, rev_str_buf, rev_str_buf_count, buffer);
+            break;
+        default:
+            FinalizeDecimalNumberSequenceOutputState(rev_str_buf, rev_str_buf_count, buffer);
+            break;
         }
-        ToStringDN_Finalize(rev_str_buf, rev_str_buf_count, buffer, buffer_size);
+        __UNIT_TYPE leading_zero_count = format_type == L'D' && rev_str_buf_count < precision ? precision - rev_str_buf_count : 0;
+
         DeallocateBlock((__UNIT_TYPE*)rev_str_buf, rev_str_buf_words);
     }
     return ((0));
 }
+#pragma endregion
 
-__inline static wchar_t* ToStringX_1WORD(__UNIT_TYPE x, int skip_digit_len, wchar_t* digit_table, wchar_t* ptr)
+#pragma region _16進整数文字列の作成
+__inline static wchar_t* OutputHexNumberSequenceOneWord(__UNIT_TYPE x, unsigned int skip_digit_len, wchar_t* digit_table, wchar_t* ptr)
 {
     if (sizeof(__UNIT_TYPE) > sizeof(_UINT64_T))
     {
 
 
         return (
-# 410 "../pmc_tostring.c" 3 4
+# 603 "../pmc_tostring.c" 3 4
                ((void *)0)
-# 410 "../pmc_tostring.c"
+# 603 "../pmc_tostring.c"
                    );
     }
-    int count = (sizeof(__UNIT_TYPE) * 8) / 4;
+    unsigned int count = (sizeof(__UNIT_TYPE) * 8) / 4;
     if (skip_digit_len > 0)
     {
         x = _ROTATE_L_UNIT(x, 4 * skip_digit_len);
@@ -103436,31 +103635,880 @@ __inline static wchar_t* ToStringX_1WORD(__UNIT_TYPE x, int skip_digit_len, wcha
     }
     return (ptr);
 }
+#pragma endregion
 
-static PMC_STATUS_CODE ToStringX(NUMBER_HEADER* x, wchar_t* buffer, size_t buffer_size, _UINT32_T width, PMC_NUMBER_FORMAT_INFO* format_option, int using_upper_letter)
+__inline static BOOL __IS_ALPHA(wchar_t c)
 {
-    if (x->IS_ZERO)
+    if (c >= L'A' && c <= L'Z')
+        return (
+# 669 "../pmc_tostring.c" 3
+               1
+# 669 "../pmc_tostring.c"
+                   );
+    if (c >= L'a' && c <= L'z')
+        return (
+# 671 "../pmc_tostring.c" 3
+               1
+# 671 "../pmc_tostring.c"
+                   );
+    return (
+# 672 "../pmc_tostring.c" 3
+           0
+# 672 "../pmc_tostring.c"
+                );
+}
+
+__inline static BOOL __IS_DIGIT(wchar_t c)
+{
+    if (c >= L'0' && c <= L'9')
+        return (
+# 678 "../pmc_tostring.c" 3
+               1
+# 678 "../pmc_tostring.c"
+                   );
+    return (
+# 679 "../pmc_tostring.c" 3
+           0
+# 679 "../pmc_tostring.c"
+                );
+}
+
+static BOOL ParseStandardFormat(wchar_t* format, wchar_t* format_type, unsigned int* precision)
+{
+    if (format == 
+# 684 "../pmc_tostring.c" 3 4
+                 ((void *)0)
+# 684 "../pmc_tostring.c"
+                     )
+    {
+        *format_type = L'D';
+        *precision = (unsigned int)-1;
+        return (
+# 688 "../pmc_tostring.c" 3
+               1
+# 688 "../pmc_tostring.c"
+                   );
+    }
+    else if (format[0] == L'\0')
+    {
+        *format_type = L'D';
+        *precision = (unsigned int)-1;
+        return (
+# 694 "../pmc_tostring.c" 3
+               1
+# 694 "../pmc_tostring.c"
+                   );
+    }
+    else if (__IS_ALPHA(format[0]) && format[1] == L'\0')
+    {
+        *format_type = format[0];
+        *precision = -1;
+        return (
+# 700 "../pmc_tostring.c" 3
+               1
+# 700 "../pmc_tostring.c"
+                   );
+    }
+    else if (__IS_ALPHA(format[0]) && __IS_DIGIT(format[1]) && format[2] == L'\0')
+    {
+        *format_type = format[0];
+        *precision = format[1] - L'0';
+        return (
+# 706 "../pmc_tostring.c" 3
+               1
+# 706 "../pmc_tostring.c"
+                   );
+    }
+    else if (__IS_ALPHA(format[0]) && __IS_DIGIT(format[1]) && __IS_DIGIT(format[2]) && format[3] == L'\0')
+    {
+        *format_type = format[0];
+        *precision = (format[1] - L'0') * 10 + (format[2] - L'0');
+        return (
+# 712 "../pmc_tostring.c" 3
+               1
+# 712 "../pmc_tostring.c"
+                   );
+    }
+    else
+        return (
+# 715 "../pmc_tostring.c" 3
+               0
+# 715 "../pmc_tostring.c"
+                    );
+}
+
+static PMC_STATUS_CODE ToStringCustom(char x_sign, NUMBER_HEADER* x_abs, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+# 740 "../pmc_tostring.c"
+    return ((-7));
+}
+
+static PMC_STATUS_CODE ToStringC(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+    PMC_STATUS_CODE result;
+    if (precision == (unsigned int)-1)
+        precision = format_option->Currency.DecimalDigits;
+    buffer[0] = L'\0';
+    if (x_sign >= 0)
+    {
+        switch (format_option->Currency.PositivePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 1:
+
+            break;
+        case 2:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 3:
+
+            break;
+        }
+    }
+    else
+    {
+        switch (format_option->Currency.NegativePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, L"(");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 2:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 3:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 4:
+            lstrcatW(buffer, L"(");
+            break;
+        case 5:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 6:
+
+            break;
+        case 7:
+
+            break;
+        case 8:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 9:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 10:
+
+            break;
+        case 11:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 12:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 13:
+
+            break;
+        case 14:
+            lstrcatW(buffer, L"(");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 15:
+            lstrcatW(buffer, L"(");
+            break;
+        }
+    }
+    if ((result = AppendDecimalNumberSequence(x_abs, format_type, precision, format_option, buffer)) != (0))
+        return (result);
+    if (x_sign >= 0)
+    {
+        switch (format_option->Currency.PositivePattern)
+        {
+        default:
+        case 0:
+
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 2:
+
+            break;
+        case 3:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        }
+    }
+    else
+    {
+        switch (format_option->Currency.NegativePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, L")");
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 4:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L")");
+            break;
+        case 5:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 6:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 7:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 8:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 9:
+
+            break;
+        case 10:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 11:
+
+            break;
+        case 12:
+
+            break;
+        case 13:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 14:
+            lstrcatW(buffer, L")");
+            break;
+        case 15:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            lstrcatW(buffer, L")");
+            break;
+        }
+    }
+    return ((0));
+}
+
+static PMC_STATUS_CODE ToStringD(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+    PMC_STATUS_CODE result;
+    if (precision == (unsigned int)-1 || precision < 1)
+        precision = 1;
+    buffer[0] = L'\0';
+    if (x_sign < 0)
+        lstrcatW(buffer, format_option->NegativeSign);
+    if ((result = AppendDecimalNumberSequence(x_abs, format_type, precision, format_option, buffer)) != (0))
+        return (result);
+    return ((0));
+}
+
+
+static _UINT32_T GetDigitCount(__UNIT_TYPE* src_buf, __UNIT_TYPE src_count, __UNIT_TYPE* work1_buf, __UNIT_TYPE* work2_buf)
+{
+    _COPY_MEMORY_UNIT(work1_buf, src_buf, src_count);
+    __UNIT_TYPE* u_buf = work1_buf;
+    __UNIT_TYPE* q_buf = work2_buf;
+    __UNIT_TYPE u_count = src_count;
+    _UINT32_T x_abs_total_digits = 0;
+    while (1)
+    {
+        while (u_count > 0 && u_buf[u_count - 1] == 0)
+            --u_count;
+        if (u_count <= 0)
+            break;
+        __UNIT_TYPE_DIV temp_r;
+        _ZERO_MEMORY_UNIT(q_buf, src_count);
+        DivRem_X_1W((__UNIT_TYPE_DIV*)u_buf, u_count*(sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV)), 10, (__UNIT_TYPE_DIV*)q_buf, &temp_r);
+        __UNIT_TYPE* t = u_buf;
+        u_buf = q_buf;
+        q_buf = t;
+        ++x_abs_total_digits;
+    }
+    return (x_abs_total_digits);
+}
+
+
+static __UNIT_TYPE DivitePowerOf10(__UNIT_TYPE* src_buf, __UNIT_TYPE src_count, __UNIT_TYPE div_count, __UNIT_TYPE* work1_buf, __UNIT_TYPE* work2_buf, __UNIT_TYPE** q)
+{
+    _COPY_MEMORY_UNIT(work1_buf, src_buf, src_count);
+    __UNIT_TYPE* u_buf = work1_buf;
+    __UNIT_TYPE* q_buf = work2_buf;
+    __UNIT_TYPE u_count = src_count;
+    __UNIT_TYPE_DIV r = 0;
+    for (__UNIT_TYPE count = div_count ; count > 0 ; --count)
+    {
+        while (u_count > 0 && u_buf[u_count - 1] == 0)
+            --u_count;
+        _ZERO_MEMORY_UNIT(q_buf, src_count);
+        DivRem_X_1W((__UNIT_TYPE_DIV*)u_buf, u_count*(sizeof(__UNIT_TYPE) / sizeof(__UNIT_TYPE_DIV)), 10, (__UNIT_TYPE_DIV*)q_buf, &r);
+        __UNIT_TYPE* t = u_buf;
+        u_buf = q_buf;
+        q_buf = t;
+    }
+    *q = u_buf;
+    return (r);
+}
+
+static PMC_STATUS_CODE ToStringE(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+
+    if (precision == (unsigned int)-1)
+        precision = 6;
+
+    buffer[0] = L'\0';
+    if (x_sign < 0)
+        lstrcatW(buffer, format_option->NegativeSign);
+
+    PMC_STATUS_CODE result;
+
+
+
+
+    _UINT32_T x_abs_total_digits;
+    __UNIT_TYPE temp1_buf_code;
+    __UNIT_TYPE temp1_buf_words;
+    __UNIT_TYPE* temp1_buf;
+    __UNIT_TYPE temp2_buf_code;
+    __UNIT_TYPE temp2_buf_words;
+    __UNIT_TYPE* temp2_buf;
+    if (x_abs->IS_ZERO)
+    {
+        x_abs_total_digits = 1;
+        temp1_buf = 
+# 1012 "../pmc_tostring.c" 3 4
+                   ((void *)0)
+# 1012 "../pmc_tostring.c"
+                       ;
+        temp2_buf = 
+# 1013 "../pmc_tostring.c" 3 4
+                   ((void *)0)
+# 1013 "../pmc_tostring.c"
+                       ;
+    }
+    else
+    {
+        __UNIT_TYPE temp_buf_bit_count = x_abs->UNIT_BIT_COUNT;
+        temp1_buf_code;
+        temp1_buf_words;
+        temp1_buf = AllocateBlock(temp_buf_bit_count, &temp1_buf_words, &temp1_buf_code);
+        if (temp1_buf == 
+# 1021 "../pmc_tostring.c" 3 4
+                        ((void *)0)
+# 1021 "../pmc_tostring.c"
+                            )
+            return ((-6));
+        temp2_buf_code;
+        temp2_buf_words;
+        temp2_buf = AllocateBlock(temp_buf_bit_count, &temp2_buf_words, &temp2_buf_code);
+        if (temp2_buf == 
+# 1026 "../pmc_tostring.c" 3 4
+                        ((void *)0)
+# 1026 "../pmc_tostring.c"
+                            )
+        {
+            DeallocateBlock(temp1_buf, temp1_buf_words);
+            return ((-6));
+        }
+
+        x_abs_total_digits = GetDigitCount(x_abs->BLOCK, temp1_buf_words, temp1_buf, temp2_buf);
+        if ((result = CheckBlockLight(temp1_buf, temp1_buf_code)) != (0))
+            return (result);
+        if ((result = CheckBlockLight(temp2_buf, temp2_buf_code)) != (0))
+            return (result);
+    }
+
+    if (!x_abs->IS_ZERO && x_abs_total_digits > precision + 1)
+    {
+
+        __UNIT_TYPE* q_buf;
+        __UNIT_TYPE r = DivitePowerOf10(x_abs->BLOCK, temp1_buf_words, x_abs_total_digits - precision - 1, temp1_buf, temp2_buf, &q_buf);
+        if ((result = CheckBlockLight(temp1_buf, temp1_buf_code)) != (0))
+            return (result);
+        if ((result = CheckBlockLight(temp2_buf, temp2_buf_code)) != (0))
+            return (result);
+        if (r >= 5)
+        {
+
+            __UNIT_TYPE* q_ptr = q_buf;
+            __UNIT_TYPE q_count = temp1_buf_words;
+            char carry = 1;
+            while (q_count > 0)
+            {
+                carry = _ADD_UNIT(carry, *q_ptr, 0, q_ptr);
+                ++q_ptr;
+                --q_count;
+            }
+        }
+        NUMBER_HEADER* x_abs2;
+        __UNIT_TYPE x_abs2_check_code;
+        if ((result = AllocateNumber(&x_abs2, x_abs->UNIT_BIT_COUNT, &x_abs2_check_code)) != (0))
+        {
+            DeallocateBlock(temp1_buf, temp1_buf_words);
+            DeallocateBlock(temp2_buf, temp2_buf_words);
+            return (result);
+        }
+        _COPY_MEMORY_UNIT(x_abs2->BLOCK, q_buf, temp1_buf_words);
+        if ((result = CheckBlockLight(x_abs2->BLOCK, x_abs2_check_code)) != (0))
+            return (result);
+        CommitNumber(x_abs2);
+
+
+        x_abs_total_digits = GetDigitCount(x_abs2->BLOCK, temp1_buf_words, temp1_buf, temp2_buf) + x_abs_total_digits - precision - 1;
+
+        if ((result = AppendDecimalNumberSequence(x_abs2, format_type, precision, format_option, buffer)) != (0))
+        {
+            DeallocateNumber(x_abs2);
+            return (result);
+        }
+        DeallocateNumber(x_abs2);
+    }
+    else
+    {
+        if ((result = AppendDecimalNumberSequence(x_abs, format_type, precision, format_option, buffer)) != (0))
+            return (result);
+    }
+    if (temp1_buf != 
+# 1089 "../pmc_tostring.c" 3 4
+                    ((void *)0)
+# 1089 "../pmc_tostring.c"
+                        )
+        DeallocateBlock(temp1_buf, temp1_buf_words);
+    if (temp2_buf != 
+# 1091 "../pmc_tostring.c" 3 4
+                    ((void *)0)
+# 1091 "../pmc_tostring.c"
+                        )
+        DeallocateBlock(temp2_buf, temp2_buf_words);
+
+
+    wchar_t* str_p = buffer+lstrlenW(buffer);
+    *str_p++ = format_type;
+    lstrcpyW(str_p, format_option->PositiveSign);
+    str_p += lstrlenW(format_option->PositiveSign);
+
+    unsigned int exp_0 = x_abs_total_digits - 1;
+    unsigned int exp_1 = exp_0 / 10;
+    exp_0 = exp_0 % 10;
+    unsigned int exp_2 = exp_1 / 10;
+    exp_1 = exp_1 % 10;
+
+    *str_p++ = L'0' + exp_2;
+    *str_p++ = L'0' + exp_1;
+    *str_p++ = L'0' + exp_0;
+    *str_p++ = L'\0';
+
+    return ((0));
+}
+
+static PMC_STATUS_CODE ToStringF(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+    PMC_STATUS_CODE result;
+    if (precision == (unsigned int)-1)
+        precision = format_option->Number.DecimalDigits;
+    buffer[0] = L'\0';
+    if (x_sign < 0)
+        lstrcatW(buffer, format_option->NegativeSign);
+    if ((result = AppendDecimalNumberSequence(x_abs, format_type, precision, format_option, buffer)) != (0))
+        return (result);
+    return ((0));
+}
+
+static PMC_STATUS_CODE ToStringN(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+    PMC_STATUS_CODE result;
+    if (precision == (unsigned int)-1)
+        precision = format_option->Number.DecimalDigits;
+    buffer[0] = L'\0';
+    if (x_sign >= 0)
+    {
+
+    }
+    else
+    {
+        switch (format_option->Number.NegativePattern)
+        {
+        case 0:
+            lstrcatW(buffer, L"(");
+            break;
+        default:
+        case 1:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 2:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, L" ");
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+        }
+    }
+    if ((result = AppendDecimalNumberSequence(x_abs, format_type, precision, format_option, buffer)) != (0))
+        return (result);
+    if (x_sign >= 0)
+    {
+        switch (format_option->Currency.PositivePattern)
+        {
+        default:
+        case 0:
+
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        case 2:
+
+            break;
+        case 3:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->CurrencySymbol);
+            break;
+        }
+    }
+    else
+    {
+        switch (format_option->Currency.NegativePattern)
+        {
+        case 0:
+            lstrcatW(buffer, L")");
+            break;
+        default:
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 4:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        }
+    }
+    return ((0));
+}
+
+
+static PMC_STATUS_CODE ToStringP(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+
+    PMC_STATUS_CODE result;
+    if (precision == (unsigned int)-1)
+        precision = format_option->Percent.DecimalDigits;
+    buffer[0] = L'\0';
+    if (x_sign >= 0)
+    {
+        switch (format_option->Percent.PositivePattern)
+        {
+        default:
+        case 0:
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 3:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        }
+    }
+    else
+    {
+        switch (format_option->Percent.NegativePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 2:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 3:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 4:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 5:
+
+            break;
+        case 6:
+
+            break;
+        case 7:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 8:
+
+            break;
+        case 9:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, L" ");
+            break;
+        case 10:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 11:
+
+            break;
+        }
+    }
+    NUMBER_HEADER* x_abs2;
+    if ((result = PMC_Multiply_X_I_Imp(x_abs, 100, &x_abs2)) != (0))
+        return (result);
+    if ((result = AppendDecimalNumberSequence(x_abs2, format_type, precision, format_option, buffer)) != (0))
+    {
+        DeallocateNumber(x_abs2);
+        return (result);
+    }
+    DeallocateNumber(x_abs2);
+    if (x_sign >= 0)
+    {
+        switch (format_option->Percent.PositivePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        }
+    }
+    else
+    {
+        switch (format_option->Percent.NegativePattern)
+        {
+        default:
+        case 0:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 1:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 5:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        case 6:
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 7:
+
+            break;
+        case 8:
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->PercentSymbol);
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 9:
+            lstrcatW(buffer, format_option->NegativeSign);
+            break;
+        case 10:
+
+            break;
+        case 11:
+            lstrcatW(buffer, format_option->NegativeSign);
+            lstrcatW(buffer, L" ");
+            lstrcatW(buffer, format_option->PercentSymbol);
+            break;
+        }
+    }
+    return ((0));
+}
+
+static PMC_STATUS_CODE ToStringX(char x_sign, NUMBER_HEADER* x_abs, wchar_t format_type, unsigned int precision, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+    if (precision == (unsigned int)-1 || precision < 1)
+        precision = 1;
+    if (x_abs->IS_ZERO)
     {
 
 
 
-        if (width < 1)
-            width = 1;
-        if (buffer_size < width + 1)
-            return ((-4));
-        _FILL_MEMORY_16(buffer, L'0', width);
-        buffer[width] = L'\0';
+        if (buffer_size < precision + 1)
+            return ((-5));
+        _FILL_MEMORY_16(buffer, L'0', precision);
+        buffer[precision] = L'\0';
     }
     else
     {
 
-        __UNIT_TYPE output_len = _DIVIDE_CEILING_UNIT(x->UNIT_BIT_COUNT, 4);
+
+        PMC_STATUS_CODE result;
+        __UNIT_TYPE temp_buf_code;
+        __UNIT_TYPE temp_buf_words;
+        __UNIT_TYPE temp_buf_bit_count = x_abs->UNIT_BIT_COUNT + 4;
+        __UNIT_TYPE* temp_buf = AllocateBlock(temp_buf_bit_count, &temp_buf_words, &temp_buf_code);
+        if (temp_buf == 
+# 1393 "../pmc_tostring.c" 3 4
+                       ((void *)0)
+# 1393 "../pmc_tostring.c"
+                           )
+            return ((-6));
+        __UNIT_TYPE output_len;
+        wchar_t filling_char;
+        if (x_sign >= 0)
+        {
+
+
+            _COPY_MEMORY_UNIT(temp_buf, x_abs->BLOCK, x_abs->UNIT_WORD_COUNT);
+            output_len = temp_buf_words * ((sizeof(__UNIT_TYPE) * 8) / 4);
+            unsigned char* ptr = (unsigned char*)&temp_buf[temp_buf_words] - 1;
+            while (ptr >= (unsigned char*)temp_buf)
+            {
+                if ((ptr[0] >> 4) != 0 || (ptr[0] & 0xf) >= 0x8)
+                    break;
+
+
+                --output_len;
+
+                if (&ptr[-1] < (unsigned char*)temp_buf)
+                    break;
+
+                if (ptr[0] != 0 || (ptr[-1] >> 4) >= 0x8)
+                    break;
+
+
+                --output_len;
+
+                --ptr;
+            }
+            filling_char = L'0';
+        }
+        else
+        {
+
+
+            __UNIT_TYPE *in_ptr = x_abs->BLOCK;
+            __UNIT_TYPE *out_ptr = temp_buf;
+            __UNIT_TYPE count = temp_buf_words;
+            char carry = 1;
+            while (count > 0)
+            {
+                carry = _ADD_UNIT(carry, ~*in_ptr, 0, out_ptr);
+                ++in_ptr;
+                ++out_ptr;
+                --count;
+            }
+            output_len = temp_buf_words * ((sizeof(__UNIT_TYPE) * 8) / 4);
+            unsigned char* ptr = (unsigned char*)&temp_buf[temp_buf_words] - 1;
+            while (ptr >= (unsigned char*)temp_buf)
+            {
+                if ((ptr[0] >> 4) != 0xf || (ptr[0] & 0xf) < 0x8)
+                    break;
+
+
+                *ptr &= 0x0f;
+                --output_len;
+
+                if (&ptr[-1] < (unsigned char*)temp_buf)
+                    break;
+
+                if (ptr[0] == 0xf || (ptr[-1] >> 4) < 0x8)
+                    break;
+
+
+                *ptr = 0;
+                --output_len;
+
+                --ptr;
+            }
+            filling_char = format_type == L'X' ? L'F' : L'f';
+        }
+        if ((result = CheckBlockLight(temp_buf, temp_buf_code)) != (0))
+            return (result);
+
+
+
+
+
+        unsigned int leading_zero_digit_count = (unsigned int)(_DIVIDE_CEILING_UNIT(output_len, (sizeof(__UNIT_TYPE) * 8) / 4) * ((sizeof(__UNIT_TYPE) * 8) / 4) - output_len);
+
+
         __UNIT_TYPE filling_digit_len;
         __UNIT_TYPE total_length;
-        if (output_len < width)
+        if (output_len < precision)
         {
-            filling_digit_len = width - output_len;
-            total_length = width;
+            filling_digit_len = precision - output_len;
+            total_length = precision;
         }
         else
         {
@@ -103468,67 +104516,97 @@ static PMC_STATUS_CODE ToStringX(NUMBER_HEADER* x, wchar_t* buffer, size_t buffe
             total_length = output_len;
         }
         if (buffer_size < total_length + 1)
-            return ((-4));
-        __UNIT_TYPE filling_digit_count = filling_digit_len;
-        if (filling_digit_len > 0)
-            _FILL_MEMORY_16(buffer, L'0', filling_digit_len);
-        __UNIT_TYPE* s_ptr = x->BLOCK + x->UNIT_WORD_COUNT - 1;
-        wchar_t* d_ptr = buffer + filling_digit_len;
-        wchar_t* digit_table = using_upper_letter ? hexadecimal_upper_digits : hexadecimal_lower_digits;
-        __UNIT_TYPE w_count = x->UNIT_WORD_COUNT;
-        d_ptr = ToStringX_1WORD(*s_ptr, (int)(x->UNIT_WORD_COUNT * ((sizeof(__UNIT_TYPE) * 8) / 4) - output_len), digit_table, d_ptr);
-        --s_ptr;
-        --w_count;
-        while (w_count > 0)
         {
-            d_ptr = ToStringX_1WORD(*s_ptr, 0, digit_table, d_ptr);
+            DeallocateBlock(temp_buf, temp_buf_words);
+            return ((-5));
+        }
+        if (filling_digit_len > 0)
+            _FILL_MEMORY_16(buffer, filling_char, filling_digit_len);
+
+        __UNIT_TYPE* s_ptr = &temp_buf[_DIVIDE_CEILING_UNIT(output_len, (sizeof(__UNIT_TYPE) * 8) / 4) - 1];
+        wchar_t* d_ptr = buffer + filling_digit_len;
+        wchar_t* digit_table = format_type == L'X' ? hexadecimal_upper_digits : hexadecimal_lower_digits;
+        d_ptr = OutputHexNumberSequenceOneWord(*s_ptr, leading_zero_digit_count, digit_table, d_ptr);
+        --s_ptr;
+        while (s_ptr >= temp_buf)
+        {
+            d_ptr = OutputHexNumberSequenceOneWord(*s_ptr, 0, digit_table, d_ptr);
             --s_ptr;
-            --w_count;
         }
         *d_ptr = '\0';
+
+        DeallocateBlock(temp_buf, temp_buf_words);
     }
     return ((0));
 }
 
-PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option)
+static PMC_STATUS_CODE ToString_Imp(char x_sign, NUMBER_HEADER* x_abs, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
+{
+    wchar_t format_type;
+    unsigned int precision;
+    if (!ParseStandardFormat(format, &format_type, &precision))
+        return (ToStringCustom(x_sign, x_abs, format, format_option, buffer, buffer_size));
+    switch (format_type)
+    {
+    case L'c':
+    case L'C':
+        return (ToStringC(x_sign, x_abs, L'C', precision, format_option, buffer, buffer_size));
+    case L'd':
+    case L'D':
+        return (ToStringD(x_sign, x_abs, L'D', precision, format_option, buffer, buffer_size));
+    case L'e':
+    case L'E':
+        return (ToStringE(x_sign, x_abs, format_type, precision, format_option, buffer, buffer_size));
+    case L'f':
+    case L'F':
+        return (ToStringF(x_sign, x_abs, L'F', precision, format_option, buffer, buffer_size));
+    case L'g':
+    case L'G':
+        return (ToStringD(x_sign, x_abs, L'D', precision, format_option, buffer, buffer_size));
+    case L'n':
+    case L'N':
+        return (ToStringN(x_sign, x_abs, L'N', precision, format_option, buffer, buffer_size));
+    case L'p':
+    case L'P':
+        return (ToStringP(x_sign, x_abs, L'P', precision, format_option, buffer, buffer_size));
+    case L'r':
+    case L'R':
+        return (ToStringD(x_sign, x_abs, L'D', 0, format_option, buffer, buffer_size));
+    case L'x':
+    case L'X':
+        return (ToStringX(x_sign, x_abs, format_type, precision, format_option, buffer, buffer_size));
+    default:
+        return ((-4));
+    }
+}
+
+PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
 {
     if (x == 
-# 527 "../pmc_tostring.c" 3 4
+# 1554 "../pmc_tostring.c" 3 4
             ((void *)0)
-# 527 "../pmc_tostring.c"
+# 1554 "../pmc_tostring.c"
                 )
         return ((-1));
     if (buffer == 
-# 529 "../pmc_tostring.c" 3 4
+# 1556 "../pmc_tostring.c" 3 4
                  ((void *)0)
-# 529 "../pmc_tostring.c"
+# 1556 "../pmc_tostring.c"
                      )
         return ((-1));
     if (format_option == 
-# 531 "../pmc_tostring.c" 3 4
+# 1558 "../pmc_tostring.c" 3 4
                         ((void *)0)
-# 531 "../pmc_tostring.c"
+# 1558 "../pmc_tostring.c"
                             )
         format_option = &default_number_format_option;
     NUMBER_HEADER* nx = (NUMBER_HEADER*)x;
     PMC_STATUS_CODE result;
     if ((result = CheckNumber(nx)) != (0))
         return (result);
-    switch (format)
-    {
-    case 'n':
-    case 'N':
-        return (ToStringDN(nx, buffer, buffer_size, 'N', width >= 0 ? width : format_option->Number.DecimalDigits, format_option));
-    case 'x':
-        return (ToStringX(nx, buffer, buffer_size, width >= 0 ? width : 0, format_option, 0));
-    case 'X':
-        return (ToStringX(nx, buffer, buffer_size, width >= 0 ? width : 0, format_option, 1));
-    case 'd':
-    case 'D':
-        return (ToStringDN(nx, buffer, buffer_size, 'D', width >= 0 ? width : 0, format_option));
-    default:
-        return ((-1));
-    }
+    if ((result = ToString_Imp(nx->IS_ZERO ? 0 : 1, nx, format, format_option, buffer, buffer_size)) != (0))
+        return (result);
+    return ((0));
 }
 
 void InitializeNumberFormatoInfo(PMC_NUMBER_FORMAT_INFO* info)
@@ -103540,15 +104618,12 @@ void InitializeNumberFormatoInfo(PMC_NUMBER_FORMAT_INFO* info)
     info->Currency.NegativePattern = 0;
     info->Currency.PositivePattern = 0;
 
-    lstrcpyW(info->CurrencySymbol, L"\u00a4");
-    lstrcpyW(info->NativeDigits, L"0123456789");
-    lstrcpyW(info->NegativeSign, L"-");
-
     info->Number.DecimalDigits = 2;
     lstrcpyW(info->Number.DecimalSeparator, L".");
     lstrcpyW(info->Number.GroupSeparator, L",");
     lstrcpyW(info->Number.GroupSizes, L"3");
     info->Number.NegativePattern = 1;
+    info->Number.PositivePattern = -1;
 
     info->Percent.DecimalDigits = 2;
     lstrcpyW(info->Percent.DecimalSeparator, L".");
@@ -103557,6 +104632,8 @@ void InitializeNumberFormatoInfo(PMC_NUMBER_FORMAT_INFO* info)
     info->Percent.NegativePattern = 0;
     info->Percent.PositivePattern = 0;
 
+    lstrcpyW(info->CurrencySymbol, L"\u00a4");
+    lstrcpyW(info->NegativeSign, L"-");
     lstrcpyW(info->PercentSymbol, L"%");
     lstrcpyW(info->PerMilleSymbol, L"\u2030");
     lstrcpyW(info->PositiveSign, L"+");

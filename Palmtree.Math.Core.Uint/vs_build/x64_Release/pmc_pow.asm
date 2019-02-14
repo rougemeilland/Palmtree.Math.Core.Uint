@@ -392,7 +392,7 @@ $LN46@PMC_Pow_X_:
 
 ; 173  : }
 
-	mov	eax, -5
+	mov	eax, -6
 	add	rsp, 120				; 00000078H
 	pop	r14
 	pop	r13

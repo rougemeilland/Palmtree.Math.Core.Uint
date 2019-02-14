@@ -42,17 +42,18 @@ extern "C" {
 #define PMC_EXPORT
 #endif
 
-#define PMC_STATUS_PARSING_ERROR (1)
-#define PMC_STATUS_OK (0)
-#define PMC_STATUS_ARGUMENT_ERROR (-1)
-#define PMC_STATUS_OVERFLOW (-2)
-#define PMC_STATUS_DIVISION_BY_ZERO (-3)
-#define PMC_STATUS_INSUFFICIENT_BUFFER (-4)
-#define PMC_STATUS_NOT_ENOUGH_MEMORY (-5)
-#define PMC_STATUS_NOT_SUPPORTED (-6)
-#define PMC_STATUS_INTERNAL_ERROR (-256)
-#define PMC_STATUS_BAD_BUFFER (-257)
-#define PMC_STATUS_INTERNAL_BORROW (-258)
+#define PMC_STATUS_PARSING_ERROR        (1)
+#define PMC_STATUS_OK                   (0)
+#define PMC_STATUS_ARGUMENT_ERROR       (-1)
+#define PMC_STATUS_OVERFLOW             (-2)
+#define PMC_STATUS_DIVISION_BY_ZERO     (-3)
+#define PMC_STATUS_FORMAT_ERROR         (-4)
+#define PMC_STATUS_INSUFFICIENT_BUFFER  (-5)
+#define PMC_STATUS_NOT_ENOUGH_MEMORY    (-6)
+#define PMC_STATUS_NOT_SUPPORTED        (-7)
+#define PMC_STATUS_INTERNAL_ERROR       (-256)
+#define PMC_STATUS_BAD_BUFFER           (-257)
+#define PMC_STATUS_INTERNAL_BORROW      (-258)
 
 #define PMC_CONSTANT_ZERO       (1)
 #define PMC_CONSTANT_ONE        (2)
@@ -112,42 +113,22 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;   // 32bit / 16bit => 16bitの除算の回数
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
-    int         DecimalDigits;          // 書式 C の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
-    wchar_t     DecimalSeparator[3];    // 書式 C の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
-    wchar_t     GroupSeparator[3];      // 書式 C の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
-    wchar_t     GroupSizes[11];         // 書式 C の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
-    int         NegativePattern;        // 書式 C で負数を表示する場合のパターンを示す番号。既定値は 0。
-    int         PositivePattern;        // 書式 C で正数を表示する場合のパターンを示す番号。既定値は 0。
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int         DecimalDigits;          // 書式 N の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
-    wchar_t     GroupSeparator[3];      // 書式 N の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
-    wchar_t     DecimalSeparator[3];    // 書式 N の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
-    wchar_t     GroupSizes[11];         // 書式 N の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
-    int         NegativePattern;        // 書式 N で負数を表示する場合のパターンを示す番号。既定値は 1。
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int         DecimalDigits;          // 書式 P の場合に数値の小数点以下の既定の桁数として解釈される。既定値は 2。
-    wchar_t     GroupSeparator[3];      // 書式 P の場合に数値をグループで区切る場合の区切り文字と解釈される。既定値は ","。
-    wchar_t     DecimalSeparator[3];    // 書式 P の場合に数値の整数部と小数部との区切り文字と解釈される。既定値は "."。
-    wchar_t     GroupSizes[11];         // 書式 P の場合に数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。既定値は "3"。
-    int         NegativePattern;        // 書式 P で負数を表示する場合のパターンを示す番号。既定値は 0。
-    int         PositivePattern;        // 書式 P で正数を表示する場合のパターンを示す番号。既定値は 0。
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+    int         DecimalDigits;          // 数値の小数点以下の既定の桁数として解釈される。
+    wchar_t     DecimalSeparator[3];    // 数値の整数部と小数部との区切り文字と解釈される。
+    wchar_t     GroupSeparator[3];      // 数値をグループで区切る場合の区切り文字と解釈される。
+    wchar_t     GroupSizes[11];         // 数値をグループで区切る場合のグループの大きさを示す文字の集合と解釈される。
+    int         NegativePattern;        // 負数を表示する場合のパターンを示す番号。
+    int         PositivePattern;        // 正数を表示する場合のパターンを示す番号。
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;           // 通貨量の数値を表示する場合に使用される情報。
-    PMC_GENERIC_NUMBER_FORMAT_INFO  Number;             // 一般的な数値を表示する場合に使用される情報。
-    PMC_PERCENT_NUMBER_FORMAT_INFO  Percent;            // パーセント値を表示する場合に使用される情報。
+    PMC_DECIMAL_NUMBER_FORMAT_INFO  Currency;           // 通貨量の数値を表示する場合に使用される情報。
+    PMC_DECIMAL_NUMBER_FORMAT_INFO  Number;             // 一般的な数値を表示する場合に使用される情報。
+    PMC_DECIMAL_NUMBER_FORMAT_INFO  Percent;            // パーセント値を表示する場合に使用される情報。
     wchar_t                         CurrencySymbol[3];  // 通貨記号として使用される文字列。既定値は "¤"。
-    wchar_t                         NativeDigits[11];   // 西洋数字 0 ～ 9 に対応するネイティブ数字の文字列配列。既定値は "0123456789"。
     wchar_t                         NegativeSign[3];    // 負数であることを示す文字列。既定値は "-"。            
     wchar_t                         PositiveSign[3];    // 正数であることを示す文字列。既定値は "+"。
     wchar_t                         PercentSymbol[3];   // パーセント記号として使用する文字列。既定値は "%"。

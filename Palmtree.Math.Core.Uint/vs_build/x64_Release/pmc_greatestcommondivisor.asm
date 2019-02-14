@@ -416,7 +416,7 @@ $LN92@PMC_Greate:
 
 ; 432  : }
 
-	mov	eax, -5
+	mov	eax, -6
 	add	rsp, 96					; 00000060H
 	pop	r15
 	pop	r14
@@ -868,7 +868,7 @@ $LN34@PMC_Greate:
 
 ; 166  : }
 
-	mov	eax, -5
+	mov	eax, -6
 	add	rsp, 80					; 00000050H
 	pop	r15
 	pop	r14
@@ -1812,7 +1812,7 @@ $LN38@PMC_Greate:
 
 ; 597  : }
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN1@PMC_Greate
 $LN16@PMC_Greate:
 

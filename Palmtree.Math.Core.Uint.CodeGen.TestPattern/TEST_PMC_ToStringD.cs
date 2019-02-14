@@ -23,9 +23,11 @@
  */
 
 
-using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Numerics;
+
 
 namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 {
@@ -33,21 +35,30 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
         : TestPatternBase
     {
         private string _id;
-        private IEnumerable<InputTestData> _format_spec_source;
-        private IEnumerable<InputTestData> _min_width_source;
+        private IDictionary<string, CultureInfo> cultures = new[] { "ja-JP"/*, "zh-Hans-MO"*/ }
+                                                            .Select(name => new { key = name, value = new CultureInfo(name) })
+                                                            .ToDictionary(item => item.key, item => item.value);
+        private IEnumerable<InputTestData> _x_source;
+        private IEnumerable<InputTestData> _format_source;
+        private IEnumerable<InputTestData> _locale_source;
 
         public TEST_PMC_ToStringD()
         {
             _id = "PMC_ToStringD";
 
-            _format_spec_source = new[] { "d", "D" }
-                                  .Zip(Enumerable.Range(1, int.MaxValue),
-                                       (v, index) => new InputTestData(_id, v, index))
-                                  .ToArray();
-            _min_width_source = new[] { -1, 0, 1, 15, 16, 17, 31, 32, 33, 63, 64, 65 }
-                                .Zip(Enumerable.Range(1, int.MaxValue),
-                                     (v, index) => new InputTestData(_id, v, index))
-                                .ToArray();
+            _x_source = new[] { 0L, 12L, 12345, 123456789L }
+                        .Select(value => new BigInteger(value))
+                        .Zip(Enumerable.Range(1, int.MaxValue), (v, index) => new InputTestData(_id, v, index));
+
+            _format_source = new[] { "d", "D" }
+                             .SelectMany(type => new[] { -1, 0, 5, 10 }, (type, width) => string.Format("{0}{1}", type, width >= 0 ? width.ToString() : ""))
+                             .Zip(Enumerable.Range(1, int.MaxValue), (v, index) => new InputTestData(_id, v, index))
+                             .ToArray();
+
+            _locale_source = cultures.Keys.OrderBy(k => k)
+                             .Zip(Enumerable.Range(1, int.MaxValue),
+                                  (v, index) => new InputTestData(_id, v, index))
+                             .ToArray();
         }
 
         protected override string Id
@@ -60,37 +71,33 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 
         protected override IEnumerable<TestTerm> CreateTestTerms(IEnumerable<InputTestData> in_source)
         {
-            var source = in_source
-                .SelectMany(item => _format_spec_source, (x, format) => new { x, format })
-                .SelectMany(item => _min_width_source, (item, width) => new { item.x, item.format, width })
+            var source = _x_source
+                .SelectMany(item => _format_source, (x, format) => new { x, format })
+                .SelectMany(item => _locale_source, (item, locale) => new { item.x, item.format, locale, culture = cultures[locale.StringValue] })
                 .Select(item =>
                 {
                     var format = item.format.StringValue;
-                    if (item.width.IntegerValue >= 0)
-                        format = format + item.width.IntegerValue.ToString();
-                    var s = item.x.BigIntegerValue.ToString(format);
-                    while (s.Length > 1 && s.Length > item.width.IntegerValue && s.StartsWith("0"))
-                        s = s.Substring(1);
+                    var s = item.x.BigIntegerValue.ToString(format, cultures[item.locale.StringValue].NumberFormat);
                     return (new
                     {
                         item.x,
                         item.format,
-                        item.width,
-                        desired_s = new OutputTestData(_id, new[] { item.x, item.format, item.width }, false, false, s),
+                        item.locale,
+                        desired_s = new OutputTestData(_id, new[] { item.x, item.format, item.locale }, false, false, s),
+                        item.culture,
                     });
                 });
             return (source
                     .Zip(Enumerable.Range(1, int.MaxValue),
-                         (item, index) => new { index, item.x, item.format, item.width, item.desired_s })
+                         (item, index) => new { index, item.x, item.format, item.locale, item.desired_s, item.culture })
                     .Select(item => new TestTerm(_id,
                                                  item.index,
-                                                 new[] { item.x, item.format, item.width },
+                                                 new[] { item.x, item.format },
                                                  new[] { item.desired_s },
-                                                 string.Format("TEST_{0}(env, ep, {1}, {2}, {3}, {4}, {5});",
+                                                 string.Format("TEST_{0}(env, ep, {1}, {2}, {3}, {4});",
                                                                _id, item.index,
-                                                               item.x.BufferParam,
-                                                               item.format.StringValue.ToQuotedChar(),
-                                                               item.width.IntegerValue,
+                                                               item.x.BigIntegerValue.ToImmediateDecimalString(),
+                                                               item.format.StringValue.ToQuotedWideCharString(),
                                                                item.desired_s.StringValue.ToQuotedWideCharString()))));
 
         }

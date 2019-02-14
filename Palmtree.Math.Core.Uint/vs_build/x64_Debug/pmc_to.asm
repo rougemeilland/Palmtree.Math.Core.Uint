@@ -174,7 +174,7 @@ $LN11:
 ; 55   :         // 32bit未満のCPUは未対応
 ; 56   :         return (PMC_STATUS_NOT_SUPPORTED);
 
-	mov	eax, -6
+	mov	eax, -7
 	jmp	$LN1@PMC_To_X_L
 $LN2@PMC_To_X_L:
 
@@ -349,7 +349,7 @@ $LN8:
 ; 35   :         // 32bit未満のCPUは未対応
 ; 36   :         return (PMC_STATUS_NOT_SUPPORTED);
 
-	mov	eax, -6
+	mov	eax, -7
 	jmp	SHORT $LN1@PMC_To_X_I
 $LN2@PMC_To_X_I:
 

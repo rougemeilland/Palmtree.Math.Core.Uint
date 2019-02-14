@@ -48758,14 +48758,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 72 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48797,7 +48797,7 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t DecimalSeparator[3];
@@ -48805,34 +48805,14 @@ typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
     wchar_t GroupSizes[11];
     int NegativePattern;
     int PositivePattern;
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-    int PositivePattern;
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
-    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
-    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Currency;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Number;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Percent;
     wchar_t CurrencySymbol[3];
-    wchar_t NativeDigits[11];
     wchar_t NegativeSign[3];
     wchar_t PositiveSign[3];
     wchar_t PercentSymbol[3];
@@ -48902,7 +48882,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 
 
         void (__attribute__((__stdcall__)) * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
@@ -49058,6 +49038,18 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #pragma region 型の定義
+    typedef struct __tag___CHAIN_BUFFER_TAG
+    {
+        struct __tag___CHAIN_BUFFER_TAG* next;
+        struct __tag___CHAIN_BUFFER_TAG* prev;
+
+    } __CHAIN_BUFFER_TAG;
+
+    typedef struct __tag_CHAIN_BUFFER_ROOT
+    {
+        __CHAIN_BUFFER_TAG tag;
+    } CHAIN_BUFFER_ROOT;
+
     typedef struct __tag_NUMBER_HEADER
     {
         unsigned IS_ZERO : 1;
@@ -49133,6 +49125,21 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* p, NUMBER_HEADER** op);
 
 
+    extern void InitializeChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void CleanUpChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void* AllocateChainedBuffer(CHAIN_BUFFER_ROOT* root, size_t size);
+
+
+    extern void CheckChainedBuffer(void* buffer);
+
+
+    extern void DeallocateChainedBuffer(CHAIN_BUFFER_ROOT* root, void* buffer);
+
+
     extern PMC_STATUS_CODE From_I_Imp(_UINT32_T x, NUMBER_HEADER** o);
 
 
@@ -49155,6 +49162,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
     extern void Multiply_X_X_Imp(__UNIT_TYPE* u, __UNIT_TYPE u_count, __UNIT_TYPE* v, __UNIT_TYPE v_count, __UNIT_TYPE* w);
+
+
+    extern PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w);
 
 
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
@@ -49253,7 +49263,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
     extern void __attribute__((__stdcall__)) PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
-    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_ToString(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -49385,9 +49395,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 366 "../pmc_uint_internal.h" 3 4
+# 396 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 366 "../pmc_uint_internal.h"
+# 396 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"%ls\n", label);
@@ -49399,9 +49409,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 376 "../pmc_uint_internal.h" 3 4
+# 406 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 376 "../pmc_uint_internal.h"
+# 406 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
@@ -49415,16 +49425,16 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     {
 
         if (__DEBUG_LOG != 
-# 388 "../pmc_uint_internal.h" 3 4
+# 418 "../pmc_uint_internal.h" 3 4
                           ((void *)0)
-# 388 "../pmc_uint_internal.h"
+# 418 "../pmc_uint_internal.h"
                               )
         {
             (*__DEBUG_LOG)(L"  %ls: ", name);
             if (sizeof(__UNIT_TYPE) == sizeof(unsigned 
-# 391 "../pmc_uint_internal.h" 3
+# 421 "../pmc_uint_internal.h" 3
                                                       long long
-# 391 "../pmc_uint_internal.h"
+# 421 "../pmc_uint_internal.h"
                                                              ))
                 (*__DEBUG_LOG)(L"0x%016llx\n", x);
             else
@@ -88526,7 +88536,6 @@ struct __tag_PARSER_STATE
     char SIGN;
     wchar_t CURRENCY_SYMBOL[3];
     int CURRENCY_SYMBOL_LENGTH;
-    wchar_t NATIVE_DIGITS[11];
     wchar_t POSITIVE_SIGN[3];
     int POSITIVE_SIGN_LENGTH;
     wchar_t NEGATIVE_SIGN[3];
@@ -88564,7 +88573,6 @@ static void InitializeParserState(struct __tag_PARSER_STATE* state, wchar_t* in_
     state->SIGN = 0;
     lstrcpyW(state->CURRENCY_SYMBOL, format_option->CurrencySymbol);
     state->CURRENCY_SYMBOL_LENGTH = lstrlenW(state->CURRENCY_SYMBOL);
-    lstrcpyW(state->NATIVE_DIGITS, format_option->NativeDigits);
     lstrcpyW(state->POSITIVE_SIGN, format_option->PositiveSign);
     state->POSITIVE_SIGN_LENGTH = lstrlenW(state->POSITIVE_SIGN);
     lstrcpyW(state->NEGATIVE_SIGN, format_option->NegativeSign);
@@ -88617,30 +88625,10 @@ static void SkipSpace(struct __tag_PARSER_STATE* state)
     }
 }
 
-static int ParseDecimalDigit(wchar_t c, wchar_t* native_digits)
+static int ParseDecimalDigit(wchar_t c)
 {
     if (c >= L'0' && c <= L'9')
         return (c - L'0');
-    if (c == native_digits[0])
-        return (0);
-    if (c == native_digits[1])
-        return (1);
-    if (c == native_digits[2])
-        return (2);
-    if (c == native_digits[3])
-        return (3);
-    if (c == native_digits[4])
-        return (4);
-    if (c == native_digits[5])
-        return (5);
-    if (c == native_digits[6])
-        return (6);
-    if (c == native_digits[7])
-        return (7);
-    if (c == native_digits[8])
-        return (8);
-    if (c == native_digits[9])
-        return (9);
     return (-1);
 }
 
@@ -88661,7 +88649,7 @@ static void ParseAsIntegerPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
+        if (ParseDecimalDigit(*state->IN_PTR) >= 0)
         {
             *state->INT_PART_PTR = *state->IN_PTR;
             state->INT_PART_PTR += 1;
@@ -88686,7 +88674,7 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
 {
     for (;;)
     {
-        if (ParseDecimalDigit(*state->IN_PTR, state->NATIVE_DIGITS) >= 0)
+        if (ParseDecimalDigit(*state->IN_PTR) >= 0)
         {
             *state->FRAC_PART_PTR = *state->IN_PTR;
             state->FRAC_PART_PTR += 1;
@@ -88706,7 +88694,7 @@ static void ParseAsFractionPartNumberSequence(struct __tag_PARSER_STATE* state)
 
 static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_NUMBER_FORMAT_INFO* format_option, char* sign, wchar_t* int_part_buf, wchar_t* frac_part_buf)
 {
-# 243 "../pmc_parse.c"
+# 221 "../pmc_parse.c"
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, frac_part_buf);
     if (number_styles & (0x0001))
@@ -88720,7 +88708,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         {
             state.SIGN = 1;
             state.IN_PTR += state.POSITIVE_SIGN_LENGTH;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88732,7 +88720,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         {
             state.SIGN = -1;
             state.IN_PTR += state.NEGATIVE_SIGN_LENGTH;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88742,7 +88730,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88774,7 +88762,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & (0x0001)) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88784,7 +88772,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88811,7 +88799,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & (0x0001)) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88821,7 +88809,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88850,7 +88838,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             state.IN_PTR += state.CURRENCY_SYMBOL_LENGTH;
             if ((number_styles & (0x0001)) && *state.IN_PTR == L' ')
                 state.IN_PTR += 1;
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88860,7 +88848,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
         }
         else
         {
-            if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+            if (ParseDecimalDigit(*state.IN_PTR) >= 0)
                 ParseAsIntegerPartNumberSequence(&state);
             if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
             {
@@ -88880,7 +88868,7 @@ static int ParseAsDecimalNumberString(wchar_t* in_ptr, _UINT32_T number_styles, 
             }
         }
     }
-    else if (ParseDecimalDigit(*state.IN_PTR, state.NATIVE_DIGITS) >= 0)
+    else if (ParseDecimalDigit(*state.IN_PTR) >= 0)
     {
         ParseAsIntegerPartNumberSequence(&state);
         if ((number_styles & (0x0020)) && StartsWith(state.IN_PTR, state.DECIMAL_SEPARATOR))
@@ -89053,9 +89041,9 @@ static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_
 {
     struct __tag_PARSER_STATE state;
     InitializeParserState(&state, in_ptr, number_styles, format_option, int_part_buf, 
-# 588 "../pmc_parse.c" 3 4
+# 566 "../pmc_parse.c" 3 4
                                                                                      ((void *)0)
-# 588 "../pmc_parse.c"
+# 566 "../pmc_parse.c"
                                                                                          );
     if (number_styles & (0x0001))
         SkipSpace(&state);
@@ -89068,55 +89056,55 @@ static int ParseAsHexNumberString(wchar_t* in_ptr, _UINT32_T number_styles, PMC_
     return (1);
 }
 
-static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count, wchar_t* native_digits)
+static __UNIT_TYPE BuildLeading1WordFromDecimalString(wchar_t* in_ptr, __UNIT_TYPE count)
 {
     __UNIT_TYPE x = 0;
     while (count > 0)
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
         --count;
     }
     return (x);
 }
 
-static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr, wchar_t* native_digits)
+static __UNIT_TYPE Build1WordFromDecimalString(wchar_t* in_ptr)
 {
-    __UNIT_TYPE x = ParseDecimalDigit(*in_ptr++, native_digits);
+    __UNIT_TYPE x = ParseDecimalDigit(*in_ptr++);
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT64_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT32_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_UINT16_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     if (sizeof(__UNIT_TYPE) >= sizeof(_BYTE_T))
     {
-        x = x * 10 + ParseDecimalDigit(*in_ptr++, native_digits);
+        x = x * 10 + ParseDecimalDigit(*in_ptr++);
     }
     return (x);
 }
 
 
-static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count, wchar_t* native_digits)
+static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, __UNIT_TYPE* out_buf_count)
 {
 
     int word_digit_count = 9;
@@ -89131,13 +89119,13 @@ static void BuildBinaryFromDecimalString(wchar_t* source, __UNIT_TYPE* out_buf, 
     int r = source_count % word_digit_count;
     if (r > 0)
     {
-        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r, native_digits);
+        *out_ptr++ = BuildLeading1WordFromDecimalString(in_ptr, r);
         in_ptr += r;
         source_count -= r;
     }
     while (source_count > 0)
     {
-        *out_ptr++ = Build1WordFromDecimalString(in_ptr, native_digits);
+        *out_ptr++ = Build1WordFromDecimalString(in_ptr);
         in_ptr += word_digit_count;
         source_count -= word_digit_count;
     }
@@ -89467,11 +89455,11 @@ static PMC_STATUS_CODE ConvertCardinalNumber(__UNIT_TYPE* in_buf, __UNIT_TYPE in
     __UNIT_TYPE work_buf_words;
     __UNIT_TYPE* work_buf = AllocateBlock((sizeof(__UNIT_TYPE) * 8) * (in_buf_count + 1), &work_buf_words, &work_buf_code);
     if (work_buf == 
-# 998 "../pmc_parse.c" 3 4
+# 976 "../pmc_parse.c" 3 4
                    ((void *)0)
-# 998 "../pmc_parse.c"
+# 976 "../pmc_parse.c"
                        )
-        return ((-5));
+        return ((-6));
 
     __UNIT_TYPE work_buf_count = 1;
     work_buf[0] = in_buf[0];
@@ -89508,23 +89496,23 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     __UNIT_TYPE int_part_buf_words;
     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
     if (int_part_buf == 
-# 1035 "../pmc_parse.c" 3 4
+# 1013 "../pmc_parse.c" 3 4
                        ((void *)0)
-# 1035 "../pmc_parse.c"
+# 1013 "../pmc_parse.c"
                            )
-        return ((-5));
+        return ((-6));
 
     __UNIT_TYPE frac_part_buf_code;
     __UNIT_TYPE frac_part_buf_words;
     wchar_t* frac_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &frac_part_buf_words, &frac_part_buf_code);
     if (frac_part_buf == 
-# 1041 "../pmc_parse.c" 3 4
+# 1019 "../pmc_parse.c" 3 4
                         ((void *)0)
-# 1041 "../pmc_parse.c"
+# 1019 "../pmc_parse.c"
                             )
     {
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
-        return ((-5));
+        return ((-6));
     }
     int result_parsing = ParseAsDecimalNumberString(source, number_styles, format_option, o_sign, int_part_buf, frac_part_buf);
     if ((result = CheckBlockLight((__UNIT_TYPE*)int_part_buf, int_part_buf_code)) != (0))
@@ -89595,16 +89583,16 @@ static PMC_STATUS_CODE TryParseDN(wchar_t* source, _UINT32_T number_styles, PMC_
     __UNIT_TYPE bin_buf_words;
     __UNIT_TYPE* bin_buf = AllocateBlock(_DIVIDE_CEILING_SIZE(lstrlenW(int_part_buf), word_digit_count) * (sizeof(__UNIT_TYPE) * 8), &bin_buf_words, &bin_buf_code);
     if (bin_buf == 
-# 1114 "../pmc_parse.c" 3 4
+# 1092 "../pmc_parse.c" 3 4
                   ((void *)0)
-# 1114 "../pmc_parse.c"
+# 1092 "../pmc_parse.c"
                       )
     {
         DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
-        return ((-5));
+        return ((-6));
     }
     __UNIT_TYPE bin_buf_count;
-    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count, format_option->NativeDigits);
+    BuildBinaryFromDecimalString(int_part_buf, bin_buf, &bin_buf_count);
     if ((result = CheckBlockLight(bin_buf, bin_buf_code)) != (0))
         return (result);
     DeallocateBlock((__UNIT_TYPE*)int_part_buf, int_part_buf_words);
@@ -89719,11 +89707,11 @@ static PMC_STATUS_CODE TryParseX(wchar_t* source, _UINT32_T number_styles, PMC_N
     __UNIT_TYPE int_part_buf_words;
     wchar_t* int_part_buf = (wchar_t*)AllocateBlock((source_len + 1) * sizeof(wchar_t) * 8, &int_part_buf_words, &int_part_buf_code);
     if (int_part_buf == 
-# 1234 "../pmc_parse.c" 3 4
+# 1212 "../pmc_parse.c" 3 4
                        ((void *)0)
-# 1234 "../pmc_parse.c"
+# 1212 "../pmc_parse.c"
                            )
-        return ((-5));
+        return ((-6));
     int result_parsing = ParseAsHexNumberString(source, number_styles, format_option, int_part_buf);
     if ((result = CheckBlockLight((__UNIT_TYPE*)int_part_buf, int_part_buf_code)) != (0))
         return (result);
@@ -89813,21 +89801,21 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParse(wchar_t* source, PMC_N
 {
     PMC_STATUS_CODE result;
     if (source == 
-# 1324 "../pmc_parse.c" 3 4
+# 1302 "../pmc_parse.c" 3 4
                  ((void *)0)
-# 1324 "../pmc_parse.c"
+# 1302 "../pmc_parse.c"
                      )
         return ((-1));
     if (o == 
-# 1326 "../pmc_parse.c" 3 4
+# 1304 "../pmc_parse.c" 3 4
             ((void *)0)
-# 1326 "../pmc_parse.c"
+# 1304 "../pmc_parse.c"
                 )
         return ((-1));
     if (format_option == 
-# 1328 "../pmc_parse.c" 3 4
+# 1306 "../pmc_parse.c" 3 4
                         ((void *)0)
-# 1328 "../pmc_parse.c"
+# 1306 "../pmc_parse.c"
                             )
         format_option = &default_number_format_option;
     char o_sign;
@@ -89848,27 +89836,27 @@ PMC_STATUS_CODE __attribute__((__stdcall__)) PMC_TryParseForSINT(wchar_t* source
 {
     PMC_STATUS_CODE result;
     if (source == 
-# 1347 "../pmc_parse.c" 3 4
+# 1325 "../pmc_parse.c" 3 4
                  ((void *)0)
-# 1347 "../pmc_parse.c"
+# 1325 "../pmc_parse.c"
                      )
         return ((-1));
     if (o_sign == 
-# 1349 "../pmc_parse.c" 3 4
+# 1327 "../pmc_parse.c" 3 4
                  ((void *)0)
-# 1349 "../pmc_parse.c"
+# 1327 "../pmc_parse.c"
                      )
         return ((-1));
     if (o_abs == 
-# 1351 "../pmc_parse.c" 3 4
+# 1329 "../pmc_parse.c" 3 4
                 ((void *)0)
-# 1351 "../pmc_parse.c"
+# 1329 "../pmc_parse.c"
                     )
         return ((-1));
     if (format_option == 
-# 1353 "../pmc_parse.c" 3 4
+# 1331 "../pmc_parse.c" 3 4
                         ((void *)0)
-# 1353 "../pmc_parse.c"
+# 1331 "../pmc_parse.c"
                             )
         format_option = &default_number_format_option;
     NUMBER_HEADER* no_abs;

@@ -265,7 +265,7 @@ _PMC_LeftShift_X_I@12 PROC
 ; 624  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 625  :         return (PMC_STATUS_NOT_SUPPORTED);
 
-	mov	eax, -6					; fffffffaH
+	mov	eax, -7					; fffffff9H
 	jmp	$LN1@PMC_LeftSh
 $LN2@PMC_LeftSh:
 
@@ -564,7 +564,7 @@ _PMC_RightShift_X_I@12 PROC
 ; 575  :         // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 576  :         return (PMC_STATUS_NOT_SUPPORTED);
 
-	mov	eax, -6					; fffffffaH
+	mov	eax, -7					; fffffff9H
 	jmp	$LN1@PMC_RightS
 $LN2@PMC_RightS:
 

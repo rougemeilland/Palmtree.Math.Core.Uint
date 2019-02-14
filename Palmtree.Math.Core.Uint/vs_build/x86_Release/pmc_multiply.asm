@@ -10,6 +10,7 @@ INCLUDELIB MSVCRT
 INCLUDELIB OLDNAMES
 
 PUBLIC	_Multiply_X_X_Imp
+PUBLIC	_PMC_Multiply_X_I_Imp
 PUBLIC	_Initialize_Multiply
 PUBLIC	_PMC_Multiply_I_X@12
 PUBLIC	_PMC_Multiply_L_X@16
@@ -354,236 +355,6 @@ $LN1@PMC_Multip:
 	pop	ebp
 	ret	0
 _PMC_Multiply_X_L_Imp ENDP
-_TEXT	ENDS
-; Function compile flags: /Ogtp
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-;	COMDAT _PMC_Multiply_X_I_Imp
-_TEXT	SEGMENT
-_w_light_check_code$1 = 8				; size = 4
-_u$ = 8							; size = 4
-_v$ = 12						; size = 4
-_w$ = 16						; size = 4
-_PMC_Multiply_X_I_Imp PROC				; COMDAT
-
-; 432  : {
-
-	push	ebp
-	mov	ebp, esp
-	push	ebx
-	push	esi
-
-; 433  :     PMC_STATUS_CODE result;
-; 434  :     if (u->IS_ZERO)
-
-	mov	esi, DWORD PTR _u$[ebp]
-	push	edi
-	mov	eax, DWORD PTR [esi]
-	test	al, 1
-	jne	SHORT $LN20@PMC_Multip
-
-; 435  :     {
-; 436  :         // u が 0 である場合
-; 437  : 
-; 438  :         // v の値にかかわらず 0 を返す。
-; 439  :         *w = &number_zero;
-; 440  :     }
-; 441  :     else if (u->IS_ONE)
-
-	test	al, 2
-	je	SHORT $LN4@PMC_Multip
-
-; 442  :     {
-; 443  :         // u が 1 である場合
-; 444  :         if (v == 0)
-
-	mov	eax, DWORD PTR _v$[ebp]
-	test	eax, eax
-	je	SHORT $LN20@PMC_Multip
-
-; 445  :         {
-; 446  :             // v が 0 である場合
-; 447  : 
-; 448  :             //  0  を返す。
-; 449  :             *w = &number_zero;
-; 450  :         }
-; 451  :         else
-; 452  :         {
-; 453  :             // y が 0 ではない場合
-; 454  : 
-; 455  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 456  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
-
-	push	DWORD PTR _w$[ebp]
-	push	eax
-	call	_From_I_Imp
-	add	esp, 8
-	test	eax, eax
-	je	$LN12@PMC_Multip
-
-; 497  : }
-
-	pop	edi
-	pop	esi
-	pop	ebx
-	pop	ebp
-	ret	0
-$LN4@PMC_Multip:
-
-; 457  :                 return (result);
-; 458  :         }
-; 459  :     }
-; 460  :     else
-; 461  :     {
-; 462  :         // u が 0 と 1 のどちらでもない場合
-; 463  : 
-; 464  :         if (v == 0)
-
-	mov	edi, DWORD PTR _v$[ebp]
-	test	edi, edi
-	jne	SHORT $LN9@PMC_Multip
-$LN20@PMC_Multip:
-
-; 494  :         }
-; 495  :     }
-; 496  :     return (PMC_STATUS_OK);
-
-	mov	eax, DWORD PTR _w$[ebp]
-	pop	edi
-
-; 497  : }
-
-	pop	esi
-	pop	ebx
-	mov	DWORD PTR [eax], OFFSET _number_zero
-	xor	eax, eax
-	pop	ebp
-	ret	0
-$LN9@PMC_Multip:
-
-; 465  :         {
-; 466  :             // v が 0 である場合
-; 467  : 
-; 468  :             //  0  を返す。
-; 469  :             *w = &number_zero;
-; 470  :         }
-; 471  :         else if (v == 1)
-
-	cmp	edi, 1
-	jne	SHORT $LN11@PMC_Multip
-
-; 472  :         {
-; 473  :             // v が 1 である場合
-; 474  : 
-; 475  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
-; 476  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
-
-	push	DWORD PTR _w$[ebp]
-	push	esi
-	call	_DuplicateNumber
-	add	esp, 8
-	test	eax, eax
-	je	SHORT $LN12@PMC_Multip
-
-; 497  : }
-
-	pop	edi
-	pop	esi
-	pop	ebx
-	pop	ebp
-	ret	0
-$LN11@PMC_Multip:
-
-; 477  :                 return (result);
-; 478  :         }
-; 479  :         else
-; 480  :         {
-; 481  :             // u と v がともに 0 、1 のどちらでもない場合
-; 482  : 
-; 483  :             // u と v の積を計算する
-; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
-
-	mov	edx, DWORD PTR [esi+16]
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-
-; 601  :         return (sizeof(x) * 8 - 1 - pos);
-
-	mov	ecx, 31					; 0000001fH
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-
-; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
-
-	mov	ebx, DWORD PTR _w$[ebp]
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
-
-; 595  :         _BitScanReverse(&pos, x);
-
-	bsr	eax, edi
-
-; 601  :         return (sizeof(x) * 8 - 1 - pos);
-
-	sub	ecx, eax
-; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
-
-; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
-
-	lea	eax, DWORD PTR _w_light_check_code$1[ebp]
-	sub	edx, ecx
-	push	eax
-	add	edx, 32					; 00000020H
-	push	edx
-	push	ebx
-	call	_AllocateNumber
-	add	esp, 12					; 0000000cH
-	test	eax, eax
-	jne	SHORT $LN1@PMC_Multip
-
-; 489  :                 return (result);
-; 490  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
-
-	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR [eax+36]
-	push	edi
-	push	DWORD PTR [esi+12]
-	push	DWORD PTR [esi+36]
-	call	DWORD PTR _fp_Multiply_X_1W
-
-; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
-
-	mov	eax, DWORD PTR [ebx]
-	push	DWORD PTR _w_light_check_code$1[ebp]
-	push	DWORD PTR [eax+36]
-	call	_CheckBlockLight
-	add	esp, 24					; 00000018H
-	test	eax, eax
-	jne	SHORT $LN1@PMC_Multip
-
-; 492  :                 return (result);
-; 493  :             CommitNumber(*w);
-
-	push	DWORD PTR [ebx]
-	call	_CommitNumber
-	add	esp, 4
-$LN12@PMC_Multip:
-
-; 494  :         }
-; 495  :     }
-; 496  :     return (PMC_STATUS_OK);
-
-	xor	eax, eax
-$LN1@PMC_Multip:
-	pop	edi
-
-; 497  : }
-
-	pop	esi
-	pop	ebx
-	pop	ebp
-	ret	0
-_PMC_Multiply_X_I_Imp ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2049,7 +1820,7 @@ $LL2@Multiply_W:
 	add	eax, esi
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2059,7 +1830,7 @@ $LL2@Multiply_W:
 	mov	DWORD PTR [ecx+124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2078,7 +1849,7 @@ $LL2@Multiply_W:
 	mov	DWORD PTR _count$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -2598,7 +2369,7 @@ $LN3@Multiply_W:
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2617,7 +2388,7 @@ $LN3@Multiply_W:
 	add	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -2874,7 +2645,7 @@ $LN701@Multiply_W:
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -2893,7 +2664,7 @@ $LN701@Multiply_W:
 	add	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3028,7 +2799,7 @@ $LN817@Multiply_W:
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3047,7 +2818,7 @@ $LN817@Multiply_W:
 	add	ecx, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [edx], eax
@@ -3118,7 +2889,7 @@ $LN877@Multiply_W:
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -3137,7 +2908,7 @@ $LN877@Multiply_W:
 	add	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 	lock	 xadd	 DWORD PTR [eax], edx
@@ -3186,7 +2957,7 @@ $LN909@Multiply_W:
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 361  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN927@Multiply_W:
@@ -4387,7 +4158,7 @@ $LL2@Multiply_W:
 	mov	DWORD PTR [ecx+124], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	esi, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -4397,7 +4168,7 @@ $LL2@Multiply_W:
 	adc	edi, 0
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -4410,7 +4181,7 @@ $LL2@Multiply_W:
 	mov	DWORD PTR _count$1$[ebp], edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [esi], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
@@ -4910,7 +4681,7 @@ $LN3@Multiply_W:
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -4926,7 +4697,7 @@ $LN3@Multiply_W:
 	mov	DWORD PTR [ecx+60], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -4945,7 +4716,7 @@ $LN3@Multiply_W:
 	add	ecx, 64					; 00000040H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 	mov	eax, DWORD PTR _u_count$[ebp]
@@ -5189,7 +4960,7 @@ $LN701@Multiply_W:
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5205,7 +4976,7 @@ $LN701@Multiply_W:
 	mov	DWORD PTR [ecx+28], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5224,7 +4995,7 @@ $LN701@Multiply_W:
 	add	ecx, 32					; 00000020H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 	mov	eax, DWORD PTR _u_count$[ebp]
@@ -5344,7 +5115,7 @@ $LN817@Multiply_W:
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5360,7 +5131,7 @@ $LN817@Multiply_W:
 	mov	DWORD PTR [ecx+12], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5379,7 +5150,7 @@ $LN817@Multiply_W:
 	add	ecx, 16					; 00000010H
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [edx], eax
 	mov	eax, DWORD PTR _u_count$[ebp]
@@ -5437,7 +5208,7 @@ $LN877@Multiply_W:
 	mov	edi, edx
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	edx, 2
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5453,7 +5224,7 @@ $LN877@Multiply_W:
 	mov	DWORD PTR [ecx+4], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, OFFSET _statistics_info+4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
@@ -5472,7 +5243,7 @@ $LN877@Multiply_W:
 	add	ecx, 8
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	lock	 xadd	 DWORD PTR [eax], edx
 	mov	eax, DWORD PTR _u_count$[ebp]
@@ -5513,7 +5284,7 @@ $LN909@Multiply_W:
 	add	ecx, 4
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_uint_internal.h
 
-; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 361  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 $LN927@Multiply_W:
@@ -5996,18 +5767,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI64Counter PROC				; COMDAT
 
-; 359  :     {
+; 389  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 390  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 361  :     }
+; 391  :     }
 
 	pop	ebp
 	ret	0
@@ -6020,18 +5791,18 @@ _TEXT	SEGMENT
 _value$ = 8						; size = 4
 _AddToMULTI32Counter PROC				; COMDAT
 
-; 353  :     {
+; 383  :     {
 
 	push	ebp
 	mov	ebp, esp
 
-; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 384  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
 	mov	eax, DWORD PTR _value$[ebp]
 	mov	ecx, OFFSET _statistics_info+4
 	lock	 xadd	 DWORD PTR [ecx], eax
 
-; 355  :     }
+; 385  :     }
 
 	pop	ebp
 	ret	0
@@ -6043,11 +5814,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI64Counter PROC				; COMDAT
 
-; 337  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 367  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
 	lock	 inc	 (null) PTR _statistics_info
 
-; 338  :     }
+; 368  :     }
 
 	ret	0
 _IncrementMULTI64Counter ENDP
@@ -6058,11 +5829,11 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 _IncrementMULTI32Counter PROC				; COMDAT
 
-; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 361  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
 	lock	 inc	 (null) PTR _statistics_info+4
 
-; 332  :     }
+; 362  :     }
 
 	ret	0
 _IncrementMULTI32Counter ENDP
@@ -6747,6 +6518,236 @@ _Initialize_Multiply PROC				; COMDAT
 	pop	ebp
 	ret	0
 _Initialize_Multiply ENDP
+_TEXT	ENDS
+; Function compile flags: /Ogtp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+;	COMDAT _PMC_Multiply_X_I_Imp
+_TEXT	SEGMENT
+_w_light_check_code$1 = 8				; size = 4
+_u$ = 8							; size = 4
+_v$ = 12						; size = 4
+_w$ = 16						; size = 4
+_PMC_Multiply_X_I_Imp PROC				; COMDAT
+
+; 432  : {
+
+	push	ebp
+	mov	ebp, esp
+	push	ebx
+	push	esi
+
+; 433  :     PMC_STATUS_CODE result;
+; 434  :     if (u->IS_ZERO)
+
+	mov	esi, DWORD PTR _u$[ebp]
+	push	edi
+	mov	eax, DWORD PTR [esi]
+	test	al, 1
+	jne	SHORT $LN20@PMC_Multip
+
+; 435  :     {
+; 436  :         // u が 0 である場合
+; 437  : 
+; 438  :         // v の値にかかわらず 0 を返す。
+; 439  :         *w = &number_zero;
+; 440  :     }
+; 441  :     else if (u->IS_ONE)
+
+	test	al, 2
+	je	SHORT $LN4@PMC_Multip
+
+; 442  :     {
+; 443  :         // u が 1 である場合
+; 444  :         if (v == 0)
+
+	mov	eax, DWORD PTR _v$[ebp]
+	test	eax, eax
+	je	SHORT $LN20@PMC_Multip
+
+; 445  :         {
+; 446  :             // v が 0 である場合
+; 447  : 
+; 448  :             //  0  を返す。
+; 449  :             *w = &number_zero;
+; 450  :         }
+; 451  :         else
+; 452  :         {
+; 453  :             // y が 0 ではない場合
+; 454  : 
+; 455  :             // 乗算結果は v に等しいため、v の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 456  :             if ((result = From_I_Imp(v, w)) != PMC_STATUS_OK)
+
+	push	DWORD PTR _w$[ebp]
+	push	eax
+	call	_From_I_Imp
+	add	esp, 8
+	test	eax, eax
+	je	$LN12@PMC_Multip
+
+; 497  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	pop	ebp
+	ret	0
+$LN4@PMC_Multip:
+
+; 457  :                 return (result);
+; 458  :         }
+; 459  :     }
+; 460  :     else
+; 461  :     {
+; 462  :         // u が 0 と 1 のどちらでもない場合
+; 463  : 
+; 464  :         if (v == 0)
+
+	mov	edi, DWORD PTR _v$[ebp]
+	test	edi, edi
+	jne	SHORT $LN9@PMC_Multip
+$LN20@PMC_Multip:
+
+; 494  :         }
+; 495  :     }
+; 496  :     return (PMC_STATUS_OK);
+
+	mov	eax, DWORD PTR _w$[ebp]
+	pop	edi
+
+; 497  : }
+
+	pop	esi
+	pop	ebx
+	mov	DWORD PTR [eax], OFFSET _number_zero
+	xor	eax, eax
+	pop	ebp
+	ret	0
+$LN9@PMC_Multip:
+
+; 465  :         {
+; 466  :             // v が 0 である場合
+; 467  : 
+; 468  :             //  0  を返す。
+; 469  :             *w = &number_zero;
+; 470  :         }
+; 471  :         else if (v == 1)
+
+	cmp	edi, 1
+	jne	SHORT $LN11@PMC_Multip
+
+; 472  :         {
+; 473  :             // v が 1 である場合
+; 474  : 
+; 475  :             // 乗算結果は u に等しいため、u の値を持つ NUMBER_HEADER 構造体を獲得し、呼び出し元へ返す。
+; 476  :             if ((result = DuplicateNumber(u, w)) != PMC_STATUS_OK)
+
+	push	DWORD PTR _w$[ebp]
+	push	esi
+	call	_DuplicateNumber
+	add	esp, 8
+	test	eax, eax
+	je	SHORT $LN12@PMC_Multip
+
+; 497  : }
+
+	pop	edi
+	pop	esi
+	pop	ebx
+	pop	ebp
+	ret	0
+$LN11@PMC_Multip:
+
+; 477  :                 return (result);
+; 478  :         }
+; 479  :         else
+; 480  :         {
+; 481  :             // u と v がともに 0 、1 のどちらでもない場合
+; 482  : 
+; 483  :             // u と v の積を計算する
+; 484  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+
+	mov	edx, DWORD PTR [esi+16]
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
+
+	mov	ecx, 31					; 0000001fH
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+
+; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+
+	mov	ebx, DWORD PTR _w$[ebp]
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
+
+; 595  :         _BitScanReverse(&pos, x);
+
+	bsr	eax, edi
+
+; 601  :         return (sizeof(x) * 8 - 1 - pos);
+
+	sub	ecx, eax
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c
+
+; 488  :             if ((result = AllocateNumber(w, w_bit_count, &w_light_check_code)) != PMC_STATUS_OK)
+
+	lea	eax, DWORD PTR _w_light_check_code$1[ebp]
+	sub	edx, ecx
+	push	eax
+	add	edx, 32					; 00000020H
+	push	edx
+	push	ebx
+	call	_AllocateNumber
+	add	esp, 12					; 0000000cH
+	test	eax, eax
+	jne	SHORT $LN1@PMC_Multip
+
+; 489  :                 return (result);
+; 490  :             (*fp_Multiply_X_1W)(u->BLOCK, u->UNIT_WORD_COUNT, v, (*w)->BLOCK);
+
+	mov	eax, DWORD PTR [ebx]
+	push	DWORD PTR [eax+36]
+	push	edi
+	push	DWORD PTR [esi+12]
+	push	DWORD PTR [esi+36]
+	call	DWORD PTR _fp_Multiply_X_1W
+
+; 491  :             if ((result = CheckBlockLight((*w)->BLOCK, w_light_check_code)) != PMC_STATUS_OK)
+
+	mov	eax, DWORD PTR [ebx]
+	push	DWORD PTR _w_light_check_code$1[ebp]
+	push	DWORD PTR [eax+36]
+	call	_CheckBlockLight
+	add	esp, 24					; 00000018H
+	test	eax, eax
+	jne	SHORT $LN1@PMC_Multip
+
+; 492  :                 return (result);
+; 493  :             CommitNumber(*w);
+
+	push	DWORD PTR [ebx]
+	call	_CommitNumber
+	add	esp, 4
+$LN12@PMC_Multip:
+
+; 494  :         }
+; 495  :     }
+; 496  :     return (PMC_STATUS_OK);
+
+	xor	eax, eax
+$LN1@PMC_Multip:
+	pop	edi
+
+; 497  : }
+
+	pop	esi
+	pop	ebx
+	pop	ebp
+	ret	0
+_PMC_Multiply_X_I_Imp ENDP
 _TEXT	ENDS
 ; Function compile flags: /Ogtp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_multiply.c

@@ -50,27 +50,27 @@ rtc$IMZ	SEGMENT
 __RTC_InitBase.rtc$IMZ DD FLAT:__RTC_InitBase
 rtc$IMZ	ENDS
 _DATA	SEGMENT
-$SG94665 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
+$SG94739 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'F', 00H, 'r', 00H
 	DB	'o', 00H, 'm', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A'
 	DB	00H, 'r', 00H, 'r', 00H, 'a', 00H, 'y', 00H, 'n0', 0a9H, '_0^', 0b3H
 	DB	'0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H, '_', 01aH, 090H, 08aH
 	DB	'0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 	ORG $+2
-$SG94666 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
+$SG94740 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
 	DB	'n', 00H, 'g', 00H, 'D', 00H, ' ', 00H, '(', 00H, '%', 00H, 'd'
 	DB	00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
-$SG94667 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
+$SG94741 DB	'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H
 	DB	'S', 00H, 't', 00H, 'r', 00H, 'i', 00H, 'n', 00H, 'g', 00H, 'n'
 	DB	'0', 0a9H, '_0^', 0b3H, '0', 0fcH, '0', 0c9H, '0L0', 01fH, 'g', 085H
 	DB	'_', 01aH, 090H, 08aH, '0g0o0j0D0(', 00H, '%', 00H, 'd', 00H, ')'
 	DB	00H, 00H, 00H
-$SG94668 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
+$SG94742 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
 	DB	'n', 00H, 'g', 00H, 'D', 00H, ' ', 00H, '(', 00H, '%', 00H, 'd'
 	DB	00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
-$SG94669 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
+$SG94743 DB	0c7H, '0', 0fcH, '0', 0bfH, '0n0', 085H, 'Q', 0b9H, '[L0', 00H
 	DB	'N', 0f4H, 081H, 'W0j0D0', 00H, 00H
 	ORG $+2
-$SG94670 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
+$SG94744 DB	'T', 00H, 'o', 00H, 'S', 00H, 't', 00H, 'r', 00H, 'i', 00H
 	DB	'n', 00H, 'g', 00H, 'D', 00H, ' ', 00H, '(', 00H, '%', 00H, 'd'
 	DB	00H, '.', 00H, '%', 00H, 'd', 00H, ')', 00H, 00H, 00H
 _DATA	ENDS
@@ -87,10 +87,10 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\test_op_tostringd.c
 _TEXT	SEGMENT
-tv142 = -236						; size = 4
-tv129 = -232						; size = 4
-tv76 = -228						; size = 4
-_opt$ = -220						; size = 192
+tv140 = -220						; size = 4
+tv95 = -216						; size = 4
+tv75 = -212						; size = 4
+_opt$ = -204						; size = 176
 _x_result$ = -24					; size = 4
 _result$ = -20						; size = 4
 _x$ = -12						; size = 4
@@ -98,22 +98,20 @@ __$ArrayPad$ = -4					; size = 4
 _env$ = 8						; size = 4
 _ep$ = 12						; size = 4
 _no$ = 16						; size = 4
-_buf$ = 20						; size = 4
-_buf_size$ = 24						; size = 4
-_format_spec$ = 28					; size = 1
-_min_width$ = 32					; size = 4
-_desired_str$ = 36					; size = 4
+_x_value$ = 20						; size = 8
+_format$ = 28						; size = 4
+_desired_str$ = 32					; size = 4
 _TEST_PMC_ToStringD PROC
 
 ; 33   : {
 
 	push	ebp
 	mov	ebp, esp
-	sub	esp, 236				; 000000ecH
+	sub	esp, 220				; 000000dcH
 	push	esi
 	push	edi
-	lea	edi, DWORD PTR [ebp-236]
-	mov	ecx, 59					; 0000003bH
+	lea	edi, DWORD PTR [ebp-220]
+	mov	ecx, 55					; 00000037H
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
 	mov	eax, DWORD PTR ___security_cookie
@@ -138,40 +136,41 @@ _TEST_PMC_ToStringD PROC
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 
-; 40   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 1), (x_result = ep->FromByteArray(buf, buf_size, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
+; 40   :     //lstrcpyW(opt.NativeDigits, native_digits);
+; 41   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 1), (x_result = ep->From_L(x_value, &x)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_FromByteArrayの復帰コードが期待通りではない(%d)", x_result));
 
 	mov	esi, esp
 	lea	eax, DWORD PTR _x$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _buf_size$[ebp]
+	mov	ecx, DWORD PTR _x_value$[ebp+4]
 	push	ecx
-	mov	edx, DWORD PTR _buf$[ebp]
+	mov	edx, DWORD PTR _x_value$[ebp]
 	push	edx
 	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+24]
+	mov	ecx, DWORD PTR [eax+12]
 	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 	mov	DWORD PTR _x_result$[ebp], eax
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN4@TEST_PMC_T
-	mov	DWORD PTR tv76[ebp], 1
+	mov	DWORD PTR tv75[ebp], 1
 	jmp	SHORT $LN5@TEST_PMC_T
 $LN4@TEST_PMC_T:
-	mov	DWORD PTR tv76[ebp], 0
+	mov	DWORD PTR tv75[ebp], 0
 $LN5@TEST_PMC_T:
 	mov	edx, DWORD PTR _x_result$[ebp]
 	push	edx
-	push	OFFSET $SG94665
+	push	OFFSET $SG94739
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
-	mov	eax, DWORD PTR tv76[ebp]
+	mov	eax, DWORD PTR tv75[ebp]
 	push	eax
 	push	1
 	mov	ecx, DWORD PTR _no$[ebp]
 	push	ecx
-	push	OFFSET $SG94666
+	push	OFFSET $SG94740
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -180,44 +179,73 @@ $LN5@TEST_PMC_T:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 41   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 2), (result = ep->ToString(x, actual_str_buffer, sizeof(actual_str_buffer), format_spec, min_width, &opt)) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
+; 42   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 2), (result = ep->ToString(x, format, &opt, actual_str_buffer, sizeof(actual_str_buffer))) == PMC_STATUS_OK, FormatTestMesssage(L"PMC_ToStringの復帰コードが期待通りではない(%d)", result));
 
 	mov	esi, esp
-	lea	eax, DWORD PTR _opt$[ebp]
-	push	eax
-	mov	ecx, DWORD PTR _min_width$[ebp]
-	push	ecx
-	movzx	edx, BYTE PTR _format_spec$[ebp]
-	push	edx
 	push	8192					; 00002000H
 	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringD@@9@9
-	mov	eax, DWORD PTR _x$[ebp]
+	lea	eax, DWORD PTR _opt$[ebp]
 	push	eax
-	mov	ecx, DWORD PTR _ep$[ebp]
-	mov	edx, DWORD PTR [ecx+48]
-	call	edx
+	mov	ecx, DWORD PTR _format$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _x$[ebp]
+	push	edx
+	mov	eax, DWORD PTR _ep$[ebp]
+	mov	ecx, DWORD PTR [eax+48]
+	call	ecx
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 	mov	DWORD PTR _result$[ebp], eax
 	cmp	DWORD PTR _result$[ebp], 0
 	jne	SHORT $LN6@TEST_PMC_T
-	mov	DWORD PTR tv129[ebp], 1
+	mov	DWORD PTR tv95[ebp], 1
 	jmp	SHORT $LN7@TEST_PMC_T
 $LN6@TEST_PMC_T:
-	mov	DWORD PTR tv129[ebp], 0
+	mov	DWORD PTR tv95[ebp], 0
 $LN7@TEST_PMC_T:
-	mov	eax, DWORD PTR _result$[ebp]
-	push	eax
-	push	OFFSET $SG94667
+	mov	edx, DWORD PTR _result$[ebp]
+	push	edx
+	push	OFFSET $SG94741
 	call	_FormatTestMesssage
 	add	esp, 8
 	push	eax
-	mov	ecx, DWORD PTR tv129[ebp]
-	push	ecx
+	mov	eax, DWORD PTR tv95[ebp]
+	push	eax
 	push	2
+	mov	ecx, DWORD PTR _no$[ebp]
+	push	ecx
+	push	OFFSET $SG94742
+	call	_FormatTestLabel
+	add	esp, 12					; 0000000cH
+	push	eax
+	mov	edx, DWORD PTR _env$[ebp]
+	push	edx
+	call	_TEST_Assert
+	add	esp, 16					; 00000010H
+
+; 43   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
+
+	mov	esi, esp
+	mov	eax, DWORD PTR _desired_str$[ebp]
+	push	eax
+	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringD@@9@9
+	call	DWORD PTR __imp__lstrcmpW@8
+	cmp	esi, esp
+	call	__RTC_CheckEsp
+	test	eax, eax
+	jne	SHORT $LN8@TEST_PMC_T
+	mov	DWORD PTR tv140[ebp], 1
+	jmp	SHORT $LN9@TEST_PMC_T
+$LN8@TEST_PMC_T:
+	mov	DWORD PTR tv140[ebp], 0
+$LN9@TEST_PMC_T:
+	push	OFFSET $SG94743
+	mov	ecx, DWORD PTR tv140[ebp]
+	push	ecx
+	push	3
 	mov	edx, DWORD PTR _no$[ebp]
 	push	edx
-	push	OFFSET $SG94668
+	push	OFFSET $SG94744
 	call	_FormatTestLabel
 	add	esp, 12					; 0000000cH
 	push	eax
@@ -226,55 +254,24 @@ $LN7@TEST_PMC_T:
 	call	_TEST_Assert
 	add	esp, 16					; 00000010H
 
-; 42   :     TEST_Assert(env, FormatTestLabel(L"ToStringD (%d.%d)", no, 3), lstrcmpW(actual_str_buffer, desired_str) == 0, L"データの内容が一致しない");
-
-	mov	esi, esp
-	mov	ecx, DWORD PTR _desired_str$[ebp]
-	push	ecx
-	push	OFFSET ?actual_str_buffer@?1??TEST_PMC_ToStringD@@9@9
-	call	DWORD PTR __imp__lstrcmpW@8
-	cmp	esi, esp
-	call	__RTC_CheckEsp
-	test	eax, eax
-	jne	SHORT $LN8@TEST_PMC_T
-	mov	DWORD PTR tv142[ebp], 1
-	jmp	SHORT $LN9@TEST_PMC_T
-$LN8@TEST_PMC_T:
-	mov	DWORD PTR tv142[ebp], 0
-$LN9@TEST_PMC_T:
-	push	OFFSET $SG94669
-	mov	edx, DWORD PTR tv142[ebp]
-	push	edx
-	push	3
-	mov	eax, DWORD PTR _no$[ebp]
-	push	eax
-	push	OFFSET $SG94670
-	call	_FormatTestLabel
-	add	esp, 12					; 0000000cH
-	push	eax
-	mov	ecx, DWORD PTR _env$[ebp]
-	push	ecx
-	call	_TEST_Assert
-	add	esp, 16					; 00000010H
-
-; 43   :     if (x_result == PMC_STATUS_OK)
+; 44   :     if (x_result == PMC_STATUS_OK)
 
 	cmp	DWORD PTR _x_result$[ebp], 0
 	jne	SHORT $LN1@TEST_PMC_T
 
-; 44   :         ep->Dispose(x);
+; 45   :         ep->Dispose(x);
 
 	mov	esi, esp
-	mov	edx, DWORD PTR _x$[ebp]
-	push	edx
-	mov	eax, DWORD PTR _ep$[ebp]
-	mov	ecx, DWORD PTR [eax+16]
-	call	ecx
+	mov	ecx, DWORD PTR _x$[ebp]
+	push	ecx
+	mov	edx, DWORD PTR _ep$[ebp]
+	mov	eax, DWORD PTR [edx+16]
+	call	eax
 	cmp	esi, esp
 	call	__RTC_CheckEsp
 $LN1@TEST_PMC_T:
 
-; 45   : }
+; 46   : }
 
 	push	edx
 	mov	ecx, ebp
@@ -288,12 +285,13 @@ $LN1@TEST_PMC_T:
 	mov	ecx, DWORD PTR __$ArrayPad$[ebp]
 	xor	ecx, ebp
 	call	@__security_check_cookie@4
-	add	esp, 236				; 000000ecH
+	add	esp, 220				; 000000dcH
 	cmp	ebp, esp
 	call	__RTC_CheckEsp
 	mov	esp, ebp
 	pop	ebp
 	ret	0
+	npad	1
 $LN13@TEST_PMC_T:
 	DD	2
 	DD	$LN12@TEST_PMC_T
@@ -301,8 +299,8 @@ $LN12@TEST_PMC_T:
 	DD	-12					; fffffff4H
 	DD	4
 	DD	$LN10@TEST_PMC_T
-	DD	-220					; ffffff24H
-	DD	192					; 000000c0H
+	DD	-204					; ffffff34H
+	DD	176					; 000000b0H
 	DD	$LN11@TEST_PMC_T
 $LN11@TEST_PMC_T:
 	DB	111					; 0000006fH

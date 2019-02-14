@@ -2001,9 +2001,9 @@ Multiply_X_X_using_MULX_ADCX:
 	ret
 	.seh_endproc
 	.p2align 4,,15
-	.def	PMC_Multiply_X_I_Imp;	.scl	3;	.type	32;	.endef
-	.seh_proc	PMC_Multiply_X_I_Imp
-PMC_Multiply_X_I_Imp:
+	.def	PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
+	.seh_proc	PMC_Multiply_X_L_Imp
+PMC_Multiply_X_L_Imp:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
@@ -2016,12 +2016,12 @@ PMC_Multiply_X_I_Imp:
 	movzbl	(%rcx), %eax
 	testb	$1, %al
 	movq	%rcx, %rbx
-	movl	%edx, %edi
+	movq	%rdx, %rdi
 	movq	%r8, %rsi
 	jne	.L86
 	testb	$2, %al
 	je	.L85
-	testl	%edx, %edx
+	testq	%rdx, %rdx
 	jne	.L95
 .L86:
 	movq	.refptr.number_zero(%rip), %rax
@@ -2035,19 +2035,19 @@ PMC_Multiply_X_I_Imp:
 	ret
 	.p2align 4,,10
 .L85:
-	testl	%edx, %edx
+	testq	%rdx, %rdx
 	je	.L86
-	cmpl	$1, %edx
+	cmpq	$1, %rdx
 	je	.L96
 	movq	24(%rbx), %rax
 	leaq	56(%rsp), %r8
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edx, %ecx
+ # 641 "../pmc_inline_func.h" 1
+	bsrq %rdx, %rcx
  # 0 "" 2
 /NO_APP
-	leaq	32(%rax), %rdx
-	movl	$31, %eax
+	leaq	64(%rax), %rdx
+	movl	$63, %eax
 	subl	%ecx, %eax
 	movq	%rsi, %rcx
 	cltq
@@ -2056,7 +2056,7 @@ PMC_Multiply_X_I_Imp:
 	testl	%eax, %eax
 	jne	.L82
 	movq	(%rsi), %rax
-	movl	%edi, %r8d
+	movq	%rdi, %r8
 	movq	16(%rbx), %rdx
 	movq	64(%rbx), %rcx
 	movq	64(%rax), %r9
@@ -2075,8 +2075,8 @@ PMC_Multiply_X_I_Imp:
 	.p2align 4,,10
 .L95:
 	movq	%r8, %rdx
-	movl	%edi, %ecx
-	call	From_I_Imp
+	movq	%rdi, %rcx
+	call	From_L_Imp
 	jmp	.L82
 	.p2align 4,,10
 .L96:
@@ -2085,9 +2085,18 @@ PMC_Multiply_X_I_Imp:
 	jmp	.L82
 	.seh_endproc
 	.p2align 4,,15
-	.def	PMC_Multiply_X_L_Imp;	.scl	3;	.type	32;	.endef
-	.seh_proc	PMC_Multiply_X_L_Imp
-PMC_Multiply_X_L_Imp:
+	.globl	Multiply_X_X_Imp
+	.def	Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
+	.seh_proc	Multiply_X_X_Imp
+Multiply_X_X_Imp:
+	.seh_endprologue
+	rex.W jmp	*fp_Multiply_X_X(%rip)
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMC_Multiply_X_I_Imp
+	.def	PMC_Multiply_X_I_Imp;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMC_Multiply_X_I_Imp
+PMC_Multiply_X_I_Imp:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
@@ -2100,47 +2109,47 @@ PMC_Multiply_X_L_Imp:
 	movzbl	(%rcx), %eax
 	testb	$1, %al
 	movq	%rcx, %rbx
-	movq	%rdx, %rdi
+	movl	%edx, %edi
 	movq	%r8, %rsi
-	jne	.L101
+	jne	.L102
 	testb	$2, %al
-	je	.L100
-	testq	%rdx, %rdx
-	jne	.L110
-.L101:
+	je	.L101
+	testl	%edx, %edx
+	jne	.L111
+.L102:
 	movq	.refptr.number_zero(%rip), %rax
 	movq	%rax, (%rsi)
 	xorl	%eax, %eax
-.L97:
+.L98:
 	addq	$64, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L100:
-	testq	%rdx, %rdx
-	je	.L101
-	cmpq	$1, %rdx
-	je	.L111
+.L101:
+	testl	%edx, %edx
+	je	.L102
+	cmpl	$1, %edx
+	je	.L112
 	movq	24(%rbx), %rax
 	leaq	56(%rsp), %r8
 /APP
- # 641 "../pmc_inline_func.h" 1
-	bsrq %rdx, %rcx
+ # 597 "../pmc_inline_func.h" 1
+	bsrl %edx, %ecx
  # 0 "" 2
 /NO_APP
-	leaq	64(%rax), %rdx
-	movl	$63, %eax
+	leaq	32(%rax), %rdx
+	movl	$31, %eax
 	subl	%ecx, %eax
 	movq	%rsi, %rcx
 	cltq
 	subq	%rax, %rdx
 	call	AllocateNumber
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L98
 	movq	(%rsi), %rax
-	movq	%rdi, %r8
+	movl	%edi, %r8d
 	movq	16(%rbx), %rdx
 	movq	64(%rbx), %rcx
 	movq	64(%rax), %r9
@@ -2150,31 +2159,23 @@ PMC_Multiply_X_L_Imp:
 	movq	64(%rax), %rcx
 	call	CheckBlockLight
 	testl	%eax, %eax
-	jne	.L97
+	jne	.L98
 	movq	(%rsi), %rcx
 	movl	%eax, 44(%rsp)
 	call	CommitNumber
 	movl	44(%rsp), %eax
-	jmp	.L97
-	.p2align 4,,10
-.L110:
-	movq	%r8, %rdx
-	movq	%rdi, %rcx
-	call	From_L_Imp
-	jmp	.L97
+	jmp	.L98
 	.p2align 4,,10
 .L111:
 	movq	%r8, %rdx
+	movl	%edi, %ecx
+	call	From_I_Imp
+	jmp	.L98
+	.p2align 4,,10
+.L112:
+	movq	%r8, %rdx
 	call	DuplicateNumber
-	jmp	.L97
-	.seh_endproc
-	.p2align 4,,15
-	.globl	Multiply_X_X_Imp
-	.def	Multiply_X_X_Imp;	.scl	2;	.type	32;	.endef
-	.seh_proc	Multiply_X_X_Imp
-Multiply_X_X_Imp:
-	.seh_endprologue
-	rex.W jmp	*fp_Multiply_X_X(%rip)
+	jmp	.L98
 	.seh_endproc
 	.p2align 4,,15
 	.globl	PMC_Multiply_I_X
@@ -2516,9 +2517,9 @@ Initialize_Multiply:
 	.def	AllocateNumber;	.scl	2;	.type	32;	.endef
 	.def	CheckBlockLight;	.scl	2;	.type	32;	.endef
 	.def	CommitNumber;	.scl	2;	.type	32;	.endef
-	.def	From_I_Imp;	.scl	2;	.type	32;	.endef
-	.def	DuplicateNumber;	.scl	2;	.type	32;	.endef
 	.def	From_L_Imp;	.scl	2;	.type	32;	.endef
+	.def	DuplicateNumber;	.scl	2;	.type	32;	.endef
+	.def	From_I_Imp;	.scl	2;	.type	32;	.endef
 	.def	CheckNumber;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr.number_zero, "dr"
 	.globl	.refptr.number_zero

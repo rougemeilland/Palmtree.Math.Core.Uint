@@ -428,7 +428,7 @@ __inline static void Multiply_X_X_using_MULX_ADCX(__UNIT_TYPE* u_buf, __UNIT_TYP
     } while (v_count != 0);
 }
 
-static PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w)
+PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w)
 {
     PMC_STATUS_CODE result;
     if (u->IS_ZERO)

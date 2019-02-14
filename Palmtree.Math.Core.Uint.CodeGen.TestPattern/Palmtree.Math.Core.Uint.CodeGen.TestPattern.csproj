@@ -82,7 +82,13 @@
     <Compile Include="TEST_PMC_RightShift.cs" />
     <Compile Include="TEST_PMC_Subtruct.cs" />
     <Compile Include="TEST_PMC_To.cs" />
+    <Compile Include="TEST_PMC_ToStringP.cs" />
+    <Compile Include="TEST_PMC_ToStringG.cs" />
+    <Compile Include="TEST_PMC_ToStringR.cs" />
+    <Compile Include="TEST_PMC_ToStringF.cs" />
+    <Compile Include="TEST_PMC_ToStringE.cs" />
     <Compile Include="TEST_PMC_ToStringD.cs" />
+    <Compile Include="TEST_PMC_ToStringC.cs" />
     <Compile Include="TEST_PMC_ToStringN.cs" />
     <Compile Include="TEST_PMC_ToStringX.cs" />
   </ItemGroup>

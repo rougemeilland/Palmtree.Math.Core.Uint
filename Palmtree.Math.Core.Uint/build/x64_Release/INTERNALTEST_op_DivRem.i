@@ -100693,14 +100693,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 72 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -100732,7 +100732,7 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t DecimalSeparator[3];
@@ -100740,34 +100740,14 @@ typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
     wchar_t GroupSizes[11];
     int NegativePattern;
     int PositivePattern;
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-    int PositivePattern;
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
-    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
-    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Currency;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Number;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Percent;
     wchar_t CurrencySymbol[3];
-    wchar_t NativeDigits[11];
     wchar_t NegativeSign[3];
     wchar_t PositiveSign[3];
     wchar_t PercentSymbol[3];
@@ -100837,7 +100817,7 @@ typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 
 
         void ( * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE ( * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE ( * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE ( * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
@@ -100995,6 +100975,18 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #pragma region 型の定義
+    typedef struct __tag___CHAIN_BUFFER_TAG
+    {
+        struct __tag___CHAIN_BUFFER_TAG* next;
+        struct __tag___CHAIN_BUFFER_TAG* prev;
+
+    } __CHAIN_BUFFER_TAG;
+
+    typedef struct __tag_CHAIN_BUFFER_ROOT
+    {
+        __CHAIN_BUFFER_TAG tag;
+    } CHAIN_BUFFER_ROOT;
+
     typedef struct __tag_NUMBER_HEADER
     {
         unsigned IS_ZERO : 1;
@@ -101070,6 +101062,21 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE DuplicateNumber(NUMBER_HEADER* p, NUMBER_HEADER** op);
 
 
+    extern void InitializeChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void CleanUpChainBuffer(CHAIN_BUFFER_ROOT* root);
+
+
+    extern void* AllocateChainedBuffer(CHAIN_BUFFER_ROOT* root, size_t size);
+
+
+    extern void CheckChainedBuffer(void* buffer);
+
+
+    extern void DeallocateChainedBuffer(CHAIN_BUFFER_ROOT* root, void* buffer);
+
+
     extern PMC_STATUS_CODE From_I_Imp(_UINT32_T x, NUMBER_HEADER** o);
 
 
@@ -101092,6 +101099,9 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
     extern void Multiply_X_X_Imp(__UNIT_TYPE* u, __UNIT_TYPE u_count, __UNIT_TYPE* v, __UNIT_TYPE v_count, __UNIT_TYPE* w);
+
+
+    extern PMC_STATUS_CODE PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v, NUMBER_HEADER** w);
 
 
     extern void DivRem_X_1W(__UNIT_TYPE_DIV* u_buf, __UNIT_TYPE u_buf_len, __UNIT_TYPE_DIV v, __UNIT_TYPE_DIV* q_buf, __UNIT_TYPE_DIV* r_buf);
@@ -101190,7 +101200,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
     extern PMC_STATUS_CODE PMC_To_X_L(PMC_HANDLE_UINT p, _UINT64_T* o);
 
     extern void PMC_InitializeNumberFormatInfo(PMC_NUMBER_FORMAT_INFO* info);
-    extern PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+    extern PMC_STATUS_CODE PMC_ToString(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
     extern PMC_STATUS_CODE PMC_TryParse(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
     extern PMC_STATUS_CODE PMC_Add_I_X(_UINT32_T u, PMC_HANDLE_UINT v, PMC_HANDLE_UINT* w);
@@ -101330,12 +101340,12 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
     __inline static void ReportDump(wchar_t* name, __UNIT_TYPE* buf, __UNIT_TYPE count)
     {
-# 383 "../pmc_uint_internal.h"
+# 413 "../pmc_uint_internal.h"
     }
 
     __inline static void ReportVar(wchar_t* name, __UNIT_TYPE x)
     {
-# 397 "../pmc_uint_internal.h"
+# 427 "../pmc_uint_internal.h"
     }
 #pragma endregion
 # 28 "../INTERNALTEST_op_DivRem.c" 2
@@ -102966,11 +102976,11 @@ typedef struct __tag_PMC_DEBUG_ENVIRONMENT
 
 
 #pragma region 宣言
-# 149 "../pmc_uint_debug.h"
+# 155 "../pmc_uint_debug.h"
 #pragma endregion
 
 
 #pragma region インライン関数の定義
-# 169 "../pmc_uint_debug.h"
+# 175 "../pmc_uint_debug.h"
 #pragma endregion
 # 30 "../INTERNALTEST_op_DivRem.c" 2

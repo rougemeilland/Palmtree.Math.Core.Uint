@@ -152,7 +152,7 @@ L13:
 	movl	$_PMC_FromByteArray@12, _entry_points+24
 	movl	$_PMC_ToByteArray@16, _entry_points+28
 	movl	$_PMC_InitializeNumberFormatInfo@4, _entry_points+44
-	movl	$_PMC_ToString@24, _entry_points+48
+	movl	$_PMC_ToString@20, _entry_points+48
 	movl	$_PMC_TryParse@16, _entry_points+52
 	movl	$_PMC_Add_I_X@12, _entry_points+56
 	movl	$_PMC_Add_L_X@16, _entry_points+60
@@ -263,7 +263,7 @@ LFE5493:
 	.def	_PMC_FromByteArray@12;	.scl	2;	.type	32;	.endef
 	.def	_PMC_ToByteArray@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_InitializeNumberFormatInfo@4;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ToString@24;	.scl	2;	.type	32;	.endef
+	.def	_PMC_ToString@20;	.scl	2;	.type	32;	.endef
 	.def	_PMC_TryParse@16;	.scl	2;	.type	32;	.endef
 	.def	_PMC_Add_I_X@12;	.scl	2;	.type	32;	.endef
 	.def	_PMC_Add_L_X@16;	.scl	2;	.type	32;	.endef

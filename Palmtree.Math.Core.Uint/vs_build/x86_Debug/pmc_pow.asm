@@ -274,7 +274,7 @@ $LN13@PMC_Pow_X_:
 ; 140  :             {
 ; 141  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@PMC_Pow_X_
 $LN14@PMC_Pow_X_:
 
@@ -310,7 +310,7 @@ $LN14@PMC_Pow_X_:
 
 ; 149  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@PMC_Pow_X_
 $LN15@PMC_Pow_X_:
 
@@ -351,7 +351,7 @@ $LN15@PMC_Pow_X_:
 
 ; 156  :                 return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@PMC_Pow_X_
 $LN16@PMC_Pow_X_:
 

@@ -142,9 +142,15 @@ extern void TEST_PMC_Subtruct_X_I(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POI
 extern void TEST_PMC_Subtruct_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned __int64 v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Subtruct_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
-extern void TEST_PMC_ToStringD(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int min_width, wchar_t* desired_str);
-extern void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int width, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
-extern void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int min_width, wchar_t* desired_str);
+extern void TEST_PMC_ToStringC(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, wchar_t* currency_symbol, int decimal_digits, int pattern, wchar_t* desired_str);
+extern void TEST_PMC_ToStringD(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringE(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* decimal_separator, wchar_t* desired_str);
+extern void TEST_PMC_ToStringF(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
+extern void TEST_PMC_ToStringG(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
+extern void TEST_PMC_ToStringP(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, wchar_t* percent_symbol, int decimal_digits, int pattern, wchar_t* desired_str);
+extern void TEST_PMC_ToStringR(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned __int64 x_value, wchar_t* format, wchar_t* desired_str);
 #endif
 #pragma endregion
 

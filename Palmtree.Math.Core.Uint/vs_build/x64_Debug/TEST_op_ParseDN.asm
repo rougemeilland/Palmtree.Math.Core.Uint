@@ -141,10 +141,10 @@ xdata	ENDS
 xdata	SEGMENT
 $unwind$TEST_PMC_ParseDN3 DD 025054a19H
 	DD	011d2322H
-	DD	070160047H
+	DD	070160045H
 	DD	05015H
 	DD	imagerel __GSHandlerCheck
-	DD	0220H
+	DD	0210H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -157,7 +157,7 @@ TEST_PMC_ParseDN3$rtcName$1 DB 06fH
 	DB	00H
 	ORG $+8
 TEST_PMC_ParseDN3$rtcVarDesc DD 090H
-	DD	0c0H
+	DD	0b0H
 	DQ	FLAT:TEST_PMC_ParseDN3$rtcName$1
 	DD	028H
 	DD	08H
@@ -171,10 +171,10 @@ CONST	ENDS
 xdata	SEGMENT
 $unwind$TEST_PMC_ParseDN2 DD 025054a19H
 	DD	011d2322H
-	DD	070160047H
+	DD	070160045H
 	DD	05015H
 	DD	imagerel __GSHandlerCheck
-	DD	0220H
+	DD	0210H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -187,7 +187,7 @@ TEST_PMC_ParseDN2$rtcName$1 DB 06fH
 	DB	00H
 	ORG $+8
 TEST_PMC_ParseDN2$rtcVarDesc DD 090H
-	DD	0c0H
+	DD	0b0H
 	DQ	FLAT:TEST_PMC_ParseDN2$rtcName$1
 	DD	028H
 	DD	08H
@@ -201,10 +201,10 @@ CONST	ENDS
 xdata	SEGMENT
 $unwind$TEST_PMC_ParseDN1 DD 025054a19H
 	DD	011d2322H
-	DD	070160047H
+	DD	070160045H
 	DD	05015H
 	DD	imagerel __GSHandlerCheck
-	DD	0220H
+	DD	0210H
 xdata	ENDS
 ;	COMDAT CONST
 CONST	SEGMENT
@@ -217,7 +217,7 @@ TEST_PMC_ParseDN1$rtcName$1 DB 06fH
 	DB	00H
 	ORG $+8
 TEST_PMC_ParseDN1$rtcVarDesc DD 090H
-	DD	0c0H
+	DD	0b0H
 	DQ	FLAT:TEST_PMC_ParseDN1$rtcName$1
 	DD	028H
 	DD	08H
@@ -244,7 +244,7 @@ buffer2$ = 240
 count2$ = 248
 _EQUALS_MEMORY PROC					; COMDAT
 
-; 155  : {
+; 161  : {
 
 	mov	QWORD PTR [rsp+32], r9
 	mov	QWORD PTR [rsp+24], r8
@@ -262,26 +262,26 @@ _EQUALS_MEMORY PROC					; COMDAT
 	lea	rcx, OFFSET FLAT:__630249ED_pmc_uint_debug@h
 	call	__CheckForDebuggerJustMyCode
 
-; 156  :     if (count1 != count2)
+; 162  :     if (count1 != count2)
 
 	mov	rax, QWORD PTR count2$[rbp]
 	cmp	QWORD PTR count1$[rbp], rax
 	je	SHORT $LN4@EQUALS_MEM
 
-; 157  :         return (-1);
+; 163  :         return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN4@EQUALS_MEM:
 $LN2@EQUALS_MEM:
 
-; 158  :     while (count1 > 0)
+; 164  :     while (count1 > 0)
 
 	cmp	QWORD PTR count1$[rbp], 0
 	jbe	SHORT $LN3@EQUALS_MEM
 
-; 159  :     {
-; 160  :         if (*buffer1 != *buffer2)
+; 165  :     {
+; 166  :         if (*buffer1 != *buffer2)
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	movzx	eax, BYTE PTR [rax]
@@ -290,41 +290,41 @@ $LN2@EQUALS_MEM:
 	cmp	eax, ecx
 	je	SHORT $LN5@EQUALS_MEM
 
-; 161  :             return (-1);
+; 167  :             return (-1);
 
 	mov	eax, -1
 	jmp	SHORT $LN1@EQUALS_MEM
 $LN5@EQUALS_MEM:
 
-; 162  :         ++buffer1;
+; 168  :         ++buffer1;
 
 	mov	rax, QWORD PTR buffer1$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer1$[rbp], rax
 
-; 163  :         ++buffer2;
+; 169  :         ++buffer2;
 
 	mov	rax, QWORD PTR buffer2$[rbp]
 	inc	rax
 	mov	QWORD PTR buffer2$[rbp], rax
 
-; 164  :         --count1;
+; 170  :         --count1;
 
 	mov	rax, QWORD PTR count1$[rbp]
 	dec	rax
 	mov	QWORD PTR count1$[rbp], rax
 
-; 165  :     }
+; 171  :     }
 
 	jmp	SHORT $LN2@EQUALS_MEM
 $LN3@EQUALS_MEM:
 
-; 166  :     return (0);
+; 172  :     return (0);
 
 	xor	eax, eax
 $LN1@EQUALS_MEM:
 
-; 167  : }
+; 173  : }
 
 	lea	rsp, QWORD PTR [rbp+200]
 	pop	rdi
@@ -340,20 +340,20 @@ x$ = 8
 result$ = 36
 x_result$ = 68
 opt$ = 112
-tv144 = 500
-tv129 = 500
-tv77 = 500
-tv86 = 504
-tv66 = 504
-__$ArrayPad$ = 512
-env$ = 560
-ep$ = 568
-no$ = 576
-str$ = 584
-styles$ = 592
-desired_result_code$ = 600
-desired_buf$ = 608
-desired_buf_size$ = 616
+tv144 = 484
+tv129 = 484
+tv77 = 484
+tv86 = 488
+tv66 = 488
+__$ArrayPad$ = 496
+env$ = 544
+ep$ = 552
+no$ = 560
+str$ = 568
+styles$ = 576
+desired_result_code$ = 584
+desired_buf$ = 592
+desired_buf_size$ = 600
 TEST_PMC_ParseDN3 PROC					; COMDAT
 
 ; 75   : {
@@ -365,13 +365,13 @@ $LN11:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 568				; 00000238H
+	sub	rsp, 552				; 00000228H
 	lea	rbp, QWORD PTR [rsp+32]
 	mov	rdi, rsp
-	mov	ecx, 142				; 0000008eH
+	mov	ecx, 138				; 0000008aH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+600]
+	mov	rcx, QWORD PTR [rsp+584]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
@@ -505,7 +505,7 @@ $LN3@TEST_PMC_P:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+536]
+	lea	rsp, QWORD PTR [rbp+520]
 	pop	rdi
 	pop	rbp
 	ret	0
@@ -519,20 +519,20 @@ x$ = 8
 result$ = 36
 x_result$ = 68
 opt$ = 112
-tv144 = 500
-tv129 = 500
-tv77 = 500
-tv86 = 504
-tv66 = 504
-__$ArrayPad$ = 512
-env$ = 560
-ep$ = 568
-no$ = 576
-str$ = 584
-styles$ = 592
-desired_result_code$ = 600
-desired_buf$ = 608
-desired_buf_size$ = 616
+tv144 = 484
+tv129 = 484
+tv77 = 484
+tv86 = 488
+tv66 = 488
+__$ArrayPad$ = 496
+env$ = 544
+ep$ = 552
+no$ = 560
+str$ = 568
+styles$ = 576
+desired_result_code$ = 584
+desired_buf$ = 592
+desired_buf_size$ = 600
 TEST_PMC_ParseDN2 PROC					; COMDAT
 
 ; 56   : {
@@ -544,13 +544,13 @@ $LN11:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 568				; 00000238H
+	sub	rsp, 552				; 00000228H
 	lea	rbp, QWORD PTR [rsp+32]
 	mov	rdi, rsp
-	mov	ecx, 142				; 0000008eH
+	mov	ecx, 138				; 0000008aH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+600]
+	mov	rcx, QWORD PTR [rsp+584]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
@@ -684,7 +684,7 @@ $LN3@TEST_PMC_P:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+536]
+	lea	rsp, QWORD PTR [rbp+520]
 	pop	rdi
 	pop	rbp
 	ret	0
@@ -698,24 +698,24 @@ x$ = 8
 result$ = 36
 x_result$ = 68
 opt$ = 112
-tv152 = 500
-tv137 = 500
-tv85 = 500
-tv94 = 504
-tv66 = 504
-__$ArrayPad$ = 512
-env$ = 560
-ep$ = 568
-no$ = 576
-str$ = 584
-styles$ = 592
-group_separator$ = 600
-decimal_separator$ = 608
-positive_sign$ = 616
-negative_sign$ = 624
-desired_result_code$ = 632
-desired_buf$ = 640
-desired_buf_size$ = 648
+tv152 = 484
+tv137 = 484
+tv85 = 484
+tv94 = 488
+tv66 = 488
+__$ArrayPad$ = 496
+env$ = 544
+ep$ = 552
+no$ = 560
+str$ = 568
+styles$ = 576
+group_separator$ = 584
+decimal_separator$ = 592
+positive_sign$ = 600
+negative_sign$ = 608
+desired_result_code$ = 616
+desired_buf$ = 624
+desired_buf_size$ = 632
 TEST_PMC_ParseDN1 PROC					; COMDAT
 
 ; 33   : {
@@ -727,13 +727,13 @@ $LN11:
 	mov	QWORD PTR [rsp+8], rcx
 	push	rbp
 	push	rdi
-	sub	rsp, 568				; 00000238H
+	sub	rsp, 552				; 00000228H
 	lea	rbp, QWORD PTR [rsp+32]
 	mov	rdi, rsp
-	mov	ecx, 142				; 0000008eH
+	mov	ecx, 138				; 0000008aH
 	mov	eax, -858993460				; ccccccccH
 	rep stosd
-	mov	rcx, QWORD PTR [rsp+600]
+	mov	rcx, QWORD PTR [rsp+584]
 	mov	rax, QWORD PTR __security_cookie
 	xor	rax, rbp
 	mov	QWORD PTR __$ArrayPad$[rbp], rax
@@ -755,25 +755,25 @@ $LN11:
 ; 41   :     lstrcpyW(opt.Number.GroupSeparator, group_separator);
 
 	mov	rdx, QWORD PTR group_separator$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+52]
+	lea	rcx, QWORD PTR opt$[rbp+58]
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 42   :     lstrcpyW(opt.Number.DecimalSeparator, decimal_separator);
 
 	mov	rdx, QWORD PTR decimal_separator$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+58]
+	lea	rcx, QWORD PTR opt$[rbp+52]
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 43   :     lstrcpyW(opt.PositiveSign, positive_sign);
 
 	mov	rdx, QWORD PTR positive_sign$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+174]
+	lea	rcx, QWORD PTR opt$[rbp+156]
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 44   :     lstrcpyW(opt.NegativeSign, negative_sign);
 
 	mov	rdx, QWORD PTR negative_sign$[rbp]
-	lea	rcx, QWORD PTR opt$[rbp+168]
+	lea	rcx, QWORD PTR opt$[rbp+150]
 	call	QWORD PTR __imp_lstrcpyW
 
 ; 45   :     TEST_Assert(env, FormatTestLabel(L"PMC_ParseDN1 (%d.%d)", no, 1), (x_result = ep->TryParse(str, styles, &opt, &x)) == desired_result_code, FormatTestMesssage(L"PMC_TryParseの復帰コードが期待通りではない(%d)", x_result));
@@ -891,7 +891,7 @@ $LN3@TEST_PMC_P:
 	mov	rcx, QWORD PTR __$ArrayPad$[rbp]
 	xor	rcx, rbp
 	call	__security_check_cookie
-	lea	rsp, QWORD PTR [rbp+536]
+	lea	rsp, QWORD PTR [rbp+520]
 	pop	rdi
 	pop	rbp
 	ret	0

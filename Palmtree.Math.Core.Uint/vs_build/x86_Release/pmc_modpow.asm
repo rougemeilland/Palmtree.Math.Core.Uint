@@ -283,7 +283,7 @@ $LN41@PMC_ModPow:
 
 ; 117  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	edi
 
 ; 548  : }
@@ -599,7 +599,7 @@ $LN114@ModulePowe:
 
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp
@@ -644,7 +644,7 @@ $LN11@ModulePowe:
 
 ; 175  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	edi
 
 ; 449  : #ifdef DO_TRACE
@@ -705,7 +705,7 @@ $LN12@ModulePowe:
 
 ; 187  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	edi
 
 ; 449  : #ifdef DO_TRACE
@@ -765,7 +765,7 @@ $LN13@ModulePowe:
 
 ; 198  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	edi
 
 ; 449  : #ifdef DO_TRACE
@@ -1968,7 +1968,7 @@ $LN14@Remainder:
 
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp

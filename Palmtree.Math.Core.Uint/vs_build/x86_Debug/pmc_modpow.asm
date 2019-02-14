@@ -455,7 +455,7 @@ _ModulePower PROC
 ; 153  :     {
 ; 154  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@ModulePowe
 $LN10@ModulePowe:
 
@@ -500,7 +500,7 @@ $LN10@ModulePowe:
 
 ; 164  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@ModulePowe
 $LN11@ModulePowe:
 
@@ -554,7 +554,7 @@ $LN11@ModulePowe:
 
 ; 175  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@ModulePowe
 $LN12@ModulePowe:
 
@@ -615,7 +615,7 @@ $LN12@ModulePowe:
 
 ; 187  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@ModulePowe
 $LN13@ModulePowe:
 
@@ -681,7 +681,7 @@ $LN13@ModulePowe:
 
 ; 198  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@ModulePowe
 $LN14@ModulePowe:
 
@@ -2123,7 +2123,7 @@ $LN2@Remainder:
 
 ; 112  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@Remainder
 $LN5@Remainder:
 
@@ -2156,7 +2156,7 @@ $LN5@Remainder:
 
 ; 117  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	jmp	$LN1@Remainder
 $LN6@Remainder:
 

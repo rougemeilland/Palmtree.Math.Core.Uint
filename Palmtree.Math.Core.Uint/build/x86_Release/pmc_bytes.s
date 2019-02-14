@@ -375,7 +375,7 @@ L58:
 	movl	$-1, %eax
 	jmp	L52
 L60:
-	movl	$-4, %eax
+	movl	$-5, %eax
 	jmp	L52
 L63:
 	movl	$-256, %eax
@@ -467,7 +467,7 @@ L73:
 	movl	$-1, %eax
 	jmp	L68
 L75:
-	movl	$-4, %eax
+	movl	$-5, %eax
 	jmp	L68
 	.cfi_endproc
 LFE5496:

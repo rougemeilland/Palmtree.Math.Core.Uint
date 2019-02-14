@@ -352,7 +352,7 @@ $LN41@PMC_ModPow:
 
 ; 117  :             return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN39@PMC_ModPow
 $LN28@PMC_ModPow:
 
@@ -585,7 +585,7 @@ ModulePower PROC					; COMDAT
 ; 153  :     {
 ; 154  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	lea	eax, QWORD PTR [r13-5]
+	lea	eax, QWORD PTR [r13-6]
 
 ; 453  : }
 
@@ -630,7 +630,7 @@ $LN10@ModulePowe:
 
 ; 164  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	lea	eax, QWORD PTR [r15-5]
+	lea	eax, QWORD PTR [r15-6]
 	jmp	$LN113@ModulePowe
 $LN11@ModulePowe:
 
@@ -728,7 +728,7 @@ $LN118@ModulePowe:
 
 ; 198  :         return (PMC_STATUS_NOT_ENOUGH_MEMORY);
 
-	mov	eax, -5
+	mov	eax, -6
 	jmp	$LN114@ModulePowe
 $LN14@ModulePowe:
 
@@ -1699,7 +1699,7 @@ $LN14@Remainder:
 
 ; 135  : }
 
-	mov	eax, -5
+	mov	eax, -6
 	mov	rbx, QWORD PTR [rsp+112]
 	add	rsp, 64					; 00000040H
 	pop	rdi

@@ -6044,7 +6044,7 @@ L447:
 	movl	48(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	movl	$-5, %eax
+	movl	$-6, %eax
 	.p2align 4,,10
 L429:
 	movl	%eax, %esi
@@ -6255,7 +6255,7 @@ L427:
 	jmp	L401
 L448:
 	movl	48(%esp), %eax
-	movl	$-5, %esi
+	movl	$-6, %esi
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
 	jmp	L401
@@ -6695,14 +6695,14 @@ L518:
 	movl	$_number_zero, 56(%esp)
 	jmp	L474
 L482:
-	movl	$-5, %eax
+	movl	$-6, %eax
 	movl	%eax, %ebp
 	jmp	L449
 L520:
 	movl	56(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateNumber
-	movl	$-5, %eax
+	movl	$-6, %eax
 	movl	%eax, %ebp
 	jmp	L449
 	.cfi_endproc

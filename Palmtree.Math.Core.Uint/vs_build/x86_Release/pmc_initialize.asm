@@ -44,7 +44,7 @@ EXTRN	_PMC_Clone_X@8:PROC
 EXTRN	_PMC_To_X_I@8:PROC
 EXTRN	_PMC_To_X_L@8:PROC
 EXTRN	_PMC_InitializeNumberFormatInfo@4:PROC
-EXTRN	_PMC_ToString@24:PROC
+EXTRN	_PMC_ToString@20:PROC
 EXTRN	_PMC_TryParse@16:PROC
 EXTRN	_PMC_Add_I_X@12:PROC
 EXTRN	_PMC_Add_L_X@16:PROC
@@ -486,7 +486,7 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
 
 ; 126  :         entry_points.ToString = PMC_ToString;
 
-	mov	DWORD PTR _entry_points+48, OFFSET _PMC_ToString@24
+	mov	DWORD PTR _entry_points+48, OFFSET _PMC_ToString@20
 
 ; 127  :         entry_points.TryParse = PMC_TryParse;
 

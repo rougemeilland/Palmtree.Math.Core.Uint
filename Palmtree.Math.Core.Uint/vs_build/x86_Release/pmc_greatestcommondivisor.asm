@@ -328,7 +328,7 @@ $LN96@PMC_Greate:
 $LN92@PMC_Greate:
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp
@@ -1266,7 +1266,7 @@ $LN34@PMC_Greate:
 
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp
@@ -2285,7 +2285,7 @@ $LN38@PMC_Greate:
 
 	pop	edi
 	pop	esi
-	mov	eax, -5					; fffffffbH
+	mov	eax, -6					; fffffffaH
 	pop	ebx
 	mov	esp, ebp
 	pop	ebp

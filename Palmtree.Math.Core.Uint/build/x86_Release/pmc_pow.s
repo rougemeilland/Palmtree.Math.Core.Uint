@@ -101,7 +101,7 @@ L5:
 	call	_AllocateBlock
 	movl	%eax, %ecx
 	movl	%eax, 48(%esp)
-	movl	$-5, %eax
+	movl	$-6, %eax
 	testl	%ecx, %ecx
 	je	L1
 	leal	84(%esp), %eax
@@ -292,7 +292,7 @@ L34:
 	movl	56(%esp), %eax
 	movl	%eax, (%esp)
 	call	_DeallocateBlock
-	movl	$-5, %eax
+	movl	$-6, %eax
 	jmp	L1
 L18:
 	movl	48(%esp), %eax

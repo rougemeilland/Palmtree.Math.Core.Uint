@@ -13,11 +13,32 @@ namespace Palmtree.Math.Experiment
 
             //DivRemの障害調査コード();
 
-            //NativeDigitsにUTF16で複数文字から構成される文字を持つカルチャが存在しないことの確認();
+            // %と‰の効果は重複してかかる。%が2個なら100*100倍、%と‰なら100*1000倍。%と‰はどこに書かれていてもそのとおりの場所で表示される。【例：(-1.23456789).ToString("0■%■0") => -12■%■3 】
+            // '#', '0', '.', ','をまず抜き出して数値を文字列化し、そのあとで'#', '0'のある場所に数値をはめ込む、みたいな実装になっているらしい。
+            // ⇒小数部は小数点を基準に上位から順に1文字ずつはめ込まれ、はめ込めなかった分は四捨五入されて必要ならば繰り上がる。
+            // ⇒整数部は小数点を基準に下位から順に1文字ずつはめ込まれる。
+            // '.'の後に書かれている','は無視される。また、最初の '0', '#' の前に書かれている ',' は無視される。
+            // 整数部にて、'0'の後に書かれている'#'は'0'と解釈される。
+            // 小数部にて、'0'の前に書かれている'#'は'0'と解釈される。
+            // '.'の前に '0'または '#'が一つもない場合は、'#' が一つだけあると解釈される。
+            // 整数部の符号は最初の '#', '0'の前にどんなテキストがあろうとあらゆるテキストの最初に表示される。正値のときに自動的には'+'は表示されない。
+            // Eの構文解析に失敗した場合はEは(そしてその次の+あるいは-も)一般テキストとしてそのまま表示される。
+            // ⇒【例：(1.23456789).ToString("0.0E+#0  000") => 1.2E+34  568】
+            // 逆に、構文として正しければEはどこに記述されていてもその場所のまま表示される。
+            // ⇒【例：(-0.0123456789).ToString("0.0E+0  000") => -1.2E-2  346】
+            // '.' が複数ある場合は最初のものを除いて無視される。【例：(-0.0123456789).ToString("0.0 00.00") => -0.0 1235】
+            // 三つ目の';'の後の文字列は数値の符号が何であっても表示されない。つまり無視される。
 
-            var text = "¤ +12,345";
-            var value1 = BigInteger.Parse(text, NumberStyles.AllowCurrencySymbol| NumberStyles.AllowLeadingWhite| NumberStyles.AllowLeadingSign, CultureInfo.InvariantCulture);
-            var value2 = BigInteger.Parse(text, NumberStyles.AllowLeadingSign | NumberStyles.AllowParentheses, CultureInfo.InvariantCulture);
+            // c言語での実装はやめた方がいいかもしれない。構文解析が面倒。
+            // 実装をどこでやるにしろ、１）多倍長整数の桁数を調べる手段、２）０～９の値と10のべき乗を掛けた値を取得する手段、はあると便利だと思う。
+
+            var formats = new[] { "これは正;これはゼロ;これは負", "これは正;これはゼロ;これは負;これは何？" };
+            var values = new[] { 0D, 12345D, -12345D, 1.23456789D, -1.23456789D, 0.0123456789D, -0.0123456789D };
+            var texts = formats
+                        .SelectMany(format => values, (format, value) => new { text = value.ToString(format), format, value })
+                        .Select(item => string.Format(@"({0}).ToString(""{1}"") => {2}", item.value, item.format, item.text));
+            foreach (var text in texts)
+                Console.WriteLine(text);
 
 
             Console.ReadLine();

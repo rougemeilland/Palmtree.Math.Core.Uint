@@ -542,7 +542,7 @@ $LN18@PMC_ToByte:
 
 ; 154  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
-	mov	eax, -4
+	mov	eax, -5
 	jmp	$LN1@PMC_ToByte
 $LN5@PMC_ToByte:
 
@@ -1086,7 +1086,7 @@ $LN10@PMC_ToByte:
 
 ; 199  :             return (PMC_STATUS_INSUFFICIENT_BUFFER);
 
-	mov	eax, -4
+	mov	eax, -5
 	jmp	SHORT $LN1@PMC_ToByte
 $LN5@PMC_ToByte:
 

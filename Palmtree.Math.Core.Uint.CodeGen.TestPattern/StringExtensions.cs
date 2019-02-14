@@ -31,6 +31,8 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
     {
         public static string ToQuotedString(this string x)
         {
+            if (x == null)
+                return ("NULL");
             return ("\"" + string.Concat(x.ToString()
                 .Select(c =>
                 {
@@ -48,6 +50,8 @@ namespace Palmtree.Math.Core.Uint.CodeGen.TestPattern
 
         public static string ToQuotedWideCharString(this string x)
         {
+            if (x == null)
+                return ("NULL");
             return ("L\"" + string.Concat(x.ToString()
                 .Select(c =>
                 {

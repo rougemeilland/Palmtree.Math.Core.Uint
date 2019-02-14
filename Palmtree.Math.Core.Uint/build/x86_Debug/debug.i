@@ -48756,14 +48756,14 @@ __extension__ typedef unsigned long long uintmax_t;
 
 
 #pragma region マクロの定義
-# 71 "../pmc.h"
+# 72 "../pmc.h"
 #pragma endregion
 
 
 #pragma region 型の定義
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 
-# 84 "../pmc.h"
+# 85 "../pmc.h"
 typedef int16_t _INT16_T;
 typedef int32_t _INT32_T;
 typedef int64_t _INT64_T;
@@ -48795,7 +48795,7 @@ typedef struct __tag_PMC_STATISTICS_INFO
     long COUNT_DIV32;
 } PMC_STATISTICS_INFO;
 
-typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
+typedef struct __tag_PMC_DECIMAL_NUMBER_FORMAT_INFO
 {
     int DecimalDigits;
     wchar_t DecimalSeparator[3];
@@ -48803,34 +48803,14 @@ typedef struct __tag_PMC_CURRENCY_NUMBER_FORMAT_INFO
     wchar_t GroupSizes[11];
     int NegativePattern;
     int PositivePattern;
-} PMC_CURRENCY_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_GENERIC_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-} PMC_GENERIC_NUMBER_FORMAT_INFO;
-
-typedef struct __tag_PMC_PERCENT_NUMBER_FORMAT_INFO
-{
-    int DecimalDigits;
-    wchar_t GroupSeparator[3];
-    wchar_t DecimalSeparator[3];
-    wchar_t GroupSizes[11];
-    int NegativePattern;
-    int PositivePattern;
-} PMC_PERCENT_NUMBER_FORMAT_INFO;
+} PMC_DECIMAL_NUMBER_FORMAT_INFO;
 
 typedef struct __tag_PMC_NUMBER_FORMAT_INFO
 {
-    PMC_CURRENCY_NUMBER_FORMAT_INFO Currency;
-    PMC_GENERIC_NUMBER_FORMAT_INFO Number;
-    PMC_PERCENT_NUMBER_FORMAT_INFO Percent;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Currency;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Number;
+    PMC_DECIMAL_NUMBER_FORMAT_INFO Percent;
     wchar_t CurrencySymbol[3];
-    wchar_t NativeDigits[11];
     wchar_t NegativeSign[3];
     wchar_t PositiveSign[3];
     wchar_t PercentSymbol[3];
@@ -48947,7 +48927,7 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
         void (__attribute__((__stdcall__)) * InitializeNumberFormatInfo)(PMC_NUMBER_FORMAT_INFO* info);
-         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* buffer, size_t buffer_size, char format, int width, PMC_NUMBER_FORMAT_INFO* format_option);
+         PMC_STATUS_CODE (__attribute__((__stdcall__)) * ToString)(PMC_HANDLE_UINT x, wchar_t* format, PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size);
         PMC_STATUS_CODE (__attribute__((__stdcall__)) * TryParse)(wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o);
 
 
@@ -49469,9 +49449,51 @@ extern void TEST_PMC_Subtruct_X_L(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POI
                                                                                                                                                           v, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 extern void TEST_PMC_Subtruct_X_X(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* u_buf, size_t u_buf_size, unsigned char* v_buf, size_t v_buf_size, PMC_STATUS_CODE desired_result_code, unsigned char* desired_w_buf, size_t desired_w_buf_size);
 
-extern void TEST_PMC_ToStringD(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int min_width, wchar_t* desired_str);
-extern void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int width, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
-extern void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned char* buf, size_t buf_size, char format_spec, int min_width, wchar_t* desired_str);
+extern void TEST_PMC_ToStringC(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 145 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 145 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, wchar_t* currency_symbol, int decimal_digits, int pattern, wchar_t* desired_str);
+extern void TEST_PMC_ToStringD(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 146 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 146 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringE(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 147 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 147 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* decimal_separator, wchar_t* desired_str);
+extern void TEST_PMC_ToStringF(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 148 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 148 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
+extern void TEST_PMC_ToStringG(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 149 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 149 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringN(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 150 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 150 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, int decimal_digits, wchar_t* desired_str);
+extern void TEST_PMC_ToStringP(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 151 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 151 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* group_separator, wchar_t* group_sizes, wchar_t* decimal_separator, wchar_t* percent_symbol, int decimal_digits, int pattern, wchar_t* desired_str);
+extern void TEST_PMC_ToStringR(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 152 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 152 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* desired_str);
+extern void TEST_PMC_ToStringX(PMC_DEBUG_ENVIRONMENT *env, PMC_UINT_ENTRY_POINTS* ep, int no, unsigned 
+# 153 "../pmc_uint_debug.h" 3
+                                                                                                      long long 
+# 153 "../pmc_uint_debug.h"
+                                                                                                              x_value, wchar_t* format, wchar_t* desired_str);
 
 #pragma endregion
 
