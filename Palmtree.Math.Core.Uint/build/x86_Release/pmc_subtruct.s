@@ -1,9 +1,147 @@
-	.file	"pmc_subtruct.c"
+	.file	"pmc_subtruct.cpp"
+	.text
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev:
+LFB617:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE617:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev:
+LFB618:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE618:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev:
+LFB660:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE660:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev:
+LFB661:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE661:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev:
+LFB640:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE640:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
+LFB641:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE641:
+	.section .rdata,"dr"
+	.align 4
+LC0:
+	.ascii "\33n\227{k0\210"
+	.ascii "0\212"
+	.ascii "0\252"
+	.ascii "0\374"
+	.ascii "0\320"
+	.ascii "0\374"
+	.ascii "0\325"
+	.ascii "0\355"
+	.ascii "0\374"
+	.ascii "0L0zv\37uW0~0W0_0\2"
+	.ascii "0\0\0"
 	.text
 	.p2align 4,,15
-	.def	_Subtruct_X_1W.isra.0;	.scl	3;	.type	32;	.endef
-_Subtruct_X_1W.isra.0:
-LFB5542:
+	.def	__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1:
+LFB6214:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -14,48 +152,44 @@ LFB5542:
 	pushl	%esi
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
-	leal	4(%eax), %esi
+	movl	%edx, %esi
+	movl	%eax, %edx
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
-	movl	(%eax), %eax
-	movl	20(%esp), %edi
-	subl	%ecx, %eax
-	movl	%eax, %ecx
-	setb	%al
-	movl	%ecx, (%edi)
-	subl	$1, %edx
-	je	L2
-	leal	4(%edi), %ebx
+	subl	$28, %esp
+	.cfi_def_cfa_offset 48
+	movl	48(%esp), %ebx
+	testl	%ecx, %ecx
+	je	L12
+	xorl	%ebp, %ebp
 	movl	%ebx, %edi
 	testb	%al, %al
-	jne	L3
-	jmp	L7
+	jne	L13
+	jmp	L17
 	.p2align 4,,10
-L21:
+L32:
 	movl	%edi, %ebx
-	testb	%al, %al
-	je	L7
-L3:
+	testb	%dl, %dl
+	je	L17
+L13:
 	addl	$4, %esi
-	movl	-4(%esi), %ebp
-	addb	$-1, %al
-	movl	$0, %ecx
+	movl	-4(%esi), %eax
+	addb	$-1, %dl
 	leal	4(%ebx), %edi
-	movl	%ebp, %eax
-	sbbl	%ecx, %eax
+	sbbl	%ebp, %eax
 	movl	%eax, (%ebx)
-	setc	%al
-	subl	$1, %edx
-	jne	L21
-L2:
-	testb	%al, %al
-	jne	L9
-L8:
-	xorl	%eax, %eax
-L1:
-	popl	%ebx
+	setc	%dl
+	subl	$1, %ecx
+	jne	L32
+L12:
+	testb	%dl, %dl
+	jne	L35
+L11:
+	addl	$28, %esp
 	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
 	popl	%esi
@@ -69,25 +203,33 @@ L1:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L7:
+L17:
 	.cfi_restore_state
 	movsl
-	subl	$1, %edx
-	je	L8
+	subl	$1, %ecx
+	je	L11
 	movsl
-	subl	$1, %edx
-	jne	L7
-	jmp	L8
-L9:
-	movl	$-258, %eax
-	jmp	L1
+	subl	$1, %ecx
+	jne	L17
+	jmp	L11
+L35:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
 	.cfi_endproc
-LFE5542:
+LFE6214:
 	.p2align 4,,15
-	.globl	_Subtruct_Imp
-	.def	_Subtruct_Imp;	.scl	2;	.type	32;	.endef
-_Subtruct_Imp:
-LFB5535:
+	.globl	__ZN8Palmtree4Math4Core8Internal12Subtruct_ImpEPjjS3_jS3_j
+	.def	__ZN8Palmtree4Math4Core8Internal12Subtruct_ImpEPjjS3_jS3_j;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal12Subtruct_ImpEPjjS3_jS3_j:
+LFB6203:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -101,25 +243,31 @@ LFB5535:
 	pushl	%ebx
 	.cfi_def_cfa_offset 20
 	.cfi_offset 3, -20
-	subl	$12, %esp
-	.cfi_def_cfa_offset 32
-	movl	44(%esp), %eax
-	movl	32(%esp), %esi
-	movl	48(%esp), %ebp
+	subl	$44, %esp
+	.cfi_def_cfa_offset 64
+	movl	68(%esp), %eax
+	movl	64(%esp), %esi
+	movl	72(%esp), %edi
+	movl	80(%esp), %ebp
+	movl	%eax, 24(%esp)
+	movl	76(%esp), %eax
+	movl	%esi, 8(%esp)
+	movl	%eax, 16(%esp)
 	shrl	$5, %eax
-	movl	%eax, 8(%esp)
-	je	L40
+	movl	%edi, 20(%esp)
+	movl	%ebp, 12(%esp)
+	movl	%eax, 28(%esp)
+	je	L44
 	movl	%esi, (%esp)
-	movl	40(%esp), %edi
 	movl	%eax, 4(%esp)
 	xorl	%eax, %eax
 	.p2align 4,,10
-L27:
+L38:
 	movl	(%esp), %edx
 	movl	%edi, %ebx
 	movl	%ebp, %esi
 /APP
- # 835 "../autogenerated_inline_func.h" 1
+ # 938 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	sbbl	(%ebx), %ecx
@@ -224,102 +372,97 @@ L27:
 	subl	$-128, %edi
 	subl	$-128, %ebp
 	subl	$1, 4(%esp)
-	jne	L27
-	movl	8(%esp), %edx
-	movl	32(%esp), %esi
-	movl	48(%esp), %ebp
+	jne	L38
+	movl	28(%esp), %edx
 	sall	$7, %edx
-	addl	%edx, 40(%esp)
-	addl	%edx, %esi
-	addl	%edx, %ebp
-L26:
-	testb	$16, 44(%esp)
-	jne	L74
-L28:
-	testb	$8, 44(%esp)
-	jne	L75
-L29:
-	testb	$4, 44(%esp)
-	je	L30
-	movl	%esi, %edx
-	movl	40(%esp), %ebx
-	movl	%ebp, %edi
+	addl	%edx, 8(%esp)
+	addl	%edx, 20(%esp)
+	addl	%edx, 12(%esp)
+L37:
+	testb	$16, 16(%esp)
+	jne	L62
+	testb	$8, 16(%esp)
+	jne	L63
+L40:
+	testb	$4, 16(%esp)
+	je	L41
+	movl	8(%esp), %edi
+	movl	20(%esp), %ebp
+	movl	12(%esp), %esi
+	movl	%edi, %edx
+	movl	%ebp, %ebx
 /APP
- # 4051 "../autogenerated_inline_func.h" 1
+ # 2154 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	sbbl	(%ebx), %ecx
-	movl	%ecx, (%edi)
+	movl	%ecx, (%esi)
 	movl	4(%edx), %ecx
 	sbbl	4(%ebx), %ecx
-	movl	%ecx, 4(%edi)
+	movl	%ecx, 4(%esi)
 	movl	8(%edx), %ecx
 	sbbl	8(%ebx), %ecx
-	movl	%ecx, 8(%edi)
+	movl	%ecx, 8(%esi)
 	movl	12(%edx), %ecx
 	sbbl	12(%ebx), %ecx
-	movl	%ecx, 12(%edi)
+	movl	%ecx, 12(%esi)
 	setc	%al
  # 0 "" 2
 /NO_APP
-	addl	$16, 40(%esp)
-	addl	$16, %esi
+	addl	$16, %edi
 	addl	$16, %ebp
-L30:
-	testb	$2, 44(%esp)
-	je	L31
-	movl	%esi, %edx
-	movl	40(%esp), %ebx
-	movl	%ebp, %edi
+	addl	$16, 12(%esp)
+	movl	%edi, 8(%esp)
+	movl	%ebp, 20(%esp)
+L41:
+	testb	$2, 16(%esp)
+	je	L42
+	movl	8(%esp), %edi
+	movl	20(%esp), %ebp
+	movl	12(%esp), %esi
+	movl	%edi, %edx
+	movl	%ebp, %ebx
 /APP
- # 4463 "../autogenerated_inline_func.h" 1
+ # 2332 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	sbbl	(%ebx), %ecx
-	movl	%ecx, (%edi)
+	movl	%ecx, (%esi)
 	movl	4(%edx), %ecx
 	sbbl	4(%ebx), %ecx
-	movl	%ecx, 4(%edi)
+	movl	%ecx, 4(%esi)
 	setc	%al
  # 0 "" 2
 /NO_APP
-	addl	$8, 40(%esp)
-	addl	$8, %esi
+	addl	$8, %edi
 	addl	$8, %ebp
-L31:
-	testb	$1, 44(%esp)
-	jne	L76
-L32:
-	movl	36(%esp), %ecx
-	subl	44(%esp), %ecx
-	je	L33
-	xorl	%ebx, %ebx
-	movl	%ebp, %edi
-	testb	%al, %al
-	jne	L34
-	jmp	L38
-	.p2align 4,,10
-L69:
-	movl	%edi, %ebp
-	testb	%al, %al
-	je	L38
-L34:
-	addl	$4, %esi
-	movl	-4(%esi), %edx
+	addl	$8, 12(%esp)
+	movl	%edi, 8(%esp)
+	movl	%ebp, 20(%esp)
+L42:
+	testb	$1, 16(%esp)
+	je	L43
+	movl	8(%esp), %esi
+	movl	20(%esp), %ecx
 	addb	$-1, %al
-	leal	4(%ebp), %edi
-	sbbl	%ebx, %edx
-	movl	%edx, 0(%ebp)
+	movl	(%ecx), %ecx
+	movl	(%esi), %edx
+	sbbl	%ecx, %edx
+	movl	12(%esp), %ecx
 	setc	%al
-	subl	$1, %ecx
-	jne	L69
-L33:
-	testb	%al, %al
-	jne	L41
-L39:
-	xorl	%eax, %eax
-L25:
-	addl	$12, %esp
+	movl	%edx, (%ecx)
+	leal	4(%ecx), %edx
+	movl	%edx, 12(%esp)
+	leal	4(%esi), %edx
+	movl	%edx, 8(%esp)
+L43:
+	movl	12(%esp), %edx
+	movl	24(%esp), %ecx
+	movsbl	%al, %eax
+	subl	16(%esp), %ecx
+	movl	%edx, 64(%esp)
+	movl	8(%esp), %edx
+	addl	$44, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
 	popl	%ebx
@@ -334,855 +477,342 @@ L25:
 	popl	%ebp
 	.cfi_restore 5
 	.cfi_def_cfa_offset 4
-	ret
+	jmp	__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1
 	.p2align 4,,10
-L38:
+L62:
 	.cfi_restore_state
-	movsl
-	subl	$1, %ecx
-	je	L39
-	movsl
-	subl	$1, %ecx
-	jne	L38
-	jmp	L39
-	.p2align 4,,10
-L76:
-	movl	40(%esp), %edi
-	movl	(%esi), %edx
-	addb	$-1, %al
-	movl	(%edi), %ecx
-	sbbl	%ecx, %edx
-	setc	%al
-	movl	%edx, 0(%ebp)
-	addl	$4, %esi
-	addl	$4, %ebp
-	jmp	L32
-	.p2align 4,,10
-L75:
-	movl	%esi, %edx
-	movl	40(%esp), %ebx
-	movl	%ebp, %edi
+	movl	8(%esp), %edi
+	movl	20(%esp), %ebp
+	movl	12(%esp), %esi
+	movl	%edi, %edx
+	movl	%ebp, %ebx
 /APP
- # 3459 "../autogenerated_inline_func.h" 1
+ # 1550 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	sbbl	(%ebx), %ecx
-	movl	%ecx, (%edi)
+	movl	%ecx, (%esi)
 	movl	4(%edx), %ecx
 	sbbl	4(%ebx), %ecx
-	movl	%ecx, 4(%edi)
+	movl	%ecx, 4(%esi)
 	movl	8(%edx), %ecx
 	sbbl	8(%ebx), %ecx
-	movl	%ecx, 8(%edi)
+	movl	%ecx, 8(%esi)
 	movl	12(%edx), %ecx
 	sbbl	12(%ebx), %ecx
-	movl	%ecx, 12(%edi)
+	movl	%ecx, 12(%esi)
 	movl	16(%edx), %ecx
 	sbbl	16(%ebx), %ecx
-	movl	%ecx, 16(%edi)
+	movl	%ecx, 16(%esi)
 	movl	20(%edx), %ecx
 	sbbl	20(%ebx), %ecx
-	movl	%ecx, 20(%edi)
+	movl	%ecx, 20(%esi)
 	movl	24(%edx), %ecx
 	sbbl	24(%ebx), %ecx
-	movl	%ecx, 24(%edi)
+	movl	%ecx, 24(%esi)
 	movl	28(%edx), %ecx
 	sbbl	28(%ebx), %ecx
-	movl	%ecx, 28(%edi)
-	setc	%al
- # 0 "" 2
-/NO_APP
-	addl	$32, %esi
-	addl	$32, 40(%esp)
-	addl	$32, %ebp
-	jmp	L29
-	.p2align 4,,10
-L74:
-	movl	%esi, %edx
-	movl	40(%esp), %ebx
-	movl	%ebp, %edi
-/APP
- # 2507 "../autogenerated_inline_func.h" 1
-	addb	$-1, %al
-	movl	(%edx), %ecx
-	sbbl	(%ebx), %ecx
-	movl	%ecx, (%edi)
-	movl	4(%edx), %ecx
-	sbbl	4(%ebx), %ecx
-	movl	%ecx, 4(%edi)
-	movl	8(%edx), %ecx
-	sbbl	8(%ebx), %ecx
-	movl	%ecx, 8(%edi)
-	movl	12(%edx), %ecx
-	sbbl	12(%ebx), %ecx
-	movl	%ecx, 12(%edi)
-	movl	16(%edx), %ecx
-	sbbl	16(%ebx), %ecx
-	movl	%ecx, 16(%edi)
-	movl	20(%edx), %ecx
-	sbbl	20(%ebx), %ecx
-	movl	%ecx, 20(%edi)
-	movl	24(%edx), %ecx
-	sbbl	24(%ebx), %ecx
-	movl	%ecx, 24(%edi)
-	movl	28(%edx), %ecx
-	sbbl	28(%ebx), %ecx
-	movl	%ecx, 28(%edi)
+	movl	%ecx, 28(%esi)
 	movl	32(%edx), %ecx
 	sbbl	32(%ebx), %ecx
-	movl	%ecx, 32(%edi)
+	movl	%ecx, 32(%esi)
 	movl	36(%edx), %ecx
 	sbbl	36(%ebx), %ecx
-	movl	%ecx, 36(%edi)
+	movl	%ecx, 36(%esi)
 	movl	40(%edx), %ecx
 	sbbl	40(%ebx), %ecx
-	movl	%ecx, 40(%edi)
+	movl	%ecx, 40(%esi)
 	movl	44(%edx), %ecx
 	sbbl	44(%ebx), %ecx
-	movl	%ecx, 44(%edi)
+	movl	%ecx, 44(%esi)
 	movl	48(%edx), %ecx
 	sbbl	48(%ebx), %ecx
-	movl	%ecx, 48(%edi)
+	movl	%ecx, 48(%esi)
 	movl	52(%edx), %ecx
 	sbbl	52(%ebx), %ecx
-	movl	%ecx, 52(%edi)
+	movl	%ecx, 52(%esi)
 	movl	56(%edx), %ecx
 	sbbl	56(%ebx), %ecx
-	movl	%ecx, 56(%edi)
+	movl	%ecx, 56(%esi)
 	movl	60(%edx), %ecx
 	sbbl	60(%ebx), %ecx
-	movl	%ecx, 60(%edi)
+	movl	%ecx, 60(%esi)
 	setc	%al
  # 0 "" 2
 /NO_APP
-	addl	$64, %esi
-	addl	$64, 40(%esp)
+	addl	$64, %edi
 	addl	$64, %ebp
-	jmp	L28
+	addl	$64, 12(%esp)
+	movl	%edi, 8(%esp)
+	movl	%ebp, 20(%esp)
+	testb	$8, 16(%esp)
+	je	L40
+L63:
+	movl	8(%esp), %edi
+	movl	20(%esp), %ebp
+	movl	12(%esp), %esi
+	movl	%edi, %edx
+	movl	%ebp, %ebx
+/APP
+ # 1914 "../autogenerated_inline_func.h" 1
+	addb	$-1, %al
+	movl	(%edx), %ecx
+	sbbl	(%ebx), %ecx
+	movl	%ecx, (%esi)
+	movl	4(%edx), %ecx
+	sbbl	4(%ebx), %ecx
+	movl	%ecx, 4(%esi)
+	movl	8(%edx), %ecx
+	sbbl	8(%ebx), %ecx
+	movl	%ecx, 8(%esi)
+	movl	12(%edx), %ecx
+	sbbl	12(%ebx), %ecx
+	movl	%ecx, 12(%esi)
+	movl	16(%edx), %ecx
+	sbbl	16(%ebx), %ecx
+	movl	%ecx, 16(%esi)
+	movl	20(%edx), %ecx
+	sbbl	20(%ebx), %ecx
+	movl	%ecx, 20(%esi)
+	movl	24(%edx), %ecx
+	sbbl	24(%ebx), %ecx
+	movl	%ecx, 24(%esi)
+	movl	28(%edx), %ecx
+	sbbl	28(%ebx), %ecx
+	movl	%ecx, 28(%esi)
+	setc	%al
+ # 0 "" 2
+/NO_APP
+	addl	$32, %edi
+	addl	$32, %ebp
+	addl	$32, 12(%esp)
+	movl	%edi, 8(%esp)
+	movl	%ebp, 20(%esp)
+	jmp	L40
 	.p2align 4,,10
-L40:
+L44:
 	xorl	%eax, %eax
-	jmp	L26
-L41:
-	movl	$-258, %eax
-	jmp	L25
+	jmp	L37
 	.cfi_endproc
-LFE5535:
+LFE6203:
+	.section .rdata,"dr"
+	.align 4
+LC1:
+	.ascii "\25_pek0n\0u\0l\0l\0p\0t\0r\0L0\16NH0\211"
+	.ascii "0\214"
+	.ascii "0f0D0~0Y0\2"
+	.ascii "0\0\0"
+	.align 2
+LC2:
+	.ascii "v\0\0\0"
+	.text
 	.p2align 4,,15
-	.globl	_PMC_Subtruct_I_X@12
-	.def	_PMC_Subtruct_I_X@12;	.scl	2;	.type	32;	.endef
-_PMC_Subtruct_I_X@12:
-LFB5536:
+	.globl	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8:
+LFB6204:
 	.cfi_startproc
-	pushl	%edi
-	.cfi_def_cfa_offset 8
-	.cfi_offset 7, -8
 	pushl	%esi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 6, -12
+	.cfi_def_cfa_offset 8
+	.cfi_offset 6, -8
 	pushl	%ebx
-	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	subl	$32, %esp
+	.cfi_def_cfa_offset 12
+	.cfi_offset 3, -12
+	subl	$36, %esp
 	.cfi_def_cfa_offset 48
-	movl	52(%esp), %ebx
-	movl	48(%esp), %edi
-	movl	56(%esp), %esi
-	testl	%ebx, %ebx
-	je	L82
+	movl	52(%esp), %esi
+	movl	48(%esp), %ebx
 	testl	%esi, %esi
-	je	L82
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	testl	%eax, %eax
-	jne	L77
-	movzbl	(%ebx), %edx
-	andl	$1, %edx
-	testl	%edi, %edi
-	jne	L79
-	testb	%dl, %dl
-	je	L84
-	movl	$0, (%esi)
-L77:
-	addl	$32, %esp
+	je	L73
+	movl	%esi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	testl	%ebx, %ebx
+	je	L74
+	testb	$1, 4(%esi)
+	jne	L67
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %ebx, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$1, %eax
+	cmpl	20(%esi), %eax
+	jb	L72
+	movl	36(%esi), %eax
+	subl	(%eax), %ebx
+	movl	%ebx, 28(%esp)
+	jb	L72
+L67:
+	addl	$36, %esp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 12
+	movl	%ebx, %eax
 	popl	%ebx
 	.cfi_restore 3
-	.cfi_def_cfa_offset 12
+	.cfi_def_cfa_offset 8
 	popl	%esi
 	.cfi_restore 6
+	.cfi_def_cfa_offset 4
+	ret	$8
+	.p2align 4,,10
+L74:
+	.cfi_restore_state
+	testb	$1, 4(%esi)
+	jne	L67
+L72:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L73:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC2, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+	.cfi_endproc
+LFE6204:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12:
+LFB6207:
+	.cfi_startproc
+	pushl	%ebp
 	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	subl	$60, %esp
+	.cfi_def_cfa_offset 80
+	movl	88(%esp), %ebx
+	movl	80(%esp), %eax
+	movl	84(%esp), %edx
+	testl	%ebx, %ebx
+	je	L93
+	movl	%ebx, (%esp)
+	movl	%eax, 24(%esp)
+	movl	%edx, 28(%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	28(%esp), %edx
+	movl	24(%esp), %eax
+	movl	%edx, %ecx
+	movl	%eax, %esi
+	movl	%edx, 24(%esp)
+	orl	%eax, %ecx
+	jne	L77
+	testb	$1, 4(%ebx)
+	je	L92
+L78:
+	addl	$60, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
 	popl	%edi
 	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$12
+	.p2align 4,,10
+L77:
+	.cfi_restore_state
+	testb	$1, 4(%ebx)
+	jne	L78
+	movl	%eax, %edi
+	movl	24(%esp), %eax
+	movl	20(%ebx), %ebp
+	testl	%eax, %eax
+	jne	L79
+	xorl	%eax, %eax
+	testl	%esi, %esi
+	je	L80
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %esi, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$1, %eax
+L80:
+	cmpl	%eax, %ebp
+	ja	L92
+	movl	36(%ebx), %eax
+	subl	(%eax), %edi
+	movl	%edi, 44(%esp)
+	jb	L92
+	movl	44(%esp), %eax
+	addl	$60, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	xorl	%edx, %edx
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
 	.cfi_def_cfa_offset 4
 	ret	$12
 	.p2align 4,,10
 L79:
 	.cfi_restore_state
-	testb	%dl, %dl
-	jne	L81
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %edx
+ # 428 "../pmc_inline_func.h" 1
+	bsrl 24(%esp), %edi
  # 0 "" 2
 /NO_APP
-	addl	$1, %edx
-	cmpl	16(%ebx), %edx
-	jb	L84
-	movl	36(%ebx), %edx
-	subl	(%edx), %edi
-	jb	L84
-L81:
-	movl	%edi, (%esi)
-	addl	$32, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 16
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret	$12
-L84:
-	.cfi_restore_state
-	movl	$-2, %eax
-	jmp	L77
-	.p2align 4,,10
-L82:
-	movl	$-1, %eax
-	jmp	L77
-	.cfi_endproc
-LFE5536:
-	.p2align 4,,15
-	.globl	_PMC_Subtruct_X_I@12
-	.def	_PMC_Subtruct_X_I@12;	.scl	2;	.type	32;	.endef
-_PMC_Subtruct_X_I@12:
-LFB5537:
-	.cfi_startproc
-	pushl	%edi
-	.cfi_def_cfa_offset 8
-	.cfi_offset 7, -8
-	pushl	%esi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 6, -12
-	pushl	%ebx
-	.cfi_def_cfa_offset 16
-	.cfi_offset 3, -16
-	subl	$32, %esp
-	.cfi_def_cfa_offset 48
-	movl	48(%esp), %ebx
-	movl	56(%esp), %edi
-	testl	%ebx, %ebx
-	je	L96
-	testl	%edi, %edi
-	je	L96
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L86
-	testb	$1, (%ebx)
-	je	L88
-	movl	52(%esp), %edx
-	testl	%edx, %edx
-	jne	L97
-	movl	$_number_zero, (%edi)
-L86:
-	addl	$32, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 16
-	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret	$12
-	.p2align 4,,10
-L88:
-	.cfi_restore_state
-	movl	52(%esp), %eax
-	testl	%eax, %eax
-	je	L107
-	movl	16(%ebx), %edx
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl 52(%esp), %eax
- # 0 "" 2
-/NO_APP
-	addl	$1, %eax
-	cmpl	%eax, %edx
-	jnb	L108
-L97:
-	addl	$32, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 16
-	movl	$-2, %esi
-	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret	$12
-	.p2align 4,,10
-L108:
-	.cfi_restore_state
-	leal	28(%esp), %eax
-	movl	%edx, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	24(%esp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L98
-	movl	24(%esp), %ecx
-	movl	12(%ebx), %edx
-	movl	36(%ebx), %eax
-	movl	36(%ecx), %ecx
-	movl	%ecx, (%esp)
-	movl	52(%esp), %ecx
-	call	_Subtruct_X_1W.isra.0
-	movl	%eax, %ebx
-	testl	%eax, %eax
-	jne	L109
-	movl	28(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	24(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L98
-	movl	24(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	24(%esp), %eax
-	testb	$1, (%eax)
-	je	L95
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-L95:
-	movl	%eax, (%edi)
-	jmp	L86
-	.p2align 4,,10
-L98:
-	addl	$32, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 16
-	movl	%eax, %esi
-	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 12
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 8
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 4
-	ret	$12
-	.p2align 4,,10
-L107:
-	.cfi_restore_state
-	leal	24(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L98
-	movl	24(%esp), %eax
-	movl	%eax, (%edi)
-	jmp	L86
-	.p2align 4,,10
-L109:
-	movl	24(%esp), %eax
-	movl	%ebx, %esi
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	cmpl	$-258, %ebx
-	jne	L86
-	jmp	L97
-	.p2align 4,,10
-L96:
-	movl	$-1, %esi
-	jmp	L86
-	.cfi_endproc
-LFE5537:
-	.p2align 4,,15
-	.globl	_PMC_Subtruct_L_X@16
-	.def	_PMC_Subtruct_L_X@16;	.scl	2;	.type	32;	.endef
-_PMC_Subtruct_L_X@16:
-LFB5538:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$44, %esp
-	.cfi_def_cfa_offset 64
-	movl	72(%esp), %ebx
-	movl	64(%esp), %edi
-	movl	68(%esp), %ebp
-	movl	76(%esp), %esi
-	testl	%ebx, %ebx
-	je	L120
-	testl	%esi, %esi
-	je	L120
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	testl	%eax, %eax
-	jne	L110
-	movzbl	(%ebx), %edx
-	movl	%ebp, %ecx
-	andl	$1, %edx
-	orl	%edi, %ecx
-	jne	L112
-	testb	%dl, %dl
-	je	L124
-	movl	$0, (%esi)
-	movl	$0, 4(%esi)
-L110:
-	addl	$44, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L112:
-	.cfi_restore_state
-	testb	%dl, %dl
-	jne	L127
-	movl	16(%ebx), %ecx
-	testl	%ebp, %ebp
-	jne	L114
-	xorl	%edx, %edx
-	testl	%edi, %edi
-	je	L115
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %edx
- # 0 "" 2
-/NO_APP
-	addl	$1, %edx
-L115:
-	cmpl	%ecx, %edx
-	jb	L124
-	movl	36(%ebx), %edx
-	subl	(%edx), %edi
-	movl	%edi, 28(%esp)
-	jb	L124
-	movl	28(%esp), %ecx
-	movl	$0, 4(%esi)
-	movl	%ecx, (%esi)
-	jmp	L110
-	.p2align 4,,10
-L127:
-	movl	%edi, (%esi)
-	movl	%ebp, 4(%esi)
-	addl	$44, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L114:
-	.cfi_restore_state
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %edx
- # 0 "" 2
-/NO_APP
-	addl	$33, %edx
-	cmpl	%ecx, %edx
-	jb	L124
-	movl	36(%ebx), %edx
-	subl	(%edx), %edi
+	addl	$33, %edi
+	cmpl	%ebp, %edi
+	jb	L92
+	movl	36(%ebx), %edi
+	subl	(%edi), %esi
 	setb	%cl
-	movl	%edi, 28(%esp)
-	cmpl	$1, 12(%ebx)
-	jbe	L128
-	movl	4(%edx), %edx
+	movl	%esi, 44(%esp)
+	cmpl	$1, 16(%ebx)
+	jbe	L94
+	movl	4(%edi), %ebx
+L90:
 	addb	$-1, %cl
-	sbbl	%edx, %ebp
-	movl	%ebp, 24(%esp)
-	setc	%dl
-L118:
-	testb	%dl, %dl
-	jne	L124
 	movl	24(%esp), %ecx
-	movl	28(%esp), %edi
-	movl	%ecx, 4(%esi)
-	movl	%edi, (%esi)
-	jmp	L110
-	.p2align 4,,10
-L128:
-	addb	$-1, %cl
-	sbbl	%eax, %ebp
-	movl	%ebp, 24(%esp)
-	setc	%dl
-	jmp	L118
-	.p2align 4,,10
-L120:
-	movl	$-1, %eax
-	jmp	L110
-L124:
-	movl	$-2, %eax
-	jmp	L110
-	.cfi_endproc
-LFE5538:
-	.p2align 4,,15
-	.globl	_PMC_Subtruct_X_L@16
-	.def	_PMC_Subtruct_X_L@16;	.scl	2;	.type	32;	.endef
-_PMC_Subtruct_X_L@16:
-LFB5539:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$60, %esp
-	.cfi_def_cfa_offset 80
-	movl	92(%esp), %eax
-	movl	80(%esp), %ebx
-	movl	84(%esp), %esi
-	movl	88(%esp), %edi
-	testl	%eax, %eax
-	je	L148
-	testl	%ebx, %ebx
-	je	L148
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ebp
-	testl	%eax, %eax
-	jne	L129
-	testb	$1, (%ebx)
-	je	L131
-	orl	%esi, %edi
-	jne	L181
-	movl	92(%esp), %eax
-	movl	$_number_zero, (%eax)
-L129:
-	addl	$60, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ebp, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L131:
-	.cfi_restore_state
-	movl	%edi, %eax
-	orl	%esi, %eax
-	je	L184
-	movl	16(%ebx), %eax
-	testl	%edi, %edi
-	jne	L134
-	testl	%esi, %esi
-	je	L135
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %esi, %edx
- # 0 "" 2
-/NO_APP
-	addl	$1, %edx
-	cmpl	%edx, %eax
-	jnb	L135
-L181:
-	addl	$60, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	$-2, %ebp
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	movl	%ebp, %eax
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L134:
-	.cfi_restore_state
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %edx
- # 0 "" 2
-/NO_APP
-	addl	$33, %edx
-	cmpl	%edx, %eax
-	jb	L181
-	leal	44(%esp), %edx
-	movl	%eax, 4(%esp)
-	leal	40(%esp), %eax
-	movl	%edx, 8(%esp)
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	je	L185
-L150:
-	addl	$60, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%eax, %ebp
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	movl	%ebp, %eax
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L184:
-	.cfi_restore_state
-	leal	40(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L150
-	movl	40(%esp), %eax
-L133:
-	movl	92(%esp), %ecx
-	movl	%eax, (%ecx)
-	jmp	L129
-	.p2align 4,,10
-L135:
-	leal	44(%esp), %edx
-	movl	%eax, 4(%esp)
-	leal	40(%esp), %eax
-	movl	%edx, 8(%esp)
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L150
-	movl	40(%esp), %ecx
-	movl	12(%ebx), %edx
-	movl	36(%ebx), %eax
-	movl	36(%ecx), %ecx
-	movl	%ecx, (%esp)
-	movl	%esi, %ecx
-	call	_Subtruct_X_1W.isra.0
-	movl	%eax, %ebx
-	testl	%eax, %eax
-	jne	L186
+	sbbl	%ebx, %ecx
+	movl	%ecx, 40(%esp)
+	setc	%cl
+	testb	%cl, %cl
+	jne	L92
 	movl	44(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	40(%esp), %eax
-L183:
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L150
-	movl	40(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	40(%esp), %eax
-	testb	$1, (%eax)
-	je	L133
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-	jmp	L133
-	.p2align 4,,10
-L185:
-	movl	12(%ebx), %eax
-	movl	40(%esp), %ecx
-	movl	%eax, 28(%esp)
-	cmpl	$1, 28(%esp)
-	movl	36(%ecx), %edx
-	movl	36(%ebx), %eax
-	jbe	L141
-	movl	(%eax), %ecx
-	subl	%esi, %ecx
-	leal	8(%eax), %esi
-	movl	%ecx, (%edx)
-	setb	%bl
-	movl	4(%eax), %eax
-	leal	8(%edx), %ecx
-	addb	$-1, %bl
-	sbbl	%edi, %eax
-	movl	%eax, %ebx
-	setc	%al
-	movl	%ebx, 4(%edx)
-	movl	28(%esp), %edx
-	movl	%eax, %ebx
-	subl	$2, %edx
-	je	L142
-	movl	%ecx, %edi
-	testb	%al, %al
-	jne	L143
-	jmp	L147
-	.p2align 4,,10
-L177:
-	movl	%edi, %ecx
-	testb	%bl, %bl
-	je	L147
-L143:
-	addl	$4, %esi
-	movl	-4(%esi), %eax
-	addb	$-1, %bl
-	movl	$0, %ebx
-	leal	4(%ecx), %edi
-	sbbl	%ebx, %eax
-	movl	%eax, (%ecx)
-	setc	%bl
-	subl	$1, %edx
-	jne	L177
-L142:
-	movl	40(%esp), %eax
-	testb	%bl, %bl
-	je	L145
-	movl	%eax, (%esp)
-	movl	$-2, %ebp
-	call	_DeallocateNumber
-	jmp	L129
-	.p2align 4,,10
-L147:
-	movsl
-	subl	$1, %edx
-	jne	L147
-	movl	40(%esp), %eax
-L145:
-	movl	44(%esp), %edx
-	movl	%edx, 4(%esp)
-	jmp	L183
-	.p2align 4,,10
-L148:
-	movl	$-1, %ebp
-	jmp	L129
-L186:
-	movl	40(%esp), %eax
-	movl	%ebx, %ebp
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	cmpl	$-258, %ebx
-	jne	L129
-	jmp	L181
-L141:
-	movl	%ecx, (%esp)
-	call	_DeallocateNumber
-	jmp	L181
-	.cfi_endproc
-LFE5539:
-	.p2align 4,,15
-	.globl	_PMC_Subtruct_X_X@12
-	.def	_PMC_Subtruct_X_X@12;	.scl	2;	.type	32;	.endef
-_PMC_Subtruct_X_X@12:
-LFB5540:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$60, %esp
-	.cfi_def_cfa_offset 80
-	movl	84(%esp), %edi
-	movl	88(%esp), %ebp
-	movl	80(%esp), %esi
-	testl	%edi, %edi
-	sete	%dl
-	testl	%ebp, %ebp
-	sete	%al
-	orb	%al, %dl
-	jne	L195
-	testl	%esi, %esi
-	je	L195
-	movl	%esi, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ebx
-	testl	%eax, %eax
-	je	L202
-L187:
+	movl	40(%esp), %edx
 	addl	$60, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
-	movl	%ebx, %eax
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
@@ -1197,130 +827,1048 @@ L187:
 	.cfi_def_cfa_offset 4
 	ret	$12
 	.p2align 4,,10
-L202:
+L94:
 	.cfi_restore_state
-	movl	%edi, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ebx
-	testl	%eax, %eax
-	jne	L187
-	movzbl	(%edi), %eax
-	andl	$1, %eax
-	testb	$1, (%esi)
-	jne	L203
-	testb	%al, %al
-	jne	L204
-	movl	16(%esi), %eax
-	cmpl	16(%edi), %eax
-	jb	L196
-	leal	44(%esp), %edx
-	movl	%eax, 4(%esp)
-	leal	40(%esp), %eax
-	movl	%edx, 8(%esp)
+	xorl	%ebx, %ebx
+	jmp	L90
+L92:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	je	L205
-L197:
-	movl	%eax, %ebx
-	jmp	L187
-	.p2align 4,,10
-L203:
-	testb	%al, %al
-	je	L196
-	movl	$_number_zero, 0(%ebp)
-	addl	$60, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ebx, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$12
-L206:
-	.cfi_restore_state
-	movl	40(%esp), %eax
-	movl	%esi, %ebx
+	call	___cxa_throw
+L93:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC2, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	cmpl	$-258, %esi
-	jne	L187
-	.p2align 4,,10
-L196:
-	movl	$-2, %ebx
-	jmp	L187
-	.p2align 4,,10
-L204:
-	leal	40(%esp), %eax
-	movl	%esi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L197
-L191:
-	movl	40(%esp), %eax
-	movl	%eax, 0(%ebp)
-	jmp	L187
-	.p2align 4,,10
-L205:
-	movl	40(%esp), %eax
-	movl	32(%eax), %edx
-	movl	%edx, 20(%esp)
-	movl	36(%eax), %eax
-	movl	%eax, 16(%esp)
-	movl	12(%edi), %eax
-	movl	%eax, 12(%esp)
-	movl	36(%edi), %eax
-	movl	%eax, 8(%esp)
-	movl	12(%esi), %eax
-	movl	%eax, 4(%esp)
-	movl	36(%esi), %eax
-	movl	%eax, (%esp)
-	call	_Subtruct_Imp
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L206
-	movl	44(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	40(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L197
-	movl	40(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	jmp	L191
-	.p2align 4,,10
-L195:
-	movl	$-1, %ebx
-	jmp	L187
+	call	___cxa_throw
 	.cfi_endproc
-LFE5540:
+LFE6207:
 	.p2align 4,,15
-	.globl	_Initialize_Subtruct
-	.def	_Initialize_Subtruct;	.scl	2;	.type	32;	.endef
-_Initialize_Subtruct:
-LFB5541:
+	.globl	__ZN8Palmtree4Math4Core8Internal19Initialize_SubtructEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	__ZN8Palmtree4Math4Core8Internal19Initialize_SubtructEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal19Initialize_SubtructEPNS2_23_tag_PROCESSOR_FEATURESE:
+LFB6212:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE5541:
+LFE6212:
+	.section .rdata,"dr"
+	.align 2
+LC3:
+	.ascii "u\0\0\0"
+	.section	.text.unlikely,"x"
+LCOLDB4:
+	.text
+LHOTB4:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8:
+LFB6206:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6206
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$76, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	movl	8(%ebp), %esi
+	movl	12(%ebp), %edi
+	testl	%esi, %esi
+	je	L114
+	movl	%esi, (%esp)
+LEHB0:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE0:
+	testb	$1, 4(%esi)
+	jne	L115
+	testl	%edi, %edi
+	je	L116
+	movl	20(%esi), %ebx
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edi, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$1, %eax
+	cmpl	%eax, %ebx
+	jb	L117
+	leal	-40(%ebp), %ecx
+LEHB1:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE1:
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+LEHB2:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	%eax, %ebx
+	movl	36(%esi), %eax
+	movl	16(%esi), %ecx
+	subl	$4, %esp
+	movl	36(%ebx), %edx
+	leal	4(%edx), %esi
+	leal	4(%eax), %edx
+	movl	(%eax), %eax
+	movl	%edx, -60(%ebp)
+	subl	%edi, %eax
+	movl	%eax, %edx
+	setb	%al
+	subl	$1, %ecx
+	movl	%eax, %edi
+	movl	36(%ebx), %eax
+	movl	%edx, (%eax)
+	movl	%edi, %eax
+	movl	-60(%ebp), %edx
+	movl	%esi, (%esp)
+	movsbl	%al, %eax
+	call	__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	leal	-40(%ebp), %ecx
+	movl	%ebx, (%esp)
+	jne	L118
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE2:
+	subl	$4, %esp
+L103:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L99
+	.p2align 4,,10
+L115:
+	testl	%edi, %edi
+	jne	L119
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+L99:
+	movl	%ebx, (%esp)
+	leal	-56(%ebp), %ecx
+LEHB3:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-56(%ebp), %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE3:
+	subl	$4, %esp
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$8
+	.p2align 4,,10
+L118:
+	.cfi_restore_state
+LEHB4:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE4:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+	jmp	L103
+	.p2align 4,,10
+L116:
+	movl	%esi, (%esp)
+LEHB5:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE5:
+	movl	%eax, %ebx
+	jmp	L99
+L114:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC3, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB6:
+	call	___cxa_throw
+LEHE6:
+L119:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB7:
+	call	___cxa_throw
+L117:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE7:
+L109:
+	movl	%eax, %ebx
+	jmp	L106
+L110:
+	movl	%eax, %ebx
+	jmp	L105
+	.def	___gxx_personality_v0;	.scl	2;	.type	32;	.endef
+	.section	.gcc_except_table,"w"
+LLSDA6206:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6206-LLSDACSB6206
+LLSDACSB6206:
+	.uleb128 LEHB0-LFB6206
+	.uleb128 LEHE0-LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB1-LFB6206
+	.uleb128 LEHE1-LEHB1
+	.uleb128 L109-LFB6206
+	.uleb128 0
+	.uleb128 LEHB2-LFB6206
+	.uleb128 LEHE2-LEHB2
+	.uleb128 L110-LFB6206
+	.uleb128 0
+	.uleb128 LEHB3-LFB6206
+	.uleb128 LEHE3-LEHB3
+	.uleb128 L109-LFB6206
+	.uleb128 0
+	.uleb128 LEHB4-LFB6206
+	.uleb128 LEHE4-LEHB4
+	.uleb128 L110-LFB6206
+	.uleb128 0
+	.uleb128 LEHB5-LFB6206
+	.uleb128 LEHE5-LEHB5
+	.uleb128 L109-LFB6206
+	.uleb128 0
+	.uleb128 LEHB6-LFB6206
+	.uleb128 LEHE6-LEHB6
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB7-LFB6206
+	.uleb128 LEHE7-LEHB7
+	.uleb128 L109-LFB6206
+	.uleb128 0
+LLSDACSE6206:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6206
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8.cold.2;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8.cold.2:
+L105:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+L106:
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB8:
+	call	__Unwind_Resume
+LEHE8:
+	.cfi_endproc
+LFE6206:
+	.section	.gcc_except_table,"w"
+LLSDAC6206:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6206-LLSDACSBC6206
+LLSDACSBC6206:
+	.uleb128 LEHB8-LCOLDB4
+	.uleb128 LEHE8-LEHB8
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6206:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE4:
+	.text
+LHOTE4:
+	.section	.text.unlikely,"x"
+LCOLDB5:
+	.text
+LHOTB5:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12:
+LFB6209:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6209
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$92, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	movl	16(%ebp), %eax
+	movl	8(%ebp), %esi
+	movl	12(%ebp), %edi
+	movl	%eax, -76(%ebp)
+	testl	%esi, %esi
+	je	L149
+	movl	%esi, (%esp)
+LEHB9:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leal	-72(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE9:
+	movl	-76(%ebp), %eax
+	testb	$1, 4(%esi)
+	je	L122
+	orl	%edi, %eax
+	jne	L150
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+L123:
+	movl	%ebx, (%esp)
+	leal	-72(%ebp), %ecx
+LEHB10:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-72(%ebp), %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-72(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$12
+	.p2align 4,,10
+L122:
+	.cfi_restore_state
+	orl	%edi, %eax
+	je	L151
+	movl	-76(%ebp), %eax
+	movl	20(%esi), %ebx
+	testl	%eax, %eax
+	jne	L125
+	testl	%edi, %edi
+	je	L126
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edi, %eax
+ # 0 "" 2
+/NO_APP
+	addl	$1, %eax
+	cmpl	%eax, %ebx
+	jb	L152
+L126:
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE10:
+	movl	%ebx, (%esp)
+	leal	-56(%ebp), %ecx
+LEHB11:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	%eax, %ebx
+	movl	36(%esi), %eax
+	movl	16(%esi), %ecx
+	subl	$4, %esp
+	movl	36(%ebx), %edx
+	leal	4(%edx), %esi
+	leal	4(%eax), %edx
+	movl	(%eax), %eax
+	movl	%edx, -76(%ebp)
+	subl	%edi, %eax
+	movl	%eax, %edx
+	setb	%al
+	subl	$1, %ecx
+	movl	%eax, %edi
+	movl	36(%ebx), %eax
+	movl	%edx, (%eax)
+	movl	%edi, %eax
+	movl	-76(%ebp), %edx
+	movl	%esi, (%esp)
+	movsbl	%al, %eax
+	call	__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1
+	movl	%ebx, (%esp)
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	leal	-56(%ebp), %ecx
+	movl	%ebx, (%esp)
+	jne	L153
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L128:
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L123
+	.p2align 4,,10
+L153:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE11:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+	jmp	L128
+	.p2align 4,,10
+L151:
+	movl	%esi, (%esp)
+LEHB12:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%eax, %ebx
+	jmp	L123
+	.p2align 4,,10
+L125:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE12:
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl -76(%ebp), %eax
+ # 0 "" 2
+/NO_APP
+	addl	$33, %eax
+	cmpl	%eax, %ebx
+	jb	L154
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+LEHB13:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	16(%esi), %edx
+	movl	%eax, %ebx
+	subl	$4, %esp
+	movl	36(%eax), %eax
+	movl	36(%esi), %esi
+	movl	%edx, -80(%ebp)
+	cmpl	$1, %edx
+	jbe	L155
+	movl	(%esi), %edx
+	subl	%edi, %edx
+	leal	8(%eax), %edi
+	setb	%cl
+	movl	%edx, (%eax)
+	leal	8(%esi), %edx
+	movl	4(%esi), %esi
+	addb	$-1, %cl
+	sbbl	-76(%ebp), %esi
+	setc	-76(%ebp)
+	movl	%esi, 4(%eax)
+	movl	-80(%ebp), %esi
+	movl	%edi, (%esp)
+	movsbl	-76(%ebp), %eax
+	subl	$2, %esi
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8InternalL8DoBorrowEcPjjS3_j.constprop.1
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	leal	-40(%ebp), %ecx
+	movl	%ebx, (%esp)
+	je	L131
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+L132:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L123
+	.p2align 4,,10
+L131:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE13:
+	subl	$4, %esp
+	jmp	L132
+L152:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB14:
+	call	___cxa_throw
+LEHE14:
+L149:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC2, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB15:
+	call	___cxa_throw
+LEHE15:
+L150:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB16:
+	call	___cxa_throw
+LEHE16:
+L155:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB17:
+	call	___cxa_throw
+L154:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE17:
+L141:
+	movl	%eax, %ebx
+	jmp	L136
+L142:
+	movl	%eax, %ebx
+	jmp	L134
+L140:
+	movl	%eax, %ebx
+	jmp	L135
+	.section	.gcc_except_table,"w"
+LLSDA6209:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6209-LLSDACSB6209
+LLSDACSB6209:
+	.uleb128 LEHB9-LFB6209
+	.uleb128 LEHE9-LEHB9
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB10-LFB6209
+	.uleb128 LEHE10-LEHB10
+	.uleb128 L140-LFB6209
+	.uleb128 0
+	.uleb128 LEHB11-LFB6209
+	.uleb128 LEHE11-LEHB11
+	.uleb128 L142-LFB6209
+	.uleb128 0
+	.uleb128 LEHB12-LFB6209
+	.uleb128 LEHE12-LEHB12
+	.uleb128 L140-LFB6209
+	.uleb128 0
+	.uleb128 LEHB13-LFB6209
+	.uleb128 LEHE13-LEHB13
+	.uleb128 L141-LFB6209
+	.uleb128 0
+	.uleb128 LEHB14-LFB6209
+	.uleb128 LEHE14-LEHB14
+	.uleb128 L140-LFB6209
+	.uleb128 0
+	.uleb128 LEHB15-LFB6209
+	.uleb128 LEHE15-LEHB15
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB16-LFB6209
+	.uleb128 LEHE16-LEHB16
+	.uleb128 L140-LFB6209
+	.uleb128 0
+	.uleb128 LEHB17-LFB6209
+	.uleb128 LEHE17-LEHB17
+	.uleb128 L141-LFB6209
+	.uleb128 0
+LLSDACSE6209:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6209
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12.cold.3;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12.cold.3:
+L136:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+L135:
+	leal	-72(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB18:
+	call	__Unwind_Resume
+LEHE18:
+L134:
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L135
+	.cfi_endproc
+LFE6209:
+	.section	.gcc_except_table,"w"
+LLSDAC6209:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6209-LLSDACSBC6209
+LLSDACSBC6209:
+	.uleb128 LEHB18-LCOLDB5
+	.uleb128 LEHE18-LEHB18
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6209:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE5:
+	.text
+LHOTE5:
+	.section	.text.unlikely,"x"
+LCOLDB6:
+	.text
+LHOTB6:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8:
+LFB6211:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6211
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$76, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	movl	8(%ebp), %esi
+	movl	12(%ebp), %edi
+	testl	%esi, %esi
+	je	L176
+	testl	%edi, %edi
+	je	L177
+	movl	%esi, (%esp)
+LEHB19:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%edi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE19:
+	testb	$1, 4(%esi)
+	jne	L178
+	testb	$1, 4(%edi)
+	je	L161
+	movl	%esi, (%esp)
+LEHB20:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%eax, %ebx
+L160:
+	movl	%ebx, (%esp)
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-56(%ebp), %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$8
+	.p2align 4,,10
+L178:
+	.cfi_restore_state
+	testb	$1, 4(%edi)
+	je	L179
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+	jmp	L160
+	.p2align 4,,10
+L161:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE20:
+	movl	20(%esi), %eax
+	cmpl	20(%edi), %eax
+	jb	L180
+	movl	%eax, (%esp)
+	leal	-40(%ebp), %ecx
+LEHB21:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	%eax, %ebx
+	movl	32(%eax), %eax
+	subl	$4, %esp
+	movl	%eax, 20(%esp)
+	movl	36(%ebx), %eax
+	movl	%eax, 16(%esp)
+	movl	16(%edi), %eax
+	movl	%eax, 12(%esp)
+	movl	36(%edi), %eax
+	movl	%eax, 8(%esp)
+	movl	16(%esi), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%esi), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12Subtruct_ImpEPjjS3_jS3_j
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	leal	-40(%ebp), %ecx
+	movl	%ebx, (%esp)
+	jne	L181
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L164:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L160
+	.p2align 4,,10
+L181:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE21:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, %ebx
+	jmp	L164
+L176:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC3, 12(%eax)
+L175:
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB22:
+	call	___cxa_throw
+LEHE22:
+L177:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$LC2, 12(%eax)
+	jmp	L175
+L179:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB23:
+	call	___cxa_throw
+LEHE23:
+L180:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-4, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB24:
+	call	___cxa_throw
+LEHE24:
+L171:
+	movl	%eax, %ebx
+	jmp	L166
+L170:
+	movl	%eax, %ebx
+	jmp	L167
+	.section	.gcc_except_table,"w"
+LLSDA6211:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6211-LLSDACSB6211
+LLSDACSB6211:
+	.uleb128 LEHB19-LFB6211
+	.uleb128 LEHE19-LEHB19
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB20-LFB6211
+	.uleb128 LEHE20-LEHB20
+	.uleb128 L170-LFB6211
+	.uleb128 0
+	.uleb128 LEHB21-LFB6211
+	.uleb128 LEHE21-LEHB21
+	.uleb128 L171-LFB6211
+	.uleb128 0
+	.uleb128 LEHB22-LFB6211
+	.uleb128 LEHE22-LEHB22
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB23-LFB6211
+	.uleb128 LEHE23-LEHB23
+	.uleb128 L170-LFB6211
+	.uleb128 0
+	.uleb128 LEHB24-LFB6211
+	.uleb128 LEHE24-LEHB24
+	.uleb128 L171-LFB6211
+	.uleb128 0
+LLSDACSE6211:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6211
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8.cold.4;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8.cold.4:
+L166:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+L167:
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB25:
+	call	__Unwind_Resume
+LEHE25:
+	.cfi_endproc
+LFE6211:
+	.section	.gcc_except_table,"w"
+LLSDAC6211:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6211-LLSDACSBC6211
+LLSDACSBC6211:
+	.uleb128 LEHB25-LCOLDB6
+	.uleb128 LEHE25-LEHB25
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6211:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE6:
+	.text
+LHOTE6:
+	.globl	__ZTSSt9exception
+	.section	.rdata$_ZTSSt9exception,"dr"
+	.linkonce same_size
+	.align 4
+__ZTSSt9exception:
+	.ascii "St9exception\0"
+	.globl	__ZTISt9exception
+	.section	.rdata$_ZTISt9exception,"dr"
+	.linkonce same_size
+	.align 4
+__ZTISt9exception:
+	.long	__ZTVN10__cxxabiv117__class_type_infoE+8
+	.long	__ZTSSt9exception
+	.globl	__ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal9ExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal9ExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
+	.long	__ZTVN10__cxxabiv121__vmi_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	0
+	.long	1
+	.long	__ZTISt9exception
+	.long	0
+	.globl	__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal21ArgumentNullExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.long	__ZTVN10__cxxabiv120__si_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	__ZTSN8Palmtree4Math4Core8Internal17OverflowExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal17OverflowExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal17OverflowExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal17OverflowExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE:
+	.long	__ZTVN10__cxxabiv120__si_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal17OverflowExceptionE
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	__ZTVN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal9ExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
+	.globl	__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
+	.globl	__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal17OverflowExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal17OverflowExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
-	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
-	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef
-	.def	_CommitNumber;	.scl	2;	.type	32;	.endef
-	.def	_DeallocateNumber;	.scl	2;	.type	32;	.endef
-	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
+	.def	__ZNSt9exceptionD2Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZdlPvj;	.scl	2;	.type	32;	.endef
+	.def	___cxa_allocate_exception;	.scl	2;	.type	32;	.endef
+	.def	___cxa_throw;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	__ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef

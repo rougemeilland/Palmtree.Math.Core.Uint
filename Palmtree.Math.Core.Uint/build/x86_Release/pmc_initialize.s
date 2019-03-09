@@ -1,21 +1,184 @@
-	.file	"pmc_initialize.c"
+	.file	"pmc_initialize.cpp"
 	.text
+	.section .rdata,"dr"
+	.align 2
+LC0:
+	.ascii "C\0O\0M\0P\0I\0L\0E\0R\0\0\0"
+	.align 2
+LC2:
+	.ascii "P\0L\0A\0T\0F\0O\0R\0M\0\0\0"
+	.align 2
+LC1:
+	.ascii "G\0N\0U\0C\0\0\0"
+	.align 2
+LC3:
+	.ascii "x\0"
+	.ascii "8\0"
+	.ascii "6\0\0\0"
+	.text
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi@16
+	.def	__ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi@16;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi@16:
+LFB5898:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	subl	$44, %esp
+	.cfi_def_cfa_offset 64
+	movl	__imp__lstrcmpW@8, %edi
+	movl	64(%esp), %ebp
+	movl	68(%esp), %esi
+	movl	$LC0, 4(%esp)
+	movl	%ebp, (%esp)
+	call	*%edi
+	.cfi_def_cfa_offset 56
+	subl	$8, %esp
+	.cfi_def_cfa_offset 64
+	testl	%eax, %eax
+	jne	L2
+	movl	%eax, %ebx
+	movl	LC1, %eax
+	movl	%eax, 22(%esp)
+	movl	LC1+4, %eax
+	movl	%eax, 26(%esp)
+	movzwl	LC1+8, %eax
+	movw	%ax, 30(%esp)
+	testl	%esi, %esi
+	je	L3
+	cmpl	$4, 72(%esp)
+	ja	L19
+L10:
+	movl	$-8, %ebx
+L1:
+	addl	$44, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+	.p2align 4,,10
+L2:
+	.cfi_restore_state
+	movl	$LC2, 4(%esp)
+	movl	%ebp, (%esp)
+	call	*%edi
+	.cfi_def_cfa_offset 56
+	subl	$8, %esp
+	.cfi_def_cfa_offset 64
+	movl	%eax, %ebx
+	testl	%eax, %eax
+	jne	L6
+	movl	LC3, %eax
+	movl	LC3+4, %edx
+	movl	%eax, 22(%esp)
+	movl	%edx, 26(%esp)
+	testl	%esi, %esi
+	je	L7
+	cmpl	$3, 72(%esp)
+	jbe	L10
+	leal	22(%esp), %eax
+	movl	%esi, (%esp)
+	movl	%eax, 4(%esp)
+	call	*__imp__lstrcpyW@8
+	.cfi_def_cfa_offset 56
+	subl	$8, %esp
+	.cfi_def_cfa_offset 64
+L7:
+	movl	76(%esp), %eax
+	movl	$4, (%eax)
+	addl	$44, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+	.p2align 4,,10
+L19:
+	.cfi_restore_state
+	leal	22(%esp), %eax
+	movl	%esi, (%esp)
+	movl	%eax, 4(%esp)
+	call	*__imp__lstrcpyW@8
+	.cfi_def_cfa_offset 56
+	subl	$8, %esp
+	.cfi_def_cfa_offset 64
+L3:
+	movl	76(%esp), %eax
+	movl	$5, (%eax)
+	addl	$44, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+L6:
+	.cfi_restore_state
+	movl	76(%esp), %eax
+	movl	$-1, %ebx
+	movl	$-1, (%eax)
+	jmp	L1
+	.cfi_endproc
+LFE5898:
 	.p2align 4,,15
 	.globl	_PMC_UINT_Initialize@4
 	.def	_PMC_UINT_Initialize@4;	.scl	2;	.type	32;	.endef
 _PMC_UINT_Initialize@4:
-LFB5493:
+LFB5900:
 	.cfi_startproc
-	cmpb	$0, _initialized
-	movl	$_entry_points, %eax
-	je	L13
+	cmpb	$0, __ZN8Palmtree4Math4Core8InternalL11initializedE
+	movl	$__ZN8Palmtree4Math4Core8InternalL12entry_pointsE, %eax
+	je	L31
 	ret	$4
 	.p2align 4,,10
-L13:
+L31:
 	pushl	%edi
 	.cfi_def_cfa_offset 8
 	.cfi_offset 7, -8
-	movl	$40, %edx
+	movl	$44, %edx
 	xorl	%eax, %eax
 	pushl	%ebx
 	.cfi_def_cfa_offset 12
@@ -23,8 +186,16 @@ L13:
 	movl	%edx, %ecx
 	subl	$68, %esp
 	.cfi_def_cfa_offset 80
-	leal	24(%esp), %ebx
+	leal	20(%esp), %ebx
 	movl	%ebx, %edi
+/APP
+ # 1445 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+	rep stosb
+ # 0 "" 2
+/NO_APP
+	movl	$305419896, 20(%esp)
+	movl	%ebx, %edi
+	movl	%edx, %ecx
 /APP
  # 1445 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep stosb
@@ -56,169 +227,168 @@ L13:
 /NO_APP
 	movl	%ebx, (%esp)
 	orb	$1, 24(%esp)
-	call	_GetCPUInfo
+	call	__ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE
 	movl	80(%esp), %eax
-	movl	(%eax), %eax
+	movzbl	(%eax), %eax
 	movl	%ebx, (%esp)
-	movl	%eax, _configuration_info
-	call	_Initialize_Memory
+	movb	%al, __ZN8Palmtree4Math4Core8Internal18configuration_infoE
+	call	__ZN8Palmtree4Math4Core8Internal17Initialize_MemoryEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_From
+	call	__ZN8Palmtree4Math4Core8Internal15Initialize_FromEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_To
+	call	__ZN8Palmtree4Math4Core8Internal13Initialize_ToEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Add
+	call	__ZN8Palmtree4Math4Core8Internal14Initialize_AddEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Subtruct
+	call	__ZN8Palmtree4Math4Core8Internal19Initialize_SubtructEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Multiply
+	call	__ZN8Palmtree4Math4Core8Internal19Initialize_MultiplyEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_DivRem
+	call	__ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Shift
+	call	__ZN8Palmtree4Math4Core8Internal16Initialize_ShiftEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_BitwiseAnd
+	call	__ZN8Palmtree4Math4Core8Internal21Initialize_BitwiseAndEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_BitwiseOr
+	call	__ZN8Palmtree4Math4Core8Internal20Initialize_BitwiseOrEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_ExclusiveOr
+	call	__ZN8Palmtree4Math4Core8Internal22Initialize_ExclusiveOrEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Compare
+	call	__ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Equals
+	call	__ZN8Palmtree4Math4Core8Internal17Initialize_EqualsEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_ToString
+	call	__ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Parse
+	call	__ZN8Palmtree4Math4Core8Internal16Initialize_ParseEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_GreatestCommonDivisor
+	call	__ZN8Palmtree4Math4Core8Internal32Initialize_GreatestCommonDivisorEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_Pow
+	call	__ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
+	jne	L23
 	movl	%ebx, (%esp)
-	call	_Initialize_ModPow
+	call	__ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
-	jne	L4
-	movl	%ebx, (%esp)
-	call	_Initialize_Clone
-	testl	%eax, %eax
-	jne	L4
-	movzbl	_entry_points, %eax
-	movzbl	24(%esp), %edx
-	movl	$_PMC_GetStatisticsInfo@4, _entry_points+4
-	movl	$_PMC_From_I@8, _entry_points+8
+	jne	L23
+	movzbl	__ZN8Palmtree4Math4Core8InternalL12entry_pointsE, %eax
+	movzbl	20(%esp), %edx
+	movl	$__ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+4
+	movl	$__ZN8Palmtree4Math4Core8Internal21PMC_GetStatisticsInfoEPNS2_25__tag_PMC_STATISTICS_INFOE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+8
 	andl	$-32, %eax
 	andl	$31, %edx
-	movl	$_PMC_From_L@12, _entry_points+12
-	movl	$_PMC_Dispose@4, _entry_points+16
+	movl	$__ZN8Palmtree4Math4Core8Internal10PMC_From_IEj@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+12
+	movl	$__ZN8Palmtree4Math4Core8Internal10PMC_From_LEy@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+16
 	orl	%edx, %eax
-	movb	%al, _entry_points
-	movl	$_entry_points, %eax
-	movl	$_PMC_To_X_I@8, _entry_points+36
-	movl	$_PMC_To_X_L@8, _entry_points+40
-	movl	$_PMC_FromByteArray@12, _entry_points+24
-	movl	$_PMC_ToByteArray@16, _entry_points+28
-	movl	$_PMC_InitializeNumberFormatInfo@4, _entry_points+44
-	movl	$_PMC_ToString@20, _entry_points+48
-	movl	$_PMC_TryParse@16, _entry_points+52
-	movl	$_PMC_Add_I_X@12, _entry_points+56
-	movl	$_PMC_Add_L_X@16, _entry_points+60
-	movl	$_PMC_Add_X_I@12, _entry_points+64
-	movl	$_PMC_Add_X_L@16, _entry_points+68
-	movl	$_PMC_Add_X_X@12, _entry_points+72
-	movl	$_PMC_Subtruct_I_X@12, _entry_points+76
-	movl	$_PMC_Subtruct_L_X@16, _entry_points+80
-	movl	$_PMC_Subtruct_X_I@12, _entry_points+84
-	movl	$_PMC_Subtruct_X_L@16, _entry_points+88
-	movl	$_PMC_Subtruct_X_X@12, _entry_points+92
-	movl	$_PMC_Multiply_I_X@12, _entry_points+96
-	movl	$_PMC_Multiply_L_X@16, _entry_points+100
-	movl	$_PMC_Multiply_X_I@12, _entry_points+104
-	movl	$_PMC_Multiply_X_L@16, _entry_points+108
-	movl	$_PMC_Multiply_X_X@12, _entry_points+112
-	movl	$_PMC_DivRem_I_X@16, _entry_points+116
-	movl	$_PMC_DivRem_L_X@20, _entry_points+120
-	movl	$_PMC_DivRem_X_I@16, _entry_points+124
-	movl	$_PMC_DivRem_X_L@20, _entry_points+128
-	movl	$_PMC_DivRem_X_X@16, _entry_points+132
-	movl	$_PMC_RightShift_X_I@12, _entry_points+140
-	movl	$_PMC_LeftShift_X_I@12, _entry_points+136
-	movl	$_PMC_BitwiseAnd_I_X@12, _entry_points+144
-	movl	$_PMC_BitwiseAnd_L_X@16, _entry_points+148
-	movl	$_PMC_BitwiseAnd_X_I@12, _entry_points+152
-	movl	$_PMC_BitwiseAnd_X_L@16, _entry_points+156
-	movl	$_PMC_BitwiseAnd_X_X@12, _entry_points+160
-	movl	$_PMC_BitwiseOr_I_X@12, _entry_points+164
-	movl	$_PMC_BitwiseOr_L_X@16, _entry_points+168
-	movl	$_PMC_BitwiseOr_X_I@12, _entry_points+172
-	movl	$_PMC_BitwiseOr_X_L@16, _entry_points+176
-	movl	$_PMC_BitwiseOr_X_X@12, _entry_points+180
-	movl	$_PMC_ExclusiveOr_I_X@12, _entry_points+184
-	movl	$_PMC_ExclusiveOr_L_X@16, _entry_points+188
-	movl	$_PMC_ExclusiveOr_X_I@12, _entry_points+192
-	movl	$_PMC_ExclusiveOr_X_L@16, _entry_points+196
-	movl	$_PMC_ExclusiveOr_X_X@12, _entry_points+200
-	movl	$_PMC_Compare_I_X@12, _entry_points+204
-	movl	$_PMC_Compare_L_X@16, _entry_points+208
-	movl	$_PMC_Compare_X_I@12, _entry_points+212
-	movl	$_PMC_Compare_X_L@16, _entry_points+216
-	movl	$_PMC_Compare_X_X@12, _entry_points+220
-	movl	$_PMC_Equals_I_X@12, _entry_points+224
-	movl	$_PMC_Equals_L_X@16, _entry_points+228
-	movl	$_PMC_Equals_X_I@12, _entry_points+232
-	movl	$_PMC_Equals_X_L@16, _entry_points+236
-	movl	$_PMC_Equals_X_X@12, _entry_points+240
-	movl	$_PMC_GreatestCommonDivisor_I_X@12, _entry_points+244
-	movl	$_PMC_GreatestCommonDivisor_L_X@16, _entry_points+248
-	movl	$_PMC_GreatestCommonDivisor_X_I@12, _entry_points+252
-	movl	$_PMC_GreatestCommonDivisor_X_L@16, _entry_points+256
-	movl	$_PMC_GreatestCommonDivisor_X_X@12, _entry_points+260
-	movl	$_PMC_Pow_X_I@12, _entry_points+264
-	movl	$_PMC_ModPow_X_X_X@16, _entry_points+268
-	movl	$_PMC_GetConstantValue_I@8, _entry_points+20
-	movl	$_PMC_Clone_X@8, _entry_points+32
-	movl	$_PMC_FromByteArrayForSINT@16, _entry_points+272
-	movl	$_PMC_ToByteArrayForSINT@20, _entry_points+276
-	movl	$_PMC_TryParseForSINT@20, _entry_points+280
-	movb	$1, _initialized
-	jmp	L1
+	movb	%al, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE
+	movl	$__ZN8Palmtree4Math4Core8InternalL12entry_pointsE, %eax
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_DisposeEPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+20
+	movl	$__ZN8Palmtree4Math4Core8Internal10PMC_To_X_IEPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+44
+	movl	$__ZN8Palmtree4Math4Core8Internal10PMC_To_X_LEPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+48
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_FromByteArrayEPKhj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+28
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_ToByteArrayEPNS2_21__tag_PMC_HANDLE_UINTEPhj@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+32
+	movl	$__ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+52
+	movl	$__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+56
+	movl	$__ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj@20, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+60
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Add_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+64
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Add_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+68
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+72
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+76
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+80
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+84
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+88
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+92
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+96
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+100
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+104
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+108
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+112
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+116
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+120
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+124
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+128
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+132
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+136
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+140
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_RightShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+148
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_LeftShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+144
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+152
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+156
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+160
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+164
+	movl	$__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+168
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+172
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+176
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+180
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+184
+	movl	$__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+188
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+192
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+196
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+200
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+204
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+208
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+212
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+216
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+220
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+224
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+228
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_Equals_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+232
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_Equals_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+236
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+240
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+244
+	movl	$__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+248
+	movl	$__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+252
+	movl	$__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+256
+	movl	$__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+260
+	movl	$__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+264
+	movl	$__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+268
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+272
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+276
+	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+280
+	movl	$__ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+24
+	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+36
+	movl	$__ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv@0, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+40
+	movl	$__ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhjPc@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+284
+	movl	$__ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhj@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+288
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj@24, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+292
+	movb	$1, __ZN8Palmtree4Math4Core8InternalL11initializedE
+	jmp	L20
 	.p2align 4,,10
-L4:
+L23:
 	xorl	%eax, %eax
-L1:
+L20:
 	addl	$68, %esp
 	.cfi_def_cfa_offset 12
 	popl	%ebx
@@ -229,98 +399,102 @@ L1:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE5493:
-.lcomm _initialized,1,1
-.lcomm _entry_points,284,32
-	.comm	_configuration_info, 4, 2
+LFE5900:
+.lcomm __ZN8Palmtree4Math4Core8InternalL11initializedE,1,1
+.lcomm __ZN8Palmtree4Math4Core8InternalL12entry_pointsE,296,32
+	.globl	__ZN8Palmtree4Math4Core8Internal18configuration_infoE
+	.bss
+__ZN8Palmtree4Math4Core8Internal18configuration_infoE:
+	.space 1
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	_GetCPUInfo;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Memory;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_From;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_To;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Add;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Subtruct;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Multiply;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Shift;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_BitwiseAnd;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_BitwiseOr;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ExclusiveOr;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Compare;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Equals;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ToString;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Parse;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_GreatestCommonDivisor;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Pow;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_ModPow;	.scl	2;	.type	32;	.endef
-	.def	_Initialize_Clone;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GetStatisticsInfo@4;	.scl	2;	.type	32;	.endef
-	.def	_PMC_From_I@8;	.scl	2;	.type	32;	.endef
-	.def	_PMC_From_L@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Dispose@4;	.scl	2;	.type	32;	.endef
-	.def	_PMC_To_X_I@8;	.scl	2;	.type	32;	.endef
-	.def	_PMC_To_X_L@8;	.scl	2;	.type	32;	.endef
-	.def	_PMC_FromByteArray@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ToByteArray@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_InitializeNumberFormatInfo@4;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ToString@20;	.scl	2;	.type	32;	.endef
-	.def	_PMC_TryParse@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Add_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Add_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Add_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Add_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Add_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Subtruct_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Subtruct_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Subtruct_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Subtruct_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Subtruct_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Multiply_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Multiply_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Multiply_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Multiply_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Multiply_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_DivRem_I_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_DivRem_L_X@20;	.scl	2;	.type	32;	.endef
-	.def	_PMC_DivRem_X_I@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
-	.def	_PMC_DivRem_X_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_RightShift_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_LeftShift_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseAnd_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseAnd_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseAnd_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseAnd_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseAnd_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseOr_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseOr_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseOr_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseOr_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_BitwiseOr_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ExclusiveOr_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ExclusiveOr_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ExclusiveOr_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ExclusiveOr_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ExclusiveOr_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Compare_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Compare_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Compare_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Compare_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Compare_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Equals_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Equals_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Equals_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Equals_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Equals_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GreatestCommonDivisor_I_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GreatestCommonDivisor_L_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GreatestCommonDivisor_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GreatestCommonDivisor_X_L@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GreatestCommonDivisor_X_X@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Pow_X_I@12;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ModPow_X_X_X@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_GetConstantValue_I@8;	.scl	2;	.type	32;	.endef
-	.def	_PMC_Clone_X@8;	.scl	2;	.type	32;	.endef
-	.def	_PMC_FromByteArrayForSINT@16;	.scl	2;	.type	32;	.endef
-	.def	_PMC_ToByteArrayForSINT@20;	.scl	2;	.type	32;	.endef
-	.def	_PMC_TryParseForSINT@20;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_MemoryEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15Initialize_FromEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal13Initialize_ToEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14Initialize_AddEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19Initialize_SubtructEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19Initialize_MultiplyEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16Initialize_ShiftEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal21Initialize_BitwiseAndEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal20Initialize_BitwiseOrEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal22Initialize_ExclusiveOrEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_EqualsEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16Initialize_ParseEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal32Initialize_GreatestCommonDivisorEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal21PMC_GetStatisticsInfoEPNS2_25__tag_PMC_STATISTICS_INFOE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal10PMC_From_IEj@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal10PMC_From_LEy@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_DisposeEPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal10PMC_To_X_IEPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal10PMC_To_X_LEPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_FromByteArrayEPKhj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_ToByteArrayEPNS2_21__tag_PMC_HANDLE_UINTEPhj@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj@20;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Add_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Add_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Add_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy@16;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_RightShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_LeftShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_Equals_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_Equals_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv@0;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhjPc@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhj@16;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj@24;	.scl	2;	.type	32;	.endef

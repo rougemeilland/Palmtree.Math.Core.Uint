@@ -79,6 +79,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.InlineFunc
                             "",
                             "",
                             "#ifdef __cplusplus",
+                            "namespace Palmtree::Math::Core::Internal {",
                             "extern \"C\" {",
                             "#endif",
                             "",
@@ -92,6 +93,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.InlineFunc
                             "",
                             "",
                             "#ifdef __cplusplus",
+                            "}",
                             "}",
                             "#endif",
                             "",
@@ -132,14 +134,6 @@ namespace Palmtree.Math.Core.Uint.CodeGen.InlineFunc
             GenerateFunc_ADD(writer, "ADD", max_count, "adox", "", "__UNIT_TYPE", "_ADDX_UNIT");
             writer.WriteLine("");
             GenerateFunc_ADD(writer, "SUBTRUCT", max_count, "sbb", "", "__UNIT_TYPE", "_SUBTRUCT_UNIT");
-            writer.WriteLine("");
-            GenerateFunc_ADD(writer, "ADD", max_count, "adc", "_DIV", "__UNIT_TYPE_DIV", "_ADD_UNIT_DIV");
-            writer.WriteLine("");
-            GenerateFunc_ADD(writer, "ADD", max_count, "adcx", "_DIV", "__UNIT_TYPE_DIV", "_ADDX_UNIT_DIV");
-            writer.WriteLine("");
-            GenerateFunc_ADD(writer, "ADD", max_count, "adox", "_DIV", "__UNIT_TYPE_DIV", "_ADDX_UNIT_DIV");
-            writer.WriteLine("");
-            GenerateFunc_ADD(writer, "SUBTRUCT", max_count, "sbb", "_DIV", "__UNIT_TYPE_DIV", "_SUBTRUCT_UNIT_DIV");
         }
 
         private static void GenerateFunc_ADD(TextWriter writer, string title_func, int max_count, string op, string suffix, string pointer_type, string alt_func_name)
@@ -152,7 +146,7 @@ namespace Palmtree.Math.Core.Uint.CodeGen.InlineFunc
             writer.WriteLine("#elif defined(__GNUC__)");
             writer.WriteLine("#ifdef _M_IX86");
             GenerateASM_ADD(writer, max_count, op, 32, "l", "ecx");
-            writer.WriteLine("#elif defined(_M_IX64)");
+            writer.WriteLine("#elif defined(_M_X64)");
             GenerateASM_ADD(writer, max_count, op, 64, "q", "rcx");
             writer.WriteLine("#else");
             writer.WriteLine("#error unknown platform");

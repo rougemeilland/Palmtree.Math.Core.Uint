@@ -20,7 +20,7 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "041104b0"
+        BLOCK "001104b0"
         BEGIN
             VALUE "CompanyName", "Palmtree Software"
             VALUE "FileDescription", "多倍長整数演算ライブラリ アンマネージDLL"

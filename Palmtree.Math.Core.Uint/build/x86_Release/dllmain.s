@@ -1,10 +1,10 @@
-	.file	"dllmain.c"
+	.file	"dllmain.cpp"
 	.text
 	.p2align 4,,15
 	.globl	_DllMain@12
 	.def	_DllMain@12;	.scl	2;	.type	32;	.endef
 _DllMain@12:
-LFB94:
+LFB509:
 	.cfi_startproc
 	subl	$12, %esp
 	.cfi_def_cfa_offset 16
@@ -23,7 +23,7 @@ LFB94:
 	.p2align 4,,10
 L2:
 	.cfi_restore_state
-	call	_AllocateHeapArea
+	call	__ZN8Palmtree4Math4Core8Internal16AllocateHeapAreaEv
 	testl	%eax, %eax
 	setne	%al
 	addl	$12, %esp
@@ -34,13 +34,13 @@ L2:
 	.p2align 4,,10
 L3:
 	.cfi_restore_state
-	call	_DeallocateHeapArea
+	call	__ZN8Palmtree4Math4Core8Internal18DeallocateHeapAreaEv
 	movl	$1, %eax
 	addl	$12, %esp
 	.cfi_def_cfa_offset 4
 	ret	$12
 	.cfi_endproc
-LFE94:
+LFE509:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	_AllocateHeapArea;	.scl	2;	.type	32;	.endef
-	.def	_DeallocateHeapArea;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal16AllocateHeapAreaEv;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18DeallocateHeapAreaEv;	.scl	2;	.type	32;	.endef

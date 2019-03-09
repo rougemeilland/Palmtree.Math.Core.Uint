@@ -23,8 +23,10 @@
  */
 
 
-#ifndef __PMC_INTERNAL_H
-#define __PMC_INTERNAL_H
+#pragma once
+
+#ifndef PMC_INTERNAL_H
+#define PMC_INTERNAL_H
 
 
 #include <windows.h>
@@ -33,7 +35,10 @@
 
 
 #ifdef __cplusplus
-extern "C" {
+namespace Palmtree::Math::Core::Internal
+{
+    extern "C"
+    {
 #endif
 
 #pragma region マクロの定義
@@ -47,19 +52,11 @@ extern "C" {
 
 #pragma region 型の定義
 #ifdef _M_IX86
-typedef _UINT32_T __UNIT_TYPE;
+        typedef _UINT32_T __UNIT_TYPE;
 #elif defined(_M_X64)
-typedef _UINT64_T __UNIT_TYPE;
+        typedef _UINT64_T __UNIT_TYPE;
 #else
 #error unknown platform
-#endif
-
-#ifdef _MSC_VER
-// VC++ では 128bit のデータ型が存在せずかつ 128bit の除算を行う組み込み関数も存在しないため、デフォルトのワード単位での除算が実装できない。
-// そのため、除算のみは 32bit を1ワードとして演算を実装する。
-typedef _UINT32_T __UNIT_TYPE_DIV;
-#else
-typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 #endif
 
 #define __UNIT_TYPE_BYTE_COUNT (sizeof(__UNIT_TYPE))
@@ -68,10 +65,11 @@ typedef __UNIT_TYPE __UNIT_TYPE_DIV;
 
 
 #ifdef __cplusplus
+    }
 }
 #endif
 
-#endif /* __PMC_INTERNAL_H */
+#endif /* PMC_INTERNAL_H */
 
 
 /*

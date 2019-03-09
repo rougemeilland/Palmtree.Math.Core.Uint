@@ -1,437 +1,576 @@
-	.file	"pmc_compare.c"
+	.file	"pmc_compare.cpp"
 	.text
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
 	.p2align 4,,15
-	.def	PMC_Compare_X_I_Imp;	.scl	3;	.type	32;	.endef
-	.seh_proc	PMC_Compare_X_I_Imp
-PMC_Compare_X_I_Imp:
+	.globl	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.def	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev:
+.LFB6090:
 	.seh_endprologue
-	testb	$1, (%rcx)
-	je	.L2
-	testl	%edx, %edx
-	jne	.L3
-.L7:
-	movl	$0, (%r8)
-	ret
-	.p2align 4,,10
-.L2:
-	testl	%edx, %edx
-	je	.L6
-	movl	$31, %eax
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edx, %r9d
- # 0 "" 2
-/NO_APP
-	subl	%r9d, %eax
-	movl	$32, %r9d
-	cltq
-	subq	%rax, %r9
-	cmpq	%r9, 24(%rcx)
-	ja	.L6
-	jb	.L3
-	movq	64(%rcx), %rax
-	movl	%edx, %edx
-	cmpq	%rdx, (%rax)
-	ja	.L6
-	jnb	.L7
-.L3:
-	movl	$-1, (%r8)
-	ret
-	.p2align 4,,10
-.L6:
-	movl	$1, (%r8)
-	ret
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rax, (%rcx)
+	jmp	_ZNSt9exceptionD2Ev
 	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
 	.p2align 4,,15
-	.def	PMC_Compare_X_L_Imp;	.scl	3;	.type	32;	.endef
-	.seh_proc	PMC_Compare_X_L_Imp
-PMC_Compare_X_L_Imp:
-	.seh_endprologue
-	testb	$1, (%rcx)
-	je	.L10
-	testq	%rdx, %rdx
-	jne	.L11
-.L15:
-	movl	$0, (%r8)
-	ret
-	.p2align 4,,10
-.L10:
-	testq	%rdx, %rdx
-	je	.L14
-	movl	$63, %eax
-/APP
- # 641 "../pmc_inline_func.h" 1
-	bsrq %rdx, %r9
- # 0 "" 2
-/NO_APP
-	subl	%r9d, %eax
-	movl	$64, %r9d
-	cltq
-	subq	%rax, %r9
-	cmpq	%r9, 24(%rcx)
-	ja	.L14
-	jb	.L11
-	movq	64(%rcx), %rax
-	cmpq	(%rax), %rdx
-	jb	.L14
-	jbe	.L15
-.L11:
-	movl	$-1, (%r8)
-	ret
-	.p2align 4,,10
-.L14:
-	movl	$1, (%r8)
-	ret
-	.seh_endproc
-	.p2align 4,,15
-	.globl	Compare_Imp
-	.def	Compare_Imp;	.scl	2;	.type	32;	.endef
-	.seh_proc	Compare_Imp
-Compare_Imp:
-	.seh_endprologue
-	leaq	0(,%r8,8), %rax
-	addq	%rax, %rcx
-	addq	%rax, %rdx
-	testq	%r8, %r8
-	je	.L20
-	movq	-8(%rdx), %r10
-	leaq	-1(%r8), %rax
-	cmpq	%r10, -8(%rcx)
-	ja	.L23
-	jb	.L24
-	negq	%r8
-	salq	$3, %r8
-	addq	%r8, %rcx
-	addq	%r8, %rdx
-	jmp	.L18
-	.p2align 4,,10
-.L19:
-	subq	$1, %rax
-	movq	(%rdx,%rax,8), %r9
-	cmpq	%r9, (%rcx,%rax,8)
-	ja	.L23
-	jb	.L24
-.L18:
-	testq	%rax, %rax
-	jne	.L19
-	ret
-	.p2align 4,,10
-.L23:
-	movl	$1, %eax
-	ret
-	.p2align 4,,10
-.L24:
-	movl	$-1, %eax
-	ret
-.L20:
-	xorl	%eax, %eax
-	ret
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_Compare_I_X
-	.def	PMC_Compare_I_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Compare_I_X
-PMC_Compare_I_X:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
-	.seh_endprologue
-	testq	%r8, %r8
-	movl	%ecx, %edi
-	movq	%rdx, %rbx
-	movq	%r8, %rsi
-	je	.L27
-	testq	%rdx, %rdx
-	je	.L27
-	movq	%rdx, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L25
-	leaq	60(%rsp), %r8
-	movl	%edi, %edx
-	movq	%rbx, %rcx
-	movl	%eax, 44(%rsp)
-	call	PMC_Compare_X_I_Imp
-	movl	60(%rsp), %edx
-	movl	44(%rsp), %eax
-	negl	%edx
-	movl	%edx, (%rsi)
-.L25:
-	addq	$64, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L27:
-	movl	$-1, %eax
-	jmp	.L25
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_Compare_X_I
-	.def	PMC_Compare_X_I;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Compare_X_I
-PMC_Compare_X_I:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
-	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rbx
-	movl	%edx, %edi
-	movq	%r8, %rsi
-	je	.L30
-	testq	%rcx, %rcx
-	je	.L30
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L28
-	leaq	60(%rsp), %r8
-	movl	%edi, %edx
-	movq	%rbx, %rcx
-	movl	%eax, 44(%rsp)
-	call	PMC_Compare_X_I_Imp
-	movl	60(%rsp), %edx
-	movl	44(%rsp), %eax
-	movl	%edx, (%rsi)
-.L28:
-	addq	$64, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L30:
-	movl	$-1, %eax
-	jmp	.L28
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_Compare_L_X
-	.def	PMC_Compare_L_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Compare_L_X
-PMC_Compare_L_X:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
-	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rdi
-	movq	%rdx, %rbx
-	movq	%r8, %rsi
-	je	.L33
-	testq	%rdx, %rdx
-	je	.L33
-	movq	%rdx, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L31
-	leaq	60(%rsp), %r8
-	movq	%rdi, %rdx
-	movq	%rbx, %rcx
-	movl	%eax, 44(%rsp)
-	call	PMC_Compare_X_L_Imp
-	movl	60(%rsp), %edx
-	movl	44(%rsp), %eax
-	negl	%edx
-	movl	%edx, (%rsi)
-.L31:
-	addq	$64, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L33:
-	movl	$-1, %eax
-	jmp	.L31
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_Compare_X_L
-	.def	PMC_Compare_X_L;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Compare_X_L
-PMC_Compare_X_L:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$64, %rsp
-	.seh_stackalloc	64
-	.seh_endprologue
-	testq	%r8, %r8
-	movq	%rcx, %rbx
-	movq	%rdx, %rdi
-	movq	%r8, %rsi
-	je	.L36
-	testq	%rcx, %rcx
-	je	.L36
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L34
-	leaq	60(%rsp), %r8
-	movq	%rdi, %rdx
-	movq	%rbx, %rcx
-	movl	%eax, 44(%rsp)
-	call	PMC_Compare_X_L_Imp
-	movl	60(%rsp), %edx
-	movl	44(%rsp), %eax
-	movl	%edx, (%rsi)
-.L34:
-	addq	$64, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L36:
-	movl	$-1, %eax
-	jmp	.L34
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_Compare_X_X
-	.def	PMC_Compare_X_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_Compare_X_X
-PMC_Compare_X_X:
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
+	.globl	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.def	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev:
+.LFB6091:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
 	.seh_stackalloc	32
 	.seh_endprologue
-	movq	%rdx, %rsi
-	testq	%r8, %r8
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
 	movq	%rcx, %rbx
-	sete	%dl
-	testq	%rsi, %rsi
-	movq	%r8, %rdi
-	sete	%al
-	orb	%al, %dl
-	jne	.L46
+	movq	%rax, (%rcx)
+	call	_ZNSt9exceptionD2Ev
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	addq	$32, %rsp
+	popq	%rbx
+	jmp	_ZdlPvy
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.def	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev:
+.LFB6113:
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rax, (%rcx)
+	jmp	_ZNSt9exceptionD2Ev
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.def	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
+.LFB6114:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rcx, %rbx
+	movq	%rax, (%rcx)
+	call	_ZNSt9exceptionD2Ev
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	addq	$32, %rsp
+	popq	%rbx
+	jmp	_ZdlPvy
+	.seh_endproc
+	.text
+	.p2align 4,,15
+	.def	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj:
+.LFB6316:
+	.seh_endprologue
+	testb	$1, 8(%rcx)
+	je	.L7
+	xorl	%eax, %eax
+	testl	%edx, %edx
+	setne	%al
+	negl	%eax
+.L6:
+	ret
+	.p2align 4,,10
+.L7:
+	testl	%edx, %edx
+	movl	$1, %eax
+	je	.L6
+	movl	$31, %r8d
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edx, %r9d
+ # 0 "" 2
+/NO_APP
+	subl	%r9d, %r8d
+	movl	$32, %r9d
+	movslq	%r8d, %r8
+	subq	%r8, %r9
+	cmpq	%r9, 32(%rcx)
+	ja	.L6
+	movl	$-1, %eax
+	jb	.L6
+	movq	64(%rcx), %rcx
+	movl	%edx, %edx
+	movl	$1, %eax
+	cmpq	%rdx, (%rcx)
+	ja	.L6
+	sbbl	%eax, %eax
+	ret
+	.seh_endproc
+	.p2align 4,,15
+	.def	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
+_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy:
+.LFB6319:
+	.seh_endprologue
+	testb	$1, 8(%rcx)
+	je	.L15
+	xorl	%eax, %eax
+	testq	%rdx, %rdx
+	setne	%al
+	negl	%eax
+.L14:
+	ret
+	.p2align 4,,10
+.L15:
+	testq	%rdx, %rdx
+	movl	$1, %eax
+	je	.L14
+	movl	$63, %r8d
+/APP
+ # 472 "../pmc_inline_func.h" 1
+	bsrq %rdx, %r9
+ # 0 "" 2
+/NO_APP
+	subl	%r9d, %r8d
+	movl	$64, %r9d
+	movslq	%r8d, %r8
+	subq	%r8, %r9
+	cmpq	%r9, 32(%rcx)
+	ja	.L14
+	movl	$-1, %eax
+	jb	.L14
+	movq	64(%rcx), %rcx
+	movl	$1, %eax
+	cmpq	(%rcx), %rdx
+	jb	.L14
+	seta	%al
+	movzbl	%al, %eax
+	negl	%eax
+	ret
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal11Compare_ImpEPyS3_y
+	.def	_ZN8Palmtree4Math4Core8Internal11Compare_ImpEPyS3_y;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal11Compare_ImpEPyS3_y
+_ZN8Palmtree4Math4Core8Internal11Compare_ImpEPyS3_y:
+.LFB6315:
+	.seh_endprologue
+	leaq	0(,%r8,8), %rax
+	addq	%rax, %rcx
+	addq	%rax, %rdx
+	testq	%r8, %r8
+	je	.L26
+	movq	-8(%rdx), %r10
+	leaq	-1(%r8), %rax
+	cmpq	%r10, -8(%rcx)
+	ja	.L29
+	jb	.L30
+	negq	%r8
+	salq	$3, %r8
+	addq	%r8, %rcx
+	addq	%r8, %rdx
+	jmp	.L24
+	.p2align 4,,10
+.L25:
+	subq	$1, %rax
+	movq	(%rdx,%rax,8), %r9
+	cmpq	%r9, (%rcx,%rax,8)
+	ja	.L29
+	jb	.L30
+.L24:
+	testq	%rax, %rax
+	jne	.L25
+	ret
+	.p2align 4,,10
+.L29:
+	movl	$1, %eax
+	ret
+	.p2align 4,,10
+.L30:
+	movl	$-1, %eax
+	ret
+.L26:
+	xorl	%eax, %eax
+	ret
+	.seh_endproc
+	.section .rdata,"dr"
+	.align 8
+.LC0:
+	.ascii "\25_pek0n\0u\0l\0l\0p\0t\0r\0L0\16NH0\211"
+	.ascii "0\214"
+	.ascii "0f0D0~0Y0\2"
+	.ascii "0\0\0"
+	.align 2
+.LC1:
+	.ascii "v\0\0\0"
+	.text
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
+_ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE:
+.LFB6317:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
+	testq	%rdx, %rdx
+	movl	%ecx, %esi
+	movq	%rdx, %rbx
+	je	.L33
+	movq	%rdx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%esi, %edx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+	negl	%eax
+	addq	$40, %rsp
+	popq	%rbx
+	popq	%rsi
+	ret
+.L33:
+	leaq	.LC0(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC1(%rip), %rdx
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movq	%rdx, 24(%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+	nop
+	.seh_endproc
+	.section .rdata,"dr"
+	.align 2
+.LC2:
+	.ascii "u\0\0\0"
+	.text
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
+_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj:
+.LFB6318:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
 	testq	%rcx, %rcx
-	je	.L46
-	call	CheckNumber
-	testl	%eax, %eax
-	je	.L52
-.L37:
-	addq	$32, %rsp
+	movq	%rcx, %rbx
+	movl	%edx, %esi
+	je	.L36
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%esi, %edx
+	movq	%rbx, %rcx
+	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
-.L52:
-	movq	%rsi, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	jne	.L37
-	movzbl	(%rsi), %edx
-	movl	%edx, %ecx
-	andl	$1, %ecx
-	testb	$1, (%rbx)
-	jne	.L53
-	testb	%cl, %cl
-	jne	.L41
-	movq	24(%rsi), %rcx
-	cmpq	%rcx, 24(%rbx)
-	ja	.L41
-	jnb	.L42
-	movl	$-1, (%rdi)
-	jmp	.L37
-	.p2align 4,,10
-.L53:
-	notl	%edx
-	andl	$1, %edx
-	negl	%edx
-	movl	%edx, (%rdi)
-	addq	$32, %rsp
+	jmp	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+.L36:
+	leaq	.LC0(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC2(%rip), %rdx
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movq	%rdx, 24(%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+	nop
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
+_ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE:
+.LFB6320:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
+	testq	%rdx, %rdx
+	movq	%rcx, %rsi
+	movq	%rdx, %rbx
+	je	.L39
+	movq	%rdx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
+	negl	%eax
+	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
-	popq	%rdi
 	ret
-	.p2align 4,,10
-.L41:
-	movl	$1, (%rdi)
-	addq	$32, %rsp
+.L39:
+	leaq	.LC0(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC1(%rip), %rdx
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movq	%rdx, 24(%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+	nop
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
+_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy:
+.LFB6321:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
+	testq	%rcx, %rcx
+	movq	%rcx, %rbx
+	movq	%rdx, %rsi
+	je	.L42
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%rbx, %rcx
+	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
-	popq	%rdi
-	ret
-	.p2align 4,,10
+	jmp	_ZN8Palmtree4Math4Core8InternalL19PMC_Compare_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
 .L42:
-	movq	16(%rbx), %r9
+	leaq	.LC0(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC2(%rip), %rdx
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movq	%rdx, 24(%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+	nop
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
+_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_:
+.LFB6322:
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$40, %rsp
+	.seh_stackalloc	40
+	.seh_endprologue
+	testq	%rcx, %rcx
+	movq	%rcx, %rbx
+	movq	%rdx, %rsi
+	je	.L59
+	testq	%rdx, %rdx
+	je	.L60
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 8(%rbx)
+	je	.L46
+	movzbl	8(%rsi), %eax
+	notl	%eax
+	andl	$1, %eax
+	negl	%eax
+.L43:
+	addq	$40, %rsp
+	popq	%rbx
+	popq	%rsi
+	ret
+	.p2align 4,,10
+.L46:
+	testb	$1, 8(%rsi)
+	movl	$1, %eax
+	jne	.L43
+	movq	32(%rsi), %rdx
+	cmpq	%rdx, 32(%rbx)
+	ja	.L43
+	movl	$-1, %eax
+	jb	.L43
+	movq	24(%rbx), %r9
 	movq	64(%rbx), %r8
-	movq	64(%rsi), %rcx
 	leaq	0(,%r9,8), %rdx
 	addq	%rdx, %r8
-	addq	%rdx, %rcx
+	addq	64(%rsi), %rdx
 	testq	%r9, %r9
-	je	.L47
+	movq	%rdx, %rcx
+	je	.L53
 	movq	-8(%rcx), %rsi
 	leaq	-1(%r9), %rdx
 	cmpq	%rsi, -8(%r8)
-	ja	.L50
-	jb	.L51
+	ja	.L56
+	jb	.L43
 	negq	%r9
-	salq	$3, %r9
-	addq	%r9, %r8
-	addq	%r9, %rcx
-	jmp	.L44
+	leaq	0(,%r9,8), %rax
+	addq	%rax, %r8
+	addq	%rcx, %rax
+	jmp	.L48
 	.p2align 4,,10
-.L45:
+.L49:
 	subq	$1, %rdx
-	movq	(%rcx,%rdx,8), %rsi
-	cmpq	%rsi, (%r8,%rdx,8)
-	ja	.L50
-	jb	.L51
-.L44:
+	movq	(%rax,%rdx,8), %rcx
+	cmpq	%rcx, (%r8,%rdx,8)
+	ja	.L56
+	jb	.L57
+.L48:
 	testq	%rdx, %rdx
-	jne	.L45
-	movl	%edx, (%rdi)
-	jmp	.L37
+	jne	.L49
+.L53:
+	xorl	%eax, %eax
+	jmp	.L43
 	.p2align 4,,10
-.L46:
+.L56:
+	movl	$1, %eax
+	jmp	.L43
+	.p2align 4,,10
+.L57:
 	movl	$-1, %eax
-	jmp	.L37
-.L50:
-	movl	$1, %edx
-	movl	%edx, (%rdi)
-	jmp	.L37
-.L51:
-	movl	$-1, %edx
-	movl	%edx, (%rdi)
-	jmp	.L37
-.L47:
-	xorl	%edx, %edx
-	movl	%edx, (%rdi)
-	jmp	.L37
+	jmp	.L43
+.L60:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC0(%rip), %rdx
+	movq	%rdx, 16(%rax)
+	leaq	.LC1(%rip), %rdx
+	movl	$-2, 8(%rax)
+.L58:
+	movq	%rdx, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rax, %rcx
+	movq	%rdx, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	call	__cxa_throw
+.L59:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC0(%rip), %rdx
+	movq	%rdx, 16(%rax)
+	leaq	.LC2(%rip), %rdx
+	movl	$-2, 8(%rax)
+	jmp	.L58
 	.seh_endproc
 	.p2align 4,,15
-	.globl	Initialize_Compare
-	.def	Initialize_Compare;	.scl	2;	.type	32;	.endef
-	.seh_proc	Initialize_Compare
-Initialize_Compare:
+	.globl	_ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	_ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE
+_ZN8Palmtree4Math4Core8Internal18Initialize_CompareEPNS2_23_tag_PROCESSOR_FEATURESE:
+.LFB6323:
 	.seh_endprologue
 	xorl	%eax, %eax
 	ret
 	.seh_endproc
+	.globl	_ZTSSt9exception
+	.section	.rdata$_ZTSSt9exception,"dr"
+	.linkonce same_size
+	.align 8
+_ZTSSt9exception:
+	.ascii "St9exception\0"
+	.globl	_ZTISt9exception
+	.section	.rdata$_ZTISt9exception,"dr"
+	.linkonce same_size
+	.align 8
+_ZTISt9exception:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSSt9exception
+	.globl	_ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+_ZTSN8Palmtree4Math4Core8Internal9ExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal9ExceptionE\0"
+	.globl	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
+	.quad	_ZTVN10__cxxabiv121__vmi_class_type_infoE+16
+	.quad	_ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	0
+	.long	1
+	.quad	_ZTISt9exception
+	.quad	0
+	.globl	_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal21ArgumentNullExceptionE\0"
+	.globl	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.quad	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	_ZTVN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE:
+	.quad	0
+	.quad	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.quad	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.quad	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.quad	_ZNKSt9exception4whatEv
+	.globl	_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.quad	0
+	.quad	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.quad	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.quad	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.quad	_ZNKSt9exception4whatEv
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	CheckNumber;	.scl	2;	.type	32;	.endef
+	.def	_ZNSt9exceptionD2Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__cxa_allocate_exception;	.scl	2;	.type	32;	.endef
+	.def	__cxa_throw;	.scl	2;	.type	32;	.endef
+	.def	_ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef

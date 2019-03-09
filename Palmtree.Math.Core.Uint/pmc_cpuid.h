@@ -23,39 +23,39 @@
  */
 
 
+#pragma once
+
 #ifndef PMC_CPUID_H
 #define PMC_CPUID_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-// CPUIDによる機能の使用可否を識別する構造体。
-// 参照: https://www.wdic.org/w/SCI/cpuid%20(x86), https://en.wikipedia.org/wiki/Bit_Manipulation_Instruction_Sets
-typedef struct _tag_PROCESSOR_FEATURES
+namespace Palmtree::Math::Core::Internal
 {
-    // このフラグで使用可能な命令: POPCNT
-    unsigned PROCESSOR_FEATURE_POPCNT : 1;
 
-    // このフラグで使用可能な命令: ADX
-    unsigned PROCESSOR_FEATURE_ADX : 1;
+    // CPUIDによる機能の使用可否を識別する構造体。
+    // 参照: https://www.wdic.org/w/SCI/cpuid%20(x86), https://en.wikipedia.org/wiki/Bit_Manipulation_Instruction_Sets
+    typedef struct _tag_PROCESSOR_FEATURES
+    {
+        // このフラグで使用可能な命令: POPCNT
+        unsigned PROCESSOR_FEATURE_POPCNT : 1;
 
-    // このフラグで使用可能な命令: TZCNT
-    unsigned PROCESSOR_FEATURE_BMI1 : 1;
+        // このフラグで使用可能な命令: ADX
+        unsigned PROCESSOR_FEATURE_ADX : 1;
 
-    // このフラグで使用可能な命令: MULX
-    unsigned PROCESSOR_FEATURE_BMI2 : 1;
+        // このフラグで使用可能な命令: TZCNT
+        unsigned PROCESSOR_FEATURE_BMI1 : 1;
 
-    // このフラグで使用可能な命令: LZCNT
-    unsigned PROCESSOR_FEATURE_ABM : 1;
-} PROCESSOR_FEATURES;
+        // このフラグで使用可能な命令: MULX
+        unsigned PROCESSOR_FEATURE_BMI2 : 1;
 
-extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
+        // このフラグで使用可能な命令: LZCNT
+        unsigned PROCESSOR_FEATURE_ABM : 1;
+    } PROCESSOR_FEATURES;
 
+    extern void GetCPUInfo(PROCESSOR_FEATURES* feature);
 
-#ifdef __cplusplus
 }
-#endif
+
 
 #endif /* PMC_CPUID_H */
 

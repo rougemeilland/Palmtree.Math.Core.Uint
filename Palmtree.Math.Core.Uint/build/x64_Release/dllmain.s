@@ -1,10 +1,11 @@
-	.file	"dllmain.c"
+	.file	"dllmain.cpp"
 	.text
 	.p2align 4,,15
 	.globl	DllMain
 	.def	DllMain;	.scl	2;	.type	32;	.endef
 	.seh_proc	DllMain
 DllMain:
+.LFB5982:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -19,7 +20,7 @@ DllMain:
 	ret
 	.p2align 4,,10
 .L2:
-	call	AllocateHeapArea
+	call	_ZN8Palmtree4Math4Core8Internal16AllocateHeapAreaEv
 	testl	%eax, %eax
 	setne	%al
 	movzbl	%al, %eax
@@ -27,11 +28,11 @@ DllMain:
 	ret
 	.p2align 4,,10
 .L3:
-	call	DeallocateHeapArea
+	call	_ZN8Palmtree4Math4Core8Internal18DeallocateHeapAreaEv
 	movl	$1, %eax
 	addq	$40, %rsp
 	ret
 	.seh_endproc
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	AllocateHeapArea;	.scl	2;	.type	32;	.endef
-	.def	DeallocateHeapArea;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal16AllocateHeapAreaEv;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18DeallocateHeapAreaEv;	.scl	2;	.type	32;	.endef

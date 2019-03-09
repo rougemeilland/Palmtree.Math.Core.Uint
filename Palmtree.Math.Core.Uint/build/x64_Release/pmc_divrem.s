@@ -1,9 +1,125 @@
-	.file	"pmc_divrem.c"
+	.file	"pmc_divrem.cpp"
+	.text
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.def	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev:
+.LFB6090:
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rax, (%rcx)
+	jmp	_ZNSt9exceptionD2Ev
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.def	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev:
+.LFB6091:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rcx, %rbx
+	movq	%rax, (%rcx)
+	call	_ZNSt9exceptionD2Ev
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	addq	$32, %rsp
+	popq	%rbx
+	jmp	_ZdlPvy
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev
+	.def	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev
+_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev:
+.LFB6143:
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rax, (%rcx)
+	jmp	_ZNSt9exceptionD2Ev
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev
+	.def	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev
+_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev:
+.LFB6144:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rcx, %rbx
+	movq	%rax, (%rcx)
+	call	_ZNSt9exceptionD2Ev
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	addq	$32, %rsp
+	popq	%rbx
+	jmp	_ZdlPvy
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.def	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev:
+.LFB6113:
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rax, (%rcx)
+	jmp	_ZNSt9exceptionD2Ev
+	.seh_endproc
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.def	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
+.LFB6114:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE(%rip), %rax
+	movq	%rcx, %rbx
+	movq	%rax, (%rcx)
+	call	_ZNSt9exceptionD2Ev
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	addq	$32, %rsp
+	popq	%rbx
+	jmp	_ZdlPvy
+	.seh_endproc
 	.text
 	.p2align 4,,15
-	.def	SubtructOneLine;	.scl	3;	.type	32;	.endef
-	.seh_proc	SubtructOneLine
-SubtructOneLine:
+	.def	_ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPyyS3_yyy;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPyyS3_yyy
+_ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPyyS3_yyy:
+.LFB6377:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -32,8 +148,8 @@ SubtructOneLine:
 	movq	%rdx, 136(%rsp)
 	testq	%r13, %r13
 	movq	%r13, 24(%rsp)
-	je	.L14
-	movq	.refptr.statistics_info(%rip), %r14
+	je	.L21
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %r14
 	movq	%r8, %r11
 	movq	%r12, %r10
 	xorl	%ebp, %ebp
@@ -42,7 +158,7 @@ SubtructOneLine:
 	xorl	%ecx, %ecx
 	leaq	32(%rsp), %rsi
 	.p2align 4,,10
-.L3:
+.L10:
 	movq	%rbx, %rax
 	mulq	(%r11)
 	movq	%rax, (%rsp)
@@ -593,29 +709,29 @@ SubtructOneLine:
 	subq	$1, %r13
 	lock addl	$32, (%r14)
 	testq	%r13, %r13
-	jne	.L3
+	jne	.L10
 	movq	24(%rsp), %rax
 	movzbl	%r15b, %r15d
 	salq	$8, %rax
 	addq	%rax, %r12
 	addq	%rax, %r8
-.L2:
+.L9:
 	leaq	8(%r12), %rcx
 	testb	$16, %r9b
-	jne	.L44
-.L4:
+	jne	.L50
+.L11:
 	testb	$8, %r9b
-	jne	.L45
-.L5:
+	jne	.L51
+.L12:
 	testb	$4, %r9b
-	jne	.L46
-.L6:
+	jne	.L52
+.L13:
 	testb	$2, %r9b
-	jne	.L47
-.L7:
+	jne	.L53
+.L14:
 	andl	$1, %r9d
-	jne	.L48
-.L8:
+	jne	.L54
+.L15:
 	movq	(%r12), %rax
 	movl	%r15d, %esi
 	addb	$-1, %sil
@@ -628,16 +744,16 @@ SubtructOneLine:
 	subq	%rcx, %r8
 	sarq	$3, %r8
 	testq	%r8, %r8
-	je	.L9
+	je	.L16
 	xorl	%r9d, %r9d
 	testb	%al, %al
-	jne	.L10
-	jmp	.L11
+	jne	.L17
+	jmp	.L18
 	.p2align 4,,10
-.L41:
+.L48:
 	testb	%al, %al
-	je	.L11
-.L10:
+	je	.L18
+.L17:
 	movq	(%rcx), %rdx
 	addb	$-1, %al
 	sbbq	%r9, %rdx
@@ -645,10 +761,10 @@ SubtructOneLine:
 	setc	%al
 	addq	$8, %rcx
 	subq	$1, %r8
-	jne	.L41
-.L9:
+	jne	.L48
+.L16:
 	andl	$1, %eax
-.L1:
+.L8:
 	addq	$56, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -660,11 +776,11 @@ SubtructOneLine:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L11:
+.L18:
 	xorl	%eax, %eax
-	jmp	.L1
+	jmp	.L8
 	.p2align 4,,10
-.L48:
+.L54:
 	movq	%rbx, %rax
 	movl	%r15d, %edi
 	mulq	(%r8)
@@ -680,16 +796,16 @@ SubtructOneLine:
 	movq	(%r12), %rax
 	sbbq	%rbx, %rax
 	movq	%rax, (%r12)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	setc	%r15b
 	movq	32(%rsp), %rbp
 	lock addl	$1, (%rax)
 	movq	%rcx, %r12
 	movzbl	%r15b, %r15d
 	addq	$8, %rcx
-	jmp	.L8
+	jmp	.L15
 	.p2align 4,,10
-.L47:
+.L53:
 	movq	%rbx, %rax
 	movl	%r15d, %edi
 	mulq	(%r8)
@@ -716,7 +832,7 @@ SubtructOneLine:
 	movq	%r10, 32(%rsp)
 	movq	8(%r12), %rdx
 	sbbq	%rax, %rdx
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	movq	%rdx, (%rcx)
 	movq	32(%rsp), %rbp
 	setc	%r15b
@@ -726,9 +842,9 @@ SubtructOneLine:
 	leaq	24(%r12), %rcx
 	movzbl	%r15b, %r15d
 	movq	%rdx, %r12
-	jmp	.L7
+	jmp	.L14
 	.p2align 4,,10
-.L46:
+.L52:
 	movq	%rbx, %rax
 	movl	%r15d, %edi
 	mulq	(%r8)
@@ -781,7 +897,7 @@ SubtructOneLine:
 	movq	%r10, 32(%rsp)
 	movq	24(%r12), %rdx
 	sbbq	%rax, %rdx
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	movq	%rdx, 24(%r12)
 	movq	32(%rsp), %rbp
 	setc	%r15b
@@ -791,9 +907,9 @@ SubtructOneLine:
 	leaq	40(%r12), %rcx
 	movzbl	%r15b, %r15d
 	movq	%rdx, %r12
-	jmp	.L6
+	jmp	.L13
 	.p2align 4,,10
-.L45:
+.L51:
 	movq	%rbx, %rax
 	movl	%r15d, %edi
 	mulq	(%r8)
@@ -898,7 +1014,7 @@ SubtructOneLine:
 	movq	%r10, 32(%rsp)
 	movq	56(%r12), %rdx
 	sbbq	%rax, %rdx
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	movq	%rdx, 56(%r12)
 	movq	32(%rsp), %rbp
 	setc	%r15b
@@ -908,9 +1024,9 @@ SubtructOneLine:
 	leaq	72(%r12), %rcx
 	movzbl	%r15b, %r15d
 	movq	%rdx, %r12
-	jmp	.L5
+	jmp	.L12
 	.p2align 4,,10
-.L44:
+.L50:
 	movq	%rbx, %rax
 	movl	%r15d, %edi
 	mulq	(%r8)
@@ -1119,7 +1235,7 @@ SubtructOneLine:
 	movq	%rcx, 32(%rsp)
 	movq	120(%r12), %rdx
 	sbbq	%rax, %rdx
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	movq	%rdx, 120(%r12)
 	movq	32(%rsp), %rbp
 	setc	%r15b
@@ -1129,17 +1245,18 @@ SubtructOneLine:
 	leaq	136(%r12), %rcx
 	movzbl	%r15b, %r15d
 	movq	%rdx, %r12
-	jmp	.L4
+	jmp	.L11
 	.p2align 4,,10
-.L14:
-	xorl	%r15d, %r15d
+.L21:
 	xorl	%ebp, %ebp
-	jmp	.L2
+	xorl	%r15d, %r15d
+	jmp	.L9
 	.seh_endproc
 	.p2align 4,,15
-	.def	SubtructOneLineX;	.scl	3;	.type	32;	.endef
-	.seh_proc	SubtructOneLineX
-SubtructOneLineX:
+	.def	_ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPyyS3_yyy;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPyyS3_yyy
+_ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPyyS3_yyy:
+.LFB6378:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -1169,8 +1286,8 @@ SubtructOneLineX:
 	movq	%r9, 136(%rsp)
 	movq	%r14, 8(%rsp)
 	leaq	(%rcx,%rdx,8), %r13
-	je	.L62
-	movq	.refptr.statistics_info(%rip), %r15
+	je	.L68
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %r15
 	movq	%r8, %r10
 	movq	%r13, %r9
 	xorl	%edi, %edi
@@ -1179,10 +1296,10 @@ SubtructOneLineX:
 	xorl	%ecx, %ecx
 	leaq	16(%rsp), %r11
 	.p2align 4,,10
-.L51:
+.L57:
 	movq	(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %r12
  # 0 "" 2
 /NO_APP
@@ -1199,7 +1316,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	8(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1216,7 +1333,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	16(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1233,7 +1350,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	24(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1250,7 +1367,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	32(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1267,7 +1384,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	40(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1284,7 +1401,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	48(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1301,7 +1418,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	56(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1318,7 +1435,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	64(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1335,7 +1452,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	72(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1352,7 +1469,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	80(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1369,7 +1486,7 @@ SubtructOneLineX:
 	movq	%rdx, 80(%r9)
 	movq	88(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1386,7 +1503,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	96(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1403,7 +1520,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	104(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1420,7 +1537,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	112(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1437,7 +1554,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	120(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1454,7 +1571,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	128(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1471,7 +1588,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	136(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1488,7 +1605,7 @@ SubtructOneLineX:
 	movq	%rdx, 136(%r9)
 	movq	144(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1505,7 +1622,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	152(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1522,7 +1639,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	160(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1539,7 +1656,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	168(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1556,7 +1673,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	176(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1573,7 +1690,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	184(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1590,7 +1707,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	192(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1607,7 +1724,7 @@ SubtructOneLineX:
 	movq	%rdx, 192(%r9)
 	movq	200(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1624,7 +1741,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	208(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1641,7 +1758,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	216(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1658,7 +1775,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	224(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1675,7 +1792,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	232(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1692,7 +1809,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	240(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1709,7 +1826,7 @@ SubtructOneLineX:
 	setc	%bpl
 	movq	248(%r10), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %rdi
  # 0 "" 2
 /NO_APP
@@ -1730,29 +1847,29 @@ SubtructOneLineX:
 	subq	$1, %r14
 	lock addl	$32, (%r15)
 	testq	%r14, %r14
-	jne	.L51
+	jne	.L57
 	movq	8(%rsp), %rdx
 	movzbl	%bpl, %ebp
 	salq	$8, %rdx
 	addq	%rdx, %r13
 	addq	%rdx, %r8
-.L50:
+.L56:
 	testb	$16, 136(%rsp)
 	leaq	8(%r13), %rcx
-	jne	.L91
-.L52:
+	jne	.L97
+.L58:
 	testb	$8, 136(%rsp)
-	jne	.L92
-.L53:
+	jne	.L98
+.L59:
 	testb	$4, 136(%rsp)
-	jne	.L93
-.L54:
+	jne	.L99
+.L60:
 	testb	$2, 136(%rsp)
-	jne	.L94
-.L55:
+	jne	.L100
+.L61:
 	testb	$1, 136(%rsp)
-	jne	.L95
-.L56:
+	jne	.L101
+.L62:
 	movq	0(%r13), %rax
 	movl	%ebp, %ebx
 	addb	$-1, %bl
@@ -1765,16 +1882,16 @@ SubtructOneLineX:
 	subq	%rcx, %r8
 	sarq	$3, %r8
 	testq	%r8, %r8
-	je	.L57
+	je	.L63
 	xorl	%r9d, %r9d
 	testb	%al, %al
-	jne	.L58
-	jmp	.L59
+	jne	.L64
+	jmp	.L65
 	.p2align 4,,10
-.L89:
+.L95:
 	testb	%al, %al
-	je	.L59
-.L58:
+	je	.L65
+.L64:
 	movq	(%rcx), %rdx
 	addb	$-1, %al
 	sbbq	%r9, %rdx
@@ -1782,10 +1899,10 @@ SubtructOneLineX:
 	setc	%al
 	addq	$8, %rcx
 	subq	$1, %r8
-	jne	.L89
-.L57:
+	jne	.L95
+.L63:
 	andl	$1, %eax
-.L49:
+.L55:
 	addq	$40, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -1797,15 +1914,15 @@ SubtructOneLineX:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L59:
+.L65:
 	xorl	%eax, %eax
-	jmp	.L49
+	jmp	.L55
 	.p2align 4,,10
-.L95:
+.L101:
 	movq	(%r8), %rdx
 	movl	%ebp, %ebx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rax, %r8
  # 0 "" 2
 /NO_APP
@@ -1818,7 +1935,7 @@ SubtructOneLineX:
 	movq	%r8, 16(%rsp)
 	movq	0(%r13), %rdx
 	sbbq	%rax, %rdx
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	movq	%rdx, 0(%r13)
 	movq	16(%rsp), %rdi
 	setc	%bpl
@@ -1826,13 +1943,13 @@ SubtructOneLineX:
 	movq	%rcx, %r13
 	movzbl	%bpl, %ebp
 	addq	$8, %rcx
-	jmp	.L56
+	jmp	.L62
 	.p2align 4,,10
-.L94:
+.L100:
 	movq	(%r8), %rdx
 	movl	%ebp, %ebx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %r9
  # 0 "" 2
 /NO_APP
@@ -1850,7 +1967,7 @@ SubtructOneLineX:
 	setc	%bl
 	movq	8(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r11
  # 0 "" 2
 /NO_APP
@@ -1867,19 +1984,19 @@ SubtructOneLineX:
 	movq	16(%rsp), %rdi
 	leaq	16(%r13), %r9
 	setc	%bpl
-	movq	.refptr.statistics_info(%rip), %rdx
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdx
 	addq	$16, %r8
 	lock addl	$2, (%rdx)
 	leaq	24(%r13), %rcx
 	movzbl	%bpl, %ebp
 	movq	%r9, %r13
-	jmp	.L55
+	jmp	.L61
 	.p2align 4,,10
-.L93:
+.L99:
 	movq	(%r8), %rdx
 	movl	%ebp, %ebx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %r10
  # 0 "" 2
 /NO_APP
@@ -1897,7 +2014,7 @@ SubtructOneLineX:
 	setc	%bl
 	movq	8(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r10, %r11
  # 0 "" 2
 /NO_APP
@@ -1914,7 +2031,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	16(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -1931,7 +2048,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	24(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -1946,7 +2063,7 @@ SubtructOneLineX:
 	leaq	32(%r13), %r9
 	sbbq	%rcx, %rdx
 	movq	%rdx, 24(%r13)
-	movq	.refptr.statistics_info(%rip), %rdx
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdx
 	setc	%bpl
 	addq	$32, %r8
 	movq	16(%rsp), %rdi
@@ -1954,13 +2071,13 @@ SubtructOneLineX:
 	leaq	40(%r13), %rcx
 	movzbl	%bpl, %ebp
 	movq	%r9, %r13
-	jmp	.L54
+	jmp	.L60
 	.p2align 4,,10
-.L92:
+.L98:
 	movq	(%r8), %rdx
 	movl	%ebp, %ebx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %r10
  # 0 "" 2
 /NO_APP
@@ -1978,7 +2095,7 @@ SubtructOneLineX:
 	setc	%bl
 	movq	8(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r10, %r11
  # 0 "" 2
 /NO_APP
@@ -1995,7 +2112,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	16(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2012,7 +2129,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	24(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2029,7 +2146,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	32(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2046,7 +2163,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	40(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2063,7 +2180,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	48(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2080,7 +2197,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	56(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2095,7 +2212,7 @@ SubtructOneLineX:
 	leaq	64(%r13), %r9
 	sbbq	%rcx, %rdx
 	movq	%rdx, 56(%r13)
-	movq	.refptr.statistics_info(%rip), %rdx
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdx
 	setc	%bpl
 	addq	$64, %r8
 	movq	16(%rsp), %rdi
@@ -2103,13 +2220,13 @@ SubtructOneLineX:
 	leaq	72(%r13), %rcx
 	movzbl	%bpl, %ebp
 	movq	%r9, %r13
-	jmp	.L53
+	jmp	.L59
 	.p2align 4,,10
-.L91:
+.L97:
 	movq	(%r8), %rdx
 	movl	%ebp, %ebx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %rsi, %r9
  # 0 "" 2
 /NO_APP
@@ -2127,7 +2244,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	8(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2144,7 +2261,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	16(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2161,7 +2278,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	24(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2178,7 +2295,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	32(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2195,7 +2312,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	40(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2212,7 +2329,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	48(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2229,7 +2346,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	56(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2246,7 +2363,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	64(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2263,7 +2380,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	72(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2280,7 +2397,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	80(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2297,7 +2414,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	88(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2314,7 +2431,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	96(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2331,7 +2448,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	104(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2348,7 +2465,7 @@ SubtructOneLineX:
 	movq	%rdx, 104(%r13)
 	movq	112(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2365,7 +2482,7 @@ SubtructOneLineX:
 	setc	%r11b
 	movq	120(%r8), %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r9, %r10
  # 0 "" 2
 /NO_APP
@@ -2379,7 +2496,7 @@ SubtructOneLineX:
 	movq	120(%r13), %rdx
 	sbbq	%r9, %rdx
 	movq	%rdx, 120(%r13)
-	movq	.refptr.statistics_info(%rip), %rdx
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdx
 	setc	%bpl
 	subq	$-128, %r8
 	movq	16(%rsp), %rdi
@@ -2388,17 +2505,18 @@ SubtructOneLineX:
 	leaq	136(%r13), %rcx
 	movzbl	%bpl, %ebp
 	movq	%r9, %r13
-	jmp	.L52
+	jmp	.L58
 	.p2align 4,,10
-.L62:
-	xorl	%ebp, %ebp
+.L68:
 	xorl	%edi, %edi
-	jmp	.L50
+	xorl	%ebp, %ebp
+	jmp	.L56
 	.seh_endproc
 	.p2align 4,,15
-	.def	DivRem_X_X_using_ADX_MULX;	.scl	3;	.type	32;	.endef
-	.seh_proc	DivRem_X_X_using_ADX_MULX
-DivRem_X_X_using_ADX_MULX:
+	.def	_ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPyyS3_yS3_S3_S3_;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPyyS3_yS3_S3_S3_
+_ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPyyS3_yS3_S3_S3_:
+.LFB6383:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -2428,17 +2546,17 @@ DivRem_X_X_using_ADX_MULX:
 	leaq	-8(%r13), %r15
 	addq	%r14, %r12
 	testq	%rax, %rax
-	je	.L122
+	je	.L128
 	movl	$63, %r9d
 /APP
- # 670 "../pmc_inline_func.h" 1
+ # 472 "../pmc_inline_func.h" 1
 	bsrq %rax, %rax
  # 0 "" 2
 /NO_APP
 	subl	%eax, %r9d
 	movslq	%r9d, %r9
 	testq	%r9, %r9
-	jne	.L123
+	jne	.L129
 	movq	%rcx, %rsi
 	movq	304(%rsp), %rdi
 	movq	%rdx, %rcx
@@ -2457,7 +2575,7 @@ DivRem_X_X_using_ADX_MULX:
 /NO_APP
 	movq	$0, (%r12)
 	movq	$0, 144(%rsp)
-.L98:
+.L104:
 	movq	264(%rsp), %rdi
 	movq	%rbp, %rax
 	movq	%rbp, 280(%rsp)
@@ -2483,7 +2601,7 @@ DivRem_X_X_using_ADX_MULX:
 	addq	%rax, %rdi
 	addq	288(%rsp), %rax
 	movq	%rdi, 136(%rsp)
-	movq	.refptr.statistics_info(%rip), %rdi
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdi
 	movq	%rax, 128(%rsp)
 	leaq	168(%rsp), %rax
 	movq	%rax, 56(%rsp)
@@ -2499,19 +2617,19 @@ DivRem_X_X_using_ADX_MULX:
 	movq	296(%rsp), %rbp
 	andl	$4, %eax
 	movq	%rax, 120(%rsp)
-	jmp	.L120
+	jmp	.L126
 	.p2align 4,,10
-.L109:
+.L115:
 	testq	%rbp, %rbp
-	je	.L118
+	je	.L124
 	movq	%rbx, 0(%rbp,%r12,8)
-.L118:
+.L124:
 	subq	$8, %rsi
 	testq	%r12, %r12
-	je	.L119
+	je	.L125
 	movq	(%rsi), %r9
 	subq	$1, %r12
-.L120:
+.L126:
 	movq	72(%rsp), %rax
 	movq	$-1, %rbx
 	movq	-8(%rsi), %r8
@@ -2520,28 +2638,28 @@ DivRem_X_X_using_ADX_MULX:
 	movq	80(%rsp), %rax
 	cmpq	%r9, %rcx
 	movq	(%rax), %r10
-	je	.L99
+	je	.L105
 	movq	%r8, %rax
 	movq	%r9, %rdx
 /APP
- # 407 "../pmc_inline_func.h" 1
+ # 276 "../pmc_inline_func.h" 1
 	divq %rcx
  # 0 "" 2
 /NO_APP
 	movq	%rax, %rbx
 	lock addl	$1, 8(%rdi)
-.L99:
+.L105:
 	movq	%r10, %rdx
 	movq	56(%rsp), %r15
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rbx, %rax, %r14
  # 0 "" 2
 /NO_APP
 	movq	%rbx, %rdx
 	movq	%rax, 64(%rsp)
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rcx, %r11, %rax
  # 0 "" 2
 /NO_APP
@@ -2558,23 +2676,23 @@ DivRem_X_X_using_ADX_MULX:
 	movq	%rax, (%rdx)
 	lock addl	$2, (%rdi)
 	cmpq	$0, 160(%rsp)
-	jne	.L101
+	jne	.L107
 	cmpq	168(%rsp), %r14
-	ja	.L103
-	jb	.L101
+	ja	.L109
+	jb	.L107
 	cmpq	64(%rsp), %r13
-	jnb	.L101
-.L103:
+	jnb	.L107
+.L109:
 	leaq	-1(%rbx), %rax
 	movq	%r10, %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rax, %r14, %r11
  # 0 "" 2
 /NO_APP
 	movq	%rax, %rdx
 /APP
- # 366 "../pmc_inline_func.h" 1
+ # 244 "../pmc_inline_func.h" 1
 	mulxq %rcx, %rcx, %r10
  # 0 "" 2
 /NO_APP
@@ -2588,40 +2706,40 @@ DivRem_X_X_using_ADX_MULX:
 	movq	%r9, (%rcx)
 	lock addl	$2, (%rdi)
 	cmpq	$0, 160(%rsp)
-	jne	.L125
+	jne	.L131
 	cmpq	168(%rsp), %r11
-	ja	.L107
-	jb	.L125
+	ja	.L113
+	jb	.L131
 	cmpq	%r14, %r13
-	jnb	.L125
-.L107:
+	jnb	.L131
+.L113:
 	subq	$2, %rbx
-.L101:
+.L107:
 	movq	280(%rsp), %r9
 	movq	%rbx, 40(%rsp)
 	movq	288(%rsp), %r8
 	movq	%r12, 32(%rsp)
 	movq	264(%rsp), %rdx
 	movq	304(%rsp), %rcx
-	call	SubtructOneLineX
+	call	_ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPyyS3_yyy
 	testl	%eax, %eax
-	je	.L109
+	je	.L115
 	movq	304(%rsp), %rdx
 	leaq	0(,%r12,8), %r14
 	subq	$1, %rbx
-	movq	88(%rsp), %r11
+	movq	88(%rsp), %r10
 	addq	%r14, %rdx
-	testq	%r11, %r11
-	je	.L126
-	movq	288(%rsp), %r10
+	testq	%r10, %r10
+	je	.L132
+	movq	288(%rsp), %r11
 	xorl	%eax, %eax
 	.p2align 4,,10
-.L111:
+.L117:
 	movq	%rdx, %r8
-	movq	%r10, %r9
+	movq	%r11, %r9
 	movq	%rdx, %r15
 /APP
- # 1445 "../autogenerated_inline_func.h" 1
+ # 536 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r8), %rcx
 	adcxq	(%r9), %rcx
@@ -2723,26 +2841,26 @@ DivRem_X_X_using_ADX_MULX:
  # 0 "" 2
 /NO_APP
 	addq	$256, %rdx
-	addq	$256, %r10
-	subq	$1, %r11
-	jne	.L111
+	addq	$256, %r11
+	subq	$1, %r10
+	jne	.L117
 	movq	136(%rsp), %rcx
 	movq	128(%rsp), %r8
 	leaq	(%rcx,%r14), %rdx
-.L110:
+.L116:
 	cmpq	$0, 104(%rsp)
-	jne	.L159
-.L112:
+	jne	.L165
+.L118:
 	cmpq	$0, 112(%rsp)
-	jne	.L160
-.L113:
+	jne	.L166
+.L119:
 	cmpq	$0, 120(%rsp)
-	je	.L114
+	je	.L120
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 4185 "../autogenerated_inline_func.h" 1
+ # 2060 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcxq	(%r10), %rcx
@@ -2761,14 +2879,14 @@ DivRem_X_X_using_ADX_MULX:
 /NO_APP
 	addq	$32, %rdx
 	addq	$32, %r8
-.L114:
+.L120:
 	testb	$2, 280(%rsp)
-	je	.L115
+	je	.L121
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r14
 /APP
- # 4563 "../autogenerated_inline_func.h" 1
+ # 2260 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcxq	(%r10), %rcx
@@ -2781,9 +2899,9 @@ DivRem_X_X_using_ADX_MULX:
 /NO_APP
 	addq	$16, %rdx
 	addq	$16, %r8
-.L115:
+.L121:
 	testb	$1, 280(%rsp)
-	je	.L116
+	je	.L122
 	movq	(%r8), %rcx
 	addb	$-1, %al
 	movq	%rcx, %rax
@@ -2791,17 +2909,17 @@ DivRem_X_X_using_ADX_MULX:
 	movq	%rax, (%rdx)
 	setc	%al
 	addq	$8, %rdx
-.L116:
+.L122:
 	movq	96(%rsp), %r8
 	subq	%rdx, %r8
 	sarq	$3, %r8
 	testq	%r8, %r8
-	je	.L109
+	je	.L115
 	testb	%al, %al
-	je	.L109
+	je	.L115
 	xorl	%r9d, %r9d
 	.p2align 4,,10
-.L117:
+.L123:
 	movq	(%rdx), %rcx
 	addb	$-1, %al
 	adcq	%r9, %rcx
@@ -2811,17 +2929,17 @@ DivRem_X_X_using_ADX_MULX:
 	subq	$1, %r8
 	setne	%cl
 	testb	%al, %cl
-	jne	.L117
-	jmp	.L109
+	jne	.L123
+	jmp	.L115
+	.p2align 4,,10
+.L131:
+	movq	%rax, %rbx
+	jmp	.L107
 	.p2align 4,,10
 .L125:
-	movq	%rax, %rbx
-	jmp	.L101
-	.p2align 4,,10
-.L119:
 	cmpq	$0, 144(%rsp)
-	jne	.L161
-.L96:
+	jne	.L167
+.L102:
 	addq	$184, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -2833,12 +2951,12 @@ DivRem_X_X_using_ADX_MULX:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L160:
+.L166:
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r14
 /APP
- # 3661 "../autogenerated_inline_func.h" 1
+ # 1776 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcxq	(%r10), %rcx
@@ -2869,14 +2987,14 @@ DivRem_X_X_using_ADX_MULX:
 /NO_APP
 	addq	$64, %rdx
 	addq	$64, %r8
-	jmp	.L113
+	jmp	.L119
 	.p2align 4,,10
-.L159:
+.L165:
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 2845 "../autogenerated_inline_func.h" 1
+ # 1324 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcxq	(%r10), %rcx
@@ -2931,48 +3049,49 @@ DivRem_X_X_using_ADX_MULX:
 /NO_APP
 	subq	$-128, %rdx
 	subq	$-128, %r8
-	jmp	.L112
+	jmp	.L118
 	.p2align 4,,10
-.L126:
+.L132:
 	movq	288(%rsp), %r8
 	xorl	%eax, %eax
-	jmp	.L110
+	jmp	.L116
 	.p2align 4,,10
-.L161:
+.L167:
 	movq	304(%rsp), %r9
 	movl	$0, 32(%rsp)
 	movq	144(%rsp), %r8
 	movq	152(%rsp), %rdx
 	movq	%r9, %rcx
-	call	RightShift_Imp_DIV
-	jmp	.L96
+	call	_ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPyyyS3_i
+	jmp	.L102
 	.p2align 4,,10
-.L122:
+.L128:
 	movq	$64, 144(%rsp)
-.L97:
+.L103:
 	movq	144(%rsp), %rdi
 	movl	$0, 32(%rsp)
 	movq	304(%rsp), %r9
 	movq	264(%rsp), %rdx
 	movq	%rdi, %r8
-	call	LeftShift_Imp_DIV
+	call	_ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPyyyS3_i
 	movq	%rdi, %r8
 	movq	%rbp, %rdx
 	movq	%rbx, %rcx
 	movq	288(%rsp), %r9
 	movl	$0, 32(%rsp)
-	call	LeftShift_Imp_DIV
+	call	_ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPyyyS3_i
 	movq	(%r12), %r9
-	jmp	.L98
+	jmp	.L104
 	.p2align 4,,10
-.L123:
+.L129:
 	movq	%r9, 144(%rsp)
-	jmp	.L97
+	jmp	.L103
 	.seh_endproc
 	.p2align 4,,15
-	.def	DivRem_X_X_using_ADC_MUL;	.scl	3;	.type	32;	.endef
-	.seh_proc	DivRem_X_X_using_ADC_MUL
-DivRem_X_X_using_ADC_MUL:
+	.def	_ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPyyS3_yS3_S3_S3_;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPyyS3_yS3_S3_S3_
+_ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPyyS3_yS3_S3_S3_:
+.LFB6382:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -3002,17 +3121,17 @@ DivRem_X_X_using_ADC_MUL:
 	leaq	-8(%r12), %r14
 	addq	%r13, %r15
 	testq	%rax, %rax
-	je	.L188
+	je	.L194
 	movl	$63, %r9d
 /APP
- # 670 "../pmc_inline_func.h" 1
+ # 472 "../pmc_inline_func.h" 1
 	bsrq %rax, %rax
  # 0 "" 2
 /NO_APP
 	subl	%eax, %r9d
 	movslq	%r9d, %r9
 	testq	%r9, %r9
-	jne	.L189
+	jne	.L195
 	movq	%rcx, %rsi
 	movq	304(%rsp), %rdi
 	movq	%rdx, %rcx
@@ -3031,7 +3150,7 @@ DivRem_X_X_using_ADC_MUL:
 /NO_APP
 	movq	$0, (%r15)
 	movq	$0, 144(%rsp)
-.L164:
+.L170:
 	movq	264(%rsp), %rsi
 	movq	%rbp, %rax
 	movq	288(%rsp), %rbx
@@ -3047,7 +3166,7 @@ DivRem_X_X_using_ADC_MUL:
 	leaq	160(%rsp), %r14
 	subq	%rbp, %rdi
 	leaq	8(%rsi,%r13), %rsi
-	movq	.refptr.statistics_info(%rip), %r13
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %r13
 	movq	%rsi, 104(%rsp)
 	leaq	-16(%rbx,%r12), %rsi
 	movq	304(%rsp), %rbx
@@ -3067,20 +3186,20 @@ DivRem_X_X_using_ADC_MUL:
 	movq	%rbp, %rax
 	andl	$8, %eax
 	movq	%rax, 120(%rsp)
-	jmp	.L186
+	jmp	.L192
 	.p2align 4,,10
-.L175:
+.L181:
 	cmpq	$0, 296(%rsp)
-	je	.L184
+	je	.L190
 	movq	296(%rsp), %rax
 	movq	%rbx, (%rax,%rdi,8)
-.L184:
+.L190:
 	subq	$8, %rsi
 	testq	%rdi, %rdi
-	je	.L185
+	je	.L191
 	movq	(%rsi), %r9
 	subq	$1, %rdi
-.L186:
+.L192:
 	movq	80(%rsp), %rax
 	movq	-8(%rsi), %rcx
 	movq	-16(%rsi), %r10
@@ -3088,18 +3207,18 @@ DivRem_X_X_using_ADC_MUL:
 	movq	88(%rsp), %rax
 	cmpq	%r9, %r11
 	movq	(%rax), %r8
-	je	.L190
+	je	.L196
 	movq	%rcx, %rax
 	movq	%r9, %rdx
 /APP
- # 407 "../pmc_inline_func.h" 1
+ # 276 "../pmc_inline_func.h" 1
 	divq %r11
  # 0 "" 2
 /NO_APP
 	movq	%rax, %rbx
 	lock addl	$1, 8(%r13)
 	movq	%rax, %r12
-.L165:
+.L171:
 	movq	%r11, %rax
 	movq	%rcx, %r15
 	mulq	%r12
@@ -3115,15 +3234,15 @@ DivRem_X_X_using_ADC_MUL:
 	movq	%rax, (%r14)
 	lock addl	$2, 0(%r13)
 	cmpq	$0, 160(%rsp)
-	jne	.L167
+	jne	.L173
 	movq	%r12, %rax
 	mulq	%r8
 	cmpq	168(%rsp), %rdx
-	ja	.L169
-	jb	.L167
+	ja	.L175
+	jb	.L173
 	cmpq	%rax, %r10
-	jnb	.L167
-.L169:
+	jnb	.L173
+.L175:
 	leaq	-1(%rbx), %r12
 	movq	%r11, %rax
 	mulq	%r12
@@ -3138,42 +3257,42 @@ DivRem_X_X_using_ADC_MUL:
 	movq	%r9, (%r14)
 	lock addl	$2, 0(%r13)
 	cmpq	$0, 160(%rsp)
-	jne	.L191
+	jne	.L197
 	movq	%r8, %rax
 	mulq	%r12
 	cmpq	168(%rsp), %rdx
-	ja	.L173
-	jb	.L191
+	ja	.L179
+	jb	.L197
 	cmpq	%rax, %r10
-	jnb	.L191
-.L173:
+	jnb	.L197
+.L179:
 	subq	$2, %rbx
-.L167:
+.L173:
 	movq	288(%rsp), %r8
 	movq	%rbx, 40(%rsp)
 	movq	%rbp, %r9
 	movq	264(%rsp), %rdx
 	movq	%rdi, 32(%rsp)
 	movq	304(%rsp), %rcx
-	call	SubtructOneLine
+	call	_ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPyyS3_yyy
 	testl	%eax, %eax
-	je	.L175
+	je	.L181
 	movq	304(%rsp), %rdx
 	leaq	0(,%rdi,8), %r15
 	subq	$1, %rbx
-	movq	96(%rsp), %r11
+	movq	96(%rsp), %r10
 	addq	%r15, %rdx
-	testq	%r11, %r11
-	je	.L192
-	movq	288(%rsp), %r10
+	testq	%r10, %r10
+	je	.L198
+	movq	288(%rsp), %r11
 	xorl	%eax, %eax
 	.p2align 4,,10
-.L177:
+.L183:
 	movq	%rdx, %r8
-	movq	%r10, %r9
+	movq	%r11, %r9
 	movq	%rdx, %r12
 /APP
- # 1192 "../autogenerated_inline_func.h" 1
+ # 283 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r8), %rcx
 	adcq	(%r9), %rcx
@@ -3275,26 +3394,26 @@ DivRem_X_X_using_ADC_MUL:
  # 0 "" 2
 /NO_APP
 	addq	$256, %rdx
-	addq	$256, %r10
-	subq	$1, %r11
-	jne	.L177
+	addq	$256, %r11
+	subq	$1, %r10
+	jne	.L183
 	movq	136(%rsp), %rcx
 	movq	128(%rsp), %r8
 	leaq	(%rcx,%r15), %rdx
-.L176:
+.L182:
 	cmpq	$0, 112(%rsp)
-	jne	.L225
-.L178:
+	jne	.L231
+.L184:
 	cmpq	$0, 120(%rsp)
-	jne	.L226
-.L179:
+	jne	.L232
+.L185:
 	testb	$4, %bpl
-	je	.L180
+	je	.L186
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 4128 "../autogenerated_inline_func.h" 1
+ # 2003 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcq	(%r10), %rcx
@@ -3313,14 +3432,14 @@ DivRem_X_X_using_ADC_MUL:
 /NO_APP
 	addq	$32, %rdx
 	addq	$32, %r8
-.L180:
+.L186:
 	testb	$2, %bpl
-	je	.L181
+	je	.L187
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 4520 "../autogenerated_inline_func.h" 1
+ # 2217 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcq	(%r10), %rcx
@@ -3333,9 +3452,9 @@ DivRem_X_X_using_ADC_MUL:
 /NO_APP
 	addq	$16, %rdx
 	addq	$16, %r8
-.L181:
+.L187:
 	testb	$1, %bpl
-	je	.L182
+	je	.L188
 	movq	(%r8), %rcx
 	addb	$-1, %al
 	movq	%rcx, %rax
@@ -3343,17 +3462,17 @@ DivRem_X_X_using_ADC_MUL:
 	movq	%rax, (%rdx)
 	setc	%al
 	addq	$8, %rdx
-.L182:
+.L188:
 	movq	104(%rsp), %r8
 	subq	%rdx, %r8
 	sarq	$3, %r8
 	testq	%r8, %r8
-	je	.L175
+	je	.L181
 	testb	%al, %al
-	je	.L175
+	je	.L181
 	xorl	%r9d, %r9d
 	.p2align 4,,10
-.L183:
+.L189:
 	movq	(%rdx), %rcx
 	addb	$-1, %al
 	adcq	%r9, %rcx
@@ -3363,22 +3482,22 @@ DivRem_X_X_using_ADC_MUL:
 	subq	$1, %r8
 	setne	%cl
 	testb	%al, %cl
-	jne	.L183
-	jmp	.L175
+	jne	.L189
+	jmp	.L181
 	.p2align 4,,10
-.L191:
+.L197:
 	movq	%r12, %rbx
-	jmp	.L167
+	jmp	.L173
 	.p2align 4,,10
-.L190:
+.L196:
 	movq	$-1, %r12
 	movq	%r12, %rbx
-	jmp	.L165
+	jmp	.L171
 	.p2align 4,,10
-.L185:
+.L191:
 	cmpq	$0, 144(%rsp)
-	jne	.L227
-.L162:
+	jne	.L233
+.L168:
 	addq	$184, %rsp
 	popq	%rbx
 	popq	%rsi
@@ -3390,12 +3509,12 @@ DivRem_X_X_using_ADC_MUL:
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L226:
+.L232:
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 3576 "../autogenerated_inline_func.h" 1
+ # 1691 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcq	(%r10), %rcx
@@ -3426,14 +3545,14 @@ DivRem_X_X_using_ADC_MUL:
 /NO_APP
 	addq	$64, %rdx
 	addq	$64, %r8
-	jmp	.L179
+	jmp	.L185
 	.p2align 4,,10
-.L225:
+.L231:
 	movq	%rdx, %r9
 	movq	%r8, %r10
 	movq	%rdx, %r15
 /APP
- # 2704 "../autogenerated_inline_func.h" 1
+ # 1183 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movq	(%r9), %rcx
 	adcq	(%r10), %rcx
@@ -3488,49 +3607,50 @@ DivRem_X_X_using_ADC_MUL:
 /NO_APP
 	subq	$-128, %rdx
 	subq	$-128, %r8
-	jmp	.L178
+	jmp	.L184
 	.p2align 4,,10
-.L192:
+.L198:
 	movq	288(%rsp), %r8
 	xorl	%eax, %eax
-	jmp	.L176
+	jmp	.L182
 	.p2align 4,,10
-.L227:
+.L233:
 	movq	304(%rsp), %r9
 	movl	$0, 32(%rsp)
 	movq	144(%rsp), %r8
 	movq	152(%rsp), %rdx
 	movq	%r9, %rcx
-	call	RightShift_Imp_DIV
-	jmp	.L162
+	call	_ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPyyyS3_i
+	jmp	.L168
 	.p2align 4,,10
-.L188:
+.L194:
 	movq	$64, 144(%rsp)
-.L163:
+.L169:
 	movq	144(%rsp), %rdi
 	movl	$0, 32(%rsp)
 	movq	304(%rsp), %r9
 	movq	264(%rsp), %rdx
 	movq	%rdi, %r8
-	call	LeftShift_Imp_DIV
+	call	_ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPyyyS3_i
 	movq	%rdi, %r8
 	movq	%rbp, %rdx
 	movq	%rbx, %rcx
 	movq	288(%rsp), %r9
 	movl	$0, 32(%rsp)
-	call	LeftShift_Imp_DIV
+	call	_ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPyyyS3_i
 	movq	(%r15), %r9
-	jmp	.L164
+	jmp	.L170
 	.p2align 4,,10
-.L189:
+.L195:
 	movq	%r9, 144(%rsp)
-	jmp	.L163
+	jmp	.L169
 	.seh_endproc
 	.p2align 4,,15
-	.globl	Rem_X_1W
-	.def	Rem_X_1W;	.scl	2;	.type	32;	.endef
-	.seh_proc	Rem_X_1W
-Rem_X_1W:
+	.globl	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
+	.def	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
+_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy:
+.LFB6367:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -3541,202 +3661,202 @@ Rem_X_1W:
 	movq	%rdx, %rbx
 	shrq	$5, %rsi
 	testq	%rsi, %rsi
-	je	.L236
-	movq	.refptr.statistics_info(%rip), %r10
+	je	.L242
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %r10
 	movq	%rsi, %r9
 	movq	%r11, %rcx
 	xorl	%edx, %edx
 	.p2align 4,,10
-.L230:
+.L236:
 	movq	(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-8(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-16(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-24(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-32(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-40(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-48(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-56(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-64(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-72(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-80(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-88(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-96(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-104(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-112(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-120(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-128(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-136(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-144(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-152(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-160(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-168(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-176(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-184(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-192(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-200(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-208(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-216(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-224(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-232(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-240(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	-248(%rcx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
@@ -3744,256 +3864,257 @@ Rem_X_1W:
 	subq	$1, %r9
 	lock addl	$32, 8(%r10)
 	testq	%r9, %r9
-	jne	.L230
+	jne	.L236
 	salq	$8, %rsi
 	subq	%rsi, %r11
-.L229:
+.L235:
 	testb	$16, %bl
-	jne	.L253
+	jne	.L259
 	testb	$8, %bl
-	jne	.L254
-.L232:
+	jne	.L260
+.L238:
 	testb	$4, %bl
-	jne	.L255
-.L233:
+	jne	.L261
+.L239:
 	testb	$2, %bl
-	jne	.L256
-.L234:
+	jne	.L262
+.L240:
 	andl	$1, %ebx
-	jne	.L257
-.L228:
+	jne	.L263
+.L234:
 	movq	%rdx, %rax
 	popq	%rbx
 	popq	%rsi
 	ret
 	.p2align 4,,10
-.L253:
+.L259:
 	movq	(%r11), %rax
 	addq	$-128, %r11
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	120(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	112(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	104(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	96(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	88(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	80(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	72(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	64(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	56(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	48(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	40(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	32(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	24(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	16(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	8(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$16, 8(%rax)
 	testb	$8, %bl
-	je	.L232
-.L254:
+	je	.L238
+.L260:
 	movq	(%r11), %rax
 	subq	$64, %r11
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	56(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	48(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	40(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	32(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	24(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	16(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	8(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$8, 8(%rax)
 	testb	$4, %bl
-	je	.L233
-.L255:
+	je	.L239
+.L261:
 	movq	(%r11), %rax
 	subq	$32, %r11
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	24(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	16(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	8(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$4, 8(%rax)
 	testb	$2, %bl
-	je	.L234
-.L256:
+	je	.L240
+.L262:
 	movq	(%r11), %rax
 	subq	$16, %r11
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	8(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$2, 8(%rax)
 	andl	$1, %ebx
-	je	.L228
-.L257:
+	je	.L234
+.L263:
 	movq	(%r11), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$1, 8(%rax)
 	movq	%rdx, %rax
 	popq	%rbx
 	popq	%rsi
 	ret
 	.p2align 4,,10
-.L236:
+.L242:
 	xorl	%edx, %edx
-	jmp	.L229
+	jmp	.L235
 	.seh_endproc
 	.p2align 4,,15
-	.globl	DivRem_X_1W
-	.def	DivRem_X_1W;	.scl	2;	.type	32;	.endef
-	.seh_proc	DivRem_X_1W
-DivRem_X_1W:
+	.globl	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
+	.def	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
+_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_:
+.LFB6368:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -4010,234 +4131,234 @@ DivRem_X_1W:
 	shrq	$5, %rbp
 	addq	%rax, %r9
 	testq	%rbp, %rbp
-	je	.L266
-	movq	.refptr.statistics_info(%rip), %rdi
+	je	.L272
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdi
 	movq	%rbp, %rcx
 	movq	%r9, %r11
 	movq	%rbx, %r10
 	xorl	%edx, %edx
 	.p2align 4,,10
-.L260:
+.L266:
 	movq	(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, (%r11)
 	movq	-8(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -8(%r11)
 	movq	-16(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -16(%r11)
 	movq	-24(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -24(%r11)
 	movq	-32(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -32(%r11)
 	movq	-40(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -40(%r11)
 	movq	-48(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -48(%r11)
 	movq	-56(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -56(%r11)
 	movq	-64(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -64(%r11)
 	movq	-72(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -72(%r11)
 	movq	-80(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -80(%r11)
 	movq	-88(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -88(%r11)
 	movq	-96(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -96(%r11)
 	movq	-104(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -104(%r11)
 	movq	-112(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -112(%r11)
 	movq	-120(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -120(%r11)
 	movq	-128(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -128(%r11)
 	movq	-136(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -136(%r11)
 	movq	-144(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -144(%r11)
 	movq	-152(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -152(%r11)
 	movq	-160(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -160(%r11)
 	movq	-168(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -168(%r11)
 	movq	-176(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -176(%r11)
 	movq	-184(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -184(%r11)
 	movq	-192(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -192(%r11)
 	movq	-200(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -200(%r11)
 	movq	-208(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -208(%r11)
 	movq	-216(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -216(%r11)
 	movq	-224(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -224(%r11)
 	movq	-232(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -232(%r11)
 	movq	-240(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, -240(%r11)
 	movq	-248(%r10), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
@@ -4247,26 +4368,26 @@ DivRem_X_1W:
 	subq	$256, %r11
 	lock addl	$32, 8(%rdi)
 	testq	%rcx, %rcx
-	jne	.L260
+	jne	.L266
 	negq	%rbp
 	salq	$8, %rbp
 	addq	%rbp, %rbx
 	addq	%rbp, %r9
-.L259:
-	testb	$16, %sil
-	jne	.L283
-	testb	$8, %sil
-	jne	.L284
-.L262:
-	testb	$4, %sil
-	jne	.L285
-.L263:
-	testb	$2, %sil
-	jne	.L286
-.L264:
-	andl	$1, %esi
-	jne	.L287
 .L265:
+	testb	$16, %sil
+	jne	.L289
+	testb	$8, %sil
+	jne	.L290
+.L268:
+	testb	$4, %sil
+	jne	.L291
+.L269:
+	testb	$2, %sil
+	jne	.L292
+.L270:
+	andl	$1, %esi
+	jne	.L293
+.L271:
 	movq	72(%rsp), %rax
 	movq	%rdx, (%rax)
 	popq	%rbx
@@ -4275,253 +4396,253 @@ DivRem_X_1W:
 	popq	%rbp
 	ret
 	.p2align 4,,10
-.L283:
+.L289:
 	movq	(%rbx), %rax
 	addq	$-128, %r9
 	addq	$-128, %rbx
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 128(%r9)
 	movq	120(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 120(%r9)
 	movq	112(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 112(%r9)
 	movq	104(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 104(%r9)
 	movq	96(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 96(%r9)
 	movq	88(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 88(%r9)
 	movq	80(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 80(%r9)
 	movq	72(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 72(%r9)
 	movq	64(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 64(%r9)
 	movq	56(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 56(%r9)
 	movq	48(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 48(%r9)
 	movq	40(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 40(%r9)
 	movq	32(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 32(%r9)
 	movq	24(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 24(%r9)
 	movq	16(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 16(%r9)
 	movq	8(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 8(%r9)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$16, 8(%rax)
 	testb	$8, %sil
-	je	.L262
-.L284:
+	je	.L268
+.L290:
 	movq	(%rbx), %rax
 	subq	$64, %r9
 	subq	$64, %rbx
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 64(%r9)
 	movq	56(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 56(%r9)
 	movq	48(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 48(%r9)
 	movq	40(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 40(%r9)
 	movq	32(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 32(%r9)
 	movq	24(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 24(%r9)
 	movq	16(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 16(%r9)
 	movq	8(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 8(%r9)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$8, 8(%rax)
 	testb	$4, %sil
-	je	.L263
-.L285:
+	je	.L269
+.L291:
 	movq	(%rbx), %rax
 	subq	$32, %r9
 	subq	$32, %rbx
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 32(%r9)
 	movq	24(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 24(%r9)
 	movq	16(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 16(%r9)
 	movq	8(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 8(%r9)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$4, 8(%rax)
 	testb	$2, %sil
-	je	.L264
-.L286:
+	je	.L270
+.L292:
 	movq	(%rbx), %rax
 	subq	$16, %r9
 	subq	$16, %rbx
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 16(%r9)
 	movq	8(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, 8(%r9)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$2, 8(%rax)
 	andl	$1, %esi
-	je	.L265
-.L287:
+	je	.L271
+.L293:
 	movq	(%rbx), %rax
 /APP
- # 450 "../pmc_inline_func.h" 1
+ # 307 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	movq	%rax, (%r9)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$1, 8(%rax)
 	movq	72(%rsp), %rax
 	movq	%rdx, (%rax)
@@ -4531,15 +4652,16 @@ DivRem_X_1W:
 	popq	%rbp
 	ret
 	.p2align 4,,10
-.L266:
+.L272:
 	xorl	%edx, %edx
-	jmp	.L259
+	jmp	.L265
 	.seh_endproc
 	.p2align 4,,15
-	.globl	DivRem_X_X
-	.def	DivRem_X_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	DivRem_X_X
-DivRem_X_X:
+	.globl	_ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPyyS3_yS3_S3_S3_
+	.def	_ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPyyS3_yS3_S3_S3_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPyyS3_yS3_S3_S3_
+_ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPyyS3_yS3_S3_S3_:
+.LFB6366:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
@@ -4549,13 +4671,13 @@ DivRem_X_X:
 	.seh_endprologue
 	movq	152(%rsp), %r10
 	cmpq	$1, %r9
-	je	.L302
+	je	.L308
 	cmpq	%r9, %rdx
-	jnb	.L294
+	jnb	.L300
 	testq	%r10, %r10
-	je	.L295
+	je	.L301
 	movq	$0, (%r10)
-.L295:
+.L301:
 	movq	%rcx, %rsi
 	movq	160(%rsp), %rdi
 	movq	%rdx, %rcx
@@ -4569,30 +4691,30 @@ DivRem_X_X:
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L294:
+.L300:
 	movq	160(%rsp), %rax
 	movq	%r10, 40(%rsp)
 	movq	%rax, 48(%rsp)
 	movq	144(%rsp), %rax
 	movq	%rax, 32(%rsp)
-	call	*fp_DivRem_X_X(%rip)
+	call	*_ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE(%rip)
 	nop
-.L288:
+.L294:
 	addq	$88, %rsp
 	popq	%rsi
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L302:
+.L308:
 	cmpq	$1, %rdx
 	movq	(%r8), %r8
-	je	.L303
+	je	.L309
 	testq	%r10, %r10
-	je	.L293
+	je	.L299
 	leaq	72(%rsp), %rax
 	movq	%r10, %r9
 	movq	%rax, 32(%rsp)
-	call	DivRem_X_1W
+	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
 	movq	72(%rsp), %rax
 	movq	160(%rsp), %rsi
 	movq	%rax, (%rsi)
@@ -4601,546 +4723,320 @@ DivRem_X_X:
 	popq	%rdi
 	ret
 	.p2align 4,,10
-.L293:
-	call	Rem_X_1W
+.L299:
+	call	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
 	movq	160(%rsp), %rdi
 	movq	%rax, (%rdi)
-	jmp	.L288
+	jmp	.L294
 	.p2align 4,,10
-.L303:
+.L309:
 	xorl	%edx, %edx
 	movq	(%rcx), %rax
 /APP
- # 407 "../pmc_inline_func.h" 1
+ # 276 "../pmc_inline_func.h" 1
 	divq %r8
  # 0 "" 2
 /NO_APP
 	testq	%r10, %r10
-	je	.L291
+	je	.L297
 	movq	%rax, (%r10)
-.L291:
+.L297:
 	movq	160(%rsp), %rax
 	movq	%rdx, (%rax)
-	movq	.refptr.statistics_info(%rip), %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
 	lock addl	$1, 8(%rax)
 	addq	$88, %rsp
 	popq	%rsi
 	popq	%rdi
 	ret
 	.seh_endproc
+	.section .rdata,"dr"
+	.align 8
+.LC0:
+	.ascii "\25_pek0n\0u\0l\0l\0p\0t\0r\0L0\16NH0\211"
+	.ascii "0\214"
+	.ascii "0f0D0~0Y0\2"
+	.ascii "0\0\0"
+	.align 2
+.LC1:
+	.ascii "v\0\0\0"
+	.align 8
+.LC2:
+	.ascii "0\0k0\210"
+	.ascii "0\213"
+	.ascii "0d\226\227{L0L\210\217"
+	.ascii "0\214"
+	.ascii "0\210"
+	.ascii "0F0h0W0~0W0_0\2"
+	.ascii "0\0\0"
+	.text
 	.p2align 4,,15
-	.globl	PMC_DivRem_I_X
-	.def	PMC_DivRem_I_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_DivRem_I_X
-PMC_DivRem_I_X:
-	pushq	%rbp
-	.seh_pushreg	%rbp
+	.globl	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj
+	.def	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj
+_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj:
+.LFB6384:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$40, %rsp
-	.seh_stackalloc	40
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
 	testq	%rdx, %rdx
-	movl	%ecx, %edi
+	movl	%ecx, %esi
 	movq	%rdx, %rbx
-	movq	%r8, %rbp
-	movq	%r9, %rsi
-	je	.L312
-	testq	%r9, %r9
-	je	.L312
+	movq	%r8, %rdi
+	je	.L329
 	movq	%rdx, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %r10d
-	jne	.L304
-	movzbl	(%rbx), %eax
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movzbl	8(%rbx), %eax
 	testb	$1, %al
-	jne	.L313
-	testl	%edi, %edi
-	jne	.L306
-	testq	%rbp, %rbp
-	je	.L307
-	movl	$0, 0(%rbp)
-.L307:
-	movl	$0, (%rsi)
-.L304:
-	movl	%r10d, %eax
-	addq	$40, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	popq	%rbp
-	ret
-	.p2align 4,,10
-.L306:
+	jne	.L330
+	testl	%esi, %esi
+	je	.L331
 	testb	$2, %al
-	jne	.L326
+	jne	.L332
 	movl	$31, %eax
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %edx
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %esi, %edx
  # 0 "" 2
 /NO_APP
 	subl	%edx, %eax
 	movl	$32, %edx
 	cltq
 	subq	%rax, %rdx
-	cmpq	24(%rbx), %rdx
-	jnb	.L309
-	testq	%rbp, %rbp
+	cmpq	32(%rbx), %rdx
+	jnb	.L316
+	testq	%rdi, %rdi
+	movl	%esi, %eax
 	je	.L310
-	movl	$0, 0(%rbp)
+.L327:
+	movl	$0, (%rdi)
 .L310:
-	movl	%edi, (%rsi)
-	jmp	.L304
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
 	.p2align 4,,10
-.L326:
-	testq	%rbp, %rbp
-	je	.L307
-	movl	%edi, 0(%rbp)
-	jmp	.L307
+.L332:
+	xorl	%eax, %eax
+	testq	%rdi, %rdi
+	je	.L310
+	movl	%esi, (%rdi)
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
 	.p2align 4,,10
-.L309:
+.L331:
+	xorl	%eax, %eax
+	testq	%rdi, %rdi
+	jne	.L327
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
+	.p2align 4,,10
+.L316:
 	xorl	%edx, %edx
-	movl	%edi, %eax
+	movl	%esi, %eax
 	movq	64(%rbx), %rcx
 /APP
- # 407 "../pmc_inline_func.h" 1
+ # 276 "../pmc_inline_func.h" 1
 	divq (%rcx)
  # 0 "" 2
 /NO_APP
-	testq	%rbp, %rbp
-	je	.L311
-	movl	%eax, 0(%rbp)
-.L311:
-	movq	.refptr.statistics_info(%rip), %rax
-	movl	%edx, (%rsi)
-	lock addl	$1, 8(%rax)
-	jmp	.L304
-	.p2align 4,,10
-.L312:
-	movl	$-1, %r10d
-	jmp	.L304
-.L313:
-	movl	$-3, %r10d
-	jmp	.L304
+	testq	%rdi, %rdi
+	je	.L317
+	movl	%eax, (%rdi)
+.L317:
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rax
+	lock addl	$1, 12(%rax)
+	movl	%edx, %eax
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
+.L329:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC0(%rip), %rcx
+	movq	%rcx, 16(%rax)
+	leaq	.LC1(%rip), %rcx
+	movq	%rcx, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rcx
+	movq	%rcx, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movq	%rax, %rcx
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	call	__cxa_throw
+.L330:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC2(%rip), %rcx
+	movq	%rcx, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rcx
+	movq	%rcx, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev(%rip), %r8
+	movq	%rax, %rcx
+	movl	$-5, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	call	__cxa_throw
+	nop
 	.seh_endproc
 	.p2align 4,,15
-	.globl	PMC_DivRem_X_I
-	.def	PMC_DivRem_X_I;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_DivRem_X_I
-PMC_DivRem_X_I:
-	pushq	%r12
-	.seh_pushreg	%r12
-	pushq	%rbp
-	.seh_pushreg	%rbp
+	.globl	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy
+	.def	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy
+_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy:
+.LFB6387:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
+	subq	$32, %rsp
+	.seh_stackalloc	32
 	.seh_endprologue
-	testq	%rcx, %rcx
-	movq	%rcx, %rbx
-	movl	%edx, %r12d
+	testq	%rdx, %rdx
+	movq	%rcx, %rsi
+	movq	%rdx, %rbx
 	movq	%r8, %rdi
-	movq	%r9, %rbp
-	je	.L341
-	testq	%r9, %r9
-	je	.L341
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %esi
-	jne	.L327
-	testl	%r12d, %r12d
-	je	.L342
-	testb	$1, (%rbx)
-	je	.L329
-	testq	%rdi, %rdi
-	movl	$0, %eax
-	movl	$0, 0(%rbp)
-	cmovne	.refptr.number_zero(%rip), %rax
-	movq	%rax, 56(%rsp)
-.L331:
-	testq	%rdi, %rdi
-	je	.L327
-	movq	56(%rsp), %rcx
-.L340:
-	movq	%rcx, (%rdi)
-.L327:
-	movl	%esi, %eax
-	addq	$80, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	popq	%rbp
-	popq	%r12
-	ret
-	.p2align 4,,10
-.L329:
-	cmpl	$1, %r12d
 	je	.L352
-	movq	24(%rbx), %rcx
-	movl	$31, %eax
+	movq	%rdx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movzbl	8(%rbx), %eax
+	testb	$1, %al
+	jne	.L353
+	testq	%rsi, %rsi
+	je	.L354
+	testb	$2, %al
+	jne	.L355
+	movl	$63, %eax
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %r12d, %edx
+ # 472 "../pmc_inline_func.h" 1
+	bsrq %rsi, %rdx
  # 0 "" 2
 /NO_APP
 	subl	%edx, %eax
-	movl	$32, %edx
+	movl	$64, %edx
 	cltq
 	subq	%rax, %rdx
-	cmpq	%rdx, %rcx
-	jb	.L353
+	cmpq	32(%rbx), %rdx
+	jnb	.L339
 	testq	%rdi, %rdi
-	je	.L337
-	leaq	33(%rax,%rcx), %rdx
-	leaq	64(%rsp), %r8
-	leaq	56(%rsp), %rcx
-	call	AllocateNumber
-	testl	%eax, %eax
-	je	.L354
-.L344:
-	movl	%eax, %esi
-	jmp	.L327
+	movq	%rsi, %rax
+	je	.L333
+.L349:
+	movq	$0, (%rdi)
+.L333:
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
 	.p2align 4,,10
-.L353:
-	testq	%rdi, %rdi
-	movl	$0, %eax
-	cmovne	.refptr.number_zero(%rip), %rax
-	movq	%rax, 56(%rsp)
-	movq	64(%rbx), %rax
-	movq	(%rax), %rax
-	movl	%eax, 0(%rbp)
-	jmp	.L331
-	.p2align 4,,10
-.L352:
+.L355:
+	xorl	%eax, %eax
 	testq	%rdi, %rdi
 	je	.L333
-	leaq	56(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L344
-.L334:
-	movl	$0, 0(%rbp)
-	jmp	.L331
-	.p2align 4,,10
-.L333:
-	movq	$0, 56(%rsp)
-	jmp	.L334
-	.p2align 4,,10
-.L354:
-	movq	56(%rsp), %rax
-	movl	%r12d, %r8d
-	movabsq	$2305843009213693951, %rdx
-	movq	$0, 72(%rsp)
-	andq	16(%rbx), %rdx
-	movq	64(%rbx), %rcx
-	movq	64(%rax), %r9
-	leaq	72(%rsp), %rax
-	movq	%rax, 32(%rsp)
-	call	DivRem_X_1W
-	movq	56(%rsp), %rax
-	movq	64(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L344
-	movq	56(%rsp), %rcx
-	call	CommitNumber
-	movq	72(%rsp), %rax
-	movq	56(%rsp), %rcx
-	movl	%eax, 0(%rbp)
-	testb	$1, (%rcx)
-	je	.L340
-	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rcx
-	jmp	.L340
-	.p2align 4,,10
-.L337:
-	movabsq	$2305843009213693951, %rdx
-	movq	64(%rbx), %rcx
-	movl	%r12d, %r8d
-	andq	16(%rbx), %rdx
-	call	Rem_X_1W
-	movl	%eax, 0(%rbp)
-	jmp	.L327
-	.p2align 4,,10
-.L341:
-	movl	$-1, %esi
-	jmp	.L327
-.L342:
-	movl	$-3, %esi
-	jmp	.L327
-	.seh_endproc
-	.p2align 4,,15
-	.globl	PMC_DivRem_L_X
-	.def	PMC_DivRem_L_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_DivRem_L_X
-PMC_DivRem_L_X:
-	pushq	%rbp
-	.seh_pushreg	%rbp
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$40, %rsp
-	.seh_stackalloc	40
-	.seh_endprologue
-	testq	%rdx, %rdx
-	movq	%rcx, %rdi
-	movq	%rdx, %rbx
-	movq	%r8, %rbp
-	movq	%r9, %rsi
-	je	.L363
-	testq	%r9, %r9
-	je	.L363
-	movq	%rdx, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %r10d
-	jne	.L355
-	movzbl	(%rbx), %eax
-	testb	$1, %al
-	jne	.L364
-	testq	%rdi, %rdi
-	jne	.L357
-	testq	%rbp, %rbp
-	je	.L358
-	movq	$0, 0(%rbp)
-.L358:
-	movq	$0, (%rsi)
-.L355:
-	movl	%r10d, %eax
-	addq	$40, %rsp
+	movq	%rsi, (%rdi)
+.L356:
+	addq	$32, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
-	popq	%rbp
 	ret
 	.p2align 4,,10
-.L357:
-	testb	$2, %al
-	jne	.L377
-	movl	$63, %eax
-/APP
- # 641 "../pmc_inline_func.h" 1
-	bsrq %rdi, %rdx
- # 0 "" 2
-/NO_APP
-	subl	%edx, %eax
-	movl	$64, %edx
-	cltq
-	subq	%rax, %rdx
-	cmpq	24(%rbx), %rdx
-	jnb	.L360
-	testq	%rbp, %rbp
-	je	.L361
-	movq	$0, 0(%rbp)
-.L361:
-	movq	%rdi, (%rsi)
-	jmp	.L355
+.L354:
+	xorl	%eax, %eax
+	testq	%rdi, %rdi
+	jne	.L349
+	addq	$32, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	ret
 	.p2align 4,,10
-.L377:
-	testq	%rbp, %rbp
-	je	.L358
-	movq	%rdi, 0(%rbp)
-	jmp	.L358
-	.p2align 4,,10
-.L360:
-	xorl	%edx, %edx
+.L339:
 	movq	64(%rbx), %rcx
-	movq	%rdi, %rax
+	xorl	%edx, %edx
+	movq	%rsi, %rax
 /APP
- # 407 "../pmc_inline_func.h" 1
+ # 276 "../pmc_inline_func.h" 1
 	divq (%rcx)
  # 0 "" 2
 /NO_APP
-	testq	%rbp, %rbp
-	je	.L362
-	movq	%rax, 0(%rbp)
-.L362:
-	movq	.refptr.statistics_info(%rip), %rax
-	movq	%rdx, (%rsi)
-	lock addl	$1, 8(%rax)
-	jmp	.L355
-	.p2align 4,,10
-.L363:
-	movl	$-1, %r10d
-	jmp	.L355
-.L364:
-	movl	$-3, %r10d
-	jmp	.L355
+	movq	%rax, %rsi
+	movq	%rdx, %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rdx
+	lock addl	$1, 8(%rdx)
+	testq	%rdi, %rdi
+	je	.L333
+	movq	%rsi, (%rdi)
+	jmp	.L356
+.L352:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC0(%rip), %rcx
+	movq	%rcx, 16(%rax)
+	leaq	.LC1(%rip), %rcx
+	movq	%rcx, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rcx
+	movq	%rcx, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movq	%rax, %rcx
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	call	__cxa_throw
+.L353:
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	.LC2(%rip), %rcx
+	movq	%rcx, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rcx
+	movq	%rcx, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev(%rip), %r8
+	movq	%rax, %rcx
+	movl	$-5, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	call	__cxa_throw
+	nop
 	.seh_endproc
 	.p2align 4,,15
-	.globl	PMC_DivRem_X_L
-	.def	PMC_DivRem_X_L;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_DivRem_X_L
-PMC_DivRem_X_L:
-	pushq	%r12
-	.seh_pushreg	%r12
-	pushq	%rbp
-	.seh_pushreg	%rbp
-	pushq	%rdi
-	.seh_pushreg	%rdi
-	pushq	%rsi
-	.seh_pushreg	%rsi
-	pushq	%rbx
-	.seh_pushreg	%rbx
-	subq	$80, %rsp
-	.seh_stackalloc	80
+	.globl	_ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	_ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE
+_ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE:
+.LFB6392:
 	.seh_endprologue
-	testq	%rcx, %rcx
-	movq	%rcx, %rbx
-	movq	%rdx, %r12
-	movq	%r8, %rdi
-	movq	%r9, %rbp
-	je	.L392
-	testq	%r9, %r9
-	je	.L392
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %esi
-	jne	.L378
-	testq	%r12, %r12
-	je	.L393
-	testb	$1, (%rbx)
-	je	.L380
-	testq	%rdi, %rdi
-	movl	$0, %eax
-	movq	$0, 0(%rbp)
-	cmovne	.refptr.number_zero(%rip), %rax
-	movq	%rax, 56(%rsp)
-.L382:
-	testq	%rdi, %rdi
-	je	.L378
-	movq	56(%rsp), %rcx
-.L391:
-	movq	%rcx, (%rdi)
-.L378:
-	movl	%esi, %eax
-	addq	$80, %rsp
-	popq	%rbx
-	popq	%rsi
-	popq	%rdi
-	popq	%rbp
-	popq	%r12
+	leaq	_ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPyyS3_yS3_S3_S3_(%rip), %rdx
+	movzbl	(%rcx), %eax
+	andl	$10, %eax
+	cmpb	$10, %al
+	leaq	_ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPyyS3_yS3_S3_S3_(%rip), %rax
+	cmovne	%rdx, %rax
+	movq	%rax, _ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE(%rip)
+	xorl	%eax, %eax
 	ret
-	.p2align 4,,10
-.L380:
-	cmpq	$1, %r12
-	je	.L403
-	movq	24(%rbx), %rcx
-	movl	$63, %eax
-/APP
- # 641 "../pmc_inline_func.h" 1
-	bsrq %r12, %rdx
- # 0 "" 2
-/NO_APP
-	subl	%edx, %eax
-	movl	$64, %edx
-	cltq
-	subq	%rax, %rdx
-	cmpq	%rdx, %rcx
-	jb	.L404
-	testq	%rdi, %rdi
-	je	.L388
-	leaq	1(%rcx,%rax), %rdx
-	leaq	64(%rsp), %r8
-	leaq	56(%rsp), %rcx
-	call	AllocateNumber
-	testl	%eax, %eax
-	je	.L405
-.L395:
-	movl	%eax, %esi
-	jmp	.L378
-	.p2align 4,,10
-.L404:
-	testq	%rdi, %rdi
-	movl	$0, %eax
-	cmovne	.refptr.number_zero(%rip), %rax
-	movq	%rax, 56(%rsp)
-	movq	64(%rbx), %rax
-	movq	(%rax), %rax
-	movq	%rax, 0(%rbp)
-	jmp	.L382
-	.p2align 4,,10
-.L403:
-	testq	%rdi, %rdi
-	je	.L384
-	leaq	56(%rsp), %rdx
-	movq	%rbx, %rcx
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L395
-.L385:
-	movq	$0, 0(%rbp)
-	jmp	.L382
-	.p2align 4,,10
-.L384:
-	movq	$0, 56(%rsp)
-	jmp	.L385
-	.p2align 4,,10
-.L405:
-	movq	56(%rsp), %rax
-	movq	%r12, %r8
-	movabsq	$2305843009213693951, %rdx
-	movq	$0, 72(%rsp)
-	andq	16(%rbx), %rdx
-	movq	64(%rbx), %rcx
-	movq	64(%rax), %r9
-	leaq	72(%rsp), %rax
-	movq	%rax, 32(%rsp)
-	call	DivRem_X_1W
-	movq	56(%rsp), %rax
-	movq	64(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L395
-	movq	56(%rsp), %rcx
-	call	CommitNumber
-	movq	72(%rsp), %rax
-	movq	56(%rsp), %rcx
-	movq	%rax, 0(%rbp)
-	testb	$1, (%rcx)
-	je	.L391
-	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rcx
-	jmp	.L391
-	.p2align 4,,10
-.L388:
-	movabsq	$2305843009213693951, %rdx
-	movq	64(%rbx), %rcx
-	movq	%r12, %r8
-	andq	16(%rbx), %rdx
-	call	Rem_X_1W
-	movq	%rax, 0(%rbp)
-	jmp	.L378
-	.p2align 4,,10
-.L392:
-	movl	$-1, %esi
-	jmp	.L378
-.L393:
-	movl	$-3, %esi
-	jmp	.L378
 	.seh_endproc
 	.p2align 4,,15
-	.globl	PMC_DivRem_X_X
-	.def	PMC_DivRem_X_X;	.scl	2;	.type	32;	.endef
-	.seh_proc	PMC_DivRem_X_X
-PMC_DivRem_X_X:
+	.def	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_
+_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_:
+.LFB6385:
 	pushq	%r13
 	.seh_pushreg	%r13
 	pushq	%r12
@@ -5153,28 +5049,74 @@ PMC_DivRem_X_X:
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$136, %rsp
-	.seh_stackalloc	136
+	subq	$104, %rsp
+	.seh_stackalloc	104
 	.seh_endprologue
-	movq	%rdx, %rdi
-	testq	%r9, %r9
-	movq	%rcx, %rsi
-	sete	%dl
-	testq	%rdi, %rdi
-	movq	%r8, %r12
-	sete	%al
-	movq	%r9, %rbp
-	orb	%al, %dl
-	jne	.L435
-	testq	%rcx, %rcx
-	je	.L435
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %ebx
-	je	.L473
-.L406:
-	movl	%ebx, %eax
-	addq	$136, %rsp
+	testl	%edx, %edx
+	movq	%rcx, %rdi
+	movl	%edx, %esi
+	movq	%r8, %rbx
+	je	.L379
+	testb	$1, 8(%rcx)
+	jne	.L380
+	cmpl	$1, %edx
+	je	.L381
+	movq	32(%rcx), %r13
+	movl	$31, %ebp
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edx, %eax
+ # 0 "" 2
+/NO_APP
+	subl	%eax, %ebp
+	movl	$32, %eax
+	movslq	%ebp, %rbp
+	subq	%rbp, %rax
+	cmpq	%rax, %r13
+	jb	.L382
+	testq	%r8, %r8
+	je	.L367
+	leaq	64(%rsp), %r12
+	movq	%r12, %rcx
+.LEHB0:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE0:
+	leaq	33(%rbp,%r13), %rdx
+	movq	%r12, %rcx
+.LEHB1:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	64(%rax), %r9
+	movq	%rax, (%rbx)
+	leaq	56(%rsp), %rax
+	movl	%esi, %r8d
+	movq	$0, 56(%rsp)
+	movq	24(%rdi), %rdx
+	movq	64(%rdi), %rcx
+	movq	%rax, 32(%rsp)
+	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
+	movq	(%rbx), %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rbx), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rbx), %rdx
+	movq	%r12, %rcx
+	testb	$1, 8(%rdx)
+	je	.L368
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%rbx)
+	jmp	.L369
+	.p2align 4,,10
+.L380:
+	xorl	%esi, %esi
+	testq	%r8, %r8
+	je	.L360
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%r8)
+.L360:
+	movl	%esi, %eax
+	addq	$104, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -5183,351 +5125,1159 @@ PMC_DivRem_X_X:
 	popq	%r13
 	ret
 	.p2align 4,,10
-.L473:
-	movq	%rdi, %rcx
-	call	CheckNumber
-	testl	%eax, %eax
-	movl	%eax, %ebx
-	jne	.L406
-	movzbl	(%rdi), %eax
-	testb	$1, %al
-	jne	.L436
-	testb	$1, (%rsi)
-	je	.L408
-	testq	%r12, %r12
-	je	.L474
-	movq	.refptr.number_zero(%rip), %rax
-	movq	%rax, %rdx
-.L409:
-	movq	%rdx, 80(%rsp)
-.L410:
-	testq	%r12, %r12
-	je	.L426
-.L423:
-	movq	80(%rsp), %rdx
-	movq	%rdx, (%r12)
-.L426:
-	movq	%rax, 0(%rbp)
-	jmp	.L406
+.L382:
+	testq	%r8, %r8
+	je	.L366
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%r8)
+.L366:
+	movq	64(%rdi), %rax
+	movl	(%rax), %esi
+	movl	%esi, %eax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
 	.p2align 4,,10
-.L408:
-	testb	$2, %al
-	je	.L411
-	testq	%r12, %r12
-	je	.L412
-	leaq	80(%rsp), %rdx
+.L368:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE1:
+.L369:
+	movl	56(%rsp), %esi
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%esi, %eax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
+	.p2align 4,,10
+.L381:
+	xorl	%esi, %esi
+	testq	%r8, %r8
+	je	.L360
+.LEHB2:
+	call	_ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rax, (%rbx)
+	jmp	.L360
+	.p2align 4,,10
+.L367:
+	movq	24(%rcx), %rdx
+	movl	%esi, %r8d
+	movq	64(%rcx), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
+	movl	%eax, %esi
+	jmp	.L360
+.L379:
+	leaq	.LC2(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev(%rip), %r8
+	movq	%rdi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdi
+	movq	%rax, %rcx
+	movl	$-5, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rdi, (%rax)
+	call	__cxa_throw
+.L373:
+	movq	%rax, %rbx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rbx, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE2:
+	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6385:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6385-.LLSDACSB6385
+.LLSDACSB6385:
+	.uleb128 .LEHB0-.LFB6385
+	.uleb128 .LEHE0-.LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB1-.LFB6385
+	.uleb128 .LEHE1-.LEHB1
+	.uleb128 .L373-.LFB6385
+	.uleb128 0
+	.uleb128 .LEHB2-.LFB6385
+	.uleb128 .LEHE2-.LEHB2
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6385:
+	.text
+	.seh_endproc
+	.section .rdata,"dr"
+	.align 2
+.LC3:
+	.ascii "u\0\0\0"
+	.text
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_
+	.def	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_
+_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_:
+.LFB6386:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	.seh_endprologue
+	testq	%rcx, %rcx
+	movq	%rcx, %rsi
+	movl	%edx, %ebp
+	movq	%r8, %rdi
+	je	.L390
+.LEHB3:
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leaq	48(%rsp), %rbx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE3:
+	testq	%rdi, %rdi
+	je	.L385
+	leaq	40(%rsp), %r8
+	movl	%ebp, %edx
 	movq	%rsi, %rcx
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L442
-.L413:
-	movq	.refptr.number_zero(%rip), %rax
-	jmp	.L410
+.LEHB4:
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	movl	%eax, %esi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	movq	%rdx, (%rdi)
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.L386:
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%esi, %eax
+	addq	$88, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	ret
+	.p2align 4,,10
+.L385:
+	xorl	%r8d, %r8d
+	movl	%ebp, %edx
+	movq	%rsi, %rcx
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_
+.LEHE4:
+	movl	%eax, %esi
+	jmp	.L386
+.L390:
+	leaq	.LC0(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movq	%rdi, 16(%rax)
+	leaq	.LC3(%rip), %rdi
+	movq	%rax, %rcx
+	movq	%rdi, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdi
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rdi, (%rax)
+.LEHB5:
+	call	__cxa_throw
+.L388:
+	movq	%rax, %rsi
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE5:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6386:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6386-.LLSDACSB6386
+.LLSDACSB6386:
+	.uleb128 .LEHB3-.LFB6386
+	.uleb128 .LEHE3-.LEHB3
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB4-.LFB6386
+	.uleb128 .LEHE4-.LEHB4
+	.uleb128 .L388-.LFB6386
+	.uleb128 0
+	.uleb128 .LEHB5-.LFB6386
+	.uleb128 .LEHE5-.LEHB5
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6386:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.def	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_
+_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_:
+.LFB6388:
+	pushq	%r13
+	.seh_pushreg	%r13
+	pushq	%r12
+	.seh_pushreg	%r12
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$104, %rsp
+	.seh_stackalloc	104
+	.seh_endprologue
+	testq	%rdx, %rdx
+	movq	%rcx, %rdi
+	movq	%rdx, %rsi
+	movq	%r8, %rbx
+	je	.L410
+	testb	$1, 8(%rcx)
+	jne	.L411
+	cmpq	$1, %rdx
+	je	.L412
+	movq	32(%rcx), %r13
+	movl	$63, %ebp
+/APP
+ # 472 "../pmc_inline_func.h" 1
+	bsrq %rdx, %rax
+ # 0 "" 2
+/NO_APP
+	subl	%eax, %ebp
+	movl	$64, %eax
+	movslq	%ebp, %rbp
+	subq	%rbp, %rax
+	cmpq	%rax, %r13
+	jb	.L413
+	testq	%r8, %r8
+	je	.L398
+	leaq	64(%rsp), %r12
+	movq	%r12, %rcx
+.LEHB6:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE6:
+	leaq	1(%r13,%rbp), %rdx
+	movq	%r12, %rcx
+.LEHB7:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	64(%rax), %r9
+	movq	%rax, (%rbx)
+	leaq	56(%rsp), %rax
+	movq	%rsi, %r8
+	movq	$0, 56(%rsp)
+	movq	24(%rdi), %rdx
+	movq	64(%rdi), %rcx
+	movq	%rax, 32(%rsp)
+	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
+	movq	(%rbx), %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rbx), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rbx), %rdx
+	movq	%r12, %rcx
+	testb	$1, 8(%rdx)
+	je	.L399
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%rbx)
+	jmp	.L400
 	.p2align 4,,10
 .L411:
-	movq	24(%rsi), %rax
-	movq	24(%rdi), %rdx
-	cmpq	%rdx, %rax
-	jb	.L475
-	cmpq	$64, %rdx
-	ja	.L417
-	testq	%r12, %r12
-	je	.L418
-	leaq	80(%rsp), %rcx
-	subq	%rdx, %rax
-	leaq	65(%rax), %rdx
-	leaq	112(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L442
-	leaq	88(%rsp), %rcx
-	movl	$64, %edx
-	leaq	120(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L465
-	movabsq	$2305843009213693951, %rdx
-	movq	80(%rsp), %rax
-	movq	88(%rsp), %r8
-	andq	16(%rsi), %rdx
-	movq	64(%rsi), %rcx
-	movq	64(%rax), %r9
-	movq	64(%r8), %r8
-	movq	64(%rdi), %rax
-	movq	%r8, 32(%rsp)
-	movq	(%rax), %r8
-	call	DivRem_X_1W
-	movq	80(%rsp), %rax
-	movq	112(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	88(%rsp), %rax
-	movq	120(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-.L471:
-	movq	80(%rsp), %rcx
-	call	CommitNumber
-	movq	88(%rsp), %rcx
-	call	CommitNumber
-	movq	80(%rsp), %rcx
-	testb	$1, (%rcx)
-	jne	.L476
-.L431:
-	movq	88(%rsp), %rcx
-	testb	$1, (%rcx)
-	jne	.L477
-.L432:
-	movq	%rcx, %rax
-	jmp	.L423
+	xorl	%esi, %esi
+	testq	%r8, %r8
+	je	.L391
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%r8)
+.L391:
+	movq	%rsi, %rax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
 	.p2align 4,,10
-.L475:
-	testq	%r12, %r12
-	je	.L478
-	movq	.refptr.number_zero(%rip), %rax
-	leaq	88(%rsp), %rdx
-	movq	%rsi, %rcx
-	movq	%rax, 80(%rsp)
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L442
-	movq	88(%rsp), %rax
-	jmp	.L423
+.L413:
+	testq	%r8, %r8
+	je	.L397
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%r8)
+.L397:
+	movq	64(%rdi), %rax
+	movq	(%rax), %rsi
+	movq	%rsi, %rax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
+	.p2align 4,,10
+.L399:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE7:
+.L400:
+	movq	56(%rsp), %rsi
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rax
+	addq	$104, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	ret
 	.p2align 4,,10
 .L412:
-	movq	$0, 80(%rsp)
-	jmp	.L413
-.L439:
-	movl	$-6, %eax
+	xorl	%esi, %esi
+	testq	%r8, %r8
+	je	.L391
+.LEHB8:
+	call	_ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rax, (%rbx)
+	jmp	.L391
 	.p2align 4,,10
-.L442:
-	movl	%eax, %ebx
-	jmp	.L406
-	.p2align 4,,10
-.L474:
-	xorl	%edx, %edx
-	movq	.refptr.number_zero(%rip), %rax
-	jmp	.L409
-	.p2align 4,,10
+.L398:
+	movq	24(%rcx), %rdx
+	movq	%rsi, %r8
+	movq	64(%rcx), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
+	movq	%rax, %rsi
+	jmp	.L391
+.L410:
+	leaq	.LC2(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev(%rip), %r8
+	movq	%rdi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdi
+	movq	%rax, %rcx
+	movl	$-5, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rdi, (%rax)
+	call	__cxa_throw
+.L404:
+	movq	%rax, %rbx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rbx, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE8:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6388:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6388-.LLSDACSB6388
+.LLSDACSB6388:
+	.uleb128 .LEHB6-.LFB6388
+	.uleb128 .LEHE6-.LEHB6
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB7-.LFB6388
+	.uleb128 .LEHE7-.LEHB7
+	.uleb128 .L404-.LFB6388
+	.uleb128 0
+	.uleb128 .LEHB8-.LFB6388
+	.uleb128 .LEHE8-.LEHB8
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6388:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_
+	.def	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_
+_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_:
+.LFB6389:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$88, %rsp
+	.seh_stackalloc	88
+	.seh_endprologue
+	testq	%rcx, %rcx
+	movq	%rcx, %rsi
+	movq	%rdx, %rbp
+	movq	%r8, %rdi
+	je	.L421
+.LEHB9:
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leaq	48(%rsp), %rbx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE9:
+	testq	%rdi, %rdi
+	je	.L416
+	leaq	40(%rsp), %r8
+	movq	%rbp, %rdx
+	movq	%rsi, %rcx
+.LEHB10:
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	movq	%rax, %rsi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	movq	%rdx, (%rdi)
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
 .L417:
-	leaq	64(%rax), %r13
-	testq	%r12, %r12
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rax
+	addq	$88, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	ret
+	.p2align 4,,10
+.L416:
+	xorl	%r8d, %r8d
+	movq	%rbp, %rdx
+	movq	%rsi, %rcx
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_
+.LEHE10:
+	movq	%rax, %rsi
+	jmp	.L417
+.L421:
+	leaq	.LC0(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	movq	%rdi, 16(%rax)
+	leaq	.LC3(%rip), %rdi
+	movq	%rax, %rcx
+	movq	%rdi, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdi
+	movl	$-2, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	movq	%rdi, (%rax)
+.LEHB11:
+	call	__cxa_throw
+.L419:
+	movq	%rax, %rsi
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE11:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6389:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6389-.LLSDACSB6389
+.LLSDACSB6389:
+	.uleb128 .LEHB9-.LFB6389
+	.uleb128 .LEHE9-.LEHB9
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB10-.LFB6389
+	.uleb128 .LEHE10-.LEHB10
+	.uleb128 .L419-.LFB6389
+	.uleb128 0
+	.uleb128 .LEHB11-.LFB6389
+	.uleb128 .LEHE11-.LEHB11
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6389:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.def	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_;	.scl	3;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_
+_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_:
+.LFB6390:
+	pushq	%r14
+	.seh_pushreg	%r14
+	pushq	%r13
+	.seh_pushreg	%r13
+	pushq	%r12
+	.seh_pushreg	%r12
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$96, %rsp
+	.seh_stackalloc	96
+	.seh_endprologue
+	testb	$1, 8(%rcx)
+	movq	%rcx, %rdi
+	movq	%rdx, %rbp
+	movq	%r8, %rsi
+	jne	.L466
+	testb	$2, 8(%rdx)
+	jne	.L467
+	movq	32(%rcx), %rbx
+	movq	32(%rdx), %r13
+	cmpq	%r13, %rbx
+	jnb	.L426
+	testq	%r8, %r8
 	je	.L427
-	leaq	80(%rsp), %rcx
-	subq	%rdx, %rax
-	leaq	65(%rax), %rdx
-	leaq	96(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L442
-	leaq	88(%rsp), %rcx
-	movq	%r13, %rdx
-	leaq	104(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L465
-	movq	16(%rdi), %rcx
-	leaq	120(%rsp), %rdx
-	leaq	112(%rsp), %r8
-	salq	$6, %rcx
-	call	AllocateBlock
-	testq	%rax, %rax
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%r8)
+.L427:
+	movq	%rdi, %rcx
+.LEHB12:
+	call	_ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rax, %rbx
+.L422:
+	movq	%rbx, %rax
+	addq	$96, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	ret
+	.p2align 4,,10
+.L467:
+	testq	%r8, %r8
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rbx
+	je	.L422
+	call	_ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rax, (%rsi)
+	jmp	.L422
+	.p2align 4,,10
+.L466:
+	testq	%r8, %r8
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rbx
+	je	.L422
+	movq	%rbx, (%r8)
+	jmp	.L422
+	.p2align 4,,10
+.L426:
+	cmpq	$64, %r13
+	jbe	.L468
+	leaq	64(%rsp), %r12
+	testq	%r8, %r8
+	leaq	64(%rbx), %r14
+	movq	%r12, %rcx
+	je	.L436
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE12:
+	subq	%r13, %rbx
+	movq	%r12, %rcx
+	leaq	65(%rbx), %rdx
+.LEHB13:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	%rax, (%rsi)
+	movq	%r14, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	24(%rbp), %rdx
+	movq	%r12, %rcx
+	movq	%rax, %rbx
+	salq	$6, %rdx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
 	movq	%rax, %r13
-	je	.L479
-	movabsq	$2305843009213693951, %r9
-	movq	88(%rsp), %rax
-	movq	16(%rsi), %rdx
-	movq	64(%rsi), %rcx
-	movq	64(%rdi), %r8
-	movq	64(%rax), %rax
-	andq	%r9, %rdx
-	andq	16(%rdi), %r9
+	movq	64(%rbx), %rax
+	movq	24(%rdi), %rdx
+	movq	64(%rdi), %rcx
+	movq	24(%rbp), %r9
 	movq	%rax, 48(%rsp)
-	movq	80(%rsp), %rax
+	movq	(%rsi), %rax
+	movq	64(%rbp), %r8
 	movq	64(%rax), %rax
 	movq	%r13, 32(%rsp)
 	movq	%rax, 40(%rsp)
-	call	*fp_DivRem_X_X(%rip)
-	movq	112(%rsp), %rdx
-	movq	%r13, %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	80(%rsp), %rax
-	movq	96(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	80(%rsp), %rax
-	movq	96(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	120(%rsp), %rdx
-	movq	%r13, %rcx
-	call	DeallocateBlock
-	jmp	.L471
-	.p2align 4,,10
-.L435:
-	movl	$-1, %ebx
-	jmp	.L406
-	.p2align 4,,10
-.L478:
-	leaq	88(%rsp), %rdx
-	movq	%rsi, %rcx
-	movq	$0, 80(%rsp)
-	call	DuplicateNumber
-	testl	%eax, %eax
-	jne	.L442
-	movq	88(%rsp), %rax
-	jmp	.L426
-.L427:
-	leaq	88(%rsp), %rcx
+	call	*_ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE(%rip)
 	movq	%r13, %rdx
-	leaq	104(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L442
-	movq	16(%rdi), %rcx
-	leaq	120(%rsp), %rdx
-	leaq	112(%rsp), %r8
-	salq	$6, %rcx
-	call	AllocateBlock
-	testq	%rax, %rax
-	movq	%rax, %r12
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPy
+	movq	(%rsi), %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%r13, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPy
+	movq	(%rsi), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rsi), %rdx
+	movq	%r12, %rcx
+	testb	$1, 8(%rdx)
+	jne	.L469
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.L438:
+	testb	$1, 8(%rbx)
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
 	je	.L439
-	movabsq	$2305843009213693951, %r9
-	movq	88(%rsp), %rax
-	movq	16(%rsi), %rdx
-	movq	64(%rsi), %rcx
-	movq	64(%rdi), %r8
-	movq	64(%rax), %rax
-	movq	%r12, 32(%rsp)
-	movq	$0, 40(%rsp)
-	andq	%r9, %rdx
-	andq	16(%rdi), %r9
-	movq	%rax, 48(%rsp)
-	call	*fp_DivRem_X_X(%rip)
-	movq	112(%rsp), %rdx
-	movq	%r12, %rcx
-	movq	$0, 80(%rsp)
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	88(%rsp), %rax
-	movq	104(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	jne	.L442
-	movq	120(%rsp), %rdx
-	movq	%r12, %rcx
-	call	DeallocateBlock
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE13:
+	jmp	.L464
+	.p2align 4,,10
 .L468:
-	movq	88(%rsp), %rcx
-	call	CommitNumber
-	movq	88(%rsp), %rcx
-	testb	$1, (%rcx)
-	jne	.L480
-.L434:
-	movq	%rcx, %rax
-	jmp	.L426
-.L418:
-	leaq	88(%rsp), %rcx
+	leaq	64(%rsp), %r12
+	testq	%r8, %r8
+	movq	%r12, %rcx
+	je	.L429
+.LEHB14:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE14:
+	subq	%r13, %rbx
+	movq	%r12, %rcx
+	leaq	65(%rbx), %rdx
+.LEHB15:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	%rax, (%rsi)
 	movl	$64, %edx
-	leaq	120(%rsp), %r8
-	call	AllocateNumber
-	testl	%eax, %eax
-	jne	.L442
-	movabsq	$2305843009213693951, %rdx
-	movq	88(%rsp), %rax
-	andq	16(%rsi), %rdx
-	movq	64(%rsi), %rcx
-	movq	64(%rax), %r12
-	movq	64(%rdi), %rax
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	%rax, %rbx
+	movq	(%rsi), %rax
+	movq	64(%rbx), %r8
+	movq	24(%rdi), %rdx
+	movq	64(%rdi), %rcx
+	movq	64(%rax), %r9
+	movq	64(%rbp), %rax
+	movq	%r8, 32(%rsp)
 	movq	(%rax), %r8
-	call	Rem_X_1W
-	movq	%rax, (%r12)
-	movq	88(%rsp), %rax
-	movq	$0, 80(%rsp)
-	movq	120(%rsp), %rdx
-	movq	64(%rax), %rcx
-	call	CheckBlockLight
-	testl	%eax, %eax
-	je	.L468
-	movl	%eax, %ebx
-	jmp	.L406
-.L465:
-	movq	80(%rsp), %rcx
-	movl	%eax, 76(%rsp)
-	call	DeallocateNumber
-	movl	76(%rsp), %eax
-	movl	%eax, %ebx
-	jmp	.L406
-.L436:
-	movl	$-3, %ebx
-	jmp	.L406
-.L480:
-	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rcx
-	jmp	.L434
-.L476:
-	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rax
-	movq	%rax, 80(%rsp)
+	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
+	movq	(%rsi), %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rsi), %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	(%rsi), %rdx
+	movq	%r12, %rcx
+	testb	$1, 8(%rdx)
+	jne	.L470
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.L431:
+	testb	$1, 8(%rbx)
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	je	.L432
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.L464:
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rbx
+.L442:
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	.L422
+	.p2align 4,,10
+.L470:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE15:
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%rsi)
 	jmp	.L431
-.L477:
-	call	DeallocateNumber
-	movq	.refptr.number_zero(%rip), %rcx
-	jmp	.L432
-.L479:
-	movq	80(%rsp), %rcx
-	call	DeallocateNumber
-	movl	$-6, %eax
-	movl	%eax, %ebx
-	jmp	.L406
+	.p2align 4,,10
+.L469:
+.LEHB16:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE16:
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rax
+	movq	%rax, (%rsi)
+	jmp	.L438
+	.p2align 4,,10
+.L432:
+.LEHB17:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE17:
+	jmp	.L442
+	.p2align 4,,10
+.L439:
+.LEHB18:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE18:
+	jmp	.L442
+	.p2align 4,,10
+.L429:
+.LEHB19:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE19:
+	movl	$64, %edx
+	movq	%r12, %rcx
+.LEHB20:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	64(%rax), %rsi
+	movq	%rax, %rbx
+	movq	64(%rbp), %rax
+	movq	24(%rdi), %rdx
+	movq	64(%rdi), %rcx
+	movq	(%rax), %r8
+	call	_ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPyyy
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	movq	%rax, (%rsi)
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 8(%rbx)
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	je	.L434
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE20:
+	jmp	.L464
+	.p2align 4,,10
+.L436:
+.LEHB21:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE21:
+	movq	%r14, %rdx
+	movq	%r12, %rcx
+.LEHB22:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy
+	movq	24(%rbp), %rdx
+	movq	%r12, %rcx
+	movq	%rax, %rbx
+	salq	$6, %rdx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
+	movq	%rax, %rsi
+	movq	64(%rbx), %rax
+	movq	$0, 40(%rsp)
+	movq	24(%rdi), %rdx
+	movq	%rsi, 32(%rsp)
+	movq	64(%rdi), %rcx
+	movq	24(%rbp), %r9
+	movq	%rax, 48(%rsp)
+	movq	64(%rbp), %r8
+	call	*_ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE(%rip)
+	movq	%rsi, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPy
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPy
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 8(%rbx)
+	movq	%rbx, %rdx
+	movq	%r12, %rcx
+	je	.L441
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE22:
+	jmp	.L464
+	.p2align 4,,10
+.L434:
+.LEHB23:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE23:
+	jmp	.L442
+	.p2align 4,,10
+.L441:
+.LEHB24:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE24:
+	jmp	.L442
+.L454:
+.L465:
+	movq	%rax, %rbx
+	movq	%r12, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rbx, %rcx
+.LEHB25:
+	call	_Unwind_Resume
+.LEHE25:
+.L456:
+	jmp	.L465
+.L453:
+	jmp	.L465
+.L455:
+	jmp	.L465
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6390:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6390-.LLSDACSB6390
+.LLSDACSB6390:
+	.uleb128 .LEHB12-.LFB6390
+	.uleb128 .LEHE12-.LEHB12
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB6390
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .L455-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB14-.LFB6390
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB15-.LFB6390
+	.uleb128 .LEHE15-.LEHB15
+	.uleb128 .L453-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB16-.LFB6390
+	.uleb128 .LEHE16-.LEHB16
+	.uleb128 .L455-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB17-.LFB6390
+	.uleb128 .LEHE17-.LEHB17
+	.uleb128 .L453-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB18-.LFB6390
+	.uleb128 .LEHE18-.LEHB18
+	.uleb128 .L455-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB19-.LFB6390
+	.uleb128 .LEHE19-.LEHB19
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB20-.LFB6390
+	.uleb128 .LEHE20-.LEHB20
+	.uleb128 .L454-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB21-.LFB6390
+	.uleb128 .LEHE21-.LEHB21
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB22-.LFB6390
+	.uleb128 .LEHE22-.LEHB22
+	.uleb128 .L456-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB23-.LFB6390
+	.uleb128 .LEHE23-.LEHB23
+	.uleb128 .L454-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB24-.LFB6390
+	.uleb128 .LEHE24-.LEHB24
+	.uleb128 .L456-.LFB6390
+	.uleb128 0
+	.uleb128 .LEHB25-.LFB6390
+	.uleb128 .LEHE25-.LEHB25
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6390:
+	.text
 	.seh_endproc
 	.p2align 4,,15
-	.globl	Initialize_DivRem
-	.def	Initialize_DivRem;	.scl	2;	.type	32;	.endef
-	.seh_proc	Initialize_DivRem
-Initialize_DivRem:
+	.globl	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_
+	.def	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_
+_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_:
+.LFB6391:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$88, %rsp
+	.seh_stackalloc	88
 	.seh_endprologue
-	leaq	DivRem_X_X_using_ADC_MUL(%rip), %rdx
-	movzbl	(%rcx), %eax
-	andl	$10, %eax
-	cmpb	$10, %al
-	leaq	DivRem_X_X_using_ADX_MULX(%rip), %rax
-	cmovne	%rdx, %rax
-	movq	%rax, fp_DivRem_X_X(%rip)
-	xorl	%eax, %eax
+	testq	%rcx, %rcx
+	movq	%rcx, %rdi
+	movq	%rdx, %rsi
+	movq	%r8, %rbp
+	je	.L481
+	testq	%rdx, %rdx
+	je	.L482
+.LEHB26:
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 8(%rsi)
+	jne	.L483
+	leaq	48(%rsp), %rbx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE26:
+	testq	%rbp, %rbp
+	je	.L475
+	leaq	40(%rsp), %r8
+	movq	%rsi, %rdx
+	movq	%rdi, %rcx
+.LEHB27:
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	movq	%rax, %rsi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	40(%rsp), %rdx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	40(%rsp), %rax
+	movq	%rsi, %rdx
+	movq	%rbx, %rcx
+	movq	%rax, 0(%rbp)
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.L476:
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rax
+	addq	$88, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
 	ret
+	.p2align 4,,10
+.L475:
+	xorl	%r8d, %r8d
+	movq	%rsi, %rdx
+	movq	%rdi, %rcx
+	call	_ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_
+	movq	%rax, %rdx
+	movq	%rbx, %rcx
+	movq	%rax, %rsi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+.LEHE27:
+	jmp	.L476
+.L483:
+	leaq	.LC2(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev(%rip), %r8
+	movq	%rdi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdi
+	movq	%rax, %rcx
+	movl	$-5, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rdi, (%rax)
+.LEHB28:
+	call	__cxa_throw
+.L482:
+	leaq	.LC0(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	movq	%rdi, 16(%rax)
+	leaq	.LC1(%rip), %rdi
+	movl	$-2, 8(%rax)
+.L480:
+	movq	%rdi, 24(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdi
+	movq	%rax, %rcx
+	movq	%rdi, (%rax)
+	leaq	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev(%rip), %r8
+	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
+	call	__cxa_throw
+.L481:
+	leaq	.LC0(%rip), %rdi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	movq	%rdi, 16(%rax)
+	leaq	.LC3(%rip), %rdi
+	movl	$-2, 8(%rax)
+	jmp	.L480
+.L478:
+	movq	%rax, %rsi
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rsi, %rcx
+	call	_Unwind_Resume
+	nop
+.LEHE28:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6391:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6391-.LLSDACSB6391
+.LLSDACSB6391:
+	.uleb128 .LEHB26-.LFB6391
+	.uleb128 .LEHE26-.LEHB26
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB27-.LFB6391
+	.uleb128 .LEHE27-.LEHB27
+	.uleb128 .L478-.LFB6391
+	.uleb128 0
+	.uleb128 .LEHB28-.LFB6391
+	.uleb128 .LEHE28-.LEHB28
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6391:
+	.text
 	.seh_endproc
-.lcomm fp_DivRem_X_X,8,8
+	.globl	_ZTSSt9exception
+	.section	.rdata$_ZTSSt9exception,"dr"
+	.linkonce same_size
+	.align 8
+_ZTSSt9exception:
+	.ascii "St9exception\0"
+	.globl	_ZTISt9exception
+	.section	.rdata$_ZTISt9exception,"dr"
+	.linkonce same_size
+	.align 8
+_ZTISt9exception:
+	.quad	_ZTVN10__cxxabiv117__class_type_infoE+16
+	.quad	_ZTSSt9exception
+	.globl	_ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+_ZTSN8Palmtree4Math4Core8Internal9ExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal9ExceptionE\0"
+	.globl	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
+	.quad	_ZTVN10__cxxabiv121__vmi_class_type_infoE+16
+	.quad	_ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	0
+	.long	1
+	.quad	_ZTISt9exception
+	.quad	0
+	.globl	_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal21ArgumentNullExceptionE\0"
+	.globl	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.quad	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	_ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+_ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE\0"
+	.globl	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.quad	_ZTVN10__cxxabiv120__si_class_type_infoE+16
+	.quad	_ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.quad	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	_ZTVN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTVN8Palmtree4Math4Core8Internal9ExceptionE:
+	.quad	0
+	.quad	_ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.quad	_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.quad	_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.quad	_ZNKSt9exception4whatEv
+	.globl	_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.quad	0
+	.quad	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.quad	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.quad	_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.quad	_ZNKSt9exception4whatEv
+	.globl	_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 8
+_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.quad	0
+	.quad	_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.quad	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev
+	.quad	_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev
+	.quad	_ZNKSt9exception4whatEv
+.lcomm _ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE,8,8
 	.ident	"GCC: (x86_64-win32-seh-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	RightShift_Imp_DIV;	.scl	2;	.type	32;	.endef
-	.def	LeftShift_Imp_DIV;	.scl	2;	.type	32;	.endef
-	.def	CheckNumber;	.scl	2;	.type	32;	.endef
-	.def	AllocateNumber;	.scl	2;	.type	32;	.endef
-	.def	DuplicateNumber;	.scl	2;	.type	32;	.endef
-	.def	CheckBlockLight;	.scl	2;	.type	32;	.endef
-	.def	CommitNumber;	.scl	2;	.type	32;	.endef
-	.def	DeallocateNumber;	.scl	2;	.type	32;	.endef
-	.def	AllocateBlock;	.scl	2;	.type	32;	.endef
-	.def	DeallocateBlock;	.scl	2;	.type	32;	.endef
-	.section	.rdata$.refptr.number_zero, "dr"
-	.globl	.refptr.number_zero
+	.def	_ZNSt9exceptionD2Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZdlPvy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPyyyS3_i;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPyyyS3_i;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__cxa_allocate_exception;	.scl	2;	.type	32;	.endef
+	.def	__cxa_throw;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPy;	.scl	2;	.type	32;	.endef
+	.def	_ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE
 	.linkonce	discard
-.refptr.number_zero:
-	.quad	number_zero
-	.section	.rdata$.refptr.statistics_info, "dr"
-	.globl	.refptr.statistics_info
+.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE:
+	.quad	_ZN8Palmtree4Math4Core8Internal11number_zeroE
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE
 	.linkonce	discard
-.refptr.statistics_info:
-	.quad	statistics_info
+.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE:
+	.quad	_ZN8Palmtree4Math4Core8Internal15statistics_infoE

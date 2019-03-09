@@ -1,10 +1,10 @@
-	.file	"cpuid.c"
+	.file	"cpuid.cpp"
 	.text
 	.p2align 4,,15
-	.globl	_GetCPUInfo
-	.def	_GetCPUInfo;	.scl	2;	.type	32;	.endef
-_GetCPUInfo:
-LFB5494:
+	.globl	__ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	__ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE:
+LFB5900:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -21,7 +21,7 @@ LFB5494:
 	.cfi_offset 3, -20
 	movl	20(%esp), %esi
 /APP
- # 1689 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -38,7 +38,7 @@ LFB5494:
 	je	L3
 	movl	$1, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -56,7 +56,7 @@ LFB5494:
 	movl	$7, %eax
 	xorl	%ecx, %ecx
 /APP
- # 1703 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1706 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -80,7 +80,7 @@ LFB5494:
 L3:
 	movl	$-2147483648, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -88,7 +88,7 @@ L3:
 	jbe	L1
 	movl	$-2147483647, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -114,5 +114,5 @@ L1:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5494:
+LFE5900:
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"

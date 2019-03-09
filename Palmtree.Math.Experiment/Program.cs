@@ -13,35 +13,83 @@ namespace Palmtree.Math.Experiment
 
             //DivRemの障害調査コード();
 
-            // %と‰の効果は重複してかかる。%が2個なら100*100倍、%と‰なら100*1000倍。%と‰はどこに書かれていてもそのとおりの場所で表示される。【例：(-1.23456789).ToString("0■%■0") => -12■%■3 】
-            // '#', '0', '.', ','をまず抜き出して数値を文字列化し、そのあとで'#', '0'のある場所に数値をはめ込む、みたいな実装になっているらしい。
-            // ⇒小数部は小数点を基準に上位から順に1文字ずつはめ込まれ、はめ込めなかった分は四捨五入されて必要ならば繰り上がる。
-            // ⇒整数部は小数点を基準に下位から順に1文字ずつはめ込まれる。
-            // '.'の後に書かれている','は無視される。また、最初の '0', '#' の前に書かれている ',' は無視される。
-            // 整数部にて、'0'の後に書かれている'#'は'0'と解釈される。
-            // 小数部にて、'0'の前に書かれている'#'は'0'と解釈される。
-            // '.'の前に '0'または '#'が一つもない場合は、'#' が一つだけあると解釈される。
-            // 整数部の符号は最初の '#', '0'の前にどんなテキストがあろうとあらゆるテキストの最初に表示される。正値のときに自動的には'+'は表示されない。
-            // Eの構文解析に失敗した場合はEは(そしてその次の+あるいは-も)一般テキストとしてそのまま表示される。
-            // ⇒【例：(1.23456789).ToString("0.0E+#0  000") => 1.2E+34  568】
-            // 逆に、構文として正しければEはどこに記述されていてもその場所のまま表示される。
-            // ⇒【例：(-0.0123456789).ToString("0.0E+0  000") => -1.2E-2  346】
-            // '.' が複数ある場合は最初のものを除いて無視される。【例：(-0.0123456789).ToString("0.0 00.00") => -0.0 1235】
-            // 三つ目の';'の後の文字列は数値の符号が何であっても表示されない。つまり無視される。
+            // 数字の書式に含まれる各種記号の文字数_通貨記号は複数文字のカルチャあり_正負符号と小数点と3桁区切りカンマとパーセント記号パーミル記号は2文字以上のカルチャはない();
 
-            // c言語での実装はやめた方がいいかもしれない。構文解析が面倒。
-            // 実装をどこでやるにしろ、１）多倍長整数の桁数を調べる手段、２）０～９の値と10のべき乗を掛けた値を取得する手段、はあると便利だと思う。
+            //Currency_Number_PercentによってDecimalSeparatorあるいはGeoupSeparatorが異なるカルチャはいくつか存在する();
 
-            var formats = new[] { "これは正;これはゼロ;これは負", "これは正;これはゼロ;これは負;これは何？" };
-            var values = new[] { 0D, 12345D, -12345D, 1.23456789D, -1.23456789D, 0.0123456789D, -0.0123456789D };
-            var texts = formats
-                        .SelectMany(format => values, (format, value) => new { text = value.ToString(format), format, value })
-                        .Select(item => string.Format(@"({0}).ToString(""{1}"") => {2}", item.value, item.format, item.text));
-            foreach (var text in texts)
-                Console.WriteLine(text);
 
+            var x1 = typeof(UInt32).IsSubclassOf(typeof(Exception));
+            Console.WriteLine(typeof(UInt32).Name);
+            Console.WriteLine(typeof(UInt32).FullName);
+            Console.WriteLine(typeof(ApplicationException).Name);
+            Console.WriteLine(typeof(ApplicationException).FullName);
+            var x2 = typeof(ApplicationException).IsSubclassOf(typeof(Exception));
+
+            try
+            {
+                throw new ApplicationException();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(string.Format("ex.GetType()='{0}'", ex.GetType()));
+            }
 
             Console.ReadLine();
+        }
+
+        private static void Currency_Number_PercentによってDecimalSeparatorあるいはGeoupSeparatorが異なるカルチャはいくつか存在する()
+        {
+            var texts = CultureInfo.GetCultures(CultureTypes.AllCultures)
+                        .Where(culture => culture.NumberFormat.CurrencyDecimalSeparator != culture.NumberFormat.NumberDecimalSeparator ||
+                                          culture.NumberFormat.CurrencyGroupSeparator != culture.NumberFormat.NumberGroupSeparator ||
+                                          culture.NumberFormat.CurrencyDecimalSeparator != culture.NumberFormat.PercentDecimalSeparator ||
+                                          culture.NumberFormat.CurrencyGroupSeparator != culture.NumberFormat.PercentGroupSeparator)
+                        .Select(culture => string.Format("{0},{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}/{11}",
+                                                         culture.Name,
+                                                         culture.NumberFormat.PositiveSign,
+                                                         culture.NumberFormat.NegativeSign,
+                                                         culture.NumberFormat.CurrencySymbol,
+                                                         culture.NumberFormat.PercentSymbol,
+                                                         culture.NumberFormat.PerMilleSymbol,
+                                                         culture.NumberFormat.CurrencyDecimalSeparator,
+                                                         culture.NumberFormat.CurrencyGroupSeparator,
+                                                         culture.NumberFormat.NumberDecimalSeparator,
+                                                         culture.NumberFormat.NumberGroupSeparator,
+                                                         culture.NumberFormat.PercentDecimalSeparator,
+                                                         culture.NumberFormat.PercentGroupSeparator));
+            foreach (var text in texts)
+                Console.WriteLine(text);
+        }
+
+        private static void 数字の書式に含まれる各種記号の文字数_通貨記号は複数文字のカルチャあり_正負符号と小数点と3桁区切りカンマとパーセント記号パーミル記号は2文字以上のカルチャはない()
+        {
+            var texts = CultureInfo.GetCultures(CultureTypes.AllCultures)
+                        .Where(culture => culture.NumberFormat.CurrencyDecimalSeparator.Length >= 2 ||
+                                          culture.NumberFormat.CurrencyGroupSeparator.Length >= 2 ||
+                                          //culture.NumberFormat.CurrencySymbol.Length >= 2 ||
+                                          culture.NumberFormat.NegativeSign.Length >= 2 ||
+                                          culture.NumberFormat.NumberDecimalSeparator.Length >= 2 ||
+                                          culture.NumberFormat.NumberGroupSeparator.Length >= 2 ||
+                                          culture.NumberFormat.PercentDecimalSeparator.Length >= 2 ||
+                                          culture.NumberFormat.PercentGroupSeparator.Length >= 2 ||
+                                          culture.NumberFormat.PercentSymbol.Length >= 2 ||
+                                          culture.NumberFormat.PerMilleSymbol.Length >= 2 ||
+                                          culture.NumberFormat.PositiveSign.Length >= 2)
+                        .Select(culture => string.Format("{0},{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}/{9}/{10}/{11}",
+                                                         culture.Name,
+                                                         culture.NumberFormat.PositiveSign,
+                                                         culture.NumberFormat.NegativeSign,
+                                                         culture.NumberFormat.CurrencySymbol,
+                                                         culture.NumberFormat.PercentSymbol,
+                                                         culture.NumberFormat.PerMilleSymbol,
+                                                         culture.NumberFormat.CurrencyDecimalSeparator,
+                                                         culture.NumberFormat.CurrencyGroupSeparator,
+                                                         culture.NumberFormat.NumberDecimalSeparator,
+                                                         culture.NumberFormat.NumberGroupSeparator,
+                                                         culture.NumberFormat.PercentDecimalSeparator,
+                                                         culture.NumberFormat.PercentGroupSeparator));
+            foreach (var text in texts)
+                Console.WriteLine(text);
         }
 
         private static void NativeDigitsにUTF16で複数文字から構成される文字を持つカルチャが存在しないことの確認()

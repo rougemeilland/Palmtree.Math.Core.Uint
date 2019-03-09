@@ -1,10 +1,11 @@
-	.file	"cpuid.c"
+	.file	"cpuid.cpp"
 	.text
 	.p2align 4,,15
-	.globl	GetCPUInfo
-	.def	GetCPUInfo;	.scl	2;	.type	32;	.endef
-	.seh_proc	GetCPUInfo
-GetCPUInfo:
+	.globl	_ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	_ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE
+_ZN8Palmtree4Math4Core8Internal10GetCPUInfoEPNS2_23_tag_PROCESSOR_FEATURESE:
+.LFB6064:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rbx
@@ -14,7 +15,7 @@ GetCPUInfo:
 	movl	%r9d, %eax
 	movq	%rcx, %r10
 /APP
- # 1689 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -31,7 +32,7 @@ GetCPUInfo:
 	je	.L3
 	movl	$1, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -46,7 +47,7 @@ GetCPUInfo:
 	movl	$7, %eax
 	movl	%r9d, %ecx
 /APP
- # 1703 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1706 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -70,7 +71,7 @@ GetCPUInfo:
 .L3:
 	movl	$-2147483648, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP
@@ -78,7 +79,7 @@ GetCPUInfo:
 	jbe	.L1
 	movl	$-2147483647, %eax
 /APP
- # 1689 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+ # 1692 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	cpuid
  # 0 "" 2
 /NO_APP

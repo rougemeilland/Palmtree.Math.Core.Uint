@@ -1,9 +1,133 @@
-	.file	"pmc_divrem.c"
+	.file	"pmc_divrem.cpp"
+	.text
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev:
+LFB617:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE617:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev:
+LFB618:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE618:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev:
+LFB670:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE670:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev:
+LFB671:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE671:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.def	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev:
+LFB640:
+	.cfi_startproc
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	jmp	__ZNSt9exceptionD2Ev
+	.cfi_endproc
+LFE640:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.def	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
+LFB641:
+	.cfi_startproc
+	pushl	%ebx
+	.cfi_def_cfa_offset 8
+	.cfi_offset 3, -8
+	movl	%ecx, %ebx
+	subl	$24, %esp
+	.cfi_def_cfa_offset 32
+	movl	$__ZTVN8Palmtree4Math4Core8Internal9ExceptionE+8, (%ecx)
+	call	__ZNSt9exceptionD2Ev
+	movl	%ebx, (%esp)
+	movl	$16, 4(%esp)
+	call	__ZdlPvj
+	addl	$24, %esp
+	.cfi_def_cfa_offset 8
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 4
+	ret
+	.cfi_endproc
+LFE641:
 	.text
 	.p2align 4,,15
-	.def	_SubtructOneLine;	.scl	3;	.type	32;	.endef
-_SubtructOneLine:
-LFB5543:
+	.def	__ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPjjS3_jjj;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPjjS3_jjj:
+LFB6211:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -29,16 +153,16 @@ LFB5543:
 	movl	%ebx, 4(%esp)
 	shrl	$5, %eax
 	movl	%eax, 20(%esp)
-	je	L14
+	je	L24
 	movl	%eax, (%esp)
 	movl	%ecx, %esi
 	xorl	%edi, %edi
 	xorl	%ebp, %ebp
 	.p2align 4,,10
-L3:
+L13:
 	movl	(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -58,7 +182,7 @@ L3:
 	setc	%cl
 	movl	4(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -79,7 +203,7 @@ L3:
 	setc	%cl
 	movl	8(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -100,7 +224,7 @@ L3:
 	movl	%eax, 8(%ebx)
 	movl	12(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -121,7 +245,7 @@ L3:
 	setc	%cl
 	movl	16(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -142,7 +266,7 @@ L3:
 	setc	%cl
 	movl	20(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -163,7 +287,7 @@ L3:
 	movl	%eax, 20(%ebx)
 	movl	24(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -184,7 +308,7 @@ L3:
 	setc	%cl
 	movl	28(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -205,7 +329,7 @@ L3:
 	setc	%cl
 	movl	32(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -226,7 +350,7 @@ L3:
 	setc	%cl
 	movl	36(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -247,7 +371,7 @@ L3:
 	setc	%cl
 	movl	40(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -268,7 +392,7 @@ L3:
 	setc	%cl
 	movl	44(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -289,7 +413,7 @@ L3:
 	setc	%cl
 	movl	48(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -310,7 +434,7 @@ L3:
 	setc	%cl
 	movl	52(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -331,7 +455,7 @@ L3:
 	setc	%cl
 	movl	56(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -352,7 +476,7 @@ L3:
 	setc	%cl
 	movl	60(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -373,7 +497,7 @@ L3:
 	setc	%cl
 	movl	64(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -394,7 +518,7 @@ L3:
 	setc	%cl
 	movl	68(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -415,7 +539,7 @@ L3:
 	setc	%cl
 	movl	72(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -436,7 +560,7 @@ L3:
 	setc	%cl
 	movl	76(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -457,7 +581,7 @@ L3:
 	setc	%cl
 	movl	80(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -478,7 +602,7 @@ L3:
 	setc	%cl
 	movl	84(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -499,7 +623,7 @@ L3:
 	setc	%cl
 	movl	88(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -520,7 +644,7 @@ L3:
 	setc	%cl
 	movl	92(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -541,7 +665,7 @@ L3:
 	setc	%cl
 	movl	96(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -563,7 +687,7 @@ L3:
 	movl	100(%esi), %eax
 	movl	%edx, %edi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -583,7 +707,7 @@ L3:
 	setc	%cl
 	movl	104(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -605,7 +729,7 @@ L3:
 	movl	108(%esi), %eax
 	movl	%edx, %edi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -625,7 +749,7 @@ L3:
 	setc	%cl
 	movl	112(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -647,7 +771,7 @@ L3:
 	movl	116(%esi), %eax
 	movl	%edx, %edi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -667,7 +791,7 @@ L3:
 	setc	%cl
 	movl	120(%esi), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -689,7 +813,7 @@ L3:
 	movl	124(%esi), %eax
 	movl	%edx, %edi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -712,34 +836,34 @@ L3:
 	subl	$1, (%esp)
 	movl	(%esp), %eax
 	subl	$-128, %esi
-	lock addl	$32, _statistics_info+4
+	lock addl	$32, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	%edx, %ebp
 	testl	%eax, %eax
-	jne	L3
+	jne	L13
 	movl	20(%esp), %eax
 	movzbl	%dl, %ebx
 	sall	$7, %eax
 	addl	%eax, 4(%esp)
 	addl	%eax, 8(%esp)
-L2:
+L12:
 	movl	4(%esp), %eax
 	addl	$4, %eax
 	movl	%eax, (%esp)
 	testb	$16, 60(%esp)
-	jne	L45
-L4:
+	jne	L54
+L14:
 	testb	$8, 60(%esp)
-	jne	L46
-L5:
+	jne	L55
+L15:
 	testb	$4, 60(%esp)
-	jne	L47
-L6:
+	jne	L56
+L16:
 	testb	$2, 60(%esp)
-	jne	L48
-L7:
+	jne	L57
+L17:
 	testb	$1, 60(%esp)
-	jne	L49
-L8:
+	jne	L58
+L18:
 	movl	4(%esp), %esi
 	addb	$-1, %bl
 	movl	(%esi), %eax
@@ -751,17 +875,17 @@ L8:
 	leal	4(%esi,%edi,4), %ebx
 	subl	(%esp), %ebx
 	sarl	$2, %ebx
-	je	L9
+	je	L19
 	xorl	%esi, %esi
 	movl	(%esp), %ecx
 	testb	%al, %al
-	jne	L10
-	jmp	L11
+	jne	L20
+	jmp	L21
 	.p2align 4,,10
-L41:
+L51:
 	testb	%al, %al
-	je	L11
-L10:
+	je	L21
+L20:
 	movl	(%ecx), %edx
 	addb	$-1, %al
 	sbbl	%esi, %edx
@@ -769,8 +893,8 @@ L10:
 	setc	%al
 	addl	$4, %ecx
 	subl	$1, %ebx
-	jne	L41
-L9:
+	jne	L51
+L19:
 	addl	$40, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -789,7 +913,7 @@ L9:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L11:
+L21:
 	.cfi_restore_state
 	addl	$40, %esp
 	.cfi_remember_state
@@ -809,13 +933,13 @@ L11:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L49:
+L58:
 	.cfi_restore_state
 	movl	8(%esp), %eax
 	movl	4(%esp), %esi
 	movl	(%eax), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -831,22 +955,22 @@ L49:
 	movl	%edx, (%esi)
 	movl	32(%esp), %edi
 	setc	%bl
-	lock addl	$1, _statistics_info+4
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	(%esp), %eax
 	movl	%eax, 4(%esp)
 	addl	$4, %eax
 	movzbl	%bl, %ebx
 	movl	%eax, (%esp)
-	jmp	L8
+	jmp	L18
 	.p2align 4,,10
-L48:
+L57:
 	movl	8(%esp), %eax
 	movl	4(%esp), %ebp
 	movl	(%eax), %edx
 	movl	%edx, 20(%esp)
 	movl	%edx, %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -867,7 +991,7 @@ L48:
 	movl	%edi, %eax
 	movl	%edi, 4(%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -886,21 +1010,21 @@ L48:
 	movl	32(%esp), %edi
 	leal	8(%ebp), %eax
 	addl	$8, 8(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	leal	12(%ebp), %esi
 	movzbl	%bl, %ebx
 	movl	%eax, 4(%esp)
 	movl	%esi, (%esp)
-	jmp	L7
+	jmp	L17
 	.p2align 4,,10
-L47:
+L56:
 	movl	8(%esp), %ebp
 	movl	0(%ebp), %esi
 	movl	4(%esp), %ebp
 	movl	%esi, %eax
 	movl	%esi, 20(%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -922,7 +1046,7 @@ L47:
 	movl	%esi, 4(%esp)
 	movl	%ebp, %esi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -941,7 +1065,7 @@ L47:
 	movl	8(%esp), %ebp
 	movl	8(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -959,7 +1083,7 @@ L47:
 	setc	%cl
 	movl	%eax, (%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -978,21 +1102,21 @@ L47:
 	setc	%bl
 	addl	$16, %ebp
 	movl	%ebp, 8(%esp)
-	lock addl	$4, _statistics_info+4
+	lock addl	$4, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	addl	$20, %esi
 	movzbl	%bl, %ebx
 	movl	%eax, 4(%esp)
 	movl	%esi, (%esp)
-	jmp	L6
+	jmp	L16
 	.p2align 4,,10
-L46:
+L55:
 	movl	8(%esp), %ebp
 	movl	0(%ebp), %esi
 	movl	4(%esp), %ebp
 	movl	%esi, %eax
 	movl	%esi, 20(%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1014,7 +1138,7 @@ L46:
 	movl	%esi, 4(%esp)
 	movl	%ebp, %esi
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1033,7 +1157,7 @@ L46:
 	movl	8(%esp), %ebp
 	movl	8(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1050,7 +1174,7 @@ L46:
 	movl	%edx, 8(%esi)
 	movl	12(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1067,7 +1191,7 @@ L46:
 	setc	%cl
 	movl	16(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1084,7 +1208,7 @@ L46:
 	setc	%cl
 	movl	20(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1101,7 +1225,7 @@ L46:
 	setc	%cl
 	movl	24(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1119,7 +1243,7 @@ L46:
 	setc	%cl
 	movl	%eax, (%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1138,18 +1262,18 @@ L46:
 	setc	%bl
 	addl	$32, %ebp
 	movl	%ebp, 8(%esp)
-	lock addl	$8, _statistics_info+4
+	lock addl	$8, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	addl	$36, %esi
 	movzbl	%bl, %ebx
 	movl	%eax, 4(%esp)
 	movl	%esi, (%esp)
-	jmp	L5
+	jmp	L15
 	.p2align 4,,10
-L45:
+L54:
 	movl	8(%esp), %ebp
 	movl	0(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1168,7 +1292,7 @@ L45:
 	setc	%cl
 	movl	4(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1185,7 +1309,7 @@ L45:
 	setc	%cl
 	movl	8(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1202,7 +1326,7 @@ L45:
 	setc	%cl
 	movl	12(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1219,7 +1343,7 @@ L45:
 	setc	%cl
 	movl	16(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1236,7 +1360,7 @@ L45:
 	setc	%cl
 	movl	20(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1253,7 +1377,7 @@ L45:
 	setc	%cl
 	movl	24(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1270,7 +1394,7 @@ L45:
 	movl	%edx, 24(%edi)
 	movl	28(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1287,7 +1411,7 @@ L45:
 	setc	%cl
 	movl	32(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1304,7 +1428,7 @@ L45:
 	setc	%cl
 	movl	36(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1321,7 +1445,7 @@ L45:
 	setc	%cl
 	movl	40(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1338,7 +1462,7 @@ L45:
 	setc	%cl
 	movl	44(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1355,7 +1479,7 @@ L45:
 	setc	%cl
 	movl	48(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1372,7 +1496,7 @@ L45:
 	setc	%cl
 	movl	52(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1389,7 +1513,7 @@ L45:
 	movl	%edx, 52(%edi)
 	movl	56(%ebp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1407,7 +1531,7 @@ L45:
 	setc	%cl
 	movl	%eax, (%esp)
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull 68(%esp)
  # 0 "" 2
 /NO_APP
@@ -1427,23 +1551,23 @@ L45:
 	setc	%bl
 	addl	$64, %ebp
 	movl	%ebp, 8(%esp)
-	lock addl	$16, _statistics_info+4
+	lock addl	$16, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	addl	$68, %esi
 	movzbl	%bl, %ebx
 	movl	%eax, 4(%esp)
 	movl	%esi, (%esp)
-	jmp	L4
+	jmp	L14
 	.p2align 4,,10
-L14:
-	xorl	%ebx, %ebx
+L24:
 	xorl	%edi, %edi
-	jmp	L2
+	xorl	%ebx, %ebx
+	jmp	L12
 	.cfi_endproc
-LFE5543:
+LFE6211:
 	.p2align 4,,15
-	.def	_SubtructOneLineX;	.scl	3;	.type	32;	.endef
-_SubtructOneLineX:
-LFB5544:
+	.def	__ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPjjS3_jjj;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPjjS3_jjj:
+LFB6212:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1469,18 +1593,18 @@ LFB5544:
 	movl	%esi, 8(%esp)
 	shrl	$5, %eax
 	movl	%eax, 24(%esp)
-	je	L63
+	je	L72
 	movl	%eax, (%esp)
 	movl	%ecx, %ebx
 	movl	%esi, %ecx
 	xorl	%esi, %esi
 	movb	$0, 7(%esp)
 	.p2align 4,,10
-L52:
+L61:
 	movl	(%ebx), %edx
 	movl	$0, %eax
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ebp
  # 0 "" 2
 /NO_APP
@@ -1498,7 +1622,7 @@ L52:
 	setc	%al
 	movl	4(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1518,7 +1642,7 @@ L52:
 	setc	%al
 	movl	8(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1538,7 +1662,7 @@ L52:
 	movl	%edx, 8(%ecx)
 	movl	12(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1558,7 +1682,7 @@ L52:
 	setc	%al
 	movl	16(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1578,7 +1702,7 @@ L52:
 	setc	%al
 	movl	20(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1598,7 +1722,7 @@ L52:
 	setc	%al
 	movl	24(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1618,7 +1742,7 @@ L52:
 	setc	%al
 	movl	28(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1638,7 +1762,7 @@ L52:
 	setc	%al
 	movl	32(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1658,7 +1782,7 @@ L52:
 	setc	%al
 	movl	36(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1678,7 +1802,7 @@ L52:
 	setc	%al
 	movl	40(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1698,7 +1822,7 @@ L52:
 	setc	%al
 	movl	44(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1718,7 +1842,7 @@ L52:
 	setc	%al
 	movl	48(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1738,7 +1862,7 @@ L52:
 	movl	%edx, 48(%ecx)
 	movl	52(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1758,7 +1882,7 @@ L52:
 	setc	%al
 	movl	56(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1778,7 +1902,7 @@ L52:
 	setc	%al
 	movl	60(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1798,7 +1922,7 @@ L52:
 	movl	%edx, 60(%ecx)
 	movl	64(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1818,7 +1942,7 @@ L52:
 	setc	%al
 	movl	68(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1838,7 +1962,7 @@ L52:
 	setc	%al
 	movl	72(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1858,7 +1982,7 @@ L52:
 	setc	%al
 	movl	76(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1878,7 +2002,7 @@ L52:
 	setc	%al
 	movl	80(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1898,7 +2022,7 @@ L52:
 	setc	%al
 	movl	84(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1918,7 +2042,7 @@ L52:
 	setc	%al
 	movl	88(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1938,7 +2062,7 @@ L52:
 	setc	%al
 	movl	92(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1958,7 +2082,7 @@ L52:
 	setc	%al
 	movl	96(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1978,7 +2102,7 @@ L52:
 	setc	%al
 	movl	100(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -1998,7 +2122,7 @@ L52:
 	setc	%al
 	movl	104(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2018,7 +2142,7 @@ L52:
 	setc	%al
 	movl	108(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2038,7 +2162,7 @@ L52:
 	setc	%al
 	movl	112(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2058,7 +2182,7 @@ L52:
 	movl	%edx, 112(%ecx)
 	movl	116(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2078,7 +2202,7 @@ L52:
 	setc	%al
 	movl	120(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2098,7 +2222,7 @@ L52:
 	setc	%al
 	movl	124(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %esi, %edi
  # 0 "" 2
 /NO_APP
@@ -2122,33 +2246,33 @@ L52:
 	subl	$1, (%esp)
 	movl	(%esp), %eax
 	subl	$-128, %ebx
-	lock addl	$32, _statistics_info+4
+	lock addl	$32, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movb	%dl, 7(%esp)
 	testl	%eax, %eax
-	jne	L52
+	jne	L61
 	movl	24(%esp), %eax
 	sall	$7, %eax
 	addl	%eax, 8(%esp)
 	addl	%eax, 12(%esp)
 	movzbl	%dl, %eax
-L51:
+L60:
 	movl	8(%esp), %ebx
 	leal	4(%ebx), %ecx
 	testb	$16, 64(%esp)
-	jne	L93
-L53:
+	jne	L102
+L62:
 	testb	$8, 64(%esp)
-	jne	L94
-L54:
+	jne	L103
+L63:
 	testb	$4, 64(%esp)
-	jne	L95
-L55:
+	jne	L104
+L64:
 	testb	$2, 64(%esp)
-	jne	L96
-L56:
+	jne	L105
+L65:
 	testb	$1, 64(%esp)
-	jne	L97
-L57:
+	jne	L106
+L66:
 	movl	8(%esp), %ebx
 	addb	$-1, %al
 	movl	(%ebx), %edx
@@ -2160,16 +2284,16 @@ L57:
 	leal	4(%ebx,%esi,4), %ebx
 	subl	%ecx, %ebx
 	sarl	$2, %ebx
-	je	L58
+	je	L67
 	xorl	%esi, %esi
 	testb	%al, %al
-	jne	L59
-	jmp	L60
+	jne	L68
+	jmp	L69
 	.p2align 4,,10
-L90:
+L99:
 	testb	%al, %al
-	je	L60
-L59:
+	je	L69
+L68:
 	movl	(%ecx), %edx
 	addb	$-1, %al
 	sbbl	%esi, %edx
@@ -2177,8 +2301,8 @@ L59:
 	setc	%al
 	addl	$4, %ecx
 	subl	$1, %ebx
-	jne	L90
-L58:
+	jne	L99
+L67:
 	addl	$44, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -2197,7 +2321,7 @@ L58:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L60:
+L69:
 	.cfi_restore_state
 	addl	$44, %esp
 	.cfi_remember_state
@@ -2217,12 +2341,12 @@ L60:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L97:
+L106:
 	.cfi_restore_state
 	movl	12(%esp), %ebx
 	movl	(%ebx), %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ebx
  # 0 "" 2
 /NO_APP
@@ -2239,18 +2363,18 @@ L97:
 	movl	%edx, (%ebx)
 	movl	36(%esp), %esi
 	setc	%al
-	lock addl	$1, _statistics_info+4
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	%ecx, 8(%esp)
 	movzbl	%al, %eax
 	addl	$4, %ecx
-	jmp	L57
+	jmp	L66
 	.p2align 4,,10
-L96:
+L105:
 	movl	12(%esp), %ebx
 	movl	(%ebx), %edi
 	movl	%edi, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ebp
  # 0 "" 2
 /NO_APP
@@ -2274,7 +2398,7 @@ L96:
 	movl	%esi, (%esp)
 	movl	%esi, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %esi
  # 0 "" 2
 /NO_APP
@@ -2293,18 +2417,18 @@ L96:
 	movl	36(%esp), %esi
 	leal	8(%ebp), %edx
 	addl	$8, 12(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	leal	12(%ebp), %ecx
 	movzbl	%al, %eax
 	movl	%edx, 8(%esp)
-	jmp	L56
+	jmp	L65
 	.p2align 4,,10
-L95:
+L104:
 	movl	12(%esp), %ebx
 	movl	(%ebx), %edi
 	movl	%edi, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ebx
  # 0 "" 2
 /NO_APP
@@ -2327,7 +2451,7 @@ L95:
 	movl	4(%ebx), %eax
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ebx
  # 0 "" 2
 /NO_APP
@@ -2347,7 +2471,7 @@ L95:
 	movl	8(%esi), %eax
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2367,7 +2491,7 @@ L95:
 	movl	%eax, (%esp)
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2385,18 +2509,18 @@ L95:
 	movl	36(%esp), %esi
 	leal	16(%edi), %edx
 	addl	$16, 12(%esp)
-	lock addl	$4, _statistics_info+4
+	lock addl	$4, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	leal	20(%edi), %ecx
 	movzbl	%al, %eax
 	movl	%edx, 8(%esp)
-	jmp	L55
+	jmp	L64
 	.p2align 4,,10
-L94:
+L103:
 	movl	12(%esp), %edi
 	movl	(%edi), %ebx
 	movl	%ebx, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ebx
  # 0 "" 2
 /NO_APP
@@ -2419,7 +2543,7 @@ L94:
 	movl	4(%eax), %ebx
 	movl	%ebx, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ebx
  # 0 "" 2
 /NO_APP
@@ -2440,7 +2564,7 @@ L94:
 	movl	8(%eax), %ecx
 	movl	%ecx, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2459,7 +2583,7 @@ L94:
 	movl	12(%edi), %eax
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2477,7 +2601,7 @@ L94:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2495,7 +2619,7 @@ L94:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2513,7 +2637,7 @@ L94:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2532,7 +2656,7 @@ L94:
 	movl	%eax, (%esp)
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2552,18 +2676,18 @@ L94:
 	leal	32(%ebx), %edx
 	addl	$32, %edi
 	movl	%edi, 12(%esp)
-	lock addl	$8, _statistics_info+4
+	lock addl	$8, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	leal	36(%ebx), %ecx
 	movzbl	%al, %eax
 	movl	%edx, 8(%esp)
-	jmp	L54
+	jmp	L63
 	.p2align 4,,10
-L93:
+L102:
 	movl	12(%esp), %ebp
 	movl	0(%ebp), %ebx
 	movl	%ebx, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %edi, %ecx
  # 0 "" 2
 /NO_APP
@@ -2584,7 +2708,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2602,7 +2726,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2620,7 +2744,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2638,7 +2762,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2656,7 +2780,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2674,7 +2798,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2692,7 +2816,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2710,7 +2834,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2728,7 +2852,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2746,7 +2870,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2764,7 +2888,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2782,7 +2906,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2800,7 +2924,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2818,7 +2942,7 @@ L93:
 	setc	%bl
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2837,7 +2961,7 @@ L93:
 	movl	%eax, (%esp)
 	movl	%eax, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl 72(%esp), %eax, %ecx
  # 0 "" 2
 /NO_APP
@@ -2856,22 +2980,22 @@ L93:
 	leal	64(%edi), %edx
 	addl	$64, %ebp
 	movl	%ebp, 12(%esp)
-	lock addl	$16, _statistics_info+4
+	lock addl	$16, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	leal	68(%edi), %ecx
 	movzbl	%al, %eax
 	movl	%edx, 8(%esp)
-	jmp	L53
+	jmp	L62
 	.p2align 4,,10
-L63:
-	xorl	%eax, %eax
+L72:
 	xorl	%esi, %esi
-	jmp	L51
+	xorl	%eax, %eax
+	jmp	L60
 	.cfi_endproc
-LFE5544:
+LFE6212:
 	.p2align 4,,15
-	.def	_DivRem_X_X_using_ADX_MULX;	.scl	3;	.type	32;	.endef
-_DivRem_X_X_using_ADX_MULX:
-LFB5549:
+	.def	__ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPjjS3_jS3_S3_S3_;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPjjS3_jS3_S3_S3_:
+LFB6217:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2897,16 +3021,16 @@ LFB5549:
 	movl	168(%esp), %eax
 	addl	%ebx, %eax
 	testl	%edx, %edx
-	je	L124
+	je	L133
 	movl	$31, %ecx
 /APP
- # 660 "../pmc_inline_func.h" 1
+ # 462 "../pmc_inline_func.h" 1
 	bsrl %edx, %edx
  # 0 "" 2
 /NO_APP
 	subl	%edx, %ecx
 	movl	%ecx, %edx
-	jne	L125
+	jne	L134
 	movl	168(%esp), %edi
 	movl	144(%esp), %esi
 	movl	148(%esp), %ecx
@@ -2925,7 +3049,7 @@ LFB5549:
 /NO_APP
 	movl	$0, (%eax)
 	movl	$0, 88(%esp)
-L100:
+L109:
 	movl	148(%esp), %esi
 	movl	148(%esp), %eax
 	subl	156(%esp), %eax
@@ -2960,25 +3084,25 @@ L100:
 	movl	156(%esp), %eax
 	andl	$8, %eax
 	movl	%eax, 76(%esp)
-	jmp	L122
+	jmp	L131
 	.p2align 4,,10
-L111:
+L120:
 	movl	164(%esp), %edx
 	testl	%edx, %edx
-	je	L120
+	je	L129
 	movl	164(%esp), %eax
 	movl	36(%esp), %ebx
 	movl	%ebp, (%eax,%ebx,4)
-L120:
+L129:
 	movl	36(%esp), %ecx
 	subl	$4, 32(%esp)
 	movl	32(%esp), %eax
 	testl	%ecx, %ecx
-	je	L121
+	je	L130
 	subl	$1, %ecx
 	movl	(%eax), %ebx
 	movl	%ecx, 36(%esp)
-L122:
+L131:
 	movl	32(%esp), %eax
 	movl	$-1, %ebp
 	movl	-4(%eax), %edi
@@ -2991,20 +3115,20 @@ L122:
 	movl	(%eax), %eax
 	movl	%eax, %esi
 	cmpl	%ebx, %ecx
-	je	L101
+	je	L110
 	movl	%edi, %eax
 	movl	%ebx, %edx
 /APP
- # 405 "../pmc_inline_func.h" 1
+ # 274 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, %ebp
-	lock addl	$1, _statistics_info+12
-L101:
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+L110:
 	movl	%esi, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl %ebp, %edi, %eax
  # 0 "" 2
 /NO_APP
@@ -3012,7 +3136,7 @@ L101:
 	movl	%eax, 44(%esp)
 	movl	%edi, 52(%esp)
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl %ecx, %edi, %eax
  # 0 "" 2
 /NO_APP
@@ -3025,22 +3149,22 @@ L101:
 	movl	%ebx, %edi
 	sbbl	%eax, %edi
 	movl	%edi, 104(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	104(%esp), %edi
 	testl	%edi, %edi
-	jne	L103
+	jne	L112
 	movl	44(%esp), %eax
 	cmpl	108(%esp), %eax
-	ja	L105
-	jb	L103
+	ja	L114
+	jb	L112
 	movl	52(%esp), %edi
 	cmpl	%edi, 48(%esp)
-	jnb	L103
-L105:
+	jnb	L112
+L114:
 	leal	-1(%ebp), %eax
 	movl	%esi, %edx
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl %eax, %edi, %esi
  # 0 "" 2
 /NO_APP
@@ -3049,7 +3173,7 @@ L105:
 	movl	%eax, %edx
 	movl	%edi, 52(%esp)
 /APP
- # 362 "../pmc_inline_func.h" 1
+ # 240 "../pmc_inline_func.h" 1
 	mulxl %ecx, %ecx, %edi
  # 0 "" 2
 /NO_APP
@@ -3059,20 +3183,20 @@ L105:
 	addb	$-1, %dl
 	sbbl	%edi, %ebx
 	movl	%ebx, 104(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	104(%esp), %esi
 	testl	%esi, %esi
-	jne	L127
+	jne	L136
 	movl	44(%esp), %esi
 	cmpl	108(%esp), %esi
-	ja	L109
-	jb	L127
+	ja	L118
+	jb	L136
 	movl	52(%esp), %edi
 	cmpl	%edi, 48(%esp)
-	jnb	L127
-L109:
+	jnb	L136
+L118:
 	subl	$2, %ebp
-L103:
+L112:
 	movl	36(%esp), %eax
 	movl	%ebp, 8(%esp)
 	movl	160(%esp), %ecx
@@ -3081,9 +3205,9 @@ L103:
 	movl	156(%esp), %eax
 	movl	%eax, (%esp)
 	movl	168(%esp), %eax
-	call	_SubtructOneLineX
+	call	__ZN8Palmtree4Math4Core8InternalL16SubtructOneLineXEPjjS3_jjj
 	testl	%eax, %eax
-	je	L111
+	je	L120
 	movl	36(%esp), %eax
 	movl	168(%esp), %esi
 	subl	$1, %ebp
@@ -3092,18 +3216,18 @@ L103:
 	movl	%eax, 44(%esp)
 	addl	%eax, %esi
 	testl	%ebx, %ebx
-	je	L128
+	je	L137
 	movl	%ebp, 48(%esp)
 	movl	160(%esp), %edi
 	xorl	%eax, %eax
 	movl	%ebx, 40(%esp)
 	.p2align 4,,10
-L113:
+L122:
 	movl	%esi, %edx
 	movl	%edi, %ebx
 	movl	%esi, %ebp
 /APP
- # 1341 "../autogenerated_inline_func.h" 1
+ # 432 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcxl	(%ebx), %ecx
@@ -3207,28 +3331,28 @@ L113:
 	subl	$-128, %esi
 	subl	$-128, %edi
 	subl	$1, 40(%esp)
-	jne	L113
+	jne	L122
 	movl	80(%esp), %ebx
 	movl	48(%esp), %ebp
 	movl	44(%esp), %esi
 	addl	84(%esp), %esi
 	movl	%ebx, 40(%esp)
-L112:
+L121:
 	movl	72(%esp), %ebx
 	testl	%ebx, %ebx
-	jne	L162
-L114:
+	jne	L171
+L123:
 	movl	76(%esp), %ecx
 	testl	%ecx, %ecx
-	jne	L163
-L115:
+	jne	L172
+L124:
 	testb	$4, 156(%esp)
-	je	L116
+	je	L125
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 4165 "../autogenerated_inline_func.h" 1
+ # 2040 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcxl	(%ebx), %ecx
@@ -3247,14 +3371,14 @@ L115:
 /NO_APP
 	addl	$16, 40(%esp)
 	addl	$16, %esi
-L116:
+L125:
 	testb	$2, 156(%esp)
-	je	L117
+	je	L126
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 4549 "../autogenerated_inline_func.h" 1
+ # 2246 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcxl	(%ebx), %ecx
@@ -3267,9 +3391,9 @@ L116:
 /NO_APP
 	addl	$8, 40(%esp)
 	addl	$8, %esi
-L117:
+L126:
 	testb	$1, 156(%esp)
-	je	L118
+	je	L127
 	movl	40(%esp), %ecx
 	addb	$-1, %al
 	movl	(%ecx), %edx
@@ -3278,16 +3402,16 @@ L117:
 	movl	%eax, (%esi)
 	setc	%al
 	addl	$4, %esi
-L118:
+L127:
 	movl	68(%esp), %ecx
 	subl	%esi, %ecx
 	sarl	$2, %ecx
-	je	L111
+	je	L120
 	testb	%al, %al
-	je	L111
+	je	L120
 	xorl	%ebx, %ebx
 	.p2align 4,,10
-L119:
+L128:
 	movl	(%esi), %edx
 	addb	$-1, %al
 	adcl	%ebx, %edx
@@ -3297,17 +3421,17 @@ L119:
 	subl	$1, %ecx
 	setne	%dl
 	testb	%al, %dl
-	jne	L119
-	jmp	L111
+	jne	L128
+	jmp	L120
 	.p2align 4,,10
-L127:
+L136:
 	movl	%eax, %ebp
-	jmp	L103
+	jmp	L112
 	.p2align 4,,10
-L121:
+L130:
 	movl	88(%esp), %eax
 	testl	%eax, %eax
-	jne	L164
+	jne	L173
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -3325,13 +3449,13 @@ L121:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L163:
+L172:
 	.cfi_restore_state
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 3629 "../autogenerated_inline_func.h" 1
+ # 1744 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcxl	(%ebx), %ecx
@@ -3362,14 +3486,14 @@ L163:
 /NO_APP
 	addl	$32, %esi
 	addl	$32, 40(%esp)
-	jmp	L115
+	jmp	L124
 	.p2align 4,,10
-L162:
+L171:
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 2789 "../autogenerated_inline_func.h" 1
+ # 1268 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcxl	(%ebx), %ecx
@@ -3424,15 +3548,15 @@ L162:
 /NO_APP
 	addl	$64, %esi
 	addl	$64, 40(%esp)
-	jmp	L114
+	jmp	L123
 	.p2align 4,,10
-L128:
+L137:
 	movl	160(%esp), %eax
 	movl	%eax, 40(%esp)
 	xorl	%eax, %eax
-	jmp	L112
+	jmp	L121
 	.p2align 4,,10
-L164:
+L173:
 	movl	168(%esp), %eax
 	movl	$0, 16(%esp)
 	movl	%eax, 12(%esp)
@@ -3442,7 +3566,7 @@ L164:
 	movl	%eax, 4(%esp)
 	movl	168(%esp), %eax
 	movl	%eax, (%esp)
-	call	_RightShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPjjjS3_i
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -3460,10 +3584,10 @@ L164:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L124:
+L133:
 	.cfi_restore_state
 	movl	$32, 88(%esp)
-L99:
+L108:
 	movl	%eax, 32(%esp)
 	movl	168(%esp), %eax
 	movl	88(%esp), %esi
@@ -3474,7 +3598,7 @@ L99:
 	movl	%eax, 4(%esp)
 	movl	144(%esp), %eax
 	movl	%eax, (%esp)
-	call	_LeftShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPjjjS3_i
 	movl	160(%esp), %eax
 	movl	%esi, 8(%esp)
 	movl	$0, 16(%esp)
@@ -3483,21 +3607,21 @@ L99:
 	movl	%eax, 4(%esp)
 	movl	152(%esp), %eax
 	movl	%eax, (%esp)
-	call	_LeftShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPjjjS3_i
 	movl	32(%esp), %eax
 	movl	(%eax), %eax
 	movl	%eax, %edx
-	jmp	L100
+	jmp	L109
 	.p2align 4,,10
-L125:
+L134:
 	movl	%ecx, 88(%esp)
-	jmp	L99
+	jmp	L108
 	.cfi_endproc
-LFE5549:
+LFE6217:
 	.p2align 4,,15
-	.def	_DivRem_X_X_using_ADC_MUL;	.scl	3;	.type	32;	.endef
-_DivRem_X_X_using_ADC_MUL:
-LFB5548:
+	.def	__ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPjjS3_jS3_S3_S3_;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPjjS3_jS3_S3_S3_:
+LFB6216:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -3523,16 +3647,16 @@ LFB5548:
 	movl	168(%esp), %eax
 	addl	%ebx, %eax
 	testl	%edx, %edx
-	je	L191
+	je	L200
 	movl	$31, %ecx
 /APP
- # 660 "../pmc_inline_func.h" 1
+ # 462 "../pmc_inline_func.h" 1
 	bsrl %edx, %edx
  # 0 "" 2
 /NO_APP
 	subl	%edx, %ecx
 	movl	%ecx, %edx
-	jne	L192
+	jne	L201
 	movl	168(%esp), %edi
 	movl	144(%esp), %esi
 	movl	148(%esp), %ecx
@@ -3551,7 +3675,7 @@ LFB5548:
 /NO_APP
 	movl	$0, (%eax)
 	movl	$0, 88(%esp)
-L167:
+L176:
 	movl	148(%esp), %ecx
 	movl	148(%esp), %eax
 	subl	156(%esp), %eax
@@ -3586,25 +3710,25 @@ L167:
 	movl	156(%esp), %eax
 	andl	$8, %eax
 	movl	%eax, 76(%esp)
-	jmp	L189
+	jmp	L198
 	.p2align 4,,10
-L178:
+L187:
 	movl	164(%esp), %edx
 	testl	%edx, %edx
-	je	L187
+	je	L196
 	movl	164(%esp), %eax
 	movl	36(%esp), %ebx
 	movl	%ebp, (%eax,%ebx,4)
-L187:
+L196:
 	movl	36(%esp), %edi
 	subl	$4, 32(%esp)
 	movl	32(%esp), %eax
 	testl	%edi, %edi
-	je	L188
+	je	L197
 	subl	$1, %edi
 	movl	(%eax), %ebx
 	movl	%edi, 36(%esp)
-L189:
+L198:
 	movl	32(%esp), %eax
 	movl	$-1, %ebp
 	movl	-4(%eax), %edi
@@ -3616,21 +3740,21 @@ L189:
 	movl	(%eax), %eax
 	movl	%eax, 40(%esp)
 	cmpl	%ebx, %ecx
-	je	L168
+	je	L177
 	movl	%edi, %eax
 	movl	%ebx, %edx
 /APP
- # 405 "../pmc_inline_func.h" 1
+ # 274 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, %ebp
-	lock addl	$1, _statistics_info+12
-L168:
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+L177:
 	movl	%edi, %esi
 	movl	40(%esp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull %ebp
  # 0 "" 2
 /NO_APP
@@ -3638,7 +3762,7 @@ L168:
 	movl	%eax, 52(%esp)
 	movl	%ebp, %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull %ecx
  # 0 "" 2
 /NO_APP
@@ -3649,22 +3773,22 @@ L168:
 	movl	%ebx, %eax
 	sbbl	%edx, %eax
 	movl	%eax, 104(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	104(%esp), %eax
 	testl	%eax, %eax
-	jne	L170
+	jne	L179
 	movl	44(%esp), %edx
 	cmpl	108(%esp), %edx
-	ja	L172
-	jb	L170
+	ja	L181
+	jb	L179
 	movl	52(%esp), %esi
 	cmpl	%esi, 48(%esp)
-	jnb	L170
-L172:
+	jnb	L179
+L181:
 	leal	-1(%ebp), %esi
 	movl	40(%esp), %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull %esi
  # 0 "" 2
 /NO_APP
@@ -3672,7 +3796,7 @@ L172:
 	movl	%eax, 44(%esp)
 	movl	%esi, %eax
 /APP
- # 316 "../pmc_inline_func.h" 1
+ # 215 "../pmc_inline_func.h" 1
 	mull %ecx
  # 0 "" 2
 /NO_APP
@@ -3682,20 +3806,20 @@ L172:
 	addb	$-1, %cl
 	sbbl	%edx, %ebx
 	movl	%ebx, 104(%esp)
-	lock addl	$2, _statistics_info+4
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+4
 	movl	104(%esp), %edi
 	testl	%edi, %edi
-	jne	L194
+	jne	L203
 	movl	40(%esp), %eax
 	cmpl	108(%esp), %eax
-	ja	L176
-	jb	L194
+	ja	L185
+	jb	L203
 	movl	44(%esp), %ebx
 	cmpl	%ebx, 48(%esp)
-	jnb	L194
-L176:
+	jnb	L203
+L185:
 	subl	$2, %ebp
-L170:
+L179:
 	movl	36(%esp), %eax
 	movl	%ebp, 8(%esp)
 	movl	160(%esp), %ecx
@@ -3704,9 +3828,9 @@ L170:
 	movl	156(%esp), %eax
 	movl	%eax, (%esp)
 	movl	168(%esp), %eax
-	call	_SubtructOneLine
+	call	__ZN8Palmtree4Math4Core8InternalL15SubtructOneLineEPjjS3_jjj
 	testl	%eax, %eax
-	je	L178
+	je	L187
 	movl	36(%esp), %eax
 	movl	168(%esp), %esi
 	subl	$1, %ebp
@@ -3715,18 +3839,18 @@ L170:
 	movl	%eax, 44(%esp)
 	addl	%eax, %esi
 	testl	%ecx, %ecx
-	je	L195
+	je	L204
 	movl	%ebp, 48(%esp)
 	movl	160(%esp), %edi
 	xorl	%eax, %eax
 	movl	%ecx, 40(%esp)
 	.p2align 4,,10
-L180:
+L189:
 	movl	%esi, %edx
 	movl	%edi, %ebx
 	movl	%esi, %ebp
 /APP
- # 1088 "../autogenerated_inline_func.h" 1
+ # 179 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcl	(%ebx), %ecx
@@ -3830,28 +3954,28 @@ L180:
 	subl	$-128, %esi
 	subl	$-128, %edi
 	subl	$1, 40(%esp)
-	jne	L180
+	jne	L189
 	movl	80(%esp), %edi
 	movl	48(%esp), %ebp
 	movl	44(%esp), %esi
 	addl	84(%esp), %esi
 	movl	%edi, 40(%esp)
-L179:
+L188:
 	movl	72(%esp), %ebx
 	testl	%ebx, %ebx
-	jne	L229
-L181:
+	jne	L238
+L190:
 	movl	76(%esp), %ecx
 	testl	%ecx, %ecx
-	jne	L230
-L182:
+	jne	L239
+L191:
 	testb	$4, 156(%esp)
-	je	L183
+	je	L192
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 4108 "../autogenerated_inline_func.h" 1
+ # 1983 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcl	(%ebx), %ecx
@@ -3870,14 +3994,14 @@ L182:
 /NO_APP
 	addl	$16, 40(%esp)
 	addl	$16, %esi
-L183:
+L192:
 	testb	$2, 156(%esp)
-	je	L184
+	je	L193
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 4506 "../autogenerated_inline_func.h" 1
+ # 2203 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcl	(%ebx), %ecx
@@ -3890,9 +4014,9 @@ L183:
 /NO_APP
 	addl	$8, 40(%esp)
 	addl	$8, %esi
-L184:
+L193:
 	testb	$1, 156(%esp)
-	je	L185
+	je	L194
 	movl	40(%esp), %ecx
 	addb	$-1, %al
 	movl	(%ecx), %edx
@@ -3901,16 +4025,16 @@ L184:
 	movl	%eax, (%esi)
 	setc	%al
 	addl	$4, %esi
-L185:
+L194:
 	movl	68(%esp), %ecx
 	subl	%esi, %ecx
 	sarl	$2, %ecx
-	je	L178
+	je	L187
 	testb	%al, %al
-	je	L178
+	je	L187
 	xorl	%ebx, %ebx
 	.p2align 4,,10
-L186:
+L195:
 	movl	(%esi), %edx
 	addb	$-1, %al
 	adcl	%ebx, %edx
@@ -3920,17 +4044,17 @@ L186:
 	subl	$1, %ecx
 	setne	%dl
 	testb	%al, %dl
-	jne	L186
-	jmp	L178
+	jne	L195
+	jmp	L187
 	.p2align 4,,10
-L194:
+L203:
 	movl	%esi, %ebp
-	jmp	L170
+	jmp	L179
 	.p2align 4,,10
-L188:
+L197:
 	movl	88(%esp), %eax
 	testl	%eax, %eax
-	jne	L231
+	jne	L240
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -3948,13 +4072,13 @@ L188:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L230:
+L239:
 	.cfi_restore_state
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 3544 "../autogenerated_inline_func.h" 1
+ # 1659 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcl	(%ebx), %ecx
@@ -3985,14 +4109,14 @@ L230:
 /NO_APP
 	addl	$32, %esi
 	addl	$32, 40(%esp)
-	jmp	L182
+	jmp	L191
 	.p2align 4,,10
-L229:
+L238:
 	movl	%esi, %edx
 	movl	40(%esp), %ebx
 	movl	%esi, %edi
 /APP
- # 2648 "../autogenerated_inline_func.h" 1
+ # 1127 "../autogenerated_inline_func.h" 1
 	addb	$-1, %al
 	movl	(%edx), %ecx
 	adcl	(%ebx), %ecx
@@ -4047,15 +4171,15 @@ L229:
 /NO_APP
 	addl	$64, %esi
 	addl	$64, 40(%esp)
-	jmp	L181
+	jmp	L190
 	.p2align 4,,10
-L195:
+L204:
 	movl	160(%esp), %eax
 	movl	%eax, 40(%esp)
 	xorl	%eax, %eax
-	jmp	L179
+	jmp	L188
 	.p2align 4,,10
-L231:
+L240:
 	movl	168(%esp), %eax
 	movl	$0, 16(%esp)
 	movl	%eax, 12(%esp)
@@ -4065,7 +4189,7 @@ L231:
 	movl	%eax, 4(%esp)
 	movl	168(%esp), %eax
 	movl	%eax, (%esp)
-	call	_RightShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPjjjS3_i
 	addl	$124, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -4083,10 +4207,10 @@ L231:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L191:
+L200:
 	.cfi_restore_state
 	movl	$32, 88(%esp)
-L166:
+L175:
 	movl	%eax, 32(%esp)
 	movl	168(%esp), %eax
 	movl	88(%esp), %edi
@@ -4097,7 +4221,7 @@ L166:
 	movl	%eax, 4(%esp)
 	movl	144(%esp), %eax
 	movl	%eax, (%esp)
-	call	_LeftShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPjjjS3_i
 	movl	160(%esp), %eax
 	movl	%edi, 8(%esp)
 	movl	$0, 16(%esp)
@@ -4106,22 +4230,22 @@ L166:
 	movl	%eax, 4(%esp)
 	movl	152(%esp), %eax
 	movl	%eax, (%esp)
-	call	_LeftShift_Imp_DIV
+	call	__ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPjjjS3_i
 	movl	32(%esp), %eax
 	movl	(%eax), %eax
 	movl	%eax, %edx
-	jmp	L167
+	jmp	L176
 	.p2align 4,,10
-L192:
+L201:
 	movl	%ecx, 88(%esp)
-	jmp	L166
+	jmp	L175
 	.cfi_endproc
-LFE5548:
+LFE6216:
 	.p2align 4,,15
-	.globl	_Rem_X_1W
-	.def	_Rem_X_1W;	.scl	2;	.type	32;	.endef
-_Rem_X_1W:
-LFB5533:
+	.globl	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
+	.def	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj:
+LFB6201:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4144,226 +4268,226 @@ LFB5533:
 	addl	24(%esp), %edi
 	shrl	$5, %esi
 	movl	%esi, (%esp)
-	je	L240
+	je	L249
 	movl	%edi, %ebx
 	xorl	%edx, %edx
 	.p2align 4,,10
-L234:
+L243:
 	movl	(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-4(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-8(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-12(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-16(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-20(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-24(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-28(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-32(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-36(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-40(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-44(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-48(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-52(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-56(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-60(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-64(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-68(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-72(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-76(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-80(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-84(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-88(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-92(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-96(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-100(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-104(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-108(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-112(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-116(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-120(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	-124(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	addl	$-128, %ebx
 	subl	$1, %esi
-	lock addl	$32, _statistics_info+12
+	lock addl	$32, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%esi, %esi
-	jne	L234
+	jne	L243
 	movl	(%esp), %eax
 	sall	$7, %eax
 	subl	%eax, %edi
-L233:
+L242:
 	testl	$16, %ebp
-	jne	L258
+	jne	L267
 	testl	$8, %ebp
-	jne	L259
-L236:
+	jne	L268
+L245:
 	testl	$4, %ebp
-	jne	L260
-L237:
+	jne	L269
+L246:
 	testl	$2, %ebp
-	jne	L261
-L238:
+	jne	L270
+L247:
 	andl	$1, %ebp
-	jne	L262
-L232:
+	jne	L271
+L241:
 	addl	$4, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -4382,215 +4506,215 @@ L232:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L258:
+L267:
 	.cfi_restore_state
 	movl	(%edi), %eax
 	subl	$64, %edi
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	60(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	56(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	52(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	48(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	44(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	40(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	36(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	32(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	28(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	24(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	20(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	16(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	12(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	8(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	4(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
-	lock addl	$16, _statistics_info+12
+	lock addl	$16, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	$8, %ebp
-	je	L236
-L259:
+	je	L245
+L268:
 	movl	(%edi), %eax
 	subl	$32, %edi
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	28(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	24(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	20(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	16(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	12(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	8(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	4(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
-	lock addl	$8, _statistics_info+12
+	lock addl	$8, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	$4, %ebp
-	je	L237
-L260:
+	je	L246
+L269:
 	movl	(%edi), %eax
 	subl	$16, %edi
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	12(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	8(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	4(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
-	lock addl	$4, _statistics_info+12
+	lock addl	$4, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	$2, %ebp
-	je	L238
-L261:
+	je	L247
+L270:
 	movl	(%edi), %eax
 	subl	$8, %edi
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	4(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
-	lock addl	$2, _statistics_info+12
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	andl	$1, %ebp
-	je	L232
-L262:
+	je	L241
+L271:
 	movl	(%edi), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
-	lock addl	$1, _statistics_info+12
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	addl	$4, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
@@ -4609,17 +4733,17 @@ L262:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L240:
+L249:
 	.cfi_restore_state
 	xorl	%edx, %edx
-	jmp	L233
+	jmp	L242
 	.cfi_endproc
-LFE5533:
+LFE6201:
 	.p2align 4,,15
-	.globl	_DivRem_X_1W
-	.def	_DivRem_X_1W;	.scl	2;	.type	32;	.endef
-_DivRem_X_1W:
-LFB5534:
+	.globl	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
+	.def	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_:
+LFB6202:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -4645,232 +4769,232 @@ LFB5534:
 	shrl	$5, %edi
 	movl	%eax, (%esp)
 	movl	%edi, 4(%esp)
-	je	L271
+	je	L280
 	movl	%eax, %esi
 	movl	%ebp, %ebx
 	xorl	%edx, %edx
 	.p2align 4,,10
-L265:
+L274:
 	movl	(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, (%esi)
 	movl	-4(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -4(%esi)
 	movl	-8(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -8(%esi)
 	movl	-12(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -12(%esi)
 	movl	-16(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -16(%esi)
 	movl	-20(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -20(%esi)
 	movl	-24(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -24(%esi)
 	movl	-28(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -28(%esi)
 	movl	-32(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -32(%esi)
 	movl	-36(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -36(%esi)
 	movl	-40(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -40(%esi)
 	movl	-44(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -44(%esi)
 	movl	-48(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -48(%esi)
 	movl	-52(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -52(%esi)
 	movl	-56(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -56(%esi)
 	movl	-60(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -60(%esi)
 	movl	-64(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -64(%esi)
 	movl	-68(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -68(%esi)
 	movl	-72(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -72(%esi)
 	movl	-76(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -76(%esi)
 	movl	-80(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -80(%esi)
 	movl	-84(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -84(%esi)
 	movl	-88(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -88(%esi)
 	movl	-92(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -92(%esi)
 	movl	-96(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -96(%esi)
 	movl	-100(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -100(%esi)
 	movl	-104(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -104(%esi)
 	movl	-108(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -108(%esi)
 	movl	-112(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -112(%esi)
 	movl	-116(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -116(%esi)
 	movl	-120(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, -120(%esi)
 	movl	-124(%ebx), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
@@ -4878,29 +5002,29 @@ L265:
 	movl	%eax, -124(%esi)
 	subl	$1, %edi
 	addl	$-128, %esi
-	lock addl	$32, _statistics_info+12
+	lock addl	$32, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%edi, %edi
-	jne	L265
+	jne	L274
 	movl	4(%esp), %eax
 	sall	$7, %eax
 	negl	%eax
 	addl	%eax, (%esp)
 	addl	%eax, %ebp
-L264:
+L273:
 	testb	$16, 32(%esp)
-	jne	L289
+	jne	L298
 	testb	$8, 32(%esp)
-	jne	L290
-L267:
+	jne	L299
+L276:
 	testb	$4, 32(%esp)
-	jne	L291
-L268:
+	jne	L300
+L277:
 	testb	$2, 32(%esp)
-	jne	L292
-L269:
+	jne	L301
+L278:
 	testb	$1, 32(%esp)
-	jne	L293
-L270:
+	jne	L302
+L279:
 	movl	44(%esp), %eax
 	movl	%edx, (%eax)
 	addl	$8, %esp
@@ -4920,13 +5044,13 @@ L270:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L289:
+L298:
 	.cfi_restore_state
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$64, %ebp
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
@@ -4934,119 +5058,119 @@ L289:
 	movl	%eax, 64(%edi)
 	movl	60(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 60(%edi)
 	movl	56(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 56(%edi)
 	movl	52(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 52(%edi)
 	movl	48(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 48(%edi)
 	movl	44(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 44(%edi)
 	movl	40(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 40(%edi)
 	movl	36(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 36(%edi)
 	movl	32(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 32(%edi)
 	movl	28(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 28(%edi)
 	movl	24(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 24(%edi)
 	movl	20(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 20(%edi)
 	movl	16(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 16(%edi)
 	movl	12(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 12(%edi)
 	movl	8(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 8(%edi)
 	movl	4(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 4(%edi)
 	movl	%edi, (%esp)
-	lock addl	$16, _statistics_info+12
+	lock addl	$16, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testb	$8, 32(%esp)
-	je	L267
-L290:
+	je	L276
+L299:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$32, %ebp
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
@@ -5054,63 +5178,63 @@ L290:
 	movl	%eax, 32(%edi)
 	movl	28(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 28(%edi)
 	movl	24(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 24(%edi)
 	movl	20(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 20(%edi)
 	movl	16(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 16(%edi)
 	movl	12(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 12(%edi)
 	movl	8(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 8(%edi)
 	movl	4(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 4(%edi)
 	movl	%edi, (%esp)
-	lock addl	$8, _statistics_info+12
+	lock addl	$8, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testb	$4, 32(%esp)
-	je	L268
-L291:
+	je	L277
+L300:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$16, %ebp
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
@@ -5118,35 +5242,35 @@ L291:
 	movl	%eax, 16(%edi)
 	movl	12(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 12(%edi)
 	movl	8(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 8(%edi)
 	movl	4(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 4(%edi)
 	movl	%edi, (%esp)
-	lock addl	$4, _statistics_info+12
+	lock addl	$4, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testb	$2, 32(%esp)
-	je	L269
-L292:
+	je	L278
+L301:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 	subl	$8, %ebp
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
@@ -5154,25 +5278,25 @@ L292:
 	movl	%eax, 8(%edi)
 	movl	4(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, 4(%edi)
 	movl	%edi, (%esp)
-	lock addl	$2, _statistics_info+12
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testb	$1, 32(%esp)
-	je	L270
-L293:
+	je	L279
+L302:
 	movl	(%esp), %edi
 	movl	0(%ebp), %eax
 /APP
- # 448 "../pmc_inline_func.h" 1
+ # 305 "../pmc_inline_func.h" 1
 	divl %ecx
  # 0 "" 2
 /NO_APP
 	movl	%eax, (%edi)
-	lock addl	$1, _statistics_info+12
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	movl	44(%esp), %eax
 	movl	%edx, (%eax)
 	addl	$8, %esp
@@ -5192,17 +5316,17 @@ L293:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L271:
+L280:
 	.cfi_restore_state
 	xorl	%edx, %edx
-	jmp	L264
+	jmp	L273
 	.cfi_endproc
-LFE5534:
+LFE6202:
 	.p2align 4,,15
-	.globl	_DivRem_X_X
-	.def	_DivRem_X_X;	.scl	2;	.type	32;	.endef
-_DivRem_X_X:
-LFB5532:
+	.globl	__ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPjjS3_jS3_S3_S3_
+	.def	__ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPjjS3_jS3_S3_S3_;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal10DivRem_X_XEPjjS3_jS3_S3_S3_:
+LFB6200:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -5216,13 +5340,13 @@ LFB5532:
 	movl	68(%esp), %ecx
 	movl	84(%esp), %esi
 	cmpl	$1, %eax
-	je	L309
+	je	L318
 	cmpl	%eax, %ecx
-	jnb	L300
+	jnb	L309
 	testl	%esi, %esi
-	je	L301
+	je	L310
 	movl	$0, (%esi)
-L301:
+L310:
 	movl	88(%esp), %edi
 	movl	64(%esp), %esi
 /APP
@@ -5241,7 +5365,7 @@ L301:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L300:
+L309:
 	.cfi_restore_state
 	movl	88(%esp), %edx
 	movl	%eax, 12(%esp)
@@ -5254,8 +5378,8 @@ L300:
 	movl	%edx, 16(%esp)
 	movl	%ecx, 4(%esp)
 	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-L294:
+	call	*__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+L303:
 	addl	$52, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 12
@@ -5267,14 +5391,14 @@ L294:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L309:
+L318:
 	.cfi_restore_state
 	movl	72(%esp), %eax
 	movl	(%eax), %edi
 	cmpl	$1, %ecx
-	je	L310
+	je	L319
 	testl	%esi, %esi
-	je	L299
+	je	L308
 	leal	44(%esp), %eax
 	movl	%esi, 12(%esp)
 	movl	%eax, 16(%esp)
@@ -5282,7 +5406,7 @@ L309:
 	movl	%edi, 8(%esp)
 	movl	%eax, (%esp)
 	movl	%ecx, 4(%esp)
-	call	_DivRem_X_1W
+	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
 	movl	88(%esp), %edi
 	movl	44(%esp), %eax
 	movl	%eax, (%edi)
@@ -5297,33 +5421,33 @@ L309:
 	.cfi_def_cfa_offset 4
 	ret
 	.p2align 4,,10
-L299:
+L308:
 	.cfi_restore_state
 	movl	64(%esp), %eax
 	movl	%edi, 8(%esp)
 	movl	%ecx, 4(%esp)
 	movl	%eax, (%esp)
-	call	_Rem_X_1W
+	call	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
 	movl	88(%esp), %edi
 	movl	%eax, (%edi)
-	jmp	L294
+	jmp	L303
 	.p2align 4,,10
-L310:
+L319:
 	movl	64(%esp), %eax
 	xorl	%edx, %edx
 	movl	(%eax), %eax
 /APP
- # 405 "../pmc_inline_func.h" 1
+ # 274 "../pmc_inline_func.h" 1
 	divl %edi
  # 0 "" 2
 /NO_APP
 	testl	%esi, %esi
-	je	L297
+	je	L306
 	movl	%eax, (%esi)
-L297:
+L306:
 	movl	88(%esp), %eax
 	movl	%edx, (%eax)
-	lock addl	$1, _statistics_info+12
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	addl	$52, %esp
 	.cfi_def_cfa_offset 12
 	popl	%esi
@@ -5334,572 +5458,185 @@ L297:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE5532:
+LFE6200:
+	.section .rdata,"dr"
+	.align 4
+LC0:
+	.ascii "\25_pek0n\0u\0l\0l\0p\0t\0r\0L0\16NH0\211"
+	.ascii "0\214"
+	.ascii "0f0D0~0Y0\2"
+	.ascii "0\0\0"
+	.align 2
+LC1:
+	.ascii "v\0\0\0"
+	.align 4
+LC2:
+	.ascii "0\0k0\210"
+	.ascii "0\213"
+	.ascii "0d\226\227{L0L\210\217"
+	.ascii "0\214"
+	.ascii "0\210"
+	.ascii "0F0h0W0~0W0_0\2"
+	.ascii "0\0\0"
+	.text
 	.p2align 4,,15
-	.globl	_PMC_DivRem_I_X@16
-	.def	_PMC_DivRem_I_X@16;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_I_X@16:
-LFB5550:
+	.globl	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj@12
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj@12;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj@12:
+LFB6218:
 	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
 	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$28, %esp
-	.cfi_def_cfa_offset 48
-	movl	52(%esp), %ebx
-	movl	48(%esp), %edi
-	movl	56(%esp), %ebp
-	movl	60(%esp), %esi
-	testl	%ebx, %ebx
-	je	L319
-	testl	%esi, %esi
-	je	L319
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ecx
-	testl	%eax, %eax
-	jne	L311
-	movzbl	(%ebx), %eax
-	testb	$1, %al
-	jne	L320
-	testl	%edi, %edi
-	jne	L313
-	testl	%ebp, %ebp
-	je	L314
-	movl	$0, 0(%ebp)
-L314:
-	movl	$0, (%esi)
-L311:
-	addl	$28, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ecx, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
 	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L313:
-	.cfi_restore_state
+	.cfi_offset 7, -8
+	pushl	%esi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 6, -12
+	pushl	%ebx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	subl	$16, %esp
+	.cfi_def_cfa_offset 32
+	movl	36(%esp), %ebx
+	movl	32(%esp), %esi
+	movl	40(%esp), %edi
+	testl	%ebx, %ebx
+	je	L340
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movzbl	4(%ebx), %eax
+	testb	$1, %al
+	jne	L341
+	testl	%esi, %esi
+	je	L342
 	testb	$2, %al
-	jne	L334
+	jne	L343
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %eax
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %esi, %eax
  # 0 "" 2
 /NO_APP
 	addl	$1, %eax
-	cmpl	16(%ebx), %eax
-	jnb	L316
-	testl	%ebp, %ebp
-	je	L317
-	movl	$0, 0(%ebp)
-L317:
-	movl	%edi, (%esi)
-	jmp	L311
-	.p2align 4,,10
-L334:
-	testl	%ebp, %ebp
-	je	L314
-	movl	%edi, 0(%ebp)
-	jmp	L314
-	.p2align 4,,10
-L316:
-	movl	36(%ebx), %ebx
-	movl	%edi, %eax
-	movl	%ecx, %edx
-/APP
- # 405 "../pmc_inline_func.h" 1
-	divl (%ebx)
- # 0 "" 2
-/NO_APP
-	testl	%ebp, %ebp
-	je	L318
-	movl	%eax, 0(%ebp)
-L318:
-	movl	%edx, (%esi)
-	lock addl	$1, _statistics_info+12
-	jmp	L311
-	.p2align 4,,10
-L319:
-	movl	$-1, %ecx
-	jmp	L311
-L320:
-	movl	$-3, %ecx
-	jmp	L311
-	.cfi_endproc
-LFE5550:
-	.p2align 4,,15
-	.globl	_PMC_DivRem_X_I@16
-	.def	_PMC_DivRem_X_I@16;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_X_I@16:
-LFB5551:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$60, %esp
-	.cfi_def_cfa_offset 80
-	movl	80(%esp), %ebx
-	movl	88(%esp), %edi
-	movl	92(%esp), %ebp
-	testl	%ebx, %ebx
-	je	L349
-	testl	%ebp, %ebp
-	je	L349
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L335
-	movl	84(%esp), %eax
-	testl	%eax, %eax
-	je	L350
-	testb	$1, (%ebx)
-	je	L337
-	testl	%edi, %edi
-	movl	$_number_zero, %eax
-	movl	$0, 0(%ebp)
-	cmove	%esi, %eax
-	movl	%eax, 36(%esp)
-L339:
-	testl	%edi, %edi
-	je	L335
-	movl	36(%esp), %eax
-L348:
-	movl	%eax, (%edi)
-L335:
-	addl	$60, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
+	cmpl	20(%ebx), %eax
+	jnb	L326
 	movl	%esi, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L337:
-	.cfi_restore_state
-	cmpl	$1, 84(%esp)
-	je	L361
-	movl	16(%ebx), %edx
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl 84(%esp), %eax
- # 0 "" 2
-/NO_APP
-	leal	1(%eax), %ecx
-	cmpl	%ecx, %edx
-	jb	L362
 	testl	%edi, %edi
-	je	L345
-	notl	%eax
-	leal	40(%esp), %ecx
-	leal	33(%edx,%eax), %eax
-	movl	%ecx, 8(%esp)
-	movl	%eax, 4(%esp)
-	leal	36(%esp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	je	L363
-L352:
-	movl	%eax, %esi
-	jmp	L335
-	.p2align 4,,10
-L362:
-	testl	%edi, %edi
-	movl	$_number_zero, %eax
-	cmove	%esi, %eax
-	movl	%eax, 36(%esp)
-	movl	36(%ebx), %eax
-	movl	(%eax), %eax
-	movl	%eax, 0(%ebp)
-	jmp	L339
-	.p2align 4,,10
-L361:
-	testl	%edi, %edi
-	je	L341
-	leal	36(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L352
-L342:
-	movl	$0, 0(%ebp)
-	jmp	L339
-	.p2align 4,,10
-L341:
-	movl	$0, 36(%esp)
-	jmp	L342
-	.p2align 4,,10
-L363:
-	leal	44(%esp), %eax
-	movl	$0, 44(%esp)
-	movl	%eax, 16(%esp)
-	movl	36(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, 12(%esp)
-	movl	84(%esp), %eax
-	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_DivRem_X_1W
-	movl	40(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	36(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L352
-	movl	36(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	44(%esp), %eax
-	movl	%eax, 0(%ebp)
-	movl	36(%esp), %eax
-	testb	$1, (%eax)
-	je	L348
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-	movl	%eax, (%edi)
-	jmp	L335
-	.p2align 4,,10
-L345:
-	movl	84(%esp), %eax
-	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_Rem_X_1W
-	movl	%eax, 0(%ebp)
-	jmp	L335
-	.p2align 4,,10
-L349:
-	movl	$-1, %esi
-	jmp	L335
-L350:
-	movl	$-3, %esi
-	jmp	L335
-	.cfi_endproc
-LFE5551:
-	.p2align 4,,15
-	.globl	_PMC_DivRem_L_X@20
-	.def	_PMC_DivRem_L_X@20;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_L_X@20:
-LFB5552:
-	.cfi_startproc
-	pushl	%ebp
-	.cfi_def_cfa_offset 8
-	.cfi_offset 5, -8
-	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
-	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	pushl	%ebx
-	.cfi_def_cfa_offset 20
-	.cfi_offset 3, -20
-	subl	$108, %esp
-	.cfi_def_cfa_offset 128
-	movl	136(%esp), %ebx
-	movl	128(%esp), %edi
-	movl	132(%esp), %ebp
-	movl	144(%esp), %esi
-	testl	%ebx, %ebx
-	je	L379
-	testl	%esi, %esi
-	je	L379
-	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ecx
-	testl	%eax, %eax
-	jne	L364
-	movzbl	(%ebx), %eax
-	testb	$1, %al
-	jne	L380
-	movl	%ebp, %edx
-	orl	%edi, %edx
-	jne	L366
-	movl	140(%esp), %eax
-	testl	%eax, %eax
-	je	L367
-	movl	140(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-L367:
-	movl	$0, (%esi)
-	movl	$0, 4(%esi)
-L364:
-	addl	$108, %esp
+	je	L320
+L338:
+	movl	$0, (%edi)
+L320:
+	addl	$16, %esp
 	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ecx, %eax
+	.cfi_def_cfa_offset 16
 	popl	%ebx
 	.cfi_restore 3
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 12
 	popl	%esi
 	.cfi_restore 6
-	.cfi_def_cfa_offset 12
+	.cfi_def_cfa_offset 8
 	popl	%edi
 	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
 	.cfi_def_cfa_offset 4
-	ret	$20
+	ret	$12
 	.p2align 4,,10
-L366:
+L343:
 	.cfi_restore_state
-	testb	$2, %al
-	jne	L400
-	movl	16(%ebx), %edx
-	testl	%ebp, %ebp
-	jne	L369
 	xorl	%eax, %eax
 	testl	%edi, %edi
-	je	L370
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %eax
- # 0 "" 2
-/NO_APP
-	addl	$1, %eax
-L370:
-	cmpl	%eax, %edx
-	jbe	L371
-	movl	140(%esp), %ebp
-	testl	%ebp, %ebp
-	je	L372
-	movl	140(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-L372:
-	movl	%edi, (%esi)
-	movl	$0, 4(%esi)
-	jmp	L364
+	je	L320
+	movl	%esi, (%edi)
+	addl	$16, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 12
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 8
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 4
+	ret	$12
 	.p2align 4,,10
-L400:
-	movl	140(%esp), %eax
-	testl	%eax, %eax
-	je	L367
-	movl	140(%esp), %eax
-	movl	%edi, (%eax)
-	movl	%ebp, 4(%eax)
-	jmp	L367
+L342:
+	.cfi_restore_state
+	xorl	%eax, %eax
+	testl	%edi, %edi
+	jne	L338
+	addl	$16, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 12
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 8
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 4
+	ret	$12
 	.p2align 4,,10
-L369:
-/APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %eax
- # 0 "" 2
-/NO_APP
-	addl	$33, %eax
-	cmpl	%edx, %eax
-	jnb	L374
-	movl	140(%esp), %ebx
-	testl	%ebx, %ebx
-	je	L375
-	movl	140(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-L375:
-	movl	%edi, (%esi)
-	movl	%ebp, 4(%esi)
-	jmp	L364
-	.p2align 4,,10
-L374:
-	movl	36(%ebx), %eax
-	cmpl	$32, %edx
-	ja	L376
-	movl	140(%esp), %edx
-	movl	%ecx, 40(%esp)
-	testl	%edx, %edx
-	je	L377
-	leal	64(%esp), %edx
-	movl	%edi, 72(%esp)
-	movl	%edx, 16(%esp)
-	leal	84(%esp), %edx
-	movl	%edx, 12(%esp)
-	movl	%ebp, 76(%esp)
-	movl	$0, 84(%esp)
-	movl	$0, 88(%esp)
-	movl	$0, 92(%esp)
-	movl	(%eax), %eax
-	movl	$2, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	72(%esp), %eax
-	movl	%eax, (%esp)
-	call	_DivRem_X_1W
-	movl	84(%esp), %eax
-	movl	140(%esp), %edi
-	movl	88(%esp), %edx
-	movl	40(%esp), %ecx
-	movl	%eax, (%edi)
-	movl	64(%esp), %eax
-	movl	%edx, 4(%edi)
-	movl	%eax, (%esi)
-	movl	$0, 4(%esi)
-	jmp	L364
-	.p2align 4,,10
-L371:
-	movl	%edi, %eax
-	movl	140(%esp), %edi
-	movl	36(%ebx), %ebx
+L326:
+	.cfi_restore_state
+	movl	%esi, %eax
+	movl	36(%ebx), %ecx
 	xorl	%edx, %edx
 /APP
- # 405 "../pmc_inline_func.h" 1
-	divl (%ebx)
+ # 274 "../pmc_inline_func.h" 1
+	divl (%ecx)
  # 0 "" 2
 /NO_APP
+	movl	%eax, %esi
+	movl	%edx, %eax
 	testl	%edi, %edi
-	je	L373
-	movl	140(%esp), %edi
-	movl	%eax, (%edi)
-	movl	$0, 4(%edi)
-L373:
-	movl	%edx, (%esi)
-	movl	$0, 4(%esi)
-	lock addl	$1, _statistics_info+12
-	jmp	L364
-	.p2align 4,,10
-L376:
-	movl	_fp_DivRem_X_X, %edx
-	movl	%ecx, 44(%esp)
-	movl	%edx, 40(%esp)
-	movl	12(%ebx), %edx
-	movl	140(%esp), %ebx
-	andl	$1073741823, %edx
-	testl	%ebx, %ebx
-	je	L378
-	leal	84(%esp), %ebx
-	movl	%eax, 8(%esp)
-	leal	56(%esp), %eax
-	movl	%ebx, 24(%esp)
-	leal	72(%esp), %ebx
-	movl	%ebx, 20(%esp)
-	leal	64(%esp), %ebx
-	movl	%edi, 56(%esp)
-	movl	%edx, 12(%esp)
-	movl	40(%esp), %edx
+	je	L327
+	movl	%esi, (%edi)
+L327:
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	addl	$16, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 16
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 12
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 8
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 4
+	ret	$12
+L340:
+	.cfi_restore_state
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC1, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	movl	%ebp, 60(%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	movl	$0, 80(%esp)
-	movl	$0, 84(%esp)
-	movl	$0, 88(%esp)
-	movl	$0, 92(%esp)
-	movl	$0, 64(%esp)
-	movl	$0, 68(%esp)
-	movl	%ebx, 16(%esp)
-	movl	$2, 4(%esp)
-	call	*%edx
-	movl	140(%esp), %edi
-	movl	72(%esp), %eax
-	movl	76(%esp), %edx
-	movl	%eax, (%edi)
-	movl	%edx, 4(%edi)
-L399:
-	movl	84(%esp), %eax
-	movl	88(%esp), %edx
-	movl	44(%esp), %ecx
-	movl	%eax, (%esi)
-	movl	%edx, 4(%esi)
-	jmp	L364
-	.p2align 4,,10
-L379:
-	movl	$-1, %ecx
-	jmp	L364
-L380:
-	movl	$-3, %ecx
-	jmp	L364
-L377:
-	movl	%edi, 84(%esp)
-	movl	%ebp, 88(%esp)
-	movl	(%eax), %eax
-	movl	$2, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	84(%esp), %eax
+	call	___cxa_throw
+L341:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-5, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	call	_Rem_X_1W
-	movl	$0, 4(%esi)
-	movl	40(%esp), %ecx
-	movl	%eax, (%esi)
-	jmp	L364
-L378:
-	leal	84(%esp), %ebx
-	movl	%eax, 8(%esp)
-	leal	64(%esp), %eax
-	movl	%ebx, 24(%esp)
-	leal	72(%esp), %ebx
-	movl	%eax, (%esp)
-	movl	40(%esp), %eax
-	movl	%edi, 64(%esp)
-	movl	%ebp, 68(%esp)
-	movl	$0, 84(%esp)
-	movl	$0, 88(%esp)
-	movl	$0, 92(%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	movl	$0, 20(%esp)
-	movl	%ebx, 16(%esp)
-	movl	%edx, 12(%esp)
-	movl	$2, 4(%esp)
-	call	*%eax
-	jmp	L399
+	call	___cxa_throw
 	.cfi_endproc
-LFE5552:
+LFE6218:
 	.p2align 4,,15
-	.globl	_PMC_DivRem_X_L@20
-	.def	_PMC_DivRem_X_L@20;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_X_L@20:
-LFB5553:
+	.globl	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy@16
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy@16;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy@16:
+LFB6221:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -5915,45 +5652,48 @@ LFB5553:
 	.cfi_offset 3, -20
 	subl	$92, %esp
 	.cfi_def_cfa_offset 112
-	movl	112(%esp), %ebx
+	movl	120(%esp), %ebx
+	movl	112(%esp), %esi
 	movl	116(%esp), %ebp
-	movl	120(%esp), %edi
+	movl	124(%esp), %edi
 	testl	%ebx, %ebx
-	je	L426
-	movl	128(%esp), %eax
-	testl	%eax, %eax
-	je	L426
+	je	L375
 	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L401
-	movl	%edi, %eax
-	orl	%ebp, %eax
-	je	L427
-	testb	$1, (%ebx)
-	je	L403
-	movl	124(%esp), %eax
-	testl	%eax, %eax
-	movl	$_number_zero, %eax
-	cmove	%esi, %eax
-	movl	%eax, 48(%esp)
-	movl	128(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-L405:
-	movl	124(%esp), %eax
-	testl	%eax, %eax
-	je	L401
-	movl	48(%esp), %eax
-L416:
-	movl	124(%esp), %edx
-	movl	%eax, (%edx)
-L401:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movzbl	4(%ebx), %eax
+	testb	$1, %al
+	jne	L376
+	movl	%ebp, %ecx
+	orl	%esi, %ecx
+	je	L374
+	testb	$2, %al
+	jne	L377
+	movl	20(%ebx), %eax
+	testl	%ebp, %ebp
+	jne	L350
+	xorl	%edx, %edx
+	testl	%esi, %esi
+	je	L351
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %esi, %edx
+ # 0 "" 2
+/NO_APP
+	addl	$1, %edx
+L351:
+	cmpl	%eax, %edx
+	jnb	L352
+	testl	%edi, %edi
+	je	L353
+	movl	$0, (%edi)
+	movl	$0, 4(%edi)
+L353:
+	movl	%esi, %eax
+	xorl	%edx, %edx
+L344:
 	addl	$92, %esp
 	.cfi_remember_state
 	.cfi_def_cfa_offset 20
-	movl	%esi, %eax
 	popl	%ebx
 	.cfi_restore 3
 	.cfi_def_cfa_offset 16
@@ -5966,774 +5706,2173 @@ L401:
 	popl	%ebp
 	.cfi_restore 5
 	.cfi_def_cfa_offset 4
-	ret	$20
+	ret	$16
+	.p2align 4,,10
+L377:
+	.cfi_restore_state
+	xorl	%eax, %eax
+	xorl	%edx, %edx
+	testl	%edi, %edi
+	je	L344
+	movl	%esi, (%edi)
+	movl	%ebp, 4(%edi)
+	addl	$92, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+	.p2align 4,,10
+L350:
+	.cfi_restore_state
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %ebp, %edx
+ # 0 "" 2
+/NO_APP
+	addl	$33, %edx
+	cmpl	%eax, %edx
+	jnb	L355
+	.p2align 4,,10
+L374:
+	testl	%edi, %edi
+	je	L362
+	movl	$0, (%edi)
+	movl	%esi, %eax
+	movl	%ebp, %edx
+	movl	$0, 4(%edi)
+	addl	$92, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+	.p2align 4,,10
+L355:
+	.cfi_restore_state
+	movl	36(%ebx), %edx
+	cmpl	$32, %eax
+	ja	L356
+	testl	%edi, %edi
+	je	L357
+	leal	48(%esp), %eax
+	movl	%esi, 56(%esp)
+	movl	%eax, 16(%esp)
+	leal	68(%esp), %eax
+	movl	%ebp, 60(%esp)
+	movl	$0, 68(%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	movl	%eax, 12(%esp)
+	movl	(%edx), %eax
+	movl	$2, 4(%esp)
+	movl	%eax, 8(%esp)
+	leal	56(%esp), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
+	movl	68(%esp), %eax
+	movl	72(%esp), %edx
+	movl	%eax, (%edi)
+	movl	48(%esp), %eax
+	movl	%edx, 4(%edi)
+	xorl	%edx, %edx
+	jmp	L344
+	.p2align 4,,10
+L352:
+	movl	36(%ebx), %ecx
+	xorl	%edx, %edx
+	movl	%esi, %eax
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl (%ecx)
+ # 0 "" 2
+/NO_APP
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	testl	%edi, %edi
+	je	L354
+	movl	%eax, (%edi)
+	movl	$0, 4(%edi)
+L354:
+	movl	%edx, %eax
+	xorl	%edx, %edx
+	jmp	L344
+	.p2align 4,,10
+L362:
+	addl	$92, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	movl	%esi, %eax
+	movl	%ebp, %edx
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$16
+	.p2align 4,,10
+L356:
+	.cfi_restore_state
+	movl	__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE, %eax
+	movl	16(%ebx), %ecx
+	testl	%edi, %edi
+	je	L358
+	leal	68(%esp), %ebx
+	movl	%edx, 8(%esp)
+	leal	40(%esp), %edx
+	movl	%ebx, 24(%esp)
+	leal	56(%esp), %ebx
+	movl	%ebx, 20(%esp)
+	leal	48(%esp), %ebx
+	movl	%edx, (%esp)
+	movl	%esi, 40(%esp)
+	movl	%ebp, 44(%esp)
+	movl	$0, 56(%esp)
+	movl	$0, 60(%esp)
+	movl	$0, 64(%esp)
+	movl	$0, 68(%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	movl	$0, 48(%esp)
+	movl	$0, 52(%esp)
+	movl	%ebx, 16(%esp)
+	movl	%ecx, 12(%esp)
+	movl	$2, 4(%esp)
+	call	*%eax
+	movl	56(%esp), %eax
+	movl	60(%esp), %edx
+	movl	%eax, (%edi)
+	movl	68(%esp), %eax
+	movl	%edx, 4(%edi)
+	movl	72(%esp), %edx
+	jmp	L344
+	.p2align 4,,10
+L357:
+	movl	%esi, 68(%esp)
+	movl	%ebp, 72(%esp)
+	movl	(%edx), %eax
+	movl	$2, 4(%esp)
+	movl	%eax, 8(%esp)
+	leal	68(%esp), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
+	xorl	%edx, %edx
+	jmp	L344
+	.p2align 4,,10
+L358:
+	leal	68(%esp), %ebx
+	movl	%edx, 8(%esp)
+	leal	48(%esp), %edx
+	movl	%ebx, 24(%esp)
+	leal	56(%esp), %ebx
+	movl	%edx, (%esp)
+	movl	%esi, 48(%esp)
+	movl	%ebp, 52(%esp)
+	movl	$0, 68(%esp)
+	movl	$0, 72(%esp)
+	movl	$0, 76(%esp)
+	movl	$0, 56(%esp)
+	movl	$0, 60(%esp)
+	movl	$0, 20(%esp)
+	movl	%ebx, 16(%esp)
+	movl	%ecx, 12(%esp)
+	movl	$2, 4(%esp)
+	call	*%eax
+	movl	68(%esp), %eax
+	movl	72(%esp), %edx
+	jmp	L344
+L376:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-5, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L375:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC1, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+	.cfi_endproc
+LFE6221:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE
+	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal17Initialize_DivRemEPNS2_23_tag_PROCESSOR_FEATURESE:
+LFB6226:
+	.cfi_startproc
+	movl	4(%esp), %eax
+	movl	$__ZN8Palmtree4Math4Core8InternalL24DivRem_X_X_using_ADC_MULEPjjS3_jS3_S3_S3_, %edx
+	movzbl	(%eax), %eax
+	andl	$10, %eax
+	cmpb	$10, %al
+	movl	$__ZN8Palmtree4Math4Core8InternalL25DivRem_X_X_using_ADX_MULXEPjjS3_jS3_S3_S3_, %eax
+	cmovne	%edx, %eax
+	movl	%eax, __ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+	xorl	%eax, %eax
+	ret
+	.cfi_endproc
+LFE6226:
+	.section	.text.unlikely,"x"
+LCOLDB3:
+	.text
+LHOTB3:
+	.p2align 4,,15
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_:
+LFB6219:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6219
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$92, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	testl	%edx, %edx
+	je	L401
+	movl	%eax, %edi
+	movl	%ecx, %ebx
+	testb	$1, 4(%eax)
+	jne	L402
+	movl	%edx, %esi
+	cmpl	$1, %edx
+	je	L403
+	movl	20(%eax), %eax
+/APP
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edx, %ecx
+ # 0 "" 2
+/NO_APP
+	leal	1(%ecx), %edx
+	movl	%ecx, -60(%ebp)
+	cmpl	%edx, %eax
+	jb	L404
+	movl	%eax, -64(%ebp)
+	testl	%ebx, %ebx
+	je	L388
+	leal	-40(%ebp), %ecx
+LEHB0:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE0:
+	movl	-60(%ebp), %edx
+	movl	-64(%ebp), %eax
+	leal	-40(%ebp), %ecx
+	notl	%edx
+	leal	33(%eax,%edx), %eax
+	movl	%eax, (%esp)
+LEHB1:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	subl	$4, %esp
+	leal	-44(%ebp), %edx
+	movl	%eax, (%ebx)
+	movl	%edx, 16(%esp)
+	movl	36(%eax), %eax
+	movl	%esi, 8(%esp)
+	movl	%eax, 12(%esp)
+	movl	16(%edi), %eax
+	movl	$0, -44(%ebp)
+	movl	%eax, 4(%esp)
+	movl	36(%edi), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
+	movl	(%ebx), %eax
+	leal	-40(%ebp), %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	subl	$4, %esp
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	leal	-40(%ebp), %ecx
+	testb	$1, 4(%eax)
+	movl	%eax, (%esp)
+	jne	L405
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L390:
+	movl	-44(%ebp), %esi
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	movl	%esi, %eax
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L402:
+	.cfi_restore_state
+	xorl	%esi, %esi
+	testl	%ecx, %ecx
+	je	L381
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ecx)
+L381:
+	leal	-12(%ebp), %esp
+	movl	%esi, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L404:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	L387
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+L387:
+	movl	36(%edi), %eax
+	movl	(%eax), %esi
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	movl	%esi, %eax
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L405:
+	.cfi_restore_state
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE1:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+	jmp	L390
 	.p2align 4,,10
 L403:
+	xorl	%esi, %esi
+	testl	%ecx, %ecx
+	je	L381
+	movl	%eax, (%esp)
+LEHB2:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%eax, (%ebx)
+	jmp	L381
+	.p2align 4,,10
+L388:
+	movl	%esi, 8(%esp)
+	movl	16(%edi), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%edi), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
+	movl	%eax, %esi
+	jmp	L381
+L401:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-5, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE2:
+L394:
+	movl	%eax, %ebx
+	jmp	L391
+	.def	___gxx_personality_v0;	.scl	2;	.type	32;	.endef
+	.section	.gcc_except_table,"w"
+LLSDA6219:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6219-LLSDACSB6219
+LLSDACSB6219:
+	.uleb128 LEHB0-LFB6219
+	.uleb128 LEHE0-LEHB0
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB1-LFB6219
+	.uleb128 LEHE1-LEHB1
+	.uleb128 L394-LFB6219
+	.uleb128 0
+	.uleb128 LEHB2-LFB6219
+	.uleb128 LEHE2-LEHB2
+	.uleb128 0
+	.uleb128 0
+LLSDACSE6219:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6219
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_.cold.0;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_.cold.0:
+L391:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB3:
+	call	__Unwind_Resume
+LEHE3:
+	.cfi_endproc
+LFE6219:
+	.section	.gcc_except_table,"w"
+LLSDAC6219:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6219-LLSDACSBC6219
+LLSDACSBC6219:
+	.uleb128 LEHB3-LCOLDB3
+	.uleb128 LEHE3-LEHB3
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6219:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE3:
+	.text
+LHOTE3:
+	.section .rdata,"dr"
+	.align 2
+LC4:
+	.ascii "u\0\0\0"
+	.section	.text.unlikely,"x"
+LCOLDB5:
+	.text
+LHOTB5:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12:
+LFB6220:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6220
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%esi
+	pushl	%ebx
+	subl	$48, %esp
+	.cfi_offset 6, -12
+	.cfi_offset 3, -16
+	movl	8(%ebp), %ebx
+	movl	16(%ebp), %esi
+	testl	%ebx, %ebx
+	je	L414
+	movl	%ebx, (%esp)
+LEHB4:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leal	-24(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE4:
+	testl	%esi, %esi
+	je	L408
+	movl	12(%ebp), %edx
+	leal	-28(%ebp), %ecx
+	movl	%ebx, %eax
+LEHB5:
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_
+	movl	%eax, %ebx
+	movl	-28(%ebp), %eax
+	leal	-24(%ebp), %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-28(%ebp), %eax
+	subl	$4, %esp
+	leal	-24(%ebp), %ecx
+	movl	%eax, (%esi)
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L409:
+	leal	-24(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-8(%ebp), %esp
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$12
+	.p2align 4,,10
+L408:
 	.cfi_restore_state
-	movl	%ebp, %eax
+	movl	12(%ebp), %edx
+	xorl	%ecx, %ecx
+	movl	%ebx, %eax
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREjPS4_
+LEHE5:
+	movl	%eax, %ebx
+	jmp	L409
+L414:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC4, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB6:
+	call	___cxa_throw
+LEHE6:
+L411:
+	movl	%eax, %ebx
+	jmp	L410
+	.section	.gcc_except_table,"w"
+LLSDA6220:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6220-LLSDACSB6220
+LLSDACSB6220:
+	.uleb128 LEHB4-LFB6220
+	.uleb128 LEHE4-LEHB4
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB5-LFB6220
+	.uleb128 LEHE5-LEHB5
+	.uleb128 L411-LFB6220
+	.uleb128 0
+	.uleb128 LEHB6-LFB6220
+	.uleb128 LEHE6-LEHB6
+	.uleb128 0
+	.uleb128 0
+LLSDACSE6220:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6220
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12.cold.1;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_@12.cold.1:
+L410:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -16
+	.cfi_offset 5, -8
+	.cfi_offset 6, -12
+	leal	-24(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB7:
+	call	__Unwind_Resume
+LEHE7:
+	.cfi_endproc
+LFE6220:
+	.section	.gcc_except_table,"w"
+LLSDAC6220:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6220-LLSDACSBC6220
+LLSDACSBC6220:
+	.uleb128 LEHB7-LCOLDB5
+	.uleb128 LEHE7-LEHB7
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6220:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE5:
+	.text
+LHOTE5:
+	.section	.text.unlikely,"x"
+LCOLDB6:
+	.text
+LHOTB6:
+	.p2align 4,,15
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_:
+LFB6222:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6222
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$108, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	movl	%eax, -60(%ebp)
+	movl	%ecx, %eax
+	movl	8(%ebp), %ebx
+	orl	%edx, %eax
+	je	L452
+	movl	-60(%ebp), %eax
+	testb	$1, 4(%eax)
+	jne	L453
+	movl	%edx, %eax
+	movl	%edx, %edi
+	movl	%ecx, %esi
 	xorl	$1, %eax
-	orl	%edi, %eax
-	je	L445
-	movl	16(%ebx), %eax
-	testl	%edi, %edi
-	jne	L409
-	testl	%ebp, %ebp
-	je	L430
+	orl	%ecx, %eax
+	je	L454
+	movl	-60(%ebp), %eax
+	movl	20(%eax), %eax
+	testl	%ecx, %ecx
+	jne	L420
+	testl	%edx, %edx
+	je	L438
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %ebp, %edx
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %edx, %edx
  # 0 "" 2
 /NO_APP
 	leal	1(%edx), %ecx
 	cmpl	%ecx, %eax
-	jnb	L446
-	movl	124(%esp), %edi
-	movl	$_number_zero, %eax
-	movl	128(%esp), %ecx
-	testl	%edi, %edi
-	cmove	%esi, %eax
-	movl	%eax, 48(%esp)
-	movl	36(%ebx), %eax
-	movl	(%eax), %eax
-	movl	$0, 4(%ecx)
-	movl	%eax, (%ecx)
-	jmp	L405
+	jb	L422
+	movl	$31, %esi
+	subl	%edx, %esi
+L421:
+	movl	%eax, -68(%ebp)
+	testl	%ebx, %ebx
+	je	L424
+	leal	-40(%ebp), %eax
+	movl	%eax, %ecx
+	movl	%eax, -64(%ebp)
+LEHB8:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE8:
+	movl	-68(%ebp), %eax
+	leal	1(%eax,%esi), %eax
+	movl	-64(%ebp), %esi
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+LEHB9:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	subl	$4, %esp
+	leal	-48(%ebp), %edx
+	movl	%eax, (%ebx)
+	movl	%edx, 16(%esp)
+	movl	-60(%ebp), %edx
+	movl	36(%eax), %eax
+	movl	%edi, 8(%esp)
+	movl	$0, -48(%ebp)
+	movl	%eax, 12(%esp)
+	movl	16(%edx), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%edx), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
+	movl	(%ebx), %eax
+	movl	%esi, %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	subl	$4, %esp
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	testb	$1, 4(%eax)
+	movl	%eax, (%esp)
+	je	L425
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE9:
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+	subl	$4, %esp
+L426:
+	movl	-64(%ebp), %ecx
+	movl	-48(%ebp), %esi
+	xorl	%edi, %edi
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%esi, %eax
+	movl	%edi, %edx
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
 	.p2align 4,,10
-L409:
+L420:
+	.cfi_restore_state
 /APP
- # 597 "../pmc_inline_func.h" 1
-	bsrl %edi, %edx
+ # 428 "../pmc_inline_func.h" 1
+	bsrl %ecx, %edx
  # 0 "" 2
 /NO_APP
 	leal	33(%edx), %ecx
 	cmpl	%ecx, %eax
-	jnb	L417
-	movl	124(%esp), %edi
-	movl	$_number_zero, %eax
-	movl	36(%ebx), %edx
-	testl	%edi, %edi
-	movl	(%edx), %ecx
-	cmove	%esi, %eax
-	movl	%eax, 48(%esp)
-	xorl	%eax, %eax
-	cmpl	$1, 12(%ebx)
-	jbe	L419
-	movl	4(%edx), %eax
-L419:
-	movl	128(%esp), %edx
-	movl	%ecx, (%edx)
-	movl	%eax, 4(%edx)
-	jmp	L405
-	.p2align 4,,10
-L445:
-	movl	124(%esp), %ebp
-	testl	%ebp, %ebp
-	je	L407
-	leal	48(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L429
-L408:
-	movl	128(%esp), %eax
-	movl	$0, (%eax)
-	movl	$0, 4(%eax)
-	jmp	L405
-L447:
-	movl	48(%esp), %eax
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$-6, %eax
-	.p2align 4,,10
-L429:
-	movl	%eax, %esi
-	jmp	L401
-	.p2align 4,,10
-L417:
+	jb	L455
 	leal	32(%eax), %ecx
-	movl	%ecx, 44(%esp)
-	movl	124(%esp), %ecx
-	testl	%ecx, %ecx
-	je	L420
+	movl	%edx, -76(%ebp)
+	movl	%eax, -72(%ebp)
+	movl	%ecx, -68(%ebp)
+	testl	%ebx, %ebx
+	je	L430
+	leal	-40(%ebp), %eax
+	movl	%eax, %ecx
+	movl	%eax, -64(%ebp)
+LEHB10:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE10:
+	movl	-72(%ebp), %eax
+	movl	-76(%ebp), %edx
+	movl	-64(%ebp), %ecx
 	subl	%edx, %eax
-	leal	52(%esp), %ecx
-	movl	%eax, 4(%esp)
-	leal	48(%esp), %eax
-	movl	%ecx, 8(%esp)
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L429
-	leal	56(%esp), %eax
-	movl	44(%esp), %ecx
-	movl	%edi, 68(%esp)
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
-	movl	%eax, 4(%esp)
+LEHB11:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	-68(%ebp), %ecx
+	subl	$4, %esp
+	movl	%eax, (%ebx)
+	movl	%edi, -56(%ebp)
+	movl	-64(%ebp), %edi
 	movl	%ecx, (%esp)
-	movl	%ebp, 64(%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	call	_AllocateBlock
-	movl	%eax, %edi
-	testl	%eax, %eax
-	je	L447
+	movl	%edi, %ecx
+	movl	%esi, -52(%ebp)
+	movl	$0, -48(%ebp)
+	movl	$0, -44(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	subl	$4, %esp
+	movl	%eax, %esi
+	movl	-60(%ebp), %edx
 	movl	%eax, 24(%esp)
-	movl	48(%esp), %eax
+	movl	(%ebx), %eax
 	movl	36(%eax), %eax
 	movl	$2, 12(%esp)
 	movl	%eax, 20(%esp)
-	leal	72(%esp), %eax
+	leal	-48(%ebp), %eax
 	movl	%eax, 16(%esp)
-	leal	64(%esp), %eax
+	leal	-56(%ebp), %eax
 	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
+	movl	16(%edx), %eax
 	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
+	movl	36(%edx), %eax
 	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	movl	52(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	48(%esp), %eax
-	movl	36(%eax), %eax
+	call	*__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+	movl	(%ebx), %eax
+	movl	%edi, %ecx
 	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L429
-	movl	56(%esp), %eax
-	movl	%edi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L429
-	movl	48(%esp), %eax
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%edi, %ecx
+	movl	%esi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
+	movl	(%ebx), %eax
+	subl	$4, %esp
 	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	(%edi), %eax
-	movl	128(%esp), %ecx
-	movl	4(%edi), %edx
-	movl	%eax, (%ecx)
-	movl	60(%esp), %eax
-	movl	%edx, 4(%ecx)
-	movl	%eax, 4(%esp)
-	movl	%edi, (%esp)
-	call	_DeallocateBlock
-	movl	48(%esp), %eax
-	testb	$1, (%eax)
-	je	L416
-L444:
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	testb	$1, 4(%eax)
 	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-	jmp	L416
+	je	L431
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE11:
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+	subl	$4, %esp
+L432:
+	movl	-64(%ebp), %ecx
+	movl	4(%esi), %edi
+	movl	(%esi), %esi
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%edi, %edx
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	movl	%esi, %eax
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
 	.p2align 4,,10
-L407:
-	movl	$0, 48(%esp)
-	jmp	L408
+L453:
+	.cfi_restore_state
+	xorl	%esi, %esi
+	xorl	%edi, %edi
+	testl	%ebx, %ebx
+	je	L415
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+L415:
+	leal	-12(%ebp), %esp
+	movl	%esi, %eax
+	movl	%edi, %edx
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
 	.p2align 4,,10
-L420:
-	leal	56(%esp), %eax
-	movl	%edi, 68(%esp)
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	44(%esp), %eax
-	movl	%ebp, 64(%esp)
-	movl	%eax, (%esp)
-	movl	$0, 72(%esp)
-	movl	$0, 76(%esp)
-	call	_AllocateBlock
+L455:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	L428
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+L428:
+	movl	-60(%ebp), %ebx
+	xorl	%eax, %eax
+	movl	36(%ebx), %edx
+	cmpl	$1, 16(%ebx)
+	movl	(%edx), %ecx
+	jbe	L429
+	movl	4(%edx), %eax
+L429:
+	leal	-12(%ebp), %esp
 	movl	%eax, %edi
-	testl	%eax, %eax
-	je	L448
+	movl	%ecx, %esi
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	movl	%esi, %eax
+	movl	%edi, %edx
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L422:
+	.cfi_restore_state
+	testl	%ebx, %ebx
+	je	L423
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+L423:
+	movl	-60(%ebp), %eax
+	xorl	%edi, %edi
+	movl	36(%eax), %eax
+	movl	(%eax), %esi
+	jmp	L415
+	.p2align 4,,10
+L454:
+	xorl	%esi, %esi
+	xorl	%edi, %edi
+	testl	%ebx, %ebx
+	je	L415
+	movl	-60(%ebp), %eax
+	movl	%eax, (%esp)
+LEHB12:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE12:
+	movl	%eax, (%ebx)
+	jmp	L415
+	.p2align 4,,10
+L425:
+	movl	-64(%ebp), %ecx
+LEHB13:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE13:
+	subl	$4, %esp
+	jmp	L426
+	.p2align 4,,10
+L438:
+	movl	$32, %esi
+	jmp	L421
+	.p2align 4,,10
+L431:
+	movl	-64(%ebp), %ecx
+LEHB14:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE14:
+	subl	$4, %esp
+	jmp	L432
+	.p2align 4,,10
+L424:
+	movl	-60(%ebp), %ecx
+	movl	%edi, 8(%esp)
+	xorl	%edi, %edi
+	movl	16(%ecx), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%ecx), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
+	movl	%eax, %esi
+	jmp	L415
+	.p2align 4,,10
+L430:
+	leal	-40(%ebp), %ebx
+	movl	%ebx, %ecx
+	movl	%ebx, -64(%ebp)
+LEHB15:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE15:
+	movl	-68(%ebp), %eax
+	movl	%ebx, %ecx
+	movl	%edi, -56(%ebp)
+	movl	%esi, -52(%ebp)
+	movl	%ebx, %edi
+	movl	%eax, (%esp)
+	movl	$0, -48(%ebp)
+	movl	$0, -44(%ebp)
+LEHB16:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	subl	$4, %esp
+	movl	-60(%ebp), %ecx
+	movl	%eax, %ebx
 	movl	%eax, 24(%esp)
-	leal	72(%esp), %eax
+	leal	-48(%ebp), %eax
 	movl	%eax, 16(%esp)
-	leal	64(%esp), %eax
+	leal	-56(%ebp), %eax
 	movl	$0, 20(%esp)
 	movl	$2, 12(%esp)
 	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
+	movl	16(%ecx), %eax
 	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
+	movl	36(%ecx), %eax
 	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	movl	56(%esp), %eax
-	movl	%edi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_CheckBlockLight
-	movl	%eax, %esi
-	testl	%eax, %eax
-	jne	L401
-	movl	(%edi), %eax
-	movl	128(%esp), %ecx
-	movl	$0, 48(%esp)
-	movl	4(%edi), %edx
-	movl	%eax, (%ecx)
-	movl	60(%esp), %eax
-	movl	%edx, 4(%ecx)
-	movl	%eax, 4(%esp)
-	movl	%edi, (%esp)
-	call	_DeallocateBlock
-	jmp	L401
-	.p2align 4,,10
-L446:
-	movl	$31, %ecx
-	subl	%edx, %ecx
-	movl	%ecx, %edx
-L410:
-	movl	124(%esp), %ecx
-	testl	%ecx, %ecx
-	je	L413
-	leal	1(%eax,%edx), %eax
-	leal	64(%esp), %ecx
-	movl	%eax, 4(%esp)
-	leal	48(%esp), %eax
-	movl	%ecx, 8(%esp)
+	call	*__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+	movl	%ebx, (%esp)
+	movl	%edi, %ecx
+	movl	%edi, -64(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
+	subl	$4, %esp
+	movl	(%ebx), %esi
+	movl	4(%ebx), %edi
+	movl	%ebx, (%esp)
+	movl	-64(%ebp), %ebx
+	movl	%ebx, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
+LEHE16:
+	subl	$4, %esp
+	movl	%ebx, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L415
+L452:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-5, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L429
-	leal	72(%esp), %eax
-	movl	$0, 72(%esp)
-	movl	%eax, 16(%esp)
-	movl	48(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%ebp, 8(%esp)
-	movl	%eax, 12(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_DivRem_X_1W
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	48(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L429
-	movl	48(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	128(%esp), %eax
-	movl	72(%esp), %ecx
-	movl	$0, 4(%eax)
-	movl	%ecx, (%eax)
-	movl	48(%esp), %eax
-	testb	$1, (%eax)
-	je	L416
-	jmp	L444
-	.p2align 4,,10
-L430:
-	movl	$32, %edx
-	jmp	L410
-	.p2align 4,,10
-L413:
-	movl	%ebp, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_Rem_X_1W
-	movl	128(%esp), %ecx
-	movl	%eax, (%ecx)
-	movl	$0, 4(%ecx)
-	jmp	L401
-	.p2align 4,,10
-L426:
-	movl	$-1, %esi
-	jmp	L401
-L427:
-	movl	$-3, %esi
-	jmp	L401
-L448:
-	movl	48(%esp), %eax
-	movl	$-6, %esi
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	jmp	L401
+LEHB17:
+	call	___cxa_throw
+LEHE17:
+L441:
+	movl	%eax, %ebx
+	jmp	L435
+L440:
+	movl	%eax, %ebx
+	jmp	L435
+L442:
+	movl	%eax, %ebx
+	jmp	L435
+	.section	.gcc_except_table,"w"
+LLSDA6222:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6222-LLSDACSB6222
+LLSDACSB6222:
+	.uleb128 LEHB8-LFB6222
+	.uleb128 LEHE8-LEHB8
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB9-LFB6222
+	.uleb128 LEHE9-LEHB9
+	.uleb128 L440-LFB6222
+	.uleb128 0
+	.uleb128 LEHB10-LFB6222
+	.uleb128 LEHE10-LEHB10
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB11-LFB6222
+	.uleb128 LEHE11-LEHB11
+	.uleb128 L441-LFB6222
+	.uleb128 0
+	.uleb128 LEHB12-LFB6222
+	.uleb128 LEHE12-LEHB12
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB13-LFB6222
+	.uleb128 LEHE13-LEHB13
+	.uleb128 L440-LFB6222
+	.uleb128 0
+	.uleb128 LEHB14-LFB6222
+	.uleb128 LEHE14-LEHB14
+	.uleb128 L441-LFB6222
+	.uleb128 0
+	.uleb128 LEHB15-LFB6222
+	.uleb128 LEHE15-LEHB15
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB16-LFB6222
+	.uleb128 LEHE16-LEHB16
+	.uleb128 L442-LFB6222
+	.uleb128 0
+	.uleb128 LEHB17-LFB6222
+	.uleb128 LEHE17-LEHB17
+	.uleb128 0
+	.uleb128 0
+LLSDACSE6222:
+	.text
 	.cfi_endproc
-LFE5553:
-	.p2align 4,,15
-	.globl	_PMC_DivRem_X_X@16
-	.def	_PMC_DivRem_X_X@16;	.scl	2;	.type	32;	.endef
-_PMC_DivRem_X_X@16:
-LFB5554:
+	.section	.text.unlikely,"x"
 	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6222
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_.cold.2;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_.cold.2:
+L435:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	movl	-64(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB18:
+	call	__Unwind_Resume
+LEHE18:
+	.cfi_endproc
+LFE6222:
+	.section	.gcc_except_table,"w"
+LLSDAC6222:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6222-LLSDACSBC6222
+LLSDACSBC6222:
+	.uleb128 LEHB18-LCOLDB6
+	.uleb128 LEHE18-LEHB18
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6222:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE6:
+	.text
+LHOTE6:
+	.section	.text.unlikely,"x"
+LCOLDB7:
+	.text
+LHOTB7:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16:
+LFB6223:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6223
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
 	pushl	%edi
-	.cfi_def_cfa_offset 12
-	.cfi_offset 7, -12
 	pushl	%esi
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
 	pushl	%ebx
-	.cfi_def_cfa_offset 20
+	subl	$60, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
 	.cfi_offset 3, -20
-	subl	$92, %esp
-	.cfi_def_cfa_offset 112
-	movl	124(%esp), %edi
-	movl	116(%esp), %esi
-	movl	112(%esp), %ebx
-	testl	%edi, %edi
-	sete	%dl
-	testl	%esi, %esi
-	sete	%al
-	orb	%al, %dl
-	jne	L478
+	movl	8(%ebp), %ebx
+	movl	12(%ebp), %esi
+	movl	16(%ebp), %edi
 	testl	%ebx, %ebx
-	je	L478
+	je	L464
 	movl	%ebx, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ebp
+LEHB19:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE19:
+	movl	20(%ebp), %eax
 	testl	%eax, %eax
-	je	L516
-L449:
-	addl	$92, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ebp, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L516:
-	.cfi_restore_state
-	movl	%esi, (%esp)
-	call	_CheckNumber
-	movl	%eax, %ebp
-	testl	%eax, %eax
-	jne	L449
-	movzbl	(%esi), %eax
-	testb	$1, %al
-	jne	L479
-	testb	$1, (%ebx)
-	je	L451
-	movl	120(%esp), %eax
-	testl	%eax, %eax
-	movl	$_number_zero, %eax
-	cmove	%ebp, %eax
-	movl	%eax, 56(%esp)
-L453:
-	movl	120(%esp), %edx
-	movl	$_number_zero, %eax
-	testl	%edx, %edx
-	je	L469
-L466:
-	movl	56(%esp), %ecx
-	movl	120(%esp), %esi
-	movl	%ecx, (%esi)
-L469:
-	movl	%eax, (%edi)
-L521:
-	addl	$92, %esp
-	.cfi_remember_state
-	.cfi_def_cfa_offset 20
-	movl	%ebp, %eax
-	popl	%ebx
-	.cfi_restore 3
-	.cfi_def_cfa_offset 16
-	popl	%esi
-	.cfi_restore 6
-	.cfi_def_cfa_offset 12
-	popl	%edi
-	.cfi_restore 7
-	.cfi_def_cfa_offset 8
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa_offset 4
-	ret	$16
-	.p2align 4,,10
-L451:
-	.cfi_restore_state
-	testb	$2, %al
-	je	L454
-	movl	120(%esp), %esi
-	testl	%esi, %esi
-	je	L455
-	leal	56(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	je	L453
-L485:
-	movl	%eax, %ebp
-	jmp	L449
-	.p2align 4,,10
-L454:
-	movl	16(%ebx), %eax
-	movl	16(%esi), %ecx
-	cmpl	%ecx, %eax
-	jb	L517
-	cmpl	$32, %ecx
-	ja	L460
-	movl	120(%esp), %edx
-	testl	%edx, %edx
-	je	L461
-	subl	%ecx, %eax
-	leal	72(%esp), %edx
-	addl	$33, %eax
-	movl	%edx, 8(%esp)
-	movl	%eax, 4(%esp)
-	leal	56(%esp), %eax
+	je	L458
+	leal	-44(%ebp), %eax
+	movl	%esi, %edx
+	movl	%edi, %ecx
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L485
-	leal	76(%esp), %eax
-	movl	$32, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
+	movl	%ebx, %eax
+LEHB20:
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_
+	movl	%eax, %esi
+	movl	-44(%ebp), %eax
+	leal	-40(%ebp), %ecx
+	movl	%edx, %edi
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L512
-	movl	60(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, 16(%esp)
-	movl	56(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, 12(%esp)
-	movl	36(%esi), %eax
-	movl	(%eax), %eax
-	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_DivRem_X_1W
-	movl	72(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	56(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	76(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	60(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-L515:
-	movl	56(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	60(%esp), %eax
-	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	56(%esp), %eax
-	testb	$1, (%eax)
-	jne	L518
-L474:
-	movl	60(%esp), %eax
-	testb	$1, (%eax)
-	je	L466
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-	jmp	L466
-	.p2align 4,,10
-L517:
-	movl	120(%esp), %ecx
-	testl	%ecx, %ecx
-	je	L519
-	leal	60(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	movl	$_number_zero, 56(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L485
-	movl	60(%esp), %eax
-	jmp	L466
-	.p2align 4,,10
-L455:
-	movl	$0, 56(%esp)
-	jmp	L453
-	.p2align 4,,10
-L460:
-	leal	32(%eax), %edx
-	movl	%edx, 44(%esp)
-	movl	120(%esp), %edx
-	testl	%edx, %edx
-	je	L470
-	subl	%ecx, %eax
-	leal	64(%esp), %edx
-	addl	$33, %eax
-	movl	%edx, 8(%esp)
-	movl	%eax, 4(%esp)
-	leal	56(%esp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L485
-	leal	68(%esp), %eax
-	movl	44(%esp), %edx
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
-	movl	%edx, 4(%esp)
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L512
-	leal	72(%esp), %eax
-	movl	%eax, 8(%esp)
-	leal	76(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	12(%esi), %eax
-	sall	$5, %eax
-	movl	%eax, (%esp)
-	call	_AllocateBlock
-	movl	%eax, 44(%esp)
-	testl	%eax, %eax
-	je	L520
-	movl	60(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, 24(%esp)
-	movl	56(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, 20(%esp)
-	movl	44(%esp), %eax
-	movl	%eax, 16(%esp)
-	movl	12(%esi), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 12(%esp)
-	movl	36(%esi), %eax
-	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	movl	72(%esp), %eax
-	movl	44(%esp), %esi
-	movl	%eax, 4(%esp)
-	movl	%esi, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	56(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	64(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	56(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	76(%esp), %eax
-	movl	%esi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DeallocateBlock
-	jmp	L515
-	.p2align 4,,10
-L478:
-	movl	$-1, %ebp
-	jmp	L449
-	.p2align 4,,10
-L519:
-	leal	60(%esp), %eax
-	movl	%ebx, (%esp)
-	movl	%eax, 4(%esp)
-	movl	$0, 56(%esp)
-	call	_DuplicateNumber
-	testl	%eax, %eax
-	jne	L485
-	movl	60(%esp), %eax
-	movl	%eax, (%edi)
-	jmp	L521
-L461:
-	leal	76(%esp), %eax
-	movl	$32, 4(%esp)
-	movl	%eax, 8(%esp)
-	leal	60(%esp), %eax
-	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L485
-	movl	60(%esp), %eax
-	movl	36(%eax), %edx
-	movl	36(%esi), %eax
-	movl	(%eax), %eax
-	movl	%edx, 44(%esp)
-	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
-	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
-	movl	%eax, (%esp)
-	call	_Rem_X_1W
-	movl	44(%esp), %edx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-44(%ebp), %eax
+	movl	20(%ebp), %edx
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
 	movl	%eax, (%edx)
-	movl	76(%esp), %eax
-	movl	$0, 56(%esp)
-	movl	%eax, 4(%esp)
-	movl	60(%esp), %eax
-	movl	36(%eax), %eax
 	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-L511:
-	movl	60(%esp), %eax
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L459:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%esi, %eax
+	movl	%edi, %edx
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$16
+	.p2align 4,,10
+L458:
+	.cfi_restore_state
+	movl	$0, (%esp)
+	movl	%esi, %edx
+	movl	%edi, %ecx
+	movl	%ebx, %eax
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREyPS4_
+LEHE20:
+	movl	%eax, %esi
+	movl	%edx, %edi
+	jmp	L459
+L464:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC4, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-	call	_CommitNumber
-	movl	60(%esp), %eax
-	testb	$1, (%eax)
-	je	L469
-	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, %eax
-	movl	%eax, (%edi)
-	jmp	L521
+LEHB21:
+	call	___cxa_throw
+LEHE21:
+L461:
+	movl	%eax, %ebx
+	jmp	L460
+	.section	.gcc_except_table,"w"
+LLSDA6223:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6223-LLSDACSB6223
+LLSDACSB6223:
+	.uleb128 LEHB19-LFB6223
+	.uleb128 LEHE19-LEHB19
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB20-LFB6223
+	.uleb128 LEHE20-LEHB20
+	.uleb128 L461-LFB6223
+	.uleb128 0
+	.uleb128 LEHB21-LFB6223
+	.uleb128 LEHE21-LEHB21
+	.uleb128 0
+	.uleb128 0
+LLSDACSE6223:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6223
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16.cold.3;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_@16.cold.3:
+L460:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB22:
+	call	__Unwind_Resume
+LEHE22:
+	.cfi_endproc
+LFE6223:
+	.section	.gcc_except_table,"w"
+LLSDAC6223:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6223-LLSDACSBC6223
+LLSDACSBC6223:
+	.uleb128 LEHB22-LCOLDB7
+	.uleb128 LEHE22-LEHB22
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6223:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE7:
+	.text
+LHOTE7:
+	.section	.text.unlikely,"x"
+LCOLDB8:
+	.text
+LHOTB8:
+	.p2align 4,,15
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_:
+LFB6224:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6224
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$76, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	testb	$1, 4(%eax)
+	jne	L508
+	movl	%ecx, %ebx
+	movl	%edx, %edi
+	movl	%eax, %esi
+	testb	$2, 4(%edx)
+	jne	L509
+	movl	20(%edx), %edx
+	movl	20(%eax), %eax
+	movl	%edx, -44(%ebp)
+	cmpl	%edx, %eax
+	jnb	L469
+	testl	%ecx, %ecx
+	je	L470
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ecx)
 L470:
-	leal	68(%esp), %eax
-	movl	%eax, 8(%esp)
-	movl	44(%esp), %eax
-	movl	%eax, 4(%esp)
-	leal	60(%esp), %eax
+	movl	%esi, (%esp)
+LEHB23:
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%eax, -44(%ebp)
+L465:
+	movl	-44(%ebp), %eax
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L509:
+	.cfi_restore_state
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, -44(%ebp)
+	testl	%ecx, %ecx
+	je	L465
 	movl	%eax, (%esp)
-	call	_AllocateNumber
-	testl	%eax, %eax
-	jne	L485
-	leal	72(%esp), %eax
-	movl	%eax, 8(%esp)
-	leal	76(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	12(%esi), %eax
-	sall	$5, %eax
-	movl	%eax, (%esp)
-	call	_AllocateBlock
+	call	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%eax, (%ebx)
+	movl	-44(%ebp), %eax
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L508:
+	.cfi_restore_state
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, -44(%ebp)
+	testl	%ecx, %ecx
+	je	L465
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ecx)
+	movl	-44(%ebp), %eax
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L469:
+	.cfi_restore_state
+	cmpl	$32, -44(%ebp)
+	jbe	L510
+	leal	32(%eax), %edx
+	movl	%eax, -56(%ebp)
+	movl	%edx, -52(%ebp)
+	testl	%ecx, %ecx
+	je	L479
+	leal	-40(%ebp), %eax
 	movl	%eax, %ecx
-	testl	%eax, %eax
+	movl	%eax, -48(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE23:
+	movl	-56(%ebp), %eax
+	subl	-44(%ebp), %eax
+	addl	$33, %eax
+	movl	-48(%ebp), %ecx
+	movl	%eax, (%esp)
+LEHB24:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	-52(%ebp), %edx
+	subl	$4, %esp
+	movl	-48(%ebp), %ecx
+	movl	%eax, (%ebx)
+	movl	%edx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	16(%edi), %edx
+	subl	$4, %esp
+	movl	-48(%ebp), %ecx
+	movl	%eax, -44(%ebp)
+	sall	$5, %edx
+	movl	%edx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	movl	-44(%ebp), %edx
+	movl	%eax, %ecx
+	subl	$4, %esp
+	movl	%ecx, -52(%ebp)
+	movl	36(%edx), %eax
+	movl	%eax, 24(%esp)
+	movl	(%ebx), %eax
+	movl	36(%eax), %eax
+	movl	%ecx, 16(%esp)
+	movl	%eax, 20(%esp)
+	movl	16(%edi), %eax
+	movl	%eax, 12(%esp)
+	movl	36(%edi), %eax
+	movl	%eax, 8(%esp)
+	movl	16(%esi), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%esi), %eax
+	movl	%eax, (%esp)
+	call	*__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+	movl	-52(%ebp), %ecx
+	movl	-48(%ebp), %esi
+	movl	%ecx, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
+	movl	(%ebx), %eax
+	subl	$4, %esp
+	movl	%esi, %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-44(%ebp), %edi
+	subl	$4, %esp
+	movl	%esi, %ecx
+	movl	%edi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-52(%ebp), %ecx
+	subl	$4, %esp
+	movl	%ecx, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
+	movl	(%ebx), %eax
+	subl	$4, %esp
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%edi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	testb	$1, 4(%eax)
+	movl	%eax, (%esp)
+	jne	L511
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L481:
+	movl	-44(%ebp), %eax
+	testb	$1, 4(%eax)
 	je	L482
-	movl	60(%esp), %eax
-	movl	%ecx, 44(%esp)
+	movl	%eax, (%esp)
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE24:
+	jmp	L507
+	.p2align 4,,10
+L510:
+	movl	%eax, -52(%ebp)
+	leal	-40(%ebp), %eax
+	testl	%ecx, %ecx
+	je	L472
+	movl	%eax, %ecx
+	movl	%eax, -48(%ebp)
+LEHB25:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE25:
+	movl	-52(%ebp), %eax
+	subl	-44(%ebp), %eax
+	addl	$33, %eax
+	movl	-48(%ebp), %ecx
+	movl	%eax, (%esp)
+LEHB26:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	subl	$4, %esp
+	movl	%eax, (%ebx)
+	movl	-48(%ebp), %ecx
+	movl	$32, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	%eax, -44(%ebp)
+	movl	36(%eax), %eax
+	subl	$4, %esp
+	movl	%eax, 16(%esp)
+	movl	(%ebx), %eax
+	movl	36(%eax), %eax
+	movl	%eax, 12(%esp)
+	movl	36(%edi), %eax
+	movl	(%eax), %eax
+	movl	%eax, 8(%esp)
+	movl	16(%esi), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%esi), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
+	movl	(%ebx), %eax
+	movl	-48(%ebp), %edi
+	movl	%eax, (%esp)
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-44(%ebp), %esi
+	subl	$4, %esp
+	movl	%edi, %ecx
+	movl	%esi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	subl	$4, %esp
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%esi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	(%ebx), %eax
+	testb	$1, 4(%eax)
+	movl	%eax, (%esp)
+	jne	L512
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+L474:
+	movl	-44(%ebp), %eax
+	testb	$1, 4(%eax)
+	je	L475
+	movl	%eax, (%esp)
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+L507:
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, -44(%ebp)
+	subl	$4, %esp
+L485:
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	-44(%ebp), %eax
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret
+	.p2align 4,,10
+L512:
+	.cfi_restore_state
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE26:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+	jmp	L474
+	.p2align 4,,10
+L511:
+	movl	%esi, %ecx
+LEHB27:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE27:
+	subl	$4, %esp
+	movl	$__ZN8Palmtree4Math4Core8Internal11number_zeroE, (%ebx)
+	jmp	L481
+	.p2align 4,,10
+L475:
+	movl	-44(%ebp), %eax
+	movl	-48(%ebp), %ecx
+	movl	%eax, (%esp)
+LEHB28:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE28:
+L506:
+	subl	$4, %esp
+	jmp	L485
+	.p2align 4,,10
+L482:
+	movl	-44(%ebp), %eax
+	movl	-48(%ebp), %ecx
+	movl	%eax, (%esp)
+LEHB29:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE29:
+	jmp	L506
+	.p2align 4,,10
+L472:
+	movl	%eax, %ecx
+	movl	%eax, %ebx
+LEHB30:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE30:
+	movl	$32, (%esp)
+	movl	%ebx, %ecx
+	movl	%ebx, -48(%ebp)
+LEHB31:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	36(%eax), %ebx
+	movl	%eax, -44(%ebp)
+	subl	$4, %esp
+	movl	36(%edi), %eax
+	movl	(%eax), %eax
+	movl	%eax, 8(%esp)
+	movl	16(%esi), %eax
+	movl	%eax, 4(%esp)
+	movl	36(%esi), %eax
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal8Rem_X_1WEPjjj
+	movl	-48(%ebp), %edi
+	movl	%eax, (%ebx)
+	movl	-44(%ebp), %ebx
+	movl	%edi, %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	je	L477
+	movl	%ebx, (%esp)
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE31:
+	jmp	L507
+	.p2align 4,,10
+L479:
+	leal	-40(%ebp), %ebx
+	movl	%ebx, %ecx
+	movl	%ebx, -48(%ebp)
+LEHB32:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE32:
+	movl	-52(%ebp), %eax
+	movl	%ebx, %ecx
+	movl	%eax, (%esp)
+LEHB33:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj
+	movl	16(%edi), %edx
+	subl	$4, %esp
+	movl	%ebx, %ecx
+	movl	%eax, -44(%ebp)
+	movl	%ebx, -48(%ebp)
+	sall	$5, %edx
+	movl	%edx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	movl	%eax, %ebx
+	movl	-44(%ebp), %eax
+	subl	$4, %esp
 	movl	36(%eax), %eax
 	movl	$0, 20(%esp)
-	movl	%ecx, 16(%esp)
+	movl	%ebx, 16(%esp)
 	movl	%eax, 24(%esp)
-	movl	12(%esi), %eax
-	andl	$1073741823, %eax
+	movl	16(%edi), %eax
 	movl	%eax, 12(%esp)
-	movl	36(%esi), %eax
+	movl	36(%edi), %eax
 	movl	%eax, 8(%esp)
-	movl	12(%ebx), %eax
-	andl	$1073741823, %eax
+	movl	16(%esi), %eax
 	movl	%eax, 4(%esp)
-	movl	36(%ebx), %eax
+	movl	36(%esi), %eax
 	movl	%eax, (%esp)
-	call	*_fp_DivRem_X_X
-	movl	72(%esp), %eax
-	movl	44(%esp), %esi
-	movl	$0, 56(%esp)
-	movl	%eax, 4(%esp)
+	call	*__ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE
+	movl	-48(%ebp), %edi
+	movl	%ebx, (%esp)
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
+	movl	-44(%ebp), %esi
+	subl	$4, %esp
+	movl	%edi, %ecx
 	movl	%esi, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	68(%esp), %eax
-	movl	%eax, 4(%esp)
-	movl	60(%esp), %eax
-	movl	36(%eax), %eax
-	movl	%eax, (%esp)
-	call	_CheckBlockLight
-	testl	%eax, %eax
-	jne	L485
-	movl	76(%esp), %eax
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	movl	%edi, %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
+	subl	$4, %esp
 	movl	%esi, (%esp)
-	movl	%eax, 4(%esp)
-	call	_DeallocateBlock
-	jmp	L511
-L512:
-	movl	56(%esp), %edx
-	movl	%eax, 44(%esp)
-	movl	%edx, (%esp)
-	call	_DeallocateNumber
-	movl	44(%esp), %eax
-	movl	%eax, %ebp
-	jmp	L449
-L479:
-	movl	$-3, %ebp
-	jmp	L449
-L518:
+	call	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%esi)
+	je	L484
+	movl	%esi, (%esp)
+	movl	%edi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE33:
+	jmp	L507
+	.p2align 4,,10
+L477:
+	movl	-44(%ebp), %eax
+	movl	-48(%ebp), %ecx
 	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$_number_zero, 56(%esp)
-	jmp	L474
-L482:
-	movl	$-6, %eax
-	movl	%eax, %ebp
-	jmp	L449
-L520:
-	movl	56(%esp), %eax
+LEHB34:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE34:
+	jmp	L506
+	.p2align 4,,10
+L484:
+	movl	-44(%ebp), %eax
+	movl	-48(%ebp), %ecx
 	movl	%eax, (%esp)
-	call	_DeallocateNumber
-	movl	$-6, %eax
-	movl	%eax, %ebp
-	jmp	L449
+LEHB35:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE35:
+	jmp	L506
+L497:
+	movl	%eax, %ebx
+	jmp	L487
+L499:
+	movl	%eax, %ebx
+	jmp	L489
+L496:
+	movl	%eax, %ebx
+	jmp	L486
+L498:
+	movl	%eax, %ebx
+	jmp	L488
+	.section	.gcc_except_table,"w"
+LLSDA6224:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6224-LLSDACSB6224
+LLSDACSB6224:
+	.uleb128 LEHB23-LFB6224
+	.uleb128 LEHE23-LEHB23
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB24-LFB6224
+	.uleb128 LEHE24-LEHB24
+	.uleb128 L498-LFB6224
+	.uleb128 0
+	.uleb128 LEHB25-LFB6224
+	.uleb128 LEHE25-LEHB25
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB26-LFB6224
+	.uleb128 LEHE26-LEHB26
+	.uleb128 L496-LFB6224
+	.uleb128 0
+	.uleb128 LEHB27-LFB6224
+	.uleb128 LEHE27-LEHB27
+	.uleb128 L498-LFB6224
+	.uleb128 0
+	.uleb128 LEHB28-LFB6224
+	.uleb128 LEHE28-LEHB28
+	.uleb128 L496-LFB6224
+	.uleb128 0
+	.uleb128 LEHB29-LFB6224
+	.uleb128 LEHE29-LEHB29
+	.uleb128 L498-LFB6224
+	.uleb128 0
+	.uleb128 LEHB30-LFB6224
+	.uleb128 LEHE30-LEHB30
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB31-LFB6224
+	.uleb128 LEHE31-LEHB31
+	.uleb128 L497-LFB6224
+	.uleb128 0
+	.uleb128 LEHB32-LFB6224
+	.uleb128 LEHE32-LEHB32
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB33-LFB6224
+	.uleb128 LEHE33-LEHB33
+	.uleb128 L499-LFB6224
+	.uleb128 0
+	.uleb128 LEHB34-LFB6224
+	.uleb128 LEHE34-LEHB34
+	.uleb128 L497-LFB6224
+	.uleb128 0
+	.uleb128 LEHB35-LFB6224
+	.uleb128 LEHE35-LEHB35
+	.uleb128 L499-LFB6224
+	.uleb128 0
+LLSDACSE6224:
+	.text
 	.cfi_endproc
-LFE5554:
-	.p2align 4,,15
-	.globl	_Initialize_DivRem
-	.def	_Initialize_DivRem;	.scl	2;	.type	32;	.endef
-_Initialize_DivRem:
-LFB5555:
+	.section	.text.unlikely,"x"
 	.cfi_startproc
-	movl	4(%esp), %eax
-	movl	$_DivRem_X_X_using_ADC_MUL, %edx
-	movzbl	(%eax), %eax
-	andl	$10, %eax
-	cmpb	$10, %al
-	movl	$_DivRem_X_X_using_ADX_MULX, %eax
-	cmovne	%edx, %eax
-	movl	%eax, _fp_DivRem_X_X
-	xorl	%eax, %eax
-	ret
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6224
+	.def	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_.cold.4;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_.cold.4:
+L487:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB36:
+	call	__Unwind_Resume
+L489:
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+	call	__Unwind_Resume
+L486:
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+	call	__Unwind_Resume
+L488:
+	movl	-48(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+	call	__Unwind_Resume
+LEHE36:
 	.cfi_endproc
-LFE5555:
-.lcomm _fp_DivRem_X_X,4,4
+LFE6224:
+	.section	.gcc_except_table,"w"
+LLSDAC6224:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6224-LLSDACSBC6224
+LLSDACSBC6224:
+	.uleb128 LEHB36-LCOLDB8
+	.uleb128 LEHE36-LEHB36
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6224:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE8:
+	.text
+LHOTE8:
+	.section	.text.unlikely,"x"
+LCOLDB9:
+	.text
+LHOTB9:
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12:
+LFB6225:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA6225
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$60, %esp
+	.cfi_offset 7, -12
+	.cfi_offset 6, -16
+	.cfi_offset 3, -20
+	movl	8(%ebp), %esi
+	movl	12(%ebp), %ebx
+	movl	16(%ebp), %edi
+	testl	%esi, %esi
+	je	L525
+	testl	%ebx, %ebx
+	je	L526
+	movl	%esi, (%esp)
+LEHB37:
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
+	testb	$1, 4(%ebx)
+	jne	L527
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE37:
+	testl	%edi, %edi
+	je	L517
+	leal	-44(%ebp), %ecx
+	movl	%ebx, %edx
+	movl	%esi, %eax
+LEHB38:
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_
+	movl	%eax, %ebx
+	movl	-44(%ebp), %eax
+	leal	-40(%ebp), %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-44(%ebp), %eax
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	-44(%ebp), %eax
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%eax, (%edi)
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+L523:
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	leal	-12(%ebp), %esp
+	movl	%ebx, %eax
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$12
+	.p2align 4,,10
+L517:
+	.cfi_restore_state
+	xorl	%ecx, %ecx
+	movl	%ebx, %edx
+	movl	%esi, %eax
+	call	__ZN8Palmtree4Math4Core8InternalL18PMC_DivRem_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_PS4_
+	movl	%eax, (%esp)
+	leal	-40(%ebp), %ecx
+	movl	%eax, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE
+LEHE38:
+	jmp	L523
+L527:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-5, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB39:
+	call	___cxa_throw
+L526:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC1, 12(%eax)
+L524:
+	movl	$__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE39:
+L525:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-2, 4(%eax)
+	movl	$LC0, 8(%eax)
+	movl	$LC4, 12(%eax)
+	jmp	L524
+L520:
+	movl	%eax, %ebx
+	jmp	L519
+	.section	.gcc_except_table,"w"
+LLSDA6225:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSE6225-LLSDACSB6225
+LLSDACSB6225:
+	.uleb128 LEHB37-LFB6225
+	.uleb128 LEHE37-LEHB37
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB38-LFB6225
+	.uleb128 LEHE38-LEHB38
+	.uleb128 L520-LFB6225
+	.uleb128 0
+	.uleb128 LEHB39-LFB6225
+	.uleb128 LEHE39-LEHB39
+	.uleb128 0
+	.uleb128 0
+LLSDACSE6225:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC6225
+	.def	__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12.cold.5;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_@12.cold.5:
+L519:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -20
+	.cfi_offset 5, -8
+	.cfi_offset 6, -16
+	.cfi_offset 7, -12
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	%ebx, (%esp)
+LEHB40:
+	call	__Unwind_Resume
+LEHE40:
+	.cfi_endproc
+LFE6225:
+	.section	.gcc_except_table,"w"
+LLSDAC6225:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 LLSDACSEC6225-LLSDACSBC6225
+LLSDACSBC6225:
+	.uleb128 LEHB40-LCOLDB9
+	.uleb128 LEHE40-LEHB40
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC6225:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE9:
+	.text
+LHOTE9:
+	.globl	__ZTSSt9exception
+	.section	.rdata$_ZTSSt9exception,"dr"
+	.linkonce same_size
+	.align 4
+__ZTSSt9exception:
+	.ascii "St9exception\0"
+	.globl	__ZTISt9exception
+	.section	.rdata$_ZTISt9exception,"dr"
+	.linkonce same_size
+	.align 4
+__ZTISt9exception:
+	.long	__ZTVN10__cxxabiv117__class_type_infoE+8
+	.long	__ZTSSt9exception
+	.globl	__ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal9ExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal9ExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
+	.long	__ZTVN10__cxxabiv121__vmi_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	0
+	.long	1
+	.long	__ZTISt9exception
+	.long	0
+	.globl	__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal21ArgumentNullExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.long	__ZTVN10__cxxabiv120__si_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	__ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 32
+__ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.ascii "N8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE\0"
+	.globl	__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.long	__ZTVN10__cxxabiv120__si_class_type_infoE+8
+	.long	__ZTSN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.globl	__ZTVN8Palmtree4Math4Core8Internal9ExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal9ExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal9ExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
+	.globl	__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
+	.globl	__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE,"dr"
+	.linkonce same_size
+	.align 4
+__ZTVN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE:
+	.long	0
+	.long	__ZTIN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionE
+	.long	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD1Ev
+	.long	__ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev
+	.long	__ZNKSt9exception4whatEv
+.lcomm __ZN8Palmtree4Math4Core8InternalL13fp_DivRem_X_XE,4,4
 	.ident	"GCC: (i686-win32-dwarf-rev0, Built by MinGW-W64 project) 8.1.0"
-	.def	_RightShift_Imp_DIV;	.scl	2;	.type	32;	.endef
-	.def	_LeftShift_Imp_DIV;	.scl	2;	.type	32;	.endef
-	.def	_CheckNumber;	.scl	2;	.type	32;	.endef
-	.def	_AllocateNumber;	.scl	2;	.type	32;	.endef
-	.def	_DuplicateNumber;	.scl	2;	.type	32;	.endef
-	.def	_CheckBlockLight;	.scl	2;	.type	32;	.endef
-	.def	_CommitNumber;	.scl	2;	.type	32;	.endef
-	.def	_DeallocateNumber;	.scl	2;	.type	32;	.endef
-	.def	_AllocateBlock;	.scl	2;	.type	32;	.endef
-	.def	_DeallocateBlock;	.scl	2;	.type	32;	.endef
+	.def	__ZNSt9exceptionD2Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZdlPvj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14RightShift_ImpEPjjjS3_i;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal13LeftShift_ImpEPjjjS3_i;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	___cxa_allocate_exception;	.scl	2;	.type	32;	.endef
+	.def	___cxa_throw;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateNumberEj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal12CommitNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT12UnlinkNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15DuplicateNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__Unwind_Resume;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj;	.scl	2;	.type	32;	.endef
+	.def	__ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef

@@ -72,23 +72,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
+    <OutDir>$(SolutionDir)dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
+    <IncludePath>Z:\Sources\Lunor\Repos\rougemeilland\Palmtree.Math.Core.Uint\Palmtree.Math.Core.Uint;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
+    <OutDir>$(SolutionDir)dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
+    <IncludePath>Z:\Sources\Lunor\Repos\rougemeilland\Palmtree.Math.Core.Uint\Palmtree.Math.Core.Uint;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x86\</OutDir>
+    <OutDir>$(SolutionDir)dist\$(Configuration)\x86\</OutDir>
     <IntDir>vs_build\x86_$(Configuration)\</IntDir>
+    <IncludePath>Z:\Sources\Lunor\Repos\rougemeilland\Palmtree.Math.Core.Uint\Palmtree.Math.Core.Uint;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)vs_dist\$(Configuration)\x64\</OutDir>
+    <OutDir>$(SolutionDir)dist\$(Configuration)\x64\</OutDir>
     <IntDir>vs_build\x64_$(Configuration)\</IntDir>
+    <IncludePath>Z:\Sources\Lunor\Repos\rougemeilland\Palmtree.Math.Core.Uint\Palmtree.Math.Core.Uint;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -160,11 +164,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <Xml Include="mymakefile.xml">
-      <SubType>Designer</SubType>
-    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

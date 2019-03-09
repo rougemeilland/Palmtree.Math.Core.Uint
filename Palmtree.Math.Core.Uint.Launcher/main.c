@@ -28,10 +28,7 @@
 #include <string.h>
 #include <windows.h>
 
-#define DLL_FUNC_SYMBOL_1   "DoDebug"
-#define DLL_FUNC_SYMBOL_2   "_DoDebug"
-#define DLL_FUNC_SYMBOL_3   "DoDebug@4"
-#define DLL_FUNC_SYMBOL_4   "_DoDebug@4"
+#define DLL_FUNC_SYMBOL   "PMCCS_UINT_Initialize"
 
 #ifdef _MSC_VER
 #define __CDECL _cdecl
@@ -69,9 +66,14 @@ int main(int argc, char** argv)
     *strrchr(module_path, '\\') = '\0';
 
     char dll_file_path[MAX_PATH + 1];
+    /*
     strcpy_s(dll_file_path, MAX_PATH, module_path);
     strcat_s(dll_file_path, MAX_PATH, "\\");
     strcat_s(dll_file_path, MAX_PATH, "Palmtree.Math.Core.Uint.dll");
+    */
+
+    strcpy_s(dll_file_path, MAX_PATH, "Z:\\Sources\\Lunor\\Repos\\rougemeilland\\Palmtree.Math.Core.Uint\\dist\\Release\\x86\\Palmtree.Math.Core.Uint.dll");
+//    strcpy_s(dll_file_path, MAX_PATH, "Z:\\Sources\\Lunor\\Repos\\rougemeilland\\Palmtree.Math.Core.Uint\\vs_dist\\Release\\x86\\Palmtree.Math.Core.Uint.dll");
 
     printf("***dll file path: %s\n", dll_file_path);
 
@@ -84,27 +86,12 @@ int main(int argc, char** argv)
         return (1);
     }
     void(__stdcall *proc)(PMC_DEBUG_ENVIRONMENT *);
-    char* actual_symbol = DLL_FUNC_SYMBOL_1;
-    proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_1);
-    if (proc == NULL)
-    {
-        char* actual_symbol = DLL_FUNC_SYMBOL_2;
-        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_2);
-    }
-    if (proc == NULL)
-    {
-        char* actual_symbol = DLL_FUNC_SYMBOL_3;
-        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_3);
-    }
-    if (proc == NULL)
-    {
-        char* actual_symbol = DLL_FUNC_SYMBOL_4;
-        proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL_4);
-    }
+    char* actual_symbol = DLL_FUNC_SYMBOL;
+    proc = (void(__stdcall *)(PMC_DEBUG_ENVIRONMENT *))GetProcAddress(hLib, DLL_FUNC_SYMBOL);
     if (proc == NULL)
     {
         char* actual_symbol = NULL;
-        fprintf(stderr, "***error: GetProcAddress(\"%s\"/\"%s\"/\"%s\"/\"%s\")\n", DLL_FUNC_SYMBOL_1, DLL_FUNC_SYMBOL_2, DLL_FUNC_SYMBOL_3, DLL_FUNC_SYMBOL_4);
+        fprintf(stderr, "***error: GetProcAddress(\"%s\")\n", DLL_FUNC_SYMBOL);
         getchar();
         return (1);
     }
