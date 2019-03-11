@@ -40,52 +40,6 @@ namespace Palmtree::Math::Core::Internal
     namespace DecimalFromatter
     {
 
-        // 10進数としての桁数を求める
-        static _UINT32_T get_digit_count_as_decimal(__UNIT_TYPE* src_buf, __UNIT_TYPE src_buf_count)
-        {
-            ResourceHolderUINT root;
-            __UNIT_TYPE* work1_buf = root.AllocateBlock(src_buf_count * __UNIT_TYPE_BIT_COUNT);
-            __UNIT_TYPE* work2_buf = root.AllocateBlock(src_buf_count * __UNIT_TYPE_BIT_COUNT);
-            _COPY_MEMORY_UNIT(work1_buf, src_buf, src_buf_count);
-            __UNIT_TYPE* u_buf = work1_buf;
-            __UNIT_TYPE* q_buf = work2_buf;
-            __UNIT_TYPE u_count = src_buf_count;
-            _UINT32_T digit_count = 0;
-            while (1)
-            {
-                while (u_count > 0 && u_buf[u_count - 1] == 0)
-                    --u_count;
-                if (u_count <= 0)
-                    break;
-                __UNIT_TYPE temp_r;
-                root.ClearBlock(q_buf);
-                DivRem_X_1W(u_buf, u_count, 10, q_buf, &temp_r);
-                __UNIT_TYPE* t = u_buf;
-                u_buf = q_buf;
-                q_buf = t;
-                ++digit_count;
-            }
-            return (digit_count);
-        }
-
-        // x * 10^e を求める。
-        static NUMBER_HEADER* get_x_times_of_exponent_of_10(_UINT32_T x, __UNIT_TYPE e)
-        {
-            ResourceHolderUINT root;
-            NUMBER_HEADER* _10 = From_I_Imp(10);
-            root.HookNumber(_10);
-#if _M_IX86
-            NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_I_Imp(_10, e);
-#elif defined(_M_X64)
-            NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_L_Imp(_10, e);
-#else
-#error unknown platform
-#endif
-            root.HookNumber(exponent_of_10);
-            NUMBER_HEADER* x_times_of_exponent_of_10 = PMC_Multiply_X_I_Imp(exponent_of_10, x);
-            return (x_times_of_exponent_of_10);
-        }
-
         class ThousandSeparatedStringWriter
             : public StringWriter
         {
@@ -672,10 +626,10 @@ namespace Palmtree::Math::Core::Internal
             virtual void FormatInternally(NUMBER_HEADER* x_abs, StringWriter* writer) override
             {
                 ResourceHolderUINT root;
-                size_t digit_count = get_digit_count_as_decimal(x_abs->BLOCK, x_abs->UNIT_WORD_COUNT);
+                size_t digit_count = (size_t)floor(PMC_Floor_Log10_Imp(x_abs)) + 1;
                 if (digit_count >= (size_t)(_precision + 2))
                 {
-                    NUMBER_HEADER* fraction_number = get_x_times_of_exponent_of_10(5, digit_count - _precision - 2);
+                    NUMBER_HEADER* fraction_number = PMC_TimesOfExponentOf10_Imp(5, digit_count - _precision - 2);
                     root.HookNumber(fraction_number);
                     NUMBER_HEADER* x2 = PMC_Add_X_X_Imp(x_abs, fraction_number);
                     root.HookNumber(x2);
@@ -1327,9 +1281,6 @@ namespace Palmtree::Math::Core::Internal
             // ⇒【例：(-0.0123456789).ToString("0.0E+0  000") => -1.2E-2  346】
             // '.' が複数ある場合は最初のものを除いて無視される。【例：(-0.0123456789).ToString("0.0 00.00") => -0.0 1235】
             // 三つ目の';'の後の文字列は数値の符号が何であっても表示されない。つまり無視される。
-
-            // c言語での実装はやめた方がいいかもしれない。理由：構文解析に動的メモリ獲得を使用しないと難易度が桁違いに上がり、動的メモリ獲得を使うとメモリリークがないことを保証するテストが大変。
-            // 実装をどこでやるにしろ、１）多倍長整数の10進数としての桁数を調べる手段、２）１あるいは５と10のべき乗を掛けた値を取得する手段、はあると便利だと思う。それらを使って書式Eの実装をもっとスマートにやれたらいいかも。
 
             throw NotSupportedException(L"カスタム書式によるToStringはサポートされていません。");
         }

@@ -18,6 +18,7 @@ PUBLIC	??_GArgumentNullException@Internal@Core@Math@Palmtree@@UEAAPEAXI@Z ; Palm
 PUBLIC	??1InternalErrorException@Internal@Core@Math@Palmtree@@UEAA@XZ ; Palmtree::Math::Core::Internal::InternalErrorException::~InternalErrorException
 PUBLIC	??_GInternalErrorException@Internal@Core@Math@Palmtree@@UEAAPEAXI@Z ; Palmtree::Math::Core::Internal::InternalErrorException::`scalar deleting destructor'
 PUBLIC	?Compare_Imp@Internal@Core@Math@Palmtree@@YAHPEA_K0_K@Z ; Palmtree::Math::Core::Internal::Compare_Imp
+PUBLIC	?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPEAU__tag_NUMBER_HEADER@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
 PUBLIC	?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPEAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Compare
 PUBLIC	?PMC_Compare_I_X@Internal@Core@Math@Palmtree@@YAHIPEAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_I_X
 PUBLIC	?PMC_Compare_L_X@Internal@Core@Math@Palmtree@@YAH_KPEAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_L_X
@@ -171,8 +172,8 @@ $pdata$?PMC_Compare_X_L@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UIN
 pdata	ENDS
 ;	COMDAT pdata
 pdata	SEGMENT
-$pdata$?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UINT@1234@0@Z DD imagerel $LN30
-	DD	imagerel $LN30+269
+$pdata$?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UINT@1234@0@Z DD imagerel $LN32
+	DD	imagerel $LN32+269
 	DD	imagerel $unwind$?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UINT@1234@0@Z
 pdata	ENDS
 ;	COMDAT ??_R1A@?0A@EA@InternalErrorException@Internal@Core@Math@Palmtree@@8
@@ -1262,99 +1263,97 @@ u$ = 96
 v$ = 104
 ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UINT@1234@0@Z PROC ; Palmtree::Math::Core::Internal::PMC_Compare_X_X, COMDAT
 
-; 298  :     {
+; 326  :     {
 
-$LN30:
+$LN32:
   00000	48 89 5c 24 08	 mov	 QWORD PTR [rsp+8], rbx
   00005	57		 push	 rdi
   00006	48 83 ec 50	 sub	 rsp, 80			; 00000050H
   0000a	48 8b fa	 mov	 rdi, rdx
   0000d	48 8b d9	 mov	 rbx, rcx
 
-; 299  :         if (u == nullptr)
+; 327  :         if (u == nullptr)
 
   00010	48 85 c9	 test	 rcx, rcx
   00013	0f 84 a0 00 00
-	00		 je	 $LN28@PMC_Compar
+	00		 je	 $LN30@PMC_Compar
 
-; 301  :         if (v == nullptr)
+; 329  :         if (v == nullptr)
 
   00019	48 85 d2	 test	 rdx, rdx
   0001c	0f 84 c1 00 00
-	00		 je	 $LN29@PMC_Compar
+	00		 je	 $LN31@PMC_Compar
 
-; 303  :         NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
-; 304  :         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
-; 305  :         CheckNumber(nu);
+; 331  :         NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 332  :         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 333  :         CheckNumber(nu);
 
   00022	e8 00 00 00 00	 call	 ?CheckNumber@Internal@Core@Math@Palmtree@@YAXPEAU__tag_NUMBER_HEADER@1234@@Z ; Palmtree::Math::Core::Internal::CheckNumber
 
-; 306  :         CheckNumber(nv);
+; 334  :         CheckNumber(nv);
 
   00027	48 8b cf	 mov	 rcx, rdi
   0002a	e8 00 00 00 00	 call	 ?CheckNumber@Internal@Core@Math@Palmtree@@YAXPEAU__tag_NUMBER_HEADER@1234@@Z ; Palmtree::Math::Core::Internal::CheckNumber
 
-; 307  :         _INT32_T w;
-; 308  :         if (nu->IS_ZERO)
+; 299  :         if (u->IS_ZERO)
 
   0002f	8b 47 08	 mov	 eax, DWORD PTR [rdi+8]
   00032	83 e0 01	 and	 eax, 1
   00035	f6 43 08 01	 test	 BYTE PTR [rbx+8], 1
-  00039	74 0d		 je	 SHORT $LN4@PMC_Compar
+  00039	74 0d		 je	 SHORT $LN6@PMC_Compar
 
-; 309  :             w = nv->IS_ZERO ? 0 : -1;
+; 300  :             return (v->IS_ZERO ? 0 : -1);
 
   0003b	ff c8		 dec	 eax
 
-; 330  :             }
-; 331  :         }
-; 332  : #ifdef _DEBUG
-; 333  :         if (w != 0 && w != 1 && w != -1)
-; 334  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
-; 335  : #endif
-; 336  :         return (w);
-; 337  :     }
+; 335  :         _INT32_T w = PMC_Compare_X_X_Imp(nu, nv);
+; 336  : #ifdef _DEBUG
+; 337  :         if (w != 0 && w != 1 && w != -1)
+; 338  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
+; 339  : #endif
+; 340  :         return (w);
+; 341  :     }
 
   0003d	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   00042	48 83 c4 50	 add	 rsp, 80			; 00000050H
   00046	5f		 pop	 rdi
   00047	c3		 ret	 0
-$LN4@PMC_Compar:
+$LN6@PMC_Compar:
 
-; 310  :         else if (nv->IS_ZERO)
+; 301  :         else if (v->IS_ZERO)
 
   00048	85 c0		 test	 eax, eax
-  0004a	75 5d		 jne	 SHORT $LN22@PMC_Compar
+  0004a	75 5d		 jne	 SHORT $LN24@PMC_Compar
 
-; 311  :             w = 1;
-; 312  :         else
-; 313  :         {
-; 314  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
+; 302  :             return (1);
+; 303  :         else
+; 304  :         {
+; 305  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
 
   0004c	48 8b 43 20	 mov	 rax, QWORD PTR [rbx+32]
 
-; 315  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-; 316  :             if (u_bit_count > v_bit_count)
+; 306  :             __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
+; 307  :             if (u_bit_count > v_bit_count)
 
   00050	48 3b 47 20	 cmp	 rax, QWORD PTR [rdi+32]
-  00054	77 53		 ja	 SHORT $LN22@PMC_Compar
+  00054	77 53		 ja	 SHORT $LN24@PMC_Compar
 
-; 317  :             {
-; 318  :                 // 明らかに u > v である場合
-; 319  :                 w = 1;
-; 320  :             }
-; 321  :             else if (u_bit_count < v_bit_count)
+; 308  :             {
+; 309  :                 // 明らかに u > v である場合
+; 310  :                 return (1);
+; 311  :             }
+; 312  :             else if (u_bit_count < v_bit_count)
 
-  00056	72 41		 jb	 SHORT $LN23@PMC_Compar
+  00056	72 41		 jb	 SHORT $LN25@PMC_Compar
 
-; 322  :             {
-; 323  :                 // 明らかに u < v である場合
-; 324  :                 w = -1;
-; 325  :             }
-; 326  :             else
-; 327  :             {
-; 328  :                 // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
-; 329  :                 w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
+; 313  :             {
+; 314  :                 // 明らかに u < v である場合
+; 315  :                 return (-1);
+; 316  :             }
+; 317  :             else
+; 318  :             {
+; 319  :                 // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
+; 320  :                 return (Compare_Imp(u->BLOCK, v->BLOCK, u->UNIT_WORD_COUNT));
 
   00058	48 8b 4b 18	 mov	 rcx, QWORD PTR [rbx+24]
 
@@ -1371,8 +1370,8 @@ $LN4@PMC_Compar:
 ; 39   :         while (count > 0)
 
   0006c	48 85 c9	 test	 rcx, rcx
-  0006f	74 1b		 je	 SHORT $LN15@PMC_Compar
-$LL14@PMC_Compar:
+  0006f	74 1b		 je	 SHORT $LN17@PMC_Compar
+$LL16@PMC_Compar:
 
 ; 40   :         {
 ; 41   :             --u;
@@ -1386,18 +1385,18 @@ $LL14@PMC_Compar:
   00079	4d 8d 49 f8	 lea	 r9, QWORD PTR [r9-8]
   0007d	48 ff c9	 dec	 rcx
   00080	49 3b 01	 cmp	 rax, QWORD PTR [r9]
-  00083	77 24		 ja	 SHORT $LN22@PMC_Compar
+  00083	77 24		 ja	 SHORT $LN24@PMC_Compar
 
 ; 46   :                 return (1);
 ; 47   :             else if (*u < *v)
 
-  00085	72 12		 jb	 SHORT $LN23@PMC_Compar
+  00085	72 12		 jb	 SHORT $LN25@PMC_Compar
 
 ; 39   :         while (count > 0)
 
   00087	48 85 c9	 test	 rcx, rcx
-  0008a	75 e5		 jne	 SHORT $LL14@PMC_Compar
-$LN15@PMC_Compar:
+  0008a	75 e5		 jne	 SHORT $LL16@PMC_Compar
+$LN17@PMC_Compar:
 
 ; 48   :                 return (-1);
 ; 49   :             else
@@ -1408,34 +1407,33 @@ $LN15@PMC_Compar:
 
   0008c	33 c0		 xor	 eax, eax
 
-; 330  :             }
-; 331  :         }
-; 332  : #ifdef _DEBUG
-; 333  :         if (w != 0 && w != 1 && w != -1)
-; 334  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
-; 335  : #endif
-; 336  :         return (w);
-; 337  :     }
+; 335  :         _INT32_T w = PMC_Compare_X_X_Imp(nu, nv);
+; 336  : #ifdef _DEBUG
+; 337  :         if (w != 0 && w != 1 && w != -1)
+; 338  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
+; 339  : #endif
+; 340  :         return (w);
+; 341  :     }
 
   0008e	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   00093	48 83 c4 50	 add	 rsp, 80			; 00000050H
   00097	5f		 pop	 rdi
   00098	c3		 ret	 0
-$LN23@PMC_Compar:
+$LN25@PMC_Compar:
   00099	b8 ff ff ff ff	 mov	 eax, -1
   0009e	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   000a3	48 83 c4 50	 add	 rsp, 80			; 00000050H
   000a7	5f		 pop	 rdi
   000a8	c3		 ret	 0
-$LN22@PMC_Compar:
+$LN24@PMC_Compar:
   000a9	48 8b 5c 24 60	 mov	 rbx, QWORD PTR [rsp+96]
   000ae	b8 01 00 00 00	 mov	 eax, 1
   000b3	48 83 c4 50	 add	 rsp, 80			; 00000050H
   000b7	5f		 pop	 rdi
   000b8	c3		 ret	 0
-$LN28@PMC_Compar:
+$LN30@PMC_Compar:
 
-; 300  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
+; 328  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
   000b9	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_13ICFKHAEN@?$AAu@
@@ -1448,9 +1446,9 @@ $LN28@PMC_Compar:
   000d8	48 8d 4c 24 20	 lea	 rcx, QWORD PTR $T2[rsp]
   000dd	e8 00 00 00 00	 call	 _CxxThrowException
   000e2	cc		 int	 3
-$LN29@PMC_Compar:
+$LN31@PMC_Compar:
 
-; 302  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
+; 330  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
   000e3	4c 8d 05 00 00
 	00 00		 lea	 r8, OFFSET FLAT:??_C@_13JAOPNPKD@?$AAv@
@@ -1463,7 +1461,7 @@ $LN29@PMC_Compar:
   00102	48 8d 4c 24 20	 lea	 rcx, QWORD PTR $T1[rsp]
   00107	e8 00 00 00 00	 call	 _CxxThrowException
   0010c	cc		 int	 3
-$LN26@PMC_Compar:
+$LN28@PMC_Compar:
 ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YAHPEAU__tag_PMC_HANDLE_UINT@1234@0@Z ENDP ; Palmtree::Math::Core::Internal::PMC_Compare_X_X
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
@@ -2213,14 +2211,147 @@ _TEXT	SEGMENT
 feature$ = 8
 ?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPEAU_tag_PROCESSOR_FEATURES@1234@@Z PROC ; Palmtree::Math::Core::Internal::Initialize_Compare, COMDAT
 
-; 341  :         return (PMC_STATUS_OK);
+; 345  :         return (PMC_STATUS_OK);
 
   00000	33 c0		 xor	 eax, eax
 
-; 342  :     }
+; 346  :     }
 
   00002	c3		 ret	 0
 ?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPEAU_tag_PROCESSOR_FEATURES@1234@@Z ENDP ; Palmtree::Math::Core::Internal::Initialize_Compare
+_TEXT	ENDS
+; Function compile flags: /Ogtpy
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_compare.cpp
+;	COMDAT ?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPEAU__tag_NUMBER_HEADER@1234@0@Z
+_TEXT	SEGMENT
+u$ = 8
+v$ = 16
+?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPEAU__tag_NUMBER_HEADER@1234@0@Z PROC ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp, COMDAT
+
+; 299  :         if (u->IS_ZERO)
+
+  00000	8b 42 08	 mov	 eax, DWORD PTR [rdx+8]
+  00003	4c 8b c1	 mov	 r8, rcx
+  00006	83 e0 01	 and	 eax, 1
+  00009	f6 41 08 01	 test	 BYTE PTR [rcx+8], 1
+  0000d	74 03		 je	 SHORT $LN2@PMC_Compar
+
+; 300  :             return (v->IS_ZERO ? 0 : -1);
+
+  0000f	ff c8		 dec	 eax
+
+; 321  :             }
+; 322  :         }
+; 323  :     }
+
+  00011	c3		 ret	 0
+$LN2@PMC_Compar:
+
+; 301  :         else if (v->IS_ZERO)
+
+  00012	85 c0		 test	 eax, eax
+  00014	75 49		 jne	 SHORT $LN24@PMC_Compar
+
+; 302  :             return (1);
+; 303  :         else
+; 304  :         {
+; 305  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+
+  00016	48 8b 41 20	 mov	 rax, QWORD PTR [rcx+32]
+
+; 306  :             __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
+; 307  :             if (u_bit_count > v_bit_count)
+
+  0001a	48 3b 42 20	 cmp	 rax, QWORD PTR [rdx+32]
+  0001e	77 3f		 ja	 SHORT $LN24@PMC_Compar
+
+; 308  :             {
+; 309  :                 // 明らかに u > v である場合
+; 310  :                 return (1);
+; 311  :             }
+; 312  :             else if (u_bit_count < v_bit_count)
+
+  00020	73 06		 jae	 SHORT $LN8@PMC_Compar
+$LN21@PMC_Compar:
+
+; 321  :             }
+; 322  :         }
+; 323  :     }
+
+  00022	b8 ff ff ff ff	 mov	 eax, -1
+  00027	c3		 ret	 0
+$LN8@PMC_Compar:
+
+; 313  :             {
+; 314  :                 // 明らかに u < v である場合
+; 315  :                 return (-1);
+; 316  :             }
+; 317  :             else
+; 318  :             {
+; 319  :                 // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
+; 320  :                 return (Compare_Imp(u->BLOCK, v->BLOCK, u->UNIT_WORD_COUNT));
+
+  00028	48 8b 49 18	 mov	 rcx, QWORD PTR [rcx+24]
+
+; 37   :         u += count;
+
+  0002c	49 8b 40 40	 mov	 rax, QWORD PTR [r8+64]
+  00030	4c 8d 04 c8	 lea	 r8, QWORD PTR [rax+rcx*8]
+
+; 38   :         v += count;
+
+  00034	48 8b 42 40	 mov	 rax, QWORD PTR [rdx+64]
+  00038	4c 8d 0c c8	 lea	 r9, QWORD PTR [rax+rcx*8]
+
+; 39   :         while (count > 0)
+
+  0003c	48 85 c9	 test	 rcx, rcx
+  0003f	74 1b		 je	 SHORT $LN13@PMC_Compar
+$LL12@PMC_Compar:
+
+; 40   :         {
+; 41   :             --u;
+; 42   :             --v;
+; 43   :             --count;
+; 44   : 
+; 45   :             if (*u > *v)
+
+  00041	49 8b 40 f8	 mov	 rax, QWORD PTR [r8-8]
+  00045	4d 8d 40 f8	 lea	 r8, QWORD PTR [r8-8]
+  00049	4d 8d 49 f8	 lea	 r9, QWORD PTR [r9-8]
+  0004d	48 ff c9	 dec	 rcx
+  00050	49 3b 01	 cmp	 rax, QWORD PTR [r9]
+  00053	77 0a		 ja	 SHORT $LN24@PMC_Compar
+
+; 46   :                 return (1);
+; 47   :             else if (*u < *v)
+
+  00055	72 cb		 jb	 SHORT $LN21@PMC_Compar
+
+; 39   :         while (count > 0)
+
+  00057	48 85 c9	 test	 rcx, rcx
+  0005a	75 e5		 jne	 SHORT $LL12@PMC_Compar
+$LN13@PMC_Compar:
+
+; 48   :                 return (-1);
+; 49   :             else
+; 50   :             {
+; 51   :             }
+; 52   :         }
+; 53   :         return (0);
+
+  0005c	33 c0		 xor	 eax, eax
+
+; 321  :             }
+; 322  :         }
+; 323  :     }
+
+  0005e	c3		 ret	 0
+$LN24@PMC_Compar:
+  0005f	b8 01 00 00 00	 mov	 eax, 1
+  00064	c3		 ret	 0
+?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPEAU__tag_NUMBER_HEADER@1234@0@Z ENDP ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
 _TEXT	ENDS
 ; Function compile flags: /Ogtpy
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_compare.cpp

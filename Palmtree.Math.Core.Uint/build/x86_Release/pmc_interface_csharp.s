@@ -1488,18 +1488,20 @@ LFB774:
 	movl	%esp, %ebp
 	.cfi_def_cfa_register 5
 	subl	$72, %esp
-	movl	20(%ebp), %eax
-	testl	%eax, %eax
-	je	L105
-	movl	%eax, 12(%esp)
-	movl	16(%ebp), %eax
-	leal	-12(%ebp), %edx
-	movl	%edx, 16(%esp)
-	movl	%eax, 8(%esp)
+	movl	20(%ebp), %edx
 	movl	12(%ebp), %eax
+	testl	%edx, %edx
+	je	L105
+	testl	$-896, %eax
+	jne	L106
 	orl	$33554432, %eax
+	movl	%edx, 12(%esp)
+	movl	16(%ebp), %edx
+	leal	-12(%ebp), %ecx
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
+	movl	%ecx, 16(%esp)
+	movl	%edx, 8(%esp)
 	movl	%eax, (%esp)
 LEHB22:
 	call	__ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj@20
@@ -1517,11 +1519,15 @@ L100:
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	ret	$16
-L105:
+	.p2align 4,,10
+L106:
 	.cfi_restore_state
+	movl	$-1, %eax
+	jmp	L100
+L105:
 	movl	$-2, %eax
 	jmp	L100
-L106:
+L107:
 	jmp	L103
 	.section	.gcc_except_table,"w"
 	.align 4
@@ -1535,7 +1541,7 @@ LLSDATTD774:
 LLSDACSB774:
 	.uleb128 LEHB22-LFB774
 	.uleb128 LEHE22-LEHB22
-	.uleb128 L106-LFB774
+	.uleb128 L107-LFB774
 	.uleb128 0x1
 LLSDACSE774:
 	.byte	0x1
@@ -1614,33 +1620,39 @@ LFB775:
 	.cfi_def_cfa_register 5
 	subl	$56, %esp
 	movl	20(%ebp), %eax
+	movl	12(%ebp), %edx
 	testl	%eax, %eax
-	je	L112
+	je	L113
+	testl	$-896, %edx
+	jne	L114
 	movl	%eax, 12(%esp)
 	movl	16(%ebp), %eax
-	movl	24(%ebp), %edx
+	movl	24(%ebp), %ecx
+	movl	%edx, 4(%esp)
 	movl	%eax, 8(%esp)
-	movl	12(%ebp), %eax
-	movl	%edx, 16(%esp)
-	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
+	movl	%ecx, 16(%esp)
 	movl	%eax, (%esp)
 LEHB24:
 	call	__ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj@20
 LEHE24:
 	subl	$20, %esp
-L108:
+L109:
 	leave
 	.cfi_remember_state
 	.cfi_restore 5
 	.cfi_def_cfa 4, 4
 	ret	$20
-L112:
+	.p2align 4,,10
+L114:
 	.cfi_restore_state
-	movl	$-2, %eax
-	jmp	L108
+	movl	$-1, %eax
+	jmp	L109
 L113:
-	jmp	L110
+	movl	$-2, %eax
+	jmp	L109
+L115:
+	jmp	L111
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA775:
@@ -1653,7 +1665,7 @@ LLSDATTD775:
 LLSDACSB775:
 	.uleb128 LEHB24-LFB775
 	.uleb128 LEHE24-LEHB24
-	.uleb128 L113-LFB775
+	.uleb128 L115-LFB775
 	.uleb128 0x1
 LLSDACSE775:
 	.byte	0x1
@@ -1669,22 +1681,22 @@ LLSDATT775:
 	.cfi_lsda 0,LLSDAC775
 	.def	_PMCCS_TryParse@20.cold.13;	.scl	3;	.type	32;	.endef
 _PMCCS_TryParse@20.cold.13:
-L110:
+L111:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L111
+	je	L112
 LEHB25:
 	call	__Unwind_Resume
 LEHE25:
-L111:
+L112:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L108
+	jmp	L109
 	.cfi_endproc
 LFE775:
 	.section	.gcc_except_table,"w"
@@ -1735,7 +1747,7 @@ LFB776:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L119
+	je	L121
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -1746,7 +1758,7 @@ LEHE26:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L115:
+L117:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -1754,12 +1766,12 @@ L115:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L119:
+L121:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L115
-L120:
 	jmp	L117
+L122:
+	jmp	L119
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA776:
@@ -1772,7 +1784,7 @@ LLSDATTD776:
 LLSDACSB776:
 	.uleb128 LEHB26-LFB776
 	.uleb128 LEHE26-LEHB26
-	.uleb128 L120-LFB776
+	.uleb128 L122-LFB776
 	.uleb128 0x1
 LLSDACSE776:
 	.byte	0x1
@@ -1788,23 +1800,23 @@ LLSDATT776:
 	.cfi_lsda 0,LLSDAC776
 	.def	_PMCCS_Add_I_X@12.cold.14;	.scl	3;	.type	32;	.endef
 _PMCCS_Add_I_X@12.cold.14:
-L117:
+L119:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L118
+	je	L120
 LEHB27:
 	call	__Unwind_Resume
 LEHE27:
-L118:
+L120:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L115
+	jmp	L117
 	.cfi_endproc
 LFE776:
 	.section	.gcc_except_table,"w"
@@ -1857,7 +1869,7 @@ LFB777:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L126
+	je	L128
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -1868,7 +1880,7 @@ LEHE28:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L122:
+L124:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -1876,12 +1888,12 @@ L122:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L126:
+L128:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L122
-L127:
 	jmp	L124
+L129:
+	jmp	L126
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA777:
@@ -1894,7 +1906,7 @@ LLSDATTD777:
 LLSDACSB777:
 	.uleb128 LEHB28-LFB777
 	.uleb128 LEHE28-LEHB28
-	.uleb128 L127-LFB777
+	.uleb128 L129-LFB777
 	.uleb128 0x1
 LLSDACSE777:
 	.byte	0x1
@@ -1910,23 +1922,23 @@ LLSDATT777:
 	.cfi_lsda 0,LLSDAC777
 	.def	_PMCCS_Add_L_X@16.cold.15;	.scl	3;	.type	32;	.endef
 _PMCCS_Add_L_X@16.cold.15:
-L124:
+L126:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L125
+	je	L127
 LEHB29:
 	call	__Unwind_Resume
 LEHE29:
-L125:
+L127:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L122
+	jmp	L124
 	.cfi_endproc
 LFE777:
 	.section	.gcc_except_table,"w"
@@ -1977,7 +1989,7 @@ LFB778:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L133
+	je	L135
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -1988,7 +2000,7 @@ LEHE30:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L129:
+L131:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -1996,12 +2008,12 @@ L129:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L133:
+L135:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L129
-L134:
 	jmp	L131
+L136:
+	jmp	L133
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA778:
@@ -2014,7 +2026,7 @@ LLSDATTD778:
 LLSDACSB778:
 	.uleb128 LEHB30-LFB778
 	.uleb128 LEHE30-LEHB30
-	.uleb128 L134-LFB778
+	.uleb128 L136-LFB778
 	.uleb128 0x1
 LLSDACSE778:
 	.byte	0x1
@@ -2030,23 +2042,23 @@ LLSDATT778:
 	.cfi_lsda 0,LLSDAC778
 	.def	_PMCCS_Add_X_I@12.cold.16;	.scl	3;	.type	32;	.endef
 _PMCCS_Add_X_I@12.cold.16:
-L131:
+L133:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L132
+	je	L134
 LEHB31:
 	call	__Unwind_Resume
 LEHE31:
-L132:
+L134:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L129
+	jmp	L131
 	.cfi_endproc
 LFE778:
 	.section	.gcc_except_table,"w"
@@ -2099,7 +2111,7 @@ LFB779:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L140
+	je	L142
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -2110,7 +2122,7 @@ LEHE32:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L136:
+L138:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2118,12 +2130,12 @@ L136:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L140:
+L142:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L136
-L141:
 	jmp	L138
+L143:
+	jmp	L140
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA779:
@@ -2136,7 +2148,7 @@ LLSDATTD779:
 LLSDACSB779:
 	.uleb128 LEHB32-LFB779
 	.uleb128 LEHE32-LEHB32
-	.uleb128 L141-LFB779
+	.uleb128 L143-LFB779
 	.uleb128 0x1
 LLSDACSE779:
 	.byte	0x1
@@ -2152,23 +2164,23 @@ LLSDATT779:
 	.cfi_lsda 0,LLSDAC779
 	.def	_PMCCS_Add_X_L@16.cold.17;	.scl	3;	.type	32;	.endef
 _PMCCS_Add_X_L@16.cold.17:
-L138:
+L140:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L139
+	je	L141
 LEHB33:
 	call	__Unwind_Resume
 LEHE33:
-L139:
+L141:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L136
+	jmp	L138
 	.cfi_endproc
 LFE779:
 	.section	.gcc_except_table,"w"
@@ -2219,7 +2231,7 @@ LFB780:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L147
+	je	L149
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -2230,7 +2242,7 @@ LEHE34:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L143:
+L145:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2238,12 +2250,12 @@ L143:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L147:
+L149:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L143
-L148:
 	jmp	L145
+L150:
+	jmp	L147
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA780:
@@ -2256,7 +2268,7 @@ LLSDATTD780:
 LLSDACSB780:
 	.uleb128 LEHB34-LFB780
 	.uleb128 LEHE34-LEHB34
-	.uleb128 L148-LFB780
+	.uleb128 L150-LFB780
 	.uleb128 0x1
 LLSDACSE780:
 	.byte	0x1
@@ -2272,23 +2284,23 @@ LLSDATT780:
 	.cfi_lsda 0,LLSDAC780
 	.def	_PMCCS_Add_X_X@12.cold.18;	.scl	3;	.type	32;	.endef
 _PMCCS_Add_X_X@12.cold.18:
-L145:
+L147:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L146
+	je	L148
 LEHB35:
 	call	__Unwind_Resume
 LEHE35:
-L146:
+L148:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L143
+	jmp	L145
 	.cfi_endproc
 LFE780:
 	.section	.gcc_except_table,"w"
@@ -2339,7 +2351,7 @@ LFB781:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L154
+	je	L156
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -2350,7 +2362,7 @@ LEHE36:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L150:
+L152:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2358,12 +2370,12 @@ L150:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L154:
+L156:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L150
-L155:
 	jmp	L152
+L157:
+	jmp	L154
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA781:
@@ -2376,7 +2388,7 @@ LLSDATTD781:
 LLSDACSB781:
 	.uleb128 LEHB36-LFB781
 	.uleb128 LEHE36-LEHB36
-	.uleb128 L155-LFB781
+	.uleb128 L157-LFB781
 	.uleb128 0x1
 LLSDACSE781:
 	.byte	0x1
@@ -2392,23 +2404,23 @@ LLSDATT781:
 	.cfi_lsda 0,LLSDAC781
 	.def	_PMCCS_Subtruct_I_X@12.cold.19;	.scl	3;	.type	32;	.endef
 _PMCCS_Subtruct_I_X@12.cold.19:
-L152:
+L154:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L153
+	je	L155
 LEHB37:
 	call	__Unwind_Resume
 LEHE37:
-L153:
+L155:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L150
+	jmp	L152
 	.cfi_endproc
 LFE781:
 	.section	.gcc_except_table,"w"
@@ -2461,7 +2473,7 @@ LFB782:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L161
+	je	L163
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -2473,7 +2485,7 @@ LEHE38:
 	subl	$12, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L157:
+L159:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2481,12 +2493,12 @@ L157:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L161:
+L163:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L157
-L162:
 	jmp	L159
+L164:
+	jmp	L161
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA782:
@@ -2499,7 +2511,7 @@ LLSDATTD782:
 LLSDACSB782:
 	.uleb128 LEHB38-LFB782
 	.uleb128 LEHE38-LEHB38
-	.uleb128 L162-LFB782
+	.uleb128 L164-LFB782
 	.uleb128 0x1
 LLSDACSE782:
 	.byte	0x1
@@ -2515,23 +2527,23 @@ LLSDATT782:
 	.cfi_lsda 0,LLSDAC782
 	.def	_PMCCS_Subtruct_L_X@16.cold.20;	.scl	3;	.type	32;	.endef
 _PMCCS_Subtruct_L_X@16.cold.20:
-L159:
+L161:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L160
+	je	L162
 LEHB39:
 	call	__Unwind_Resume
 LEHE39:
-L160:
+L162:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L157
+	jmp	L159
 	.cfi_endproc
 LFE782:
 	.section	.gcc_except_table,"w"
@@ -2582,7 +2594,7 @@ LFB783:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L168
+	je	L170
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -2593,7 +2605,7 @@ LEHE40:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L164:
+L166:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2601,12 +2613,12 @@ L164:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L168:
+L170:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L164
-L169:
 	jmp	L166
+L171:
+	jmp	L168
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA783:
@@ -2619,7 +2631,7 @@ LLSDATTD783:
 LLSDACSB783:
 	.uleb128 LEHB40-LFB783
 	.uleb128 LEHE40-LEHB40
-	.uleb128 L169-LFB783
+	.uleb128 L171-LFB783
 	.uleb128 0x1
 LLSDACSE783:
 	.byte	0x1
@@ -2635,23 +2647,23 @@ LLSDATT783:
 	.cfi_lsda 0,LLSDAC783
 	.def	_PMCCS_Subtruct_X_I@12.cold.21;	.scl	3;	.type	32;	.endef
 _PMCCS_Subtruct_X_I@12.cold.21:
-L166:
+L168:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L167
+	je	L169
 LEHB41:
 	call	__Unwind_Resume
 LEHE41:
-L167:
+L169:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L164
+	jmp	L166
 	.cfi_endproc
 LFE783:
 	.section	.gcc_except_table,"w"
@@ -2704,7 +2716,7 @@ LFB784:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L175
+	je	L177
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -2715,7 +2727,7 @@ LEHE42:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L171:
+L173:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2723,12 +2735,12 @@ L171:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L175:
+L177:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L171
-L176:
 	jmp	L173
+L178:
+	jmp	L175
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA784:
@@ -2741,7 +2753,7 @@ LLSDATTD784:
 LLSDACSB784:
 	.uleb128 LEHB42-LFB784
 	.uleb128 LEHE42-LEHB42
-	.uleb128 L176-LFB784
+	.uleb128 L178-LFB784
 	.uleb128 0x1
 LLSDACSE784:
 	.byte	0x1
@@ -2757,23 +2769,23 @@ LLSDATT784:
 	.cfi_lsda 0,LLSDAC784
 	.def	_PMCCS_Subtruct_X_L@16.cold.22;	.scl	3;	.type	32;	.endef
 _PMCCS_Subtruct_X_L@16.cold.22:
-L173:
+L175:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L174
+	je	L176
 LEHB43:
 	call	__Unwind_Resume
 LEHE43:
-L174:
+L176:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L171
+	jmp	L173
 	.cfi_endproc
 LFE784:
 	.section	.gcc_except_table,"w"
@@ -2824,7 +2836,7 @@ LFB785:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L182
+	je	L184
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -2835,7 +2847,7 @@ LEHE44:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L178:
+L180:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2843,12 +2855,12 @@ L178:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L182:
+L184:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L178
-L183:
 	jmp	L180
+L185:
+	jmp	L182
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA785:
@@ -2861,7 +2873,7 @@ LLSDATTD785:
 LLSDACSB785:
 	.uleb128 LEHB44-LFB785
 	.uleb128 LEHE44-LEHB44
-	.uleb128 L183-LFB785
+	.uleb128 L185-LFB785
 	.uleb128 0x1
 LLSDACSE785:
 	.byte	0x1
@@ -2877,23 +2889,23 @@ LLSDATT785:
 	.cfi_lsda 0,LLSDAC785
 	.def	_PMCCS_Subtruct_X_X@12.cold.23;	.scl	3;	.type	32;	.endef
 _PMCCS_Subtruct_X_X@12.cold.23:
-L180:
+L182:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L181
+	je	L183
 LEHB45:
 	call	__Unwind_Resume
 LEHE45:
-L181:
+L183:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L178
+	jmp	L180
 	.cfi_endproc
 LFE785:
 	.section	.gcc_except_table,"w"
@@ -2944,7 +2956,7 @@ LFB786:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L189
+	je	L191
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -2955,7 +2967,7 @@ LEHE46:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L185:
+L187:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -2963,12 +2975,12 @@ L185:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L189:
+L191:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L185
-L190:
 	jmp	L187
+L192:
+	jmp	L189
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA786:
@@ -2981,7 +2993,7 @@ LLSDATTD786:
 LLSDACSB786:
 	.uleb128 LEHB46-LFB786
 	.uleb128 LEHE46-LEHB46
-	.uleb128 L190-LFB786
+	.uleb128 L192-LFB786
 	.uleb128 0x1
 LLSDACSE786:
 	.byte	0x1
@@ -2997,23 +3009,23 @@ LLSDATT786:
 	.cfi_lsda 0,LLSDAC786
 	.def	_PMCCS_Multiply_I_X@12.cold.24;	.scl	3;	.type	32;	.endef
 _PMCCS_Multiply_I_X@12.cold.24:
-L187:
+L189:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L188
+	je	L190
 LEHB47:
 	call	__Unwind_Resume
 LEHE47:
-L188:
+L190:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L185
+	jmp	L187
 	.cfi_endproc
 LFE786:
 	.section	.gcc_except_table,"w"
@@ -3066,7 +3078,7 @@ LFB787:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L196
+	je	L198
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -3077,7 +3089,7 @@ LEHE48:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L192:
+L194:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3085,12 +3097,12 @@ L192:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L196:
+L198:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L192
-L197:
 	jmp	L194
+L199:
+	jmp	L196
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA787:
@@ -3103,7 +3115,7 @@ LLSDATTD787:
 LLSDACSB787:
 	.uleb128 LEHB48-LFB787
 	.uleb128 LEHE48-LEHB48
-	.uleb128 L197-LFB787
+	.uleb128 L199-LFB787
 	.uleb128 0x1
 LLSDACSE787:
 	.byte	0x1
@@ -3119,23 +3131,23 @@ LLSDATT787:
 	.cfi_lsda 0,LLSDAC787
 	.def	_PMCCS_Multiply_L_X@16.cold.25;	.scl	3;	.type	32;	.endef
 _PMCCS_Multiply_L_X@16.cold.25:
-L194:
+L196:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L195
+	je	L197
 LEHB49:
 	call	__Unwind_Resume
 LEHE49:
-L195:
+L197:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L192
+	jmp	L194
 	.cfi_endproc
 LFE787:
 	.section	.gcc_except_table,"w"
@@ -3186,7 +3198,7 @@ LFB788:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L203
+	je	L205
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -3197,7 +3209,7 @@ LEHE50:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L199:
+L201:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3205,12 +3217,12 @@ L199:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L203:
+L205:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L199
-L204:
 	jmp	L201
+L206:
+	jmp	L203
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA788:
@@ -3223,7 +3235,7 @@ LLSDATTD788:
 LLSDACSB788:
 	.uleb128 LEHB50-LFB788
 	.uleb128 LEHE50-LEHB50
-	.uleb128 L204-LFB788
+	.uleb128 L206-LFB788
 	.uleb128 0x1
 LLSDACSE788:
 	.byte	0x1
@@ -3239,23 +3251,23 @@ LLSDATT788:
 	.cfi_lsda 0,LLSDAC788
 	.def	_PMCCS_Multiply_X_I@12.cold.26;	.scl	3;	.type	32;	.endef
 _PMCCS_Multiply_X_I@12.cold.26:
-L201:
+L203:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L202
+	je	L204
 LEHB51:
 	call	__Unwind_Resume
 LEHE51:
-L202:
+L204:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L199
+	jmp	L201
 	.cfi_endproc
 LFE788:
 	.section	.gcc_except_table,"w"
@@ -3308,7 +3320,7 @@ LFB789:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L210
+	je	L212
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -3319,7 +3331,7 @@ LEHE52:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L206:
+L208:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3327,12 +3339,12 @@ L206:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L210:
+L212:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L206
-L211:
 	jmp	L208
+L213:
+	jmp	L210
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA789:
@@ -3345,7 +3357,7 @@ LLSDATTD789:
 LLSDACSB789:
 	.uleb128 LEHB52-LFB789
 	.uleb128 LEHE52-LEHB52
-	.uleb128 L211-LFB789
+	.uleb128 L213-LFB789
 	.uleb128 0x1
 LLSDACSE789:
 	.byte	0x1
@@ -3361,23 +3373,23 @@ LLSDATT789:
 	.cfi_lsda 0,LLSDAC789
 	.def	_PMCCS_Multiply_X_L@16.cold.27;	.scl	3;	.type	32;	.endef
 _PMCCS_Multiply_X_L@16.cold.27:
-L208:
+L210:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L209
+	je	L211
 LEHB53:
 	call	__Unwind_Resume
 LEHE53:
-L209:
+L211:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L206
+	jmp	L208
 	.cfi_endproc
 LFE789:
 	.section	.gcc_except_table,"w"
@@ -3428,7 +3440,7 @@ LFB790:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L217
+	je	L219
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -3439,7 +3451,7 @@ LEHE54:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L213:
+L215:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3447,12 +3459,12 @@ L213:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L217:
+L219:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L213
-L218:
 	jmp	L215
+L220:
+	jmp	L217
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA790:
@@ -3465,7 +3477,7 @@ LLSDATTD790:
 LLSDACSB790:
 	.uleb128 LEHB54-LFB790
 	.uleb128 LEHE54-LEHB54
-	.uleb128 L218-LFB790
+	.uleb128 L220-LFB790
 	.uleb128 0x1
 LLSDACSE790:
 	.byte	0x1
@@ -3481,23 +3493,23 @@ LLSDATT790:
 	.cfi_lsda 0,LLSDAC790
 	.def	_PMCCS_Multiply_X_X@12.cold.28;	.scl	3;	.type	32;	.endef
 _PMCCS_Multiply_X_X@12.cold.28:
-L215:
+L217:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L216
+	je	L218
 LEHB55:
 	call	__Unwind_Resume
 LEHE55:
-L216:
+L218:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L213
+	jmp	L215
 	.cfi_endproc
 LFE790:
 	.section	.gcc_except_table,"w"
@@ -3548,7 +3560,7 @@ LFB791:
 	.cfi_offset 3, -12
 	movl	20(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L224
+	je	L226
 	movl	16(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	12(%ebp), %eax
@@ -3561,7 +3573,7 @@ LEHE56:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L220:
+L222:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3569,12 +3581,12 @@ L220:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L224:
+L226:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L220
-L225:
 	jmp	L222
+L227:
+	jmp	L224
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA791:
@@ -3587,7 +3599,7 @@ LLSDATTD791:
 LLSDACSB791:
 	.uleb128 LEHB56-LFB791
 	.uleb128 LEHE56-LEHB56
-	.uleb128 L225-LFB791
+	.uleb128 L227-LFB791
 	.uleb128 0x1
 LLSDACSE791:
 	.byte	0x1
@@ -3603,23 +3615,23 @@ LLSDATT791:
 	.cfi_lsda 0,LLSDAC791
 	.def	_PMCCS_DivRem_I_X@16.cold.29;	.scl	3;	.type	32;	.endef
 _PMCCS_DivRem_I_X@16.cold.29:
-L222:
+L224:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L223
+	je	L225
 LEHB57:
 	call	__Unwind_Resume
 LEHE57:
-L223:
+L225:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L220
+	jmp	L222
 	.cfi_endproc
 LFE791:
 	.section	.gcc_except_table,"w"
@@ -3672,7 +3684,7 @@ LFB792:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L231
+	je	L233
 	movl	20(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -3686,7 +3698,7 @@ LEHE58:
 	subl	$16, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L227:
+L229:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3694,12 +3706,12 @@ L227:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$20
-L231:
+L233:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L227
-L232:
 	jmp	L229
+L234:
+	jmp	L231
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA792:
@@ -3712,7 +3724,7 @@ LLSDATTD792:
 LLSDACSB792:
 	.uleb128 LEHB58-LFB792
 	.uleb128 LEHE58-LEHB58
-	.uleb128 L232-LFB792
+	.uleb128 L234-LFB792
 	.uleb128 0x1
 LLSDACSE792:
 	.byte	0x1
@@ -3728,23 +3740,23 @@ LLSDATT792:
 	.cfi_lsda 0,LLSDAC792
 	.def	_PMCCS_DivRem_L_X@20.cold.30;	.scl	3;	.type	32;	.endef
 _PMCCS_DivRem_L_X@20.cold.30:
-L229:
+L231:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L230
+	je	L232
 LEHB59:
 	call	__Unwind_Resume
 LEHE59:
-L230:
+L232:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L227
+	jmp	L229
 	.cfi_endproc
 LFE792:
 	.section	.gcc_except_table,"w"
@@ -3795,7 +3807,7 @@ LFB793:
 	.cfi_offset 3, -12
 	movl	20(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L238
+	je	L240
 	movl	16(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	12(%ebp), %eax
@@ -3808,7 +3820,7 @@ LEHE60:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L234:
+L236:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3816,12 +3828,12 @@ L234:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L238:
+L240:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L234
-L239:
 	jmp	L236
+L241:
+	jmp	L238
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA793:
@@ -3834,7 +3846,7 @@ LLSDATTD793:
 LLSDACSB793:
 	.uleb128 LEHB60-LFB793
 	.uleb128 LEHE60-LEHB60
-	.uleb128 L239-LFB793
+	.uleb128 L241-LFB793
 	.uleb128 0x1
 LLSDACSE793:
 	.byte	0x1
@@ -3850,23 +3862,23 @@ LLSDATT793:
 	.cfi_lsda 0,LLSDAC793
 	.def	_PMCCS_DivRem_X_I@16.cold.31;	.scl	3;	.type	32;	.endef
 _PMCCS_DivRem_X_I@16.cold.31:
-L236:
+L238:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L237
+	je	L239
 LEHB61:
 	call	__Unwind_Resume
 LEHE61:
-L237:
+L239:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L234
+	jmp	L236
 	.cfi_endproc
 LFE793:
 	.section	.gcc_except_table,"w"
@@ -3919,7 +3931,7 @@ LFB794:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L245
+	je	L247
 	movl	20(%ebp), %ecx
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -3933,7 +3945,7 @@ LEHE62:
 	subl	$16, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L241:
+L243:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -3941,12 +3953,12 @@ L241:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$20
-L245:
+L247:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L241
-L246:
 	jmp	L243
+L248:
+	jmp	L245
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA794:
@@ -3959,7 +3971,7 @@ LLSDATTD794:
 LLSDACSB794:
 	.uleb128 LEHB62-LFB794
 	.uleb128 LEHE62-LEHB62
-	.uleb128 L246-LFB794
+	.uleb128 L248-LFB794
 	.uleb128 0x1
 LLSDACSE794:
 	.byte	0x1
@@ -3975,23 +3987,23 @@ LLSDATT794:
 	.cfi_lsda 0,LLSDAC794
 	.def	_PMCCS_DivRem_X_L@20.cold.32;	.scl	3;	.type	32;	.endef
 _PMCCS_DivRem_X_L@20.cold.32:
-L243:
+L245:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L244
+	je	L246
 LEHB63:
 	call	__Unwind_Resume
 LEHE63:
-L244:
+L246:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L241
+	jmp	L243
 	.cfi_endproc
 LFE794:
 	.section	.gcc_except_table,"w"
@@ -4042,7 +4054,7 @@ LFB795:
 	.cfi_offset 3, -12
 	movl	20(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L252
+	je	L254
 	movl	16(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	12(%ebp), %eax
@@ -4055,7 +4067,7 @@ LEHE64:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L248:
+L250:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4063,12 +4075,12 @@ L248:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L252:
+L254:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L248
-L253:
 	jmp	L250
+L255:
+	jmp	L252
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA795:
@@ -4081,7 +4093,7 @@ LLSDATTD795:
 LLSDACSB795:
 	.uleb128 LEHB64-LFB795
 	.uleb128 LEHE64-LEHB64
-	.uleb128 L253-LFB795
+	.uleb128 L255-LFB795
 	.uleb128 0x1
 LLSDACSE795:
 	.byte	0x1
@@ -4097,23 +4109,23 @@ LLSDATT795:
 	.cfi_lsda 0,LLSDAC795
 	.def	_PMCCS_DivRem_X_X@16.cold.33;	.scl	3;	.type	32;	.endef
 _PMCCS_DivRem_X_X@16.cold.33:
-L250:
+L252:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L251
+	je	L253
 LEHB65:
 	call	__Unwind_Resume
 LEHE65:
-L251:
+L253:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L248
+	jmp	L250
 	.cfi_endproc
 LFE795:
 	.section	.gcc_except_table,"w"
@@ -4164,7 +4176,7 @@ LFB796:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L259
+	je	L261
 	movl	12(%ebp), %eax
 	movl	$0, 8(%esp)
 	movl	%eax, 4(%esp)
@@ -4176,7 +4188,7 @@ LEHE66:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L255:
+L257:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4184,12 +4196,12 @@ L255:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L259:
+L261:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L255
-L260:
 	jmp	L257
+L262:
+	jmp	L259
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA796:
@@ -4202,7 +4214,7 @@ LLSDATTD796:
 LLSDACSB796:
 	.uleb128 LEHB66-LFB796
 	.uleb128 LEHE66-LEHB66
-	.uleb128 L260-LFB796
+	.uleb128 L262-LFB796
 	.uleb128 0x1
 LLSDACSE796:
 	.byte	0x1
@@ -4218,23 +4230,23 @@ LLSDATT796:
 	.cfi_lsda 0,LLSDAC796
 	.def	_PMCCS_Remainder_I_X@12.cold.34;	.scl	3;	.type	32;	.endef
 _PMCCS_Remainder_I_X@12.cold.34:
-L257:
+L259:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L258
+	je	L260
 LEHB67:
 	call	__Unwind_Resume
 LEHE67:
-L258:
+L260:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L255
+	jmp	L257
 	.cfi_endproc
 LFE796:
 	.section	.gcc_except_table,"w"
@@ -4287,7 +4299,7 @@ LFB797:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L266
+	je	L268
 	movl	16(%ebp), %ecx
 	movl	$0, 12(%esp)
 	movl	%eax, (%esp)
@@ -4300,7 +4312,7 @@ LEHE68:
 	subl	$16, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L262:
+L264:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4308,12 +4320,12 @@ L262:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L266:
+L268:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L262
-L267:
 	jmp	L264
+L269:
+	jmp	L266
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA797:
@@ -4326,7 +4338,7 @@ LLSDATTD797:
 LLSDACSB797:
 	.uleb128 LEHB68-LFB797
 	.uleb128 LEHE68-LEHB68
-	.uleb128 L267-LFB797
+	.uleb128 L269-LFB797
 	.uleb128 0x1
 LLSDACSE797:
 	.byte	0x1
@@ -4342,23 +4354,23 @@ LLSDATT797:
 	.cfi_lsda 0,LLSDAC797
 	.def	_PMCCS_Remainder_L_X@16.cold.35;	.scl	3;	.type	32;	.endef
 _PMCCS_Remainder_L_X@16.cold.35:
-L264:
+L266:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L265
+	je	L267
 LEHB69:
 	call	__Unwind_Resume
 LEHE69:
-L265:
+L267:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L262
+	jmp	L264
 	.cfi_endproc
 LFE797:
 	.section	.gcc_except_table,"w"
@@ -4409,7 +4421,7 @@ LFB798:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L273
+	je	L275
 	movl	12(%ebp), %eax
 	movl	$0, 8(%esp)
 	movl	%eax, 4(%esp)
@@ -4421,7 +4433,7 @@ LEHE70:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L269:
+L271:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4429,12 +4441,12 @@ L269:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L273:
+L275:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L269
-L274:
 	jmp	L271
+L276:
+	jmp	L273
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA798:
@@ -4447,7 +4459,7 @@ LLSDATTD798:
 LLSDACSB798:
 	.uleb128 LEHB70-LFB798
 	.uleb128 LEHE70-LEHB70
-	.uleb128 L274-LFB798
+	.uleb128 L276-LFB798
 	.uleb128 0x1
 LLSDACSE798:
 	.byte	0x1
@@ -4463,23 +4475,23 @@ LLSDATT798:
 	.cfi_lsda 0,LLSDAC798
 	.def	_PMCCS_Remainder_X_I@12.cold.36;	.scl	3;	.type	32;	.endef
 _PMCCS_Remainder_X_I@12.cold.36:
-L271:
+L273:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L272
+	je	L274
 LEHB71:
 	call	__Unwind_Resume
 LEHE71:
-L272:
+L274:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L269
+	jmp	L271
 	.cfi_endproc
 LFE798:
 	.section	.gcc_except_table,"w"
@@ -4532,7 +4544,7 @@ LFB799:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L280
+	je	L282
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	$0, 12(%esp)
@@ -4545,7 +4557,7 @@ LEHE72:
 	subl	$16, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L276:
+L278:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4553,12 +4565,12 @@ L276:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L280:
+L282:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L276
-L281:
 	jmp	L278
+L283:
+	jmp	L280
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA799:
@@ -4571,7 +4583,7 @@ LLSDATTD799:
 LLSDACSB799:
 	.uleb128 LEHB72-LFB799
 	.uleb128 LEHE72-LEHB72
-	.uleb128 L281-LFB799
+	.uleb128 L283-LFB799
 	.uleb128 0x1
 LLSDACSE799:
 	.byte	0x1
@@ -4587,23 +4599,23 @@ LLSDATT799:
 	.cfi_lsda 0,LLSDAC799
 	.def	_PMCCS_Remainder_X_L@16.cold.37;	.scl	3;	.type	32;	.endef
 _PMCCS_Remainder_X_L@16.cold.37:
-L278:
+L280:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L279
+	je	L281
 LEHB73:
 	call	__Unwind_Resume
 LEHE73:
-L279:
+L281:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L276
+	jmp	L278
 	.cfi_endproc
 LFE799:
 	.section	.gcc_except_table,"w"
@@ -4654,7 +4666,7 @@ LFB800:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L287
+	je	L289
 	movl	12(%ebp), %eax
 	movl	$0, 8(%esp)
 	movl	%eax, 4(%esp)
@@ -4666,7 +4678,7 @@ LEHE74:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L283:
+L285:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4674,12 +4686,12 @@ L283:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L287:
+L289:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L283
-L288:
 	jmp	L285
+L290:
+	jmp	L287
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA800:
@@ -4692,7 +4704,7 @@ LLSDATTD800:
 LLSDACSB800:
 	.uleb128 LEHB74-LFB800
 	.uleb128 LEHE74-LEHB74
-	.uleb128 L288-LFB800
+	.uleb128 L290-LFB800
 	.uleb128 0x1
 LLSDACSE800:
 	.byte	0x1
@@ -4708,23 +4720,23 @@ LLSDATT800:
 	.cfi_lsda 0,LLSDAC800
 	.def	_PMCCS_Remainder_X_X@12.cold.38;	.scl	3;	.type	32;	.endef
 _PMCCS_Remainder_X_X@12.cold.38:
-L285:
+L287:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L286
+	je	L288
 LEHB75:
 	call	__Unwind_Resume
 LEHE75:
-L286:
+L288:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L283
+	jmp	L285
 	.cfi_endproc
 LFE800:
 	.section	.gcc_except_table,"w"
@@ -4775,7 +4787,7 @@ LFB801:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L294
+	je	L296
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -4786,7 +4798,7 @@ LEHE76:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L290:
+L292:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4794,12 +4806,12 @@ L290:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L294:
+L296:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L290
-L295:
 	jmp	L292
+L297:
+	jmp	L294
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA801:
@@ -4812,7 +4824,7 @@ LLSDATTD801:
 LLSDACSB801:
 	.uleb128 LEHB76-LFB801
 	.uleb128 LEHE76-LEHB76
-	.uleb128 L295-LFB801
+	.uleb128 L297-LFB801
 	.uleb128 0x1
 LLSDACSE801:
 	.byte	0x1
@@ -4828,23 +4840,23 @@ LLSDATT801:
 	.cfi_lsda 0,LLSDAC801
 	.def	_PMCCS_RightShift_X_I@12.cold.39;	.scl	3;	.type	32;	.endef
 _PMCCS_RightShift_X_I@12.cold.39:
-L292:
+L294:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L293
+	je	L295
 LEHB77:
 	call	__Unwind_Resume
 LEHE77:
-L293:
+L295:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L290
+	jmp	L292
 	.cfi_endproc
 LFE801:
 	.section	.gcc_except_table,"w"
@@ -4895,7 +4907,7 @@ LFB802:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L301
+	je	L303
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -4906,7 +4918,7 @@ LEHE78:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L297:
+L299:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -4914,12 +4926,12 @@ L297:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L301:
+L303:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L297
-L302:
 	jmp	L299
+L304:
+	jmp	L301
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA802:
@@ -4932,7 +4944,7 @@ LLSDATTD802:
 LLSDACSB802:
 	.uleb128 LEHB78-LFB802
 	.uleb128 LEHE78-LEHB78
-	.uleb128 L302-LFB802
+	.uleb128 L304-LFB802
 	.uleb128 0x1
 LLSDACSE802:
 	.byte	0x1
@@ -4948,23 +4960,23 @@ LLSDATT802:
 	.cfi_lsda 0,LLSDAC802
 	.def	_PMCCS_LeftShift_X_I@12.cold.40;	.scl	3;	.type	32;	.endef
 _PMCCS_LeftShift_X_I@12.cold.40:
-L299:
+L301:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L300
+	je	L302
 LEHB79:
 	call	__Unwind_Resume
 LEHE79:
-L300:
+L302:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L297
+	jmp	L299
 	.cfi_endproc
 LFE802:
 	.section	.gcc_except_table,"w"
@@ -5015,7 +5027,7 @@ LFB803:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L308
+	je	L310
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -5026,7 +5038,7 @@ LEHE80:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L304:
+L306:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5034,12 +5046,12 @@ L304:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L308:
+L310:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L304
-L309:
 	jmp	L306
+L311:
+	jmp	L308
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA803:
@@ -5052,7 +5064,7 @@ LLSDATTD803:
 LLSDACSB803:
 	.uleb128 LEHB80-LFB803
 	.uleb128 LEHE80-LEHB80
-	.uleb128 L309-LFB803
+	.uleb128 L311-LFB803
 	.uleb128 0x1
 LLSDACSE803:
 	.byte	0x1
@@ -5068,23 +5080,23 @@ LLSDATT803:
 	.cfi_lsda 0,LLSDAC803
 	.def	_PMCCS_BitwiseAnd_I_X@12.cold.41;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseAnd_I_X@12.cold.41:
-L306:
+L308:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L307
+	je	L309
 LEHB81:
 	call	__Unwind_Resume
 LEHE81:
-L307:
+L309:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L304
+	jmp	L306
 	.cfi_endproc
 LFE803:
 	.section	.gcc_except_table,"w"
@@ -5137,7 +5149,7 @@ LFB804:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L315
+	je	L317
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -5149,7 +5161,7 @@ LEHE82:
 	subl	$12, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L311:
+L313:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5157,12 +5169,12 @@ L311:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L315:
+L317:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L311
-L316:
 	jmp	L313
+L318:
+	jmp	L315
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA804:
@@ -5175,7 +5187,7 @@ LLSDATTD804:
 LLSDACSB804:
 	.uleb128 LEHB82-LFB804
 	.uleb128 LEHE82-LEHB82
-	.uleb128 L316-LFB804
+	.uleb128 L318-LFB804
 	.uleb128 0x1
 LLSDACSE804:
 	.byte	0x1
@@ -5191,23 +5203,23 @@ LLSDATT804:
 	.cfi_lsda 0,LLSDAC804
 	.def	_PMCCS_BitwiseAnd_L_X@16.cold.42;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseAnd_L_X@16.cold.42:
-L313:
+L315:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L314
+	je	L316
 LEHB83:
 	call	__Unwind_Resume
 LEHE83:
-L314:
+L316:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L311
+	jmp	L313
 	.cfi_endproc
 LFE804:
 	.section	.gcc_except_table,"w"
@@ -5258,7 +5270,7 @@ LFB805:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L322
+	je	L324
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -5269,7 +5281,7 @@ LEHE84:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L318:
+L320:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5277,12 +5289,12 @@ L318:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L322:
+L324:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L318
-L323:
 	jmp	L320
+L325:
+	jmp	L322
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA805:
@@ -5295,7 +5307,7 @@ LLSDATTD805:
 LLSDACSB805:
 	.uleb128 LEHB84-LFB805
 	.uleb128 LEHE84-LEHB84
-	.uleb128 L323-LFB805
+	.uleb128 L325-LFB805
 	.uleb128 0x1
 LLSDACSE805:
 	.byte	0x1
@@ -5311,23 +5323,23 @@ LLSDATT805:
 	.cfi_lsda 0,LLSDAC805
 	.def	_PMCCS_BitwiseAnd_X_I@12.cold.43;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseAnd_X_I@12.cold.43:
-L320:
+L322:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L321
+	je	L323
 LEHB85:
 	call	__Unwind_Resume
 LEHE85:
-L321:
+L323:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L318
+	jmp	L320
 	.cfi_endproc
 LFE805:
 	.section	.gcc_except_table,"w"
@@ -5380,7 +5392,7 @@ LFB806:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L329
+	je	L331
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -5392,7 +5404,7 @@ LEHE86:
 	subl	$12, %esp
 	movl	%eax, (%ebx)
 	xorl	%eax, %eax
-L325:
+L327:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5400,12 +5412,12 @@ L325:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L329:
+L331:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L325
-L330:
 	jmp	L327
+L332:
+	jmp	L329
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA806:
@@ -5418,7 +5430,7 @@ LLSDATTD806:
 LLSDACSB806:
 	.uleb128 LEHB86-LFB806
 	.uleb128 LEHE86-LEHB86
-	.uleb128 L330-LFB806
+	.uleb128 L332-LFB806
 	.uleb128 0x1
 LLSDACSE806:
 	.byte	0x1
@@ -5434,23 +5446,23 @@ LLSDATT806:
 	.cfi_lsda 0,LLSDAC806
 	.def	_PMCCS_BitwiseAnd_X_L@16.cold.44;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseAnd_X_L@16.cold.44:
-L327:
+L329:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L328
+	je	L330
 LEHB87:
 	call	__Unwind_Resume
 LEHE87:
-L328:
+L330:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L325
+	jmp	L327
 	.cfi_endproc
 LFE806:
 	.section	.gcc_except_table,"w"
@@ -5501,7 +5513,7 @@ LFB807:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L336
+	je	L338
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -5512,7 +5524,7 @@ LEHE88:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L332:
+L334:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5520,12 +5532,12 @@ L332:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L336:
+L338:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L332
-L337:
 	jmp	L334
+L339:
+	jmp	L336
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA807:
@@ -5538,7 +5550,7 @@ LLSDATTD807:
 LLSDACSB807:
 	.uleb128 LEHB88-LFB807
 	.uleb128 LEHE88-LEHB88
-	.uleb128 L337-LFB807
+	.uleb128 L339-LFB807
 	.uleb128 0x1
 LLSDACSE807:
 	.byte	0x1
@@ -5554,23 +5566,23 @@ LLSDATT807:
 	.cfi_lsda 0,LLSDAC807
 	.def	_PMCCS_BitwiseAnd_X_X@12.cold.45;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseAnd_X_X@12.cold.45:
-L334:
+L336:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L335
+	je	L337
 LEHB89:
 	call	__Unwind_Resume
 LEHE89:
-L335:
+L337:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L332
+	jmp	L334
 	.cfi_endproc
 LFE807:
 	.section	.gcc_except_table,"w"
@@ -5621,7 +5633,7 @@ LFB808:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L343
+	je	L345
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -5632,7 +5644,7 @@ LEHE90:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L339:
+L341:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5640,12 +5652,12 @@ L339:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L343:
+L345:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L339
-L344:
 	jmp	L341
+L346:
+	jmp	L343
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA808:
@@ -5658,7 +5670,7 @@ LLSDATTD808:
 LLSDACSB808:
 	.uleb128 LEHB90-LFB808
 	.uleb128 LEHE90-LEHB90
-	.uleb128 L344-LFB808
+	.uleb128 L346-LFB808
 	.uleb128 0x1
 LLSDACSE808:
 	.byte	0x1
@@ -5674,23 +5686,23 @@ LLSDATT808:
 	.cfi_lsda 0,LLSDAC808
 	.def	_PMCCS_BitwiseOr_I_X@12.cold.46;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseOr_I_X@12.cold.46:
-L341:
+L343:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L342
+	je	L344
 LEHB91:
 	call	__Unwind_Resume
 LEHE91:
-L342:
+L344:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L339
+	jmp	L341
 	.cfi_endproc
 LFE808:
 	.section	.gcc_except_table,"w"
@@ -5743,7 +5755,7 @@ LFB809:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L350
+	je	L352
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -5754,7 +5766,7 @@ LEHE92:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L346:
+L348:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5762,12 +5774,12 @@ L346:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L350:
+L352:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L346
-L351:
 	jmp	L348
+L353:
+	jmp	L350
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA809:
@@ -5780,7 +5792,7 @@ LLSDATTD809:
 LLSDACSB809:
 	.uleb128 LEHB92-LFB809
 	.uleb128 LEHE92-LEHB92
-	.uleb128 L351-LFB809
+	.uleb128 L353-LFB809
 	.uleb128 0x1
 LLSDACSE809:
 	.byte	0x1
@@ -5796,23 +5808,23 @@ LLSDATT809:
 	.cfi_lsda 0,LLSDAC809
 	.def	_PMCCS_BitwiseOr_L_X@16.cold.47;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseOr_L_X@16.cold.47:
-L348:
+L350:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L349
+	je	L351
 LEHB93:
 	call	__Unwind_Resume
 LEHE93:
-L349:
+L351:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L346
+	jmp	L348
 	.cfi_endproc
 LFE809:
 	.section	.gcc_except_table,"w"
@@ -5863,7 +5875,7 @@ LFB810:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L357
+	je	L359
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -5874,7 +5886,7 @@ LEHE94:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L353:
+L355:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -5882,12 +5894,12 @@ L353:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L357:
+L359:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L353
-L358:
 	jmp	L355
+L360:
+	jmp	L357
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA810:
@@ -5900,7 +5912,7 @@ LLSDATTD810:
 LLSDACSB810:
 	.uleb128 LEHB94-LFB810
 	.uleb128 LEHE94-LEHB94
-	.uleb128 L358-LFB810
+	.uleb128 L360-LFB810
 	.uleb128 0x1
 LLSDACSE810:
 	.byte	0x1
@@ -5916,23 +5928,23 @@ LLSDATT810:
 	.cfi_lsda 0,LLSDAC810
 	.def	_PMCCS_BitwiseOr_X_I@12.cold.48;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseOr_X_I@12.cold.48:
-L355:
+L357:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L356
+	je	L358
 LEHB95:
 	call	__Unwind_Resume
 LEHE95:
-L356:
+L358:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L353
+	jmp	L355
 	.cfi_endproc
 LFE810:
 	.section	.gcc_except_table,"w"
@@ -5985,7 +5997,7 @@ LFB811:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L364
+	je	L366
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -5996,7 +6008,7 @@ LEHE96:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L360:
+L362:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6004,12 +6016,12 @@ L360:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L364:
+L366:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L360
-L365:
 	jmp	L362
+L367:
+	jmp	L364
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA811:
@@ -6022,7 +6034,7 @@ LLSDATTD811:
 LLSDACSB811:
 	.uleb128 LEHB96-LFB811
 	.uleb128 LEHE96-LEHB96
-	.uleb128 L365-LFB811
+	.uleb128 L367-LFB811
 	.uleb128 0x1
 LLSDACSE811:
 	.byte	0x1
@@ -6038,23 +6050,23 @@ LLSDATT811:
 	.cfi_lsda 0,LLSDAC811
 	.def	_PMCCS_BitwiseOr_X_L@16.cold.49;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseOr_X_L@16.cold.49:
-L362:
+L364:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L363
+	je	L365
 LEHB97:
 	call	__Unwind_Resume
 LEHE97:
-L363:
+L365:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L360
+	jmp	L362
 	.cfi_endproc
 LFE811:
 	.section	.gcc_except_table,"w"
@@ -6105,7 +6117,7 @@ LFB812:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L371
+	je	L373
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -6116,7 +6128,7 @@ LEHE98:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L367:
+L369:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6124,12 +6136,12 @@ L367:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L371:
+L373:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L367
-L372:
 	jmp	L369
+L374:
+	jmp	L371
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA812:
@@ -6142,7 +6154,7 @@ LLSDATTD812:
 LLSDACSB812:
 	.uleb128 LEHB98-LFB812
 	.uleb128 LEHE98-LEHB98
-	.uleb128 L372-LFB812
+	.uleb128 L374-LFB812
 	.uleb128 0x1
 LLSDACSE812:
 	.byte	0x1
@@ -6158,23 +6170,23 @@ LLSDATT812:
 	.cfi_lsda 0,LLSDAC812
 	.def	_PMCCS_BitwiseOr_X_X@12.cold.50;	.scl	3;	.type	32;	.endef
 _PMCCS_BitwiseOr_X_X@12.cold.50:
-L369:
+L371:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L370
+	je	L372
 LEHB99:
 	call	__Unwind_Resume
 LEHE99:
-L370:
+L372:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L367
+	jmp	L369
 	.cfi_endproc
 LFE812:
 	.section	.gcc_except_table,"w"
@@ -6225,7 +6237,7 @@ LFB813:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L378
+	je	L380
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -6236,7 +6248,7 @@ LEHE100:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L374:
+L376:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6244,12 +6256,12 @@ L374:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L378:
+L380:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L374
-L379:
 	jmp	L376
+L381:
+	jmp	L378
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA813:
@@ -6262,7 +6274,7 @@ LLSDATTD813:
 LLSDACSB813:
 	.uleb128 LEHB100-LFB813
 	.uleb128 LEHE100-LEHB100
-	.uleb128 L379-LFB813
+	.uleb128 L381-LFB813
 	.uleb128 0x1
 LLSDACSE813:
 	.byte	0x1
@@ -6278,23 +6290,23 @@ LLSDATT813:
 	.cfi_lsda 0,LLSDAC813
 	.def	_PMCCS_ExclusiveOr_I_X@12.cold.51;	.scl	3;	.type	32;	.endef
 _PMCCS_ExclusiveOr_I_X@12.cold.51:
-L376:
+L378:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L377
+	je	L379
 LEHB101:
 	call	__Unwind_Resume
 LEHE101:
-L377:
+L379:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L374
+	jmp	L376
 	.cfi_endproc
 LFE813:
 	.section	.gcc_except_table,"w"
@@ -6347,7 +6359,7 @@ LFB814:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L385
+	je	L387
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -6358,7 +6370,7 @@ LEHE102:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L381:
+L383:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6366,12 +6378,12 @@ L381:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L385:
+L387:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L381
-L386:
 	jmp	L383
+L388:
+	jmp	L385
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA814:
@@ -6384,7 +6396,7 @@ LLSDATTD814:
 LLSDACSB814:
 	.uleb128 LEHB102-LFB814
 	.uleb128 LEHE102-LEHB102
-	.uleb128 L386-LFB814
+	.uleb128 L388-LFB814
 	.uleb128 0x1
 LLSDACSE814:
 	.byte	0x1
@@ -6400,23 +6412,23 @@ LLSDATT814:
 	.cfi_lsda 0,LLSDAC814
 	.def	_PMCCS_ExclusiveOr_L_X@16.cold.52;	.scl	3;	.type	32;	.endef
 _PMCCS_ExclusiveOr_L_X@16.cold.52:
-L383:
+L385:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L384
+	je	L386
 LEHB103:
 	call	__Unwind_Resume
 LEHE103:
-L384:
+L386:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L381
+	jmp	L383
 	.cfi_endproc
 LFE814:
 	.section	.gcc_except_table,"w"
@@ -6467,7 +6479,7 @@ LFB815:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L392
+	je	L394
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -6478,7 +6490,7 @@ LEHE104:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L388:
+L390:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6486,12 +6498,12 @@ L388:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L392:
+L394:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L388
-L393:
 	jmp	L390
+L395:
+	jmp	L392
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA815:
@@ -6504,7 +6516,7 @@ LLSDATTD815:
 LLSDACSB815:
 	.uleb128 LEHB104-LFB815
 	.uleb128 LEHE104-LEHB104
-	.uleb128 L393-LFB815
+	.uleb128 L395-LFB815
 	.uleb128 0x1
 LLSDACSE815:
 	.byte	0x1
@@ -6520,23 +6532,23 @@ LLSDATT815:
 	.cfi_lsda 0,LLSDAC815
 	.def	_PMCCS_ExclusiveOr_X_I@12.cold.53;	.scl	3;	.type	32;	.endef
 _PMCCS_ExclusiveOr_X_I@12.cold.53:
-L390:
+L392:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L391
+	je	L393
 LEHB105:
 	call	__Unwind_Resume
 LEHE105:
-L391:
+L393:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L388
+	jmp	L390
 	.cfi_endproc
 LFE815:
 	.section	.gcc_except_table,"w"
@@ -6589,7 +6601,7 @@ LFB816:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L399
+	je	L401
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -6600,7 +6612,7 @@ LEHE106:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L395:
+L397:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6608,12 +6620,12 @@ L395:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L399:
+L401:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L395
-L400:
 	jmp	L397
+L402:
+	jmp	L399
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA816:
@@ -6626,7 +6638,7 @@ LLSDATTD816:
 LLSDACSB816:
 	.uleb128 LEHB106-LFB816
 	.uleb128 LEHE106-LEHB106
-	.uleb128 L400-LFB816
+	.uleb128 L402-LFB816
 	.uleb128 0x1
 LLSDACSE816:
 	.byte	0x1
@@ -6642,23 +6654,23 @@ LLSDATT816:
 	.cfi_lsda 0,LLSDAC816
 	.def	_PMCCS_ExclusiveOr_X_L@16.cold.54;	.scl	3;	.type	32;	.endef
 _PMCCS_ExclusiveOr_X_L@16.cold.54:
-L397:
+L399:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L398
+	je	L400
 LEHB107:
 	call	__Unwind_Resume
 LEHE107:
-L398:
+L400:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L395
+	jmp	L397
 	.cfi_endproc
 LFE816:
 	.section	.gcc_except_table,"w"
@@ -6709,7 +6721,7 @@ LFB817:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L406
+	je	L408
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -6720,7 +6732,7 @@ LEHE108:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L402:
+L404:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6728,12 +6740,12 @@ L402:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L406:
+L408:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L402
-L407:
 	jmp	L404
+L409:
+	jmp	L406
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA817:
@@ -6746,7 +6758,7 @@ LLSDATTD817:
 LLSDACSB817:
 	.uleb128 LEHB108-LFB817
 	.uleb128 LEHE108-LEHB108
-	.uleb128 L407-LFB817
+	.uleb128 L409-LFB817
 	.uleb128 0x1
 LLSDACSE817:
 	.byte	0x1
@@ -6762,23 +6774,23 @@ LLSDATT817:
 	.cfi_lsda 0,LLSDAC817
 	.def	_PMCCS_ExclusiveOr_X_X@12.cold.55;	.scl	3;	.type	32;	.endef
 _PMCCS_ExclusiveOr_X_X@12.cold.55:
-L404:
+L406:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L405
+	je	L407
 LEHB109:
 	call	__Unwind_Resume
 LEHE109:
-L405:
+L407:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L402
+	jmp	L404
 	.cfi_endproc
 LFE817:
 	.section	.gcc_except_table,"w"
@@ -6829,7 +6841,7 @@ LFB818:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L413
+	je	L415
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -6840,7 +6852,7 @@ LEHE110:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L409:
+L411:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6848,12 +6860,12 @@ L409:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L413:
+L415:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L409
-L414:
 	jmp	L411
+L416:
+	jmp	L413
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA818:
@@ -6866,7 +6878,7 @@ LLSDATTD818:
 LLSDACSB818:
 	.uleb128 LEHB110-LFB818
 	.uleb128 LEHE110-LEHB110
-	.uleb128 L414-LFB818
+	.uleb128 L416-LFB818
 	.uleb128 0x1
 LLSDACSE818:
 	.byte	0x1
@@ -6882,23 +6894,23 @@ LLSDATT818:
 	.cfi_lsda 0,LLSDAC818
 	.def	_PMCCS_Compare_I_X@12.cold.56;	.scl	3;	.type	32;	.endef
 _PMCCS_Compare_I_X@12.cold.56:
-L411:
+L413:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L412
+	je	L414
 LEHB111:
 	call	__Unwind_Resume
 LEHE111:
-L412:
+L414:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L409
+	jmp	L411
 	.cfi_endproc
 LFE818:
 	.section	.gcc_except_table,"w"
@@ -6951,7 +6963,7 @@ LFB819:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L420
+	je	L422
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -6962,7 +6974,7 @@ LEHE112:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L416:
+L418:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -6970,12 +6982,12 @@ L416:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L420:
+L422:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L416
-L421:
 	jmp	L418
+L423:
+	jmp	L420
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA819:
@@ -6988,7 +7000,7 @@ LLSDATTD819:
 LLSDACSB819:
 	.uleb128 LEHB112-LFB819
 	.uleb128 LEHE112-LEHB112
-	.uleb128 L421-LFB819
+	.uleb128 L423-LFB819
 	.uleb128 0x1
 LLSDACSE819:
 	.byte	0x1
@@ -7004,23 +7016,23 @@ LLSDATT819:
 	.cfi_lsda 0,LLSDAC819
 	.def	_PMCCS_Compare_L_X@16.cold.57;	.scl	3;	.type	32;	.endef
 _PMCCS_Compare_L_X@16.cold.57:
-L418:
+L420:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L419
+	je	L421
 LEHB113:
 	call	__Unwind_Resume
 LEHE113:
-L419:
+L421:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L416
+	jmp	L418
 	.cfi_endproc
 LFE819:
 	.section	.gcc_except_table,"w"
@@ -7071,7 +7083,7 @@ LFB820:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L427
+	je	L429
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -7082,7 +7094,7 @@ LEHE114:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L423:
+L425:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7090,12 +7102,12 @@ L423:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L427:
+L429:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L423
-L428:
 	jmp	L425
+L430:
+	jmp	L427
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA820:
@@ -7108,7 +7120,7 @@ LLSDATTD820:
 LLSDACSB820:
 	.uleb128 LEHB114-LFB820
 	.uleb128 LEHE114-LEHB114
-	.uleb128 L428-LFB820
+	.uleb128 L430-LFB820
 	.uleb128 0x1
 LLSDACSE820:
 	.byte	0x1
@@ -7124,23 +7136,23 @@ LLSDATT820:
 	.cfi_lsda 0,LLSDAC820
 	.def	_PMCCS_Compare_X_I@12.cold.58;	.scl	3;	.type	32;	.endef
 _PMCCS_Compare_X_I@12.cold.58:
-L425:
+L427:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L426
+	je	L428
 LEHB115:
 	call	__Unwind_Resume
 LEHE115:
-L426:
+L428:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L423
+	jmp	L425
 	.cfi_endproc
 LFE820:
 	.section	.gcc_except_table,"w"
@@ -7193,7 +7205,7 @@ LFB821:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L434
+	je	L436
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -7204,7 +7216,7 @@ LEHE116:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L430:
+L432:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7212,12 +7224,12 @@ L430:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L434:
+L436:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L430
-L435:
 	jmp	L432
+L437:
+	jmp	L434
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA821:
@@ -7230,7 +7242,7 @@ LLSDATTD821:
 LLSDACSB821:
 	.uleb128 LEHB116-LFB821
 	.uleb128 LEHE116-LEHB116
-	.uleb128 L435-LFB821
+	.uleb128 L437-LFB821
 	.uleb128 0x1
 LLSDACSE821:
 	.byte	0x1
@@ -7246,23 +7258,23 @@ LLSDATT821:
 	.cfi_lsda 0,LLSDAC821
 	.def	_PMCCS_Compare_X_L@16.cold.59;	.scl	3;	.type	32;	.endef
 _PMCCS_Compare_X_L@16.cold.59:
-L432:
+L434:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L433
+	je	L435
 LEHB117:
 	call	__Unwind_Resume
 LEHE117:
-L433:
+L435:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L430
+	jmp	L432
 	.cfi_endproc
 LFE821:
 	.section	.gcc_except_table,"w"
@@ -7313,7 +7325,7 @@ LFB822:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L441
+	je	L443
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -7324,7 +7336,7 @@ LEHE118:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L437:
+L439:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7332,12 +7344,12 @@ L437:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L441:
+L443:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L437
-L442:
 	jmp	L439
+L444:
+	jmp	L441
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA822:
@@ -7350,7 +7362,7 @@ LLSDATTD822:
 LLSDACSB822:
 	.uleb128 LEHB118-LFB822
 	.uleb128 LEHE118-LEHB118
-	.uleb128 L442-LFB822
+	.uleb128 L444-LFB822
 	.uleb128 0x1
 LLSDACSE822:
 	.byte	0x1
@@ -7366,23 +7378,23 @@ LLSDATT822:
 	.cfi_lsda 0,LLSDAC822
 	.def	_PMCCS_Compare_X_X@12.cold.60;	.scl	3;	.type	32;	.endef
 _PMCCS_Compare_X_X@12.cold.60:
-L439:
+L441:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L440
+	je	L442
 LEHB119:
 	call	__Unwind_Resume
 LEHE119:
-L440:
+L442:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L437
+	jmp	L439
 	.cfi_endproc
 LFE822:
 	.section	.gcc_except_table,"w"
@@ -7433,7 +7445,7 @@ LFB823:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L448
+	je	L450
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -7444,7 +7456,7 @@ LEHE120:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L444:
+L446:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7452,12 +7464,12 @@ L444:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L448:
+L450:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L444
-L449:
 	jmp	L446
+L451:
+	jmp	L448
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA823:
@@ -7470,7 +7482,7 @@ LLSDATTD823:
 LLSDACSB823:
 	.uleb128 LEHB120-LFB823
 	.uleb128 LEHE120-LEHB120
-	.uleb128 L449-LFB823
+	.uleb128 L451-LFB823
 	.uleb128 0x1
 LLSDACSE823:
 	.byte	0x1
@@ -7486,23 +7498,23 @@ LLSDATT823:
 	.cfi_lsda 0,LLSDAC823
 	.def	_PMCCS_Equals_I_X@12.cold.61;	.scl	3;	.type	32;	.endef
 _PMCCS_Equals_I_X@12.cold.61:
-L446:
+L448:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L447
+	je	L449
 LEHB121:
 	call	__Unwind_Resume
 LEHE121:
-L447:
+L449:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L444
+	jmp	L446
 	.cfi_endproc
 LFE823:
 	.section	.gcc_except_table,"w"
@@ -7555,7 +7567,7 @@ LFB824:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L455
+	je	L457
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -7566,7 +7578,7 @@ LEHE122:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L451:
+L453:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7574,12 +7586,12 @@ L451:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L455:
+L457:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L451
-L456:
 	jmp	L453
+L458:
+	jmp	L455
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA824:
@@ -7592,7 +7604,7 @@ LLSDATTD824:
 LLSDACSB824:
 	.uleb128 LEHB122-LFB824
 	.uleb128 LEHE122-LEHB122
-	.uleb128 L456-LFB824
+	.uleb128 L458-LFB824
 	.uleb128 0x1
 LLSDACSE824:
 	.byte	0x1
@@ -7608,23 +7620,23 @@ LLSDATT824:
 	.cfi_lsda 0,LLSDAC824
 	.def	_PMCCS_Equals_L_X@16.cold.62;	.scl	3;	.type	32;	.endef
 _PMCCS_Equals_L_X@16.cold.62:
-L453:
+L455:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L454
+	je	L456
 LEHB123:
 	call	__Unwind_Resume
 LEHE123:
-L454:
+L456:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L451
+	jmp	L453
 	.cfi_endproc
 LFE824:
 	.section	.gcc_except_table,"w"
@@ -7675,7 +7687,7 @@ LFB825:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L462
+	je	L464
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -7686,7 +7698,7 @@ LEHE124:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L458:
+L460:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7694,12 +7706,12 @@ L458:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L462:
+L464:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L458
-L463:
 	jmp	L460
+L465:
+	jmp	L462
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA825:
@@ -7712,7 +7724,7 @@ LLSDATTD825:
 LLSDACSB825:
 	.uleb128 LEHB124-LFB825
 	.uleb128 LEHE124-LEHB124
-	.uleb128 L463-LFB825
+	.uleb128 L465-LFB825
 	.uleb128 0x1
 LLSDACSE825:
 	.byte	0x1
@@ -7728,23 +7740,23 @@ LLSDATT825:
 	.cfi_lsda 0,LLSDAC825
 	.def	_PMCCS_Equals_X_I@12.cold.63;	.scl	3;	.type	32;	.endef
 _PMCCS_Equals_X_I@12.cold.63:
-L460:
+L462:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L461
+	je	L463
 LEHB125:
 	call	__Unwind_Resume
 LEHE125:
-L461:
+L463:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L458
+	jmp	L460
 	.cfi_endproc
 LFE825:
 	.section	.gcc_except_table,"w"
@@ -7797,7 +7809,7 @@ LFB826:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L469
+	je	L471
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -7808,7 +7820,7 @@ LEHE126:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L465:
+L467:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7816,12 +7828,12 @@ L465:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L469:
+L471:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L465
-L470:
 	jmp	L467
+L472:
+	jmp	L469
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA826:
@@ -7834,7 +7846,7 @@ LLSDATTD826:
 LLSDACSB826:
 	.uleb128 LEHB126-LFB826
 	.uleb128 LEHE126-LEHB126
-	.uleb128 L470-LFB826
+	.uleb128 L472-LFB826
 	.uleb128 0x1
 LLSDACSE826:
 	.byte	0x1
@@ -7850,23 +7862,23 @@ LLSDATT826:
 	.cfi_lsda 0,LLSDAC826
 	.def	_PMCCS_Equals_X_L@16.cold.64;	.scl	3;	.type	32;	.endef
 _PMCCS_Equals_X_L@16.cold.64:
-L467:
+L469:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L468
+	je	L470
 LEHB127:
 	call	__Unwind_Resume
 LEHE127:
-L468:
+L470:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L465
+	jmp	L467
 	.cfi_endproc
 LFE826:
 	.section	.gcc_except_table,"w"
@@ -7917,7 +7929,7 @@ LFB827:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L476
+	je	L478
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -7928,7 +7940,7 @@ LEHE128:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L472:
+L474:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -7936,12 +7948,12 @@ L472:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L476:
+L478:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L472
-L477:
 	jmp	L474
+L479:
+	jmp	L476
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA827:
@@ -7954,7 +7966,7 @@ LLSDATTD827:
 LLSDACSB827:
 	.uleb128 LEHB128-LFB827
 	.uleb128 LEHE128-LEHB128
-	.uleb128 L477-LFB827
+	.uleb128 L479-LFB827
 	.uleb128 0x1
 LLSDACSE827:
 	.byte	0x1
@@ -7970,23 +7982,23 @@ LLSDATT827:
 	.cfi_lsda 0,LLSDAC827
 	.def	_PMCCS_Equals_X_X@12.cold.65;	.scl	3;	.type	32;	.endef
 _PMCCS_Equals_X_X@12.cold.65:
-L474:
+L476:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L475
+	je	L477
 LEHB129:
 	call	__Unwind_Resume
 LEHE129:
-L475:
+L477:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L472
+	jmp	L474
 	.cfi_endproc
 LFE827:
 	.section	.gcc_except_table,"w"
@@ -8037,7 +8049,7 @@ LFB828:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L483
+	je	L485
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -8048,7 +8060,7 @@ LEHE130:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L479:
+L481:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8056,12 +8068,12 @@ L479:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L483:
+L485:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L479
-L484:
 	jmp	L481
+L486:
+	jmp	L483
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA828:
@@ -8074,7 +8086,7 @@ LLSDATTD828:
 LLSDACSB828:
 	.uleb128 LEHB130-LFB828
 	.uleb128 LEHE130-LEHB130
-	.uleb128 L484-LFB828
+	.uleb128 L486-LFB828
 	.uleb128 0x1
 LLSDACSE828:
 	.byte	0x1
@@ -8090,23 +8102,23 @@ LLSDATT828:
 	.cfi_lsda 0,LLSDAC828
 	.def	_PMCCS_GreatestCommonDivisor_I_X@12.cold.66;	.scl	3;	.type	32;	.endef
 _PMCCS_GreatestCommonDivisor_I_X@12.cold.66:
-L481:
+L483:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L482
+	je	L484
 LEHB131:
 	call	__Unwind_Resume
 LEHE131:
-L482:
+L484:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L479
+	jmp	L481
 	.cfi_endproc
 LFE828:
 	.section	.gcc_except_table,"w"
@@ -8159,7 +8171,7 @@ LFB829:
 	movl	8(%ebp), %eax
 	movl	12(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L490
+	je	L492
 	movl	16(%ebp), %ecx
 	movl	%eax, (%esp)
 	movl	%edx, 4(%esp)
@@ -8170,7 +8182,7 @@ LEHE132:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L486:
+L488:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8178,12 +8190,12 @@ L486:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L490:
+L492:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L486
-L491:
 	jmp	L488
+L493:
+	jmp	L490
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA829:
@@ -8196,7 +8208,7 @@ LLSDATTD829:
 LLSDACSB829:
 	.uleb128 LEHB132-LFB829
 	.uleb128 LEHE132-LEHB132
-	.uleb128 L491-LFB829
+	.uleb128 L493-LFB829
 	.uleb128 0x1
 LLSDACSE829:
 	.byte	0x1
@@ -8212,23 +8224,23 @@ LLSDATT829:
 	.cfi_lsda 0,LLSDAC829
 	.def	_PMCCS_GreatestCommonDivisor_L_X@16.cold.67;	.scl	3;	.type	32;	.endef
 _PMCCS_GreatestCommonDivisor_L_X@16.cold.67:
-L488:
+L490:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L489
+	je	L491
 LEHB133:
 	call	__Unwind_Resume
 LEHE133:
-L489:
+L491:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L486
+	jmp	L488
 	.cfi_endproc
 LFE829:
 	.section	.gcc_except_table,"w"
@@ -8279,7 +8291,7 @@ LFB830:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L497
+	je	L499
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -8290,7 +8302,7 @@ LEHE134:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L493:
+L495:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8298,12 +8310,12 @@ L493:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L497:
+L499:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L493
-L498:
 	jmp	L495
+L500:
+	jmp	L497
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA830:
@@ -8316,7 +8328,7 @@ LLSDATTD830:
 LLSDACSB830:
 	.uleb128 LEHB134-LFB830
 	.uleb128 LEHE134-LEHB134
-	.uleb128 L498-LFB830
+	.uleb128 L500-LFB830
 	.uleb128 0x1
 LLSDACSE830:
 	.byte	0x1
@@ -8332,23 +8344,23 @@ LLSDATT830:
 	.cfi_lsda 0,LLSDAC830
 	.def	_PMCCS_GreatestCommonDivisor_X_I@12.cold.68;	.scl	3;	.type	32;	.endef
 _PMCCS_GreatestCommonDivisor_X_I@12.cold.68:
-L495:
+L497:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L496
+	je	L498
 LEHB135:
 	call	__Unwind_Resume
 LEHE135:
-L496:
+L498:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L493
+	jmp	L495
 	.cfi_endproc
 LFE830:
 	.section	.gcc_except_table,"w"
@@ -8401,7 +8413,7 @@ LFB831:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L504
+	je	L506
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -8412,7 +8424,7 @@ LEHE136:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L500:
+L502:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8420,12 +8432,12 @@ L500:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L504:
+L506:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L500
-L505:
 	jmp	L502
+L507:
+	jmp	L504
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA831:
@@ -8438,7 +8450,7 @@ LLSDATTD831:
 LLSDACSB831:
 	.uleb128 LEHB136-LFB831
 	.uleb128 LEHE136-LEHB136
-	.uleb128 L505-LFB831
+	.uleb128 L507-LFB831
 	.uleb128 0x1
 LLSDACSE831:
 	.byte	0x1
@@ -8454,23 +8466,23 @@ LLSDATT831:
 	.cfi_lsda 0,LLSDAC831
 	.def	_PMCCS_GreatestCommonDivisor_X_L@16.cold.69;	.scl	3;	.type	32;	.endef
 _PMCCS_GreatestCommonDivisor_X_L@16.cold.69:
-L502:
+L504:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L503
+	je	L505
 LEHB137:
 	call	__Unwind_Resume
 LEHE137:
-L503:
+L505:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L500
+	jmp	L502
 	.cfi_endproc
 LFE831:
 	.section	.gcc_except_table,"w"
@@ -8521,7 +8533,7 @@ LFB832:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L511
+	je	L513
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -8532,7 +8544,7 @@ LEHE138:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L507:
+L509:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8540,12 +8552,12 @@ L507:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L511:
+L513:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L507
-L512:
 	jmp	L509
+L514:
+	jmp	L511
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA832:
@@ -8558,7 +8570,7 @@ LLSDATTD832:
 LLSDACSB832:
 	.uleb128 LEHB138-LFB832
 	.uleb128 LEHE138-LEHB138
-	.uleb128 L512-LFB832
+	.uleb128 L514-LFB832
 	.uleb128 0x1
 LLSDACSE832:
 	.byte	0x1
@@ -8574,23 +8586,23 @@ LLSDATT832:
 	.cfi_lsda 0,LLSDAC832
 	.def	_PMCCS_GreatestCommonDivisor_X_X@12.cold.70;	.scl	3;	.type	32;	.endef
 _PMCCS_GreatestCommonDivisor_X_X@12.cold.70:
-L509:
+L511:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L510
+	je	L512
 LEHB139:
 	call	__Unwind_Resume
 LEHE139:
-L510:
+L512:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L507
+	jmp	L509
 	.cfi_endproc
 LFE832:
 	.section	.gcc_except_table,"w"
@@ -8641,7 +8653,7 @@ LFB833:
 	.cfi_offset 3, -12
 	movl	16(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L518
+	je	L520
 	movl	12(%ebp), %eax
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
@@ -8652,7 +8664,7 @@ LEHE140:
 	movl	%eax, (%ebx)
 	subl	$8, %esp
 	xorl	%eax, %eax
-L514:
+L516:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8660,12 +8672,12 @@ L514:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$12
-L518:
+L520:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L514
-L519:
 	jmp	L516
+L521:
+	jmp	L518
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA833:
@@ -8678,7 +8690,7 @@ LLSDATTD833:
 LLSDACSB833:
 	.uleb128 LEHB140-LFB833
 	.uleb128 LEHE140-LEHB140
-	.uleb128 L519-LFB833
+	.uleb128 L521-LFB833
 	.uleb128 0x1
 LLSDACSE833:
 	.byte	0x1
@@ -8694,23 +8706,23 @@ LLSDATT833:
 	.cfi_lsda 0,LLSDAC833
 	.def	_PMCCS_Pow_X_I@12.cold.71;	.scl	3;	.type	32;	.endef
 _PMCCS_Pow_X_I@12.cold.71:
-L516:
+L518:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L517
+	je	L519
 LEHB141:
 	call	__Unwind_Resume
 LEHE141:
-L517:
+L519:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L514
+	jmp	L516
 	.cfi_endproc
 LFE833:
 	.section	.gcc_except_table,"w"
@@ -8763,7 +8775,7 @@ LFB834:
 	movl	12(%ebp), %eax
 	movl	16(%ebp), %edx
 	testl	%ebx, %ebx
-	je	L525
+	je	L527
 	movl	%eax, 4(%esp)
 	movl	8(%ebp), %eax
 	movl	%edx, 8(%esp)
@@ -8774,7 +8786,7 @@ LEHE142:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L521:
+L523:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8782,12 +8794,12 @@ L521:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L525:
+L527:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L521
-L526:
 	jmp	L523
+L528:
+	jmp	L525
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA834:
@@ -8800,7 +8812,7 @@ LLSDATTD834:
 LLSDACSB834:
 	.uleb128 LEHB142-LFB834
 	.uleb128 LEHE142-LEHB142
-	.uleb128 L526-LFB834
+	.uleb128 L528-LFB834
 	.uleb128 0x1
 LLSDACSE834:
 	.byte	0x1
@@ -8816,23 +8828,23 @@ LLSDATT834:
 	.cfi_lsda 0,LLSDAC834
 	.def	_PMCCS_Pow_X_L@16.cold.72;	.scl	3;	.type	32;	.endef
 _PMCCS_Pow_X_L@16.cold.72:
-L523:
+L525:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L524
+	je	L526
 LEHB143:
 	call	__Unwind_Resume
 LEHE143:
-L524:
+L526:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L521
+	jmp	L523
 	.cfi_endproc
 LFE834:
 	.section	.gcc_except_table,"w"
@@ -8883,7 +8895,7 @@ LFB835:
 	.cfi_offset 3, -12
 	movl	20(%ebp), %ebx
 	testl	%ebx, %ebx
-	je	L532
+	je	L534
 	movl	16(%ebp), %eax
 	movl	%eax, 8(%esp)
 	movl	12(%ebp), %eax
@@ -8896,7 +8908,7 @@ LEHE144:
 	movl	%eax, (%ebx)
 	subl	$12, %esp
 	xorl	%eax, %eax
-L528:
+L530:
 	movl	-4(%ebp), %ebx
 	leave
 	.cfi_remember_state
@@ -8904,12 +8916,12 @@ L528:
 	.cfi_restore 3
 	.cfi_def_cfa 4, 4
 	ret	$16
-L532:
+L534:
 	.cfi_restore_state
 	movl	$-2, %eax
-	jmp	L528
-L533:
 	jmp	L530
+L535:
+	jmp	L532
 	.section	.gcc_except_table,"w"
 	.align 4
 LLSDA835:
@@ -8922,7 +8934,7 @@ LLSDATTD835:
 LLSDACSB835:
 	.uleb128 LEHB144-LFB835
 	.uleb128 LEHE144-LEHB144
-	.uleb128 L533-LFB835
+	.uleb128 L535-LFB835
 	.uleb128 0x1
 LLSDACSE835:
 	.byte	0x1
@@ -8938,23 +8950,23 @@ LLSDATT835:
 	.cfi_lsda 0,LLSDAC835
 	.def	_PMCCS_ModPow_X_X_X@16.cold.73;	.scl	3;	.type	32;	.endef
 _PMCCS_ModPow_X_X_X@16.cold.73:
-L530:
+L532:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -12
 	.cfi_offset 5, -8
 	subl	$1, %edx
 	movl	%eax, (%esp)
-	je	L531
+	je	L533
 LEHB145:
 	call	__Unwind_Resume
 LEHE145:
-L531:
+L533:
 	call	___cxa_begin_catch
 	movl	4(%eax), %eax
 	movl	%eax, -12(%ebp)
 	call	___cxa_end_catch
 	movl	-12(%ebp), %eax
-	jmp	L528
+	jmp	L530
 	.cfi_endproc
 LFE835:
 	.section	.gcc_except_table,"w"
@@ -8983,6 +8995,244 @@ LLSDATTC835:
 LCOLDE72:
 	.text
 LHOTE72:
+	.section	.text.unlikely,"x"
+LCOLDB73:
+	.text
+LHOTB73:
+	.p2align 4,,15
+	.globl	_PMCCS_TimesOfExponentOf10@12
+	.def	_PMCCS_TimesOfExponentOf10@12;	.scl	2;	.type	32;	.endef
+_PMCCS_TimesOfExponentOf10@12:
+LFB836:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA836
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%ebx
+	subl	$36, %esp
+	.cfi_offset 3, -12
+	movl	16(%ebp), %ebx
+	testl	%ebx, %ebx
+	je	L541
+	movl	12(%ebp), %eax
+	movl	%eax, 4(%esp)
+	movl	8(%ebp), %eax
+	movl	%eax, (%esp)
+LEHB146:
+	call	__ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj@8
+LEHE146:
+	movl	%eax, (%ebx)
+	subl	$8, %esp
+	xorl	%eax, %eax
+L537:
+	movl	-4(%ebp), %ebx
+	leave
+	.cfi_remember_state
+	.cfi_restore 5
+	.cfi_restore 3
+	.cfi_def_cfa 4, 4
+	ret	$12
+L541:
+	.cfi_restore_state
+	movl	$-2, %eax
+	jmp	L537
+L542:
+	jmp	L539
+	.section	.gcc_except_table,"w"
+	.align 4
+LLSDA836:
+	.byte	0xff
+	.byte	0
+	.uleb128 LLSDATT836-LLSDATTD836
+LLSDATTD836:
+	.byte	0x1
+	.uleb128 LLSDACSE836-LLSDACSB836
+LLSDACSB836:
+	.uleb128 LEHB146-LFB836
+	.uleb128 LEHE146-LEHB146
+	.uleb128 L542-LFB836
+	.uleb128 0x1
+LLSDACSE836:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+LLSDATT836:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC836
+	.def	_PMCCS_TimesOfExponentOf10@12.cold.74;	.scl	3;	.type	32;	.endef
+_PMCCS_TimesOfExponentOf10@12.cold.74:
+L539:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -12
+	.cfi_offset 5, -8
+	subl	$1, %edx
+	movl	%eax, (%esp)
+	je	L540
+LEHB147:
+	call	__Unwind_Resume
+LEHE147:
+L540:
+	call	___cxa_begin_catch
+	movl	4(%eax), %eax
+	movl	%eax, -12(%ebp)
+	call	___cxa_end_catch
+	movl	-12(%ebp), %eax
+	jmp	L537
+	.cfi_endproc
+LFE836:
+	.section	.gcc_except_table,"w"
+	.align 4
+LLSDAC836:
+	.byte	0xff
+	.byte	0
+	.uleb128 LLSDATTC836-LLSDATTDC836
+LLSDATTDC836:
+	.byte	0x1
+	.uleb128 LLSDACSEC836-LLSDACSBC836
+LLSDACSBC836:
+	.uleb128 LEHB147-LCOLDB73
+	.uleb128 LEHE147-LEHB147
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC836:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+LLSDATTC836:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE73:
+	.text
+LHOTE73:
+	.section	.text.unlikely,"x"
+LCOLDB74:
+	.text
+LHOTB74:
+	.p2align 4,,15
+	.globl	_PMCCS_Floor_Log10@8
+	.def	_PMCCS_Floor_Log10@8;	.scl	2;	.type	32;	.endef
+_PMCCS_Floor_Log10@8:
+LFB837:
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDA837
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	movl	%esp, %ebp
+	.cfi_def_cfa_register 5
+	pushl	%ebx
+	subl	$36, %esp
+	.cfi_offset 3, -12
+	movl	12(%ebp), %ebx
+	testl	%ebx, %ebx
+	je	L548
+	movl	8(%ebp), %eax
+	movl	%eax, (%esp)
+LEHB148:
+	call	__ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE@4
+LEHE148:
+	movl	%eax, (%ebx)
+	subl	$4, %esp
+	xorl	%eax, %eax
+L544:
+	movl	-4(%ebp), %ebx
+	leave
+	.cfi_remember_state
+	.cfi_restore 5
+	.cfi_restore 3
+	.cfi_def_cfa 4, 4
+	ret	$8
+L548:
+	.cfi_restore_state
+	movl	$-2, %eax
+	jmp	L544
+L549:
+	jmp	L546
+	.section	.gcc_except_table,"w"
+	.align 4
+LLSDA837:
+	.byte	0xff
+	.byte	0
+	.uleb128 LLSDATT837-LLSDATTD837
+LLSDATTD837:
+	.byte	0x1
+	.uleb128 LLSDACSE837-LLSDACSB837
+LLSDACSB837:
+	.uleb128 LEHB148-LFB837
+	.uleb128 LEHE148-LEHB148
+	.uleb128 L549-LFB837
+	.uleb128 0x1
+LLSDACSE837:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+LLSDATT837:
+	.text
+	.cfi_endproc
+	.section	.text.unlikely,"x"
+	.cfi_startproc
+	.cfi_personality 0,___gxx_personality_v0
+	.cfi_lsda 0,LLSDAC837
+	.def	_PMCCS_Floor_Log10@8.cold.75;	.scl	3;	.type	32;	.endef
+_PMCCS_Floor_Log10@8.cold.75:
+L546:
+	.cfi_def_cfa 5, 8
+	.cfi_offset 3, -12
+	.cfi_offset 5, -8
+	subl	$1, %edx
+	movl	%eax, (%esp)
+	je	L547
+LEHB149:
+	call	__Unwind_Resume
+LEHE149:
+L547:
+	call	___cxa_begin_catch
+	movl	4(%eax), %eax
+	movl	%eax, -12(%ebp)
+	call	___cxa_end_catch
+	movl	-12(%ebp), %eax
+	jmp	L544
+	.cfi_endproc
+LFE837:
+	.section	.gcc_except_table,"w"
+	.align 4
+LLSDAC837:
+	.byte	0xff
+	.byte	0
+	.uleb128 LLSDATTC837-LLSDATTDC837
+LLSDATTDC837:
+	.byte	0x1
+	.uleb128 LLSDACSEC837-LLSDACSBC837
+LLSDACSBC837:
+	.uleb128 LEHB149-LCOLDB74
+	.uleb128 LEHE149-LEHB149
+	.uleb128 0
+	.uleb128 0
+LLSDACSEC837:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	__ZTIN8Palmtree4Math4Core8Internal9ExceptionE
+LLSDATTC837:
+	.section	.text.unlikely,"x"
+	.text
+	.section	.text.unlikely,"x"
+LCOLDE74:
+	.text
+LHOTE74:
 	.globl	__ZTSSt9exception
 	.section	.rdata$_ZTSSt9exception,"dr"
 	.linkonce same_size
@@ -9087,3 +9337,5 @@ __ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
 	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef

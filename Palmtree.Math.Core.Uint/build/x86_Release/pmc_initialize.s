@@ -303,6 +303,10 @@ L31:
 	call	__ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
 	jne	L23
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE
+	testl	%eax, %eax
+	jne	L23
 	movzbl	__ZN8Palmtree4Math4Core8InternalL12entry_pointsE, %eax
 	movzbl	20(%esp), %edx
 	movl	$__ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+4
@@ -377,12 +381,14 @@ L31:
 	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+272
 	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+276
 	movl	$__ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+280
+	movl	$__ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj@8, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+284
+	movl	$__ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+288
 	movl	$__ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+24
 	movl	$__ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE@4, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+36
 	movl	$__ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv@0, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+40
-	movl	$__ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhjPc@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+284
-	movl	$__ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhj@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+288
-	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj@24, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+292
+	movl	$__ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhjPc@12, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+292
+	movl	$__ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhj@16, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+296
+	movl	$__ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj@24, __ZN8Palmtree4Math4Core8InternalL12entry_pointsE+300
 	movb	$1, __ZN8Palmtree4Math4Core8InternalL11initializedE
 	jmp	L20
 	.p2align 4,,10
@@ -401,7 +407,7 @@ L20:
 	.cfi_endproc
 LFE5900:
 .lcomm __ZN8Palmtree4Math4Core8InternalL11initializedE,1,1
-.lcomm __ZN8Palmtree4Math4Core8InternalL12entry_pointsE,296,32
+.lcomm __ZN8Palmtree4Math4Core8InternalL12entry_pointsE,304,32
 	.globl	__ZN8Palmtree4Math4Core8Internal18configuration_infoE
 	.bss
 __ZN8Palmtree4Math4Core8Internal18configuration_infoE:
@@ -426,6 +432,7 @@ __ZN8Palmtree4Math4Core8Internal18configuration_infoE:
 	.def	__ZN8Palmtree4Math4Core8Internal32Initialize_GreatestCommonDivisorEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal21PMC_GetStatisticsInfoEPNS2_25__tag_PMC_STATISTICS_INFOE@4;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal10PMC_From_IEj@4;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal10PMC_From_LEy@8;	.scl	2;	.type	32;	.endef
@@ -492,6 +499,8 @@ __ZN8Palmtree4Math4Core8Internal18configuration_infoE:
 	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj@8;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy@12;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_@12;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj@8;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi@4;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE@4;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv@0;	.scl	2;	.type	32;	.endef

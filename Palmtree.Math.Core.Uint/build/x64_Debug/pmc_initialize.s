@@ -68,7 +68,7 @@ _ZERO_MEMORY_BYTE:
 	.bss
 _ZN8Palmtree4Math4Core8Internal18configuration_infoE:
 	.space 1
-.lcomm _ZN8Palmtree4Math4Core8InternalL12entry_pointsE,592,32
+.lcomm _ZN8Palmtree4Math4Core8InternalL12entry_pointsE,608,32
 .lcomm _ZN8Palmtree4Math4Core8InternalL11initializedE,1,1
 	.section .rdata,"dr"
 	.align 2
@@ -384,7 +384,7 @@ PMC_UINT_Initialize:
 	je	.L22
 	.loc 3 127 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L22:
 	.loc 3 130 23
 	leaq	-4(%rbp), %rax
@@ -406,7 +406,7 @@ PMC_UINT_Initialize:
 	je	.L24
 	.loc 3 133 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L24:
 	.loc 3 134 32
 	leaq	-4(%rbp), %rax
@@ -420,7 +420,7 @@ PMC_UINT_Initialize:
 	je	.L25
 	.loc 3 135 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L25:
 	.loc 3 136 30
 	leaq	-4(%rbp), %rax
@@ -434,7 +434,7 @@ PMC_UINT_Initialize:
 	je	.L26
 	.loc 3 137 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L26:
 	.loc 3 138 31
 	leaq	-4(%rbp), %rax
@@ -448,7 +448,7 @@ PMC_UINT_Initialize:
 	je	.L27
 	.loc 3 139 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L27:
 	.loc 3 140 36
 	leaq	-4(%rbp), %rax
@@ -462,7 +462,7 @@ PMC_UINT_Initialize:
 	je	.L28
 	.loc 3 141 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L28:
 	.loc 3 142 36
 	leaq	-4(%rbp), %rax
@@ -476,7 +476,7 @@ PMC_UINT_Initialize:
 	je	.L29
 	.loc 3 143 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L29:
 	.loc 3 144 34
 	leaq	-4(%rbp), %rax
@@ -490,7 +490,7 @@ PMC_UINT_Initialize:
 	je	.L30
 	.loc 3 145 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L30:
 	.loc 3 146 33
 	leaq	-4(%rbp), %rax
@@ -504,7 +504,7 @@ PMC_UINT_Initialize:
 	je	.L31
 	.loc 3 147 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L31:
 	.loc 3 148 38
 	leaq	-4(%rbp), %rax
@@ -518,7 +518,7 @@ PMC_UINT_Initialize:
 	je	.L32
 	.loc 3 149 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L32:
 	.loc 3 150 37
 	leaq	-4(%rbp), %rax
@@ -532,7 +532,7 @@ PMC_UINT_Initialize:
 	je	.L33
 	.loc 3 151 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L33:
 	.loc 3 152 39
 	leaq	-4(%rbp), %rax
@@ -546,7 +546,7 @@ PMC_UINT_Initialize:
 	je	.L34
 	.loc 3 153 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L34:
 	.loc 3 154 35
 	leaq	-4(%rbp), %rax
@@ -560,7 +560,7 @@ PMC_UINT_Initialize:
 	je	.L35
 	.loc 3 155 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L35:
 	.loc 3 156 34
 	leaq	-4(%rbp), %rax
@@ -574,7 +574,7 @@ PMC_UINT_Initialize:
 	je	.L36
 	.loc 3 157 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L36:
 	.loc 3 158 36
 	leaq	-4(%rbp), %rax
@@ -588,7 +588,7 @@ PMC_UINT_Initialize:
 	je	.L37
 	.loc 3 159 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L37:
 	.loc 3 160 33
 	leaq	-4(%rbp), %rax
@@ -602,7 +602,7 @@ PMC_UINT_Initialize:
 	je	.L38
 	.loc 3 161 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L38:
 	.loc 3 162 49
 	leaq	-4(%rbp), %rax
@@ -616,7 +616,7 @@ PMC_UINT_Initialize:
 	je	.L39
 	.loc 3 163 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L39:
 	.loc 3 164 31
 	leaq	-4(%rbp), %rax
@@ -630,7 +630,7 @@ PMC_UINT_Initialize:
 	je	.L40
 	.loc 3 165 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L40:
 	.loc 3 166 34
 	leaq	-4(%rbp), %rax
@@ -644,56 +644,70 @@ PMC_UINT_Initialize:
 	je	.L41
 	.loc 3 167 32
 	movl	$0, %eax
-	jmp	.L42
+	jmp	.L43
 .L41:
-	.loc 3 169 61
+	.loc 3 168 31
+	leaq	-4(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE
+	.loc 3 168 42
+	testl	%eax, %eax
+	setne	%al
+	.loc 3 168 13
+	testb	%al, %al
+	je	.L42
+	.loc 3 169 32
+	movl	$0, %eax
+	jmp	.L43
+.L42:
+	.loc 3 171 61
 	movzbl	-4(%rbp), %eax
 	andl	$1, %eax
-	.loc 3 169 51
+	.loc 3 171 51
 	andl	$1, %eax
 	movl	%eax, %edx
 	movzbl	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %eax
 	andl	$-2, %eax
 	orl	%edx, %eax
 	movb	%al, _ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 170 58
+	.loc 3 172 58
 	movzbl	-4(%rbp), %eax
 	shrb	%al
 	andl	$1, %eax
-	.loc 3 170 48
+	.loc 3 172 48
 	andl	$1, %eax
 	leal	(%rax,%rax), %edx
 	movzbl	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %eax
 	andl	$-3, %eax
 	orl	%edx, %eax
 	movb	%al, _ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 171 59
+	.loc 3 173 59
 	movzbl	-4(%rbp), %eax
 	shrb	$2, %al
 	andl	$1, %eax
-	.loc 3 171 49
+	.loc 3 173 49
 	andl	$1, %eax
 	leal	0(,%rax,4), %edx
 	movzbl	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %eax
 	andl	$-5, %eax
 	orl	%edx, %eax
 	movb	%al, _ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 172 59
+	.loc 3 174 59
 	movzbl	-4(%rbp), %eax
 	shrb	$3, %al
 	andl	$1, %eax
-	.loc 3 172 49
+	.loc 3 174 49
 	andl	$1, %eax
 	leal	0(,%rax,8), %edx
 	movzbl	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %eax
 	andl	$-9, %eax
 	orl	%edx, %eax
 	movb	%al, _ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 173 58
+	.loc 3 175 58
 	movzbl	-4(%rbp), %eax
 	shrb	$4, %al
 	andl	$1, %eax
-	.loc 3 173 48
+	.loc 3 175 48
 	andl	$1, %eax
 	sall	$4, %eax
 	movl	%eax, %edx
@@ -701,234 +715,240 @@ PMC_UINT_Initialize:
 	andl	$-17, %eax
 	orl	%edx, %eax
 	movb	%al, _ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 174 51
+	.loc 3 176 51
 	leaq	_ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi(%rip), %rax
 	movq	%rax, 8+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 175 44
+	.loc 3 177 44
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal21PMC_GetStatisticsInfoEPNS2_25__tag_PMC_STATISTICS_INFOE(%rip), %rax
 	movq	%rax, 16+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 176 33
+	.loc 3 178 33
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal10PMC_From_IEj(%rip), %rax
 	movq	%rax, 24+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 177 33
+	.loc 3 179 33
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal10PMC_From_LEy(%rip), %rax
 	movq	%rax, 32+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 178 34
+	.loc 3 180 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_DisposeEPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 40+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 179 33
+	.loc 3 181 33
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal10PMC_To_X_IEPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 88+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 180 33
+	.loc 3 182 33
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal10PMC_To_X_LEPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 96+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 181 40
+	.loc 3 183 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_FromByteArrayEPKhy(%rip), %rax
 	movq	%rax, 56+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 182 38
+	.loc 3 184 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_ToByteArrayEPNS2_21__tag_PMC_HANDLE_UINTEPhy(%rip), %rax
 	movq	%rax, 64+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 183 53
+	.loc 3 185 53
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE(%rip), %rax
 	movq	%rax, 104+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 184 35
+	.loc 3 186 35
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy(%rip), %rax
 	movq	%rax, 112+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 185 35
+	.loc 3 187 35
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
 	movq	%rax, 120+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 186 34
+	.loc 3 188 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Add_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 128+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 187 34
+	.loc 3 189 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Add_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 136+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 188 34
+	.loc 3 190 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Add_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 144+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 189 34
+	.loc 3 191 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Add_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 152+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 190 34
+	.loc 3 192 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Add_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 160+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 191 39
+	.loc 3 193 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 168+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 192 39
+	.loc 3 194 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 176+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 193 39
+	.loc 3 195 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 184+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 194 39
+	.loc 3 196 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 192+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 195 39
+	.loc 3 197 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 200+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 196 39
+	.loc 3 198 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Multiply_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 208+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 197 39
+	.loc 3 199 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Multiply_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 216+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 198 39
+	.loc 3 200 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 224+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 199 39
+	.loc 3 201 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 232+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 200 39
+	.loc 3 202 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 240+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 201 37
+	.loc 3 203 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
 	movq	%rax, 248+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 202 37
+	.loc 3 204 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy(%rip), %rax
 	movq	%rax, 256+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 203 37
+	.loc 3 205 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_(%rip), %rax
 	movq	%rax, 264+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 204 37
+	.loc 3 206 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_(%rip), %rax
 	movq	%rax, 272+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 205 37
+	.loc 3 207 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_(%rip), %rax
 	movq	%rax, 280+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 206 41
+	.loc 3 208 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_RightShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi(%rip), %rax
 	movq	%rax, 296+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 207 40
+	.loc 3 209 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_LeftShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi(%rip), %rax
 	movq	%rax, 288+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 208 41
+	.loc 3 210 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 304+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 209 41
+	.loc 3 211 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 312+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 210 41
+	.loc 3 212 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 320+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 211 41
+	.loc 3 213 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 328+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 212 41
+	.loc 3 214 41
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 336+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 213 40
+	.loc 3 215 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 344+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 214 40
+	.loc 3 216 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 352+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 215 40
+	.loc 3 217 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 360+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 216 40
+	.loc 3 218 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 368+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 217 40
+	.loc 3 219 40
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 376+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 218 42
+	.loc 3 220 42
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 384+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 219 42
+	.loc 3 221 42
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 392+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 220 42
+	.loc 3 222 42
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 400+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 221 42
+	.loc 3 223 42
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 408+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 222 42
+	.loc 3 224 42
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 416+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 223 38
+	.loc 3 225 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 424+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 224 38
+	.loc 3 226 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 432+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 225 38
+	.loc 3 227 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 440+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 226 38
+	.loc 3 228 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 448+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 227 38
+	.loc 3 229 38
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 456+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 228 37
+	.loc 3 230 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_Equals_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 464+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 229 37
+	.loc 3 231 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_Equals_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 472+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 230 37
+	.loc 3 232 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 480+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 231 37
+	.loc 3 233 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 488+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 232 37
+	.loc 3 234 37
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 496+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 233 52
+	.loc 3 235 52
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 504+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 234 52
+	.loc 3 236 52
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 512+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 235 52
+	.loc 3 237 52
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 520+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 236 52
+	.loc 3 238 52
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 528+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 237 52
+	.loc 3 239 52
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_(%rip), %rax
 	movq	%rax, 536+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 238 34
+	.loc 3 240 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj(%rip), %rax
 	movq	%rax, 544+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 239 34
+	.loc 3 241 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy(%rip), %rax
 	movq	%rax, 552+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 240 39
+	.loc 3 242 39
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_(%rip), %rax
 	movq	%rax, 560+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 241 45
+	.loc 3 243 46
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj(%rip), %rax
+	movq	%rax, 568+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	.loc 3 244 38
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
+	movq	%rax, 576+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	.loc 3 245 45
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi(%rip), %rax
 	movq	%rax, 48+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 242 34
+	.loc 3 246 34
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
 	movq	%rax, 72+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 243 49
+	.loc 3 247 49
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv(%rip), %rax
 	movq	%rax, 80+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 245 47
+	.loc 3 249 47
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhyPc(%rip), %rax
-	movq	%rax, 568+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 246 45
-	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhy(%rip), %rax
-	movq	%rax, 576+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 247 42
-	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
 	movq	%rax, 584+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	.loc 3 249 25
+	.loc 3 250 45
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhy(%rip), %rax
+	movq	%rax, 592+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	.loc 3 251 42
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
+	movq	%rax, 600+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	.loc 3 253 25
 	movb	$1, _ZN8Palmtree4Math4Core8InternalL11initializedE(%rip)
 .L21:
 .LBE12:
 .LBE11:
-	.loc 3 252 30
+	.loc 3 256 30
 	leaq	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %rax
-.L42:
-	.loc 3 253 5
+.L43:
+	.loc 3 257 5
 	addq	$48, %rsp
 	popq	%rbp
 	.cfi_restore 6
@@ -978,7 +998,7 @@ PMC_UINT_Initialize:
 	.file 41 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/winbase.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x68f6
+	.long	0x6944
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -5686,7 +5706,7 @@ PMC_UINT_Initialize:
 	.byte	0x23
 	.byte	0x24
 	.byte	0xb
-	.long	0x618d
+	.long	0x61c1
 	.uleb128 0x27
 	.ascii "Math\0"
 	.byte	0x23
@@ -5772,21 +5792,21 @@ PMC_UINT_Initialize:
 	.byte	0x23
 	.byte	0x7f
 	.byte	0x28
-	.long	0x618d
+	.long	0x61c1
 	.byte	0x4
 	.uleb128 0x13
 	.ascii "GroupSeparator\0"
 	.byte	0x23
 	.byte	0x80
 	.byte	0x26
-	.long	0x618d
+	.long	0x61c1
 	.byte	0x26
 	.uleb128 0x13
 	.ascii "GroupSizes\0"
 	.byte	0x23
 	.byte	0x81
 	.byte	0x22
-	.long	0x619d
+	.long	0x61d1
 	.byte	0x48
 	.uleb128 0x13
 	.ascii "NegativePattern\0"
@@ -5836,35 +5856,35 @@ PMC_UINT_Initialize:
 	.byte	0x23
 	.byte	0x8b
 	.byte	0x26
-	.long	0x618d
+	.long	0x61c1
 	.word	0x138
 	.uleb128 0x29
 	.ascii "NegativeSign\0"
 	.byte	0x23
 	.byte	0x8c
 	.byte	0x24
-	.long	0x618d
+	.long	0x61c1
 	.word	0x15a
 	.uleb128 0x29
 	.ascii "PositiveSign\0"
 	.byte	0x23
 	.byte	0x8d
 	.byte	0x24
-	.long	0x618d
+	.long	0x61c1
 	.word	0x17c
 	.uleb128 0x29
 	.ascii "PercentSymbol\0"
 	.byte	0x23
 	.byte	0x8e
 	.byte	0x25
-	.long	0x618d
+	.long	0x61c1
 	.word	0x19e
 	.uleb128 0x29
 	.ascii "PerMilleSymbol\0"
 	.byte	0x23
 	.byte	0x8f
 	.byte	0x26
-	.long	0x618d
+	.long	0x61c1
 	.word	0x1c0
 	.byte	0
 	.uleb128 0x4
@@ -5962,11 +5982,11 @@ PMC_UINT_Initialize:
 	.long	0x5504
 	.uleb128 0x28
 	.ascii "__tag_PMC_UINT_ENTRY_POINTS\0"
-	.word	0x250
+	.word	0x260
 	.byte	0x25
 	.byte	0x43
 	.byte	0x18
-	.long	0x5c3e
+	.long	0x5c72
 	.uleb128 0x2b
 	.secrel32	.LASF3
 	.byte	0x25
@@ -6022,519 +6042,533 @@ PMC_UINT_Initialize:
 	.byte	0x25
 	.byte	0x4d
 	.byte	0x90
-	.long	0x61d1
+	.long	0x6205
 	.byte	0x8
 	.uleb128 0x13
 	.ascii "GetStatisticsInfo\0"
 	.byte	0x25
 	.byte	0x50
 	.byte	0x4d
-	.long	0x61e8
+	.long	0x621c
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "From_I\0"
 	.byte	0x25
 	.byte	0x53
 	.byte	0x33
-	.long	0x6203
+	.long	0x6237
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "From_L\0"
 	.byte	0x25
 	.byte	0x56
 	.byte	0x33
-	.long	0x6218
+	.long	0x624c
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "Dispose\0"
 	.byte	0x25
 	.byte	0x59
 	.byte	0x30
-	.long	0x6229
+	.long	0x625d
 	.byte	0x28
 	.uleb128 0x13
 	.ascii "GetConstantValue_I\0"
 	.byte	0x25
 	.byte	0x5c
 	.byte	0x50
-	.long	0x623e
+	.long	0x6272
 	.byte	0x30
 	.uleb128 0x13
 	.ascii "FromByteArray\0"
 	.byte	0x25
 	.byte	0x5f
 	.byte	0x58
-	.long	0x6258
+	.long	0x628c
 	.byte	0x38
 	.uleb128 0x13
 	.ascii "ToByteArray\0"
 	.byte	0x25
 	.byte	0x60
 	.byte	0x70
-	.long	0x6277
+	.long	0x62ab
 	.byte	0x40
 	.uleb128 0x13
 	.ascii "Clone_X\0"
 	.byte	0x25
 	.byte	0x63
 	.byte	0x3a
-	.long	0x628c
+	.long	0x62c0
 	.byte	0x48
 	.uleb128 0x13
 	.ascii "GetAllocatedMemorySize\0"
 	.byte	0x25
 	.byte	0x66
 	.byte	0x32
-	.long	0x6297
+	.long	0x62cb
 	.byte	0x50
 	.uleb128 0x13
 	.ascii "To_X_I\0"
 	.byte	0x25
 	.byte	0x69
 	.byte	0x33
-	.long	0x62ac
+	.long	0x62e0
 	.byte	0x58
 	.uleb128 0x13
 	.ascii "To_X_L\0"
 	.byte	0x25
 	.byte	0x6a
 	.byte	0x33
-	.long	0x62c1
+	.long	0x62f5
 	.byte	0x60
 	.uleb128 0x13
 	.ascii "InitializeNumberFormatInfo\0"
 	.byte	0x25
 	.byte	0x6d
 	.byte	0x4e
-	.long	0x62d8
+	.long	0x630c
 	.byte	0x68
 	.uleb128 0x13
 	.ascii "ToString\0"
 	.byte	0x25
 	.byte	0x6e
 	.byte	0x9c
-	.long	0x6307
+	.long	0x633b
 	.byte	0x70
 	.uleb128 0x13
 	.ascii "TryParse\0"
 	.byte	0x25
 	.byte	0x6f
 	.byte	0xb8
-	.long	0x633c
+	.long	0x6370
 	.byte	0x78
 	.uleb128 0x13
 	.ascii "Add_I_X\0"
 	.byte	0x25
 	.byte	0x72
 	.byte	0x47
-	.long	0x6356
+	.long	0x638a
 	.byte	0x80
 	.uleb128 0x13
 	.ascii "Add_L_X\0"
 	.byte	0x25
 	.byte	0x73
 	.byte	0x47
-	.long	0x6370
+	.long	0x63a4
 	.byte	0x88
 	.uleb128 0x13
 	.ascii "Add_X_I\0"
 	.byte	0x25
 	.byte	0x74
 	.byte	0x47
-	.long	0x638a
+	.long	0x63be
 	.byte	0x90
 	.uleb128 0x13
 	.ascii "Add_X_L\0"
 	.byte	0x25
 	.byte	0x75
 	.byte	0x47
-	.long	0x63a4
+	.long	0x63d8
 	.byte	0x98
 	.uleb128 0x13
 	.ascii "Add_X_X\0"
 	.byte	0x25
 	.byte	0x76
 	.byte	0x4d
-	.long	0x63be
+	.long	0x63f2
 	.byte	0xa0
 	.uleb128 0x13
 	.ascii "Subtruct_I_X\0"
 	.byte	0x25
 	.byte	0x79
 	.byte	0x46
-	.long	0x63d8
+	.long	0x640c
 	.byte	0xa8
 	.uleb128 0x13
 	.ascii "Subtruct_L_X\0"
 	.byte	0x25
 	.byte	0x7a
 	.byte	0x46
-	.long	0x63f2
+	.long	0x6426
 	.byte	0xb0
 	.uleb128 0x13
 	.ascii "Subtruct_X_I\0"
 	.byte	0x25
 	.byte	0x7b
 	.byte	0x4c
-	.long	0x638a
+	.long	0x63be
 	.byte	0xb8
 	.uleb128 0x13
 	.ascii "Subtruct_X_L\0"
 	.byte	0x25
 	.byte	0x7c
 	.byte	0x4c
-	.long	0x63a4
+	.long	0x63d8
 	.byte	0xc0
 	.uleb128 0x13
 	.ascii "Subtruct_X_X\0"
 	.byte	0x25
 	.byte	0x7d
 	.byte	0x52
-	.long	0x63be
+	.long	0x63f2
 	.byte	0xc8
 	.uleb128 0x13
 	.ascii "Multiply_I_X\0"
 	.byte	0x25
 	.byte	0x80
 	.byte	0x4c
-	.long	0x6356
+	.long	0x638a
 	.byte	0xd0
 	.uleb128 0x13
 	.ascii "Multiply_L_X\0"
 	.byte	0x25
 	.byte	0x81
 	.byte	0x4c
-	.long	0x6370
+	.long	0x63a4
 	.byte	0xd8
 	.uleb128 0x13
 	.ascii "Multiply_X_I\0"
 	.byte	0x25
 	.byte	0x82
 	.byte	0x4c
-	.long	0x638a
+	.long	0x63be
 	.byte	0xe0
 	.uleb128 0x13
 	.ascii "Multiply_X_L\0"
 	.byte	0x25
 	.byte	0x83
 	.byte	0x4c
-	.long	0x63a4
+	.long	0x63d8
 	.byte	0xe8
 	.uleb128 0x13
 	.ascii "Multiply_X_X\0"
 	.byte	0x25
 	.byte	0x84
 	.byte	0x52
-	.long	0x63be
+	.long	0x63f2
 	.byte	0xf0
 	.uleb128 0x13
 	.ascii "DivRem_I_X\0"
 	.byte	0x25
 	.byte	0x87
 	.byte	0x62
-	.long	0x6411
+	.long	0x6445
 	.byte	0xf8
 	.uleb128 0x29
 	.ascii "DivRem_L_X\0"
 	.byte	0x25
 	.byte	0x88
 	.byte	0x62
-	.long	0x6436
+	.long	0x646a
 	.word	0x100
 	.uleb128 0x29
 	.ascii "DivRem_X_I\0"
 	.byte	0x25
 	.byte	0x89
 	.byte	0x68
-	.long	0x6455
+	.long	0x6489
 	.word	0x108
 	.uleb128 0x29
 	.ascii "DivRem_X_L\0"
 	.byte	0x25
 	.byte	0x8a
 	.byte	0x68
-	.long	0x6474
+	.long	0x64a8
 	.word	0x110
 	.uleb128 0x29
 	.ascii "DivRem_X_X\0"
 	.byte	0x25
 	.byte	0x8b
 	.byte	0x74
-	.long	0x6493
+	.long	0x64c7
 	.word	0x118
 	.uleb128 0x29
 	.ascii "LeftShift_X_I\0"
 	.byte	0x25
 	.byte	0x8e
 	.byte	0x4c
-	.long	0x64ad
+	.long	0x64e1
 	.word	0x120
 	.uleb128 0x29
 	.ascii "RightShift_X_I\0"
 	.byte	0x25
 	.byte	0x91
 	.byte	0x4d
-	.long	0x64ad
+	.long	0x64e1
 	.word	0x128
 	.uleb128 0x29
 	.ascii "BitwiseAnd_I_X\0"
 	.byte	0x25
 	.byte	0x94
 	.byte	0x48
-	.long	0x63d8
+	.long	0x640c
 	.word	0x130
 	.uleb128 0x29
 	.ascii "BitwiseAnd_L_X\0"
 	.byte	0x25
 	.byte	0x95
 	.byte	0x48
-	.long	0x63f2
+	.long	0x6426
 	.word	0x138
 	.uleb128 0x29
 	.ascii "BitwiseAnd_X_I\0"
 	.byte	0x25
 	.byte	0x96
 	.byte	0x48
-	.long	0x64c7
+	.long	0x64fb
 	.word	0x140
 	.uleb128 0x29
 	.ascii "BitwiseAnd_X_L\0"
 	.byte	0x25
 	.byte	0x97
 	.byte	0x48
-	.long	0x64e1
+	.long	0x6515
 	.word	0x148
 	.uleb128 0x29
 	.ascii "BitwiseAnd_X_X\0"
 	.byte	0x25
 	.byte	0x98
 	.byte	0x54
-	.long	0x63be
+	.long	0x63f2
 	.word	0x150
 	.uleb128 0x29
 	.ascii "BitwiseOr_I_X\0"
 	.byte	0x25
 	.byte	0x9b
 	.byte	0x4d
-	.long	0x6356
+	.long	0x638a
 	.word	0x158
 	.uleb128 0x29
 	.ascii "BitwiseOr_L_X\0"
 	.byte	0x25
 	.byte	0x9c
 	.byte	0x4d
-	.long	0x6370
+	.long	0x63a4
 	.word	0x160
 	.uleb128 0x29
 	.ascii "BitwiseOr_X_I\0"
 	.byte	0x25
 	.byte	0x9d
 	.byte	0x4d
-	.long	0x638a
+	.long	0x63be
 	.word	0x168
 	.uleb128 0x29
 	.ascii "BitwiseOr_X_L\0"
 	.byte	0x25
 	.byte	0x9e
 	.byte	0x4d
-	.long	0x63a4
+	.long	0x63d8
 	.word	0x170
 	.uleb128 0x29
 	.ascii "BitwiseOr_X_X\0"
 	.byte	0x25
 	.byte	0x9f
 	.byte	0x53
-	.long	0x63be
+	.long	0x63f2
 	.word	0x178
 	.uleb128 0x29
 	.ascii "ExclusiveOr_I_X\0"
 	.byte	0x25
 	.byte	0xa2
 	.byte	0x4f
-	.long	0x6356
+	.long	0x638a
 	.word	0x180
 	.uleb128 0x29
 	.ascii "ExclusiveOr_L_X\0"
 	.byte	0x25
 	.byte	0xa3
 	.byte	0x4f
-	.long	0x6370
+	.long	0x63a4
 	.word	0x188
 	.uleb128 0x29
 	.ascii "ExclusiveOr_X_I\0"
 	.byte	0x25
 	.byte	0xa4
 	.byte	0x4f
-	.long	0x638a
+	.long	0x63be
 	.word	0x190
 	.uleb128 0x29
 	.ascii "ExclusiveOr_X_L\0"
 	.byte	0x25
 	.byte	0xa5
 	.byte	0x4f
-	.long	0x63a4
+	.long	0x63d8
 	.word	0x198
 	.uleb128 0x29
 	.ascii "ExclusiveOr_X_X\0"
 	.byte	0x25
 	.byte	0xa6
 	.byte	0x55
-	.long	0x63be
+	.long	0x63f2
 	.word	0x1a0
 	.uleb128 0x29
 	.ascii "Compare_I_X\0"
 	.byte	0x25
 	.byte	0xa9
 	.byte	0x44
-	.long	0x64fb
+	.long	0x652f
 	.word	0x1a8
 	.uleb128 0x29
 	.ascii "Compare_L_X\0"
 	.byte	0x25
 	.byte	0xaa
 	.byte	0x44
-	.long	0x6515
+	.long	0x6549
 	.word	0x1b0
 	.uleb128 0x29
 	.ascii "Compare_X_I\0"
 	.byte	0x25
 	.byte	0xab
 	.byte	0x44
-	.long	0x652f
+	.long	0x6563
 	.word	0x1b8
 	.uleb128 0x29
 	.ascii "Compare_X_L\0"
 	.byte	0x25
 	.byte	0xac
 	.byte	0x44
-	.long	0x6549
+	.long	0x657d
 	.word	0x1c0
 	.uleb128 0x29
 	.ascii "Compare_X_X\0"
 	.byte	0x25
 	.byte	0xad
 	.byte	0x4a
-	.long	0x6563
+	.long	0x6597
 	.word	0x1c8
 	.uleb128 0x29
 	.ascii "Equals_I_X\0"
 	.byte	0x25
 	.byte	0xb0
 	.byte	0x44
-	.long	0x63d8
+	.long	0x640c
 	.word	0x1d0
 	.uleb128 0x29
 	.ascii "Equals_L_X\0"
 	.byte	0x25
 	.byte	0xb1
 	.byte	0x44
-	.long	0x657d
+	.long	0x65b1
 	.word	0x1d8
 	.uleb128 0x29
 	.ascii "Equals_X_I\0"
 	.byte	0x25
 	.byte	0xb2
 	.byte	0x44
-	.long	0x64c7
+	.long	0x64fb
 	.word	0x1e0
 	.uleb128 0x29
 	.ascii "Equals_X_L\0"
 	.byte	0x25
 	.byte	0xb3
 	.byte	0x44
-	.long	0x6597
+	.long	0x65cb
 	.word	0x1e8
 	.uleb128 0x29
 	.ascii "Equals_X_X\0"
 	.byte	0x25
 	.byte	0xb4
 	.byte	0x4a
-	.long	0x65b1
+	.long	0x65e5
 	.word	0x1f0
 	.uleb128 0x29
 	.ascii "GreatestCommonDivisor_I_X\0"
 	.byte	0x25
 	.byte	0xb7
 	.byte	0x59
-	.long	0x6356
+	.long	0x638a
 	.word	0x1f8
 	.uleb128 0x29
 	.ascii "GreatestCommonDivisor_L_X\0"
 	.byte	0x25
 	.byte	0xb8
 	.byte	0x59
-	.long	0x6370
+	.long	0x63a4
 	.word	0x200
 	.uleb128 0x29
 	.ascii "GreatestCommonDivisor_X_I\0"
 	.byte	0x25
 	.byte	0xb9
 	.byte	0x59
-	.long	0x638a
+	.long	0x63be
 	.word	0x208
 	.uleb128 0x29
 	.ascii "GreatestCommonDivisor_X_L\0"
 	.byte	0x25
 	.byte	0xba
 	.byte	0x59
-	.long	0x63a4
+	.long	0x63d8
 	.word	0x210
 	.uleb128 0x29
 	.ascii "GreatestCommonDivisor_X_X\0"
 	.byte	0x25
 	.byte	0xbb
 	.byte	0x5f
-	.long	0x63be
+	.long	0x63f2
 	.word	0x218
 	.uleb128 0x29
 	.ascii "Pow_X_I\0"
 	.byte	0x25
 	.byte	0xbe
 	.byte	0x47
-	.long	0x638a
+	.long	0x63be
 	.word	0x220
 	.uleb128 0x29
 	.ascii "Pow_X_L\0"
 	.byte	0x25
 	.byte	0xbf
 	.byte	0x47
-	.long	0x63a4
+	.long	0x63d8
 	.word	0x228
 	.uleb128 0x29
 	.ascii "ModPow_X_X_X\0"
 	.byte	0x25
 	.byte	0xc2
 	.byte	0x65
-	.long	0x65d0
+	.long	0x6604
 	.word	0x230
+	.uleb128 0x29
+	.ascii "TimesOfExponentOf10\0"
+	.byte	0x25
+	.byte	0xc5
+	.byte	0x4d
+	.long	0x661e
+	.word	0x238
+	.uleb128 0x29
+	.ascii "Floor_Log10\0"
+	.byte	0x25
+	.byte	0xc8
+	.byte	0x38
+	.long	0x62e0
+	.word	0x240
 	.uleb128 0x29
 	.ascii "FromByteArrayForSINT\0"
 	.byte	0x25
-	.byte	0xc5
+	.byte	0xcb
 	.byte	0x67
-	.long	0x65ef
-	.word	0x238
+	.long	0x663d
+	.word	0x248
 	.uleb128 0x29
 	.ascii "ToByteArrayForSINT\0"
 	.byte	0x25
-	.byte	0xc6
+	.byte	0xcc
 	.byte	0x84
-	.long	0x6613
-	.word	0x240
+	.long	0x6661
+	.word	0x250
 	.uleb128 0x29
 	.ascii "TryParseForSINT\0"
 	.byte	0x25
-	.byte	0xc7
+	.byte	0xcd
 	.byte	0xe1
-	.long	0x6641
-	.word	0x248
+	.long	0x668f
+	.word	0x258
 	.byte	0
 	.uleb128 0x4
 	.ascii "PMC_STATUS_CODE\0"
 	.byte	0x23
 	.byte	0x6e
 	.byte	0x1a
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x4
 	.ascii "_INT32_T\0"
 	.byte	0x23
@@ -6552,7 +6586,7 @@ PMC_UINT_Initialize:
 	.byte	0x25
 	.byte	0x41
 	.byte	0x2f
-	.long	0x61ee
+	.long	0x6222
 	.uleb128 0x4
 	.ascii "_UINT32_T\0"
 	.byte	0x23
@@ -6564,7 +6598,7 @@ PMC_UINT_Initialize:
 	.byte	0x23
 	.byte	0x70
 	.byte	0x1a
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x4
 	.ascii "PMC_NUMBER_FORMAT_INFO\0"
 	.byte	0x23
@@ -6572,20 +6606,20 @@ PMC_UINT_Initialize:
 	.byte	0xb
 	.long	0x5352
 	.uleb128 0x3
-	.long	0x5ccd
+	.long	0x5d01
 	.uleb128 0x4
 	.ascii "PMC_NUMBER_STYLE_CODE\0"
 	.byte	0x23
 	.byte	0x72
 	.byte	0x1a
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x12
 	.ascii "_tag_PROCESSOR_FEATURES\0"
 	.byte	0x4
 	.byte	0x26
 	.byte	0x25
 	.byte	0x14
-	.long	0x5d81
+	.long	0x5db5
 	.uleb128 0x2b
 	.secrel32	.LASF3
 	.byte	0x26
@@ -6643,13 +6677,13 @@ PMC_UINT_Initialize:
 	.byte	0x27
 	.byte	0x28
 	.byte	0x14
-	.long	0x5edf
+	.long	0x5f13
 	.uleb128 0x2c
 	.secrel32	.LASF2
 	.byte	0x27
 	.byte	0x2a
 	.byte	0x15
-	.long	0x5edf
+	.long	0x5f13
 	.byte	0
 	.uleb128 0x2a
 	.ascii "IS_ZERO\0"
@@ -6696,35 +6730,35 @@ PMC_UINT_Initialize:
 	.byte	0x27
 	.byte	0x30
 	.byte	0x13
-	.long	0x5c9b
+	.long	0x5ccf
 	.byte	0xc
 	.uleb128 0x13
 	.ascii "SIGNATURE2\0"
 	.byte	0x27
 	.byte	0x31
 	.byte	0x13
-	.long	0x5c9b
+	.long	0x5ccf
 	.byte	0x10
 	.uleb128 0x13
 	.ascii "UNIT_WORD_COUNT\0"
 	.byte	0x27
 	.byte	0x32
 	.byte	0x15
-	.long	0x5edf
+	.long	0x5f13
 	.byte	0x18
 	.uleb128 0x13
 	.ascii "UNIT_BIT_COUNT\0"
 	.byte	0x27
 	.byte	0x33
 	.byte	0x15
-	.long	0x5edf
+	.long	0x5f13
 	.byte	0x20
 	.uleb128 0x13
 	.ascii "TRAILING_ZERO_BITS_COUNT\0"
 	.byte	0x27
 	.byte	0x34
 	.byte	0x15
-	.long	0x5edf
+	.long	0x5f13
 	.byte	0x28
 	.uleb128 0x2a
 	.ascii "IS_STATIC\0"
@@ -6758,14 +6792,14 @@ PMC_UINT_Initialize:
 	.byte	0x27
 	.byte	0x3d
 	.byte	0x16
-	.long	0x6647
+	.long	0x6695
 	.byte	0x40
 	.uleb128 0x13
 	.ascii "BLOCK_CHECK_CODE\0"
 	.byte	0x27
 	.byte	0x3e
 	.byte	0x15
-	.long	0x5edf
+	.long	0x5f13
 	.byte	0x48
 	.byte	0
 	.uleb128 0x4
@@ -6781,45 +6815,45 @@ PMC_UINT_Initialize:
 	.byte	0xb
 	.long	0x51cc
 	.uleb128 0x3
-	.long	0x5ef3
+	.long	0x5f27
 	.uleb128 0x2d
 	.ascii "configuration_info\0"
 	.byte	0x27
 	.byte	0x45
 	.byte	0x23
 	.ascii "_ZN8Palmtree4Math4Core8Internal18configuration_infoE\0"
-	.long	0x5ef3
+	.long	0x5f27
 	.uleb128 0x4
 	.ascii "NUMBER_HEADER\0"
 	.byte	0x27
 	.byte	0x3f
 	.byte	0x7
-	.long	0x5d81
+	.long	0x5db5
 	.uleb128 0x2d
 	.ascii "number_zero\0"
 	.byte	0x27
 	.byte	0x48
 	.byte	0x1a
 	.ascii "_ZN8Palmtree4Math4Core8Internal11number_zeroE\0"
-	.long	0x5f67
+	.long	0x5f9b
 	.uleb128 0x2d
 	.ascii "number_one\0"
 	.byte	0x27
 	.byte	0x4b
 	.byte	0x1a
 	.ascii "_ZN8Palmtree4Math4Core8Internal10number_oneE\0"
-	.long	0x5f67
+	.long	0x5f9b
 	.uleb128 0x2d
 	.ascii "statistics_info\0"
 	.byte	0x27
 	.byte	0x4e
 	.byte	0x20
 	.ascii "_ZN8Palmtree4Math4Core8Internal15statistics_infoE\0"
-	.long	0x5c67
+	.long	0x5c9b
 	.uleb128 0x4
 	.ascii "PMC_UINT_ENTRY_POINTS\0"
 	.byte	0x25
-	.byte	0xc8
+	.byte	0xce
 	.byte	0xb
 	.long	0x551b
 	.uleb128 0x2e
@@ -6827,7 +6861,7 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x27
 	.byte	0x22
-	.long	0x6049
+	.long	0x607d
 	.uleb128 0x2e
 	.ascii "initialized\0"
 	.byte	0x3
@@ -6839,17 +6873,17 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x7a
 	.byte	0x1c
-	.long	0x667d
-	.long	0x60b6
+	.long	0x66cb
+	.long	0x60ea
 	.uleb128 0x11
-	.long	0x6683
+	.long	0x66d1
 	.byte	0
 	.uleb128 0x4
 	.ascii "PROCESSOR_FEATURES\0"
 	.byte	0x26
 	.byte	0x35
 	.byte	0x7
-	.long	0x5d0f
+	.long	0x5d43
 	.uleb128 0x30
 	.ascii "SelfCheck\0"
 	.byte	0x3
@@ -6862,16 +6896,16 @@ PMC_UINT_Initialize:
 	.byte	0x2b
 	.byte	0x15
 	.ascii "_ZN8Palmtree4Math4Core8Internal28PMC_GetConfigurationSettingsEPKwPwiPi\0"
-	.long	0x5c3e
-	.long	0x6168
+	.long	0x5c72
+	.long	0x619c
 	.uleb128 0x11
 	.long	0xb62
 	.uleb128 0x11
 	.long	0x460
 	.uleb128 0x11
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x11
-	.long	0x61cb
+	.long	0x61ff
 	.byte	0
 	.uleb128 0x31
 	.ascii "_ZERO_MEMORY_BYTE\0"
@@ -6889,88 +6923,88 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0xe
 	.long	0x466
-	.long	0x619d
+	.long	0x61d1
 	.uleb128 0xf
 	.long	0xfe
 	.byte	0x10
 	.byte	0
 	.uleb128 0xe
 	.long	0x466
-	.long	0x61ad
+	.long	0x61e1
 	.uleb128 0xf
 	.long	0xfe
 	.byte	0xa
 	.byte	0
 	.uleb128 0x23
-	.long	0x5c3e
-	.long	0x61cb
+	.long	0x5c72
+	.long	0x61ff
 	.uleb128 0x11
 	.long	0xb62
 	.uleb128 0x11
 	.long	0x460
 	.uleb128 0x11
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x11
-	.long	0x61cb
+	.long	0x61ff
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x61ad
+	.long	0x61e1
 	.uleb128 0x10
-	.long	0x61e2
+	.long	0x6216
 	.uleb128 0x11
-	.long	0x61e2
+	.long	0x6216
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5c67
+	.long	0x5c9b
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x61d7
+	.long	0x620b
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x544c
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6203
+	.long	0x5cb7
+	.long	0x6237
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5ccf
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x61f4
+	.long	0x6228
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6218
+	.long	0x5cb7
+	.long	0x624c
 	.uleb128 0x11
 	.long	0x5504
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6209
+	.long	0x623d
 	.uleb128 0x10
-	.long	0x6229
+	.long	0x625d
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x621e
+	.long	0x6252
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x623e
+	.long	0x5cb7
+	.long	0x6272
 	.uleb128 0x11
-	.long	0x5cad
+	.long	0x5ce1
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x622f
+	.long	0x6263
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6258
+	.long	0x5cb7
+	.long	0x628c
 	.uleb128 0x11
 	.long	0x4ea
 	.uleb128 0x11
@@ -6978,12 +7012,12 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6244
+	.long	0x6278
 	.uleb128 0x23
 	.long	0xef
-	.long	0x6277
+	.long	0x62ab
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
 	.long	0x77f
 	.uleb128 0x11
@@ -6991,59 +7025,59 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x625e
+	.long	0x6292
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x628c
+	.long	0x5cb7
+	.long	0x62c0
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x627d
+	.long	0x62b1
 	.uleb128 0x32
 	.long	0x5504
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6292
+	.long	0x62c6
 	.uleb128 0x23
-	.long	0x5c9b
-	.long	0x62ac
+	.long	0x5ccf
+	.long	0x62e0
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x629d
+	.long	0x62d1
 	.uleb128 0x23
 	.long	0x5504
-	.long	0x62c1
+	.long	0x62f5
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x62b2
+	.long	0x62e6
 	.uleb128 0x10
-	.long	0x62d2
+	.long	0x6306
 	.uleb128 0x11
-	.long	0x62d2
+	.long	0x6306
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5ccd
+	.long	0x5d01
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x62c7
+	.long	0x62fb
 	.uleb128 0x23
 	.long	0xef
-	.long	0x6301
+	.long	0x6335
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
 	.long	0xb62
 	.uleb128 0x11
-	.long	0x6301
+	.long	0x6335
 	.uleb128 0x11
 	.long	0x460
 	.uleb128 0x11
@@ -7051,315 +7085,326 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5cec
+	.long	0x5d20
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x62de
+	.long	0x6312
 	.uleb128 0x23
-	.long	0x5c3e
-	.long	0x6330
+	.long	0x5c72
+	.long	0x6364
 	.uleb128 0x11
 	.long	0xb62
 	.uleb128 0x11
-	.long	0x5cf1
+	.long	0x5d25
 	.uleb128 0x11
-	.long	0x6301
+	.long	0x6335
 	.uleb128 0x11
-	.long	0x6330
+	.long	0x6364
 	.uleb128 0x11
-	.long	0x6336
+	.long	0x636a
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5c9b
+	.long	0x5ccf
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x630d
+	.long	0x6341
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6356
-	.uleb128 0x11
-	.long	0x5c9b
-	.uleb128 0x11
-	.long	0x5c83
-	.byte	0
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x6342
-	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6370
-	.uleb128 0x11
-	.long	0x5504
-	.uleb128 0x11
-	.long	0x5c83
-	.byte	0
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x635c
-	.uleb128 0x23
-	.long	0x5c83
+	.long	0x5cb7
 	.long	0x638a
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5ccf
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6376
 	.uleb128 0x23
-	.long	0x5c83
+	.long	0x5cb7
 	.long	0x63a4
 	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
 	.long	0x5504
+	.uleb128 0x11
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6390
 	.uleb128 0x23
-	.long	0x5c83
+	.long	0x5cb7
 	.long	0x63be
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5ccf
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x63aa
 	.uleb128 0x23
-	.long	0x5c9b
+	.long	0x5cb7
 	.long	0x63d8
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5504
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x63c4
 	.uleb128 0x23
-	.long	0x5504
+	.long	0x5cb7
 	.long	0x63f2
 	.uleb128 0x11
-	.long	0x5504
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x63de
 	.uleb128 0x23
-	.long	0x5c9b
-	.long	0x6411
+	.long	0x5ccf
+	.long	0x640c
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5ccf
 	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
-	.long	0x6336
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x63f8
 	.uleb128 0x23
 	.long	0x5504
-	.long	0x6430
+	.long	0x6426
 	.uleb128 0x11
 	.long	0x5504
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x6412
+	.uleb128 0x23
+	.long	0x5ccf
+	.long	0x6445
 	.uleb128 0x11
-	.long	0x6430
+	.long	0x5ccf
+	.uleb128 0x11
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x636a
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x642c
+	.uleb128 0x23
+	.long	0x5504
+	.long	0x6464
+	.uleb128 0x11
+	.long	0x5504
+	.uleb128 0x11
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x6464
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x5504
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6417
+	.long	0x644b
 	.uleb128 0x23
-	.long	0x5c9b
-	.long	0x6455
+	.long	0x5ccf
+	.long	0x6489
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5ccf
 	.uleb128 0x11
-	.long	0x6330
+	.long	0x6364
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x643c
+	.long	0x6470
 	.uleb128 0x23
 	.long	0x5504
-	.long	0x6474
+	.long	0x64a8
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
 	.long	0x5504
 	.uleb128 0x11
-	.long	0x6330
+	.long	0x6364
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x645b
+	.long	0x648f
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x6493
-	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
-	.long	0x6330
-	.byte	0
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x647a
-	.uleb128 0x23
-	.long	0x5c83
-	.long	0x64ad
-	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
-	.long	0x5c56
-	.byte	0
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x6499
-	.uleb128 0x23
-	.long	0x5c9b
+	.long	0x5cb7
 	.long	0x64c7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x6364
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x64b3
+	.long	0x64ae
 	.uleb128 0x23
-	.long	0x5504
+	.long	0x5cb7
 	.long	0x64e1
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5504
+	.long	0x5c8a
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x64cd
 	.uleb128 0x23
-	.long	0x5c56
+	.long	0x5ccf
 	.long	0x64fb
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5ccf
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x64e7
 	.uleb128 0x23
-	.long	0x5c56
+	.long	0x5504
 	.long	0x6515
 	.uleb128 0x11
-	.long	0x5504
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5504
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6501
 	.uleb128 0x23
-	.long	0x5c56
+	.long	0x5c8a
 	.long	0x652f
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5ccf
 	.uleb128 0x11
-	.long	0x5c9b
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x651b
 	.uleb128 0x23
-	.long	0x5c56
+	.long	0x5c8a
 	.long	0x6549
 	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
 	.long	0x5504
+	.uleb128 0x11
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6535
 	.uleb128 0x23
-	.long	0x5c56
+	.long	0x5c8a
 	.long	0x6563
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5ccf
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x654f
 	.uleb128 0x23
-	.long	0x5c9b
+	.long	0x5c8a
 	.long	0x657d
 	.uleb128 0x11
-	.long	0x5504
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5504
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6569
 	.uleb128 0x23
-	.long	0x5c9b
+	.long	0x5c8a
 	.long	0x6597
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5504
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x6583
 	.uleb128 0x23
-	.long	0x5c9b
+	.long	0x5ccf
 	.long	0x65b1
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5504
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x659d
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x65d0
+	.long	0x5ccf
+	.long	0x65cb
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
-	.long	0x5c83
-	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5504
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x65b7
 	.uleb128 0x23
-	.long	0x5c83
-	.long	0x65ef
+	.long	0x5ccf
+	.long	0x65e5
+	.uleb128 0x11
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x5cb7
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x65d1
+	.uleb128 0x23
+	.long	0x5cb7
+	.long	0x6604
+	.uleb128 0x11
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x5cb7
+	.uleb128 0x11
+	.long	0x5cb7
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x65eb
+	.uleb128 0x23
+	.long	0x5cb7
+	.long	0x661e
+	.uleb128 0x11
+	.long	0x5ccf
+	.uleb128 0x11
+	.long	0x5ccf
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x660a
+	.uleb128 0x23
+	.long	0x5cb7
+	.long	0x663d
 	.uleb128 0x11
 	.long	0x77f
 	.uleb128 0x11
@@ -7369,14 +7414,14 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x65d6
+	.long	0x6624
 	.uleb128 0x23
 	.long	0xef
-	.long	0x6613
+	.long	0x6661
 	.uleb128 0x11
 	.long	0xe2
 	.uleb128 0x11
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x11
 	.long	0x77f
 	.uleb128 0x11
@@ -7384,31 +7429,31 @@ PMC_UINT_Initialize:
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x65f5
+	.long	0x6643
 	.uleb128 0x23
-	.long	0x5c3e
-	.long	0x6641
+	.long	0x5c72
+	.long	0x668f
 	.uleb128 0x11
 	.long	0xb62
 	.uleb128 0x11
-	.long	0x5cf1
+	.long	0x5d25
 	.uleb128 0x11
-	.long	0x6301
+	.long	0x6335
 	.uleb128 0x11
 	.long	0x45a
 	.uleb128 0x11
-	.long	0x6330
+	.long	0x6364
 	.uleb128 0x11
-	.long	0x6336
+	.long	0x636a
 	.byte	0
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6619
+	.long	0x6667
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5edf
+	.long	0x5f13
 	.uleb128 0x33
-	.long	0x5f17
+	.long	0x5f4b
 	.byte	0x3
 	.byte	0x26
 	.byte	0x1c
@@ -7416,34 +7461,34 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.quad	_ZN8Palmtree4Math4Core8Internal18configuration_infoE
 	.uleb128 0x34
-	.long	0x6067
+	.long	0x609b
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE
 	.uleb128 0x34
-	.long	0x607c
+	.long	0x60b0
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN8Palmtree4Math4Core8InternalL11initializedE
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x6049
+	.long	0x607d
 	.uleb128 0x6
 	.byte	0x8
-	.long	0x5f12
+	.long	0x5f46
 	.uleb128 0x35
-	.long	0x6090
+	.long	0x60c4
 	.quad	.LFB4783
 	.quad	.LFE4783-.LFB4783
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x66dc
+	.long	0x672a
 	.uleb128 0x36
 	.ascii "config\0"
 	.byte	0x3
 	.byte	0x7a
 	.byte	0x4e
-	.long	0x6683
+	.long	0x66d1
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -7455,25 +7500,25 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x81
 	.byte	0x20
-	.long	0x60b6
+	.long	0x60ea
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -20
 	.byte	0
 	.byte	0
 	.uleb128 0x35
-	.long	0x60d1
+	.long	0x6105
 	.quad	.LFB4782
 	.quad	.LFE4782-.LFB4782
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6719
+	.long	0x6767
 	.uleb128 0x38
 	.ascii "nh\0"
 	.byte	0x3
 	.byte	0x5b
 	.byte	0x17
-	.long	0x5f67
+	.long	0x5f9b
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
@@ -7482,18 +7527,18 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x5c
 	.byte	0x19
-	.long	0x5c83
+	.long	0x5cb7
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x39
-	.long	0x60e3
+	.long	0x6117
 	.quad	.LFB4781
 	.quad	.LFE4781-.LFB4781
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x680c
+	.long	0x685a
 	.uleb128 0x36
 	.ascii "key\0"
 	.byte	0x3
@@ -7517,7 +7562,7 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x2b
 	.byte	0x66
-	.long	0x5c56
+	.long	0x5c8a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -7526,76 +7571,76 @@ PMC_UINT_Initialize:
 	.byte	0x3
 	.byte	0x2b
 	.byte	0x83
-	.long	0x61cb
+	.long	0x61ff
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
 	.uleb128 0x3a
 	.quad	.LBB7
 	.quad	.LBE7-.LBB7
-	.long	0x67bd
+	.long	0x680b
 	.uleb128 0x38
 	.ascii "value\0"
 	.byte	0x3
 	.byte	0x32
 	.byte	0x1b
-	.long	0x681c
+	.long	0x686a
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -26
 	.uleb128 0x3b
 	.quad	.LVL1
-	.long	0x68df
+	.long	0x692d
 	.byte	0
 	.uleb128 0x3a
 	.quad	.LBB10
 	.quad	.LBE10-.LBB10
-	.long	0x67f1
+	.long	0x683f
 	.uleb128 0x38
 	.ascii "value\0"
 	.byte	0x3
 	.byte	0x44
 	.byte	0x1b
-	.long	0x6831
+	.long	0x687f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -34
 	.uleb128 0x3b
 	.quad	.LVL3
-	.long	0x68df
+	.long	0x692d
 	.byte	0
 	.uleb128 0x3b
 	.quad	.LVL0
-	.long	0x68ec
+	.long	0x693a
 	.uleb128 0x3b
 	.quad	.LVL2
-	.long	0x68ec
+	.long	0x693a
 	.byte	0
 	.uleb128 0xe
 	.long	0x471
-	.long	0x681c
+	.long	0x686a
 	.uleb128 0xf
 	.long	0xfe
 	.byte	0x4
 	.byte	0
 	.uleb128 0x3
-	.long	0x680c
+	.long	0x685a
 	.uleb128 0xe
 	.long	0x471
-	.long	0x6831
+	.long	0x687f
 	.uleb128 0xf
 	.long	0xfe
 	.byte	0x3
 	.byte	0
 	.uleb128 0x3
-	.long	0x6821
+	.long	0x686f
 	.uleb128 0x39
-	.long	0x6168
+	.long	0x619c
 	.quad	.LFB4737
 	.quad	.LFE4737-.LFB4737
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x68a1
+	.long	0x68ef
 	.uleb128 0x36
 	.ascii "d\0"
 	.byte	0x1
@@ -7615,24 +7660,24 @@ PMC_UINT_Initialize:
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x3c
-	.long	0x68a1
+	.long	0x68ef
 	.quad	.LBB4
 	.quad	.LBE4-.LBB4
 	.byte	0x1
 	.byte	0x4b
 	.byte	0x14
 	.uleb128 0x3d
-	.long	0x68cf
+	.long	0x691d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x3d
-	.long	0x68c1
+	.long	0x690f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -41
 	.uleb128 0x3d
-	.long	0x68b3
+	.long	0x6901
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -7644,7 +7689,7 @@ PMC_UINT_Initialize:
 	.word	0x5a5
 	.byte	0x6
 	.byte	0x3
-	.long	0x68df
+	.long	0x692d
 	.uleb128 0x3f
 	.ascii "Dest\0"
 	.byte	0x2
@@ -8667,6 +8712,7 @@ PMC_UINT_Initialize:
 	.def	_ZN8Palmtree4Math4Core8Internal32Initialize_GreatestCommonDivisorEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj
 	.linkonce	discard
@@ -8697,6 +8743,16 @@ PMC_UINT_Initialize:
 	.linkonce	discard
 .refptr._ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi:
 	.quad	_ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE
+	.linkonce	discard
+.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE:
+	.quad	_ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+	.linkonce	discard
+.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj:
+	.quad	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_
 	.linkonce	discard

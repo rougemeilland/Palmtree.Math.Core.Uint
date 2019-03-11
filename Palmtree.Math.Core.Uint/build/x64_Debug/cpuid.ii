@@ -84836,6 +84836,12 @@ namespace Palmtree::Math::Core::Internal
             PMC_HANDLE_UINT( * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m);
 
 
+            PMC_HANDLE_UINT( * TimesOfExponentOf10)(_UINT32_T v, _UINT32_T e);
+
+
+            _UINT32_T( * Floor_Log10)(PMC_HANDLE_UINT v);
+
+
             PMC_HANDLE_UINT( * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign);
             size_t( * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);
             PMC_STATUS_CODE( * TryParseForSINT)(const wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, const PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs, _UINT32_T* result) noexcept(false);
@@ -85038,6 +85044,14 @@ namespace Palmtree::Math::Core::Internal
 
     extern NUMBER_HEADER* PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v);
 
+
+    extern NUMBER_HEADER* PMC_TimesOfExponentOf10_Imp(_UINT32_T v, __UNIT_TYPE e);
+
+
+    extern _UINT32_T PMC_Floor_Log10_Imp(NUMBER_HEADER* v);
+
+
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v);
 #pragma endregion
 
 
@@ -85095,6 +85109,9 @@ namespace Palmtree::Math::Core::Internal
 
 
     extern PMC_STATUS_CODE Initialize_ModPow(PROCESSOR_FEATURES* feature);
+
+
+    extern PMC_STATUS_CODE Initialize_Log(PROCESSOR_FEATURES* feature);
 #pragma endregion
 
 
@@ -85192,6 +85209,10 @@ namespace Palmtree::Math::Core::Internal
     extern PMC_HANDLE_UINT PMC_Pow_X_L(PMC_HANDLE_UINT x, _UINT64_T n) noexcept(false);
 
     extern PMC_HANDLE_UINT PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m) noexcept(false);
+
+    extern PMC_HANDLE_UINT PMC_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e);
+
+    extern _UINT32_T PMC_Floor_Log10(PMC_HANDLE_UINT v);
 
     extern PMC_HANDLE_UINT PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign) noexcept(false);
     extern size_t PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);

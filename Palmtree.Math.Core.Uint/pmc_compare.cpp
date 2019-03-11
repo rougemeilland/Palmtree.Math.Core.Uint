@@ -294,6 +294,34 @@ namespace Palmtree::Math::Core::Internal
         return (w);
     }
 
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v)
+    {
+        if (u->IS_ZERO)
+            return (v->IS_ZERO ? 0 : -1);
+        else if (v->IS_ZERO)
+            return (1);
+        else
+        {
+            __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+            __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
+            if (u_bit_count > v_bit_count)
+            {
+                // 明らかに u > v である場合
+                return (1);
+            }
+            else if (u_bit_count < v_bit_count)
+            {
+                // 明らかに u < v である場合
+                return (-1);
+            }
+            else
+            {
+                // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
+                return (Compare_Imp(u->BLOCK, v->BLOCK, u->UNIT_WORD_COUNT));
+            }
+        }
+    }
+
     _INT32_T __PMC_CALL PMC_Compare_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v) noexcept(false)
     {
         if (u == nullptr)
@@ -304,31 +332,7 @@ namespace Palmtree::Math::Core::Internal
         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
         CheckNumber(nu);
         CheckNumber(nv);
-        _INT32_T w;
-        if (nu->IS_ZERO)
-            w = nv->IS_ZERO ? 0 : -1;
-        else if (nv->IS_ZERO)
-            w = 1;
-        else
-        {
-            __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-            __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-            if (u_bit_count > v_bit_count)
-            {
-                // 明らかに u > v である場合
-                w = 1;
-            }
-            else if (u_bit_count < v_bit_count)
-            {
-                // 明らかに u < v である場合
-                w = -1;
-            }
-            else
-            {
-                // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
-                w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
-            }
-        }
+        _INT32_T w = PMC_Compare_X_X_Imp(nu, nv);
 #ifdef _DEBUG
         if (w != 0 && w != 1 && w != -1)
             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");

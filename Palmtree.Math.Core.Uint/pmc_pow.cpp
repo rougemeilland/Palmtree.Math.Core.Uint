@@ -315,6 +315,37 @@ namespace Palmtree::Math::Core::Internal
 #endif
     }
 
+    NUMBER_HEADER* PMC_TimesOfExponentOf10_Imp(_UINT32_T v, __UNIT_TYPE e)
+    {
+        if (v == 0)
+            return (&number_zero);
+        if (e == 0)
+            return (From_I_Imp(v));
+        ResourceHolderUINT root;
+        NUMBER_HEADER* _10 = From_I_Imp(10);
+        root.HookNumber(_10);
+#if _M_IX86
+        NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_I_Imp(_10, e);
+#elif defined(_M_X64)
+        NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_L_Imp(_10, e);
+#else
+#error unknown platform
+#endif
+        if (v == 1)
+            return (exponent_of_10);
+        else
+        {
+            root.HookNumber(exponent_of_10);
+            NUMBER_HEADER* x_times_of_exponent_of_10 = PMC_Multiply_X_I_Imp(exponent_of_10, v);
+            return (x_times_of_exponent_of_10);
+        }
+    }
+
+    PMC_HANDLE_UINT __PMC_CALL PMC_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e)
+    {
+        return ((PMC_HANDLE_UINT)PMC_TimesOfExponentOf10_Imp(v, e));
+    }
+
     PMC_STATUS_CODE Initialize_Pow(PROCESSOR_FEATURES* feature)
     {
         return (PMC_STATUS_OK);

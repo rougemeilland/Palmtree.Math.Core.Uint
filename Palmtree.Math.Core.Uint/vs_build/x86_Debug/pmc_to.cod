@@ -51,33 +51,33 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __B37E44B8_pmc_to@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117875 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
+$SG117895 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
 	DB	'.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M'
 	DB	00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H, '_', 00H, 'X', 00H
 	DB	'_', 00H, 'I', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG117876 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117896 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117883 DB	'3', 00H, '2', 00H, 'b', 00H, 'i', 00H, 't', 00H, 'tepex0'
+$SG117903 DB	'3', 00H, '2', 00H, 'b', 00H, 'i', 00H, 't', 00H, 'tepex0'
 	DB	'n0', 08bH, 'W', 09H, 'Y', 0dbH, 'ck01YWeW0~0W0_0', 02H, '0', 00H
 	DB	00H
 	ORG $+2
-$SG117898 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
+$SG117918 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
 	DB	'.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M'
 	DB	00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H, '_', 00H, 'X', 00H
 	DB	'_', 00H, 'L', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG117899 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117919 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117902 DB	'6', 00H, '4', 00H, 'b', 00H, 'i', 00H, 't', 00H, 'tepex0'
+$SG117922 DB	'6', 00H, '4', 00H, 'b', 00H, 'i', 00H, 't', 00H, 'tepex0'
 	DB	'n0', 08bH, 'W', 09H, 'Y', 0dbH, 'ck01YWeW0~0W0_0', 02H, '0', 00H
 	DB	00H
 	ORG $+2
-$SG117910 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
+$SG117930 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 't', 00H, 'o', 00H
 	DB	'.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M'
 	DB	00H, 'C', 00H, '_', 00H, 'T', 00H, 'o', 00H, '_', 00H, 'X', 00H
 	DB	'_', 00H, 'L', 00H, ';', 00H, '2', 00H, 00H, 00H
-$SG117911 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117931 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 CONST	ENDS
 PUBLIC	??0exception@std@@QAE@XZ			; std::exception::exception
@@ -613,8 +613,8 @@ _p$ = 8							; size = 4
 ; 54   :             // 32bit未満のCPUは未対応
 ; 55   :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_to.cpp;PMC_To_X_L;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117898
-  00029	68 00 00 00 00	 push	 OFFSET $SG117899
+  00024	68 00 00 00 00	 push	 OFFSET $SG117918
+  00029	68 00 00 00 00	 push	 OFFSET $SG117919
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T3[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -644,7 +644,7 @@ $LN2@PMC_To_X_L:
 
 ; 60   :             throw OverflowException(L"64bit整数への型変換に失敗しました。");
 
-  0005f	68 00 00 00 00	 push	 OFFSET $SG117902
+  0005f	68 00 00 00 00	 push	 OFFSET $SG117922
   00064	8d 4d cc	 lea	 ecx, DWORD PTR $T2[ebp]
   00067	e8 00 00 00 00	 call	 ??0OverflowException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::OverflowException::OverflowException
   0006c	68 00 00 00 00	 push	 OFFSET __TI2?AVOverflowException@Internal@Core@Math@Palmtree@@
@@ -727,8 +727,8 @@ $LN8@PMC_To_X_L:
 
 ; 76   :                 throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_to.cpp;PMC_To_X_L;2");
 
-  000e6	68 00 00 00 00	 push	 OFFSET $SG117910
-  000eb	68 00 00 00 00	 push	 OFFSET $SG117911
+  000e6	68 00 00 00 00	 push	 OFFSET $SG117930
+  000eb	68 00 00 00 00	 push	 OFFSET $SG117931
   000f0	8d 4d b4	 lea	 ecx, DWORD PTR $T1[ebp]
   000f3	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000f8	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -781,8 +781,8 @@ _p$ = 8							; size = 4
 ; 40   :             // 32bit未満のCPUは未対応
 ; 41   :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_to.cpp;PMC_To_X_I;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117875
-  00029	68 00 00 00 00	 push	 OFFSET $SG117876
+  00024	68 00 00 00 00	 push	 OFFSET $SG117895
+  00029	68 00 00 00 00	 push	 OFFSET $SG117896
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T2[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -812,7 +812,7 @@ $LN2@PMC_To_X_I:
 
 ; 46   :             throw OverflowException(L"32bit整数への型変換に失敗しました。");
 
-  0005f	68 00 00 00 00	 push	 OFFSET $SG117883
+  0005f	68 00 00 00 00	 push	 OFFSET $SG117903
   00064	8d 4d cc	 lea	 ecx, DWORD PTR $T1[ebp]
   00067	e8 00 00 00 00	 call	 ??0OverflowException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::OverflowException::OverflowException
   0006c	68 00 00 00 00	 push	 OFFSET __TI2?AVOverflowException@Internal@Core@Math@Palmtree@@

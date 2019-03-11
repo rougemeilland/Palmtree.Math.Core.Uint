@@ -305,8 +305,20 @@ namespace Palmtree::Math::Core::Internal
 
     extern "C" PMC_STATUS_CODE __DLLEXPORT __PMC_CALL PMCCS_Parse(const wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, const PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o)
     {
+        const PMC_NUMBER_STYLE_CODE all_styles = 
+            PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE |
+            PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE |
+            PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN |
+            PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN |
+            PMC_NUMBER_STYLE_ALLOW_PARENTHESES |
+            PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT |
+            PMC_NUMBER_STYLE_ALLOW_THOUSANDS |
+            PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL |
+            PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER;
         if (o == nullptr)
             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+        if (number_styles & ~all_styles)
+            return (PMC_STATUS_ARGUMENT_ERROR);
         try
         {
             _UINT32_T result;
@@ -328,8 +340,20 @@ namespace Palmtree::Math::Core::Internal
 
     extern "C" PMC_STATUS_CODE __DLLEXPORT __PMC_CALL PMCCS_TryParse(const wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, const PMC_NUMBER_FORMAT_INFO* format_option, PMC_HANDLE_UINT* o, _UINT32_T* result)
     {
+        const PMC_NUMBER_STYLE_CODE all_styles =
+            PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE |
+            PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE |
+            PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN |
+            PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN |
+            PMC_NUMBER_STYLE_ALLOW_PARENTHESES |
+            PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT |
+            PMC_NUMBER_STYLE_ALLOW_THOUSANDS |
+            PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL |
+            PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER;
         if (o == nullptr)
             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+        if (number_styles & ~all_styles)
+            return (PMC_STATUS_ARGUMENT_ERROR);
         try
         {
             PMC_STATUS_CODE err = PMC_TryParse(source, number_styles, format_option, o, result);
@@ -1235,6 +1259,36 @@ namespace Palmtree::Math::Core::Internal
         try
         {
             *r = PMC_ModPow_X_X_X(v, e, m);
+            return (PMC_STATUS_OK);
+        }
+        catch (const Palmtree::Math::Core::Internal::Exception& ex)
+        {
+            return (ex.GetStatusCode());
+        }
+    }
+
+    extern "C" PMC_STATUS_CODE __DLLEXPORT __PMC_CALL PMCCS_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e, PMC_HANDLE_UINT* r)
+    {
+        if (r == nullptr)
+            return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+        try
+        {
+            *r = PMC_TimesOfExponentOf10(v, e);
+            return (PMC_STATUS_OK);
+        }
+        catch (const Palmtree::Math::Core::Internal::Exception& ex)
+        {
+            return (ex.GetStatusCode());
+        }
+    }
+
+    extern "C" PMC_STATUS_CODE __DLLEXPORT __PMC_CALL PMCCS_Floor_Log10(PMC_HANDLE_UINT v, _UINT32_T* r)
+    {
+        if (r == nullptr)
+            return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+        try
+        {
+            *r = PMC_Floor_Log10(v);
             return (PMC_STATUS_OK);
         }
         catch (const Palmtree::Math::Core::Internal::Exception& ex)

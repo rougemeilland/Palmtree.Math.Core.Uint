@@ -52,6 +52,7 @@
     <Compile Include="NullDataItem.cs" />
     <Compile Include="ExceptionDataItem.cs" />
     <Compile Include="IDataItem.cs" />
+    <Compile Include="Plugin\TestDataRendererPlugin_Floor_log10.cs" />
     <Compile Include="Plugin\TestDataRendererPlugin_ToStringX.cs" />
     <Compile Include="Plugin\TestDataRendererPlugin_ToStringR.cs" />
     <Compile Include="Plugin\TestDataRendererPlugin_ToStringN.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Plugin\TestDataRendererPlugin_Subtruct_X_L.cs" />
     <Compile Include="Plugin\TestDataRendererPlugin_DivRem_X_X.cs" />
     <Compile Include="Plugin\TestDataRendererPlugin_Subtruct_X_X.cs" />
+    <Compile Include="TestDataRendererPluginBase_1_1.cs" />
     <Compile Include="TestDataRendererPluginBase_3_2.cs" />
     <Compile Include="TestDataRendererPluginBase_3_1.cs" />
     <Compile Include="TestDataRendererPluginBase_2_2.cs" />

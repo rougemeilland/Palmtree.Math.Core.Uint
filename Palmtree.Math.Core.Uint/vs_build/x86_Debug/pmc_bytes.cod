@@ -51,69 +51,69 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __85CE5060_pmc_bytes@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117888 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117908 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117891 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117911 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117896 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117916 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117900 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117920 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117918 DB	'b', 00H, 'u', 00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H
+$SG117938 DB	'b', 00H, 'u', 00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H
 	DB	00H, 00H
 	ORG $+2
-$SG117919 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117939 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117922 DB	'o', 00H, '_', 00H, 's', 00H, 'i', 00H, 'g', 00H, 'n', 00H
+$SG117942 DB	'o', 00H, '_', 00H, 's', 00H, 'i', 00H, 'g', 00H, 'n', 00H
 	DB	00H, 00H
 	ORG $+2
-$SG117923 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117943 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117937 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117957 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117940 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117960 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117945 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117965 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117952 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
+$SG117972 DB	0eH, 'NH0', 089H, '0', 08cH, '0_0', 0d0H, '0', 0a4H, '0', 0c8H
 	DB	'0', 017H, 'RL0', 01aH, 'Y', 0dH, 'Pw', 095H, 'tepeh0W0f0', 08dH
 	DB	08aH, 'X', 08bH, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117962 DB	'b', 00H, 'u', 00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H
+$SG117982 DB	'b', 00H, 'u', 00H, 'f', 00H, 'f', 00H, 'e', 00H, 'r', 00H
 	DB	00H, 00H
 	ORG $+2
-$SG117963 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117983 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117976 DB	'p', 00H, 00H, 00H
-$SG117977 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117996 DB	'p', 00H, 00H, 00H
+$SG117997 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117985 DB	0faH, 'Q', 09bH, 'RHQ', 0d0H, '0', 0c3H, '0', 0d5H, '0', 0a1H
+$SG118005 DB	0faH, 'Q', 09bH, 'RHQ', 0d0H, '0', 0c3H, '0', 0d5H, '0', 0a1H
 	DB	'0n0', 0b5H, '0', 0a4H, '0', 0baH, '0L0', 0dH, 'N', 0b3H, 08dH
 	DB	'W0f0D0~0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117990 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
+$SG118010 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	't', 00H, 'e', 00H, 's', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
 	DB	00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H
 	DB	'o', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r'
@@ -121,11 +121,11 @@ $SG117990 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	'S', 00H, 'I', 00H, 'N', 00H, 'T', 00H, ';', 00H, '1', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG117991 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG118011 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117997 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG118017 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117996 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
+$SG118016 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	't', 00H, 'e', 00H, 's', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
 	DB	00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H
 	DB	'o', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r'
@@ -133,7 +133,7 @@ $SG117996 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	'S', 00H, 'I', 00H, 'N', 00H, 'T', 00H, ';', 00H, '2', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG118000 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
+$SG118020 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	't', 00H, 'e', 00H, 's', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p'
 	DB	00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H, '_', 00H, 'T', 00H
 	DB	'o', 00H, 'B', 00H, 'y', 00H, 't', 00H, 'e', 00H, 'A', 00H, 'r'
@@ -141,14 +141,14 @@ $SG118000 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'y', 00H
 	DB	'S', 00H, 'I', 00H, 'N', 00H, 'T', 00H, ';', 00H, '3', 00H, 00H
 	DB	00H
 	ORG $+2
-$SG118001 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG118021 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG118012 DB	'p', 00H, 00H, 00H
-$SG118013 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118032 DB	'p', 00H, 00H, 00H
+$SG118033 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118017 DB	0faH, 'Q', 09bH, 'RHQ', 0d0H, '0', 0c3H, '0', 0d5H, '0', 0a1H
+$SG118037 DB	0faH, 'Q', 09bH, 'RHQ', 0d0H, '0', 0c3H, '0', 0d5H, '0', 0a1H
 	DB	'0n0', 0b5H, '0', 0a4H, '0', 0baH, '0L0', 0dH, 'N', 0b3H, 08dH
 	DB	'W0f0D0~0Y0', 02H, '0', 00H, 00H
 CONST	ENDS
@@ -954,7 +954,7 @@ _count$ = 12						; size = 4
 
 ; 108  :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  0004b	68 00 00 00 00	 push	 OFFSET $SG117937
+  0004b	68 00 00 00 00	 push	 OFFSET $SG117957
   00050	8d 4d b8	 lea	 ecx, DWORD PTR $T6[ebp]
   00053	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   00058	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -991,7 +991,7 @@ $LN2@PMC_FromBy:
 
 ; 113  :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  00095	68 00 00 00 00	 push	 OFFSET $SG117940
+  00095	68 00 00 00 00	 push	 OFFSET $SG117960
   0009a	8d 4d a0	 lea	 ecx, DWORD PTR $T5[ebp]
   0009d	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   000a2	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -1014,7 +1014,7 @@ $LN3@PMC_FromBy:
 
 ; 117  :                 throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  000be	68 00 00 00 00	 push	 OFFSET $SG117945
+  000be	68 00 00 00 00	 push	 OFFSET $SG117965
   000c3	8d 4d 88	 lea	 ecx, DWORD PTR $T4[ebp]
   000c6	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   000cb	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -1142,7 +1142,7 @@ $LN7@PMC_FromBy:
 
 ; 136  :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  001b2	68 00 00 00 00	 push	 OFFSET $SG117952
+  001b2	68 00 00 00 00	 push	 OFFSET $SG117972
   001b7	8d 8d 6c ff ff
 	ff		 lea	 ecx, DWORD PTR $T2[ebp]
   001bd	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
@@ -1261,7 +1261,7 @@ _o_sign$ = 16						; size = 4
 
 ; 53   :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  0004b	68 00 00 00 00	 push	 OFFSET $SG117888
+  0004b	68 00 00 00 00	 push	 OFFSET $SG117908
   00050	8d 4d b8	 lea	 ecx, DWORD PTR $T6[ebp]
   00053	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   00058	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -1298,7 +1298,7 @@ $LN2@PMC_FromBy:
 
 ; 58   :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  00095	68 00 00 00 00	 push	 OFFSET $SG117891
+  00095	68 00 00 00 00	 push	 OFFSET $SG117911
   0009a	8d 4d a0	 lea	 ecx, DWORD PTR $T5[ebp]
   0009d	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   000a2	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -1321,7 +1321,7 @@ $LN3@PMC_FromBy:
 
 ; 62   :                 throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  000be	68 00 00 00 00	 push	 OFFSET $SG117896
+  000be	68 00 00 00 00	 push	 OFFSET $SG117916
   000c3	8d 4d 88	 lea	 ecx, DWORD PTR $T4[ebp]
   000c6	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
   000cb	68 00 00 00 00	 push	 OFFSET __TI2?AVFormatException@Internal@Core@Math@Palmtree@@
@@ -1351,7 +1351,7 @@ $LN4@PMC_FromBy:
 
 ; 67   :             throw FormatException(L"与えられたバイト列が多倍長整数として認識できません。");
 
-  000f7	68 00 00 00 00	 push	 OFFSET $SG117900
+  000f7	68 00 00 00 00	 push	 OFFSET $SG117920
   000fc	8d 8d 70 ff ff
 	ff		 lea	 ecx, DWORD PTR $T3[ebp]
   00102	e8 00 00 00 00	 call	 ??0FormatException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::FormatException::FormatException
@@ -1806,8 +1806,8 @@ _buffer_size$ = 20					; size = 4
 
 ; 156  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"p");
 
-  0002c	68 00 00 00 00	 push	 OFFSET $SG117976
-  00031	68 00 00 00 00	 push	 OFFSET $SG117977
+  0002c	68 00 00 00 00	 push	 OFFSET $SG117996
+  00031	68 00 00 00 00	 push	 OFFSET $SG117997
   00036	8d 4d e0	 lea	 ecx, DWORD PTR $T5[ebp]
   00039	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0003e	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -1870,7 +1870,7 @@ $LN14@PMC_ToByte:
 
 ; 163  :                 throw InsufficientBufferException(L"出力先バッファのサイズが不足しています。");
 
-  000b2	68 00 00 00 00	 push	 OFFSET $SG117985
+  000b2	68 00 00 00 00	 push	 OFFSET $SG118005
   000b7	8d 4d c8	 lea	 ecx, DWORD PTR $T4[ebp]
   000ba	e8 00 00 00 00	 call	 ??0InsufficientBufferException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::InsufficientBufferException::InsufficientBufferException
   000bf	68 00 00 00 00	 push	 OFFSET __TI2?AVInsufficientBufferException@Internal@Core@Math@Palmtree@@
@@ -1895,8 +1895,8 @@ $LN4@PMC_ToByte:
 
 ; 167  :                     throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_bytes.cpp;PMC_ToByteArrayForSINT;1");
 
-  000e0	68 00 00 00 00	 push	 OFFSET $SG117990
-  000e5	68 00 00 00 00	 push	 OFFSET $SG117991
+  000e0	68 00 00 00 00	 push	 OFFSET $SG118010
+  000e5	68 00 00 00 00	 push	 OFFSET $SG118011
   000ea	8d 4d b0	 lea	 ecx, DWORD PTR $T3[ebp]
   000ed	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000f2	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1931,8 +1931,8 @@ $LN5@PMC_ToByte:
 
 ; 173  :                     throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_bytes.cpp;PMC_ToByteArrayForSINT;2");
 
-  00127	68 00 00 00 00	 push	 OFFSET $SG117996
-  0012c	68 00 00 00 00	 push	 OFFSET $SG117997
+  00127	68 00 00 00 00	 push	 OFFSET $SG118016
+  0012c	68 00 00 00 00	 push	 OFFSET $SG118017
   00131	8d 4d 98	 lea	 ecx, DWORD PTR $T2[ebp]
   00134	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00139	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1977,8 +1977,8 @@ $LN8@PMC_ToByte:
 
 ; 180  :                     throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_bytes.cpp;PMC_ToByteArrayForSINT;3");
 
-  0017d	68 00 00 00 00	 push	 OFFSET $SG118000
-  00182	68 00 00 00 00	 push	 OFFSET $SG118001
+  0017d	68 00 00 00 00	 push	 OFFSET $SG118020
+  00182	68 00 00 00 00	 push	 OFFSET $SG118021
   00187	8d 4d 80	 lea	 ecx, DWORD PTR $T1[ebp]
   0018a	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   0018f	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2073,8 +2073,8 @@ _o_sign$ = 16						; size = 4
 
 ; 92   :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"buffer");
 
-  00045	68 00 00 00 00	 push	 OFFSET $SG117918
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117919
+  00045	68 00 00 00 00	 push	 OFFSET $SG117938
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117939
   0004f	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00052	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00057	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2090,8 +2090,8 @@ $LN2@PMC_FromBy:
 
 ; 94   :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"o_sign");
 
-  0006b	68 00 00 00 00	 push	 OFFSET $SG117922
-  00070	68 00 00 00 00	 push	 OFFSET $SG117923
+  0006b	68 00 00 00 00	 push	 OFFSET $SG117942
+  00070	68 00 00 00 00	 push	 OFFSET $SG117943
   00075	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00078	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007d	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2236,8 +2236,8 @@ _buffer_size$ = 16					; size = 4
 
 ; 191  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"p");
 
-  00026	68 00 00 00 00	 push	 OFFSET $SG118012
-  0002b	68 00 00 00 00	 push	 OFFSET $SG118013
+  00026	68 00 00 00 00	 push	 OFFSET $SG118032
+  0002b	68 00 00 00 00	 push	 OFFSET $SG118033
   00030	8d 4d e0	 lea	 ecx, DWORD PTR $T2[ebp]
   00033	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00038	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2297,7 +2297,7 @@ $LN9@PMC_ToByte:
 
 ; 198  :                 throw InsufficientBufferException(L"出力先バッファのサイズが不足しています。");
 
-  0009f	68 00 00 00 00	 push	 OFFSET $SG118017
+  0009f	68 00 00 00 00	 push	 OFFSET $SG118037
   000a4	8d 4d c8	 lea	 ecx, DWORD PTR $T1[ebp]
   000a7	e8 00 00 00 00	 call	 ??0InsufficientBufferException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::InsufficientBufferException::InsufficientBufferException
   000ac	68 00 00 00 00	 push	 OFFSET __TI2?AVInsufficientBufferException@Internal@Core@Math@Palmtree@@
@@ -2409,8 +2409,8 @@ _count$ = 12						; size = 4
 
 ; 142  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"buffer");
 
-  00045	68 00 00 00 00	 push	 OFFSET $SG117962
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117963
+  00045	68 00 00 00 00	 push	 OFFSET $SG117982
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117983
   0004f	8d 4d c0	 lea	 ecx, DWORD PTR $T3[ebp]
   00052	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00057	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@

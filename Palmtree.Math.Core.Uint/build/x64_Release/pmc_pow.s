@@ -158,7 +158,7 @@ _ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
 	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE
 _ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE:
-.LFB6355:
+.LFB6357:
 	.seh_endprologue
 	xorl	%eax, %eax
 	ret
@@ -917,6 +917,145 @@ _ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy:
 .LLSDACSE6354:
 	.text
 	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+	.def	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy:
+.LFB6355:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	pushq	%rdi
+	.seh_pushreg	%rdi
+	pushq	%rsi
+	.seh_pushreg	%rsi
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$72, %rsp
+	.seh_stackalloc	72
+	.seh_endprologue
+	testl	%ecx, %ecx
+	movl	%ecx, %ebx
+	movq	%rdx, %rsi
+	je	.L72
+	testq	%rdx, %rdx
+	je	.L77
+	leaq	32(%rsp), %rdi
+	movq	%rdi, %rcx
+.LEHB16:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE16:
+	movl	$10, %ecx
+.LEHB17:
+	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
+	movq	%rax, %rdx
+	movq	%rdi, %rcx
+	movq	%rax, %rbp
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movq	%rsi, %rdx
+	movq	%rbp, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
+.LEHE17:
+	cmpl	$1, %ebx
+	movq	%rax, %rsi
+	jne	.L78
+	movq	%rdi, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+.L79:
+	movq	%rsi, %rax
+	addq	$72, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	ret
+	.p2align 4,,10
+.L77:
+.LEHB18:
+	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
+.LEHE18:
+	movq	%rax, %rsi
+	movq	%rsi, %rax
+	addq	$72, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	ret
+	.p2align 4,,10
+.L72:
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rsi
+	movq	%rsi, %rax
+	addq	$72, %rsp
+	popq	%rbx
+	popq	%rsi
+	popq	%rdi
+	popq	%rbp
+	ret
+	.p2align 4,,10
+.L78:
+	movq	%rax, %rdx
+	movq	%rdi, %rcx
+.LEHB19:
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	movl	%ebx, %edx
+	movq	%rsi, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+.LEHE19:
+	movq	%rdi, %rcx
+	movq	%rax, %rsi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	.L79
+.L73:
+	movq	%rax, %rbx
+	movq	%rdi, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rbx, %rcx
+.LEHB20:
+	call	_Unwind_Resume
+	nop
+.LEHE20:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA6355:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE6355-.LLSDACSB6355
+.LLSDACSB6355:
+	.uleb128 .LEHB16-.LFB6355
+	.uleb128 .LEHE16-.LEHB16
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB17-.LFB6355
+	.uleb128 .LEHE17-.LEHB17
+	.uleb128 .L73-.LFB6355
+	.uleb128 0
+	.uleb128 .LEHB18-.LFB6355
+	.uleb128 .LEHE18-.LEHB18
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB19-.LFB6355
+	.uleb128 .LEHE19-.LEHB19
+	.uleb128 .L73-.LFB6355
+	.uleb128 0
+	.uleb128 .LEHB20-.LFB6355
+	.uleb128 .LEHE20-.LEHB20
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6355:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.globl	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+	.def	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj:
+.LFB6356:
+	.seh_endprologue
+	movl	%edx, %edx
+	jmp	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+	.seh_endproc
 	.globl	_ZTSSt9exception
 	.section	.rdata$_ZTSSt9exception,"dr"
 	.linkonce same_size
@@ -1047,6 +1186,8 @@ _ZTVN8Palmtree4Math4Core8Internal19ArithmeticExceptionE:
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	2;	.type	32;	.endef
 	.def	_ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal10number_oneE, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal10number_oneE

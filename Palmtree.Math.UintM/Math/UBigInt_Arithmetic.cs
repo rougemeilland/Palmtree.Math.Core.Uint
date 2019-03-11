@@ -42,6 +42,11 @@ namespace Palmtree.Math
             return (new UBigInt(EngineObject.ModPow(Handle, e.Handle, m.Handle)));
         }
 
+        public UInt32 FloorLog10()
+        {
+            return (EngineObject.FloorLog10(Handle));
+        }
+
         #endregion
     }
 }

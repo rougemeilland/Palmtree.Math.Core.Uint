@@ -211,13 +211,13 @@ LFE1032:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv:
-LFB6468:
+LFB6466:
 	.cfi_startproc
 	movl	20(%ecx), %ecx
 	movl	(%ecx), %eax
 	jmp	*8(%eax)
 	.cfi_endproc
-LFE6468:
+LFE6466:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -225,13 +225,13 @@ LFE6468:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv:
-LFB6482:
+LFB6480:
 	.cfi_startproc
 	movl	20(%ecx), %eax
 	movl	(%eax), %eax
 	ret
 	.cfi_endproc
-LFE6482:
+LFE6480:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -239,12 +239,12 @@ LFE6482:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv:
-LFB6490:
+LFB6488:
 	.cfi_startproc
 	xorl	%eax, %eax
 	ret
 	.cfi_endproc
-LFE6490:
+LFE6488:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -252,7 +252,7 @@ LFE6490:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE:
-LFB6491:
+LFB6489:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -288,7 +288,7 @@ L38:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6491:
+LFE6489:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -296,11 +296,11 @@ LFE6491:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE:
-LFB6494:
+LFB6492:
 	.cfi_startproc
 	ret	$8
 	.cfi_endproc
-LFE6494:
+LFE6492:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -308,12 +308,12 @@ LFE6494:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv:
-LFB6498:
+LFB6496:
 	.cfi_startproc
 	movl	$6, %eax
 	ret
 	.cfi_endproc
-LFE6498:
+LFE6496:
 	.section .rdata,"dr"
 	.align 2
 LC0:
@@ -328,7 +328,7 @@ LC0:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE:
-LFB6499:
+LFB6497:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -402,7 +402,7 @@ L44:
 	.cfi_def_cfa_offset 4
 	jmp	*%eax
 	.cfi_endproc
-LFE6499:
+LFE6497:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -410,11 +410,11 @@ LFE6499:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE:
-LFB6503:
+LFB6501:
 	.cfi_startproc
 	ret	$8
 	.cfi_endproc
-LFE6503:
+LFE6501:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -422,13 +422,13 @@ LFE6503:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv:
-LFB6507:
+LFB6505:
 	.cfi_startproc
 	movl	20(%ecx), %eax
 	movl	104(%eax), %eax
 	ret
 	.cfi_endproc
-LFE6507:
+LFE6505:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -436,11 +436,11 @@ LFE6507:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE:
-LFB6511:
+LFB6509:
 	.cfi_startproc
 	ret	$8
 	.cfi_endproc
-LFE6511:
+LFE6509:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -448,13 +448,13 @@ LFE6511:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv:
-LFB6515:
+LFB6513:
 	.cfi_startproc
 	movl	20(%ecx), %eax
 	movl	104(%eax), %eax
 	ret
 	.cfi_endproc
-LFE6515:
+LFE6513:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv,"x"
 	.linkonce discard
 	.align 2
@@ -462,13 +462,13 @@ LFE6515:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv:
-LFB6523:
+LFB6521:
 	.cfi_startproc
 	movl	20(%ecx), %eax
 	movl	(%eax), %eax
 	ret
 	.cfi_endproc
-LFE6523:
+LFE6521:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev,"x"
 	.linkonce discard
 	.align 2
@@ -722,7 +722,7 @@ LFE972:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6493:
+LFB6491:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -800,7 +800,7 @@ L76:
 	jne	L76
 	jmp	L75
 	.cfi_endproc
-LFE6493:
+LFE6491:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw,"x"
 	.linkonce discard
 	.align 2
@@ -808,7 +808,7 @@ LFE6493:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw:
-LFB6466:
+LFB6464:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -899,7 +899,7 @@ L83:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6466:
+LFE6464:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -907,7 +907,7 @@ LFE6466:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE:
-LFB6484:
+LFB6482:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1117,7 +1117,7 @@ L98:
 	.cfi_def_cfa_offset 28
 	jmp	L123
 	.cfi_endproc
-LFE6484:
+LFE6482:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1125,7 +1125,7 @@ LFE6484:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE:
-LFB6486:
+LFB6484:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1320,7 +1320,7 @@ L140:
 	movl	(%ebx), %edx
 	jmp	L148
 	.cfi_endproc
-LFE6486:
+LFE6484:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1328,7 +1328,7 @@ LFE6486:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE:
-LFB6492:
+LFB6490:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -1349,7 +1349,7 @@ L150:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6492:
+LFE6490:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1357,7 +1357,7 @@ LFE6492:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE:
-LFB6501:
+LFB6499:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -1378,7 +1378,7 @@ L153:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6501:
+LFE6499:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1386,7 +1386,7 @@ LFE6501:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE:
-LFB6509:
+LFB6507:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -1407,7 +1407,7 @@ L156:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6509:
+LFE6507:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1415,7 +1415,7 @@ LFE6509:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE:
-LFB6517:
+LFB6515:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -1491,7 +1491,7 @@ L161:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6517:
+LFE6515:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1499,7 +1499,7 @@ LFE6517:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE:
-LFB6519:
+LFB6517:
 	.cfi_startproc
 	pushl	%ebx
 	.cfi_def_cfa_offset 8
@@ -1590,7 +1590,7 @@ L169:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6519:
+LFE6517:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1598,7 +1598,7 @@ LFE6519:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE:
-LFB6526:
+LFB6524:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1771,7 +1771,7 @@ L184:
 	.cfi_def_cfa_offset 28
 	jmp	L190
 	.cfi_endproc
-LFE6526:
+LFE6524:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -1779,7 +1779,7 @@ LFE6526:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE:
-LFB6528:
+LFB6526:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -1939,7 +1939,7 @@ L203:
 	.cfi_def_cfa_offset 28
 	jmp	L209
 	.cfi_endproc
-LFE6528:
+LFE6526:
 	.section .rdata,"dr"
 	.align 4
 LC1:
@@ -1958,7 +1958,7 @@ LC1:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10:
-LFB6556:
+LFB6555:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -1973,7 +1973,7 @@ LFB6556:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 	.cfi_endproc
-LFE6556:
+LFE6555:
 	.def	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11;	.scl	3;	.type	32;	.endef
 	.set	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11,__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 	.section	.text$_ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw,"x"
@@ -2066,7 +2066,7 @@ LC3:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv.part.12;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv.part.12:
-LFB6558:
+LFB6557:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -2081,7 +2081,7 @@ LFB6558:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 	.cfi_endproc
-LFE6558:
+LFE6557:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv,"x"
 	.linkonce discard
 	.align 2
@@ -2113,7 +2113,7 @@ LC4:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv.part.13;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv.part.13:
-LFB6559:
+LFB6558:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -2128,7 +2128,7 @@ LFB6559:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 	.cfi_endproc
-LFE6559:
+LFE6558:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv,"x"
 	.linkonce discard
 	.align 2
@@ -2321,7 +2321,7 @@ LFE1013:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE:
-LFB6483:
+LFB6481:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2377,7 +2377,7 @@ L268:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6483:
+LFE6481:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -2385,7 +2385,7 @@ LFE6483:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6510:
+LFB6508:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2442,7 +2442,7 @@ L276:
 	.cfi_def_cfa_offset 4
 	ret	$8
 	.cfi_endproc
-LFE6510:
+LFE6508:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -2450,7 +2450,7 @@ LFE6510:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE:
-LFB6524:
+LFB6522:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2506,7 +2506,7 @@ L284:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6524:
+LFE6522:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -2514,7 +2514,7 @@ LFE6524:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE:
-LFB6516:
+LFB6514:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2570,7 +2570,7 @@ L292:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6516:
+LFE6514:
 	.section .rdata,"dr"
 	.align 4
 LC7:
@@ -2581,7 +2581,7 @@ LC7:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22:
-LFB6568:
+LFB6567:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -2596,7 +2596,7 @@ LFB6568:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 	.cfi_endproc
-LFE6568:
+LFE6567:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -2604,7 +2604,7 @@ LFE6568:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE:
-LFB6508:
+LFB6506:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -2660,7 +2660,7 @@ L302:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6508:
+LFE6506:
 	.section .rdata,"dr"
 	.align 2
 LC8:
@@ -2674,7 +2674,7 @@ LC8:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6502:
+LFB6500:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -2800,7 +2800,7 @@ L316:
 	movl	$48, %eax
 	jmp	L311
 	.cfi_endproc
-LFE6502:
+LFE6500:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw,"x"
 	.linkonce discard
 	.align 2
@@ -2808,7 +2808,7 @@ LFE6502:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw:
-LFB6467:
+LFB6465:
 	.cfi_startproc
 	pushl	%edi
 	.cfi_def_cfa_offset 8
@@ -2914,7 +2914,7 @@ L327:
 	.cfi_def_cfa_offset 32
 	jmp	L325
 	.cfi_endproc
-LFE6467:
+LFE6465:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEPKw,"x"
 	.linkonce discard
 	.align 2
@@ -3004,7 +3004,7 @@ LFE1031:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEjjPwPNS2_12StringWriterE.constprop.27;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEjjPwPNS2_12StringWriterE.constprop.27:
-LFB6578:
+LFB6576:
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -3556,7 +3556,147 @@ L383:
 L354:
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
 	.cfi_endproc
-LFE6578:
+LFE6576:
+	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
+	.linkonce discard
+	.align 2
+	.p2align 4,,15
+	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
+LFB6470:
+	.cfi_startproc
+	pushl	%ebp
+	.cfi_def_cfa_offset 8
+	.cfi_offset 5, -8
+	pushl	%edi
+	.cfi_def_cfa_offset 12
+	.cfi_offset 7, -12
+	pushl	%esi
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushl	%ebx
+	.cfi_def_cfa_offset 20
+	.cfi_offset 3, -20
+	movl	%ecx, %ebx
+	subl	$28, %esp
+	.cfi_def_cfa_offset 48
+	movl	16(%ecx), %eax
+	movl	48(%esp), %esi
+	movl	52(%esp), %ebp
+	movl	56(%esp), %edi
+	testl	%eax, %eax
+	jns	L481
+	movl	(%ecx), %eax
+	call	*(%eax)
+	movl	%eax, 16(%ebx)
+L481:
+	movl	%esi, %eax
+	testb	$1, 4(%ebp)
+	je	L482
+	testb	%al, %al
+	jne	L487
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	movl	%edi, 4(%esp)
+	movl	$0, (%esp)
+	call	*12(%eax)
+	.cfi_def_cfa_offset 40
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	subl	$8, %esp
+	.cfi_def_cfa_offset 48
+	movl	%edi, (%esp)
+	call	*8(%eax)
+	.cfi_def_cfa_offset 44
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	subl	$4, %esp
+	.cfi_def_cfa_offset 48
+	movl	%edi, 4(%esp)
+	movl	$0, (%esp)
+	call	*20(%eax)
+	.cfi_def_cfa_offset 40
+	subl	$8, %esp
+	.cfi_def_cfa_offset 48
+	addl	$28, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$12
+	.p2align 4,,10
+L482:
+	.cfi_restore_state
+	testb	%al, %al
+	je	L488
+	movsbl	%al, %esi
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	movl	%edi, 4(%esp)
+	movl	%esi, (%esp)
+	call	*12(%eax)
+	.cfi_def_cfa_offset 40
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	subl	$8, %esp
+	.cfi_def_cfa_offset 48
+	movl	%edi, 4(%esp)
+	movl	%ebp, (%esp)
+	call	*4(%eax)
+	.cfi_def_cfa_offset 40
+	movl	(%ebx), %eax
+	movl	%ebx, %ecx
+	subl	$8, %esp
+	.cfi_def_cfa_offset 48
+	movl	%edi, 4(%esp)
+	movl	%esi, (%esp)
+	call	*20(%eax)
+	.cfi_def_cfa_offset 40
+	subl	$8, %esp
+	.cfi_def_cfa_offset 48
+	addl	$28, %esp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 20
+	popl	%ebx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 16
+	popl	%esi
+	.cfi_restore 6
+	.cfi_def_cfa_offset 12
+	popl	%edi
+	.cfi_restore 7
+	.cfi_def_cfa_offset 8
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa_offset 4
+	ret	$12
+L487:
+	.cfi_restore_state
+	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22
+L488:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-256, 4(%eax)
+	movl	$LC2, 8(%eax)
+	movl	$LC7, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal22InternalErrorExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal22InternalErrorExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal22InternalErrorExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+	.cfi_endproc
+LFE6470:
 	.section .rdata,"dr"
 	.align 2
 LC9:
@@ -3587,7 +3727,7 @@ LC16:
 	.globl	__ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE
 	.def	__ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE:
-LFB6543:
+LFB6541:
 	.cfi_startproc
 	pushl	%esi
 	.cfi_def_cfa_offset 8
@@ -3716,12 +3856,12 @@ LFB6543:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE6543:
+LFE6541:
 	.p2align 4,,15
 	.globl	__ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE@4
 	.def	__ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE@4;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE@4:
-LFB6544:
+LFB6542:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -3732,12 +3872,12 @@ LFB6544:
 	.cfi_def_cfa_offset 4
 	ret	$4
 	.cfi_endproc
-LFE6544:
+LFE6542:
 	.p2align 4,,15
 	.globl	__ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE
 	.def	__ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE:
-LFB6545:
+LFB6543:
 	.cfi_startproc
 	subl	$28, %esp
 	.cfi_def_cfa_offset 32
@@ -3748,7 +3888,7 @@ LFB6545:
 	.cfi_def_cfa_offset 4
 	ret
 	.cfi_endproc
-LFE6545:
+LFE6543:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.align 2
@@ -3756,10 +3896,10 @@ LFE6545:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6485:
+LFB6483:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6485
+	.cfi_lsda 0,LLSDA6483
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -3800,7 +3940,7 @@ LEHB1:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
 	subl	$4, %esp
 	testl	%eax, %eax
-	je	L487
+	je	L496
 	movl	-108(%ebp), %ecx
 	movl	%eax, -80(%ebp)
 	movl	$0, -72(%ebp)
@@ -3809,7 +3949,7 @@ LEHB1:
 	movl	%edx, -84(%ebp)
 	movl	%edx, -76(%ebp)
 	cmpl	%edx, %eax
-	jnb	L501
+	jnb	L510
 	leal	-2(%edx), %eax
 	xorl	%ecx, %ecx
 	movl	%eax, -84(%ebp)
@@ -3818,19 +3958,19 @@ LEHB1:
 	movzwl	12(%edi), %edx
 	movl	$1, -72(%ebp)
 	cmpw	$67, %dx
-	je	L519
+	je	L528
 	cmpw	$80, %dx
-	je	L520
+	je	L529
 	addl	$104, %eax
 	cmpw	$78, %dx
 	sete	%dl
-	jmp	L490
+	jmp	L499
 	.p2align 4,,10
-L520:
+L529:
 	addl	$208, %eax
-L519:
+L528:
 	movl	$1, %edx
-L490:
+L499:
 	leal	38(%eax), %ecx
 	andl	$1, %edx
 	movl	$0, -116(%ebp)
@@ -3842,11 +3982,11 @@ L490:
 	movb	%dl, -109(%ebp)
 	movl	%eax, -120(%ebp)
 	cmpl	%esi, 8(%ebp)
-	ja	L493
-L522:
+	ja	L502
+L531:
 	movzwl	(%esi), %edx
 	testw	%dx, %dx
-	je	L493
+	je	L502
 	movzwl	%dx, %eax
 	movl	%eax, -108(%ebp)
 	movzbl	-44(%ebp), %eax
@@ -3854,21 +3994,21 @@ L522:
 	orb	-109(%ebp), %al
 	movb	%al, -44(%ebp)
 	testb	$1, %al
-	je	L494
+	je	L503
 	subl	$48, %edx
 	cmpw	$9, %dx
-	jbe	L521
-L494:
+	jbe	L530
+L503:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
-L496:
+L505:
 	subl	$2, %esi
 	cmpl	%esi, 8(%ebp)
-	jbe	L522
-L493:
+	jbe	L531
+L502:
 	leal	-88(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter9GetStringEv
 	movl	(%ebx), %edx
@@ -3878,7 +4018,7 @@ L493:
 	movl	16(%edi), %eax
 	subl	$4, %esp
 	testl	%eax, %eax
-	jle	L498
+	jle	L507
 	movl	20(%edi), %eax
 	movl	(%ebx), %edx
 	movl	%ebx, %ecx
@@ -3888,17 +4028,17 @@ L493:
 	movl	16(%edi), %esi
 	subl	$4, %esp
 	testl	%esi, %esi
-	je	L498
+	je	L507
 	.p2align 4,,10
-L499:
+L508:
 	movl	(%ebx), %eax
 	movl	%ebx, %ecx
 	movl	$48, (%esp)
 	call	*(%eax)
 	subl	$4, %esp
 	subl	$1, %esi
-	jne	L499
-L498:
+	jne	L508
+L507:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	leal	-12(%ebp), %esp
@@ -3914,14 +4054,14 @@ L498:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L521:
+L530:
 	.cfi_restore_state
 	movl	-120(%ebp), %edx
 	testl	%edx, %edx
-	jle	L495
+	jle	L504
 	movl	-116(%ebp), %ecx
 	cmpl	%ecx, %edx
-	jg	L495
+	jg	L504
 	movl	-128(%ebp), %edx
 	leal	-88(%ebp), %ecx
 	movl	%edx, (%esp)
@@ -3936,33 +4076,33 @@ L521:
 	movl	$1, -116(%ebp)
 	movzwl	2(%edx), %eax
 	testw	%ax, %ax
-	je	L496
+	je	L505
 	addl	$2, %edx
 	subl	$48, %eax
 	movl	%edx, -124(%ebp)
 	movl	%eax, -120(%ebp)
-	jmp	L496
+	jmp	L505
 	.p2align 4,,10
-L495:
+L504:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
 	addl	$1, -116(%ebp)
-	jmp	L496
-L487:
+	jmp	L505
+L496:
 	movl	$0, -84(%ebp)
 	movl	$0, -80(%ebp)
 	movl	$0, -76(%ebp)
 	movl	$0, -72(%ebp)
 	movl	$__ZTVN8Palmtree4Math4Core8Internal19ReverseStringWriterE+8, -88(%ebp)
-L501:
+L510:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 LEHE1:
-L503:
+L512:
 	movl	%eax, %ebx
-L500:
+L509:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
@@ -3970,28 +4110,28 @@ LEHB2:
 	call	__Unwind_Resume
 LEHE2:
 	.cfi_endproc
-LFE6485:
+LFE6483:
 	.def	___gxx_personality_v0;	.scl	2;	.type	32;	.endef
 	.section	.gcc_except_table,"w"
-LLSDA6485:
+LLSDA6483:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6485-LLSDACSB6485
-LLSDACSB6485:
-	.uleb128 LEHB0-LFB6485
+	.uleb128 LLSDACSE6483-LLSDACSB6483
+LLSDACSB6483:
+	.uleb128 LEHB0-LFB6483
 	.uleb128 LEHE0-LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB1-LFB6485
+	.uleb128 LEHB1-LFB6483
 	.uleb128 LEHE1-LEHB1
-	.uleb128 L503-LFB6485
+	.uleb128 L512-LFB6483
 	.uleb128 0
-	.uleb128 LEHB2-LFB6485
+	.uleb128 LEHB2-LFB6483
 	.uleb128 LEHE2-LEHB2
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6485:
+LLSDACSE6483:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
@@ -4001,10 +4141,10 @@ LLSDACSE6485:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6527:
+LFB6525:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6527
+	.cfi_lsda 0,LLSDA6525
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -4045,7 +4185,7 @@ LEHB4:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
 	subl	$4, %esp
 	testl	%eax, %eax
-	je	L524
+	je	L533
 	movl	-108(%ebp), %ecx
 	movl	%eax, -80(%ebp)
 	movl	$0, -72(%ebp)
@@ -4054,7 +4194,7 @@ LEHB4:
 	movl	%edx, -84(%ebp)
 	movl	%edx, -76(%ebp)
 	cmpl	%edx, %eax
-	jnb	L538
+	jnb	L547
 	leal	-2(%edx), %eax
 	xorl	%ecx, %ecx
 	movl	%eax, -84(%ebp)
@@ -4063,19 +4203,19 @@ LEHB4:
 	movzwl	12(%edi), %edx
 	movl	$1, -72(%ebp)
 	cmpw	$67, %dx
-	je	L556
+	je	L565
 	cmpw	$80, %dx
-	je	L557
+	je	L566
 	addl	$104, %eax
 	cmpw	$78, %dx
 	sete	%dl
-	jmp	L527
+	jmp	L536
 	.p2align 4,,10
-L557:
+L566:
 	addl	$208, %eax
-L556:
+L565:
 	movl	$1, %edx
-L527:
+L536:
 	leal	38(%eax), %ecx
 	andl	$1, %edx
 	movl	$0, -116(%ebp)
@@ -4087,11 +4227,11 @@ L527:
 	movb	%dl, -109(%ebp)
 	movl	%eax, -120(%ebp)
 	cmpl	%esi, 8(%ebp)
-	ja	L530
-L559:
+	ja	L539
+L568:
 	movzwl	(%esi), %edx
 	testw	%dx, %dx
-	je	L530
+	je	L539
 	movzwl	%dx, %eax
 	movl	%eax, -108(%ebp)
 	movzbl	-44(%ebp), %eax
@@ -4099,21 +4239,21 @@ L559:
 	orb	-109(%ebp), %al
 	movb	%al, -44(%ebp)
 	testb	$1, %al
-	je	L531
+	je	L540
 	subl	$48, %edx
 	cmpw	$9, %dx
-	jbe	L558
-L531:
+	jbe	L567
+L540:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
-L533:
+L542:
 	subl	$2, %esi
 	cmpl	%esi, 8(%ebp)
-	jbe	L559
-L530:
+	jbe	L568
+L539:
 	leal	-88(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter9GetStringEv
 	movl	(%ebx), %edx
@@ -4123,7 +4263,7 @@ L530:
 	movl	16(%edi), %eax
 	subl	$4, %esp
 	testl	%eax, %eax
-	jle	L535
+	jle	L544
 	movl	20(%edi), %eax
 	movl	(%ebx), %edx
 	movl	%ebx, %ecx
@@ -4133,17 +4273,17 @@ L530:
 	movl	16(%edi), %esi
 	subl	$4, %esp
 	testl	%esi, %esi
-	je	L535
+	je	L544
 	.p2align 4,,10
-L536:
+L545:
 	movl	(%ebx), %eax
 	movl	%ebx, %ecx
 	movl	$48, (%esp)
 	call	*(%eax)
 	subl	$4, %esp
 	subl	$1, %esi
-	jne	L536
-L535:
+	jne	L545
+L544:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	leal	-12(%ebp), %esp
@@ -4159,14 +4299,14 @@ L535:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L558:
+L567:
 	.cfi_restore_state
 	movl	-120(%ebp), %edx
 	testl	%edx, %edx
-	jle	L532
+	jle	L541
 	movl	-116(%ebp), %ecx
 	cmpl	%ecx, %edx
-	jg	L532
+	jg	L541
 	movl	-128(%ebp), %edx
 	leal	-88(%ebp), %ecx
 	movl	%edx, (%esp)
@@ -4181,33 +4321,33 @@ L558:
 	movl	$1, -116(%ebp)
 	movzwl	2(%edx), %eax
 	testw	%ax, %ax
-	je	L533
+	je	L542
 	addl	$2, %edx
 	subl	$48, %eax
 	movl	%edx, -124(%ebp)
 	movl	%eax, -120(%ebp)
-	jmp	L533
+	jmp	L542
 	.p2align 4,,10
-L532:
+L541:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
 	addl	$1, -116(%ebp)
-	jmp	L533
-L524:
+	jmp	L542
+L533:
 	movl	$0, -84(%ebp)
 	movl	$0, -80(%ebp)
 	movl	$0, -76(%ebp)
 	movl	$0, -72(%ebp)
 	movl	$__ZTVN8Palmtree4Math4Core8Internal19ReverseStringWriterE+8, -88(%ebp)
-L538:
+L547:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 LEHE4:
-L540:
+L549:
 	movl	%eax, %ebx
-L537:
+L546:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
@@ -4215,27 +4355,27 @@ LEHB5:
 	call	__Unwind_Resume
 LEHE5:
 	.cfi_endproc
-LFE6527:
+LFE6525:
 	.section	.gcc_except_table,"w"
-LLSDA6527:
+LLSDA6525:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6527-LLSDACSB6527
-LLSDACSB6527:
-	.uleb128 LEHB3-LFB6527
+	.uleb128 LLSDACSE6525-LLSDACSB6525
+LLSDACSB6525:
+	.uleb128 LEHB3-LFB6525
 	.uleb128 LEHE3-LEHB3
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB4-LFB6527
+	.uleb128 LEHB4-LFB6525
 	.uleb128 LEHE4-LEHB4
-	.uleb128 L540-LFB6527
+	.uleb128 L549-LFB6525
 	.uleb128 0
-	.uleb128 LEHB5-LFB6527
+	.uleb128 LEHB5-LFB6525
 	.uleb128 LEHE5-LEHB5
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6527:
+LLSDACSE6525:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
@@ -4245,10 +4385,10 @@ LLSDACSE6527:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-LFB6518:
+LFB6516:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6518
+	.cfi_lsda 0,LLSDA6516
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -4289,7 +4429,7 @@ LEHB7:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
 	subl	$4, %esp
 	testl	%eax, %eax
-	je	L561
+	je	L570
 	movl	-108(%ebp), %ecx
 	movl	%eax, -80(%ebp)
 	movl	$0, -72(%ebp)
@@ -4298,7 +4438,7 @@ LEHB7:
 	movl	%edx, -84(%ebp)
 	movl	%edx, -76(%ebp)
 	cmpl	%edx, %eax
-	jnb	L575
+	jnb	L584
 	leal	-2(%edx), %eax
 	xorl	%ecx, %ecx
 	movl	%eax, -84(%ebp)
@@ -4307,19 +4447,19 @@ LEHB7:
 	movzwl	12(%edi), %edx
 	movl	$1, -72(%ebp)
 	cmpw	$67, %dx
-	je	L593
+	je	L602
 	cmpw	$80, %dx
-	je	L594
+	je	L603
 	addl	$104, %eax
 	cmpw	$78, %dx
 	sete	%dl
-	jmp	L564
+	jmp	L573
 	.p2align 4,,10
-L594:
+L603:
 	addl	$208, %eax
-L593:
+L602:
 	movl	$1, %edx
-L564:
+L573:
 	leal	38(%eax), %ecx
 	andl	$1, %edx
 	movl	$0, -116(%ebp)
@@ -4331,11 +4471,11 @@ L564:
 	movb	%dl, -109(%ebp)
 	movl	%eax, -120(%ebp)
 	cmpl	%esi, 8(%ebp)
-	ja	L567
-L596:
+	ja	L576
+L605:
 	movzwl	(%esi), %edx
 	testw	%dx, %dx
-	je	L567
+	je	L576
 	movzwl	%dx, %eax
 	movl	%eax, -108(%ebp)
 	movzbl	-44(%ebp), %eax
@@ -4343,21 +4483,21 @@ L596:
 	orb	-109(%ebp), %al
 	movb	%al, -44(%ebp)
 	testb	$1, %al
-	je	L568
+	je	L577
 	subl	$48, %edx
 	cmpw	$9, %dx
-	jbe	L595
-L568:
+	jbe	L604
+L577:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
-L570:
+L579:
 	subl	$2, %esi
 	cmpl	%esi, 8(%ebp)
-	jbe	L596
-L567:
+	jbe	L605
+L576:
 	leal	-88(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter9GetStringEv
 	movl	(%ebx), %edx
@@ -4367,7 +4507,7 @@ L567:
 	movl	16(%edi), %eax
 	subl	$4, %esp
 	testl	%eax, %eax
-	jle	L572
+	jle	L581
 	movl	20(%edi), %eax
 	movl	(%ebx), %edx
 	movl	%ebx, %ecx
@@ -4377,17 +4517,17 @@ L567:
 	movl	16(%edi), %esi
 	subl	$4, %esp
 	testl	%esi, %esi
-	je	L572
+	je	L581
 	.p2align 4,,10
-L573:
+L582:
 	movl	(%ebx), %eax
 	movl	%ebx, %ecx
 	movl	$48, (%esp)
 	call	*(%eax)
 	subl	$4, %esp
 	subl	$1, %esi
-	jne	L573
-L572:
+	jne	L582
+L581:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	leal	-12(%ebp), %esp
@@ -4403,14 +4543,14 @@ L572:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L595:
+L604:
 	.cfi_restore_state
 	movl	-120(%ebp), %edx
 	testl	%edx, %edx
-	jle	L569
+	jle	L578
 	movl	-116(%ebp), %ecx
 	cmpl	%ecx, %edx
-	jg	L569
+	jg	L578
 	movl	-128(%ebp), %edx
 	leal	-88(%ebp), %ecx
 	movl	%edx, (%esp)
@@ -4425,33 +4565,33 @@ L595:
 	movl	$1, -116(%ebp)
 	movzwl	2(%edx), %eax
 	testw	%ax, %ax
-	je	L570
+	je	L579
 	addl	$2, %edx
 	subl	$48, %eax
 	movl	%edx, -124(%ebp)
 	movl	%eax, -120(%ebp)
-	jmp	L570
+	jmp	L579
 	.p2align 4,,10
-L569:
+L578:
 	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw
 	subl	$4, %esp
 	addl	$1, -116(%ebp)
-	jmp	L570
-L561:
+	jmp	L579
+L570:
 	movl	$0, -84(%ebp)
 	movl	$0, -80(%ebp)
 	movl	$0, -76(%ebp)
 	movl	$0, -72(%ebp)
 	movl	$__ZTVN8Palmtree4Math4Core8Internal19ReverseStringWriterE+8, -88(%ebp)
-L575:
+L584:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 LEHE7:
-L577:
+L586:
 	movl	%eax, %ebx
-L574:
+L583:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
@@ -4459,27 +4599,27 @@ LEHB8:
 	call	__Unwind_Resume
 LEHE8:
 	.cfi_endproc
-LFE6518:
+LFE6516:
 	.section	.gcc_except_table,"w"
-LLSDA6518:
+LLSDA6516:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6518-LLSDACSB6518
-LLSDACSB6518:
-	.uleb128 LEHB6-LFB6518
+	.uleb128 LLSDACSE6516-LLSDACSB6516
+LLSDACSB6516:
+	.uleb128 LEHB6-LFB6516
 	.uleb128 LEHE6-LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB7-LFB6518
+	.uleb128 LEHB7-LFB6516
 	.uleb128 LEHE7-LEHB7
-	.uleb128 L577-LFB6518
+	.uleb128 L586-LFB6516
 	.uleb128 0
-	.uleb128 LEHB8-LFB6518
+	.uleb128 LEHB8-LFB6516
 	.uleb128 LEHE8-LEHB8
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6518:
+LLSDACSE6516:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
@@ -4489,10 +4629,10 @@ LLSDACSE6518:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-LFB6473:
+LFB6471:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6473
+	.cfi_lsda 0,LLSDA6471
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -4547,11 +4687,11 @@ LEHB11:
 /NO_APP
 	addl	$63, %ebx
 	shrl	$5, %ebx
-	je	L625
+	je	L634
 	movl	-80(%ebp), %esi
 	leal	-60(%ebp), %edi
 	.p2align 4,,10
-L602:
+L611:
 	movl	-76(%ebp), %eax
 	leal	-40(%ebp), %ecx
 	movl	%eax, (%esp)
@@ -4578,15 +4718,15 @@ LEHE11:
 	movl	%eax, -4(%esi)
 	movl	-76(%ebp), %eax
 	.p2align 4,,10
-L601:
+L610:
 	movl	-4(%eax,%ebx,4), %edx
 	testl	%edx, %edx
-	jne	L599
+	jne	L608
 	subl	$1, %ebx
-	jne	L601
+	jne	L610
 	subl	-80(%ebp), %esi
 	sarl	$2, %esi
-L598:
+L607:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	-88(%ebp), %eax
@@ -4600,10 +4740,10 @@ LEHB12:
 	subl	$4, %esp
 	movl	%eax, %ebx
 	testl	%eax, %eax
-	je	L607
+	je	L616
 	leal	(%eax,%edi,2), %ecx
 	cmpl	%ecx, %eax
-	jnb	L607
+	jnb	L616
 	xorl	%eax, %eax
 	subl	$1, %esi
 	leal	-2(%ecx), %edi
@@ -4611,7 +4751,7 @@ LEHB12:
 	movl	-80(%ebp), %eax
 	movl	%esi, -92(%ebp)
 	movl	(%eax), %eax
-	je	L608
+	je	L617
 	xorl	%edx, %edx
 	movl	$10, %esi
 /APP
@@ -4621,7 +4761,7 @@ LEHB12:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L612
+	jnb	L621
 	leal	-4(%ecx), %edi
 	movw	%dx, -4(%ecx)
 	movl	$10, %esi
@@ -4633,7 +4773,7 @@ LEHB12:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L613
+	jnb	L622
 	movl	$10, %esi
 	movw	%dx, -6(%ecx)
 	xorl	%edx, %edx
@@ -4645,14 +4785,14 @@ LEHB12:
 	leal	-6(%ecx), %esi
 	addl	$48, %edx
 	cmpl	%esi, %ebx
-	jnb	L614
+	jnb	L623
 	movl	-80(%ebp), %esi
 	subl	$20, %ecx
 	movl	%esi, -76(%ebp)
 	movl	$10, %esi
-	jmp	L615
+	jmp	L624
 	.p2align 4,,10
-L622:
+L631:
 	movl	-76(%ebp), %eax
 	xorl	%edx, %edx
 	movl	4(%eax), %eax
@@ -4663,7 +4803,7 @@ L622:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %ebx
-	jnb	L612
+	jnb	L621
 	leal	-2(%ecx), %edi
 	movw	%dx, -2(%ecx)
 	xorl	%edx, %edx
@@ -4674,7 +4814,7 @@ L622:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L613
+	jnb	L622
 	movw	%dx, -4(%ecx)
 	leal	-18(%ecx), %edi
 	subl	$4, %ecx
@@ -4686,11 +4826,11 @@ L622:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %ebx
-	jnb	L614
+	jnb	L623
 	movl	%edi, %ecx
 	movl	-84(%ebp), %edi
 	movl	%edi, -76(%ebp)
-L615:
+L624:
 	leal	12(%ecx), %edi
 	movw	%dx, 12(%ecx)
 	xorl	%edx, %edx
@@ -4702,7 +4842,7 @@ L615:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L634
+	jnb	L643
 	leal	10(%ecx), %edi
 	movw	%dx, 10(%ecx)
 	xorl	%edx, %edx
@@ -4713,7 +4853,7 @@ L615:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L635
+	jnb	L644
 	movw	%dx, 8(%ecx)
 	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	xorl	%edx, %edx
@@ -4725,7 +4865,7 @@ L615:
 	addl	$48, %edx
 	leal	8(%ecx), %edi
 	cmpl	%edi, %ebx
-	jnb	L636
+	jnb	L645
 	leal	6(%ecx), %edi
 	movw	%dx, 6(%ecx)
 	xorl	%edx, %edx
@@ -4736,7 +4876,7 @@ L615:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L637
+	jnb	L646
 	movw	%dx, 4(%ecx)
 	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	xorl	%edx, %edx
@@ -4748,27 +4888,27 @@ L615:
 	addl	$48, %edx
 	leal	4(%ecx), %edi
 	cmpl	%edi, %ebx
-	jnb	L638
+	jnb	L647
 	movw	%dx, 2(%ecx)
 	leal	2(%ecx), %edx
 	addl	$48, %eax
 	cmpl	%edx, %ebx
-	jnb	L639
+	jnb	L648
 	movw	%ax, (%ecx)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	movl	-76(%ebp), %eax
 	addl	$4, %eax
 	subl	$1, -92(%ebp)
 	movl	%eax, -84(%ebp)
-	jne	L622
+	jne	L631
 	movl	-76(%ebp), %eax
 	movl	-96(%ebp), %edi
 	movl	4(%eax), %eax
-L608:
+L617:
 	xorl	%esi, %esi
 	movl	$10, %ecx
 	.p2align 4,,10
-L624:
+L633:
 	movl	%esi, %edx
 /APP
  # 274 "../pmc_inline_func.h" 1
@@ -4777,12 +4917,12 @@ L624:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L640
+	jnb	L649
 	subl	$2, %edi
 	movw	%dx, (%edi)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%eax, %eax
-	jne	L624
+	jne	L633
 	movl	-80(%ebp), %eax
 	leal	-56(%ebp), %ecx
 	movl	%eax, (%esp)
@@ -4814,54 +4954,21 @@ L624:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L599:
+L608:
 	.cfi_restore_state
 	movl	%eax, %edx
 	movl	-84(%ebp), %eax
 	movl	%edx, -84(%ebp)
 	movl	%eax, -76(%ebp)
-	jmp	L602
+	jmp	L611
 	.p2align 4,,10
-L607:
+L616:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 	.p2align 4,,10
-L625:
-	xorl	%esi, %esi
-	jmp	L598
-L640:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L636:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L635:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
 L634:
+	xorl	%esi, %esi
+	jmp	L607
+L649:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4872,7 +4979,7 @@ L634:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L614:
+L645:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4883,7 +4990,7 @@ L614:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L613:
+L644:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4894,7 +5001,7 @@ L613:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L612:
+L643:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4905,7 +5012,7 @@ L612:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L638:
+L623:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4916,7 +5023,7 @@ L638:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L637:
+L622:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4927,7 +5034,40 @@ L637:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L639:
+L621:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L647:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L646:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L648:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -4939,16 +5079,16 @@ L639:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 LEHE12:
-L627:
+L636:
 	movl	%eax, %ebx
-	jmp	L604
-L626:
+	jmp	L613
+L635:
 	movl	%eax, %ebx
-	jmp	L605
-L604:
+	jmp	L614
+L613:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L605:
+L614:
 	leal	-56(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
@@ -4956,35 +5096,35 @@ LEHB13:
 	call	__Unwind_Resume
 LEHE13:
 	.cfi_endproc
-LFE6473:
+LFE6471:
 	.section	.gcc_except_table,"w"
-LLSDA6473:
+LLSDA6471:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6473-LLSDACSB6473
-LLSDACSB6473:
-	.uleb128 LEHB9-LFB6473
+	.uleb128 LLSDACSE6471-LLSDACSB6471
+LLSDACSB6471:
+	.uleb128 LEHB9-LFB6471
 	.uleb128 LEHE9-LEHB9
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB10-LFB6473
+	.uleb128 LEHB10-LFB6471
 	.uleb128 LEHE10-LEHB10
-	.uleb128 L626-LFB6473
+	.uleb128 L635-LFB6471
 	.uleb128 0
-	.uleb128 LEHB11-LFB6473
+	.uleb128 LEHB11-LFB6471
 	.uleb128 LEHE11-LEHB11
-	.uleb128 L627-LFB6473
+	.uleb128 L636-LFB6471
 	.uleb128 0
-	.uleb128 LEHB12-LFB6473
+	.uleb128 LEHB12-LFB6471
 	.uleb128 LEHE12-LEHB12
-	.uleb128 L626-LFB6473
+	.uleb128 L635-LFB6471
 	.uleb128 0
-	.uleb128 LEHB13-LFB6473
+	.uleb128 LEHB13-LFB6471
 	.uleb128 LEHE13-LEHB13
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6473:
+LLSDACSE6471:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.section	.text.unlikely,"x"
@@ -4994,10 +5134,10 @@ LHOTB17:
 	.p2align 4,,15
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31:
-LFB6574:
+LFB6572:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6574
+	.cfi_lsda 0,LLSDA6572
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -5022,9 +5162,9 @@ LFB6574:
 	movl	%esi, -84(%ebp)
 	movl	%edx, -92(%ebp)
 	testb	$1, 4(%edi)
-	je	L643
+	je	L652
 	testb	%al, %al
-	jne	L729
+	jne	L738
 	movl	-92(%ebp), %eax
 	movl	$1, %ecx
 	movl	-84(%ebp), %esi
@@ -5033,20 +5173,20 @@ LFB6574:
 	cmovg	%eax, %ecx
 	leal	1(%ecx), %edx
 	.p2align 4,,10
-L649:
+L658:
 	testl	%ebx, %ebx
-	je	L730
+	je	L739
 	leal	2(%ebx), %eax
 	cmpl	%eax, %esi
-	jbe	L731
+	jbe	L740
 	movl	$48, (%ebx)
 	movl	%eax, %ebx
-L647:
+L656:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	subl	$1, %ecx
-	jne	L649
-L728:
+	jne	L658
+L737:
 	movl	%eax, -80(%ebp)
 	movl	-80(%ebp), %eax
 	leal	-12(%ebp), %esp
@@ -5062,13 +5202,13 @@ L728:
 	.cfi_def_cfa 4, 4
 	ret
 	.p2align 4,,10
-L643:
+L652:
 	.cfi_restore_state
 	testb	%al, %al
-	je	L732
+	je	L741
 	movl	$0, -80(%ebp)
-	js	L733
-L651:
+	js	L742
+L660:
 	leal	-56(%ebp), %ecx
 LEHB14:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
@@ -5111,10 +5251,10 @@ LEHB16:
 	movl	-96(%ebp), %esi
 	addl	$63, %esi
 	shrl	$5, %esi
-	je	L698
+	je	L707
 	movl	-88(%ebp), %edi
 	.p2align 4,,10
-L660:
+L669:
 	movl	%eax, (%esp)
 	leal	-40(%ebp), %ecx
 	movl	%eax, %ebx
@@ -5139,17 +5279,17 @@ LEHE16:
 	movl	%ebx, %eax
 	movl	12(%ebp), %ebx
 	.p2align 4,,10
-L659:
+L668:
 	movl	-4(%eax,%esi,4), %ecx
 	testl	%ecx, %ecx
-	jne	L657
+	jne	L666
 	subl	$1, %esi
-	jne	L659
+	jne	L668
 	subl	-88(%ebp), %edi
 	movl	%ebx, 12(%ebp)
 	sarl	$2, %edi
 	leal	1(%edi,%edi,8), %esi
-L656:
+L665:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%esi, (%esp)
@@ -5159,11 +5299,11 @@ LEHB17:
 	subl	$4, %esp
 	movl	%eax, -76(%ebp)
 	testl	%eax, %eax
-	je	L665
+	je	L674
 	movl	-76(%ebp), %eax
 	leal	(%eax,%esi,2), %ecx
 	cmpl	%ecx, %eax
-	jnb	L665
+	jnb	L674
 	xorl	%edx, %edx
 	subl	$1, %edi
 	leal	-2(%ecx), %esi
@@ -5171,7 +5311,7 @@ LEHB17:
 	movl	-88(%ebp), %edx
 	movl	%edi, -96(%ebp)
 	movl	(%edx), %eax
-	je	L666
+	je	L675
 	xorl	%edi, %edi
 	movl	$10, %ebx
 	movl	%edi, %edx
@@ -5182,7 +5322,7 @@ LEHB17:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%esi, -76(%ebp)
-	jnb	L670
+	jnb	L679
 	movw	%dx, -4(%ecx)
 	movl	$10, %ebx
 	movl	%edi, %edx
@@ -5194,7 +5334,7 @@ LEHB17:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%esi, -76(%ebp)
-	jnb	L671
+	jnb	L680
 	movw	%dx, -6(%ecx)
 	movl	$10, %ebx
 	movl	%edi, %edx
@@ -5206,12 +5346,12 @@ LEHB17:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%esi, -76(%ebp)
-	jnb	L672
+	jnb	L681
 	subl	$20, %ecx
 	movl	-88(%ebp), %ebx
-	jmp	L673
+	jmp	L682
 	.p2align 4,,10
-L680:
+L689:
 	movl	4(%ebx), %eax
 	xorl	%edx, %edx
 	movl	$10, %esi
@@ -5222,7 +5362,7 @@ L680:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, -76(%ebp)
-	jnb	L670
+	jnb	L679
 	movw	%dx, -2(%ecx)
 	leal	-2(%ecx), %ebx
 	xorl	%edx, %edx
@@ -5233,7 +5373,7 @@ L680:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ebx, -76(%ebp)
-	jnb	L671
+	jnb	L680
 	movw	%dx, -4(%ecx)
 	leal	-18(%ecx), %ebx
 	xorl	%edx, %edx
@@ -5245,10 +5385,10 @@ L680:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, -76(%ebp)
-	jnb	L672
+	jnb	L681
 	movl	%ebx, %ecx
 	movl	%edi, %ebx
-L673:
+L682:
 	movl	$10, %edi
 	movw	%dx, 12(%ecx)
 	movl	%ecx, %esi
@@ -5261,7 +5401,7 @@ L673:
 	leal	12(%ecx), %edi
 	addl	$48, %edx
 	cmpl	%edi, -76(%ebp)
-	jnb	L734
+	jnb	L743
 	movl	$10, %edi
 	movw	%dx, 10(%ecx)
 	xorl	%edx, %edx
@@ -5273,7 +5413,7 @@ L673:
 	leal	10(%ecx), %edi
 	addl	$48, %edx
 	cmpl	%edi, -76(%ebp)
-	jnb	L735
+	jnb	L744
 	movw	%dx, 8(%ecx)
 	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	movl	$10, %edi
@@ -5286,7 +5426,7 @@ L673:
 	addl	$48, %edx
 	leal	8(%ecx), %edi
 	cmpl	%edi, -76(%ebp)
-	jnb	L736
+	jnb	L745
 	movl	$10, %edi
 	movw	%dx, 6(%ecx)
 	xorl	%edx, %edx
@@ -5298,7 +5438,7 @@ L673:
 	leal	6(%ecx), %edi
 	addl	$48, %edx
 	cmpl	%edi, -76(%ebp)
-	jnb	L737
+	jnb	L746
 	movw	%dx, 4(%ecx)
 	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	movl	$10, %edi
@@ -5311,24 +5451,24 @@ L673:
 	addl	$48, %edx
 	leal	4(%ecx), %edi
 	cmpl	%edi, -76(%ebp)
-	jnb	L738
+	jnb	L747
 	movw	%dx, 2(%ecx)
 	addl	$48, %eax
 	leal	2(%ecx), %edx
 	cmpl	%edx, -76(%ebp)
-	jnb	L739
+	jnb	L748
 	movw	%ax, (%ecx)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	subl	$1, -96(%ebp)
 	leal	4(%ebx), %edi
-	jne	L680
+	jne	L689
 	movl	4(%ebx), %eax
-L666:
+L675:
 	movl	12(%ebp), %ebx
 	xorl	%edi, %edi
 	movl	$10, %ecx
 	.p2align 4,,10
-L682:
+L691:
 	movl	%edi, %edx
 /APP
  # 274 "../pmc_inline_func.h" 1
@@ -5337,12 +5477,12 @@ L682:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%esi, -76(%ebp)
-	jnb	L740
+	jnb	L749
 	subl	$2, %esi
 	movw	%dx, (%esi)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%eax, %eax
-	jne	L682
+	jne	L691
 	movl	-88(%ebp), %eax
 	leal	-56(%ebp), %ecx
 	movl	%ebx, 12(%ebp)
@@ -5354,11 +5494,11 @@ L682:
 	call	*%edi
 	subl	$4, %esp
 	cmpl	-92(%ebp), %eax
-	jl	L741
-L686:
+	jl	L750
+L695:
 	movzwl	(%esi), %eax
 	testw	%ax, %ax
-	je	L684
+	je	L693
 	movl	-80(%ebp), %ecx
 	movl	-84(%ebp), %edi
 	movl	12(%ebp), %ebx
@@ -5366,24 +5506,24 @@ L686:
 	subl	%edx, %esi
 	movl	%ecx, %edx
 	.p2align 4,,10
-L693:
+L702:
 	testl	%ebx, %ebx
-	je	L742
+	je	L751
 	leal	2(%ebx), %ecx
 	cmpl	%ecx, %edi
-	jbe	L743
+	jbe	L752
 	movw	%ax, (%ebx)
 	xorl	%eax, %eax
 	movw	%ax, 2(%ebx)
 	movl	%ecx, %ebx
-L691:
+L700:
 	addl	$1, %edx
 	movzwl	(%esi,%edx,2), %eax
 	testw	%ax, %ax
-	jne	L693
-L727:
+	jne	L702
+L736:
 	movl	%edx, -80(%ebp)
-L684:
+L693:
 	movl	-76(%ebp), %eax
 	leal	-56(%ebp), %ecx
 	movl	%eax, (%esp)
@@ -5405,105 +5545,105 @@ L684:
 	.cfi_def_cfa 4, 4
 	ret
 	.p2align 4,,10
-L657:
+L666:
 	.cfi_restore_state
 	movl	%eax, %ecx
 	movl	%ebx, 12(%ebp)
 	movl	-76(%ebp), %eax
 	movl	%ecx, -76(%ebp)
-	jmp	L660
+	jmp	L669
 	.p2align 4,,10
-L742:
+L751:
 	addl	$1, %edx
 	cmpw	$0, (%esi,%edx,2)
-	jne	L691
-	jmp	L727
+	jne	L700
+	jmp	L736
 	.p2align 4,,10
-L730:
+L739:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	subl	$1, %ecx
-	jne	L647
-	jmp	L728
+	jne	L656
+	jmp	L737
 	.p2align 4,,10
-L733:
+L742:
 	movl	8(%ebp), %eax
 	movzwl	346(%eax), %edx
 	testw	%dx, %dx
-	je	L651
+	je	L660
 	movl	8(%ebp), %esi
 	movl	12(%ebp), %ebx
 	movl	$1, %eax
 	.p2align 4,,10
-L655:
+L664:
 	testl	%ebx, %ebx
-	je	L744
+	je	L753
 	leal	2(%ebx), %ecx
 	cmpl	%ecx, -84(%ebp)
-	jbe	L745
+	jbe	L754
 	movl	%eax, -76(%ebp)
 	movw	%dx, (%ebx)
 	xorl	%edx, %edx
 	movw	%dx, 2(%ebx)
 	movl	%ecx, %ebx
-L653:
+L662:
 	movl	-76(%ebp), %eax
 	addl	$1, %eax
 	movzwl	344(%esi,%eax,2), %edx
 	testw	%dx, %dx
-	jne	L655
+	jne	L664
 	movl	-76(%ebp), %eax
 	movl	%ebx, 12(%ebp)
 	movl	%eax, -80(%ebp)
-	jmp	L651
+	jmp	L660
 	.p2align 4,,10
-L744:
+L753:
 	leal	1(%eax), %ecx
 	cmpw	$0, 344(%esi,%ecx,2)
 	movl	%ecx, -76(%ebp)
-	jne	L653
+	jne	L662
 	movl	%ebx, 12(%ebp)
 	movl	%eax, -80(%ebp)
-	jmp	L651
+	jmp	L660
 	.p2align 4,,10
-L741:
+L750:
 	movl	%esi, (%esp)
 	call	*%edi
 	movl	-92(%ebp), %ecx
 	subl	$4, %esp
 	subl	%eax, %ecx
-	je	L686
+	je	L695
 	movl	-80(%ebp), %eax
 	movl	-84(%ebp), %edi
 	movl	12(%ebp), %ebx
 	leal	1(%ecx,%eax), %edx
 	.p2align 4,,10
-L689:
+L698:
 	testl	%ebx, %ebx
-	je	L687
+	je	L696
 	leal	2(%ebx), %eax
 	cmpl	%eax, %edi
-	jbe	L746
+	jbe	L755
 	movl	$48, (%ebx)
 	movl	%eax, %ebx
-L687:
+L696:
 	movl	%edx, %eax
 	subl	%ecx, %eax
 	subl	$1, %ecx
-	jne	L689
+	jne	L698
 	movl	%ebx, 12(%ebp)
 	movl	%eax, -80(%ebp)
-	jmp	L686
+	jmp	L695
 	.p2align 4,,10
-L665:
+L674:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 LEHE17:
 	.p2align 4,,10
-L698:
+L707:
 	xorl	%edi, %edi
 	movl	$1, %esi
-	jmp	L656
-L732:
+	jmp	L665
+L741:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-256, 4(%eax)
@@ -5515,10 +5655,10 @@ L732:
 	movl	%eax, (%esp)
 LEHB18:
 	call	___cxa_throw
-L729:
+L738:
 	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22
 LEHE18:
-L740:
+L749:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5530,7 +5670,7 @@ L740:
 	movl	%eax, (%esp)
 LEHB19:
 	call	___cxa_throw
-L734:
+L743:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5541,7 +5681,7 @@ L734:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L739:
+L748:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5552,7 +5692,7 @@ L739:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L670:
+L679:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5563,7 +5703,7 @@ L670:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L671:
+L680:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5574,7 +5714,7 @@ L671:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L672:
+L681:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5585,7 +5725,7 @@ L672:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L735:
+L744:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5596,29 +5736,7 @@ L735:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L736:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L737:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L738:
+L745:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5640,8 +5758,30 @@ L746:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
+L747:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L755:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
 LEHE19:
-L731:
+L740:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5654,7 +5794,7 @@ L731:
 LEHB20:
 	call	___cxa_throw
 LEHE20:
-L743:
+L752:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -5667,69 +5807,69 @@ L743:
 LEHB21:
 	call	___cxa_throw
 LEHE21:
-L745:
+L754:
 LEHB22:
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
 LEHE22:
-L700:
+L709:
 	movl	%eax, %ebx
-	jmp	L663
-L701:
+	jmp	L672
+L710:
 	movl	%eax, %ebx
-	jmp	L662
+	jmp	L671
 	.section	.gcc_except_table,"w"
-LLSDA6574:
+LLSDA6572:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6574-LLSDACSB6574
-LLSDACSB6574:
-	.uleb128 LEHB14-LFB6574
+	.uleb128 LLSDACSE6572-LLSDACSB6572
+LLSDACSB6572:
+	.uleb128 LEHB14-LFB6572
 	.uleb128 LEHE14-LEHB14
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB15-LFB6574
+	.uleb128 LEHB15-LFB6572
 	.uleb128 LEHE15-LEHB15
-	.uleb128 L700-LFB6574
+	.uleb128 L709-LFB6572
 	.uleb128 0
-	.uleb128 LEHB16-LFB6574
+	.uleb128 LEHB16-LFB6572
 	.uleb128 LEHE16-LEHB16
-	.uleb128 L701-LFB6574
+	.uleb128 L710-LFB6572
 	.uleb128 0
-	.uleb128 LEHB17-LFB6574
+	.uleb128 LEHB17-LFB6572
 	.uleb128 LEHE17-LEHB17
-	.uleb128 L700-LFB6574
+	.uleb128 L709-LFB6572
 	.uleb128 0
-	.uleb128 LEHB18-LFB6574
+	.uleb128 LEHB18-LFB6572
 	.uleb128 LEHE18-LEHB18
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB19-LFB6574
+	.uleb128 LEHB19-LFB6572
 	.uleb128 LEHE19-LEHB19
-	.uleb128 L700-LFB6574
+	.uleb128 L709-LFB6572
 	.uleb128 0
-	.uleb128 LEHB20-LFB6574
+	.uleb128 LEHB20-LFB6572
 	.uleb128 LEHE20-LEHB20
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB21-LFB6574
+	.uleb128 LEHB21-LFB6572
 	.uleb128 LEHE21-LEHB21
-	.uleb128 L700-LFB6574
+	.uleb128 L709-LFB6572
 	.uleb128 0
-	.uleb128 LEHB22-LFB6574
+	.uleb128 LEHB22-LFB6572
 	.uleb128 LEHE22-LEHB22
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6574:
+LLSDACSE6572:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely,"x"
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDAC6574
-	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31.cold.35;	.scl	3;	.type	32;	.endef
-__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31.cold.35:
-L662:
+	.cfi_lsda 0,LLSDAC6572
+	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31.cold.34;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31.cold.34:
+L671:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -20
 	.cfi_offset 5, -8
@@ -5737,7 +5877,7 @@ L662:
 	.cfi_offset 7, -12
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L663:
+L672:
 	leal	-56(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
@@ -5745,19 +5885,19 @@ LEHB23:
 	call	__Unwind_Resume
 LEHE23:
 	.cfi_endproc
-LFE6574:
+LFE6572:
 	.section	.gcc_except_table,"w"
-LLSDAC6574:
+LLSDAC6572:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSEC6574-LLSDACSBC6574
-LLSDACSBC6574:
+	.uleb128 LLSDACSEC6572-LLSDACSBC6572
+LLSDACSBC6572:
 	.uleb128 LEHB23-LCOLDB17
 	.uleb128 LEHE23-LEHB23
 	.uleb128 0
 	.uleb128 0
-LLSDACSEC6574:
+LLSDACSEC6572:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -5802,10 +5942,10 @@ LHOTB22:
 	.globl	__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20
 	.def	__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20:
-LFB6542:
+LFB6540:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6542
+	.cfi_lsda 0,LLSDA6540
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -5814,43 +5954,42 @@ LFB6542:
 	pushl	%edi
 	pushl	%esi
 	pushl	%ebx
-	subl	$284, %esp
+	subl	$220, %esp
 	.cfi_offset 7, -12
 	.cfi_offset 6, -16
 	.cfi_offset 3, -20
-	movl	8(%ebp), %ecx
-	movl	12(%ebp), %edi
-	movl	16(%ebp), %esi
-	movl	20(%ebp), %ebx
-	testl	%ecx, %ecx
-	je	L1302
-	testl	%esi, %esi
+	movl	8(%ebp), %edi
+	movl	16(%ebp), %ebx
+	movl	20(%ebp), %esi
+	testl	%edi, %edi
+	je	L1250
+	movl	%edi, (%esp)
+	testl	%ebx, %ebx
 	movl	$__ZN8Palmtree4Math4Core8InternalL28default_number_format_optionE, %eax
-	cmove	%eax, %esi
-	movl	8(%ebp), %eax
-	movl	%eax, (%esp)
+	cmove	%eax, %ebx
 LEHB24:
 	call	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
-	movl	8(%ebp), %eax
-	movzbl	4(%eax), %eax
+	movzbl	4(%edi), %eax
 	movl	%eax, %edx
 	notl	%edx
 	movl	%edx, %ecx
+	movl	12(%ebp), %edx
 	andl	$1, %ecx
-	movl	%ecx, -240(%ebp)
-	testl	%edi, %edi
-	je	L954
-	movzwl	(%edi), %ecx
-	movw	%cx, -236(%ebp)
+	movl	%ecx, -192(%ebp)
+	testl	%edx, %edx
+	je	L938
+	movl	12(%ebp), %edx
+	movzwl	(%edx), %ecx
+	movw	%cx, -188(%ebp)
 	testw	%cx, %cx
-	je	L954
+	je	L938
 	leal	-65(%ecx), %edx
 	cmpw	$25, %dx
-	jbe	L751
+	jbe	L760
 	leal	-97(%ecx), %edx
 	cmpw	$25, %dx
-	jbe	L1303
-L753:
+	jbe	L1251
+L762:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-10, 4(%eax)
@@ -5862,246 +6001,17 @@ L753:
 	movl	%eax, (%esp)
 	call	___cxa_throw
 	.p2align 4,,10
-L954:
+L938:
 	movl	$-1, %ecx
-L761:
+L770:
 	movl	24(%ebp), %eax
-	movl	8(%ebp), %edx
-	movl	%ebx, 4(%esp)
-	movl	%esi, (%esp)
+	movl	%esi, 4(%esp)
+	movl	%edi, %edx
+	movl	%ebx, (%esp)
 	movl	%eax, 8(%esp)
-	movl	-240(%ebp), %eax
+	movl	-192(%ebp), %eax
 	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31
-L747:
-	leal	-12(%ebp), %esp
-	popl	%ebx
-	.cfi_remember_state
-	.cfi_restore 3
-	popl	%esi
-	.cfi_restore 6
-	popl	%edi
-	.cfi_restore 7
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret	$20
-	.p2align 4,,10
-L751:
-	.cfi_restore_state
-	movzwl	2(%edi), %edx
-	movw	%dx, -244(%ebp)
-	testw	%dx, %dx
-	je	L1304
-L1274:
-	movzwl	-244(%ebp), %edx
-	leal	-48(%edx), %ecx
-	cmpw	$9, %cx
-	ja	L753
-	cmpw	$0, 4(%edi)
-	je	L1305
-	movzwl	4(%edi), %ecx
-	leal	-48(%ecx), %edx
-	cmpw	$9, %dx
-	ja	L753
-	cmpw	$0, 6(%edi)
-	jne	L753
-	movzwl	-244(%ebp), %edx
-	leal	-240(%edx,%edx,4), %edx
-	leal	-48(%ecx,%edx,2), %ecx
-	jmp	L754
-	.p2align 4,,10
-L1303:
-	movzwl	2(%edi), %edx
-	movl	$-1, %ecx
-	movw	%dx, -244(%ebp)
-	testw	%dx, %dx
-	jne	L1274
-L754:
-	movzwl	-236(%ebp), %edi
-	andl	$1, %eax
-	leal	-67(%edi), %edx
-	cmpw	$53, %dx
-	ja	L755
-	movzwl	%dx, %edx
-	jmp	*L757(,%edx,4)
-	.section .rdata,"dr"
-	.align 4
-L757:
-	.long	L764
-	.long	L761
-	.long	L763
-	.long	L762
-	.long	L761
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L760
-	.long	L755
-	.long	L759
-	.long	L755
-	.long	L758
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L756
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L764
-	.long	L761
-	.long	L763
-	.long	L762
-	.long	L761
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L760
-	.long	L755
-	.long	L759
-	.long	L755
-	.long	L758
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L755
-	.long	L756
-	.text
-	.p2align 4,,10
-L758:
-	movl	24(%ebp), %eax
-	movl	8(%ebp), %edx
-	movl	%ebx, 4(%esp)
-	xorl	%ecx, %ecx
-	movl	%esi, (%esp)
-	movl	%eax, 8(%esp)
-	movl	-240(%ebp), %eax
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31
-	leal	-12(%ebp), %esp
-	popl	%ebx
-	.cfi_remember_state
-	.cfi_restore 3
-	popl	%esi
-	.cfi_restore 6
-	popl	%edi
-	.cfi_restore 7
-	popl	%ebp
-	.cfi_restore 5
-	.cfi_def_cfa 4, 4
-	ret	$20
-	.p2align 4,,10
-L759:
-	.cfi_restore_state
-	movl	24(%ebp), %edi
-	testl	%ebx, %ebx
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -72(%ebp)
-	movl	%ebx, -68(%ebp)
-	leal	(%ebx,%edi,2), %edx
-	movl	$0, %edi
-	movl	%ebx, -64(%ebp)
-	cmove	%edi, %edx
-	movl	$0, -56(%ebp)
-	movl	$1000000000, -44(%ebp)
-	movl	%edx, -60(%ebp)
-	movl	$80, %edx
-	movl	$9, -40(%ebp)
-	movw	%dx, -36(%ebp)
-	movl	%ecx, -32(%ebp)
-	movl	%esi, -28(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypePE+8, -48(%ebp)
-	cmpl	$-1, %ecx
-	jne	L896
-	movl	(%esi), %edx
-	movl	%edx, -32(%ebp)
-L896:
-	movl	308(%esi), %edx
-	testb	%al, %al
-	je	L897
-	cmpl	$2, %edx
-	je	L898
-	leal	-72(%ebp), %ebx
-	cmpl	$3, %edx
-	jne	L900
-	movzwl	414(%esi), %eax
-	leal	414(%esi), %edi
-	leal	-72(%ebp), %ebx
-	testw	%ax, %ax
-	je	L904
-	.p2align 4,,10
-L903:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %edi
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%edi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L903
-L904:
-	movl	$32, (%esp)
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	subl	$4, %esp
-L900:
-	movl	$48, (%esp)
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-32(%ebp), %esi
-	subl	$4, %esp
-	testl	%esi, %esi
-	jle	L911
-	movl	-28(%ebp), %eax
-	leal	4(%eax), %edi
-	movzwl	4(%eax), %eax
-	testw	%ax, %ax
-	je	L912
-	.p2align 4,,10
-L910:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %edi
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%edi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L910
-	movl	-32(%ebp), %esi
-	testl	%esi, %esi
-	je	L911
-	.p2align 4,,10
-L912:
-	movl	$48, (%esp)
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	subl	$4, %esp
-	subl	$1, %esi
-	jne	L912
-L911:
-	movl	-28(%ebp), %edx
-	movl	308(%edx), %eax
-	cmpl	$1, %eax
-	je	L906
-	testl	%eax, %eax
-	jle	L907
-	cmpl	$3, %eax
-	jg	L907
-L908:
-	movl	-56(%ebp), %eax
+L756:
 	leal	-12(%ebp), %esp
 	popl	%ebx
 	.cfi_remember_state
@@ -6117,1067 +6027,1140 @@ L908:
 	.p2align 4,,10
 L760:
 	.cfi_restore_state
-	movl	24(%ebp), %edi
-	testl	%ebx, %ebx
-	movl	%ecx, -32(%ebp)
-	movl	%ebx, -156(%ebp)
-	leal	(%ebx,%edi,2), %edx
-	movl	$0, %edi
-	movl	%esi, -28(%ebp)
-	cmove	%edi, %edx
-	movl	%ebx, -152(%ebp)
-	movl	$78, %ebx
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -160(%ebp)
-	movl	%edx, -148(%ebp)
-	movl	$0, -144(%ebp)
+	movl	12(%ebp), %ecx
+	movzwl	2(%ecx), %edx
+	movw	%dx, -196(%ebp)
+	testw	%dx, %dx
+	je	L1252
+	movzwl	-196(%ebp), %ecx
+	subl	$48, %ecx
+	cmpw	$9, %cx
+	ja	L762
+L929:
+	movl	12(%ebp), %edx
+	cmpw	$0, 4(%edx)
+	je	L1253
+	movl	12(%ebp), %ecx
+	movzwl	4(%ecx), %ecx
+	leal	-48(%ecx), %edx
+	cmpw	$9, %dx
+	ja	L762
+	movl	12(%ebp), %edx
+	cmpw	$0, 6(%edx)
+	jne	L762
+	movzwl	-196(%ebp), %edx
+	leal	-240(%edx,%edx,4), %edx
+	leal	-48(%ecx,%edx,2), %ecx
+	jmp	L763
+	.p2align 4,,10
+L1251:
+	movl	12(%ebp), %edx
+	movl	$-1, %ecx
+	movzwl	2(%edx), %edx
+	movw	%dx, -196(%ebp)
+	testw	%dx, %dx
+	jne	L1254
+L763:
+	movzwl	-188(%ebp), %edx
+	andl	$1, %eax
+	movb	%al, -196(%ebp)
+	subl	$67, %edx
+	cmpw	$53, %dx
+	ja	L764
+	movzwl	%dx, %edx
+	jmp	*L766(,%edx,4)
+	.section .rdata,"dr"
+	.align 4
+L766:
+	.long	L773
+	.long	L770
+	.long	L772
+	.long	L771
+	.long	L770
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L769
+	.long	L764
+	.long	L768
+	.long	L764
+	.long	L767
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L765
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L773
+	.long	L770
+	.long	L772
+	.long	L771
+	.long	L770
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L769
+	.long	L764
+	.long	L768
+	.long	L764
+	.long	L767
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L764
+	.long	L765
+	.text
+	.p2align 4,,10
+L767:
+	movl	24(%ebp), %eax
+	movl	%esi, 4(%esp)
+	movl	%edi, %edx
+	xorl	%ecx, %ecx
+	movl	%ebx, (%esp)
+	movl	%eax, 8(%esp)
+	movl	-192(%ebp), %eax
+	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj.constprop.31
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$20
+	.p2align 4,,10
+L768:
+	.cfi_restore_state
+	movl	24(%ebp), %eax
+	testl	%esi, %esi
+	movl	$0, %edx
+	movl	%esi, -132(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -136(%ebp)
+	leal	(%esi,%eax,2), %eax
+	movl	%esi, -128(%ebp)
+	cmovne	%eax, %edx
+	movl	$80, %eax
+	movl	$0, -120(%ebp)
 	movl	$1000000000, -44(%ebp)
+	movl	%edx, -188(%ebp)
+	movl	%edx, -124(%ebp)
 	movl	$9, -40(%ebp)
-	movw	%bx, -36(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeNE+8, -48(%ebp)
+	movw	%ax, -36(%ebp)
+	movl	%ecx, -32(%ebp)
+	movl	%ebx, -28(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypePE+8, -48(%ebp)
 	cmpl	$-1, %ecx
-	jne	L881
-	movl	104(%esi), %edx
+	jne	L841
+	movl	(%ebx), %edx
 	movl	%edx, -32(%ebp)
-L881:
-	testb	%al, %al
-	je	L882
+L841:
+	cmpb	$0, -196(%ebp)
+	movl	308(%ebx), %edx
+	je	L842
+	cmpl	$2, %edx
+	je	L843
+	cmpl	$3, %edx
+	je	L844
+L1234:
+	leal	-136(%ebp), %eax
+	movl	%eax, -196(%ebp)
+L845:
 	movl	$48, (%esp)
-	leal	-160(%ebp), %ecx
+	movl	-196(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
 	movl	-32(%ebp), %eax
 	subl	$4, %esp
-	movl	%eax, -244(%ebp)
-	testl	%eax, %eax
-	jle	L1298
-	movl	-28(%ebp), %edi
-	movl	-156(%ebp), %ebx
-	movl	-148(%ebp), %esi
-	movl	-144(%ebp), %eax
-	movzwl	108(%edi), %ecx
-	movl	%ebx, -248(%ebp)
-	testw	%cx, %cx
-	je	L964
-	leal	(%eax,%eax), %edx
-	movb	$0, -240(%ebp)
-	subl	%edx, %edi
-	movl	%ebx, %edx
-	xorl	%ebx, %ebx
-	movb	%bl, -236(%ebp)
-	.p2align 4,,10
-L889:
-	testl	%edx, %edx
-	je	L886
-	leal	2(%edx), %ebx
-	cmpl	%esi, %ebx
-	jnb	L1306
-	movb	$1, -240(%ebp)
-	movw	%cx, (%edx)
-	xorl	%ecx, %ecx
-	movw	%cx, 2(%edx)
-	movl	%ebx, %edx
-L886:
-	addl	$1, %eax
-	movb	$1, -236(%ebp)
-	movzwl	108(%edi,%eax,2), %ecx
-	testw	%cx, %cx
-	jne	L889
-	cmpb	$0, -240(%ebp)
-	je	L965
-	movl	%edx, -156(%ebp)
-L890:
-	movl	%eax, -144(%ebp)
-L885:
-	movl	-244(%ebp), %ecx
-	xorl	%ebx, %ebx
-	xorl	%edi, %edi
-	addl	%eax, %ecx
-	movl	%ecx, -236(%ebp)
-	jmp	L894
-	.p2align 4,,10
-L892:
-	movl	$48, (%edx)
-	movl	$1, %edi
-	movl	%ecx, %edx
-L891:
-	addl	$1, %eax
-	movl	$1, %ebx
-	cmpl	%eax, -236(%ebp)
-	je	L747
-L894:
-	testl	%edx, %edx
-	je	L891
-	leal	2(%edx), %ecx
-	cmpl	%esi, %ecx
-	jb	L892
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L893
-	movl	%edx, -156(%ebp)
-L893:
-	testb	%bl, %bl
-	je	L774
-L1282:
-	movl	%eax, -144(%ebp)
-	jmp	L774
-	.p2align 4,,10
-L762:
-	movl	24(%ebp), %edi
-	testl	%ebx, %ebx
-	movl	%ecx, -56(%ebp)
-	movl	%ebx, -176(%ebp)
-	leal	(%ebx,%edi,2), %edx
-	movl	$0, %edi
-	movl	%esi, -52(%ebp)
-	cmove	%edi, %edx
-	movl	%ebx, -172(%ebp)
-	movl	$70, %ebx
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -180(%ebp)
-	movl	%edx, -168(%ebp)
-	movl	$0, -164(%ebp)
-	movl	$1000000000, -68(%ebp)
-	movl	$9, -64(%ebp)
-	movw	%bx, -60(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeFE+8, -72(%ebp)
-	cmpl	$-1, %ecx
-	jne	L866
-	movl	104(%esi), %edx
-	movl	%edx, -56(%ebp)
-L866:
-	testb	%al, %al
-	je	L867
-	movl	$48, (%esp)
-	leal	-180(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-56(%ebp), %eax
-	subl	$4, %esp
-	movl	%eax, -244(%ebp)
-	testl	%eax, %eax
-	jle	L1297
-	movl	-52(%ebp), %edi
-	movl	-176(%ebp), %ebx
-	movl	-168(%ebp), %esi
-	movl	-164(%ebp), %eax
-	movzwl	108(%edi), %ecx
-	movl	%ebx, -248(%ebp)
-	testw	%cx, %cx
-	je	L961
-	leal	(%eax,%eax), %edx
-	movb	$0, -240(%ebp)
-	subl	%edx, %edi
-	movl	%ebx, %edx
-	xorl	%ebx, %ebx
-	movb	%bl, -236(%ebp)
-	.p2align 4,,10
-L874:
-	testl	%edx, %edx
-	je	L871
-	leal	2(%edx), %ebx
-	cmpl	%esi, %ebx
-	jnb	L1307
-	movb	$1, -240(%ebp)
-	movw	%cx, (%edx)
-	xorl	%ecx, %ecx
-	movw	%cx, 2(%edx)
-	movl	%ebx, %edx
-L871:
-	addl	$1, %eax
-	movb	$1, -236(%ebp)
-	movzwl	108(%edi,%eax,2), %ecx
-	testw	%cx, %cx
-	jne	L874
-	cmpb	$0, -240(%ebp)
-	je	L962
-	movl	%edx, -176(%ebp)
-L875:
-	movl	%eax, -164(%ebp)
-L870:
-	movl	-244(%ebp), %ecx
-	xorl	%ebx, %ebx
-	xorl	%edi, %edi
-	addl	%eax, %ecx
-	movl	%ecx, -236(%ebp)
-	jmp	L879
-	.p2align 4,,10
-L877:
-	movl	$48, (%edx)
-	movl	$1, %edi
-	movl	%ecx, %edx
-L876:
-	addl	$1, %eax
-	movl	$1, %ebx
-	cmpl	-236(%ebp), %eax
-	je	L747
-L879:
-	testl	%edx, %edx
-	je	L876
-	leal	2(%edx), %ecx
-	cmpl	%esi, %ecx
-	jb	L877
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L878
-	movl	%edx, -176(%ebp)
-L878:
-	testb	%bl, %bl
-	je	L774
-L1284:
-	movl	%eax, -164(%ebp)
-	jmp	L774
-	.p2align 4,,10
-L763:
-	movl	24(%ebp), %edi
-	testl	%ebx, %ebx
-	movl	%esi, -76(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -200(%ebp)
-	leal	(%ebx,%edi,2), %edx
-	movl	$0, %edi
-	movl	%ebx, -196(%ebp)
-	cmove	%edi, %edx
-	cmpl	$-1, %ecx
-	movzwl	-236(%ebp), %edi
-	movl	%ebx, -192(%ebp)
-	movl	$0, -184(%ebp)
-	movl	%edx, -188(%ebp)
-	movl	$6, %edx
-	cmove	%edx, %ecx
-	movl	$1000000000, -92(%ebp)
-	movl	$9, -88(%ebp)
-	movw	%di, -84(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeEE+8, -96(%ebp)
-	movl	%ecx, -80(%ebp)
-	testb	%al, %al
-	je	L836
-	movl	$48, (%esp)
-	leal	-200(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-80(%ebp), %eax
-	subl	$4, %esp
-	movl	%eax, -244(%ebp)
-	testl	%eax, %eax
-	jle	L837
-	movl	-76(%ebp), %edi
-	movl	-196(%ebp), %ebx
-	movl	-188(%ebp), %esi
-	movl	-184(%ebp), %edx
-	movzwl	108(%edi), %ecx
-	movl	%ebx, -248(%ebp)
-	testw	%cx, %cx
-	je	L957
-	leal	(%edx,%edx), %eax
-	movb	$0, -240(%ebp)
-	subl	%eax, %edi
-	movl	%ebx, %eax
-	xorl	%ebx, %ebx
-	movb	%bl, -236(%ebp)
-	.p2align 4,,10
-L842:
-	testl	%eax, %eax
-	je	L839
-	leal	2(%eax), %ebx
-	cmpl	%esi, %ebx
-	jnb	L1308
-	movb	$1, -240(%ebp)
-	movw	%cx, (%eax)
-	xorl	%ecx, %ecx
-	movw	%cx, 2(%eax)
-	movl	%ebx, %eax
-L839:
-	addl	$1, %edx
-	movb	$1, -236(%ebp)
-	movzwl	108(%edi,%edx,2), %ecx
-	testw	%cx, %cx
-	jne	L842
-	cmpb	$0, -240(%ebp)
-	je	L958
-	movl	%eax, -196(%ebp)
-L843:
-	movl	%edx, -184(%ebp)
-L838:
-	movl	-244(%ebp), %ecx
-	xorl	%ebx, %ebx
-	xorl	%edi, %edi
-	addl	%edx, %ecx
-	movl	%ecx, -236(%ebp)
-	.p2align 4,,10
-L847:
-	testl	%eax, %eax
-	je	L844
-	leal	2(%eax), %ecx
-	cmpl	%esi, %ecx
-	jnb	L1309
-	movl	$48, (%eax)
-	movl	$1, %edi
-	movl	%ecx, %eax
-L844:
-	addl	$1, %edx
-	movl	$1, %ebx
-	cmpl	-236(%ebp), %edx
-	jne	L847
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L848
-	movl	%eax, -196(%ebp)
-L848:
-	movl	%edx, -184(%ebp)
-L837:
-	movzwl	-84(%ebp), %eax
-	leal	-200(%ebp), %ecx
-	xorl	%edi, %edi
-	movl	%eax, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-188(%ebp), %eax
-	movl	-196(%ebp), %edx
-	movl	$43, %ecx
-	subl	$4, %esp
-	movl	%eax, -240(%ebp)
-	movl	-184(%ebp), %eax
-	leal	(%eax,%eax), %esi
-	negl	%esi
-	leal	LC0(%esi), %ebx
-	xorl	%esi, %esi
-	movl	%ebx, -236(%ebp)
-	jmp	L853
-	.p2align 4,,10
-L850:
-	movw	%cx, (%edx)
-	xorl	%ecx, %ecx
-	movl	$1, %edi
-	movw	%cx, 2(%edx)
-	movl	%ebx, %edx
-L849:
-	movl	-236(%ebp), %esi
-	addl	$1, %eax
-	movzwl	(%esi,%eax,2), %ecx
-	movl	$1, %esi
-	testw	%cx, %cx
-	je	L747
-L853:
-	testl	%edx, %edx
-	je	L849
-	leal	2(%edx), %ebx
-	cmpl	-240(%ebp), %ebx
-	jb	L850
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L851
-	movl	%edx, -196(%ebp)
-L851:
-	movl	%esi, %ecx
-	testb	%cl, %cl
-	je	L774
-	movl	%eax, -184(%ebp)
-	jmp	L774
-	.p2align 4,,10
-L764:
-	movl	24(%ebp), %edi
-	testl	%ebx, %ebx
-	movl	$0, %edx
-	movl	%ebx, -216(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -220(%ebp)
-	leal	(%ebx,%edi,2), %edi
-	movl	%ebx, -212(%ebp)
-	cmovne	%edi, %edx
-	movl	$1000000000, -116(%ebp)
-	movl	$0, -204(%ebp)
-	movl	%edx, -236(%ebp)
-	movl	%edx, -208(%ebp)
-	movl	$67, %edx
-	movl	$9, -112(%ebp)
-	movw	%dx, -108(%ebp)
-	movl	%ecx, -104(%ebp)
-	movl	%esi, -100(%ebp)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeCE+8, -120(%ebp)
-	cmpl	$-1, %ecx
-	jne	L766
-	movl	(%esi), %edx
-	movl	%edx, -104(%ebp)
-L766:
-	movl	100(%esi), %edx
-	testb	%al, %al
-	je	L767
-	cmpl	$2, %edx
-	je	L768
-	cmpl	$3, %edx
-	je	L1285
-	cmpl	$1, %edx
-	je	L1285
-	movzwl	312(%esi), %edx
-	testw	%dx, %dx
-	je	L1285
-	movb	$0, -240(%ebp)
-	xorl	%edi, %edi
-	xorl	%eax, %eax
-	.p2align 4,,10
-L775:
-	testl	%ebx, %ebx
-	je	L770
-	leal	2(%ebx), %ecx
-	cmpl	%ecx, -236(%ebp)
-	jbe	L1289
-	movb	$1, -240(%ebp)
-	xorl	%edi, %edi
-	movw	%dx, (%ebx)
-	movw	%di, 2(%ebx)
-	movl	%ecx, %ebx
-L770:
-	addl	$1, %eax
-	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %edx
-	testw	%dx, %dx
-	jne	L775
-	cmpb	$0, -240(%ebp)
-	je	L776
-	movl	%ebx, -216(%ebp)
-L776:
 	movl	%eax, -204(%ebp)
-L1285:
-	leal	-220(%ebp), %eax
-	movl	%eax, -244(%ebp)
-L769:
-	movl	$48, (%esp)
-	movl	-244(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-104(%ebp), %eax
-	subl	$4, %esp
-	movl	%eax, -252(%ebp)
 	testl	%eax, %eax
-	jle	L1310
-	movl	-100(%ebp), %esi
-	movl	-208(%ebp), %eax
-	movl	-216(%ebp), %ecx
+	jle	L1255
+	movl	-28(%ebp), %esi
+	movl	-124(%ebp), %edi
+	movl	-120(%ebp), %eax
+	movl	-132(%ebp), %ecx
 	movzwl	4(%esi), %ebx
-	movl	%eax, -240(%ebp)
-	movl	%esi, -248(%ebp)
-	movl	-204(%ebp), %eax
+	movl	%esi, -200(%ebp)
+	movl	%edi, -192(%ebp)
 	testw	%bx, %bx
-	je	L786
-	movb	$0, -236(%ebp)
+	je	L859
+	movb	$0, -188(%ebp)
 	leal	(%eax,%eax), %edx
 	xorl	%edi, %edi
-	movl	%ecx, -256(%ebp)
+	movl	%ecx, -208(%ebp)
 	subl	%edx, %esi
 	movl	%ecx, %edx
 	.p2align 4,,10
-L790:
+L863:
 	testl	%edx, %edx
-	je	L787
+	je	L860
 	leal	2(%edx), %ecx
-	cmpl	-240(%ebp), %ecx
-	jnb	L1311
-	movb	$1, -236(%ebp)
+	cmpl	-192(%ebp), %ecx
+	jnb	L1256
+	movb	$1, -188(%ebp)
 	xorl	%edi, %edi
 	movw	%bx, (%edx)
 	movw	%di, 2(%edx)
 	movl	%ecx, %edx
-L787:
+L860:
 	addl	$1, %eax
 	movl	$1, %edi
 	movzwl	4(%esi,%eax,2), %ebx
 	testw	%bx, %bx
-	jne	L790
-	cmpb	$0, -236(%ebp)
-	movl	-256(%ebp), %ecx
-	je	L791
-	movl	%edx, -216(%ebp)
+	jne	L863
+	cmpb	$0, -188(%ebp)
+	movl	-208(%ebp), %ecx
+	je	L864
+	movl	%edx, -132(%ebp)
 	movl	%edx, %ecx
-L791:
-	movl	%eax, -204(%ebp)
-L786:
-	movl	-240(%ebp), %edx
-	movl	-252(%ebp), %ebx
+L864:
+	movl	%eax, -120(%ebp)
+L859:
+	movl	-192(%ebp), %edx
+	movl	-204(%ebp), %ebx
 	xorl	%esi, %esi
 	xorl	%edi, %edi
-	movl	%edx, -236(%ebp)
+	movl	%edx, -188(%ebp)
 	addl	%eax, %ebx
 	.p2align 4,,10
-L795:
+L868:
 	testl	%ecx, %ecx
-	je	L792
+	je	L865
 	leal	2(%ecx), %edx
-	cmpl	-236(%ebp), %edx
-	jnb	L1312
+	cmpl	-188(%ebp), %edx
+	jnb	L1257
 	movl	$48, (%ecx)
 	movl	$1, %edi
 	movl	%edx, %ecx
-L792:
+L865:
 	addl	$1, %eax
 	movl	$1, %esi
 	cmpl	%ebx, %eax
-	jne	L795
+	jne	L868
 	movl	%edi, %ebx
 	testb	%bl, %bl
-	je	L796
-	movl	%ecx, -216(%ebp)
-L796:
-	movl	%eax, -204(%ebp)
-L785:
-	movl	-248(%ebp), %eax
-	movl	100(%eax), %eax
+	je	L869
+	movl	%ecx, -132(%ebp)
+L869:
+	movl	%eax, -120(%ebp)
+L858:
+	movl	-200(%ebp), %eax
+	movl	308(%eax), %eax
 	cmpl	$1, %eax
-	je	L797
+	je	L870
+	testl	%eax, %eax
+	jle	L871
 	cmpl	$3, %eax
-	jne	L1296
+	jle	L1247
+L871:
 	movl	$32, (%esp)
-	movl	-244(%ebp), %ecx
+	movl	-196(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-100(%ebp), %esi
+	movl	-28(%ebp), %eax
 	subl	$4, %esp
-	movzwl	312(%esi), %ecx
+	movzwl	414(%eax), %ecx
+	movl	%eax, %edi
 	testw	%cx, %cx
-	je	L1296
-	movl	-208(%ebp), %eax
-	movl	-216(%ebp), %edx
-	xorl	%edi, %edi
-	movl	%eax, -240(%ebp)
-	movl	-204(%ebp), %eax
+	je	L1247
+	movl	-124(%ebp), %eax
+	movl	-132(%ebp), %edx
+	xorl	%esi, %esi
+	movl	%eax, -192(%ebp)
+	movl	-120(%ebp), %eax
 	leal	(%eax,%eax), %ebx
-	subl	%ebx, %esi
-	xorl	%ebx, %ebx
-	movb	%bl, -236(%ebp)
-	jmp	L808
+	subl	%ebx, %edi
+	movl	%edi, %ebx
+	xorl	%edi, %edi
+	movl	%ebx, -188(%ebp)
+	jmp	L877
 	.p2align 4,,10
-L806:
-	movb	$1, -236(%ebp)
+L875:
+	xorl	%esi, %esi
+	movw	%cx, (%edx)
+	movl	$1, %edi
+	movw	%si, 2(%edx)
+	movl	%ebx, %edx
+L874:
+	movl	-188(%ebp), %ebx
+	addl	$1, %eax
+	movl	$1, %esi
+	movzwl	414(%ebx,%eax,2), %ecx
+	testw	%cx, %cx
+	je	L756
+L877:
+	testl	%edx, %edx
+	je	L874
+	leal	2(%edx), %ebx
+	cmpl	-192(%ebp), %ebx
+	jb	L875
+	movl	%edi, %ebx
+	testb	%bl, %bl
+	je	L876
+	movl	%edx, -132(%ebp)
+	jmp	L876
+	.p2align 4,,10
+L769:
+	movl	24(%ebp), %eax
+	testl	%esi, %esi
+	movl	%ecx, -56(%ebp)
+	movl	%esi, -152(%ebp)
+	leal	(%esi,%eax,2), %edx
+	movl	$0, %eax
+	movl	%ebx, -52(%ebp)
+	cmove	%eax, %edx
+	movl	%esi, -148(%ebp)
+	movl	$78, %esi
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -156(%ebp)
+	movl	%edx, -144(%ebp)
+	movl	$0, -140(%ebp)
+	movl	$1000000000, -68(%ebp)
+	movl	$9, -64(%ebp)
+	movw	%si, -60(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeNE+8, -72(%ebp)
+	cmpl	$-1, %ecx
+	jne	L826
+	movl	104(%ebx), %edx
+	movl	%edx, -56(%ebp)
+L826:
+	cmpb	$0, -196(%ebp)
+	je	L827
+	movl	$48, (%esp)
+	leal	-156(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-56(%ebp), %eax
+	subl	$4, %esp
+	movl	%eax, -196(%ebp)
+	testl	%eax, %eax
+	jle	L1245
+	movl	-52(%ebp), %edi
+	movl	-152(%ebp), %ebx
+	movl	-140(%ebp), %eax
+	movl	-144(%ebp), %esi
+	movzwl	108(%edi), %ecx
+	movl	%ebx, -200(%ebp)
+	testw	%cx, %cx
+	je	L945
+	leal	(%eax,%eax), %edx
+	movb	$0, -192(%ebp)
+	subl	%edx, %edi
+	movl	%ebx, %edx
+	xorl	%ebx, %ebx
+	movb	%bl, -188(%ebp)
+	.p2align 4,,10
+L834:
+	testl	%edx, %edx
+	je	L831
+	leal	2(%edx), %ebx
+	cmpl	%esi, %ebx
+	jnb	L1258
+	movb	$1, -192(%ebp)
 	movw	%cx, (%edx)
 	xorl	%ecx, %ecx
 	movw	%cx, 2(%edx)
 	movl	%ebx, %edx
-L805:
-	addl	$1, %eax
-	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %ecx
-	testw	%cx, %cx
-	je	L747
-L808:
-	testl	%edx, %edx
-	je	L805
-	leal	2(%edx), %ebx
-	cmpl	-240(%ebp), %ebx
-	jb	L806
-L1290:
-	movzbl	-236(%ebp), %ecx
-	testb	%cl, %cl
-	je	L831
-L1288:
-	movl	%edx, -216(%ebp)
 L831:
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	jne	L1281
-	jmp	L774
-	.p2align 4,,10
-L756:
-	testl	%ecx, %ecx
-	movl	$1, %edx
-	movl	24(%ebp), %esi
-	movl	%ebx, -136(%ebp)
-	cmovg	%ecx, %edx
-	testl	%ebx, %ebx
-	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -140(%ebp)
-	leal	(%ebx,%esi,2), %ecx
-	movl	%ebx, -132(%ebp)
-	movl	%edx, -244(%ebp)
-	movl	$0, %edx
-	cmove	%edx, %ecx
-	movl	$0, -124(%ebp)
-	movl	%ecx, -128(%ebp)
-	testb	%al, %al
-	je	L925
-	movl	-244(%ebp), %edx
-	xorl	%esi, %esi
-	xorl	%eax, %eax
-	xorl	%edi, %edi
-	movl	%edx, -236(%ebp)
-	jmp	L930
-	.p2align 4,,10
-L927:
-	movl	$48, (%ebx)
-	movl	$1, %edi
-	movl	%edx, %ebx
-L926:
 	addl	$1, %eax
-	movl	$1, %esi
-	cmpl	%eax, -236(%ebp)
-	je	L747
-L930:
-	testl	%ebx, %ebx
-	je	L926
-	leal	2(%ebx), %edx
-	cmpl	%edx, %ecx
-	ja	L927
+	movb	$1, -188(%ebp)
+	movzwl	108(%edi,%eax,2), %ecx
+	testw	%cx, %cx
+	jne	L834
+	cmpb	$0, -192(%ebp)
+	je	L946
+	movl	%edx, -152(%ebp)
+L835:
+	movl	%eax, -140(%ebp)
+L830:
+	movl	-196(%ebp), %ecx
+	xorl	%ebx, %ebx
+	xorl	%edi, %edi
+	addl	%eax, %ecx
+	movl	%ecx, -188(%ebp)
+	jmp	L839
+	.p2align 4,,10
+L837:
+	movl	$48, (%edx)
+	movl	$1, %edi
+	movl	%ecx, %edx
+L836:
+	addl	$1, %eax
+	movl	$1, %ebx
+	cmpl	-188(%ebp), %eax
+	je	L756
+L839:
+	testl	%edx, %edx
+	je	L836
+	leal	2(%edx), %ecx
+	cmpl	%esi, %ecx
+	jb	L837
 	movl	%edi, %ecx
 	testb	%cl, %cl
-	je	L928
-	movl	%ebx, -136(%ebp)
-L928:
-	movl	%esi, %ecx
+	je	L838
+	movl	%edx, -152(%ebp)
+L838:
+	testb	%bl, %bl
+	je	L817
+L1233:
+	movl	%eax, -140(%ebp)
+	jmp	L817
+	.p2align 4,,10
+L771:
+	movl	24(%ebp), %eax
+	testl	%esi, %esi
+	movl	%ecx, -80(%ebp)
+	movl	%esi, -172(%ebp)
+	leal	(%esi,%eax,2), %edx
+	movl	$0, %eax
+	movl	%ebx, -76(%ebp)
+	cmove	%eax, %edx
+	movl	%esi, -168(%ebp)
+	movl	$70, %esi
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -176(%ebp)
+	movl	%edx, -164(%ebp)
+	movl	$0, -160(%ebp)
+	movl	$1000000000, -92(%ebp)
+	movl	$9, -88(%ebp)
+	movw	%si, -84(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeFE+8, -96(%ebp)
+	cmpl	$-1, %ecx
+	jne	L808
+	movl	104(%ebx), %edx
+	movl	%edx, -80(%ebp)
+L808:
+	cmpb	$0, -196(%ebp)
+	je	L809
+	movl	$48, (%esp)
+	leal	-176(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-80(%ebp), %eax
+	subl	$4, %esp
+	movl	%eax, -196(%ebp)
+	testl	%eax, %eax
+	jle	L1244
+	movl	-76(%ebp), %edi
+	movl	-172(%ebp), %ebx
+	movl	-160(%ebp), %eax
+	movl	-164(%ebp), %esi
+	movzwl	108(%edi), %ecx
+	movl	%ebx, -200(%ebp)
+	testw	%cx, %cx
+	je	L942
+	leal	(%eax,%eax), %edx
+	movb	$0, -192(%ebp)
+	subl	%edx, %edi
+	movl	%ebx, %edx
+	xorl	%ebx, %ebx
+	movb	%bl, -188(%ebp)
+	.p2align 4,,10
+L818:
+	testl	%edx, %edx
+	je	L813
+	leal	2(%edx), %ebx
+	cmpl	%esi, %ebx
+	jnb	L1259
+	movb	$1, -192(%ebp)
+	movw	%cx, (%edx)
+	xorl	%ecx, %ecx
+	movw	%cx, 2(%edx)
+	movl	%ebx, %edx
+L813:
+	addl	$1, %eax
+	movb	$1, -188(%ebp)
+	movzwl	108(%edi,%eax,2), %ecx
+	testw	%cx, %cx
+	jne	L818
+	cmpb	$0, -192(%ebp)
+	je	L943
+	movl	%edx, -172(%ebp)
+L819:
+	movl	%eax, -160(%ebp)
+L812:
+	movl	-196(%ebp), %ecx
+	xorl	%ebx, %ebx
+	xorl	%edi, %edi
+	addl	%eax, %ecx
+	movl	%ecx, -188(%ebp)
+	jmp	L824
+	.p2align 4,,10
+L821:
+	movl	$48, (%edx)
+	movl	$1, %edi
+	movl	%ecx, %edx
+L820:
+	addl	$1, %eax
+	movl	$1, %ebx
+	cmpl	-188(%ebp), %eax
+	je	L756
+L824:
+	testl	%edx, %edx
+	je	L820
+	leal	2(%edx), %ecx
+	cmpl	%esi, %ecx
+	jb	L821
+	movl	%edi, %ecx
 	testb	%cl, %cl
-	je	L774
-	movl	%eax, -124(%ebp)
-L774:
+	je	L1249
+	movl	%edx, -172(%ebp)
+L1249:
+	testb	%bl, %bl
+	je	L817
+	movl	%eax, -160(%ebp)
+	jmp	L817
+	.p2align 4,,10
+L772:
+	movl	24(%ebp), %eax
+	testl	%esi, %esi
+	movl	$0, %edx
+	movl	%edi, 4(%esp)
+	movl	%ecx, -32(%ebp)
+	leal	-48(%ebp), %ecx
+	leal	(%esi,%eax,2), %eax
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -72(%ebp)
+	cmove	%edx, %eax
+	movl	%esi, -68(%ebp)
+	movl	%esi, -64(%ebp)
+	movl	%eax, -60(%ebp)
+	movzwl	-188(%ebp), %eax
+	movl	$0, -56(%ebp)
+	movw	%ax, -36(%ebp)
+	leal	-72(%ebp), %eax
+	movl	%eax, 8(%esp)
+	movl	-192(%ebp), %eax
+	movl	$1000000000, -44(%ebp)
+	movl	%eax, (%esp)
+	movl	$9, -40(%ebp)
+	movl	%ebx, -28(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeEE+8, -48(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+	subl	$12, %esp
+L1243:
+	movl	-56(%ebp), %eax
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	.cfi_remember_state
+	.cfi_restore 3
+	popl	%esi
+	.cfi_restore 6
+	popl	%edi
+	.cfi_restore 7
+	popl	%ebp
+	.cfi_restore 5
+	.cfi_def_cfa 4, 4
+	ret	$20
+	.p2align 4,,10
+L765:
+	.cfi_restore_state
+	movl	24(%ebp), %eax
+	testl	%ecx, %ecx
+	movl	$1, %ebx
+	movl	$0, %edx
+	cmovg	%ecx, %ebx
+	testl	%esi, %esi
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -116(%ebp)
+	leal	(%esi,%eax,2), %ecx
+	movl	%esi, -112(%ebp)
+	cmovne	%ecx, %edx
+	cmpb	$0, -196(%ebp)
+	movl	%esi, -108(%ebp)
+	movl	$0, -100(%ebp)
+	movl	%edx, -104(%ebp)
+	je	L909
+	xorl	%ecx, %ecx
+	xorl	%edi, %edi
+	xorl	%eax, %eax
+	movb	%cl, -188(%ebp)
+	jmp	L914
+	.p2align 4,,10
+L911:
+	movb	$1, -188(%ebp)
+	movl	$48, (%esi)
+	movl	%ecx, %esi
+L910:
+	addl	$1, %eax
+	movl	$1, %edi
+	cmpl	%eax, %ebx
+	je	L756
+L914:
+	testl	%esi, %esi
+	je	L910
+	leal	2(%esi), %ecx
+	cmpl	%ecx, %edx
+	ja	L911
+	movzbl	-188(%ebp), %ebx
+	testb	%bl, %bl
+	je	L912
+	movl	%esi, -112(%ebp)
+L912:
+	movl	%edi, %ebx
+	testb	%bl, %bl
+	je	L817
+	movl	%eax, -100(%ebp)
+L817:
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
 	.p2align 4,,10
-L867:
-	leal	-180(%ebp), %eax
+L773:
+	movl	24(%ebp), %edx
+	movl	$0, %eax
+	testl	%esi, %esi
+	movl	%esi, -68(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal12StringWriterE+8, -72(%ebp)
+	leal	(%esi,%edx,2), %edx
+	movl	%esi, -64(%ebp)
+	cmove	%eax, %edx
+	movl	$67, %eax
+	movl	$0, -56(%ebp)
+	movl	$1000000000, -44(%ebp)
+	movl	%edx, -60(%ebp)
+	movl	$9, -40(%ebp)
+	movw	%ax, -36(%ebp)
+	movl	%ecx, -32(%ebp)
+	movl	%ebx, -28(%ebp)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeCE+8, -48(%ebp)
+	cmpl	$-1, %ecx
+	jne	L775
+	movl	(%ebx), %edx
+	movl	%edx, -32(%ebp)
+L775:
+	cmpb	$0, -196(%ebp)
+	movl	100(%ebx), %edx
+	je	L776
+	cmpl	$2, %edx
+	je	L777
+	leal	-72(%ebp), %esi
+	cmpl	$3, %edx
+	je	L778
+	cmpl	$1, %edx
+	je	L778
+	movzwl	312(%ebx), %eax
+	leal	312(%ebx), %edi
+	testw	%ax, %ax
+	je	L778
+	.p2align 4,,10
+L779:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %edi
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%edi), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L779
+L778:
+	movl	$48, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-32(%ebp), %ebx
+	subl	$4, %esp
+	testl	%ebx, %ebx
+	jle	L789
+	movl	-28(%ebp), %eax
+	leal	4(%eax), %edi
+	movzwl	4(%eax), %eax
+	testw	%ax, %ax
+	je	L790
+	.p2align 4,,10
+L788:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %edi
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%edi), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L788
+	movl	-32(%ebp), %ebx
+	testl	%ebx, %ebx
+	je	L789
+	.p2align 4,,10
+L790:
+	movl	$48, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	subl	$4, %esp
+	subl	$1, %ebx
+	jne	L790
+L789:
+	movl	-28(%ebp), %edx
+	movl	100(%edx), %eax
+	cmpl	$1, %eax
+	je	L784
+	cmpl	$3, %eax
+	jne	L1243
+	movl	$32, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-28(%ebp), %eax
+	subl	$4, %esp
+	leal	312(%eax), %ebx
+	movzwl	312(%eax), %eax
+	testw	%ax, %ax
+	je	L1243
+	.p2align 4,,10
+L794:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%ebx), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L794
+	jmp	L1243
+	.p2align 4,,10
+L827:
+	leal	-156(%ebp), %eax
+	movl	%edi, (%esp)
 	leal	-72(%ebp), %ecx
 	movl	%eax, 4(%esp)
-	movl	8(%ebp), %eax
-	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 	subl	$8, %esp
-L1297:
-	movl	-164(%ebp), %eax
-	jmp	L747
+L1245:
+	movl	-140(%ebp), %eax
+	jmp	L756
 	.p2align 4,,10
-L882:
-	leal	-160(%ebp), %eax
+L809:
+	leal	-176(%ebp), %eax
+	movl	%edi, (%esp)
+	leal	-96(%ebp), %ecx
+	movl	%eax, 4(%esp)
+	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+	subl	$8, %esp
+L1244:
+	movl	-160(%ebp), %eax
+	jmp	L756
+	.p2align 4,,10
+L1254:
+	movzwl	-196(%ebp), %edx
+	leal	-48(%edx), %ecx
+	cmpw	$9, %cx
+	ja	L762
+	jmp	L929
+	.p2align 4,,10
+L842:
+	cmpl	$2, %edx
+	je	L882
+	cmpl	$3, %edx
+	jne	L884
+	movzwl	414(%ebx), %edx
+	testw	%dx, %dx
+	je	L890
+	movb	$0, -192(%ebp)
+	xorl	%eax, %eax
+	movl	%edi, 8(%ebp)
+	xorl	%edi, %edi
+	.p2align 4,,10
+L894:
+	testl	%esi, %esi
+	je	L891
+	leal	2(%esi), %ecx
+	cmpl	%ecx, -188(%ebp)
+	jbe	L1236
+	movb	$1, -192(%ebp)
+	movw	%dx, (%esi)
+	xorl	%edx, %edx
+	movw	%dx, 2(%esi)
+	movl	%ecx, %esi
+L891:
+	addl	$1, %eax
+	movl	$1, %edi
+	movzwl	414(%ebx,%eax,2), %edx
+	testw	%dx, %dx
+	jne	L894
+	cmpb	$0, -192(%ebp)
+	movl	8(%ebp), %edi
+	je	L895
+	movl	%esi, -132(%ebp)
+L895:
+	movl	%eax, -120(%ebp)
+L890:
+	movl	$32, (%esp)
+	leal	-136(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	subl	$4, %esp
+L884:
+	leal	-72(%ebp), %esi
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE24:
+	movl	$100, 4(%esp)
+	movl	%edi, (%esp)
+LEHB25:
+	call	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	movl	%eax, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	subl	$4, %esp
+	leal	-136(%ebp), %eax
 	leal	-48(%ebp), %ecx
 	movl	%eax, 4(%esp)
-	movl	8(%ebp), %eax
-	movl	%eax, (%esp)
+	movl	%ebx, (%esp)
+	movl	%eax, -196(%ebp)
 	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+LEHE25:
 	subl	$8, %esp
-L1298:
-	movl	-144(%ebp), %eax
-	jmp	L747
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	-28(%ebp), %ebx
+	movl	308(%ebx), %eax
+	cmpl	$1, %eax
+	je	L896
+	testl	%eax, %eax
+	jle	L897
+	cmpl	$3, %eax
+	jg	L897
+L1247:
+	movl	-120(%ebp), %eax
+	jmp	L756
 	.p2align 4,,10
-L767:
+L776:
 	cmpl	$2, %edx
-	je	L809
+	je	L795
+	leal	-72(%ebp), %esi
 	cmpl	$3, %edx
-	je	L1286
+	je	L796
 	cmpl	$1, %edx
-	je	L1286
-	movzwl	312(%esi), %edx
+	je	L796
+	movzwl	312(%ebx), %eax
+	leal	312(%ebx), %edx
+	testw	%ax, %ax
+	je	L796
+	movl	%edx, %ebx
+	.p2align 4,,10
+L797:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+LEHB26:
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	%ebx, %eax
+	addl	$2, %eax
+	subl	$4, %esp
+	movl	%eax, %ebx
+	movzwl	(%eax), %eax
+	testw	%ax, %ax
+	jne	L797
+	.p2align 4,,10
+L796:
+	movl	%esi, 4(%esp)
+	leal	-48(%ebp), %ecx
+	movl	%edi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+	movl	-28(%ebp), %edx
+	subl	$8, %esp
+	movl	100(%edx), %eax
+	cmpl	$1, %eax
+	je	L801
+	cmpl	$3, %eax
+	jne	L1243
+	movl	$32, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-28(%ebp), %eax
+	subl	$4, %esp
+	leal	312(%eax), %ebx
+	movzwl	312(%eax), %eax
+	testw	%ax, %ax
+	je	L1243
+	.p2align 4,,10
+L804:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%ebx), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L804
+	jmp	L1243
+	.p2align 4,,10
+L844:
+	movzwl	414(%ebx), %edx
 	testw	%dx, %dx
-	je	L1286
-	movb	$0, -240(%ebp)
+	je	L851
+	movb	$0, -192(%ebp)
 	xorl	%edi, %edi
 	xorl	%eax, %eax
 	.p2align 4,,10
-L814:
-	testl	%ebx, %ebx
-	je	L811
-	leal	2(%ebx), %ecx
-	cmpl	%ecx, -236(%ebp)
-	jbe	L1289
-	movb	$1, -240(%ebp)
-	movw	%dx, (%ebx)
+L855:
+	testl	%esi, %esi
+	je	L852
+	leal	2(%esi), %ecx
+	cmpl	%ecx, -188(%ebp)
+	jbe	L1240
+	movb	$1, -192(%ebp)
+	movw	%dx, (%esi)
 	xorl	%edx, %edx
-	movw	%dx, 2(%ebx)
-	movl	%ecx, %ebx
-L811:
+	movw	%dx, 2(%esi)
+	movl	%ecx, %esi
+L852:
 	addl	$1, %eax
 	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %edx
+	movzwl	414(%ebx,%eax,2), %edx
 	testw	%dx, %dx
-	jne	L814
-	cmpb	$0, -240(%ebp)
-	je	L815
-	movl	%ebx, -216(%ebp)
-L815:
-	movl	%eax, -204(%ebp)
-	.p2align 4,,10
-L1286:
-	leal	-220(%ebp), %eax
-	movl	%eax, -244(%ebp)
-L810:
-	movl	-244(%ebp), %eax
-	leal	-120(%ebp), %ecx
-	movl	%eax, 4(%esp)
-	movl	8(%ebp), %eax
-	movl	%eax, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-	movl	-100(%ebp), %ebx
-	subl	$8, %esp
-	movl	100(%ebx), %eax
-	cmpl	$1, %eax
-	je	L822
-	cmpl	$3, %eax
-	jne	L1296
+	jne	L855
+	cmpb	$0, -192(%ebp)
+	je	L856
+	movl	%esi, -132(%ebp)
+L856:
+	movl	%eax, -120(%ebp)
+L851:
 	movl	$32, (%esp)
-	movl	-244(%ebp), %ecx
+	leal	-136(%ebp), %eax
+	movl	%eax, %ecx
+	movl	%eax, -196(%ebp)
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-100(%ebp), %esi
 	subl	$4, %esp
-	movzwl	312(%esi), %ecx
-	testw	%cx, %cx
-	je	L1296
-	movl	-208(%ebp), %eax
-	movl	-216(%ebp), %edx
+	jmp	L845
+	.p2align 4,,10
+L784:
+	movzwl	312(%edx), %eax
+	leal	312(%edx), %ebx
+	testw	%ax, %ax
+	je	L1243
+	.p2align 4,,10
+L792:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%ebx), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L792
+	jmp	L1243
+	.p2align 4,,10
+L843:
+	movzwl	414(%ebx), %edx
+	testw	%dx, %dx
+	je	L1234
+	movb	$0, -192(%ebp)
 	xorl	%edi, %edi
-	movl	%eax, -240(%ebp)
-	movl	-204(%ebp), %eax
+	xorl	%eax, %eax
+	.p2align 4,,10
+L849:
+	testl	%esi, %esi
+	je	L846
+	leal	2(%esi), %ecx
+	cmpl	%ecx, -188(%ebp)
+	jbe	L1240
+	movb	$1, -192(%ebp)
+	xorl	%edi, %edi
+	movw	%dx, (%esi)
+	movw	%di, 2(%esi)
+	movl	%ecx, %esi
+L846:
+	addl	$1, %eax
+	movl	$1, %edi
+	movzwl	414(%ebx,%eax,2), %edx
+	testw	%dx, %dx
+	jne	L849
+	cmpb	$0, -192(%ebp)
+	je	L850
+	movl	%esi, -132(%ebp)
+L850:
+	movl	%eax, -120(%ebp)
+	jmp	L1234
+	.p2align 4,,10
+L777:
+	movzwl	312(%ebx), %eax
+	leal	312(%ebx), %edi
+	leal	-72(%ebp), %esi
+	testw	%ax, %ax
+	je	L782
+	.p2align 4,,10
+L781:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %edi
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%edi), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L781
+L782:
+	movl	$32, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	subl	$4, %esp
+	jmp	L778
+	.p2align 4,,10
+L882:
+	movzwl	414(%ebx), %edx
+	testw	%dx, %dx
+	je	L884
+	movb	$0, -192(%ebp)
+	xorl	%eax, %eax
+	movl	%edi, 8(%ebp)
+	xorl	%edi, %edi
+	.p2align 4,,10
+L888:
+	testl	%esi, %esi
+	je	L885
+	leal	2(%esi), %ecx
+	cmpl	%ecx, -188(%ebp)
+	jbe	L1236
+	movb	$1, -192(%ebp)
+	xorl	%edi, %edi
+	movw	%dx, (%esi)
+	movw	%di, 2(%esi)
+	movl	%ecx, %esi
+L885:
+	addl	$1, %eax
+	movl	$1, %edi
+	movzwl	414(%ebx,%eax,2), %edx
+	testw	%dx, %dx
+	jne	L888
+	cmpb	$0, -192(%ebp)
+	movl	8(%ebp), %edi
+	je	L889
+	movl	%esi, -132(%ebp)
+L889:
+	movl	%eax, -120(%ebp)
+	jmp	L884
+	.p2align 4,,10
+L801:
+	movzwl	312(%edx), %eax
+	leal	312(%edx), %ebx
+	testw	%ax, %ax
+	je	L1243
+	.p2align 4,,10
+L803:
+	movl	%eax, (%esp)
+	movl	%esi, %ecx
+	addl	$2, %ebx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%ebx), %eax
+	subl	$4, %esp
+	testw	%ax, %ax
+	jne	L803
+	jmp	L1243
+	.p2align 4,,10
+L897:
+	movl	$32, (%esp)
+	movl	-196(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	-28(%ebp), %esi
+	subl	$4, %esp
+	movzwl	414(%esi), %ecx
+	testw	%cx, %cx
+	je	L1247
+	movl	-124(%ebp), %eax
+	movl	-132(%ebp), %edx
+	xorl	%edi, %edi
+	movl	%eax, -192(%ebp)
+	movl	-120(%ebp), %eax
 	leal	(%eax,%eax), %ebx
 	subl	%ebx, %esi
 	xorl	%ebx, %ebx
-	movb	%bl, -236(%ebp)
-	jmp	L832
+	movb	%bl, -188(%ebp)
+	jmp	L903
 	.p2align 4,,10
-L830:
-	movb	$1, -236(%ebp)
+L901:
+	movb	$1, -188(%ebp)
 	xorl	%edi, %edi
 	movw	%cx, (%edx)
 	movw	%di, 2(%edx)
 	movl	%ebx, %edx
-L829:
+L900:
 	addl	$1, %eax
 	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %ecx
+	movzwl	414(%esi,%eax,2), %ecx
 	testw	%cx, %cx
-	je	L747
-L832:
+	je	L756
+L903:
 	testl	%edx, %edx
-	je	L829
-	leal	2(%edx), %ebx
-	cmpl	-240(%ebp), %ebx
-	jb	L830
-	jmp	L1290
-	.p2align 4,,10
-L836:
-	leal	-120(%ebp), %ecx
-	leal	-72(%ebp), %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE24:
-	movl	8(%ebp), %eax
-	movl	%ebx, %ecx
-	movl	16(%eax), %edi
-	movl	36(%eax), %esi
-LEHB25:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE25:
-	movl	%edi, -244(%ebp)
-	sall	$5, %edi
-	movl	%ebx, %ecx
-	movl	%edi, (%esp)
-LEHB26:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	subl	$4, %esp
-	movl	%ebx, %ecx
-	movl	%eax, -240(%ebp)
-	movl	%edi, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-LEHE26:
-	movl	%eax, -236(%ebp)
-	movl	-244(%ebp), %eax
-	subl	$4, %esp
-	movl	-240(%ebp), %edi
-	movl	%eax, %ecx
-/APP
- # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsd
- # 0 "" 2
-/NO_APP
-	xorl	%esi, %esi
-	testl	%eax, %eax
-	je	L854
-	leal	1073741823(%eax), %edi
-	.p2align 4,,10
-L855:
-	movl	-240(%ebp), %eax
-	movl	(%eax,%edi,4), %eax
-	testl	%eax, %eax
-	jne	L856
-	subl	$1, -244(%ebp)
-	je	L854
-	movl	-244(%ebp), %eax
-	leal	1073741823(%eax), %edi
-	jmp	L855
-	.p2align 4,,10
-L854:
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-80(%ebp), %eax
-	leal	2(%eax), %edx
-	cmpl	%esi, %edx
-	ja	L1313
-	leal	-48(%ebp), %edi
-	subl	%eax, %esi
-	movl	%edi, %ecx
-	subl	$2, %esi
-	movl	%edi, -248(%ebp)
-LEHB27:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE27:
-	movl	$10, (%esp)
-LEHB28:
-	call	__ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
-	movl	%eax, (%esp)
-	movl	%edi, %ecx
-	movl	%eax, %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	movl	%esi, 4(%esp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-	movl	%eax, (%esp)
-	movl	%edi, %ecx
-	movl	%eax, %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	movl	$5, 4(%esp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-LEHE28:
-	movl	%eax, %ebx
-	movl	%edi, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	%ebx, (%esp)
-	leal	-120(%ebp), %ecx
-LEHB29:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movl	8(%ebp), %eax
-	subl	$4, %esp
-	movl	%ebx, 4(%esp)
-	movl	%eax, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_
-	movl	%eax, (%esp)
-	leal	-120(%ebp), %ecx
-	movl	%eax, %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	leal	-200(%ebp), %eax
-	leal	-96(%ebp), %ecx
-	movl	%eax, 4(%esp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-LEHE29:
-	jmp	L1291
-	.p2align 4,,10
-L897:
-	cmpl	$2, %edx
-	je	L916
-	cmpl	$3, %edx
-	je	L917
-L918:
-	leal	-96(%ebp), %ecx
-LEHB30:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE30:
-	movl	8(%ebp), %eax
-	movl	$100, 4(%esp)
-	movl	%eax, (%esp)
-LEHB31:
-	call	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-	movl	%eax, (%esp)
-	leal	-96(%ebp), %ecx
-	movl	%eax, %esi
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	leal	-72(%ebp), %ebx
-	leal	-48(%ebp), %eax
-	movl	%esi, (%esp)
-	movl	%eax, %ecx
-	movl	%eax, %esi
-	movl	%ebx, 4(%esp)
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-LEHE31:
-	subl	$8, %esp
-	leal	-96(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-240(%ebp), %eax
-	movl	%ebx, 4(%esp)
-	movl	%esi, %ecx
-	movl	%eax, (%esp)
-LEHB32:
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE
-LEHE32:
-	subl	$8, %esp
-	jmp	L908
-	.p2align 4,,10
-L1313:
-	leal	-200(%ebp), %eax
-	leal	-96(%ebp), %ecx
-	movl	%eax, 4(%esp)
-	movl	8(%ebp), %eax
-	movl	%eax, (%esp)
-LEHB33:
-	call	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-LEHE33:
-L1291:
-	subl	$8, %esp
-	leal	-120(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-184(%ebp), %eax
-	jmp	L747
-	.p2align 4,,10
-L917:
-	movzwl	414(%esi), %eax
-	leal	414(%esi), %edi
-	leal	-72(%ebp), %ebx
-	testw	%ax, %ax
-	je	L922
-	.p2align 4,,10
-L921:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %edi
-LEHB34:
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%edi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L921
-L922:
-	movl	$32, (%esp)
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	subl	$4, %esp
-	jmp	L918
-	.p2align 4,,10
-L907:
-	movl	$32, (%esp)
-	movl	%ebx, %ecx
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	-28(%ebp), %eax
-	subl	$4, %esp
-	leal	414(%eax), %esi
-	movzwl	414(%eax), %eax
-	testw	%ax, %ax
-	je	L908
-	.p2align 4,,10
-L913:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %esi
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%esi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L913
-	jmp	L908
-	.p2align 4,,10
-L906:
-	movzwl	414(%edx), %eax
-	leal	414(%edx), %esi
-	testw	%ax, %ax
-	je	L908
-	.p2align 4,,10
-L915:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %esi
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%esi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L915
-	jmp	L908
-	.p2align 4,,10
-L898:
-	movzwl	414(%esi), %eax
-	leal	414(%esi), %edi
-	leal	-72(%ebp), %ebx
-	testw	%ax, %ax
 	je	L900
+	leal	2(%edx), %ebx
+	cmpl	-192(%ebp), %ebx
+	jb	L901
+L1238:
+	movzbl	-188(%ebp), %ebx
+	testb	%bl, %bl
+	jne	L1237
+	jmp	L906
 	.p2align 4,,10
-L901:
-	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %edi
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%edi), %eax
-	subl	$4, %esp
-	testw	%ax, %ax
-	jne	L901
-	jmp	L900
-	.p2align 4,,10
-L768:
-	movzwl	312(%esi), %edx
-	testw	%dx, %dx
-	je	L777
-	movb	$0, -240(%ebp)
+L896:
+	movzwl	414(%ebx), %ecx
+	movl	-120(%ebp), %eax
+	testw	%cx, %cx
+	je	L756
+	leal	(%eax,%eax), %esi
+	movl	-124(%ebp), %edi
+	movl	-132(%ebp), %edx
+	subl	%esi, %ebx
+	movl	%ebx, %esi
+	xorl	%ebx, %ebx
+	movl	%edi, -192(%ebp)
 	xorl	%edi, %edi
-	xorl	%eax, %eax
+	movb	%bl, -188(%ebp)
+	movl	%esi, %ebx
+	jmp	L907
 	.p2align 4,,10
-L782:
-	testl	%ebx, %ebx
-	je	L778
-	leal	2(%ebx), %ecx
-	cmpl	%ecx, -236(%ebp)
-	jbe	L1289
-	movb	$1, -240(%ebp)
-	movw	%dx, (%ebx)
-	xorl	%edx, %edx
-	movw	%dx, 2(%ebx)
-	movl	%ecx, %ebx
-L778:
+L905:
+	movb	$1, -188(%ebp)
+	movw	%cx, (%edx)
+	xorl	%ecx, %ecx
+	movw	%cx, 2(%edx)
+	movl	%esi, %edx
+L904:
 	addl	$1, %eax
 	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %edx
-	testw	%dx, %dx
-	jne	L782
-	cmpb	$0, -240(%ebp)
-	je	L783
-	movl	%ebx, -216(%ebp)
-L783:
-	movl	%eax, -204(%ebp)
-L777:
-	movl	$32, (%esp)
-	leal	-220(%ebp), %eax
-	movl	%eax, %ecx
-	movl	%eax, -244(%ebp)
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	subl	$4, %esp
-	jmp	L769
+	movzwl	414(%ebx,%eax,2), %ecx
+	testw	%cx, %cx
+	je	L756
+L907:
+	testl	%edx, %edx
+	je	L904
+	leal	2(%edx), %esi
+	cmpl	-192(%ebp), %esi
+	jb	L905
+	jmp	L1238
 	.p2align 4,,10
-L809:
-	movzwl	312(%esi), %edx
-	testw	%dx, %dx
-	je	L816
-	movb	$0, -240(%ebp)
-	xorl	%edi, %edi
-	xorl	%eax, %eax
-	.p2align 4,,10
-L820:
-	testl	%ebx, %ebx
-	je	L817
-	leal	2(%ebx), %ecx
-	cmpl	%ecx, -236(%ebp)
-	jbe	L1289
-	movb	$1, -240(%ebp)
-	xorl	%edi, %edi
-	movw	%dx, (%ebx)
-	movw	%di, 2(%ebx)
-	movl	%ecx, %ebx
-L817:
-	addl	$1, %eax
-	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %edx
-	testw	%dx, %dx
-	jne	L820
-	cmpb	$0, -240(%ebp)
-	je	L821
-	movl	%ebx, -216(%ebp)
-L821:
-	movl	%eax, -204(%ebp)
-L816:
-	movl	$32, (%esp)
-	leal	-220(%ebp), %eax
-	movl	%eax, %ecx
-	movl	%eax, -244(%ebp)
-	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	subl	$4, %esp
-	jmp	L810
-	.p2align 4,,10
-L916:
-	movzwl	414(%esi), %eax
-	leal	414(%esi), %edi
-	leal	-72(%ebp), %ebx
+L795:
+	leal	312(%ebx), %eax
+	leal	-72(%ebp), %esi
+	movl	%eax, %edx
+	movzwl	312(%ebx), %eax
+	movl	%edx, %ebx
 	testw	%ax, %ax
-	je	L918
+	je	L800
 	.p2align 4,,10
-L919:
+L799:
 	movl	%eax, (%esp)
-	movl	%ebx, %ecx
-	addl	$2, %edi
+	movl	%esi, %ecx
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%edi), %eax
+	movl	%ebx, %eax
+	addl	$2, %eax
 	subl	$4, %esp
+	movl	%eax, %ebx
+	movzwl	(%eax), %eax
 	testw	%ax, %ax
-	jne	L919
-	jmp	L918
-L755:
+	jne	L799
+L800:
+	movl	$32, (%esp)
+	movl	%esi, %ecx
+	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	subl	$4, %esp
+	jmp	L796
+L764:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-7, 4(%eax)
@@ -7188,324 +7171,250 @@ L755:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal15FormatExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-LEHE34:
 	.p2align 4,,10
-L856:
-	movl	-236(%ebp), %eax
-	movl	%ebx, %ecx
-	movl	%eax, (%esp)
-LEHB35:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPj
-	movl	-244(%ebp), %ecx
-	subl	$4, %esp
-	leal	-48(%ebp), %eax
-	movl	%eax, 16(%esp)
-	movl	-236(%ebp), %eax
-	movl	%ecx, 4(%esp)
-	movl	-240(%ebp), %ecx
-	movl	%eax, 12(%esp)
-	movl	$10, 8(%esp)
-	movl	%ecx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
-LEHE35:
-	movl	-240(%ebp), %eax
-	movl	-236(%ebp), %edx
-	addl	$1, %esi
-	movl	%edx, -240(%ebp)
-	movl	%eax, -236(%ebp)
-	jmp	L855
-	.p2align 4,,10
-L1296:
-	movl	-204(%ebp), %eax
-	jmp	L747
-	.p2align 4,,10
-L925:
-	leal	-48(%ebp), %esi
-	movl	%esi, %ecx
-	movl	%esi, -248(%ebp)
-LEHB36:
+L909:
+	leal	-48(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE36:
-	movl	8(%ebp), %eax
-	movl	%esi, %ecx
-	movl	20(%eax), %ebx
-	leal	4(%ebx), %eax
+LEHE26:
+	movl	20(%edi), %eax
+	leal	-48(%ebp), %ecx
+	movl	%eax, -192(%ebp)
+	addl	$4, %eax
 	movl	%eax, (%esp)
-LEHB37:
+LEHB27:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	movl	8(%ebp), %edi
-	movl	8(%ebp), %esi
-	subl	$4, %esp
-	movl	%eax, -240(%ebp)
+	movl	36(%edi), %esi
 	movl	16(%edi), %ecx
-	movl	36(%esi), %esi
+	subl	$4, %esp
+	movl	%eax, %edx
 	movl	%eax, %edi
 /APP
  # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsd
  # 0 "" 2
 /NO_APP
-	addl	$35, %ebx
-	movl	%eax, %edi
-	shrl	$5, %ebx
-	leal	-1(%eax,%ebx,4), %edx
-	leal	0(,%ebx,8), %ecx
-	cmpl	%edx, %eax
-	ja	L970
-	movzbl	(%edx), %esi
-	testl	$240, %esi
-	jne	L970
-	testl	$8, %esi
-	jne	L970
+	movl	-192(%ebp), %eax
+	movl	%edx, %edi
+	movl	%edi, -192(%ebp)
+	addl	$35, %eax
+	shrl	$5, %eax
+	leal	-1(%edx,%eax,4), %edx
+	leal	0(,%eax,8), %ecx
+	cmpl	%edx, %edi
+	ja	L951
+	movzbl	(%edx), %edi
+	testl	$240, %edi
+	jne	L951
+	testl	$8, %edi
+	jne	L951
 	leal	-1(%edx), %eax
-	leal	-1(%ecx), %ebx
-	movl	%eax, -252(%ebp)
-	movl	%esi, %eax
+	leal	-1(%ecx), %esi
+	movl	%eax, -196(%ebp)
+	movl	%edi, %eax
 	testb	%al, %al
-	jne	L931
-	movl	%edi, %esi
-	cmpl	%edi, -252(%ebp)
-	jb	L931
+	jne	L915
+	movl	-192(%ebp), %eax
+	cmpl	%eax, -196(%ebp)
+	jb	L915
 	cmpb	$0, -1(%edx)
-	js	L931
-	movzwl	-236(%ebp), %eax
-	leal	-1(%edi), %edi
-	movl	%esi, -236(%ebp)
-	movw	%ax, -256(%ebp)
-	movl	-252(%ebp), %eax
-	jmp	L932
+	js	L915
+	movl	%eax, %esi
+	leal	-1(%eax), %edi
+	movzwl	-188(%ebp), %eax
+	movw	%ax, -200(%ebp)
+	movl	-196(%ebp), %eax
+	movl	%ebx, -196(%ebp)
+	movl	%esi, %ebx
+	jmp	L916
 	.p2align 4,,10
-L933:
+L917:
 	movzbl	(%eax), %edx
 	testb	$-16, %dl
-	jne	L1279
+	jne	L1229
 	testb	$8, %dl
-	jne	L1279
-	leal	-3(%ecx), %esi
+	jne	L1229
+	subl	$3, %ecx
 	subl	$1, %eax
-	cmpl	%eax, -236(%ebp)
-	ja	L972
+	movl	%ecx, -188(%ebp)
+	cmpl	%eax, %ebx
+	ja	L953
 	testb	%dl, %dl
-	jne	L972
+	jne	L953
 	cmpb	$0, (%eax)
-	movl	%ebx, %ecx
-	js	L972
-L932:
-	leal	-2(%ecx), %ebx
+	movl	%esi, %ecx
+	js	L953
+L916:
+	leal	-2(%ecx), %esi
 	cmpl	%edi, %eax
-	jne	L933
-L1279:
-	movzwl	-256(%ebp), %eax
-	movw	%ax, -236(%ebp)
-L931:
-	movl	-240(%ebp), %eax
-	movl	-248(%ebp), %ecx
+	jne	L917
+L1229:
+	movzwl	-200(%ebp), %eax
+	movl	-196(%ebp), %ebx
+	movw	%ax, -188(%ebp)
+L915:
+	movl	-192(%ebp), %eax
+	leal	-48(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
-	leal	7(%ebx), %edx
+	leal	7(%esi), %edx
 	subl	$4, %esp
 	movl	%edx, %eax
 	andl	$-8, %edx
 	shrl	$3, %eax
-	subl	%ebx, %edx
-	movl	%eax, -252(%ebp)
-	movl	-244(%ebp), %eax
-	movl	%edx, -256(%ebp)
-	cmpl	%eax, %ebx
-	jnb	L934
-	movl	%eax, %ecx
-	movl	-124(%ebp), %edx
-	movl	-136(%ebp), %eax
+	subl	%esi, %edx
+	movl	%eax, -196(%ebp)
+	movl	%edx, -200(%ebp)
+	cmpl	%ebx, %esi
+	jnb	L918
+	subl	%esi, %ebx
+	movl	-100(%ebp), %edx
+	movl	-104(%ebp), %eax
 	xorl	%esi, %esi
-	subl	%ebx, %ecx
-	movl	-128(%ebp), %ebx
-	xorl	%edi, %edi
-	addl	%edx, %ecx
-	movl	%ecx, -244(%ebp)
-	movzwl	-236(%ebp), %ecx
-	movl	%ebx, -236(%ebp)
-	movw	%cx, -258(%ebp)
-	movl	-244(%ebp), %ecx
+	movl	%ebx, %ecx
+	xorl	%ebx, %ebx
+	leal	(%ecx,%edx), %edi
+	movzwl	-188(%ebp), %ecx
+	movl	%eax, -204(%ebp)
+	movl	-112(%ebp), %eax
+	movw	%cx, -208(%ebp)
+	movl	-204(%ebp), %ecx
+	movl	%ecx, -188(%ebp)
 	.p2align 4,,10
-L939:
+L923:
 	testl	%eax, %eax
-	je	L935
-	leal	2(%eax), %ebx
-	cmpl	-236(%ebp), %ebx
-	jnb	L1314
+	je	L919
+	leal	2(%eax), %ecx
+	cmpl	-188(%ebp), %ecx
+	jnb	L1260
 	movl	$48, (%eax)
-	movl	$1, %edi
-	movl	%ebx, %eax
-L935:
-	addl	$1, %edx
 	movl	$1, %esi
-	cmpl	%edx, %ecx
-	jne	L939
-	movzwl	-258(%ebp), %esi
-	movl	%edi, %ecx
-	movw	%si, -236(%ebp)
-	testb	%cl, %cl
-	je	L940
-	movl	%eax, -136(%ebp)
-L940:
-	movl	%edx, -124(%ebp)
-L934:
-	movl	-240(%ebp), %eax
-	movl	-252(%ebp), %esi
-	leal	-140(%ebp), %edi
-	cmpw	$88, -236(%ebp)
-	movl	-256(%ebp), %edx
-	movl	%edi, (%esp)
-	leal	-4(%eax,%esi,4), %ebx
-	movl	$__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_lower_digitsE, %eax
+	movl	%ecx, %eax
+L919:
+	addl	$1, %edx
+	movl	$1, %ebx
+	cmpl	%edx, %edi
+	jne	L923
+	movzwl	-208(%ebp), %edi
+	movl	%esi, %ebx
+	movw	%di, -188(%ebp)
+	testb	%bl, %bl
+	je	L924
+	movl	%eax, -112(%ebp)
+L924:
+	movl	%edx, -100(%ebp)
+L918:
+	movl	-192(%ebp), %eax
+	movl	-196(%ebp), %edi
 	movl	$__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_upper_digitsE, %esi
+	cmpw	$88, -188(%ebp)
+	movl	-200(%ebp), %edx
+	leal	-4(%eax,%edi,4), %ebx
+	movl	$__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_lower_digitsE, %eax
+	leal	-116(%ebp), %edi
 	cmovne	%eax, %esi
+	movl	%edi, (%esp)
 	movl	(%ebx), %eax
 	movl	%esi, %ecx
 	call	__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEjjPwPNS2_12StringWriterE.constprop.27
-	jmp	L1293
+	jmp	L1242
 	.p2align 4,,10
-L942:
+L926:
 	movl	%edi, (%esp)
 	movl	(%ebx), %eax
 	movl	%esi, %ecx
 	xorl	%edx, %edx
 	call	__ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEjjPwPNS2_12StringWriterE.constprop.27
-LEHE37:
-L1293:
+LEHE27:
+L1242:
 	subl	$4, %ebx
-	cmpl	%ebx, -240(%ebp)
-	jbe	L942
-	movl	-124(%ebp), %eax
-	movl	-248(%ebp), %ecx
-	movl	%eax, -236(%ebp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-236(%ebp), %eax
-	jmp	L747
-	.p2align 4,,10
-L1304:
-	movl	$-1, %ecx
-	jmp	L754
-	.p2align 4,,10
-L1305:
-	movzwl	-244(%ebp), %ecx
-	subl	$48, %ecx
-	jmp	L754
-	.p2align 4,,10
-L1310:
+	cmpl	%ebx, -192(%ebp)
+	jbe	L926
 	movl	-100(%ebp), %eax
-	movl	%eax, -248(%ebp)
-	jmp	L785
+	leal	-48(%ebp), %ecx
+	movl	%eax, -188(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	-188(%ebp), %eax
+	jmp	L756
 	.p2align 4,,10
-L797:
-	movl	-248(%ebp), %esi
-	movl	-204(%ebp), %eax
-	movzwl	312(%esi), %ecx
+L1252:
+	movl	$-1, %ecx
+	jmp	L763
+	.p2align 4,,10
+L1253:
+	movzwl	-196(%ebp), %ecx
+	subl	$48, %ecx
+	jmp	L763
+	.p2align 4,,10
+L1255:
+	movl	-28(%ebp), %eax
+	movl	%eax, -200(%ebp)
+	jmp	L858
+	.p2align 4,,10
+L870:
+	movl	-200(%ebp), %edi
+	movl	-120(%ebp), %eax
+	movzwl	414(%edi), %ecx
 	testw	%cx, %cx
-	je	L747
+	je	L756
+	movl	-124(%ebp), %esi
 	leal	(%eax,%eax), %ebx
-	movl	-208(%ebp), %edi
-	movl	-216(%ebp), %edx
-	subl	%ebx, %esi
-	movl	%esi, %ebx
+	movl	-132(%ebp), %edx
+	subl	%ebx, %edi
+	movl	%edi, %ebx
+	movl	%esi, -196(%ebp)
 	xorl	%esi, %esi
-	movl	%edi, -244(%ebp)
 	xorl	%edi, %edi
-	movl	%ebx, -236(%ebp)
+	movl	%ebx, -188(%ebp)
 	movl	%esi, %ebx
-	movb	%bl, -240(%ebp)
-	jmp	L803
+	movb	%bl, -192(%ebp)
+	jmp	L881
 	.p2align 4,,10
-L801:
-	movb	$1, -240(%ebp)
-	xorl	%ebx, %ebx
-	movw	%cx, (%edx)
-	movw	%bx, 2(%edx)
-	movl	%esi, %edx
-L800:
-	movl	-236(%ebp), %esi
-	addl	$1, %eax
-	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %ecx
-	testw	%cx, %cx
-	je	L747
-L803:
-	testl	%edx, %edx
-	je	L800
-	leal	2(%edx), %esi
-	cmpl	-244(%ebp), %esi
-	jb	L801
-L1300:
-	movzbl	-240(%ebp), %ecx
-	testb	%cl, %cl
-	jne	L1288
-	jmp	L831
-	.p2align 4,,10
-L822:
-	movzwl	312(%ebx), %ecx
-	movl	-204(%ebp), %eax
-	testw	%cx, %cx
-	je	L747
-	movl	-208(%ebp), %esi
-	movl	-216(%ebp), %edx
-	xorl	%edi, %edi
-	movl	%esi, -244(%ebp)
-	leal	(%eax,%eax), %esi
-	subl	%esi, %ebx
-	xorl	%esi, %esi
-	movl	%ebx, -236(%ebp)
-	movl	%esi, %ebx
-	movb	%bl, -240(%ebp)
-	jmp	L827
-	.p2align 4,,10
-L825:
-	movb	$1, -240(%ebp)
+L879:
+	movb	$1, -192(%ebp)
 	movw	%cx, (%edx)
 	xorl	%ecx, %ecx
 	movw	%cx, 2(%edx)
 	movl	%esi, %edx
-L824:
-	movl	-236(%ebp), %esi
+L878:
+	movl	-188(%ebp), %edi
 	addl	$1, %eax
+	movzwl	414(%edi,%eax,2), %ecx
 	movl	$1, %edi
-	movzwl	312(%esi,%eax,2), %ecx
 	testw	%cx, %cx
-	je	L747
-L827:
+	je	L756
+L881:
 	testl	%edx, %edx
-	je	L824
+	je	L878
 	leal	2(%edx), %esi
-	cmpl	-244(%ebp), %esi
-	jb	L825
-	jmp	L1300
+	cmpl	-196(%ebp), %esi
+	jb	L879
+	movzbl	-192(%ebp), %ebx
+	testb	%bl, %bl
+	jne	L1237
+	jmp	L906
 	.p2align 4,,10
-L958:
-	movl	-248(%ebp), %eax
-	jmp	L843
-L962:
-	movl	-248(%ebp), %edx
-	jmp	L875
-L965:
-	movl	-248(%ebp), %edx
-	jmp	L890
-L972:
-	movzwl	-256(%ebp), %eax
-	movl	%esi, %ebx
-	movw	%ax, -236(%ebp)
-	jmp	L931
-L961:
-	movl	-248(%ebp), %edx
-	jmp	L870
-L957:
-	movl	-248(%ebp), %eax
-	jmp	L838
-L964:
-	movl	-248(%ebp), %edx
-	jmp	L885
-L970:
-	movl	%ecx, %ebx
-	jmp	L931
-L1302:
+L946:
+	movl	-200(%ebp), %edx
+	jmp	L835
+L943:
+	movl	-200(%ebp), %edx
+	jmp	L819
+L953:
+	movzwl	-200(%ebp), %eax
+	movl	-188(%ebp), %esi
+	movl	-196(%ebp), %ebx
+	movw	%ax, -188(%ebp)
+	jmp	L915
+L945:
+	movl	-200(%ebp), %edx
+	jmp	L830
+L942:
+	movl	-200(%ebp), %edx
+	jmp	L812
+L951:
+	movl	%ecx, %esi
+	jmp	L915
+L1250:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-2, 4(%eax)
@@ -7515,231 +7424,155 @@ L1302:
 	movl	$__ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev, 8(%esp)
 	movl	$__ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-LEHB38:
+LEHB28:
 	call	___cxa_throw
-LEHE38:
-L1312:
-	movl	%edi, %ebx
-	testb	%bl, %bl
-	je	L794
-	movl	%ecx, -216(%ebp)
-L794:
+LEHE28:
+L1259:
+	movzbl	-188(%ebp), %ebx
+	cmpb	$0, -192(%ebp)
+	movl	%ebx, %ecx
+	je	L815
+	movl	%edx, -172(%ebp)
+L815:
+	movl	%ecx, %ebx
+	jmp	L1249
+L1258:
+	movzbl	-188(%ebp), %ebx
+	cmpb	$0, -192(%ebp)
+	movl	%ebx, %ecx
+	je	L833
+	movl	%edx, -152(%ebp)
+L833:
+	testb	%cl, %cl
+	jne	L1233
+	jmp	L817
+L1260:
 	movl	%esi, %ecx
 	testb	%cl, %cl
-	je	L774
-L1281:
-	movl	%eax, -204(%ebp)
-	jmp	L774
-L1289:
-	cmpb	$0, -240(%ebp)
-	je	L831
-	movl	%ebx, -216(%ebp)
-	jmp	L831
-L1307:
-	movzbl	-236(%ebp), %ecx
-	cmpb	$0, -240(%ebp)
-	movl	%ecx, %ebx
-	je	L873
-	movl	%edx, -176(%ebp)
-L873:
+	je	L921
+	movl	%eax, -112(%ebp)
+L921:
 	testb	%bl, %bl
-	jne	L1284
-	jmp	L774
-L1308:
-	movzbl	-236(%ebp), %ecx
-	cmpb	$0, -240(%ebp)
-	movl	%ecx, %ebx
-	je	L841
-	movl	%eax, -196(%ebp)
-L841:
-	testb	%bl, %bl
-	je	L774
-L1283:
-	movl	%edx, -184(%ebp)
-	jmp	L774
-L1306:
-	movzbl	-236(%ebp), %ecx
-	cmpb	$0, -240(%ebp)
-	movl	%ecx, %ebx
-	je	L888
-	movl	%edx, -156(%ebp)
-L888:
-	testb	%bl, %bl
-	jne	L1282
-	jmp	L774
-L1314:
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L937
-	movl	%eax, -136(%ebp)
-L937:
-	movl	%esi, %eax
-	testb	%al, %al
-	je	L938
-	movl	%edx, -124(%ebp)
-L938:
-LEHB39:
+	je	L922
+	movl	%edx, -100(%ebp)
+L922:
+LEHB29:
 	call	__ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
-LEHE39:
-L1309:
-	movl	%edi, %ecx
-	testb	%cl, %cl
-	je	L846
-	movl	%eax, -196(%ebp)
-L846:
-	testb	%bl, %bl
-	jne	L1283
-	jmp	L774
-L1311:
+LEHE29:
+L1240:
+	cmpb	$0, -192(%ebp)
+	je	L906
+	movl	%esi, -132(%ebp)
+L906:
 	movl	%edi, %ebx
-	cmpb	$0, -236(%ebp)
-	movb	%bl, -240(%ebp)
-	je	L789
-	movl	%edx, -216(%ebp)
-L789:
-	movzbl	-240(%ebp), %ecx
-	testb	%cl, %cl
-	jne	L1281
-	jmp	L774
-L980:
+	testb	%bl, %bl
+	je	L817
+L1231:
+	movl	%eax, -120(%ebp)
+	jmp	L817
+L1256:
+	cmpb	$0, -188(%ebp)
+	je	L906
+L1237:
+	movl	%edx, -132(%ebp)
+	jmp	L906
+L1257:
+	movl	%edi, %ebx
+	testb	%bl, %bl
+	je	L876
+	movl	%ecx, -132(%ebp)
+L876:
+	movl	%esi, %ebx
+	testb	%bl, %bl
+	jne	L1231
+	jmp	L817
+L1236:
+	movl	%edi, %ebx
+	cmpb	$0, -192(%ebp)
+	movb	%bl, -188(%ebp)
+	je	L893
+	movl	%esi, -132(%ebp)
+L893:
+	cmpb	$0, -188(%ebp)
+	jne	L1231
+	jmp	L817
+L957:
 	movl	%eax, %ebx
-	jmp	L944
-L978:
+	jmp	L898
+L958:
 	movl	%eax, %ebx
-	jmp	L863
-L977:
-	movl	%eax, %esi
-	jmp	L860
-L979:
-	movl	%eax, %ebx
-	jmp	L923
-L976:
-	movl	%eax, %ebx
-	jmp	L861
+	jmp	L928
 	.section	.gcc_except_table,"w"
-LLSDA6542:
+LLSDA6540:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6542-LLSDACSB6542
-LLSDACSB6542:
-	.uleb128 LEHB24-LFB6542
+	.uleb128 LLSDACSE6540-LLSDACSB6540
+LLSDACSB6540:
+	.uleb128 LEHB24-LFB6540
 	.uleb128 LEHE24-LEHB24
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB25-LFB6542
+	.uleb128 LEHB25-LFB6540
 	.uleb128 LEHE25-LEHB25
-	.uleb128 L976-LFB6542
+	.uleb128 L957-LFB6540
 	.uleb128 0
-	.uleb128 LEHB26-LFB6542
+	.uleb128 LEHB26-LFB6540
 	.uleb128 LEHE26-LEHB26
-	.uleb128 L977-LFB6542
 	.uleb128 0
-	.uleb128 LEHB27-LFB6542
+	.uleb128 0
+	.uleb128 LEHB27-LFB6540
 	.uleb128 LEHE27-LEHB27
-	.uleb128 L976-LFB6542
+	.uleb128 L958-LFB6540
 	.uleb128 0
-	.uleb128 LEHB28-LFB6542
+	.uleb128 LEHB28-LFB6540
 	.uleb128 LEHE28-LEHB28
-	.uleb128 L978-LFB6542
 	.uleb128 0
-	.uleb128 LEHB29-LFB6542
+	.uleb128 0
+	.uleb128 LEHB29-LFB6540
 	.uleb128 LEHE29-LEHB29
-	.uleb128 L976-LFB6542
+	.uleb128 L958-LFB6540
 	.uleb128 0
-	.uleb128 LEHB30-LFB6542
-	.uleb128 LEHE30-LEHB30
-	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB31-LFB6542
-	.uleb128 LEHE31-LEHB31
-	.uleb128 L979-LFB6542
-	.uleb128 0
-	.uleb128 LEHB32-LFB6542
-	.uleb128 LEHE32-LEHB32
-	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB33-LFB6542
-	.uleb128 LEHE33-LEHB33
-	.uleb128 L976-LFB6542
-	.uleb128 0
-	.uleb128 LEHB34-LFB6542
-	.uleb128 LEHE34-LEHB34
-	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB35-LFB6542
-	.uleb128 LEHE35-LEHB35
-	.uleb128 L977-LFB6542
-	.uleb128 0
-	.uleb128 LEHB36-LFB6542
-	.uleb128 LEHE36-LEHB36
-	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB37-LFB6542
-	.uleb128 LEHE37-LEHB37
-	.uleb128 L980-LFB6542
-	.uleb128 0
-	.uleb128 LEHB38-LFB6542
-	.uleb128 LEHE38-LEHB38
-	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB39-LFB6542
-	.uleb128 LEHE39-LEHB39
-	.uleb128 L980-LFB6542
-	.uleb128 0
-LLSDACSE6542:
+LLSDACSE6540:
 	.text
 	.cfi_endproc
 	.section	.text.unlikely,"x"
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDAC6542
-	.def	__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20.cold.36;	.scl	3;	.type	32;	.endef
-__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20.cold.36:
-L944:
+	.cfi_lsda 0,LLSDAC6540
+	.def	__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20.cold.35;	.scl	3;	.type	32;	.endef
+__ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwj@20.cold.35:
+L898:
 	.cfi_def_cfa 5, 8
 	.cfi_offset 3, -20
 	.cfi_offset 5, -8
 	.cfi_offset 6, -16
 	.cfi_offset 7, -12
-	movl	-248(%ebp), %ecx
+	movl	%esi, %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
-LEHB40:
+LEHB30:
 	call	__Unwind_Resume
-L863:
-	movl	-248(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L861:
-	leal	-120(%ebp), %ecx
+L928:
+	leal	-48(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
 	call	__Unwind_Resume
-L860:
-	movl	%ebx, %ecx
-	movl	%esi, %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	L861
-L923:
-	leal	-96(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	%ebx, (%esp)
-	call	__Unwind_Resume
-LEHE40:
+LEHE30:
 	.cfi_endproc
-LFE6542:
+LFE6540:
 	.section	.gcc_except_table,"w"
-LLSDAC6542:
+LLSDAC6540:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSEC6542-LLSDACSBC6542
-LLSDACSBC6542:
-	.uleb128 LEHB40-LCOLDB22
-	.uleb128 LEHE40-LEHB40
+	.uleb128 LLSDACSEC6540-LLSDACSBC6540
+LLSDACSBC6540:
+	.uleb128 LEHB30-LCOLDB22
+	.uleb128 LEHE30-LEHB30
 	.uleb128 0
 	.uleb128 0
-LLSDACSEC6542:
+LLSDACSEC6540:
 	.section	.text.unlikely,"x"
 	.text
 	.section	.text.unlikely,"x"
@@ -7753,10 +7586,10 @@ LHOTE22:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-LFB6525:
+LFB6523:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6525
+	.cfi_lsda 0,LLSDA6523
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -7771,13 +7604,13 @@ LFB6525:
 	.cfi_offset 3, -20
 	movl	%ecx, -104(%ebp)
 	leal	-72(%ebp), %ecx
-LEHB41:
+LEHB31:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE41:
+LEHE31:
 	movl	8(%ebp), %eax
 	movl	$100, 4(%esp)
 	movl	%eax, (%esp)
-LEHB42:
+LEHB32:
 	call	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
 	movl	%eax, (%esp)
 	leal	-72(%ebp), %ecx
@@ -7786,25 +7619,25 @@ LEHB42:
 	subl	$4, %esp
 	leal	-56(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE42:
+LEHE32:
 	movl	20(%edi), %edx
 	leal	-56(%ebp), %ecx
 	leal	7(%edx), %eax
 	shrl	$3, %eax
 	addl	%edx, %eax
 	movl	%eax, (%esp)
-LEHB43:
+LEHB33:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
 	subl	$4, %esp
 	leal	-40(%ebp), %ecx
 	movl	%eax, -96(%ebp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE43:
+LEHE33:
 	movl	20(%edi), %ebx
 	leal	-40(%ebp), %ecx
 	leal	32(%ebx), %esi
 	movl	%esi, (%esp)
-LEHB44:
+LEHB34:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
 	subl	$4, %esp
 	leal	-40(%ebp), %ecx
@@ -7823,11 +7656,11 @@ LEHB44:
 /NO_APP
 	addl	$63, %ebx
 	shrl	$5, %ebx
-	je	L1344
+	je	L1290
 	movl	-96(%ebp), %esi
 	leal	-76(%ebp), %edi
 	.p2align 4,,10
-L1320:
+L1266:
 	movl	-92(%ebp), %eax
 	leal	-40(%ebp), %ecx
 	movl	%eax, (%esp)
@@ -7847,22 +7680,22 @@ L1320:
 	leal	-40(%ebp), %ecx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
-LEHE44:
+LEHE34:
 	movl	-76(%ebp), %eax
 	addl	$4, %esi
 	subl	$4, %esp
 	movl	%eax, -4(%esi)
 	movl	-92(%ebp), %eax
 	.p2align 4,,10
-L1319:
+L1265:
 	movl	-4(%eax,%ebx,4), %edx
 	testl	%edx, %edx
-	jne	L1317
+	jne	L1263
 	subl	$1, %ebx
-	jne	L1319
+	jne	L1265
 	subl	-96(%ebp), %esi
 	sarl	$2, %esi
-L1316:
+L1262:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	-104(%ebp), %eax
@@ -7871,15 +7704,15 @@ L1316:
 	imull	%esi, %edi
 	addl	$1, %edi
 	movl	%edi, (%esp)
-LEHB45:
+LEHB35:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
 	subl	$4, %esp
 	movl	%eax, %ebx
 	testl	%eax, %eax
-	je	L1325
+	je	L1271
 	leal	(%eax,%edi,2), %ecx
 	cmpl	%ecx, %eax
-	jnb	L1325
+	jnb	L1271
 	xorl	%eax, %eax
 	subl	$1, %esi
 	leal	-2(%ecx), %edi
@@ -7887,7 +7720,7 @@ LEHB45:
 	movl	-96(%ebp), %eax
 	movl	%esi, -108(%ebp)
 	movl	(%eax), %eax
-	je	L1326
+	je	L1272
 	xorl	%edx, %edx
 	movl	$10, %esi
 /APP
@@ -7897,7 +7730,7 @@ LEHB45:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1330
+	jnb	L1276
 	leal	-4(%ecx), %edi
 	movw	%dx, -4(%ecx)
 	movl	$10, %esi
@@ -7909,7 +7742,7 @@ LEHB45:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1331
+	jnb	L1277
 	movl	$10, %esi
 	movw	%dx, -6(%ecx)
 	xorl	%edx, %edx
@@ -7921,14 +7754,14 @@ LEHB45:
 	leal	-6(%ecx), %esi
 	addl	$48, %edx
 	cmpl	%esi, %ebx
-	jnb	L1332
+	jnb	L1278
 	movl	-96(%ebp), %esi
 	subl	$20, %ecx
 	movl	%esi, -92(%ebp)
 	movl	$10, %esi
-	jmp	L1333
+	jmp	L1279
 	.p2align 4,,10
-L1340:
+L1286:
 	movl	-92(%ebp), %eax
 	xorl	%edx, %edx
 	movl	4(%eax), %eax
@@ -7939,7 +7772,7 @@ L1340:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %ebx
-	jnb	L1330
+	jnb	L1276
 	leal	-2(%ecx), %edi
 	movw	%dx, -2(%ecx)
 	xorl	%edx, %edx
@@ -7950,7 +7783,7 @@ L1340:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1331
+	jnb	L1277
 	movw	%dx, -4(%ecx)
 	leal	-18(%ecx), %edi
 	subl	$4, %ecx
@@ -7962,11 +7795,11 @@ L1340:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %ebx
-	jnb	L1332
+	jnb	L1278
 	movl	%edi, %ecx
 	movl	-100(%ebp), %edi
 	movl	%edi, -92(%ebp)
-L1333:
+L1279:
 	leal	12(%ecx), %edi
 	movw	%dx, 12(%ecx)
 	xorl	%edx, %edx
@@ -7978,7 +7811,7 @@ L1333:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1354
+	jnb	L1300
 	leal	10(%ecx), %edi
 	movw	%dx, 10(%ecx)
 	xorl	%edx, %edx
@@ -7989,7 +7822,7 @@ L1333:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1355
+	jnb	L1301
 	movw	%dx, 8(%ecx)
 	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	xorl	%edx, %edx
@@ -8001,7 +7834,7 @@ L1333:
 	addl	$48, %edx
 	leal	8(%ecx), %edi
 	cmpl	%edi, %ebx
-	jnb	L1356
+	jnb	L1302
 	leal	6(%ecx), %edi
 	movw	%dx, 6(%ecx)
 	xorl	%edx, %edx
@@ -8012,7 +7845,7 @@ L1333:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1357
+	jnb	L1303
 	movw	%dx, 4(%ecx)
 	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	xorl	%edx, %edx
@@ -8024,27 +7857,27 @@ L1333:
 	addl	$48, %edx
 	leal	4(%ecx), %edi
 	cmpl	%edi, %ebx
-	jnb	L1358
+	jnb	L1304
 	movw	%dx, 2(%ecx)
 	leal	2(%ecx), %edx
 	addl	$48, %eax
 	cmpl	%edx, %ebx
-	jnb	L1359
+	jnb	L1305
 	movw	%ax, (%ecx)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	movl	-92(%ebp), %eax
 	addl	$4, %eax
 	subl	$1, -108(%ebp)
 	movl	%eax, -100(%ebp)
-	jne	L1340
+	jne	L1286
 	movl	-92(%ebp), %eax
 	movl	-112(%ebp), %edi
 	movl	4(%eax), %eax
-L1326:
+L1272:
 	xorl	%esi, %esi
 	movl	$10, %ecx
 	.p2align 4,,10
-L1342:
+L1288:
 	movl	%esi, %edx
 /APP
  # 274 "../pmc_inline_func.h" 1
@@ -8053,12 +7886,12 @@ L1342:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %ebx
-	jnb	L1360
+	jnb	L1306
 	subl	$2, %edi
 	movw	%dx, (%edi)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%eax, %eax
-	jne	L1342
+	jne	L1288
 	movl	-96(%ebp), %eax
 	leal	-56(%ebp), %ecx
 	movl	%eax, (%esp)
@@ -8092,21 +7925,21 @@ L1342:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L1317:
+L1263:
 	.cfi_restore_state
 	movl	%eax, %edx
 	movl	-100(%ebp), %eax
 	movl	%edx, -100(%ebp)
 	movl	%eax, -92(%ebp)
-	jmp	L1320
+	jmp	L1266
 	.p2align 4,,10
-L1325:
+L1271:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 	.p2align 4,,10
-L1344:
+L1290:
 	xorl	%esi, %esi
-	jmp	L1316
-L1360:
+	jmp	L1262
+L1306:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8117,7 +7950,7 @@ L1360:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1356:
+L1302:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8128,7 +7961,7 @@ L1356:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1355:
+L1301:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8139,7 +7972,7 @@ L1355:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1354:
+L1300:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8150,7 +7983,7 @@ L1354:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1332:
+L1278:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8161,7 +7994,7 @@ L1332:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1358:
+L1304:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8172,7 +8005,7 @@ L1358:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1357:
+L1303:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8183,7 +8016,7 @@ L1357:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1359:
+L1305:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8194,7 +8027,7 @@ L1359:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1331:
+L1277:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8205,7 +8038,7 @@ L1331:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-L1330:
+L1276:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -8216,63 +8049,63 @@ L1330:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-LEHE45:
-L1345:
+LEHE35:
+L1291:
 	movl	%eax, %ebx
-	jmp	L1343
-L1347:
+	jmp	L1289
+L1293:
 	movl	%eax, %ebx
-	jmp	L1322
-L1346:
+	jmp	L1268
+L1292:
 	movl	%eax, %ebx
-	jmp	L1323
-L1322:
+	jmp	L1269
+L1268:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L1323:
+L1269:
 	leal	-56(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L1343:
+L1289:
 	leal	-72(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movl	%ebx, (%esp)
-LEHB46:
+LEHB36:
 	call	__Unwind_Resume
-LEHE46:
+LEHE36:
 	.cfi_endproc
-LFE6525:
+LFE6523:
 	.section	.gcc_except_table,"w"
-LLSDA6525:
+LLSDA6523:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6525-LLSDACSB6525
-LLSDACSB6525:
-	.uleb128 LEHB41-LFB6525
-	.uleb128 LEHE41-LEHB41
+	.uleb128 LLSDACSE6523-LLSDACSB6523
+LLSDACSB6523:
+	.uleb128 LEHB31-LFB6523
+	.uleb128 LEHE31-LEHB31
 	.uleb128 0
 	.uleb128 0
-	.uleb128 LEHB42-LFB6525
-	.uleb128 LEHE42-LEHB42
-	.uleb128 L1345-LFB6525
+	.uleb128 LEHB32-LFB6523
+	.uleb128 LEHE32-LEHB32
+	.uleb128 L1291-LFB6523
 	.uleb128 0
-	.uleb128 LEHB43-LFB6525
-	.uleb128 LEHE43-LEHB43
-	.uleb128 L1346-LFB6525
+	.uleb128 LEHB33-LFB6523
+	.uleb128 LEHE33-LEHB33
+	.uleb128 L1292-LFB6523
 	.uleb128 0
-	.uleb128 LEHB44-LFB6525
-	.uleb128 LEHE44-LEHB44
-	.uleb128 L1347-LFB6525
+	.uleb128 LEHB34-LFB6523
+	.uleb128 LEHE34-LEHB34
+	.uleb128 L1293-LFB6523
 	.uleb128 0
-	.uleb128 LEHB45-LFB6525
-	.uleb128 LEHE45-LEHB45
-	.uleb128 L1346-LFB6525
+	.uleb128 LEHB35-LFB6523
+	.uleb128 LEHE35-LEHB35
+	.uleb128 L1292-LFB6523
 	.uleb128 0
-	.uleb128 LEHB46-LFB6525
-	.uleb128 LEHE46-LEHB46
+	.uleb128 LEHB36-LFB6523
+	.uleb128 LEHE36-LEHB36
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6525:
+LLSDACSE6523:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
@@ -8282,10 +8115,10 @@ LLSDACSE6525:
 	.globl	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 	.def	__ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-LFB6500:
+LFB6498:
 	.cfi_startproc
 	.cfi_personality 0,___gxx_personality_v0
-	.cfi_lsda 0,LLSDA6500
+	.cfi_lsda 0,LLSDA6498
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
 	.cfi_offset 5, -8
@@ -8294,211 +8127,147 @@ LFB6500:
 	pushl	%edi
 	pushl	%esi
 	pushl	%ebx
-	subl	$188, %esp
 	.cfi_offset 7, -12
 	.cfi_offset 6, -16
 	.cfi_offset 3, -20
-	movl	%ecx, -144(%ebp)
-	leal	-136(%ebp), %ecx
-LEHB47:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE47:
-	movl	8(%ebp), %eax
-	leal	-120(%ebp), %ecx
-	movl	16(%eax), %ebx
-	movl	36(%eax), %esi
-LEHB48:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE48:
-	movl	%ebx, %edi
-	leal	-120(%ebp), %ecx
-	sall	$5, %edi
-	movl	%edi, (%esp)
-LEHB49:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	subl	$4, %esp
-	leal	-120(%ebp), %ecx
-	movl	%eax, -140(%ebp)
-	movl	%edi, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-LEHE49:
-	subl	$4, %esp
-	movl	%eax, -148(%ebp)
-	movl	-140(%ebp), %edi
-	movl	%ebx, %ecx
-/APP
- # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsd
- # 0 "" 2
-/NO_APP
-	xorl	%esi, %esi
-	testl	%ebx, %ebx
-	je	L1362
-L1452:
-	leal	1073741823(%ebx), %edi
-	.p2align 4,,10
-L1363:
-	movl	-140(%ebp), %eax
-	movl	(%eax,%edi,4), %ecx
-	testl	%ecx, %ecx
-	jne	L1364
-	subl	$1, %ebx
-	jne	L1452
-L1362:
-	leal	-120(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-144(%ebp), %eax
-	movl	16(%eax), %eax
-	leal	2(%eax), %edx
-	cmpl	%esi, %edx
-	ja	L1453
-	subl	%eax, %esi
+	movl	%ecx, %ebx
+	subl	$156, %esp
+	movl	8(%ebp), %edi
+	movl	%ecx, -108(%ebp)
 	leal	-104(%ebp), %ecx
-	subl	$2, %esi
-LEHB50:
+LEHB37:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE50:
-	movl	$10, (%esp)
-LEHB51:
-	call	__ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
+LEHE37:
+	movl	%edi, (%esp)
+LEHB38:
+	call	__ZN8Palmtree4Math4Core8Internal19PMC_Floor_Log10_ImpEPNS2_19__tag_NUMBER_HEADERE
+	movl	16(%ebx), %edx
+	addl	$1, %eax
+	leal	2(%edx), %ecx
+	cmpl	%eax, %ecx
+	ja	L1308
+	subl	%edx, %eax
+	movl	$5, (%esp)
+	subl	$2, %eax
+	movl	%eax, 4(%esp)
+	call	__ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjj
 	movl	%eax, (%esp)
 	leal	-104(%ebp), %ecx
 	movl	%eax, %ebx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	movl	%esi, 4(%esp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-	movl	%eax, (%esp)
-	leal	-104(%ebp), %ecx
-	movl	%eax, %ebx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	subl	$4, %esp
-	movl	$5, 4(%esp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-LEHE51:
-	movl	%eax, %ebx
-	leal	-104(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	%ebx, (%esp)
-	leal	-136(%ebp), %ecx
-LEHB52:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movl	8(%ebp), %eax
 	subl	$4, %esp
 	movl	%ebx, 4(%esp)
-	movl	%eax, (%esp)
+	movl	%edi, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_
 	movl	%eax, (%esp)
-	leal	-136(%ebp), %ecx
+	leal	-104(%ebp), %ecx
 	movl	%eax, %edi
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
 	subl	$4, %esp
 	leal	-88(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE52:
+LEHE38:
 	movl	20(%edi), %edx
 	leal	-88(%ebp), %ecx
 	leal	7(%edx), %eax
 	shrl	$3, %eax
 	addl	%edx, %eax
 	movl	%eax, (%esp)
-LEHB53:
+LEHB39:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
 	subl	$4, %esp
 	leal	-72(%ebp), %ecx
-	movl	%eax, -148(%ebp)
+	movl	%eax, -116(%ebp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE53:
-	movl	20(%edi), %ebx
+LEHE39:
+	movl	20(%edi), %esi
 	leal	-72(%ebp), %ecx
-	movl	%ebx, -152(%ebp)
-	addl	$32, %ebx
+	leal	32(%esi), %ebx
+	movl	%esi, -120(%ebp)
 	movl	%ebx, (%esp)
-LEHB54:
+LEHB40:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
 	subl	$4, %esp
 	leal	-72(%ebp), %ecx
-	movl	%eax, -140(%ebp)
+	movl	%eax, -112(%ebp)
 	movl	%ebx, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
 	movl	36(%edi), %esi
 	movl	32(%edi), %ecx
 	subl	$4, %esp
 	movl	%eax, %ebx
-	movl	-140(%ebp), %edi
+	movl	-112(%ebp), %edi
 /APP
  # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsd
  # 0 "" 2
 /NO_APP
-	movl	-152(%ebp), %esi
+	movl	-120(%ebp), %esi
 	addl	$63, %esi
 	shrl	$5, %esi
-	je	L1428
-	movl	-148(%ebp), %edi
+	je	L1365
+	movl	-116(%ebp), %edi
 	.p2align 4,,10
-L1376:
+L1313:
 	movl	%ebx, (%esp)
 	leal	-72(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPj
 	subl	$4, %esp
 	leal	-40(%ebp), %eax
 	movl	%eax, 16(%esp)
-	movl	-144(%ebp), %eax
+	movl	-108(%ebp), %eax
 	movl	%ebx, 12(%esp)
 	movl	4(%eax), %eax
 	movl	%esi, 4(%esp)
 	movl	%eax, 8(%esp)
-	movl	-140(%ebp), %eax
+	movl	-112(%ebp), %eax
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
 	movl	%ebx, (%esp)
 	leal	-72(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
-LEHE54:
+LEHE40:
 	movl	-40(%ebp), %eax
 	addl	$4, %edi
 	subl	$4, %esp
 	movl	%eax, -4(%edi)
-	movl	-140(%ebp), %eax
+	movl	-112(%ebp), %eax
 	.p2align 4,,10
-L1375:
+L1312:
 	movl	-4(%ebx,%esi,4), %edx
 	testl	%edx, %edx
-	jne	L1373
+	jne	L1310
 	subl	$1, %esi
-	jne	L1375
-	subl	-148(%ebp), %edi
+	jne	L1312
+	subl	-116(%ebp), %edi
 	sarl	$2, %edi
-L1372:
+L1309:
 	leal	-72(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-144(%ebp), %eax
+	movl	-108(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	8(%eax), %ebx
 	imull	%edi, %ebx
 	addl	$1, %ebx
 	movl	%ebx, (%esp)
-LEHB55:
+LEHB41:
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
 	subl	$4, %esp
 	movl	%eax, %esi
 	testl	%eax, %eax
-	je	L1381
+	je	L1318
 	leal	(%eax,%ebx,2), %ecx
 	cmpl	%ecx, %eax
-	jnb	L1381
+	jnb	L1318
 	xorl	%ebx, %ebx
 	leal	-2(%ecx), %eax
 	subl	$1, %edi
 	movw	%bx, -2(%ecx)
-	movl	-148(%ebp), %ebx
-	movl	%eax, -152(%ebp)
-	movl	%edi, -156(%ebp)
+	movl	-116(%ebp), %ebx
+	movl	%eax, -120(%ebp)
+	movl	%edi, -124(%ebp)
 	movl	(%ebx), %eax
-	je	L1382
+	je	L1319
 	movl	$10, %edi
 	xorl	%edx, %edx
 /APP
@@ -8507,8 +8276,8 @@ LEHB55:
  # 0 "" 2
 /NO_APP
 	addl	$48, %edx
-	cmpl	-152(%ebp), %esi
-	jnb	L1386
+	cmpl	-120(%ebp), %esi
+	jnb	L1323
 	leal	-4(%ecx), %ebx
 	movw	%dx, -4(%ecx)
 	xorl	%edx, %edx
@@ -8519,7 +8288,7 @@ LEHB55:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ebx, %esi
-	jnb	L1387
+	jnb	L1324
 	leal	-6(%ecx), %ebx
 	movw	%dx, -6(%ecx)
 	xorl	%edx, %edx
@@ -8530,15 +8299,15 @@ LEHB55:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ebx, %esi
-	jnb	L1388
-	movl	-148(%ebp), %ebx
+	jnb	L1325
+	movl	-116(%ebp), %ebx
 	subl	$20, %ecx
-	movl	%ebx, -140(%ebp)
+	movl	%ebx, -112(%ebp)
 	movl	$10, %ebx
-	jmp	L1389
+	jmp	L1326
 	.p2align 4,,10
-L1396:
-	movl	-140(%ebp), %eax
+L1333:
+	movl	-112(%ebp), %eax
 	xorl	%edx, %edx
 	movl	4(%eax), %eax
 /APP
@@ -8548,7 +8317,7 @@ L1396:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %esi
-	jnb	L1386
+	jnb	L1323
 	leal	-2(%ecx), %edi
 	movw	%dx, -2(%ecx)
 	xorl	%edx, %edx
@@ -8559,7 +8328,7 @@ L1396:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%edi, %esi
-	jnb	L1387
+	jnb	L1324
 	movw	%dx, -4(%ecx)
 	leal	-18(%ecx), %edi
 	subl	$4, %ecx
@@ -8571,111 +8340,111 @@ L1396:
 /NO_APP
 	addl	$48, %edx
 	cmpl	%ecx, %esi
+	jnb	L1325
+	movl	%edi, %ecx
+	movl	-120(%ebp), %edi
+	movl	%edi, -112(%ebp)
+L1326:
+	leal	12(%ecx), %edi
+	movw	%dx, 12(%ecx)
+	xorl	%edx, %edx
+	movl	%ecx, -128(%ebp)
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1382
+	leal	10(%ecx), %edi
+	movw	%dx, 10(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1383
+	movw	%dx, 8(%ecx)
+	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	leal	8(%ecx), %edi
+	cmpl	%edi, %esi
+	jnb	L1384
+	leal	6(%ecx), %edi
+	movw	%dx, 6(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1385
+	movw	%dx, 4(%ecx)
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	leal	4(%ecx), %edi
+	cmpl	%edi, %esi
+	jnb	L1386
+	movw	%dx, 2(%ecx)
+	leal	2(%ecx), %edx
+	addl	$48, %eax
+	cmpl	%edx, %esi
+	jnb	L1387
+	movw	%ax, (%ecx)
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	movl	-112(%ebp), %eax
+	addl	$4, %eax
+	subl	$1, -124(%ebp)
+	movl	%eax, -120(%ebp)
+	jne	L1333
+	movl	-128(%ebp), %eax
+	movl	%eax, -120(%ebp)
+	movl	-112(%ebp), %eax
+	movl	4(%eax), %eax
+L1319:
+	movl	-120(%ebp), %edi
+	xorl	%ebx, %ebx
+	movl	$10, %ecx
+	.p2align 4,,10
+L1335:
+	movl	%ebx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
 	jnb	L1388
-	movl	%edi, %ecx
-	movl	-152(%ebp), %edi
-	movl	%edi, -140(%ebp)
-L1389:
-	leal	12(%ecx), %edi
-	movw	%dx, 12(%ecx)
-	xorl	%edx, %edx
-	movl	%ecx, -160(%ebp)
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1454
-	leal	10(%ecx), %edi
-	movw	%dx, 10(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1455
-	movw	%dx, 8(%ecx)
-	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	leal	8(%ecx), %edi
-	cmpl	%edi, %esi
-	jnb	L1456
-	leal	6(%ecx), %edi
-	movw	%dx, 6(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1457
-	movw	%dx, 4(%ecx)
-	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	leal	4(%ecx), %edi
-	cmpl	%edi, %esi
-	jnb	L1458
-	movw	%dx, 2(%ecx)
-	leal	2(%ecx), %edx
-	addl	$48, %eax
-	cmpl	%edx, %esi
-	jnb	L1459
-	movw	%ax, (%ecx)
-	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	movl	-140(%ebp), %eax
-	addl	$4, %eax
-	subl	$1, -156(%ebp)
-	movl	%eax, -152(%ebp)
-	jne	L1396
-	movl	-160(%ebp), %eax
-	movl	%eax, -152(%ebp)
-	movl	-140(%ebp), %eax
-	movl	4(%eax), %eax
-L1382:
-	movl	-152(%ebp), %edi
-	xorl	%ebx, %ebx
-	movl	$10, %ecx
-	.p2align 4,,10
-L1398:
-	movl	%ebx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ecx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1460
 	subl	$2, %edi
 	movw	%dx, (%edi)
 	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
 	testl	%eax, %eax
-	jne	L1398
-	movl	-148(%ebp), %eax
+	jne	L1335
+	movl	-116(%ebp), %eax
 	leal	-88(%ebp), %ecx
 	movl	%edi, %ebx
 	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
-	movl	-144(%ebp), %ecx
+	movl	-108(%ebp), %ecx
 	movl	12(%ebp), %edi
 	subl	$4, %esp
 	movl	(%ecx), %eax
@@ -8686,314 +8455,12 @@ L1398:
 	leal	-88(%ebp), %ecx
 	movl	%esi, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw
-LEHE55:
+LEHE41:
 	subl	$4, %esp
 	leal	-88(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	L1399
-	.p2align 4,,10
-L1453:
-	leal	-56(%ebp), %ecx
-LEHB56:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE56:
-	movl	8(%ebp), %eax
-	leal	-56(%ebp), %ecx
-	movl	20(%eax), %edx
-	leal	7(%edx), %eax
-	shrl	$3, %eax
-	addl	%edx, %eax
-	movl	%eax, (%esp)
-LEHB57:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	subl	$4, %esp
-	leal	-40(%ebp), %ecx
-	movl	%eax, -148(%ebp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-LEHE57:
-	movl	8(%ebp), %ebx
-	leal	-40(%ebp), %ecx
-	movl	20(%ebx), %esi
-	leal	32(%esi), %ebx
-	movl	%esi, -152(%ebp)
-	movl	%ebx, (%esp)
-LEHB58:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	subl	$4, %esp
-	leal	-40(%ebp), %ecx
-	movl	%eax, %edi
-	movl	%eax, -140(%ebp)
-	movl	%ebx, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
-	movl	8(%ebp), %edx
-	subl	$4, %esp
-	movl	%eax, %ebx
-	movl	36(%edx), %esi
-	movl	32(%edx), %ecx
-/APP
- # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsd
- # 0 "" 2
-/NO_APP
-	movl	-152(%ebp), %esi
-	addl	$63, %esi
-	shrl	$5, %esi
-	je	L1429
-	movl	-148(%ebp), %edi
-	.p2align 4,,10
-L1404:
-	movl	%ebx, (%esp)
-	leal	-40(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPj
-	subl	$4, %esp
-	leal	-72(%ebp), %eax
-	movl	%eax, 16(%esp)
-	movl	-144(%ebp), %eax
-	movl	%ebx, 12(%esp)
-	movl	4(%eax), %eax
-	movl	%esi, 4(%esp)
-	movl	%eax, 8(%esp)
-	movl	-140(%ebp), %eax
-	movl	%eax, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
-	movl	%ebx, (%esp)
-	leal	-40(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
-LEHE58:
-	movl	-72(%ebp), %eax
-	addl	$4, %edi
-	subl	$4, %esp
-	movl	%eax, -4(%edi)
-	movl	-140(%ebp), %eax
-	.p2align 4,,10
-L1403:
-	movl	-4(%ebx,%esi,4), %edx
-	testl	%edx, %edx
-	jne	L1401
-	subl	$1, %esi
-	jne	L1403
-	subl	-148(%ebp), %edi
-	sarl	$2, %edi
-L1400:
-	leal	-40(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	-144(%ebp), %eax
-	leal	-56(%ebp), %ecx
-	movl	8(%eax), %ebx
-	imull	%edi, %ebx
-	addl	$1, %ebx
-	movl	%ebx, (%esp)
-LEHB59:
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
-	subl	$4, %esp
-	movl	%eax, %esi
-	testl	%eax, %eax
-	je	L1409
-	leal	(%eax,%ebx,2), %ecx
-	cmpl	%ecx, %eax
-	jnb	L1409
-	leal	-2(%ecx), %eax
-	movl	-148(%ebp), %ebx
-	movl	%eax, -152(%ebp)
-	xorl	%eax, %eax
-	subl	$1, %edi
-	movw	%ax, -2(%ecx)
-	movl	(%ebx), %eax
-	movl	%edi, -156(%ebp)
-	je	L1410
-	movl	$10, %edi
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %edi
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	-152(%ebp), %esi
-	jnb	L1414
-	leal	-4(%ecx), %ebx
-	movw	%dx, -4(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %edi
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%ebx, %esi
-	jnb	L1415
-	leal	-6(%ecx), %ebx
-	movw	%dx, -6(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %edi
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%ebx, %esi
-	jnb	L1416
-	movl	-148(%ebp), %ebx
-	subl	$20, %ecx
-	movl	%ebx, -140(%ebp)
-	movl	$10, %ebx
-	jmp	L1417
-	.p2align 4,,10
-L1424:
-	movl	-140(%ebp), %eax
-	xorl	%edx, %edx
-	movl	4(%eax), %eax
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%esi, %ecx
-	jbe	L1414
-	leal	-2(%ecx), %edi
-	movw	%dx, -2(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1415
-	movw	%dx, -4(%ecx)
-	leal	-18(%ecx), %edi
-	subl	$4, %ecx
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%ecx, %esi
-	jnb	L1416
-	movl	%edi, %ecx
-	movl	-152(%ebp), %edi
-	movl	%edi, -140(%ebp)
-L1417:
-	leal	12(%ecx), %edi
-	movw	%dx, 12(%ecx)
-	xorl	%edx, %edx
-	movl	%ecx, -160(%ebp)
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1461
-	leal	10(%ecx), %edi
-	movw	%dx, 10(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1462
-	movw	%dx, 8(%ecx)
-	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	leal	8(%ecx), %edi
-	cmpl	%edi, %esi
-	jnb	L1463
-	leal	6(%ecx), %edi
-	movw	%dx, 6(%ecx)
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1464
-	movw	%dx, 4(%ecx)
-	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	xorl	%edx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ebx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	leal	4(%ecx), %edi
-	cmpl	%edi, %esi
-	jnb	L1465
-	movw	%dx, 2(%ecx)
-	leal	2(%ecx), %edx
-	addl	$48, %eax
-	cmpl	%edx, %esi
-	jnb	L1466
-	movw	%ax, (%ecx)
-	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	movl	-140(%ebp), %eax
-	addl	$4, %eax
-	subl	$1, -156(%ebp)
-	movl	%eax, -152(%ebp)
-	jne	L1424
-	movl	-160(%ebp), %eax
-	movl	%eax, -152(%ebp)
-	movl	-140(%ebp), %eax
-	movl	4(%eax), %eax
-L1410:
-	movl	-152(%ebp), %edi
-	xorl	%ebx, %ebx
-	movl	$10, %ecx
-	.p2align 4,,10
-L1426:
-	movl	%ebx, %edx
-/APP
- # 274 "../pmc_inline_func.h" 1
-	divl %ecx
- # 0 "" 2
-/NO_APP
-	addl	$48, %edx
-	cmpl	%edi, %esi
-	jnb	L1467
-	subl	$2, %edi
-	movw	%dx, (%edi)
-	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
-	testl	%eax, %eax
-	jne	L1426
-	movl	-148(%ebp), %eax
-	leal	-56(%ebp), %ecx
-	movl	%edi, %ebx
-	movl	%eax, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
-	movl	-144(%ebp), %ecx
-	movl	12(%ebp), %edi
-	subl	$4, %esp
-	movl	(%ecx), %eax
-	movl	%edi, 4(%esp)
-	movl	%ebx, (%esp)
-	call	*16(%eax)
-	subl	$8, %esp
-	leal	-56(%ebp), %ecx
-	movl	%esi, (%esp)
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw
-LEHE59:
-	subl	$4, %esp
-	leal	-56(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L1399:
-	leal	-136(%ebp), %ecx
+L1336:
+	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	leal	-12(%ebp), %esp
 	popl	%ebx
@@ -9008,58 +8475,333 @@ L1399:
 	.cfi_def_cfa 4, 4
 	ret	$8
 	.p2align 4,,10
-L1364:
+L1308:
 	.cfi_restore_state
-	movl	-148(%ebp), %eax
-	leal	-120(%ebp), %ecx
+	leal	-56(%ebp), %ecx
+LEHB42:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE42:
+	movl	20(%edi), %edx
+	leal	-56(%ebp), %ecx
+	leal	7(%edx), %eax
+	shrl	$3, %eax
+	addl	%edx, %eax
 	movl	%eax, (%esp)
-LEHB60:
+LEHB43:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%eax, -116(%ebp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+LEHE43:
+	movl	20(%edi), %esi
+	leal	-40(%ebp), %ecx
+	leal	32(%esi), %ebx
+	movl	%esi, -120(%ebp)
+	movl	%ebx, (%esp)
+LEHB44:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	subl	$4, %esp
+	leal	-40(%ebp), %ecx
+	movl	%eax, -112(%ebp)
+	movl	%ebx, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEj
+	movl	36(%edi), %esi
+	movl	32(%edi), %ecx
+	subl	$4, %esp
+	movl	%eax, %ebx
+	movl	-112(%ebp), %edi
+/APP
+ # 1773 "C:/GNU/MINGW64/i686-8.1.0-win32-dwarf-rt_v6-rev0/mingw32/i686-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
+	rep movsd
+ # 0 "" 2
+/NO_APP
+	movl	-120(%ebp), %esi
+	addl	$63, %esi
+	shrl	$5, %esi
+	je	L1366
+	movl	-116(%ebp), %edi
+	.p2align 4,,10
+L1342:
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPj
 	subl	$4, %esp
-	leal	-40(%ebp), %edx
-	movl	-148(%ebp), %eax
-	movl	%edx, 16(%esp)
-	movl	-140(%ebp), %edx
-	movl	%eax, 12(%esp)
-	movl	$10, 8(%esp)
-	movl	%ebx, 4(%esp)
-	movl	%edx, (%esp)
+	leal	-72(%ebp), %eax
+	movl	%eax, 16(%esp)
+	movl	-108(%ebp), %eax
+	movl	%ebx, 12(%esp)
+	movl	4(%eax), %eax
+	movl	%esi, 4(%esp)
+	movl	%eax, 8(%esp)
+	movl	-112(%ebp), %eax
+	movl	%eax, (%esp)
 	call	__ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPjjjS3_S3_
-LEHE60:
-	movl	-140(%ebp), %eax
-	movl	-148(%ebp), %ecx
-	addl	$1, %esi
-	movl	%ecx, -140(%ebp)
-	movl	%eax, -148(%ebp)
-	jmp	L1363
+	movl	%ebx, (%esp)
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPj
+LEHE44:
+	movl	-72(%ebp), %eax
+	addl	$4, %edi
+	subl	$4, %esp
+	movl	%eax, -4(%edi)
+	movl	-112(%ebp), %eax
 	.p2align 4,,10
-L1373:
-	movl	%ebx, -140(%ebp)
+L1341:
+	movl	-4(%ebx,%esi,4), %edx
+	testl	%edx, %edx
+	jne	L1339
+	subl	$1, %esi
+	jne	L1341
+	subl	-116(%ebp), %edi
+	sarl	$2, %edi
+L1338:
+	leal	-40(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movl	-108(%ebp), %eax
+	leal	-56(%ebp), %ecx
+	movl	8(%eax), %ebx
+	imull	%edi, %ebx
+	addl	$1, %ebx
+	movl	%ebx, (%esp)
+LEHB45:
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEj
+	subl	$4, %esp
+	movl	%eax, %esi
+	testl	%eax, %eax
+	je	L1347
+	leal	(%eax,%ebx,2), %ecx
+	cmpl	%ecx, %eax
+	jnb	L1347
+	leal	-2(%ecx), %eax
+	movl	-116(%ebp), %ebx
+	movl	%eax, -120(%ebp)
+	xorl	%eax, %eax
+	subl	$1, %edi
+	movw	%ax, -2(%ecx)
+	movl	(%ebx), %eax
+	movl	%edi, -124(%ebp)
+	je	L1348
+	movl	$10, %edi
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %edi
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	-120(%ebp), %esi
+	jnb	L1352
+	leal	-4(%ecx), %ebx
+	movw	%dx, -4(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %edi
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%ebx, %esi
+	jnb	L1353
+	leal	-6(%ecx), %ebx
+	movw	%dx, -6(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %edi
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%ebx, %esi
+	jnb	L1354
+	movl	-116(%ebp), %ebx
+	subl	$20, %ecx
+	movl	%ebx, -112(%ebp)
+	movl	$10, %ebx
+	jmp	L1355
+	.p2align 4,,10
+L1362:
+	movl	-112(%ebp), %eax
+	xorl	%edx, %edx
+	movl	4(%eax), %eax
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%ecx, %esi
+	jnb	L1352
+	leal	-2(%ecx), %edi
+	movw	%dx, -2(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1353
+	movw	%dx, -4(%ecx)
+	leal	-18(%ecx), %edi
+	subl	$4, %ecx
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%ecx, %esi
+	jnb	L1354
+	movl	%edi, %ecx
+	movl	-120(%ebp), %edi
+	movl	%edi, -112(%ebp)
+L1355:
+	leal	12(%ecx), %edi
+	movw	%dx, 12(%ecx)
+	xorl	%edx, %edx
+	movl	%ecx, -128(%ebp)
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1389
+	leal	10(%ecx), %edi
+	movw	%dx, 10(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1390
+	movw	%dx, 8(%ecx)
+	lock addl	$5, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	leal	8(%ecx), %edi
+	cmpl	%edi, %esi
+	jnb	L1391
+	leal	6(%ecx), %edi
+	movw	%dx, 6(%ecx)
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1392
+	movw	%dx, 4(%ecx)
+	lock addl	$2, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	xorl	%edx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ebx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	leal	4(%ecx), %edi
+	cmpl	%edi, %esi
+	jnb	L1393
+	movw	%dx, 2(%ecx)
+	leal	2(%ecx), %edx
+	addl	$48, %eax
+	cmpl	%edx, %esi
+	jnb	L1394
+	movw	%ax, (%ecx)
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	movl	-112(%ebp), %eax
+	addl	$4, %eax
+	subl	$1, -124(%ebp)
+	movl	%eax, -120(%ebp)
+	jne	L1362
+	movl	-128(%ebp), %eax
+	movl	%eax, -120(%ebp)
+	movl	-112(%ebp), %eax
+	movl	4(%eax), %eax
+L1348:
+	movl	-120(%ebp), %edi
+	xorl	%ebx, %ebx
+	movl	$10, %ecx
+	.p2align 4,,10
+L1364:
+	movl	%ebx, %edx
+/APP
+ # 274 "../pmc_inline_func.h" 1
+	divl %ecx
+ # 0 "" 2
+/NO_APP
+	addl	$48, %edx
+	cmpl	%edi, %esi
+	jnb	L1395
+	subl	$2, %edi
+	movw	%dx, (%edi)
+	lock addl	$1, __ZN8Palmtree4Math4Core8Internal15statistics_infoE+12
+	testl	%eax, %eax
+	jne	L1364
+	movl	-116(%ebp), %eax
+	leal	-56(%ebp), %ecx
+	movl	%edi, %ebx
+	movl	%eax, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj
+	movl	-108(%ebp), %ecx
+	movl	12(%ebp), %edi
+	subl	$4, %esp
+	movl	(%ecx), %eax
+	movl	%edi, 4(%esp)
+	movl	%ebx, (%esp)
+	call	*16(%eax)
+	subl	$8, %esp
+	leal	-56(%ebp), %ecx
+	movl	%esi, (%esp)
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw
+LEHE45:
+	subl	$4, %esp
+	leal	-56(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L1336
+	.p2align 4,,10
+L1310:
+	movl	%ebx, -112(%ebp)
 	movl	%eax, %ebx
-	jmp	L1376
+	jmp	L1313
 	.p2align 4,,10
-L1401:
-	movl	%ebx, -140(%ebp)
+L1339:
+	movl	%ebx, -112(%ebp)
 	movl	%eax, %ebx
-	jmp	L1404
+	jmp	L1342
 	.p2align 4,,10
-L1428:
+L1366:
 	xorl	%edi, %edi
-	jmp	L1372
+	jmp	L1338
 	.p2align 4,,10
-L1429:
+L1365:
 	xorl	%edi, %edi
-	jmp	L1400
+	jmp	L1309
 	.p2align 4,,10
-L1409:
-LEHB61:
+L1318:
+LEHB46:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
-LEHE61:
+LEHE46:
 	.p2align 4,,10
-L1381:
-LEHB62:
+L1347:
+LEHB47:
 	call	__ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
-L1460:
+L1395:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -9070,205 +8812,7 @@ L1460:
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
 	call	___cxa_throw
-LEHE62:
-L1467:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB63:
-	call	___cxa_throw
-LEHE63:
-L1386:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB64:
-	call	___cxa_throw
-L1454:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1455:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1456:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1459:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-LEHE64:
-L1414:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB65:
-	call	___cxa_throw
-L1416:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1461:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1462:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-LEHE65:
-L1458:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB66:
-	call	___cxa_throw
-L1457:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-LEHE66:
-L1463:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB67:
-	call	___cxa_throw
-L1464:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1465:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-L1466:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-	call	___cxa_throw
-LEHE67:
-L1387:
-	movl	$16, (%esp)
-	call	___cxa_allocate_exception
-	movl	$-8, 4(%eax)
-	movl	$LC1, 8(%eax)
-	movl	$0, 12(%eax)
-	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
-	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
-	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
-	movl	%eax, (%esp)
-LEHB68:
-	call	___cxa_throw
+LEHE47:
 L1388:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
@@ -9279,9 +8823,10 @@ L1388:
 	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
+LEHB48:
 	call	___cxa_throw
-LEHE68:
-L1415:
+LEHE48:
+L1352:
 	movl	$16, (%esp)
 	call	___cxa_allocate_exception
 	movl	$-8, 4(%eax)
@@ -9291,163 +8836,315 @@ L1415:
 	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
 	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
 	movl	%eax, (%esp)
-LEHB69:
+LEHB49:
 	call	___cxa_throw
-LEHE69:
-L1434:
+LEHE49:
+L1386:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB50:
+	call	___cxa_throw
+L1387:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1385:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1324:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1325:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1323:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE50:
+L1353:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB51:
+	call	___cxa_throw
+L1354:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1389:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1390:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1391:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1392:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1393:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1394:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE51:
+L1382:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+LEHB52:
+	call	___cxa_throw
+L1383:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+L1384:
+	movl	$16, (%esp)
+	call	___cxa_allocate_exception
+	movl	$-8, 4(%eax)
+	movl	$LC1, 8(%eax)
+	movl	$0, 12(%eax)
+	movl	$__ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE+8, (%eax)
+	movl	$__ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev, 8(%esp)
+	movl	$__ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE, 4(%esp)
+	movl	%eax, (%esp)
+	call	___cxa_throw
+LEHE52:
+L1370:
 	movl	%eax, %ebx
-	jmp	L1378
-L1436:
+	jmp	L1345
+L1368:
 	movl	%eax, %ebx
-	jmp	L1406
-L1435:
+	jmp	L1316
+L1371:
 	movl	%eax, %ebx
-	jmp	L1407
-L1378:
-	leal	-72(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L1379:
-	leal	-88(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L1344
+L1367:
+	movl	%eax, %ebx
+	jmp	L1337
 L1369:
-	leal	-136(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movl	%ebx, (%esp)
-LEHB70:
-	call	__Unwind_Resume
-LEHE70:
-L1406:
+	movl	%eax, %ebx
+	jmp	L1315
+L1344:
 	leal	-40(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-L1407:
+L1345:
 	leal	-56(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	L1369
-L1431:
-	movl	%eax, %ebx
-	jmp	L1368
-L1430:
-	movl	%eax, %ebx
-	jmp	L1369
-L1368:
-	leal	-120(%ebp), %ecx
-	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	L1369
-L1433:
-	movl	%eax, %ebx
-	jmp	L1379
-L1432:
-	movl	%eax, %ebx
-L1371:
+L1337:
 	leal	-104(%ebp), %ecx
 	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	L1369
+	movl	%ebx, (%esp)
+LEHB53:
+	call	__Unwind_Resume
+LEHE53:
+L1315:
+	leal	-72(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+L1316:
+	leal	-88(%ebp), %ecx
+	call	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	L1337
 	.cfi_endproc
-LFE6500:
+LFE6498:
 	.section	.gcc_except_table,"w"
-LLSDA6500:
+LLSDA6498:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 LLSDACSE6500-LLSDACSB6500
-LLSDACSB6500:
-	.uleb128 LEHB47-LFB6500
+	.uleb128 LLSDACSE6498-LLSDACSB6498
+LLSDACSB6498:
+	.uleb128 LEHB37-LFB6498
+	.uleb128 LEHE37-LEHB37
+	.uleb128 0
+	.uleb128 0
+	.uleb128 LEHB38-LFB6498
+	.uleb128 LEHE38-LEHB38
+	.uleb128 L1367-LFB6498
+	.uleb128 0
+	.uleb128 LEHB39-LFB6498
+	.uleb128 LEHE39-LEHB39
+	.uleb128 L1368-LFB6498
+	.uleb128 0
+	.uleb128 LEHB40-LFB6498
+	.uleb128 LEHE40-LEHB40
+	.uleb128 L1369-LFB6498
+	.uleb128 0
+	.uleb128 LEHB41-LFB6498
+	.uleb128 LEHE41-LEHB41
+	.uleb128 L1368-LFB6498
+	.uleb128 0
+	.uleb128 LEHB42-LFB6498
+	.uleb128 LEHE42-LEHB42
+	.uleb128 L1367-LFB6498
+	.uleb128 0
+	.uleb128 LEHB43-LFB6498
+	.uleb128 LEHE43-LEHB43
+	.uleb128 L1370-LFB6498
+	.uleb128 0
+	.uleb128 LEHB44-LFB6498
+	.uleb128 LEHE44-LEHB44
+	.uleb128 L1371-LFB6498
+	.uleb128 0
+	.uleb128 LEHB45-LFB6498
+	.uleb128 LEHE45-LEHB45
+	.uleb128 L1370-LFB6498
+	.uleb128 0
+	.uleb128 LEHB46-LFB6498
+	.uleb128 LEHE46-LEHB46
+	.uleb128 L1368-LFB6498
+	.uleb128 0
+	.uleb128 LEHB47-LFB6498
 	.uleb128 LEHE47-LEHB47
+	.uleb128 L1370-LFB6498
 	.uleb128 0
-	.uleb128 0
-	.uleb128 LEHB48-LFB6500
+	.uleb128 LEHB48-LFB6498
 	.uleb128 LEHE48-LEHB48
-	.uleb128 L1430-LFB6500
+	.uleb128 L1368-LFB6498
 	.uleb128 0
-	.uleb128 LEHB49-LFB6500
+	.uleb128 LEHB49-LFB6498
 	.uleb128 LEHE49-LEHB49
-	.uleb128 L1431-LFB6500
+	.uleb128 L1370-LFB6498
 	.uleb128 0
-	.uleb128 LEHB50-LFB6500
+	.uleb128 LEHB50-LFB6498
 	.uleb128 LEHE50-LEHB50
-	.uleb128 L1430-LFB6500
+	.uleb128 L1368-LFB6498
 	.uleb128 0
-	.uleb128 LEHB51-LFB6500
+	.uleb128 LEHB51-LFB6498
 	.uleb128 LEHE51-LEHB51
-	.uleb128 L1432-LFB6500
+	.uleb128 L1370-LFB6498
 	.uleb128 0
-	.uleb128 LEHB52-LFB6500
+	.uleb128 LEHB52-LFB6498
 	.uleb128 LEHE52-LEHB52
-	.uleb128 L1430-LFB6500
+	.uleb128 L1368-LFB6498
 	.uleb128 0
-	.uleb128 LEHB53-LFB6500
+	.uleb128 LEHB53-LFB6498
 	.uleb128 LEHE53-LEHB53
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB54-LFB6500
-	.uleb128 LEHE54-LEHB54
-	.uleb128 L1434-LFB6500
-	.uleb128 0
-	.uleb128 LEHB55-LFB6500
-	.uleb128 LEHE55-LEHB55
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB56-LFB6500
-	.uleb128 LEHE56-LEHB56
-	.uleb128 L1430-LFB6500
-	.uleb128 0
-	.uleb128 LEHB57-LFB6500
-	.uleb128 LEHE57-LEHB57
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB58-LFB6500
-	.uleb128 LEHE58-LEHB58
-	.uleb128 L1436-LFB6500
-	.uleb128 0
-	.uleb128 LEHB59-LFB6500
-	.uleb128 LEHE59-LEHB59
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB60-LFB6500
-	.uleb128 LEHE60-LEHB60
-	.uleb128 L1431-LFB6500
-	.uleb128 0
-	.uleb128 LEHB61-LFB6500
-	.uleb128 LEHE61-LEHB61
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB62-LFB6500
-	.uleb128 LEHE62-LEHB62
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB63-LFB6500
-	.uleb128 LEHE63-LEHB63
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB64-LFB6500
-	.uleb128 LEHE64-LEHB64
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB65-LFB6500
-	.uleb128 LEHE65-LEHB65
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB66-LFB6500
-	.uleb128 LEHE66-LEHB66
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB67-LFB6500
-	.uleb128 LEHE67-LEHB67
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB68-LFB6500
-	.uleb128 LEHE68-LEHB68
-	.uleb128 L1433-LFB6500
-	.uleb128 0
-	.uleb128 LEHB69-LFB6500
-	.uleb128 LEHE69-LEHB69
-	.uleb128 L1435-LFB6500
-	.uleb128 0
-	.uleb128 LEHB70-LFB6500
-	.uleb128 LEHE70-LEHB70
 	.uleb128 0
 	.uleb128 0
-LLSDACSE6500:
+LLSDACSE6498:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.globl	__ZTSSt9exception
@@ -9847,9 +9544,9 @@ __ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_lower_digit
 	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPj;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
-	.def	__ZN8Palmtree4Math4Core8Internal10From_I_ImpEj;	.scl	2;	.type	32;	.endef
-	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
-	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal19PMC_Floor_Log10_ImpEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	__ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjj;	.scl	2;	.type	32;	.endef
 	.def	__ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_;	.scl	2;	.type	32;	.endef
 	.def	__ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef

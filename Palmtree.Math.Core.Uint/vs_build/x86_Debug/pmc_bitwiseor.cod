@@ -51,69 +51,69 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __D969B5A7_pmc_bitwiseor@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117928 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
+$SG117948 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
 	DB	't', 00H, 'w', 00H, 'i', 00H, 's', 00H, 'e', 00H, 'o', 00H, 'r'
 	DB	00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H
 	DB	'M', 00H, 'C', 00H, '_', 00H, 'B', 00H, 'i', 00H, 't', 00H, 'w'
 	DB	00H, 'i', 00H, 's', 00H, 'e', 00H, 'O', 00H, 'r', 00H, '_', 00H
 	DB	'I', 00H, '_', 00H, 'X', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG117929 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117949 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117936 DB	'v', 00H, 00H, 00H
-$SG117937 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117956 DB	'v', 00H, 00H, 00H
+$SG117957 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117955 DB	'u', 00H, 00H, 00H
-$SG117951 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
+$SG117975 DB	'u', 00H, 00H, 00H
+$SG117971 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
 	DB	't', 00H, 'w', 00H, 'i', 00H, 's', 00H, 'e', 00H, 'o', 00H, 'r'
 	DB	00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H
 	DB	'M', 00H, 'C', 00H, '_', 00H, 'B', 00H, 'i', 00H, 't', 00H, 'w'
 	DB	00H, 'i', 00H, 's', 00H, 'e', 00H, 'O', 00H, 'r', 00H, '_', 00H
 	DB	'X', 00H, '_', 00H, 'I', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG117952 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117972 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117956 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117976 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118006 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
+$SG118026 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
 	DB	't', 00H, 'w', 00H, 'i', 00H, 's', 00H, 'e', 00H, 'o', 00H, 'r'
 	DB	00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H
 	DB	'M', 00H, 'C', 00H, '_', 00H, 'B', 00H, 'i', 00H, 't', 00H, 'w'
 	DB	00H, 'i', 00H, 's', 00H, 'e', 00H, 'O', 00H, 'r', 00H, '_', 00H
 	DB	'L', 00H, '_', 00H, 'X', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG118007 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG118027 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118010 DB	'v', 00H, 00H, 00H
-$SG118011 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118030 DB	'v', 00H, 00H, 00H
+$SG118031 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118029 DB	'u', 00H, 00H, 00H
-$SG118025 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
+$SG118049 DB	'u', 00H, 00H, 00H
+$SG118045 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'b', 00H, 'i', 00H
 	DB	't', 00H, 'w', 00H, 'i', 00H, 's', 00H, 'e', 00H, 'o', 00H, 'r'
 	DB	00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H
 	DB	'M', 00H, 'C', 00H, '_', 00H, 'B', 00H, 'i', 00H, 't', 00H, 'w'
 	DB	00H, 'i', 00H, 's', 00H, 'e', 00H, 'O', 00H, 'r', 00H, '_', 00H
 	DB	'X', 00H, '_', 00H, 'L', 00H, ';', 00H, '1', 00H, 00H, 00H
-$SG118026 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG118046 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118030 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118050 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118061 DB	'u', 00H, 00H, 00H
-$SG118062 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118081 DB	'u', 00H, 00H, 00H
+$SG118082 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118065 DB	'v', 00H, 00H, 00H
-$SG118066 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118085 DB	'v', 00H, 00H, 00H
+$SG118086 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 CONST	ENDS
@@ -3435,8 +3435,8 @@ _v$ = 12						; size = 4
 
 ; 406  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  00045	68 00 00 00 00	 push	 OFFSET $SG118061
-  0004a	68 00 00 00 00	 push	 OFFSET $SG118062
+  00045	68 00 00 00 00	 push	 OFFSET $SG118081
+  0004a	68 00 00 00 00	 push	 OFFSET $SG118082
   0004f	8d 4d b8	 lea	 ecx, DWORD PTR $T4[ebp]
   00052	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00057	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -3452,8 +3452,8 @@ $LN2@PMC_Bitwis:
 
 ; 408  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  0006b	68 00 00 00 00	 push	 OFFSET $SG118065
-  00070	68 00 00 00 00	 push	 OFFSET $SG118066
+  0006b	68 00 00 00 00	 push	 OFFSET $SG118085
+  00070	68 00 00 00 00	 push	 OFFSET $SG118086
   00075	8d 4d a0	 lea	 ecx, DWORD PTR $T3[ebp]
   00078	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007d	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -3633,8 +3633,8 @@ _v$ = 12						; size = 8
 ; 360  :             // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
 ; 361  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_bitwiseor.cpp;PMC_BitwiseOr_X_L;1");
 
-  00043	68 00 00 00 00	 push	 OFFSET $SG118025
-  00048	68 00 00 00 00	 push	 OFFSET $SG118026
+  00043	68 00 00 00 00	 push	 OFFSET $SG118045
+  00048	68 00 00 00 00	 push	 OFFSET $SG118046
   0004d	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00050	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00055	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -3651,8 +3651,8 @@ $LN2@PMC_Bitwis:
 
 ; 364  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  00069	68 00 00 00 00	 push	 OFFSET $SG118029
-  0006e	68 00 00 00 00	 push	 OFFSET $SG118030
+  00069	68 00 00 00 00	 push	 OFFSET $SG118049
+  0006e	68 00 00 00 00	 push	 OFFSET $SG118050
   00073	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -3816,8 +3816,8 @@ _v$ = 12						; size = 4
 ; 246  :             // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 247  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_bitwiseor.cpp;PMC_BitwiseOr_X_I;1");
 
-  00043	68 00 00 00 00	 push	 OFFSET $SG117951
-  00048	68 00 00 00 00	 push	 OFFSET $SG117952
+  00043	68 00 00 00 00	 push	 OFFSET $SG117971
+  00048	68 00 00 00 00	 push	 OFFSET $SG117972
   0004d	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00050	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00055	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -3834,8 +3834,8 @@ $LN2@PMC_Bitwis:
 
 ; 250  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  00069	68 00 00 00 00	 push	 OFFSET $SG117955
-  0006e	68 00 00 00 00	 push	 OFFSET $SG117956
+  00069	68 00 00 00 00	 push	 OFFSET $SG117975
+  0006e	68 00 00 00 00	 push	 OFFSET $SG117976
   00073	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -3997,8 +3997,8 @@ _v$ = 16						; size = 4
 ; 340  :             // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
 ; 341  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_bitwiseor.cpp;PMC_BitwiseOr_L_X;1");
 
-  00043	68 00 00 00 00	 push	 OFFSET $SG118006
-  00048	68 00 00 00 00	 push	 OFFSET $SG118007
+  00043	68 00 00 00 00	 push	 OFFSET $SG118026
+  00048	68 00 00 00 00	 push	 OFFSET $SG118027
   0004d	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00050	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00055	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -4015,8 +4015,8 @@ $LN2@PMC_Bitwis:
 
 ; 344  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  00069	68 00 00 00 00	 push	 OFFSET $SG118010
-  0006e	68 00 00 00 00	 push	 OFFSET $SG118011
+  00069	68 00 00 00 00	 push	 OFFSET $SG118030
+  0006e	68 00 00 00 00	 push	 OFFSET $SG118031
   00073	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -4180,8 +4180,8 @@ _v$ = 12						; size = 4
 ; 226  :             // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 227  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_bitwiseor.cpp;PMC_BitwiseOr_I_X;1");
 
-  00043	68 00 00 00 00	 push	 OFFSET $SG117928
-  00048	68 00 00 00 00	 push	 OFFSET $SG117929
+  00043	68 00 00 00 00	 push	 OFFSET $SG117948
+  00048	68 00 00 00 00	 push	 OFFSET $SG117949
   0004d	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00050	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00055	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -4198,8 +4198,8 @@ $LN2@PMC_Bitwis:
 
 ; 230  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  00069	68 00 00 00 00	 push	 OFFSET $SG117936
-  0006e	68 00 00 00 00	 push	 OFFSET $SG117937
+  00069	68 00 00 00 00	 push	 OFFSET $SG117956
+  0006e	68 00 00 00 00	 push	 OFFSET $SG117957
   00073	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@

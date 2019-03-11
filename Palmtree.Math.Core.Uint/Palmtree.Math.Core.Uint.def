@@ -83,3 +83,5 @@ EXPORTS
 	PMCCS_Pow_X_I
 	PMCCS_Pow_X_L
 	PMCCS_ModPow_X_X_X
+	PMCCS_TimesOfExponentOf10
+	PMCCS_Floor_Log10

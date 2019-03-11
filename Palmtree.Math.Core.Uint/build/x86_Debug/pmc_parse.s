@@ -1240,7 +1240,7 @@ LFE760:
 __ZN8Palmtree4Math4Core8InternalL23IncrementMULTI32CounterEv:
 LFB771:
 	.file 4 "../pmc_uint_internal.h"
-	.loc 4 315 5
+	.loc 4 330 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1258,7 +1258,7 @@ LBB29:
 	lock xaddl	%edx, (%eax)
 LBE29:
 LBE28:
-	.loc 4 317 5
+	.loc 4 332 5
 	nop
 	leave
 	.cfi_restore 5
@@ -1269,7 +1269,7 @@ LFE771:
 	.def	__ZN8Palmtree4Math4Core8InternalL19AddToMULTI32CounterEi;	.scl	3;	.type	32;	.endef
 __ZN8Palmtree4Math4Core8InternalL19AddToMULTI32CounterEi:
 LFB775:
-	.loc 4 338 5
+	.loc 4 353 5
 	.cfi_startproc
 	pushl	%ebp
 	.cfi_def_cfa_offset 8
@@ -1288,7 +1288,7 @@ LBB31:
 	lock xaddl	%edx, (%eax)
 LBE31:
 LBE30:
-	.loc 4 340 5
+	.loc 4 355 5
 	nop
 	leave
 	.cfi_restore 5
@@ -17492,7 +17492,7 @@ Ldebug_info0:
 	.uleb128 0x31
 	.ascii "AddToMULTI32Counter\0"
 	.byte	0x4
-	.word	0x151
+	.word	0x160
 	.byte	0x1a
 	.long	0x7ba4
 	.uleb128 0x2
@@ -17501,7 +17501,7 @@ Ldebug_info0:
 	.uleb128 0x7a
 	.ascii "IncrementMULTI32Counter\0"
 	.byte	0x4
-	.word	0x13a
+	.word	0x149
 	.byte	0x1a
 	.byte	0
 	.byte	0
@@ -19794,7 +19794,7 @@ Ldebug_info0:
 	.uleb128 0x15
 	.ascii "value\0"
 	.byte	0x4
-	.word	0x151
+	.word	0x160
 	.byte	0x37
 	.long	0x5bb0
 	.uleb128 0x2
@@ -19805,7 +19805,7 @@ Ldebug_info0:
 	.long	LBB30
 	.long	LBE30-LBB30
 	.byte	0x4
-	.word	0x153
+	.word	0x162
 	.byte	0x20
 	.uleb128 0x6
 	.long	0x9b17
@@ -19831,7 +19831,7 @@ Ldebug_info0:
 	.long	LBB28
 	.long	LBE28-LBB28
 	.byte	0x4
-	.word	0x13c
+	.word	0x14b
 	.byte	0x1e
 	.uleb128 0x6
 	.long	0x9aca

@@ -137,6 +137,14 @@ namespace Palmtree::Math::Core::Internal
     // 多倍長整数と整数の乗算を行う。
     extern NUMBER_HEADER* PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v);
 
+    // v * 10^e を計算する。
+    extern NUMBER_HEADER* PMC_TimesOfExponentOf10_Imp(_UINT32_T v, __UNIT_TYPE e);
+
+    // 常用対数の整数部を計算する
+    extern _UINT32_T PMC_Floor_Log10_Imp(NUMBER_HEADER* v);
+
+    // 多倍長整数の大小比較を行う。
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v);
 #pragma endregion
 
 
@@ -194,6 +202,9 @@ namespace Palmtree::Math::Core::Internal
 
     // べき剰余計算の実装の初期化処理を行う。
     extern PMC_STATUS_CODE Initialize_ModPow(PROCESSOR_FEATURES* feature);
+
+    // 対数計算の実装の初期化処理を行う。
+    extern PMC_STATUS_CODE Initialize_Log(PROCESSOR_FEATURES* feature);
 #pragma endregion
 
 
@@ -291,6 +302,10 @@ namespace Palmtree::Math::Core::Internal
     extern PMC_HANDLE_UINT __PMC_CALL PMC_Pow_X_L(PMC_HANDLE_UINT x, _UINT64_T n) noexcept(false);
 
     extern PMC_HANDLE_UINT __PMC_CALL PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m) noexcept(false);
+
+    extern PMC_HANDLE_UINT __PMC_CALL PMC_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e);
+
+    extern _UINT32_T __PMC_CALL PMC_Floor_Log10(PMC_HANDLE_UINT v);
 
     extern PMC_HANDLE_UINT __PMC_CALL PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign) noexcept(false);
     extern size_t __PMC_CALL PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);

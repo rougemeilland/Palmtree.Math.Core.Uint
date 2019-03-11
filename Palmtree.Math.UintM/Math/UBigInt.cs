@@ -24,6 +24,8 @@
 
  
 using System;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -88,6 +90,12 @@ namespace Palmtree.Math
 
         #endregion
 
+        #region プライベートフィールド
+
+        private static Regex _tostring_format_pattern;
+
+        #endregion
+
         #region コンストラクタ
 
         static UBigInt()
@@ -99,6 +107,7 @@ namespace Palmtree.Math
             ConfigurationSettings = settings;
             Zero = new UBigInt(EngineObject.Zero);
             One = new UBigInt(EngineObject.One);
+            _tostring_format_pattern = new Regex("^[cdefgnprx]|[cdefgnprx][0-9]|[cdefgnprx][0-9][0-9]$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         }
 
         public UBigInt()

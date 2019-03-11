@@ -177,7 +177,7 @@ _ZN8Palmtree4Math4Core8Internal19ReverseStringWriter9GetStringEv:
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter9GetStringEv:
-.LFB6634:
+.LFB6632:
 	.seh_endprologue
 	movq	40(%rcx), %rcx
 	movq	(%rcx), %rax
@@ -191,7 +191,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPrecisionValueEv:
-.LFB6648:
+.LFB6646:
 	.seh_endprologue
 	movq	32(%rcx), %rax
 	movl	(%rax), %eax
@@ -205,7 +205,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC24GetDefaultPre
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPrecisionValueEv:
-.LFB6656:
+.LFB6654:
 	.seh_endprologue
 	xorl	%eax, %eax
 	ret
@@ -218,7 +218,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD24GetDefaultPre
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6657:
+.LFB6655:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -253,7 +253,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6660:
+.LFB6658:
 	.seh_endprologue
 	ret
 	.seh_endproc
@@ -265,7 +265,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPrecisionValueEv:
-.LFB6664:
+.LFB6662:
 	.seh_endprologue
 	movl	$6, %eax
 	ret
@@ -285,7 +285,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE24GetDefaultPre
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6665:
+.LFB6663:
 	pushq	%rdi
 	.seh_pushreg	%rdi
 	pushq	%rsi
@@ -343,7 +343,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6669:
+.LFB6667:
 	.seh_endprologue
 	ret
 	.seh_endproc
@@ -355,7 +355,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPrecisionValueEv:
-.LFB6673:
+.LFB6671:
 	.seh_endprologue
 	movq	32(%rcx), %rax
 	movl	104(%rax), %eax
@@ -369,7 +369,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF24GetDefaultPre
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6677:
+.LFB6675:
 	.seh_endprologue
 	ret
 	.seh_endproc
@@ -381,7 +381,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPrecisionValueEv:
-.LFB6681:
+.LFB6679:
 	.seh_endprologue
 	movq	32(%rcx), %rax
 	movl	104(%rax), %eax
@@ -395,7 +395,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN24GetDefaultPre
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP24GetDefaultPrecisionValueEv:
-.LFB6689:
+.LFB6687:
 	.seh_endprologue
 	movq	32(%rcx), %rax
 	movl	(%rax), %eax
@@ -637,7 +637,7 @@ _ZN8Palmtree4Math4Core8Internal22InternalErrorExceptionD0Ev:
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6659:
+.LFB6657:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -699,7 +699,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEw:
-.LFB6632:
+.LFB6630:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -764,7 +764,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEcPNS2_12StringWriterE:
-.LFB6650:
+.LFB6648:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -920,7 +920,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6652:
+.LFB6650:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1061,7 +1061,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEcPNS2_12StringWriterE:
-.LFB6658:
+.LFB6656:
 	.seh_endprologue
 	testb	%dl, %dl
 	js	.L134
@@ -1083,7 +1083,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeD11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEcPNS2_12StringWriterE:
-.LFB6667:
+.LFB6665:
 	.seh_endprologue
 	testb	%dl, %dl
 	js	.L137
@@ -1105,7 +1105,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEcPNS2_12StringWriterE:
-.LFB6675:
+.LFB6673:
 	.seh_endprologue
 	testb	%dl, %dl
 	js	.L140
@@ -1127,7 +1127,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEcPNS2_12StringWriterE:
-.LFB6683:
+.LFB6681:
 	subq	$56, %rsp
 	.seh_stackalloc	56
 	.seh_endprologue
@@ -1185,7 +1185,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6685:
+.LFB6683:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$48, %rsp
@@ -1245,7 +1245,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEcPNS2_12StringWriterE:
-.LFB6692:
+.LFB6690:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1372,7 +1372,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WritePrefixEc
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEcPNS2_12StringWriterE:
-.LFB6694:
+.LFB6692:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1496,7 +1496,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP11WriteSuffixEc
 	.def	_ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
 _ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10:
-.LFB6722:
+.LFB6721:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -1589,7 +1589,7 @@ _ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw:
 	.def	_ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv.part.12;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv.part.12
 _ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv.part.12:
-.LFB6724:
+.LFB6723:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -1642,7 +1642,7 @@ _ZN8Palmtree4Math4Core8Internal19ReverseStringReader8ProgressEv:
 	.def	_ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv.part.13;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv.part.13
 _ZN8Palmtree4Math4Core8Internal12StringReader8ProgressEv.part.13:
-.LFB6725:
+.LFB6724:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -1822,7 +1822,7 @@ _ZN8Palmtree4Math4Core8Internal19ReverseStringReader10SkipStringEPKw:
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6649:
+.LFB6647:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1869,7 +1869,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6674:
+.LFB6672:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1916,7 +1916,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6690:
+.LFB6688:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -1963,7 +1963,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValueEPNS2_12StringWriterE:
-.LFB6682:
+.LFB6680:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -2013,7 +2013,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN14WriteZeroValu
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22:
-.LFB6734:
+.LFB6733:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -2040,7 +2040,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6676:
+.LFB6674:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -2092,7 +2092,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeF20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6668:
+.LFB6666:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -2185,7 +2185,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter29ThousandSeparatedStringWriter5WriteEPKw:
-.LFB6633:
+.LFB6631:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -2346,7 +2346,7 @@ _ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEPKw:
 	.def	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEyjPwPNS2_12StringWriterE.constprop.27;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEyjPwPNS2_12StringWriterE.constprop.27
 _ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEyjPwPNS2_12StringWriterE.constprop.27:
-.LFB6744:
+.LFB6742:
 	pushq	%rbx
 	.seh_pushreg	%rbx
 	subq	$32, %rsp
@@ -2877,7 +2877,7 @@ _ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceO
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-.LFB6638:
+.LFB6636:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -2999,7 +2999,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag
 	.def	_ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE
 _ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE:
-.LFB6709:
+.LFB6707:
 	pushq	%rsi
 	.seh_pushreg	%rsi
 	pushq	%rbx
@@ -3068,7 +3068,7 @@ _ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NU
 	.def	_ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE
 _ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE:
-.LFB6710:
+.LFB6708:
 	.seh_endprologue
 	jmp	_ZN8Palmtree4Math4Core8Internal27InitializeNumberFormatoInfoEPNS2_28__tag_PMC_NUMBER_FORMAT_INFOE
 	.seh_endproc
@@ -3077,7 +3077,7 @@ _ZN8Palmtree4Math4Core8Internal30PMC_InitializeNumberFormatInfoEPNS2_28__tag_PMC
 	.def	_ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE
 _ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATURESE:
-.LFB6711:
+.LFB6709:
 	subq	$40, %rsp
 	.seh_stackalloc	40
 	.seh_endprologue
@@ -3095,7 +3095,7 @@ _ZN8Palmtree4Math4Core8Internal19Initialize_ToStringEPNS2_23_tag_PROCESSOR_FEATU
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6651:
+.LFB6649:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -3295,25 +3295,25 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberS
 	.def	__gxx_personality_seh0;	.scl	2;	.type	32;	.endef
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6651:
+.LLSDA6649:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6651-.LLSDACSB6651
-.LLSDACSB6651:
-	.uleb128 .LEHB0-.LFB6651
+	.uleb128 .LLSDACSE6649-.LLSDACSB6649
+.LLSDACSB6649:
+	.uleb128 .LEHB0-.LFB6649
 	.uleb128 .LEHE0-.LEHB0
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB1-.LFB6651
+	.uleb128 .LEHB1-.LFB6649
 	.uleb128 .LEHE1-.LEHB1
-	.uleb128 .L465-.LFB6651
+	.uleb128 .L465-.LFB6649
 	.uleb128 0
-	.uleb128 .LEHB2-.LFB6651
+	.uleb128 .LEHB2-.LFB6649
 	.uleb128 .LEHE2-.LEHB2
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6651:
+.LLSDACSE6649:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -3325,7 +3325,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeC20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6693:
+.LFB6691:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -3524,25 +3524,25 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberS
 .LEHE5:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6693:
+.LLSDA6691:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6693-.LLSDACSB6693
-.LLSDACSB6693:
-	.uleb128 .LEHB3-.LFB6693
+	.uleb128 .LLSDACSE6691-.LLSDACSB6691
+.LLSDACSB6691:
+	.uleb128 .LEHB3-.LFB6691
 	.uleb128 .LEHE3-.LEHB3
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB4-.LFB6693
+	.uleb128 .LEHB4-.LFB6691
 	.uleb128 .LEHE4-.LEHB4
-	.uleb128 .L500-.LFB6693
+	.uleb128 .L500-.LFB6691
 	.uleb128 0
-	.uleb128 .LEHB5-.LFB6693
+	.uleb128 .LEHB5-.LFB6691
 	.uleb128 .LEHE5-.LEHB5
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6693:
+.LLSDACSE6691:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -3554,7 +3554,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE:
-.LFB6684:
+.LFB6682:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -3753,25 +3753,25 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberS
 .LEHE8:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6684:
+.LLSDA6682:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6684-.LLSDACSB6684
-.LLSDACSB6684:
-	.uleb128 .LEHB6-.LFB6684
+	.uleb128 .LLSDACSE6682-.LLSDACSB6682
+.LLSDACSB6682:
+	.uleb128 .LEHB6-.LFB6682
 	.uleb128 .LEHE6-.LEHB6
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB7-.LFB6684
+	.uleb128 .LEHB7-.LFB6682
 	.uleb128 .LEHE7-.LEHB7
-	.uleb128 .L535-.LFB6684
+	.uleb128 .L535-.LFB6682
 	.uleb128 0
-	.uleb128 .LEHB8-.LFB6684
+	.uleb128 .LEHB8-.LFB6682
 	.uleb128 .LEHE8-.LEHB8
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6684:
+.LLSDACSE6682:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberSequenceEPKwPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -3783,7 +3783,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeN20FormatNumberS
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-.LFB6639:
+.LFB6637:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -4490,33 +4490,33 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPN
 	jmp	.L561
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6639:
+.LLSDA6637:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6639-.LLSDACSB6639
-.LLSDACSB6639:
-	.uleb128 .LEHB9-.LFB6639
+	.uleb128 .LLSDACSE6637-.LLSDACSB6637
+.LLSDACSB6637:
+	.uleb128 .LEHB9-.LFB6637
 	.uleb128 .LEHE9-.LEHB9
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB10-.LFB6639
+	.uleb128 .LEHB10-.LFB6637
 	.uleb128 .LEHE10-.LEHB10
-	.uleb128 .L592-.LFB6639
+	.uleb128 .L592-.LFB6637
 	.uleb128 0
-	.uleb128 .LEHB11-.LFB6639
+	.uleb128 .LEHB11-.LFB6637
 	.uleb128 .LEHE11-.LEHB11
-	.uleb128 .L593-.LFB6639
+	.uleb128 .L593-.LFB6637
 	.uleb128 0
-	.uleb128 .LEHB12-.LFB6639
+	.uleb128 .LEHB12-.LFB6637
 	.uleb128 .LEHE12-.LEHB12
-	.uleb128 .L592-.LFB6639
+	.uleb128 .L592-.LFB6637
 	.uleb128 0
-	.uleb128 .LEHB13-.LFB6639
+	.uleb128 .LEHB13-.LFB6637
 	.uleb128 .LEHE13-.LEHB13
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6639:
+.LLSDACSE6637:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -4528,7 +4528,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPN
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-.LFB6691:
+.LFB6689:
 	pushq	%rbp
 	.seh_pushreg	%rbp
 	pushq	%rdi
@@ -4581,25 +4581,25 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInterna
 .LEHE16:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6691:
+.LLSDA6689:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6691-.LLSDACSB6691
-.LLSDACSB6691:
-	.uleb128 .LEHB14-.LFB6691
+	.uleb128 .LLSDACSE6689-.LLSDACSB6689
+.LLSDACSB6689:
+	.uleb128 .LEHB14-.LFB6689
 	.uleb128 .LEHE14-.LEHB14
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB15-.LFB6691
+	.uleb128 .LEHB15-.LFB6689
 	.uleb128 .LEHE15-.LEHB15
-	.uleb128 .L618-.LFB6691
+	.uleb128 .L618-.LFB6689
 	.uleb128 0
-	.uleb128 .LEHB16-.LFB6691
+	.uleb128 .LEHB16-.LFB6689
 	.uleb128 .LEHE16-.LEHB16
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6691:
+.LLSDACSE6689:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -4611,13 +4611,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeP16FormatInterna
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE:
-.LFB6666:
-	pushq	%r15
-	.seh_pushreg	%r15
-	pushq	%r14
-	.seh_pushreg	%r14
-	pushq	%r13
-	.seh_pushreg	%r13
+.LFB6664:
 	pushq	%r12
 	.seh_pushreg	%r12
 	pushq	%rbp
@@ -4628,212 +4622,88 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInterna
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$152, %rsp
-	.seh_stackalloc	152
+	subq	$64, %rsp
+	.seh_stackalloc	64
 	.seh_endprologue
-	leaq	48(%rsp), %r15
-	movq	%rcx, 224(%rsp)
-	movq	%rdx, %r14
-	leaq	80(%rsp), %rbp
-	movq	%r15, %rcx
-	movq	%r8, 240(%rsp)
+	leaq	32(%rsp), %rbx
+	movq	%rdx, %rdi
+	movq	%rcx, %rsi
+	movq	%rbx, %rcx
+	movq	%r8, %rbp
 .LEHB17:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
 .LEHE17:
-	movq	%rbp, %rcx
-	movq	24(%r14), %rbx
-	movq	64(%r14), %rsi
+	movq	%rdi, %rcx
 .LEHB18:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE18:
-	movq	%rbx, %rdi
-	movq	%rbp, %rcx
-	salq	$6, %rdi
-	movq	%rdi, %rdx
-.LEHB19:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
-	movq	%rdi, %rdx
-	movq	%rbp, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal19PMC_Floor_Log10_ImpEPNS2_19__tag_NUMBER_HEADERE
+	movslq	24(%rsi), %rcx
+	movl	%eax, %eax
+	addq	$1, %rax
+	leal	2(%rcx), %edx
+	movslq	%edx, %rdx
+	cmpq	%rax, %rdx
+	ja	.L627
+	subq	%rcx, %rax
+	movl	$5, %ecx
+	leaq	-2(%rax), %rdx
+	call	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+	movq	%rax, %rdx
+	movq	%rbx, %rcx
 	movq	%rax, %r12
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
-.LEHE19:
-	movq	%rax, %r13
-	movq	%r12, %rdi
-	movq	%rbx, %rcx
-/APP
- # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsq
- # 0 "" 2
-/NO_APP
-	xorl	%esi, %esi
-	testq	%rbx, %rbx
-	je	.L621
-	leaq	112(%rsp), %rdi
-	.p2align 4,,10
-.L622:
-	cmpq	$0, -8(%r12,%rbx,8)
-	jne	.L623
-	subq	$1, %rbx
-	jne	.L622
-.L621:
-	movq	%rbp, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	224(%rsp), %rax
-	movslq	24(%rax), %rdx
-	leal	2(%rdx), %eax
-	cltq
-	cmpq	%rsi, %rax
-	ja	.L640
-	leaq	112(%rsp), %rbx
-	subq	%rdx, %rsi
-	leaq	-2(%rsi), %rdi
-	movq	%rbx, %rcx
-.LEHB20:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE20:
-	movl	$10, %ecx
-.LEHB21:
-	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
-	movq	%rax, %rdx
-	movq	%rbx, %rcx
-	movq	%rax, %rsi
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movq	%rdi, %rdx
-	movq	%rsi, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
-	movq	%rax, %rdx
-	movq	%rbx, %rcx
-	movq	%rax, %rsi
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movl	$5, %edx
-	movq	%rsi, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-.LEHE21:
-	movq	%rax, %rsi
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	%rsi, %rdx
-	movq	%r15, %rcx
-.LEHB22:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movq	%rsi, %rdx
-	movq	%r14, %rcx
+	movq	%r12, %rdx
+	movq	%rdi, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_
 	movq	%rax, %rdx
-	movq	%r15, %rcx
-	movq	%rax, %rbx
+	movq	%rbx, %rcx
+	movq	%rax, %rdi
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movq	240(%rsp), %r8
-	movq	%rbx, %rdx
-	movq	224(%rsp), %rcx
+.L627:
+	movq	%rbp, %r8
+	movq	%rdi, %rdx
+	movq	%rsi, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-.LEHE22:
-.L632:
-	movq	%r15, %rcx
+.LEHE18:
+	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	nop
-	addq	$152, %rsp
+	addq	$64, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
 	popq	%rbp
 	popq	%r12
-	popq	%r13
-	popq	%r14
-	popq	%r15
 	ret
-	.p2align 4,,10
-.L623:
-	movq	%r13, %rdx
-	movq	%rbp, %rcx
-.LEHB23:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPy
-	movq	%rdi, 32(%rsp)
-	movq	%r13, %r9
-	movq	%rbx, %rdx
-	movq	%r12, %rcx
-	movl	$10, %r8d
-	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
-.LEHE23:
-	movq	%r12, %rax
-	addl	$1, %esi
-	movq	%r13, %r12
-	movq	%rax, %r13
-	jmp	.L622
-	.p2align 4,,10
-.L640:
-	movq	240(%rsp), %r8
-	movq	%r14, %rdx
-	movq	224(%rsp), %rcx
-.LEHB24:
-	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-.LEHE24:
-	jmp	.L632
-.L636:
+.L624:
 	movq	%rax, %rsi
 	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	%rsi, %rbx
-	jmp	.L629
-.L635:
-	movq	%rbp, %rcx
-	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-.L629:
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	%rbx, %rcx
-.LEHB25:
+	movq	%rsi, %rcx
+.LEHB19:
 	call	_Unwind_Resume
-.LEHE25:
-.L634:
-	movq	%rax, %rbx
-	jmp	.L629
+	nop
+.LEHE19:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6666:
+.LLSDA6664:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6666-.LLSDACSB6666
-.LLSDACSB6666:
-	.uleb128 .LEHB17-.LFB6666
+	.uleb128 .LLSDACSE6664-.LLSDACSB6664
+.LLSDACSB6664:
+	.uleb128 .LEHB17-.LFB6664
 	.uleb128 .LEHE17-.LEHB17
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB18-.LFB6666
+	.uleb128 .LEHB18-.LFB6664
 	.uleb128 .LEHE18-.LEHB18
-	.uleb128 .L634-.LFB6666
+	.uleb128 .L624-.LFB6664
 	.uleb128 0
-	.uleb128 .LEHB19-.LFB6666
+	.uleb128 .LEHB19-.LFB6664
 	.uleb128 .LEHE19-.LEHB19
-	.uleb128 .L635-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB20-.LFB6666
-	.uleb128 .LEHE20-.LEHB20
-	.uleb128 .L634-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB21-.LFB6666
-	.uleb128 .LEHE21-.LEHB21
-	.uleb128 .L636-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB22-.LFB6666
-	.uleb128 .LEHE22-.LEHB22
-	.uleb128 .L634-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB23-.LFB6666
-	.uleb128 .LEHE23-.LEHB23
-	.uleb128 .L635-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB24-.LFB6666
-	.uleb128 .LEHE24-.LEHB24
-	.uleb128 .L634-.LFB6666
-	.uleb128 0
-	.uleb128 .LEHB25-.LFB6666
-	.uleb128 .LEHE25-.LEHB25
 	.uleb128 0
 	.uleb128 0
-.LLSDACSE6666:
+.LLSDACSE6664:
 	.section	.text$_ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE,"x"
 	.linkonce discard
 	.seh_endproc
@@ -4842,7 +4712,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeE16FormatInterna
 	.def	_ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy.constprop.31;	.scl	3;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy.constprop.31
 _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy.constprop.31:
-.LFB6740:
+.LFB6738:
 	pushq	%r15
 	.seh_pushreg	%r15
 	pushq	%r14
@@ -4875,29 +4745,29 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	cmovns	%r8d, %eax
 	testb	$1, 8(%rdi)
 	movl	%eax, 60(%rsp)
-	je	.L643
+	je	.L630
 	testb	%cl, %cl
-	jne	.L734
+	jne	.L721
 	movslq	60(%rsp), %rax
 	movl	$1, %r8d
 	testl	%eax, %eax
 	cmovg	%rax, %r8
 	leaq	1(%r8), %rdx
 	.p2align 4,,10
-.L649:
+.L636:
 	testq	%rbx, %rbx
-	je	.L735
+	je	.L722
 	leaq	2(%rbx), %rax
 	cmpq	%rax, %r14
-	jbe	.L736
+	jbe	.L723
 	movl	$48, (%rbx)
 	movq	%rax, %rbx
-.L647:
+.L634:
 	movq	%rdx, %r15
 	subq	%r8, %r15
 	subq	$1, %r8
-	jne	.L649
-.L641:
+	jne	.L636
+.L628:
 	movq	%r15, %rax
 	addq	$168, %rsp
 	popq	%rbx
@@ -4910,36 +4780,36 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	popq	%r15
 	ret
 	.p2align 4,,10
-.L643:
+.L630:
 	testb	%cl, %cl
-	je	.L737
+	je	.L724
 	movl	$0, %r15d
-	js	.L738
-.L651:
+	js	.L725
+.L638:
 	leaq	96(%rsp), %rsi
 	movq	%rsi, %rcx
 	movq	%rsi, 64(%rsp)
-.LEHB26:
+.LEHB20:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE26:
+.LEHE20:
 	movq	32(%rdi), %rax
 	movq	%rsi, %rcx
 	leaq	7(%rax), %rdx
 	shrq	$3, %rdx
 	addq	%rax, %rdx
-.LEHB27:
+.LEHB21:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
 	leaq	128(%rsp), %r12
 	movq	%rax, 48(%rsp)
 	movq	%r12, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE27:
+.LEHE21:
 	movq	32(%rdi), %rsi
 	movq	%r12, %rcx
 	movq	%rsi, 72(%rsp)
 	addq	$64, %rsi
 	movq	%rsi, %rdx
-.LEHB28:
+.LEHB22:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
 	movq	%rsi, %rdx
 	movq	%r12, %rcx
@@ -4958,12 +4828,12 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	addq	$127, %rsi
 	shrq	$6, %rsi
 	testq	%rsi, %rsi
-	je	.L708
+	je	.L695
 	movq	48(%rsp), %rdi
 	leaq	88(%rsp), %rax
 	movq	%rax, 72(%rsp)
 	.p2align 4,,10
-.L660:
+.L647:
 	movq	%rbp, %rdx
 	movq	%r12, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPy
@@ -4977,33 +4847,33 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movq	%rbp, %rdx
 	movq	%r12, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPy
-.LEHE28:
+.LEHE22:
 	movq	88(%rsp), %rax
 	addq	$8, %rdi
 	movq	%rax, -8(%rdi)
 	.p2align 4,,10
-.L659:
+.L646:
 	cmpq	$0, -8(%rbp,%rsi,8)
-	jne	.L657
+	jne	.L644
 	subq	$1, %rsi
-	jne	.L659
+	jne	.L646
 	subq	48(%rsp), %rdi
 	sarq	$3, %rdi
 	leaq	(%rdi,%rdi,8), %rax
 	leaq	1(%rdi,%rax,2), %rsi
-.L656:
+.L643:
 	movq	%r12, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movq	64(%rsp), %rcx
 	movq	%rsi, %rdx
-.LEHB29:
+.LEHB23:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT14AllocateStringEy
 	testq	%rax, %rax
 	movq	%rax, %rbp
-	je	.L665
+	je	.L652
 	leaq	(%rax,%rsi,2), %rcx
 	cmpq	%rcx, %rax
-	jnb	.L665
+	jnb	.L652
 	movq	48(%rsp), %rax
 	leaq	-2(%rcx), %rsi
 	xorl	%edx, %edx
@@ -5011,7 +4881,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movw	%dx, -2(%rcx)
 	movq	%rdi, %r12
 	movq	(%rax), %rax
-	je	.L666
+	je	.L653
 	xorl	%r8d, %r8d
 	movl	$10, %r9d
 	movq	%r8, %rdx
@@ -5022,7 +4892,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rsi, %rbp
-	jnb	.L670
+	jnb	.L657
 	leaq	-4(%rcx), %r10
 	movw	%dx, -4(%rcx)
 	movq	%r8, %rdx
@@ -5033,7 +4903,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%r10, %rbp
-	jnb	.L671
+	jnb	.L658
 	movw	%dx, -6(%rcx)
 	movq	%r8, %rdx
 	leaq	-6(%rcx), %r8
@@ -5044,15 +4914,15 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%r8, %rbp
-	jnb	.L672
+	jnb	.L659
 	subq	$40, %rcx
 	movq	48(%rsp), %r11
 	xorl	%r9d, %r9d
 	movl	$10, %r8d
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %r10
-	jmp	.L673
+	jmp	.L660
 	.p2align 4,,10
-.L690:
+.L677:
 	movq	%r9, %rdx
 /APP
  # 276 "../pmc_inline_func.h" 1
@@ -5061,7 +4931,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rcx, %rbp
-	jnb	.L670
+	jnb	.L657
 	leaq	-2(%rcx), %r11
 	movw	%dx, -2(%rcx)
 	movq	%r9, %rdx
@@ -5072,7 +4942,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%r11, %rbp
-	jnb	.L671
+	jnb	.L658
 	movw	%dx, -4(%rcx)
 	leaq	-38(%rcx), %r11
 	subq	$4, %rcx
@@ -5084,10 +4954,10 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rcx, %rbp
-	jnb	.L672
+	jnb	.L659
 	movq	%r11, %rcx
 	movq	%rdi, %r11
-.L673:
+.L660:
 	leaq	32(%rcx), %rdi
 	movw	%dx, 32(%rcx)
 	movq	%r9, %rdx
@@ -5099,7 +4969,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L739
+	jnb	.L726
 	leaq	30(%rcx), %rdi
 	movw	%dx, 30(%rcx)
 	movq	%r9, %rdx
@@ -5110,7 +4980,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L740
+	jnb	.L727
 	leaq	28(%rcx), %rdi
 	movw	%dx, 28(%rcx)
 	movq	%r9, %rdx
@@ -5121,7 +4991,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L741
+	jnb	.L728
 	leaq	26(%rcx), %rdi
 	movw	%dx, 26(%rcx)
 	movq	%r9, %rdx
@@ -5132,7 +5002,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L742
+	jnb	.L729
 	leaq	24(%rcx), %rdi
 	movw	%dx, 24(%rcx)
 	movq	%r9, %rdx
@@ -5143,7 +5013,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L743
+	jnb	.L730
 	leaq	22(%rcx), %rdi
 	movw	%dx, 22(%rcx)
 	movq	%r9, %rdx
@@ -5154,7 +5024,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L744
+	jnb	.L731
 	leaq	20(%rcx), %rdi
 	movw	%dx, 20(%rcx)
 	movq	%r9, %rdx
@@ -5165,7 +5035,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L745
+	jnb	.L732
 	movw	%dx, 18(%rcx)
 	lock addl	$10, 8(%r10)
 	leaq	18(%rcx), %rdi
@@ -5177,7 +5047,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L746
+	jnb	.L733
 	leaq	16(%rcx), %rdi
 	movw	%dx, 16(%rcx)
 	movq	%r9, %rdx
@@ -5188,7 +5058,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L747
+	jnb	.L734
 	leaq	14(%rcx), %rdi
 	movw	%dx, 14(%rcx)
 	movq	%r9, %rdx
@@ -5199,7 +5069,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L748
+	jnb	.L735
 	leaq	12(%rcx), %rdi
 	movw	%dx, 12(%rcx)
 	movq	%r9, %rdx
@@ -5210,7 +5080,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L749
+	jnb	.L736
 	leaq	10(%rcx), %rdi
 	movw	%dx, 10(%rcx)
 	movq	%r9, %rdx
@@ -5221,7 +5091,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L750
+	jnb	.L737
 	movw	%dx, 8(%rcx)
 	lock addl	$5, 8(%r10)
 	leaq	8(%rcx), %rdi
@@ -5233,7 +5103,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L751
+	jnb	.L738
 	leaq	6(%rcx), %rdi
 	movw	%dx, 6(%rcx)
 	movq	%r9, %rdx
@@ -5244,7 +5114,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L752
+	jnb	.L739
 	movw	%dx, 4(%rcx)
 	lock addl	$2, 8(%r10)
 	leaq	4(%rcx), %rdi
@@ -5256,24 +5126,24 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rdi, %rbp
-	jnb	.L753
+	jnb	.L740
 	movw	%dx, 2(%rcx)
 	leaq	2(%rcx), %rdx
 	addl	$48, %eax
 	cmpq	%rdx, %rbp
-	jnb	.L754
+	jnb	.L741
 	movw	%ax, (%rcx)
 	lock addl	$1, 8(%r10)
 	movq	8(%r11), %rax
 	leaq	8(%r11), %rdi
 	subq	$1, %r12
-	jne	.L690
-.L666:
+	jne	.L677
+.L653:
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal15statistics_infoE(%rip), %rcx
 	xorl	%r9d, %r9d
 	movl	$10, %r8d
 	.p2align 4,,10
-.L692:
+.L679:
 	movq	%r9, %rdx
 /APP
  # 276 "../pmc_inline_func.h" 1
@@ -5282,12 +5152,12 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 /NO_APP
 	addl	$48, %edx
 	cmpq	%rsi, %rbp
-	jnb	.L755
+	jnb	.L742
 	subq	$2, %rsi
 	movw	%dx, (%rsi)
 	lock addl	$1, 8(%rcx)
 	testq	%rax, %rax
-	jne	.L692
+	jne	.L679
 	movq	48(%rsp), %rdx
 	movq	64(%rsp), %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT15DeallocateBlockEPy
@@ -5295,123 +5165,123 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movq	__imp_lstrlenW(%rip), %rdi
 	call	*%rdi
 	cmpl	60(%rsp), %eax
-	jl	.L756
-.L696:
+	jl	.L743
+.L683:
 	movzwl	(%rsi), %eax
 	testw	%ax, %ax
-	je	.L694
+	je	.L681
 	movq	%r15, %rdx
 	negq	%rdx
 	leaq	(%rsi,%rdx,2), %rcx
 	.p2align 4,,10
-.L703:
+.L690:
 	testq	%rbx, %rbx
-	je	.L757
+	je	.L744
 	leaq	2(%rbx), %rdx
 	cmpq	%rdx, %r14
-	jbe	.L758
+	jbe	.L745
 	movw	%ax, (%rbx)
 	xorl	%eax, %eax
 	movw	%ax, 2(%rbx)
 	movq	%rdx, %rbx
-.L701:
+.L688:
 	addq	$1, %r15
 	movzwl	(%rcx,%r15,2), %eax
 	testw	%ax, %ax
-	jne	.L703
-.L694:
+	jne	.L690
+.L681:
 	movq	64(%rsp), %rsi
 	movq	%rbp, %rdx
 	movq	%rsi, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw
 	movq	%rsi, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	.L641
+	jmp	.L628
 	.p2align 4,,10
-.L657:
+.L644:
 	movq	%r13, %rax
 	movq	%rbp, %r13
 	movq	%rax, %rbp
-	jmp	.L660
+	jmp	.L647
 	.p2align 4,,10
-.L735:
+.L722:
 	movq	%rdx, %r15
 	subq	%r8, %r15
 	subq	$1, %r8
-	jne	.L647
-	jmp	.L641
+	jne	.L634
+	jmp	.L628
 	.p2align 4,,10
-.L757:
+.L744:
 	addq	$1, %r15
 	cmpw	$0, (%rcx,%r15,2)
-	jne	.L701
-	jmp	.L694
+	jne	.L688
+	jmp	.L681
 	.p2align 4,,10
-.L738:
+.L725:
 	movzwl	346(%r9), %edx
 	testw	%dx, %dx
-	je	.L651
+	je	.L638
 	movl	$1, %eax
-	jmp	.L655
+	jmp	.L642
 	.p2align 4,,10
-.L652:
+.L639:
 	leaq	2(%rbx), %rcx
 	cmpq	%rcx, %r14
-	jbe	.L759
+	jbe	.L746
 	xorl	%r8d, %r8d
 	movw	%dx, (%rbx)
 	movq	%rax, %r15
 	movw	%r8w, 2(%rbx)
 	movq	%rcx, %rbx
-.L653:
+.L640:
 	leaq	1(%r15), %rax
 	movzwl	344(%r9,%rax,2), %edx
 	testw	%dx, %dx
-	je	.L651
-.L655:
+	je	.L638
+.L642:
 	testq	%rbx, %rbx
-	jne	.L652
+	jne	.L639
 	leaq	1(%rax), %r15
 	cmpw	$0, 344(%r9,%r15,2)
-	jne	.L653
+	jne	.L640
 	movq	%rax, %r15
-	jmp	.L651
+	jmp	.L638
 	.p2align 4,,10
-.L756:
+.L743:
 	movq	%rsi, %rcx
 	call	*%rdi
 	movl	60(%rsp), %r8d
 	subl	%eax, %r8d
 	movslq	%r8d, %r8
 	testq	%r8, %r8
-	je	.L696
+	je	.L683
 	leaq	1(%r8,%r15), %rdx
 	.p2align 4,,10
-.L699:
+.L686:
 	testq	%rbx, %rbx
-	je	.L697
+	je	.L684
 	leaq	2(%rbx), %rax
 	cmpq	%rax, %r14
-	jbe	.L760
+	jbe	.L747
 	movl	$48, (%rbx)
 	movq	%rax, %rbx
-.L697:
+.L684:
 	movq	%rdx, %rax
 	subq	%r8, %rax
 	subq	$1, %r8
-	jne	.L699
+	jne	.L686
 	movq	%rax, %r15
-	jmp	.L696
+	jmp	.L683
 	.p2align 4,,10
-.L665:
+.L652:
 	call	_ZN8Palmtree4Math4Core8Internal19ReverseStringWriter5WriteEw.part.10
-.LEHE29:
+.LEHE23:
 	.p2align 4,,10
-.L708:
+.L695:
 	xorl	%edi, %edi
 	movl	$1, %esi
-	jmp	.L656
-.L737:
+	jmp	.L643
+.L724:
 	leaq	.LC2(%rip), %rsi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -5424,12 +5294,12 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movl	$-256, 8(%rax)
 	leaq	_ZTIN8Palmtree4Math4Core8Internal22InternalErrorExceptionE(%rip), %rdx
 	movq	%rsi, (%rax)
-.LEHB30:
+.LEHB24:
 	call	__cxa_throw
-.L734:
+.L721:
 	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE.part.22
-.LEHE30:
-.L755:
+.LEHE24:
+.L742:
 	leaq	.LC1(%rip), %rsi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -5441,7 +5311,228 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
 	movq	$0, 24(%rax)
 	movq	%rsi, (%rax)
-.LEHB31:
+.LEHB25:
+	call	__cxa_throw
+.L726:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L727:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L728:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L729:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L730:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L731:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L732:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L741:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L657:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L658:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L659:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L733:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L734:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L735:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L736:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L737:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
+	call	__cxa_throw
+.L738:
+	leaq	.LC1(%rip), %rsi
+	movl	$32, %ecx
+	call	__cxa_allocate_exception
+	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
+	movq	%rsi, 16(%rax)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
+	movq	%rax, %rcx
+	movl	$-8, 8(%rax)
+	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
+	movq	$0, 24(%rax)
+	movq	%rsi, (%rax)
 	call	__cxa_throw
 .L739:
 	leaq	.LC1(%rip), %rsi
@@ -5469,7 +5560,8 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movq	$0, 24(%rax)
 	movq	%rsi, (%rax)
 	call	__cxa_throw
-.L741:
+.LEHE25:
+.L723:
 	leaq	.LC1(%rip), %rsi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -5481,46 +5573,9 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
 	movq	$0, 24(%rax)
 	movq	%rsi, (%rax)
+.LEHB26:
 	call	__cxa_throw
-.L742:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L743:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L744:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
+.LEHE26:
 .L745:
 	leaq	.LC1(%rip), %rsi
 	movl	$32, %ecx
@@ -5533,71 +5588,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
 	movq	$0, 24(%rax)
 	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L754:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L670:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L671:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L672:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L746:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
+.LEHB27:
 	call	__cxa_throw
 .L747:
 	leaq	.LC1(%rip), %rsi
@@ -5612,190 +5603,69 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	movq	$0, 24(%rax)
 	movq	%rsi, (%rax)
 	call	__cxa_throw
-.L748:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L749:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L750:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L751:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L752:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.L753:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.LEHE31:
-.L736:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-.LEHB32:
-	call	__cxa_throw
-.LEHE32:
-.L758:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-.LEHB33:
-	call	__cxa_throw
-.L760:
-	leaq	.LC1(%rip), %rsi
-	movl	$32, %ecx
-	call	__cxa_allocate_exception
-	leaq	_ZN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionD1Ev(%rip), %r8
-	movq	%rsi, 16(%rax)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rsi
-	movq	%rax, %rcx
-	movl	$-8, 8(%rax)
-	leaq	_ZTIN8Palmtree4Math4Core8Internal27InsufficientBufferExceptionE(%rip), %rdx
-	movq	$0, 24(%rax)
-	movq	%rsi, (%rax)
-	call	__cxa_throw
-.LEHE33:
-.L759:
-.LEHB34:
+.LEHE27:
+.L746:
+.LEHB28:
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
-.L710:
+.L697:
 	movq	%rax, %rbx
-	jmp	.L663
-.L711:
+	jmp	.L650
+.L698:
 	movq	%r12, %rcx
 	movq	%rax, %rbx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-.L663:
+.L650:
 	movq	64(%rsp), %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE34:
+.LEHE28:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6740:
+.LLSDA6738:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6740-.LLSDACSB6740
-.LLSDACSB6740:
-	.uleb128 .LEHB26-.LFB6740
+	.uleb128 .LLSDACSE6738-.LLSDACSB6738
+.LLSDACSB6738:
+	.uleb128 .LEHB20-.LFB6738
+	.uleb128 .LEHE20-.LEHB20
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB21-.LFB6738
+	.uleb128 .LEHE21-.LEHB21
+	.uleb128 .L697-.LFB6738
+	.uleb128 0
+	.uleb128 .LEHB22-.LFB6738
+	.uleb128 .LEHE22-.LEHB22
+	.uleb128 .L698-.LFB6738
+	.uleb128 0
+	.uleb128 .LEHB23-.LFB6738
+	.uleb128 .LEHE23-.LEHB23
+	.uleb128 .L697-.LFB6738
+	.uleb128 0
+	.uleb128 .LEHB24-.LFB6738
+	.uleb128 .LEHE24-.LEHB24
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB25-.LFB6738
+	.uleb128 .LEHE25-.LEHB25
+	.uleb128 .L697-.LFB6738
+	.uleb128 0
+	.uleb128 .LEHB26-.LFB6738
 	.uleb128 .LEHE26-.LEHB26
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB27-.LFB6740
+	.uleb128 .LEHB27-.LFB6738
 	.uleb128 .LEHE27-.LEHB27
-	.uleb128 .L710-.LFB6740
+	.uleb128 .L697-.LFB6738
 	.uleb128 0
-	.uleb128 .LEHB28-.LFB6740
+	.uleb128 .LEHB28-.LFB6738
 	.uleb128 .LEHE28-.LEHB28
-	.uleb128 .L711-.LFB6740
-	.uleb128 0
-	.uleb128 .LEHB29-.LFB6740
-	.uleb128 .LEHE29-.LEHB29
-	.uleb128 .L710-.LFB6740
-	.uleb128 0
-	.uleb128 .LEHB30-.LFB6740
-	.uleb128 .LEHE30-.LEHB30
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB31-.LFB6740
-	.uleb128 .LEHE31-.LEHB31
-	.uleb128 .L710-.LFB6740
-	.uleb128 0
-	.uleb128 .LEHB32-.LFB6740
-	.uleb128 .LEHE32-.LEHB32
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB33-.LFB6740
-	.uleb128 .LEHE33-.LEHB33
-	.uleb128 .L710-.LFB6740
-	.uleb128 0
-	.uleb128 .LEHB34-.LFB6740
-	.uleb128 .LEHE34-.LEHB34
-	.uleb128 0
-	.uleb128 0
-.LLSDACSE6740:
+.LLSDACSE6738:
 	.text
 	.seh_endproc
 	.section .rdata,"dr"
@@ -5834,9 +5704,7 @@ _ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBE
 	.def	_ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy
 _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy:
-.LFB6708:
-	pushq	%r15
-	.seh_pushreg	%r15
+.LFB6706:
 	pushq	%r14
 	.seh_pushreg	%r14
 	pushq	%r13
@@ -5851,36 +5719,36 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	.seh_pushreg	%rsi
 	pushq	%rbx
 	.seh_pushreg	%rbx
-	subq	$408, %rsp
-	.seh_stackalloc	408
+	subq	$304, %rsp
+	.seh_stackalloc	304
 	.seh_endprologue
 	testq	%rcx, %rcx
-	movq	%rcx, %rbp
-	movq	%rdx, %rdi
+	movq	%rcx, %rdi
+	movq	%rdx, %r12
 	movq	%r8, %rsi
 	movq	%r9, %rbx
-	je	.L1353
+	je	.L1325
 	leaq	_ZN8Palmtree4Math4Core8InternalL28default_number_format_optionE(%rip), %rax
 	testq	%r8, %r8
 	cmove	%rax, %rsi
-.LEHB35:
+.LEHB29:
 	call	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE
-	movzbl	8(%rbp), %eax
+	movzbl	8(%rdi), %eax
 	movl	%eax, %r10d
 	notl	%r10d
 	andl	$1, %r10d
-	testq	%rdi, %rdi
-	je	.L968
-	movzwl	(%rdi), %r12d
-	testw	%r12w, %r12w
-	je	.L968
-	leal	-65(%r12), %edx
+	testq	%r12, %r12
+	je	.L944
+	movzwl	(%r12), %ebp
+	testw	%bp, %bp
+	je	.L944
+	leal	-65(%rbp), %edx
 	cmpw	$25, %dx
-	jbe	.L765
-	leal	-97(%r12), %edx
+	jbe	.L752
+	leal	-97(%rbp), %edx
 	cmpw	$25, %dx
-	jbe	.L1354
-.L767:
+	jbe	.L1326
+.L754:
 	leaq	.LC19(%rip), %rdi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -5894,18 +5762,18 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	movq	%rdi, (%rax)
 	call	__cxa_throw
 	.p2align 4,,10
-.L968:
+.L944:
 	movl	$-1, %r8d
-.L775:
+.L762:
 	movq	%rbx, 32(%rsp)
 	movq	%rsi, %r9
-	movq	%rbp, %rdx
+	movq	%rdi, %rdx
 	movl	%r10d, %ecx
-	movq	512(%rsp), %rax
+	movq	400(%rsp), %rax
 	movq	%rax, 40(%rsp)
 	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy.constprop.31
-.L761:
-	addq	$408, %rsp
+.L748:
+	addq	$304, %rsp
 	popq	%rbx
 	popq	%rsi
 	popq	%rdi
@@ -5913,590 +5781,163 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	popq	%r12
 	popq	%r13
 	popq	%r14
-	popq	%r15
 	ret
 	.p2align 4,,10
-.L765:
-	movzwl	2(%rdi), %edx
+.L752:
+	movzwl	2(%r12), %edx
 	testw	%dx, %dx
-	je	.L1355
-.L1319:
+	je	.L1327
+.L1291:
 	leal	-48(%rdx), %ecx
 	cmpw	$9, %cx
-	ja	.L767
-	cmpw	$0, 4(%rdi)
-	je	.L1356
-	movzwl	4(%rdi), %ecx
+	ja	.L754
+	cmpw	$0, 4(%r12)
+	je	.L1328
+	movzwl	4(%r12), %ecx
 	leal	-48(%rcx), %r8d
 	cmpw	$9, %r8w
-	ja	.L767
-	cmpw	$0, 6(%rdi)
-	jne	.L767
+	ja	.L754
+	cmpw	$0, 6(%r12)
+	jne	.L754
 	leal	-240(%rdx,%rdx,4), %edx
 	leal	-48(%rcx,%rdx,2), %r8d
-	jmp	.L768
+	jmp	.L755
 	.p2align 4,,10
-.L1354:
-	movzwl	2(%rdi), %edx
+.L1326:
+	movzwl	2(%r12), %edx
 	movl	$-1, %r8d
 	testw	%dx, %dx
-	jne	.L1319
-.L768:
+	jne	.L1291
+.L755:
 	andl	$1, %eax
 	movl	%eax, %edx
-	leal	-67(%r12), %eax
+	leal	-67(%rbp), %eax
 	cmpw	$53, %ax
-	ja	.L769
-	leaq	.L771(%rip), %rcx
+	ja	.L756
+	leaq	.L758(%rip), %rcx
 	movzwl	%ax, %eax
 	movslq	(%rcx,%rax,4), %rax
 	addq	%rcx, %rax
 	jmp	*%rax
 	.section .rdata,"dr"
 	.align 4
-.L771:
-	.long	.L778-.L771
-	.long	.L775-.L771
-	.long	.L777-.L771
-	.long	.L776-.L771
-	.long	.L775-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L774-.L771
-	.long	.L769-.L771
-	.long	.L773-.L771
-	.long	.L769-.L771
-	.long	.L772-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L770-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L778-.L771
-	.long	.L775-.L771
-	.long	.L777-.L771
-	.long	.L776-.L771
-	.long	.L775-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L774-.L771
-	.long	.L769-.L771
-	.long	.L773-.L771
-	.long	.L769-.L771
-	.long	.L772-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L769-.L771
-	.long	.L770-.L771
+.L758:
+	.long	.L765-.L758
+	.long	.L762-.L758
+	.long	.L764-.L758
+	.long	.L763-.L758
+	.long	.L762-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L761-.L758
+	.long	.L756-.L758
+	.long	.L760-.L758
+	.long	.L756-.L758
+	.long	.L759-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L757-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L765-.L758
+	.long	.L762-.L758
+	.long	.L764-.L758
+	.long	.L763-.L758
+	.long	.L762-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L761-.L758
+	.long	.L756-.L758
+	.long	.L760-.L758
+	.long	.L756-.L758
+	.long	.L759-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L756-.L758
+	.long	.L757-.L758
 	.text
 	.p2align 4,,10
-.L772:
+.L759:
 	movq	%rbx, 32(%rsp)
 	movq	%rsi, %r9
 	xorl	%r8d, %r8d
-	movq	%rbp, %rdx
-	movq	512(%rsp), %rax
+	movq	%rdi, %rdx
+	movq	400(%rsp), %rax
 	movl	%r10d, %ecx
 	movq	%rax, 40(%rsp)
 	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatterL9ToStringDEcPNS2_19__tag_NUMBER_HEADEREwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPwy.constprop.31
-	jmp	.L761
+	jmp	.L748
 	.p2align 4,,10
-.L773:
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rdi
+.L760:
+	movq	400(%rsp), %rax
 	testq	%rbx, %rbx
-	movq	512(%rsp), %rax
-	movl	$80, %r12d
-	movq	%rdi, 256(%rsp)
-	movabsq	$-8446744073709551616, %rdi
-	movq	%rdi, 312(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypePE(%rip), %rdi
-	movq	%rbx, 264(%rsp)
+	movq	%rbx, 168(%rsp)
+	movq	%rbx, 176(%rsp)
+	movq	$0, 192(%rsp)
+	movl	$19, 224(%rsp)
 	leaq	(%rbx,%rax,2), %rcx
 	movl	$0, %eax
-	movq	%rbx, 272(%rsp)
+	movl	%r8d, 232(%rsp)
 	cmovne	%rcx, %rax
 	cmpl	$-1, %r8d
-	movq	$0, 288(%rsp)
-	movl	$19, 320(%rsp)
-	movq	%rax, 280(%rsp)
-	movw	%r12w, 324(%rsp)
-	movl	%r8d, 328(%rsp)
-	movq	%rsi, 336(%rsp)
-	movq	%rdi, 304(%rsp)
-	jne	.L883
+	movq	%rsi, 240(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rcx
+	movq	%rax, 184(%rsp)
+	movq	%rcx, 160(%rsp)
+	movabsq	$-8446744073709551616, %rcx
+	movq	%rcx, 216(%rsp)
+	movl	$80, %ecx
+	movw	%cx, 228(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypePE(%rip), %rcx
+	movq	%rcx, 208(%rsp)
+	jne	.L847
 	movl	(%rsi), %ecx
-	movl	%ecx, 328(%rsp)
-.L883:
+	movl	%ecx, 232(%rsp)
+.L847:
 	testb	%dl, %dl
 	movl	308(%rsi), %ecx
-	je	.L884
+	je	.L848
 	cmpl	$2, %ecx
-	je	.L885
+	je	.L849
 	cmpl	$3, %ecx
-	je	.L886
-.L1340:
-	leaq	256(%rsp), %r15
-.L887:
-	movl	$48, %edx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	328(%rsp), %r10d
-	movq	336(%rsp), %r11
-	testl	%r10d, %r10d
-	jle	.L900
-	movzwl	4(%r11), %r8d
-	movq	280(%rsp), %rbx
-	movq	264(%rsp), %rcx
-	movq	288(%rsp), %rax
-	testw	%r8w, %r8w
-	je	.L901
-	movq	%rax, %rdx
-	xorl	%esi, %esi
-	xorl	%ebp, %ebp
-	negq	%rdx
-	leaq	(%r11,%rdx,2), %rdi
-	movq	%rcx, %rdx
-	.p2align 4,,10
-.L905:
-	testq	%rdx, %rdx
-	je	.L902
-	leaq	2(%rdx), %r9
-	cmpq	%rbx, %r9
-	jnb	.L1357
-	xorl	%esi, %esi
-	movw	%r8w, (%rdx)
-	movl	$1, %ebp
-	movw	%si, 2(%rdx)
-	movq	%r9, %rdx
-.L902:
-	addq	$1, %rax
-	movl	$1, %esi
-	movzwl	4(%rdi,%rax,2), %r8d
-	testw	%r8w, %r8w
-	jne	.L905
-	testb	%bpl, %bpl
-	je	.L906
-	movq	%rdx, 264(%rsp)
-	movq	%rdx, %rcx
-.L906:
-	movq	%rax, 288(%rsp)
-.L901:
-	movslq	%r10d, %r8
-	xorl	%r9d, %r9d
-	xorl	%r10d, %r10d
-	addq	%rax, %r8
-	.p2align 4,,10
-.L910:
-	testq	%rcx, %rcx
-	je	.L907
-	leaq	2(%rcx), %rdx
-	cmpq	%rbx, %rdx
-	jnb	.L1358
-	movl	$48, (%rcx)
-	movl	$1, %r10d
-	movq	%rdx, %rcx
-.L907:
-	addq	$1, %rax
-	movl	$1, %r9d
-	cmpq	%r8, %rax
-	jne	.L910
-	testb	%r10b, %r10b
-	je	.L911
-	movq	%rcx, 264(%rsp)
-.L911:
-	movq	%rax, 288(%rsp)
-.L900:
-	movl	308(%r11), %eax
-	cmpl	$1, %eax
-	je	.L912
-	testl	%eax, %eax
-	jle	.L913
-	cmpl	$3, %eax
-	jle	.L1349
-.L913:
-	movq	%r15, %rcx
-	movl	$32, %edx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movq	336(%rsp), %r8
-	movzwl	414(%r8), %ecx
-	testw	%cx, %cx
-	je	.L1349
-	movq	288(%rsp), %rax
-	xorl	%r11d, %r11d
-	movq	280(%rsp), %rbx
-	movq	264(%rsp), %rdx
-	movq	%rax, %r9
-	negq	%r9
-	leaq	(%r8,%r9,2), %r10
-	xorl	%r9d, %r9d
-	jmp	.L919
-	.p2align 4,,10
-.L917:
-	xorl	%r11d, %r11d
-	movw	%cx, (%rdx)
-	movw	%r11w, 2(%rdx)
-	movq	%r8, %rdx
-	movl	$1, %r11d
-.L916:
-	addq	$1, %rax
-	movl	$1, %r9d
-	movzwl	414(%r10,%rax,2), %ecx
-	testw	%cx, %cx
-	je	.L761
-.L919:
-	testq	%rdx, %rdx
-	je	.L916
-	leaq	2(%rdx), %r8
-	cmpq	%rbx, %r8
-	jb	.L917
-.L1342:
-	testb	%r11b, %r11b
-	je	.L937
-	movq	%rdx, 264(%rsp)
-.L937:
-	testb	%r9b, %r9b
-	je	.L788
-.L1322:
-	movq	%rax, 288(%rsp)
-	jmp	.L788
-	.p2align 4,,10
-.L774:
-	movq	512(%rsp), %rax
-	testq	%rbx, %rbx
-	movl	$0, %edx
-	movl	$78, %r13d
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rdi
-	movq	%rbx, 312(%rsp)
-	movq	%rdi, 304(%rsp)
-	movq	%rbx, 320(%rsp)
-	leaq	(%rbx,%rax,2), %rax
-	movq	$0, 336(%rsp)
-	cmove	%rdx, %rax
-	movl	%r8d, 376(%rsp)
-	movl	$19, 368(%rsp)
-	movq	%rax, 328(%rsp)
-	movabsq	$-8446744073709551616, %rax
-	movq	%rax, 360(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeNE(%rip), %rax
-	movw	%r13w, 372(%rsp)
-	movq	%rsi, 384(%rsp)
-.L1348:
-	leaq	352(%rsp), %rcx
-	movq	%rbp, %r8
-	movl	%r10d, %edx
-	movq	%rax, 352(%rsp)
-	leaq	304(%rsp), %r9
-	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-	movq	336(%rsp), %rax
-	jmp	.L761
-	.p2align 4,,10
-.L776:
-	movq	512(%rsp), %rax
-	testq	%rbx, %rbx
-	movl	$0, %edx
-	movl	$70, %r14d
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rdi
-	movq	%rbx, 312(%rsp)
-	movq	%rdi, 304(%rsp)
-	movq	%rbx, 320(%rsp)
-	leaq	(%rbx,%rax,2), %rax
-	movq	$0, 336(%rsp)
-	cmove	%rdx, %rax
-	movl	%r8d, 376(%rsp)
-	movl	$19, 368(%rsp)
-	movq	%rax, 328(%rsp)
-	movabsq	$-8446744073709551616, %rax
-	movq	%rax, 360(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeFE(%rip), %rax
-	movw	%r14w, 372(%rsp)
-	movq	%rsi, 384(%rsp)
-	jmp	.L1348
-	.p2align 4,,10
-.L777:
-	movq	512(%rsp), %rax
-	testq	%rbx, %rbx
-	movl	$0, %ecx
-	movq	%rbx, 168(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rdi
-	movq	%rbx, 176(%rsp)
-	movq	%rdi, 160(%rsp)
-	movq	$0, 192(%rsp)
-	leaq	(%rbx,%rax,2), %rax
-	movq	%rsi, 240(%rsp)
-	cmove	%rcx, %rax
-	cmpl	$-1, %r8d
-	movl	$19, 224(%rsp)
-	movw	%r12w, 228(%rsp)
-	movq	%rax, 184(%rsp)
-	movabsq	$-8446744073709551616, %rax
-	movq	%rax, 216(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeEE(%rip), %rax
-	movq	%rax, 208(%rsp)
-	movl	$6, %eax
-	cmove	%eax, %r8d
-	testb	%dl, %dl
-	movl	%r8d, 232(%rsp)
 	je	.L850
+.L1309:
 	leaq	160(%rsp), %rbx
-	movl	$48, %edx
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	232(%rsp), %r9d
-	testl	%r9d, %r9d
-	jle	.L851
-	movq	240(%rsp), %rax
-	movq	184(%rsp), %r10
-	movq	168(%rsp), %rbp
-	movq	192(%rsp), %rdx
-	movzwl	108(%rax), %ecx
-	testw	%cx, %cx
-	je	.L971
-	movq	%rdx, %r8
-	xorl	%r11d, %r11d
-	xorl	%edi, %edi
-	negq	%r8
-	leaq	(%rax,%r8,2), %rsi
-	movq	%rbp, %rax
-	.p2align 4,,10
-.L856:
-	testq	%rax, %rax
-	je	.L853
-	leaq	2(%rax), %r8
-	cmpq	%r10, %r8
-	jnb	.L1359
-	movw	%cx, (%rax)
-	xorl	%ecx, %ecx
-	movl	$1, %edi
-	movw	%cx, 2(%rax)
-	movq	%r8, %rax
-.L853:
-	addq	$1, %rdx
-	movl	$1, %r11d
-	movzwl	108(%rsi,%rdx,2), %ecx
-	testw	%cx, %cx
-	jne	.L856
-	testb	%dil, %dil
-	je	.L972
-	movq	%rax, 168(%rsp)
-.L857:
-	movq	%rdx, 192(%rsp)
-.L852:
-	movslq	%r9d, %r8
-	xorl	%r11d, %r11d
-	xorl	%r9d, %r9d
-	addq	%rdx, %r8
-	.p2align 4,,10
-.L861:
-	testq	%rax, %rax
-	je	.L858
-	leaq	2(%rax), %rcx
-	cmpq	%r10, %rcx
-	jnb	.L1360
-	movl	$48, (%rax)
-	movl	$1, %r11d
-	movq	%rcx, %rax
-.L858:
-	addq	$1, %rdx
-	movl	$1, %r9d
-	cmpq	%r8, %rdx
-	jne	.L861
-	testb	%r11b, %r11b
-	je	.L862
-	movq	%rax, 168(%rsp)
-.L862:
-	movq	%rdx, 192(%rsp)
 .L851:
-	movzwl	228(%rsp), %edx
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movq	192(%rsp), %rax
-	xorl	%r9d, %r9d
-	xorl	%r11d, %r11d
-	leaq	.LC0(%rip), %rcx
-	movq	184(%rsp), %rbx
-	movq	168(%rsp), %rdx
-	movq	%rax, %r8
-	negq	%r8
-	leaq	(%rcx,%r8,2), %r10
-	movl	$43, %ecx
-	jmp	.L867
-	.p2align 4,,10
-.L864:
-	xorl	%r15d, %r15d
-	movw	%cx, (%rdx)
-	movl	$1, %r11d
-	movw	%r15w, 2(%rdx)
-	movq	%r8, %rdx
-.L863:
-	addq	$1, %rax
-	movl	$1, %r9d
-	movzwl	(%r10,%rax,2), %ecx
-	testw	%cx, %cx
-	je	.L761
-.L867:
-	testq	%rdx, %rdx
-	je	.L863
-	leaq	2(%rdx), %r8
-	cmpq	%rbx, %r8
-	jb	.L864
-	testb	%r11b, %r11b
-	je	.L865
-	movq	%rdx, 168(%rsp)
-.L865:
-	testb	%r9b, %r9b
-	je	.L788
-	movq	%rax, 192(%rsp)
-	jmp	.L788
-	.p2align 4,,10
-.L770:
-	movq	512(%rsp), %rax
-	testl	%r8d, %r8d
-	movl	$1, %r13d
-	movq	%rbx, 360(%rsp)
-	cmovg	%r8d, %r13d
-	testq	%rbx, %rbx
-	movq	%rbx, 368(%rsp)
-	movq	$0, 384(%rsp)
-	leaq	(%rbx,%rax,2), %rcx
-	movl	$0, %eax
-	cmove	%rax, %rcx
-	testb	%dl, %dl
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rax
-	movq	%rcx, 376(%rsp)
-	movq	%rax, 352(%rsp)
-	je	.L940
-	movslq	%r13d, %r8
-	xorl	%r9d, %r9d
-	xorl	%eax, %eax
-	xorl	%r10d, %r10d
-	jmp	.L945
-	.p2align 4,,10
-.L942:
-	movl	$48, (%rbx)
-	movl	$1, %r10d
-	movq	%rdx, %rbx
-.L941:
-	addq	$1, %rax
-	movl	$1, %r9d
-	cmpq	%rax, %r8
-	je	.L761
-.L945:
-	testq	%rbx, %rbx
-	je	.L941
-	leaq	2(%rbx), %rdx
-	cmpq	%rdx, %rcx
-	ja	.L942
-	testb	%r10b, %r10b
-	je	.L943
-	movq	%rbx, 360(%rsp)
-.L943:
-	testb	%r9b, %r9b
-	je	.L788
-	movq	%rax, 384(%rsp)
-.L788:
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
-	.p2align 4,,10
-.L778:
-	movq	512(%rsp), %rax
-	testq	%rbx, %rbx
-	movq	%rbx, 72(%rsp)
-	movl	$67, %r10d
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rdi
-	movq	%rbx, 80(%rsp)
-	movq	%rdi, 64(%rsp)
-	movabsq	$-8446744073709551616, %rdi
-	movq	%rdi, 120(%rsp)
-	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeCE(%rip), %rdi
-	leaq	(%rbx,%rax,2), %rcx
-	movl	$0, %eax
-	movq	$0, 96(%rsp)
-	cmovne	%rcx, %rax
-	cmpl	$-1, %r8d
-	movl	$19, 128(%rsp)
-	movw	%r10w, 132(%rsp)
-	movq	%rax, 88(%rsp)
-	movl	%r8d, 136(%rsp)
-	movq	%rsi, 144(%rsp)
-	movq	%rdi, 112(%rsp)
-	jne	.L780
-	movl	(%rsi), %ecx
-	movl	%ecx, 136(%rsp)
-.L780:
-	testb	%dl, %dl
-	movl	100(%rsi), %ecx
-	je	.L781
-	cmpl	$2, %ecx
-	je	.L782
-	cmpl	$3, %ecx
-	je	.L1330
-	cmpl	$1, %ecx
-	je	.L1330
-	movzwl	312(%rsi), %ecx
-	xorl	%r9d, %r9d
-	xorl	%edx, %edx
-	xorl	%r10d, %r10d
-	testw	%cx, %cx
-	je	.L1330
-	.p2align 4,,10
-.L789:
-	testq	%rbx, %rbx
-	je	.L784
-	leaq	2(%rbx), %r8
-	cmpq	%r8, %rax
-	jbe	.L1332
-	xorl	%r9d, %r9d
-	movw	%cx, (%rbx)
-	movl	$1, %r10d
-	movw	%r9w, 2(%rbx)
-	movq	%r8, %rbx
-.L784:
-	addq	$1, %rdx
-	movl	$1, %r9d
-	movzwl	312(%rsi,%rdx,2), %ecx
-	testw	%cx, %cx
-	jne	.L789
-	testb	%r10b, %r10b
-	je	.L790
-	movq	%rbx, 72(%rsp)
-.L790:
-	movq	%rdx, 96(%rsp)
-.L1330:
-	leaq	64(%rsp), %rbx
-.L783:
 	movl	$48, %edx
 	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movl	136(%rsp), %r10d
-	movq	144(%rsp), %r11
+	movl	232(%rsp), %r10d
+	movq	240(%rsp), %r11
 	testl	%r10d, %r10d
-	jle	.L799
+	jle	.L864
 	movzwl	4(%r11), %r8d
-	movq	88(%rsp), %rsi
-	movq	96(%rsp), %rax
-	movq	72(%rsp), %rcx
+	movq	184(%rsp), %rsi
+	movq	168(%rsp), %rcx
+	movq	192(%rsp), %rax
 	testw	%r8w, %r8w
-	je	.L800
+	je	.L865
 	movq	%rax, %rdx
 	xorl	%edi, %edi
 	xorl	%r12d, %r12d
@@ -6504,67 +5945,412 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	leaq	(%r11,%rdx,2), %rbp
 	movq	%rcx, %rdx
 	.p2align 4,,10
-.L804:
+.L869:
 	testq	%rdx, %rdx
-	je	.L801
+	je	.L866
 	leaq	2(%rdx), %r9
 	cmpq	%rsi, %r9
-	jnb	.L1361
-	xorl	%r15d, %r15d
+	jnb	.L1329
+	xorl	%r12d, %r12d
 	movw	%r8w, (%rdx)
-	movl	$1, %r12d
-	movw	%r15w, 2(%rdx)
+	movw	%r12w, 2(%rdx)
 	movq	%r9, %rdx
-.L801:
+	movl	$1, %r12d
+.L866:
 	addq	$1, %rax
 	movl	$1, %edi
 	movzwl	4(%rbp,%rax,2), %r8d
 	testw	%r8w, %r8w
-	jne	.L804
+	jne	.L869
 	testb	%r12b, %r12b
-	je	.L805
-	movq	%rdx, 72(%rsp)
+	je	.L870
+	movq	%rdx, 168(%rsp)
 	movq	%rdx, %rcx
-.L805:
-	movq	%rax, 96(%rsp)
-.L800:
+.L870:
+	movq	%rax, 192(%rsp)
+.L865:
 	movslq	%r10d, %r8
 	xorl	%r9d, %r9d
 	xorl	%r10d, %r10d
 	addq	%rax, %r8
 	.p2align 4,,10
-.L809:
+.L874:
 	testq	%rcx, %rcx
-	je	.L806
+	je	.L871
 	leaq	2(%rcx), %rdx
 	cmpq	%rsi, %rdx
-	jnb	.L1362
+	jnb	.L1330
 	movl	$48, (%rcx)
 	movl	$1, %r10d
 	movq	%rdx, %rcx
-.L806:
+.L871:
 	addq	$1, %rax
 	movl	$1, %r9d
 	cmpq	%r8, %rax
-	jne	.L809
+	jne	.L874
 	testb	%r10b, %r10b
-	je	.L810
-	movq	%rcx, 72(%rsp)
-.L810:
+	je	.L875
+	movq	%rcx, 168(%rsp)
+.L875:
+	movq	%rax, 192(%rsp)
+.L864:
+	movl	308(%r11), %eax
+	cmpl	$1, %eax
+	je	.L876
+	testl	%eax, %eax
+	jle	.L877
+	cmpl	$3, %eax
+	jle	.L1321
+.L877:
+	movq	%rbx, %rcx
+	movl	$32, %edx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movq	240(%rsp), %r8
+	movzwl	414(%r8), %ecx
+	testw	%cx, %cx
+	je	.L1321
+	movq	192(%rsp), %rax
+	xorl	%r11d, %r11d
+	movq	184(%rsp), %rbx
+	movq	168(%rsp), %rdx
+	movq	%rax, %r9
+	negq	%r9
+	leaq	(%r8,%r9,2), %r10
+	xorl	%r9d, %r9d
+	jmp	.L883
+	.p2align 4,,10
+.L881:
+	xorl	%edi, %edi
+	movw	%cx, (%rdx)
+	movl	$1, %r11d
+	movw	%di, 2(%rdx)
+	movq	%r8, %rdx
+.L880:
+	addq	$1, %rax
+	movl	$1, %r9d
+	movzwl	414(%r10,%rax,2), %ecx
+	testw	%cx, %cx
+	je	.L748
+.L883:
+	testq	%rdx, %rdx
+	je	.L880
+	leaq	2(%rdx), %r8
+	cmpq	%rbx, %r8
+	jb	.L881
+.L1313:
+	testb	%r11b, %r11b
+	je	.L912
+	movq	%rdx, 168(%rsp)
+	jmp	.L912
+	.p2align 4,,10
+.L761:
+	movq	400(%rsp), %rax
+	testq	%rbx, %rbx
+	movl	$0, %ecx
+	movl	$78, %r9d
+	movq	%rbx, 216(%rsp)
+	movq	%rbx, 224(%rsp)
+	movq	$0, 240(%rsp)
+	leaq	(%rbx,%rax,2), %rax
+	movl	%r8d, 280(%rsp)
+	cmove	%rcx, %rax
+	cmpl	$-1, %r8d
+	movl	$19, 272(%rsp)
+	movw	%r9w, 276(%rsp)
+	movq	%rax, 232(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rcx
+	movabsq	$-8446744073709551616, %rax
+	movq	%rax, 264(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeNE(%rip), %rax
+	movq	%rcx, 208(%rsp)
+	movq	%rsi, 288(%rsp)
+	movq	%rax, 256(%rsp)
+	jne	.L838
+	movl	104(%rsi), %eax
+	movl	%eax, 280(%rsp)
+.L838:
+	testb	%dl, %dl
+	je	.L839
+	leaq	208(%rsp), %rbx
+	movl	$48, %edx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movslq	280(%rsp), %rsi
+	testl	%esi, %esi
+	jle	.L1320
+	movq	288(%rsp), %rax
+	movzwl	108(%rax), %edx
+	leaq	108(%rax), %rdi
+	testw	%dx, %dx
+	je	.L845
+	.p2align 4,,10
+.L843:
+	addq	$2, %rdi
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movzwl	(%rdi), %edx
+	testw	%dx, %dx
+	jne	.L843
+	movslq	280(%rsp), %rsi
+	testq	%rsi, %rsi
+	je	.L1320
+	.p2align 4,,10
+.L845:
+	movl	$48, %edx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	subq	$1, %rsi
+	jne	.L845
+	jmp	.L1320
+	.p2align 4,,10
+.L763:
+	movq	400(%rsp), %rax
+	testq	%rbx, %rbx
+	movl	$0, %edx
+	movl	$70, %r11d
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rcx
+	movq	%rbx, 216(%rsp)
+	movq	%rcx, 208(%rsp)
+	movq	%rbx, 224(%rsp)
+	leaq	(%rbx,%rax,2), %rax
+	movq	$0, 240(%rsp)
+	cmove	%rdx, %rax
+	movl	%r8d, 280(%rsp)
+	movl	$19, 272(%rsp)
+	movq	%rax, 232(%rsp)
+	movabsq	$-8446744073709551616, %rax
+	movq	%rax, 264(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeFE(%rip), %rax
+	movw	%r11w, 276(%rsp)
+	movq	%rsi, 288(%rsp)
+.L1319:
+	leaq	256(%rsp), %rcx
+	movq	%rdi, %r8
+	movl	%r10d, %edx
+	movq	%rax, 256(%rsp)
+	leaq	208(%rsp), %r9
+	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter6FormatEcPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+.L1320:
+	movq	240(%rsp), %rax
+	jmp	.L748
+	.p2align 4,,10
+.L764:
+	movq	400(%rsp), %rax
+	testq	%rbx, %rbx
+	movl	$0, %edx
+	movq	%rbx, 216(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rcx
+	movq	%rbx, 224(%rsp)
+	movq	%rcx, 208(%rsp)
+	movq	$0, 240(%rsp)
+	leaq	(%rbx,%rax,2), %rax
+	movw	%bp, 276(%rsp)
+	cmove	%rdx, %rax
+	movl	%r8d, 280(%rsp)
+	movl	$19, 272(%rsp)
+	movq	%rax, 232(%rsp)
+	movabsq	$-8446744073709551616, %rax
+	movq	%rax, 264(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeEE(%rip), %rax
+	movq	%rsi, 288(%rsp)
+	jmp	.L1319
+	.p2align 4,,10
+.L757:
+	movq	400(%rsp), %rax
+	testl	%r8d, %r8d
+	movl	$1, %r12d
+	movq	%rbx, 264(%rsp)
+	cmovg	%r8d, %r12d
+	testq	%rbx, %rbx
+	movq	%rbx, 272(%rsp)
+	movq	$0, 288(%rsp)
+	leaq	(%rbx,%rax,2), %rcx
+	movl	$0, %eax
+	cmove	%rax, %rcx
+	testb	%dl, %dl
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rax
+	movq	%rcx, 280(%rsp)
+	movq	%rax, 256(%rsp)
+	je	.L915
+	movslq	%r12d, %r8
+	xorl	%r9d, %r9d
+	xorl	%eax, %eax
+	xorl	%r10d, %r10d
+	jmp	.L920
+	.p2align 4,,10
+.L917:
+	movl	$48, (%rbx)
+	movl	$1, %r10d
+	movq	%rdx, %rbx
+.L916:
+	addq	$1, %rax
+	movl	$1, %r9d
+	cmpq	%rax, %r8
+	je	.L748
+.L920:
+	testq	%rbx, %rbx
+	je	.L916
+	leaq	2(%rbx), %rdx
+	cmpq	%rdx, %rcx
+	ja	.L917
+	testb	%r10b, %r10b
+	je	.L918
+	movq	%rbx, 264(%rsp)
+.L918:
+	testb	%r9b, %r9b
+	je	.L775
+	movq	%rax, 288(%rsp)
+.L775:
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
+	.p2align 4,,10
+.L765:
+	movq	400(%rsp), %rax
+	testq	%rbx, %rbx
+	movl	$67, %r11d
+	movq	%rbx, 72(%rsp)
+	movq	%rbx, 80(%rsp)
+	movq	$0, 96(%rsp)
+	movl	$19, 128(%rsp)
+	leaq	(%rbx,%rax,2), %rcx
+	movl	$0, %eax
+	movw	%r11w, 132(%rsp)
+	cmovne	%rcx, %rax
+	cmpl	$-1, %r8d
+	movl	%r8d, 136(%rsp)
+	movq	%rsi, 144(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal12StringWriterE(%rip), %rcx
+	movq	%rax, 88(%rsp)
+	movq	%rcx, 64(%rsp)
+	movabsq	$-8446744073709551616, %rcx
+	movq	%rcx, 120(%rsp)
+	leaq	16+_ZTVN8Palmtree4Math4Core8Internal16DecimalFromatter14FormatterTypeCE(%rip), %rcx
+	movq	%rcx, 112(%rsp)
+	jne	.L767
+	movl	(%rsi), %ecx
+	movl	%ecx, 136(%rsp)
+.L767:
+	testb	%dl, %dl
+	movl	100(%rsi), %ecx
+	je	.L768
+	cmpl	$2, %ecx
+	je	.L769
+	cmpl	$3, %ecx
+	je	.L1301
+	cmpl	$1, %ecx
+	je	.L1301
+	movzwl	312(%rsi), %ecx
+	xorl	%r9d, %r9d
+	xorl	%edx, %edx
+	xorl	%r10d, %r10d
+	testw	%cx, %cx
+	je	.L1301
+	.p2align 4,,10
+.L776:
+	testq	%rbx, %rbx
+	je	.L771
+	leaq	2(%rbx), %r8
+	cmpq	%r8, %rax
+	jbe	.L1303
+	xorl	%r10d, %r10d
+	movw	%cx, (%rbx)
+	movw	%r10w, 2(%rbx)
+	movq	%r8, %rbx
+	movl	$1, %r10d
+.L771:
+	addq	$1, %rdx
+	movl	$1, %r9d
+	movzwl	312(%rsi,%rdx,2), %ecx
+	testw	%cx, %cx
+	jne	.L776
+	testb	%r10b, %r10b
+	je	.L777
+	movq	%rbx, 72(%rsp)
+.L777:
+	movq	%rdx, 96(%rsp)
+.L1301:
+	leaq	64(%rsp), %rbx
+.L770:
+	movl	$48, %edx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movl	136(%rsp), %r10d
+	movq	144(%rsp), %r11
+	testl	%r10d, %r10d
+	jle	.L786
+	movzwl	4(%r11), %r8d
+	movq	88(%rsp), %rsi
+	movq	72(%rsp), %rcx
+	movq	96(%rsp), %rax
+	testw	%r8w, %r8w
+	je	.L787
+	movq	%rax, %rdx
+	xorl	%edi, %edi
+	xorl	%r12d, %r12d
+	negq	%rdx
+	leaq	(%r11,%rdx,2), %rbp
+	movq	%rcx, %rdx
+	.p2align 4,,10
+.L791:
+	testq	%rdx, %rdx
+	je	.L788
+	leaq	2(%rdx), %r9
+	cmpq	%rsi, %r9
+	jnb	.L1331
+	movw	%r8w, (%rdx)
+	xorl	%r8d, %r8d
+	movl	$1, %r12d
+	movw	%r8w, 2(%rdx)
+	movq	%r9, %rdx
+.L788:
+	addq	$1, %rax
+	movl	$1, %edi
+	movzwl	4(%rbp,%rax,2), %r8d
+	testw	%r8w, %r8w
+	jne	.L791
+	testb	%r12b, %r12b
+	je	.L792
+	movq	%rdx, 72(%rsp)
+	movq	%rdx, %rcx
+.L792:
 	movq	%rax, 96(%rsp)
-.L799:
+.L787:
+	movslq	%r10d, %r8
+	xorl	%r9d, %r9d
+	xorl	%r10d, %r10d
+	addq	%rax, %r8
+	.p2align 4,,10
+.L796:
+	testq	%rcx, %rcx
+	je	.L793
+	leaq	2(%rcx), %rdx
+	cmpq	%rsi, %rdx
+	jnb	.L1332
+	movl	$48, (%rcx)
+	movl	$1, %r10d
+	movq	%rdx, %rcx
+.L793:
+	addq	$1, %rax
+	movl	$1, %r9d
+	cmpq	%r8, %rax
+	jne	.L796
+	testb	%r10b, %r10b
+	je	.L797
+	movq	%rcx, 72(%rsp)
+.L797:
+	movq	%rax, 96(%rsp)
+.L786:
 	movl	100(%r11), %eax
 	cmpl	$1, %eax
-	je	.L811
+	je	.L798
 	cmpl	$3, %eax
-	jne	.L1347
+	jne	.L1318
 	movq	%rbx, %rcx
 	movl	$32, %edx
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
 	movq	144(%rsp), %r8
 	movzwl	312(%r8), %ecx
 	testw	%cx, %cx
-	je	.L1347
+	je	.L1318
 	movq	96(%rsp), %rax
 	xorl	%r11d, %r11d
 	movq	88(%rsp), %rbx
@@ -6573,89 +6359,161 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	negq	%r9
 	leaq	(%r8,%r9,2), %r10
 	xorl	%r9d, %r9d
-	jmp	.L822
+	jmp	.L809
 	.p2align 4,,10
-.L820:
+.L807:
 	xorl	%r13d, %r13d
 	movw	%cx, (%rdx)
 	movl	$1, %r11d
 	movw	%r13w, 2(%rdx)
 	movq	%r8, %rdx
-.L819:
+.L806:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	312(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L822:
+	je	.L748
+.L809:
 	testq	%rdx, %rdx
-	je	.L819
+	je	.L806
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L820
-.L1335:
+	jb	.L807
+.L1306:
 	testb	%r11b, %r11b
-	je	.L845
+	je	.L832
 	movq	%rdx, 72(%rsp)
-	jmp	.L845
+	jmp	.L832
 	.p2align 4,,10
-.L781:
+.L848:
 	cmpl	$2, %ecx
-	je	.L823
+	je	.L888
 	cmpl	$3, %ecx
-	je	.L1333
+	jne	.L890
+	movzwl	414(%rsi), %ecx
+	testw	%cx, %cx
+	je	.L896
+	xorl	%r9d, %r9d
+	xorl	%edx, %edx
+	xorl	%r10d, %r10d
+	.p2align 4,,10
+.L900:
+	testq	%rbx, %rbx
+	je	.L897
+	leaq	2(%rbx), %r8
+	cmpq	%r8, %rax
+	jbe	.L1311
+	xorl	%r10d, %r10d
+	movw	%cx, (%rbx)
+	movw	%r10w, 2(%rbx)
+	movq	%r8, %rbx
+	movl	$1, %r10d
+.L897:
+	addq	$1, %rdx
+	movl	$1, %r9d
+	movzwl	414(%rsi,%rdx,2), %ecx
+	testw	%cx, %cx
+	jne	.L900
+	testb	%r10b, %r10b
+	je	.L901
+	movq	%rbx, 168(%rsp)
+.L901:
+	movq	%rdx, 192(%rsp)
+.L896:
+	leaq	160(%rsp), %rcx
+	movl	$32, %edx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+.L890:
+	leaq	256(%rsp), %rbp
+	movq	%rbp, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE29:
+	movl	$100, %edx
+	movq	%rdi, %rcx
+.LEHB30:
+	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+	movq	%rax, %rdx
+	movq	%rbp, %rcx
+	movq	%rax, %rsi
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	leaq	160(%rsp), %rbx
+	movq	%rsi, %rdx
+	leaq	208(%rsp), %rcx
+	movq	%rbx, %r8
+	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+.LEHE30:
+	movq	%rbp, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	240(%rsp), %r8
+	movl	308(%r8), %eax
+	cmpl	$1, %eax
+	je	.L902
+	testl	%eax, %eax
+	jle	.L903
+	cmpl	$3, %eax
+	jg	.L903
+.L1321:
+	movq	192(%rsp), %rax
+	jmp	.L748
+	.p2align 4,,10
+.L768:
+	cmpl	$2, %ecx
+	je	.L810
+	cmpl	$3, %ecx
+	je	.L1304
 	cmpl	$1, %ecx
-	je	.L1333
+	je	.L1304
 	movzwl	312(%rsi), %ecx
 	xorl	%r9d, %r9d
 	xorl	%edx, %edx
 	xorl	%r10d, %r10d
 	testw	%cx, %cx
-	je	.L1333
+	je	.L1304
 	.p2align 4,,10
-.L828:
+.L815:
 	testq	%rbx, %rbx
-	je	.L825
+	je	.L812
 	leaq	2(%rbx), %r8
 	cmpq	%r8, %rax
-	jbe	.L1332
+	jbe	.L1303
 	xorl	%r12d, %r12d
 	movw	%cx, (%rbx)
 	movl	$1, %r10d
 	movw	%r12w, 2(%rbx)
 	movq	%r8, %rbx
-.L825:
+.L812:
 	addq	$1, %rdx
 	movl	$1, %r9d
 	movzwl	312(%rsi,%rdx,2), %ecx
 	testw	%cx, %cx
-	jne	.L828
+	jne	.L815
 	testb	%r10b, %r10b
-	je	.L829
+	je	.L816
 	movq	%rbx, 72(%rsp)
-.L829:
+.L816:
 	movq	%rdx, 96(%rsp)
 	.p2align 4,,10
-.L1333:
+.L1304:
 	leaq	64(%rsp), %rbx
-.L824:
+.L811:
 	leaq	112(%rsp), %rcx
 	movq	%rbx, %r8
-	movq	%rbp, %rdx
+	movq	%rdi, %rdx
+.LEHB31:
 	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
 	movq	144(%rsp), %r8
 	movl	100(%r8), %eax
 	cmpl	$1, %eax
-	je	.L836
+	je	.L823
 	cmpl	$3, %eax
-	jne	.L1347
+	jne	.L1318
 	movq	%rbx, %rcx
 	movl	$32, %edx
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
 	movq	144(%rsp), %r8
 	movzwl	312(%r8), %ecx
 	testw	%cx, %cx
-	je	.L1347
+	je	.L1318
 	movq	96(%rsp), %rax
 	xorl	%r11d, %r11d
 	movq	88(%rsp), %rbx
@@ -6664,408 +6522,282 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	negq	%r9
 	leaq	(%r8,%r9,2), %r10
 	xorl	%r9d, %r9d
-	jmp	.L846
+	jmp	.L833
 	.p2align 4,,10
-.L844:
-	xorl	%r9d, %r9d
+.L831:
+	xorl	%esi, %esi
 	movw	%cx, (%rdx)
 	movl	$1, %r11d
-	movw	%r9w, 2(%rdx)
+	movw	%si, 2(%rdx)
 	movq	%r8, %rdx
-.L843:
+.L830:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	312(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L846:
+	je	.L748
+.L833:
 	testq	%rdx, %rdx
-	je	.L843
+	je	.L830
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L844
-	jmp	.L1335
+	jb	.L831
+	jmp	.L1306
+	.p2align 4,,10
+.L839:
+	leaq	256(%rsp), %rcx
+	movq	%rdi, %rdx
+	leaq	208(%rsp), %r8
+	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
+	jmp	.L1320
 	.p2align 4,,10
 .L850:
-	leaq	256(%rsp), %r15
-	leaq	304(%rsp), %r14
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE35:
-	movq	%r14, %rcx
-	movq	24(%rbp), %rbx
-	movq	64(%rbp), %rsi
-.LEHB36:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE36:
-	movq	%rbx, %rdi
-	movq	%r14, %rcx
-	salq	$6, %rdi
-	movq	%rdi, %rdx
-.LEHB37:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
-	movq	%rdi, %rdx
-	movq	%r14, %rcx
-	movq	%rax, %r13
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
-.LEHE37:
-	movq	%rax, %r12
-	movq	%r13, %rdi
-	movq	%rbx, %rcx
-/APP
- # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
-	rep movsq
- # 0 "" 2
-/NO_APP
-	xorl	%esi, %esi
-	testq	%rbx, %rbx
-	je	.L868
-	leaq	352(%rsp), %rdi
-	.p2align 4,,10
-.L869:
-	cmpq	$0, -8(%r13,%rbx,8)
-	jne	.L870
-	subq	$1, %rbx
-	jne	.L869
-.L868:
-	movq	%r14, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movslq	232(%rsp), %rdx
-	leal	2(%rdx), %eax
-	cltq
-	cmpq	%rsi, %rax
-	ja	.L1363
-	subq	%rdx, %rsi
-	leaq	-2(%rsi), %rdi
-	leaq	352(%rsp), %rsi
-	movq	%rsi, %rcx
-.LEHB38:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE38:
-	movl	$10, %ecx
-.LEHB39:
-	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
-	movq	%rax, %rdx
-	movq	%rsi, %rcx
-	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movq	%rdi, %rdx
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
-	movq	%rax, %rdx
-	movq	%rsi, %rcx
-	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movl	$5, %edx
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-.LEHE39:
-	movq	%rax, %rbx
-	movq	%rsi, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	%rbx, %rdx
-	movq	%r15, %rcx
-.LEHB40:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	movq	%rbx, %rdx
-	movq	%rbp, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_
-	movq	%rax, %rdx
-	movq	%r15, %rcx
-	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	leaq	208(%rsp), %rcx
-	movq	%rbx, %rdx
-	leaq	160(%rsp), %r8
-	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-.LEHE40:
-.L879:
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	192(%rsp), %rax
-	jmp	.L761
-	.p2align 4,,10
-.L884:
-	cmpl	$2, %ecx
-	je	.L924
-	cmpl	$3, %ecx
-	je	.L925
-.L926:
-	leaq	352(%rsp), %rsi
-	movq	%rsi, %rcx
-.LEHB41:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE41:
-	movl	$100, %edx
-	movq	%rbp, %rcx
-.LEHB42:
-	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
-	movq	%rax, %rdx
-	movq	%rsi, %rcx
-	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
-	leaq	256(%rsp), %r15
-	movq	%rbx, %rdx
-	leaq	304(%rsp), %rcx
-	movq	%r15, %r8
-	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-.LEHE42:
-	movq	%rsi, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	336(%rsp), %r8
-	movl	308(%r8), %eax
-	cmpl	$1, %eax
-	je	.L931
-	testl	%eax, %eax
-	jle	.L932
-	cmpl	$3, %eax
-	jg	.L932
-.L1349:
-	movq	288(%rsp), %rax
-	jmp	.L761
-	.p2align 4,,10
-.L1363:
-	leaq	208(%rsp), %rcx
-	movq	%rbp, %rdx
-	leaq	160(%rsp), %r8
-.LEHB43:
-	call	_ZN8Palmtree4Math4Core8Internal16DecimalFromatter9Formatter16FormatInternallyEPNS2_19__tag_NUMBER_HEADEREPNS2_12StringWriterE
-.LEHE43:
-	jmp	.L879
-	.p2align 4,,10
-.L886:
 	movzwl	414(%rsi), %ecx
 	testw	%cx, %cx
-	je	.L893
+	je	.L857
 	xorl	%r9d, %r9d
 	xorl	%edx, %edx
 	xorl	%r10d, %r10d
 	.p2align 4,,10
-.L897:
+.L861:
 	testq	%rbx, %rbx
-	je	.L894
+	je	.L858
 	leaq	2(%rbx), %r8
 	cmpq	%r8, %rax
-	jbe	.L1339
-	xorl	%edi, %edi
+	jbe	.L1311
+	xorl	%r13d, %r13d
 	movw	%cx, (%rbx)
 	movl	$1, %r10d
-	movw	%di, 2(%rbx)
+	movw	%r13w, 2(%rbx)
 	movq	%r8, %rbx
-.L894:
+.L858:
 	addq	$1, %rdx
 	movl	$1, %r9d
 	movzwl	414(%rsi,%rdx,2), %ecx
 	testw	%cx, %cx
-	jne	.L897
+	jne	.L861
 	testb	%r10b, %r10b
-	je	.L898
-	movq	%rbx, 264(%rsp)
-.L898:
-	movq	%rdx, 288(%rsp)
-.L893:
-	leaq	256(%rsp), %r15
+	je	.L862
+	movq	%rbx, 168(%rsp)
+.L862:
+	movq	%rdx, 192(%rsp)
+.L857:
+	leaq	160(%rsp), %rbx
 	movl	$32, %edx
-	movq	%r15, %rcx
-.LEHB44:
+	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	jmp	.L887
+	jmp	.L851
 	.p2align 4,,10
-.L925:
-	movzwl	414(%rsi), %edx
-	leaq	414(%rsi), %rbx
-	leaq	256(%rsp), %r15
-	testw	%dx, %dx
-	je	.L930
-	.p2align 4,,10
-.L929:
-	addq	$2, %rbx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%rbx), %edx
-	testw	%dx, %dx
-	jne	.L929
-.L930:
-	movl	$32, %edx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	jmp	.L926
-	.p2align 4,,10
-.L885:
+.L849:
 	movzwl	414(%rsi), %ecx
 	xorl	%r9d, %r9d
 	xorl	%edx, %edx
 	xorl	%r10d, %r10d
 	testw	%cx, %cx
-	je	.L1340
+	je	.L1309
 	.p2align 4,,10
-.L891:
+.L855:
 	testq	%rbx, %rbx
-	je	.L888
+	je	.L852
 	leaq	2(%rbx), %r8
 	cmpq	%r8, %rax
-	jbe	.L1339
-	xorl	%ebp, %ebp
+	jbe	.L1311
+	xorl	%r14d, %r14d
 	movw	%cx, (%rbx)
 	movl	$1, %r10d
-	movw	%bp, 2(%rbx)
+	movw	%r14w, 2(%rbx)
 	movq	%r8, %rbx
-.L888:
+.L852:
 	addq	$1, %rdx
 	movl	$1, %r9d
 	movzwl	414(%rsi,%rdx,2), %ecx
 	testw	%cx, %cx
-	jne	.L891
+	jne	.L855
 	testb	%r10b, %r10b
-	je	.L892
-	movq	%rbx, 264(%rsp)
-.L892:
-	movq	%rdx, 288(%rsp)
-	jmp	.L1340
+	je	.L856
+	movq	%rbx, 168(%rsp)
+.L856:
+	movq	%rdx, 192(%rsp)
+	jmp	.L1309
 	.p2align 4,,10
-.L782:
+.L769:
 	movzwl	312(%rsi), %ecx
 	testw	%cx, %cx
-	je	.L791
+	je	.L778
 	xorl	%r9d, %r9d
 	xorl	%edx, %edx
 	xorl	%r10d, %r10d
 	.p2align 4,,10
-.L796:
+.L783:
 	testq	%rbx, %rbx
-	je	.L792
+	je	.L779
 	leaq	2(%rbx), %r8
 	cmpq	%r8, %rax
-	jbe	.L1332
-	movw	%cx, (%rbx)
-	xorl	%ecx, %ecx
-	movl	$1, %r10d
-	movw	%cx, 2(%rbx)
-	movq	%r8, %rbx
-.L792:
-	addq	$1, %rdx
-	movl	$1, %r9d
-	movzwl	312(%rsi,%rdx,2), %ecx
-	testw	%cx, %cx
-	jne	.L796
-	testb	%r10b, %r10b
-	je	.L797
-	movq	%rbx, 72(%rsp)
-.L797:
-	movq	%rdx, 96(%rsp)
-.L791:
-	leaq	64(%rsp), %rbx
-	movl	$32, %edx
-	movq	%rbx, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	jmp	.L783
-	.p2align 4,,10
-.L823:
-	movzwl	312(%rsi), %ecx
-	testw	%cx, %cx
-	je	.L830
+	jbe	.L1303
 	xorl	%r9d, %r9d
-	xorl	%edx, %edx
-	xorl	%r10d, %r10d
-	.p2align 4,,10
-.L834:
-	testq	%rbx, %rbx
-	je	.L831
-	leaq	2(%rbx), %r8
-	cmpq	%r8, %rax
-	jbe	.L1332
-	xorl	%edi, %edi
 	movw	%cx, (%rbx)
 	movl	$1, %r10d
-	movw	%di, 2(%rbx)
+	movw	%r9w, 2(%rbx)
 	movq	%r8, %rbx
-.L831:
+.L779:
 	addq	$1, %rdx
 	movl	$1, %r9d
 	movzwl	312(%rsi,%rdx,2), %ecx
 	testw	%cx, %cx
-	jne	.L834
+	jne	.L783
 	testb	%r10b, %r10b
-	je	.L835
+	je	.L784
 	movq	%rbx, 72(%rsp)
-.L835:
+.L784:
 	movq	%rdx, 96(%rsp)
-.L830:
+.L778:
 	leaq	64(%rsp), %rbx
 	movl	$32, %edx
 	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	jmp	.L824
+	jmp	.L770
 	.p2align 4,,10
-.L932:
-	movl	$32, %edx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movq	336(%rsp), %rax
-	movzwl	414(%rax), %edx
-	leaq	414(%rax), %rbx
-	testw	%dx, %dx
-	je	.L1349
-	.p2align 4,,10
-.L934:
-	addq	$2, %rbx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%rbx), %edx
-	testw	%dx, %dx
-	jne	.L934
-	jmp	.L1349
-	.p2align 4,,10
-.L924:
-	movzwl	414(%rsi), %edx
-	leaq	414(%rsi), %rbx
-	leaq	256(%rsp), %r15
-	testw	%dx, %dx
-	je	.L926
-	.p2align 4,,10
-.L927:
-	addq	$2, %rbx
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
-	movzwl	(%rbx), %edx
-	testw	%dx, %dx
-	jne	.L927
-	jmp	.L926
-	.p2align 4,,10
-.L931:
+.L902:
 	movzwl	414(%r8), %ecx
-	movq	288(%rsp), %rax
+	movq	192(%rsp), %rax
 	testw	%cx, %cx
-	je	.L761
+	je	.L748
 	movq	%rax, %r9
-	movq	280(%rsp), %rbx
+	movq	184(%rsp), %rbx
 	xorl	%r11d, %r11d
 	negq	%r9
-	movq	264(%rsp), %rdx
+	movq	168(%rsp), %rdx
 	leaq	(%r8,%r9,2), %r10
 	xorl	%r9d, %r9d
-	jmp	.L938
+	jmp	.L913
 	.p2align 4,,10
-.L936:
+.L911:
 	movw	%cx, (%rdx)
 	xorl	%ecx, %ecx
 	movl	$1, %r11d
 	movw	%cx, 2(%rdx)
 	movq	%r8, %rdx
-.L935:
+.L910:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	414(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L938:
+	je	.L748
+.L913:
 	testq	%rdx, %rdx
-	je	.L935
+	je	.L910
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L936
-	jmp	.L1342
-.L769:
+	jb	.L911
+	jmp	.L1313
+	.p2align 4,,10
+.L810:
+	movzwl	312(%rsi), %ecx
+	testw	%cx, %cx
+	je	.L817
+	xorl	%r9d, %r9d
+	xorl	%edx, %edx
+	xorl	%r10d, %r10d
+	.p2align 4,,10
+.L821:
+	testq	%rbx, %rbx
+	je	.L818
+	leaq	2(%rbx), %r8
+	cmpq	%r8, %rax
+	jbe	.L1303
+	xorl	%ebp, %ebp
+	movw	%cx, (%rbx)
+	movl	$1, %r10d
+	movw	%bp, 2(%rbx)
+	movq	%r8, %rbx
+.L818:
+	addq	$1, %rdx
+	movl	$1, %r9d
+	movzwl	312(%rsi,%rdx,2), %ecx
+	testw	%cx, %cx
+	jne	.L821
+	testb	%r10b, %r10b
+	je	.L822
+	movq	%rbx, 72(%rsp)
+.L822:
+	movq	%rdx, 96(%rsp)
+.L817:
+	leaq	64(%rsp), %rbx
+	movl	$32, %edx
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	jmp	.L811
+	.p2align 4,,10
+.L888:
+	movzwl	414(%rsi), %ecx
+	testw	%cx, %cx
+	je	.L890
+	xorl	%r9d, %r9d
+	xorl	%edx, %edx
+	xorl	%r10d, %r10d
+	.p2align 4,,10
+.L894:
+	testq	%rbx, %rbx
+	je	.L891
+	leaq	2(%rbx), %r8
+	cmpq	%r8, %rax
+	jbe	.L1311
+	xorl	%r11d, %r11d
+	movw	%cx, (%rbx)
+	movl	$1, %r10d
+	movw	%r11w, 2(%rbx)
+	movq	%r8, %rbx
+.L891:
+	addq	$1, %rdx
+	movl	$1, %r9d
+	movzwl	414(%rsi,%rdx,2), %ecx
+	testw	%cx, %cx
+	jne	.L894
+	testb	%r10b, %r10b
+	je	.L895
+	movq	%rbx, 168(%rsp)
+.L895:
+	movq	%rdx, 192(%rsp)
+	jmp	.L890
+	.p2align 4,,10
+.L903:
+	movq	%rbx, %rcx
+	movl	$32, %edx
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw
+	movq	240(%rsp), %r8
+	movzwl	414(%r8), %ecx
+	testw	%cx, %cx
+	je	.L1321
+	movq	192(%rsp), %rax
+	xorl	%r11d, %r11d
+	movq	184(%rsp), %rbx
+	movq	168(%rsp), %rdx
+	movq	%rax, %r9
+	negq	%r9
+	leaq	(%r8,%r9,2), %r10
+	xorl	%r9d, %r9d
+	jmp	.L909
+	.p2align 4,,10
+.L907:
+	xorl	%r9d, %r9d
+	movw	%cx, (%rdx)
+	movl	$1, %r11d
+	movw	%r9w, 2(%rdx)
+	movq	%r8, %rdx
+.L906:
+	addq	$1, %rax
+	movl	$1, %r9d
+	movzwl	414(%r10,%rax,2), %ecx
+	testw	%cx, %cx
+	je	.L748
+.L909:
+	testq	%rdx, %rdx
+	je	.L906
+	leaq	2(%rdx), %r8
+	cmpq	%rbx, %r8
+	jb	.L907
+	jmp	.L1313
+.L756:
 	leaq	.LC20(%rip), %rdi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -7078,177 +6810,157 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	movq	$0, 24(%rax)
 	movq	%rdi, (%rax)
 	call	__cxa_throw
-.LEHE44:
 	.p2align 4,,10
-.L870:
-	movq	%r12, %rdx
-	movq	%r14, %rcx
-.LEHB45:
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10ClearBlockEPy
-	movq	%rdi, 32(%rsp)
-	movq	%r12, %r9
-	movq	%rbx, %rdx
-	movq	%r13, %rcx
-	movl	$10, %r8d
-	call	_ZN8Palmtree4Math4Core8Internal11DivRem_X_1WEPyyyS3_S3_
-.LEHE45:
-	movq	%r13, %rax
-	addl	$1, %esi
-	movq	%r12, %r13
-	movq	%rax, %r12
-	jmp	.L869
-	.p2align 4,,10
-.L1347:
+.L1318:
 	movq	96(%rsp), %rax
-	jmp	.L761
+	jmp	.L748
 	.p2align 4,,10
-.L940:
-	leaq	304(%rsp), %r14
-	movq	%r14, %rcx
-.LEHB46:
+.L915:
+	leaq	208(%rsp), %rbx
+	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
-.LEHE46:
-	movq	32(%rbp), %rbx
-	movq	%r14, %rcx
-	leaq	4(%rbx), %rdx
-.LEHB47:
+.LEHE31:
+	movq	32(%rdi), %r14
+	movq	%rbx, %rcx
+	leaq	4(%r14), %rdx
+.LEHB32:
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT13AllocateBlockEy
-	movq	%rax, %r15
-	movq	64(%rbp), %rsi
+	movq	64(%rdi), %rsi
+	movq	%rax, %r13
+	movq	24(%rdi), %rcx
 	movq	%rax, %rdi
-	movq	24(%rbp), %rcx
 /APP
  # 952 "C:/GNU/MINGW64/x86_64-8.1.0-win32-seh-rt_v6-rev0/mingw64/x86_64-w64-mingw32/include/psdk_inc/intrin-impl.h" 1
 	rep movsq
  # 0 "" 2
 /NO_APP
-	addq	$67, %rbx
-	shrq	$6, %rbx
-	leaq	-1(%rax,%rbx,8), %rdx
-	movq	%rbx, %rcx
+	addq	$67, %r14
+	shrq	$6, %r14
+	leaq	-1(%rax,%r14,8), %rdx
+	movq	%r14, %rcx
 	salq	$4, %rcx
 	cmpq	%rdx, %rax
-	ja	.L980
+	ja	.L953
 	movzbl	(%rdx), %r8d
 	testb	$-16, %r8b
-	jne	.L980
+	jne	.L953
 	testb	$8, %r8b
-	jne	.L980
-	leaq	-1(%rcx), %rbx
+	jne	.L953
+	leaq	-1(%rcx), %rsi
 	testb	%r8b, %r8b
 	leaq	-1(%rdx), %rax
-	jne	.L946
-	cmpq	%r15, %rax
-	jb	.L946
+	jne	.L921
+	cmpq	%r13, %rax
+	jb	.L921
 	cmpb	$0, -1(%rdx)
-	js	.L946
-	leaq	-1(%r15), %r8
-	jmp	.L947
+	js	.L921
+	leaq	-1(%r13), %r8
+	jmp	.L922
 	.p2align 4,,10
-.L948:
+.L923:
 	movzbl	(%rax), %edx
 	testb	$-16, %dl
-	jne	.L946
+	jne	.L921
 	testb	$8, %dl
-	jne	.L946
+	jne	.L921
 	leaq	-3(%rcx), %r9
 	subq	$1, %rax
 	testb	%dl, %dl
-	jne	.L982
-	cmpq	%rax, %r15
-	ja	.L982
+	jne	.L955
+	cmpq	%rax, %r13
+	ja	.L955
 	cmpb	$0, (%rax)
-	movq	%rbx, %rcx
-	js	.L982
-.L947:
-	leaq	-2(%rcx), %rbx
-	cmpq	%rax, %r8
-	jne	.L948
+	movq	%rsi, %rcx
+	js	.L955
+.L922:
+	leaq	-2(%rcx), %rsi
+	cmpq	%r8, %rax
+	jne	.L923
 	.p2align 4,,10
-.L946:
-	movq	%r15, %rdx
-	movq	%r14, %rcx
+.L921:
+	movq	%r13, %rdx
+	movq	%rbx, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10CheckBlockEPy
-	leaq	15(%rbx), %rsi
-	movslq	%r13d, %r8
-	shrq	$4, %rsi
-	movl	%esi, %edx
+	leaq	15(%rsi), %rdi
+	movslq	%r12d, %r8
+	shrq	$4, %rdi
+	movl	%edi, %edx
 	sall	$4, %edx
-	subl	%ebx, %edx
-	cmpq	%r8, %rbx
-	jnb	.L949
-	movq	384(%rsp), %rcx
-	subq	%rbx, %r8
+	subl	%esi, %edx
+	cmpq	%r8, %rsi
+	jnb	.L924
+	movq	288(%rsp), %rcx
+	subq	%rsi, %r8
 	xorl	%r10d, %r10d
 	xorl	%r11d, %r11d
-	movq	376(%rsp), %rbx
-	movq	360(%rsp), %rax
+	movq	280(%rsp), %rsi
+	movq	264(%rsp), %rax
 	addq	%rcx, %r8
 	.p2align 4,,10
-.L954:
+.L929:
 	testq	%rax, %rax
-	je	.L950
+	je	.L925
 	leaq	2(%rax), %r9
-	cmpq	%rbx, %r9
-	jnb	.L1364
+	cmpq	%rsi, %r9
+	jnb	.L1333
 	movl	$48, (%rax)
 	movl	$1, %r11d
 	movq	%r9, %rax
-.L950:
+.L925:
 	addq	$1, %rcx
 	movl	$1, %r10d
 	cmpq	%rcx, %r8
-	jne	.L954
+	jne	.L929
 	testb	%r11b, %r11b
-	je	.L955
-	movq	%rax, 360(%rsp)
-.L955:
-	movq	%rcx, 384(%rsp)
-.L949:
-	leaq	-8(%r15,%rsi,8), %rbx
-	cmpw	$88, %r12w
+	je	.L930
+	movq	%rax, 264(%rsp)
+.L930:
+	movq	%rcx, 288(%rsp)
+.L924:
+	leaq	-8(%r13,%rdi,8), %rsi
+	cmpw	$88, %bp
 	leaq	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_upper_digitsE(%rip), %rdi
-	movq	(%rbx), %rcx
+	movq	(%rsi), %rcx
 	leaq	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_lower_digitsE(%rip), %rax
 	cmovne	%rax, %rdi
-	leaq	352(%rsp), %rsi
+	leaq	256(%rsp), %rbp
 	movq	%rdi, %r8
-	movq	%rsi, %r9
+	movq	%rbp, %r9
 	call	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEyjPwPNS2_12StringWriterE.constprop.27
-	jmp	.L1344
+	jmp	.L1315
 	.p2align 4,,10
-.L957:
-	movq	(%rbx), %rcx
-	movq	%rsi, %r9
+.L932:
+	movq	(%rsi), %rcx
+	movq	%rbp, %r9
 	movq	%rdi, %r8
 	xorl	%edx, %edx
 	call	_ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL30OutputHexNumberSequenceOneWordEyjPwPNS2_12StringWriterE.constprop.27
-.LEHE47:
-.L1344:
-	subq	$8, %rbx
-	cmpq	%rbx, %r15
-	jbe	.L957
-	movq	384(%rsp), %rax
-	movq	%r14, %rcx
+.LEHE32:
+.L1315:
+	subq	$8, %rsi
+	cmpq	%rsi, %r13
+	jbe	.L932
+	movq	288(%rsp), %rax
+	movq	%rbx, %rcx
 	movq	%rax, 56(%rsp)
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movq	56(%rsp), %rax
-	jmp	.L761
+	jmp	.L748
 	.p2align 4,,10
-.L1355:
+.L1327:
 	movl	$-1, %r8d
-	jmp	.L768
+	jmp	.L755
 	.p2align 4,,10
-.L1356:
+.L1328:
 	movzwl	%dx, %r8d
 	subl	$48, %r8d
-	jmp	.L768
+	jmp	.L755
 	.p2align 4,,10
-.L811:
+.L798:
 	movzwl	312(%r11), %ecx
 	movq	96(%rsp), %rax
 	testw	%cx, %cx
-	je	.L761
+	je	.L748
 	movq	%rax, %r8
 	movq	88(%rsp), %rbx
 	xorl	%r9d, %r9d
@@ -7256,67 +6968,67 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	movq	72(%rsp), %rdx
 	leaq	(%r11,%r8,2), %r10
 	xorl	%r11d, %r11d
-	jmp	.L817
+	jmp	.L804
 	.p2align 4,,10
-.L815:
+.L802:
 	xorl	%r14d, %r14d
 	movw	%cx, (%rdx)
 	movl	$1, %r11d
 	movw	%r14w, 2(%rdx)
 	movq	%r8, %rdx
-.L814:
+.L801:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	312(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L817:
+	je	.L748
+.L804:
 	testq	%rdx, %rdx
-	je	.L814
+	je	.L801
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L815
-	jmp	.L1335
+	jb	.L802
+	jmp	.L1306
 	.p2align 4,,10
-.L912:
+.L876:
 	movzwl	414(%r11), %ecx
-	movq	288(%rsp), %rax
+	movq	192(%rsp), %rax
 	testw	%cx, %cx
-	je	.L761
+	je	.L748
 	movq	%rax, %r8
-	movq	280(%rsp), %rbx
+	movq	184(%rsp), %rbx
 	xorl	%r9d, %r9d
 	negq	%r8
-	movq	264(%rsp), %rdx
+	movq	168(%rsp), %rdx
 	leaq	(%r11,%r8,2), %r10
 	xorl	%r11d, %r11d
-	jmp	.L923
+	jmp	.L887
 	.p2align 4,,10
-.L921:
-	xorl	%r9d, %r9d
+.L885:
+	xorl	%esi, %esi
 	movw	%cx, (%rdx)
 	movl	$1, %r11d
-	movw	%r9w, 2(%rdx)
+	movw	%si, 2(%rdx)
 	movq	%r8, %rdx
-.L920:
+.L884:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	414(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L923:
+	je	.L748
+.L887:
 	testq	%rdx, %rdx
-	je	.L920
+	je	.L884
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L921
-	jmp	.L1342
+	jb	.L885
+	jmp	.L1313
 	.p2align 4,,10
-.L836:
+.L823:
 	movzwl	312(%r8), %ecx
 	movq	96(%rsp), %rax
 	testw	%cx, %cx
-	je	.L761
+	je	.L748
 	movq	%rax, %r9
 	movq	88(%rsp), %rbx
 	xorl	%r11d, %r11d
@@ -7324,41 +7036,35 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	movq	72(%rsp), %rdx
 	leaq	(%r8,%r9,2), %r10
 	xorl	%r9d, %r9d
-	jmp	.L841
+	jmp	.L828
 	.p2align 4,,10
-.L839:
-	xorl	%r11d, %r11d
+.L826:
+	xorl	%edi, %edi
 	movw	%cx, (%rdx)
-	movw	%r11w, 2(%rdx)
-	movq	%r8, %rdx
 	movl	$1, %r11d
-.L838:
+	movw	%di, 2(%rdx)
+	movq	%r8, %rdx
+.L825:
 	addq	$1, %rax
 	movl	$1, %r9d
 	movzwl	312(%r10,%rax,2), %ecx
 	testw	%cx, %cx
-	je	.L761
-.L841:
+	je	.L748
+.L828:
 	testq	%rdx, %rdx
-	je	.L838
+	je	.L825
 	leaq	2(%rdx), %r8
 	cmpq	%rbx, %r8
-	jb	.L839
-	jmp	.L1335
+	jb	.L826
+	jmp	.L1306
 	.p2align 4,,10
-.L972:
-	movq	%rbp, %rax
-	jmp	.L857
-.L982:
-	movq	%r9, %rbx
-	jmp	.L946
-.L971:
-	movq	%rbp, %rax
-	jmp	.L852
-.L980:
-	movq	%rcx, %rbx
-	jmp	.L946
-.L1353:
+.L955:
+	movq	%r9, %rsi
+	jmp	.L921
+.L953:
+	movq	%rcx, %rsi
+	jmp	.L921
+.L1325:
 	leaq	.LC17(%rip), %rdi
 	movl	$32, %ecx
 	call	__cxa_allocate_exception
@@ -7371,193 +7077,127 @@ _ZN8Palmtree4Math4Core8Internal12PMC_ToStringEPNS2_21__tag_PMC_HANDLE_UINTEPKwPK
 	movl	$-2, 8(%rax)
 	leaq	_ZTIN8Palmtree4Math4Core8Internal21ArgumentNullExceptionE(%rip), %rdx
 	movq	%rdi, (%rax)
-.LEHB48:
+.LEHB33:
 	call	__cxa_throw
-.LEHE48:
-.L1364:
-	testb	%r11b, %r11b
-	je	.L952
-	movq	%rax, 360(%rsp)
-.L952:
+.LEHE33:
+.L1303:
 	testb	%r10b, %r10b
-	je	.L953
-	movq	%rcx, 384(%rsp)
-.L953:
-.LEHB49:
-	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
-.LEHE49:
+	je	.L820
+	movq	%rbx, 72(%rsp)
+.L820:
+	testb	%r9b, %r9b
+	je	.L775
+	movq	%rdx, 96(%rsp)
+	jmp	.L775
 .L1332:
 	testb	%r10b, %r10b
-	je	.L833
-	movq	%rbx, 72(%rsp)
-.L833:
-	testb	%r9b, %r9b
-	je	.L788
-	movq	%rdx, 96(%rsp)
-	jmp	.L788
-.L1362:
-	testb	%r10b, %r10b
-	je	.L845
+	je	.L832
 	movq	%rcx, 72(%rsp)
-.L845:
+.L832:
 	testb	%r9b, %r9b
-	je	.L788
-.L1328:
+	je	.L775
+.L1300:
 	movq	%rax, 96(%rsp)
-	jmp	.L788
-.L1361:
+	jmp	.L775
+.L1331:
 	testb	%r12b, %r12b
-	je	.L803
+	je	.L790
 	movq	%rdx, 72(%rsp)
-.L803:
+.L790:
 	testb	%dil, %dil
-	jne	.L1328
-	jmp	.L788
-.L1359:
+	jne	.L1300
+	jmp	.L775
+.L1330:
+	testb	%r10b, %r10b
+	je	.L912
+	movq	%rcx, 168(%rsp)
+.L912:
+	testb	%r9b, %r9b
+	je	.L775
+.L1293:
+	movq	%rax, 192(%rsp)
+	jmp	.L775
+.L1329:
+	testb	%r12b, %r12b
+	je	.L868
+	movq	%rdx, 168(%rsp)
+.L868:
 	testb	%dil, %dil
-	je	.L855
-	movq	%rax, 168(%rsp)
-.L855:
+	jne	.L1293
+	jmp	.L775
+.L1333:
 	testb	%r11b, %r11b
-	je	.L788
-.L1324:
+	je	.L927
+	movq	%rax, 264(%rsp)
+.L927:
+	testb	%r10b, %r10b
+	je	.L928
+	movq	%rcx, 288(%rsp)
+.L928:
+.LEHB34:
+	call	_ZN8Palmtree4Math4Core8Internal12StringWriter5WriteEw.part.11
+.LEHE34:
+.L1311:
+	testb	%r10b, %r10b
+	je	.L899
+	movq	%rbx, 168(%rsp)
+.L899:
+	testb	%r9b, %r9b
+	je	.L775
 	movq	%rdx, 192(%rsp)
-	jmp	.L788
-.L1339:
-	testb	%r10b, %r10b
-	je	.L896
-	movq	%rbx, 264(%rsp)
-.L896:
-	testb	%r9b, %r9b
-	je	.L788
-	movq	%rdx, 288(%rsp)
-	jmp	.L788
-.L1360:
-	testb	%r11b, %r11b
-	je	.L860
-	movq	%rax, 168(%rsp)
-.L860:
-	testb	%r9b, %r9b
-	jne	.L1324
-	jmp	.L788
-.L1358:
-	testb	%r10b, %r10b
-	je	.L937
-	movq	%rcx, 264(%rsp)
-	jmp	.L937
-.L1357:
-	testb	%bpl, %bpl
-	je	.L904
-	movq	%rdx, 264(%rsp)
-.L904:
-	testb	%sil, %sil
-	jne	.L1322
-	jmp	.L788
-.L989:
-	movq	%rax, %rbx
-	movq	%rsi, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	jmp	.L775
+.L960:
+	movq	%rax, %rsi
 	movq	%rbx, %rcx
-.LEHB50:
-	call	_Unwind_Resume
-.L987:
-	movq	%r14, %rcx
-	movq	%rax, %rbx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-.L876:
-	movq	%r15, %rcx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	movq	%rbx, %rcx
-	call	_Unwind_Resume
-.L986:
-	movq	%rax, %rbx
-	jmp	.L876
-.L988:
 	movq	%rsi, %rcx
+.LEHB35:
+	call	_Unwind_Resume
+.L959:
 	movq	%rax, %rbx
-	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
-	jmp	.L876
-.L990:
-	movq	%rax, %rbx
-	movq	%r14, %rcx
+	movq	%rbp, %rcx
 	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
 	movq	%rbx, %rcx
 	call	_Unwind_Resume
 	nop
-.LEHE50:
+.LEHE35:
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
-.LLSDA6708:
+.LLSDA6706:
 	.byte	0xff
 	.byte	0xff
 	.byte	0x1
-	.uleb128 .LLSDACSE6708-.LLSDACSB6708
-.LLSDACSB6708:
-	.uleb128 .LEHB35-.LFB6708
+	.uleb128 .LLSDACSE6706-.LLSDACSB6706
+.LLSDACSB6706:
+	.uleb128 .LEHB29-.LFB6706
+	.uleb128 .LEHE29-.LEHB29
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB30-.LFB6706
+	.uleb128 .LEHE30-.LEHB30
+	.uleb128 .L959-.LFB6706
+	.uleb128 0
+	.uleb128 .LEHB31-.LFB6706
+	.uleb128 .LEHE31-.LEHB31
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB32-.LFB6706
+	.uleb128 .LEHE32-.LEHB32
+	.uleb128 .L960-.LFB6706
+	.uleb128 0
+	.uleb128 .LEHB33-.LFB6706
+	.uleb128 .LEHE33-.LEHB33
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB34-.LFB6706
+	.uleb128 .LEHE34-.LEHB34
+	.uleb128 .L960-.LFB6706
+	.uleb128 0
+	.uleb128 .LEHB35-.LFB6706
 	.uleb128 .LEHE35-.LEHB35
 	.uleb128 0
 	.uleb128 0
-	.uleb128 .LEHB36-.LFB6708
-	.uleb128 .LEHE36-.LEHB36
-	.uleb128 .L986-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB37-.LFB6708
-	.uleb128 .LEHE37-.LEHB37
-	.uleb128 .L987-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB38-.LFB6708
-	.uleb128 .LEHE38-.LEHB38
-	.uleb128 .L986-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB39-.LFB6708
-	.uleb128 .LEHE39-.LEHB39
-	.uleb128 .L988-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB40-.LFB6708
-	.uleb128 .LEHE40-.LEHB40
-	.uleb128 .L986-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB41-.LFB6708
-	.uleb128 .LEHE41-.LEHB41
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB42-.LFB6708
-	.uleb128 .LEHE42-.LEHB42
-	.uleb128 .L989-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB43-.LFB6708
-	.uleb128 .LEHE43-.LEHB43
-	.uleb128 .L986-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB44-.LFB6708
-	.uleb128 .LEHE44-.LEHB44
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB45-.LFB6708
-	.uleb128 .LEHE45-.LEHB45
-	.uleb128 .L987-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB46-.LFB6708
-	.uleb128 .LEHE46-.LEHB46
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB47-.LFB6708
-	.uleb128 .LEHE47-.LEHB47
-	.uleb128 .L990-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB48-.LFB6708
-	.uleb128 .LEHE48-.LEHB48
-	.uleb128 0
-	.uleb128 0
-	.uleb128 .LEHB49-.LFB6708
-	.uleb128 .LEHE49-.LEHB49
-	.uleb128 .L990-.LFB6708
-	.uleb128 0
-	.uleb128 .LEHB50-.LFB6708
-	.uleb128 .LEHE50-.LEHB50
-	.uleb128 0
-	.uleb128 0
-.LLSDACSE6708:
+.LLSDACSE6706:
 	.text
 	.seh_endproc
 	.globl	_ZTSSt9exception
@@ -7958,8 +7598,8 @@ _ZN8Palmtree4Math4Core8Internal20HexaDecimalFormatterL24hexadecimal_lower_digits
 	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT16DeallocateStringEPw;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
-	.def	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj;	.scl	2;	.type	32;	.endef
-	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal19PMC_Floor_Log10_ImpEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Add_X_X_ImpEPNS2_19__tag_NUMBER_HEADERES4_;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
 	.def	_ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef

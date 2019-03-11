@@ -217,6 +217,7 @@
     <ClCompile Include="pmc_greatestcommondivisor.cpp" />
     <ClCompile Include="pmc_initialize.cpp" />
     <ClCompile Include="pmc_interface_csharp.cpp" />
+    <ClCompile Include="pmc_log.cpp" />
     <ClCompile Include="pmc_memory.cpp" />
     <ClCompile Include="pmc_modpow.cpp" />
     <ClCompile Include="pmc_multiply.cpp" />

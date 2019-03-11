@@ -873,6 +873,20 @@ namespace Palmtree.Math.Core
             return (new UBigIntHandle(r, this));
         }
 
+        public UBigIntHandle TimesPow(UInt32 v, UInt32 e)
+        {
+            IntPtr r;
+            HandleResultCode((PMC_STATUS_CODE)PMCCS_TimesOfExponentOf10(v, e, out r));
+            return (new UBigIntHandle(r, this));
+        }
+
+        public UInt32 FloorLog10(UBigIntHandle v)
+        {
+            UInt32 r;
+            HandleResultCode((PMC_STATUS_CODE)PMCCS_Floor_Log10(v.NativeHandle, out r));
+            return (r);
+        }
+
         #endregion
 
         #region プライベートメソッド
@@ -1169,6 +1183,12 @@ namespace Palmtree.Math.Core
 
         [DllImport("Palmtree.Math.Core.Uint.dll")]
         private static extern Int32 PMCCS_ModPow_X_X_X(IntPtr v, IntPtr e, IntPtr m, out IntPtr r);
+
+        [DllImport("Palmtree.Math.Core.Uint.dll")]
+        private static extern Int32 PMCCS_TimesOfExponentOf10(UInt32 v, UInt32 e, out IntPtr r);
+
+        [DllImport("Palmtree.Math.Core.Uint.dll")]
+        private static extern Int32 PMCCS_Floor_Log10(IntPtr v, out UInt32 r);
 
         #endregion
 

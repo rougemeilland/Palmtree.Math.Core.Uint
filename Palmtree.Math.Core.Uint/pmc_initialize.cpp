@@ -165,6 +165,8 @@ namespace Palmtree::Math::Core::Internal
                 return (nullptr);
             if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
                 return (nullptr);
+            if (Initialize_Log(&feature) != PMC_STATUS_OK)
+                return (nullptr);
 
             entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
             entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
@@ -238,6 +240,8 @@ namespace Palmtree::Math::Core::Internal
             entry_points.Pow_X_I = PMC_Pow_X_I;
             entry_points.Pow_X_L = PMC_Pow_X_L;
             entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
+            entry_points.TimesOfExponentOf10 = PMC_TimesOfExponentOf10;
+            entry_points.Floor_Log10 = PMC_Floor_Log10;
             entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
             entry_points.Clone_X = PMC_Clone_X;
             entry_points.GetAllocatedMemorySize = PMC_GetAllocatedMemorySize;

@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\dist\Debug\</OutputPath>
+    <OutputPath>..\vs_dist\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,7 +29,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\dist\Release\</OutputPath>
+    <OutputPath>..\vs_dist\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -49,12 +49,14 @@
   <ItemGroup>
     <Compile Include="ComponentTestItemBase.cs" />
     <Compile Include="ComponentTestPluginBase.cs" />
+    <Compile Include="ComponentTestPluginBase_1_1.cs" />
     <Compile Include="ComponentTestPluginBase_3_2.cs" />
     <Compile Include="ComponentTestPluginBase_3_1.cs" />
     <Compile Include="ComponentTestPluginBase_2_2.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="NumberFormatInfoDataItem.cs" />
     <Compile Include="NullDataItem.cs" />
+    <Compile Include="Plugin\ComponentTestPlugin_FloorLog10.cs" />
     <Compile Include="Plugin\ComponentTestPlugin_ToStringE.cs" />
     <Compile Include="Plugin\ComponentTestPlugin_ToStringF.cs" />
     <Compile Include="Plugin\ComponentTestPlugin_ToStringG.cs" />
@@ -375,6 +377,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\test_data_exclusiveor_x_x.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\test_data_floorlog10.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\test_data_greaterthanorequal_i_x.xml">

@@ -49320,6 +49320,12 @@ namespace Palmtree::Math::Core::Internal
             PMC_HANDLE_UINT(__attribute__((__stdcall__)) * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m);
 
 
+            PMC_HANDLE_UINT(__attribute__((__stdcall__)) * TimesOfExponentOf10)(_UINT32_T v, _UINT32_T e);
+
+
+            _UINT32_T(__attribute__((__stdcall__)) * Floor_Log10)(PMC_HANDLE_UINT v);
+
+
             PMC_HANDLE_UINT(__attribute__((__stdcall__)) * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign);
             size_t(__attribute__((__stdcall__)) * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);
             PMC_STATUS_CODE(__attribute__((__stdcall__)) * TryParseForSINT)(const wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, const PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs, _UINT32_T* result) noexcept(false);
@@ -49515,6 +49521,14 @@ namespace Palmtree::Math::Core::Internal
 
     extern NUMBER_HEADER* PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v);
 
+
+    extern NUMBER_HEADER* PMC_TimesOfExponentOf10_Imp(_UINT32_T v, __UNIT_TYPE e);
+
+
+    extern _UINT32_T PMC_Floor_Log10_Imp(NUMBER_HEADER* v);
+
+
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v);
 #pragma endregion
 
 
@@ -49572,6 +49586,9 @@ namespace Palmtree::Math::Core::Internal
 
 
     extern PMC_STATUS_CODE Initialize_ModPow(PROCESSOR_FEATURES* feature);
+
+
+    extern PMC_STATUS_CODE Initialize_Log(PROCESSOR_FEATURES* feature);
 #pragma endregion
 
 
@@ -49669,6 +49686,10 @@ namespace Palmtree::Math::Core::Internal
     extern PMC_HANDLE_UINT __attribute__((__stdcall__)) PMC_Pow_X_L(PMC_HANDLE_UINT x, _UINT64_T n) noexcept(false);
 
     extern PMC_HANDLE_UINT __attribute__((__stdcall__)) PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m) noexcept(false);
+
+    extern PMC_HANDLE_UINT __attribute__((__stdcall__)) PMC_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e);
+
+    extern _UINT32_T __attribute__((__stdcall__)) PMC_Floor_Log10(PMC_HANDLE_UINT v);
 
     extern PMC_HANDLE_UINT __attribute__((__stdcall__)) PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign) noexcept(false);
     extern size_t __attribute__((__stdcall__)) PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);
@@ -89112,6 +89133,34 @@ namespace Palmtree::Math::Core::Internal
         return (w);
     }
 
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v)
+    {
+        if (u->IS_ZERO)
+            return (v->IS_ZERO ? 0 : -1);
+        else if (v->IS_ZERO)
+            return (1);
+        else
+        {
+            __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+            __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
+            if (u_bit_count > v_bit_count)
+            {
+
+                return (1);
+            }
+            else if (u_bit_count < v_bit_count)
+            {
+
+                return (-1);
+            }
+            else
+            {
+
+                return (Compare_Imp(u->BLOCK, v->BLOCK, u->UNIT_WORD_COUNT));
+            }
+        }
+    }
+
     _INT32_T __attribute__((__stdcall__)) PMC_Compare_X_X(PMC_HANDLE_UINT u, PMC_HANDLE_UINT v) noexcept(false)
     {
         if (u == nullptr)
@@ -89122,31 +89171,7 @@ namespace Palmtree::Math::Core::Internal
         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
         CheckNumber(nu);
         CheckNumber(nv);
-        _INT32_T w;
-        if (nu->IS_ZERO)
-            w = nv->IS_ZERO ? 0 : -1;
-        else if (nv->IS_ZERO)
-            w = 1;
-        else
-        {
-            __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-            __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-            if (u_bit_count > v_bit_count)
-            {
-
-                w = 1;
-            }
-            else if (u_bit_count < v_bit_count)
-            {
-
-                w = -1;
-            }
-            else
-            {
-
-                w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
-            }
-        }
+        _INT32_T w = PMC_Compare_X_X_Imp(nu, nv);
 
         if (w != 0 && w != 1 && w != -1)
             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");

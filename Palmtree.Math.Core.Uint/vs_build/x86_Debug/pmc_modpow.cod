@@ -51,25 +51,25 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __4CB7CE93_pmc_modpow@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117974 DB	'0', 00H, 'k0', 088H, '0', 08bH, '0d', 096H, 097H, '{L0L', 088H
+$SG117994 DB	'0', 00H, 'k0', 088H, '0', 08bH, '0d', 096H, 097H, '{L0L', 088H
 	DB	08fH, '0', 08cH, '0', 088H, '0F0h0W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117986 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
+$SG118006 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
 	DB	'g0Y0', 02H, '0', 00H, 00H
-$SG117992 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
+$SG118012 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
 	DB	'g0Y0', 02H, '0', 00H, 00H
-$SG118022 DB	'v', 00H, 00H, 00H
-$SG118023 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118042 DB	'v', 00H, 00H, 00H
+$SG118043 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118026 DB	'e', 00H, 00H, 00H
-$SG118027 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118046 DB	'e', 00H, 00H, 00H
+$SG118047 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG118030 DB	'm', 00H, 00H, 00H
-$SG118031 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG118050 DB	'm', 00H, 00H, 00H
+$SG118051 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 CONST	ENDS
@@ -742,7 +742,7 @@ _m$ = 16						; size = 4
 ; 279  :             // 0 による除算は許されないのでエラーを通知する
 ; 280  :             throw DivisionByZeroException(L"0による除算が行われようとしました。");
 
-  0002b	68 00 00 00 00	 push	 OFFSET $SG117974
+  0002b	68 00 00 00 00	 push	 OFFSET $SG117994
   00030	8d 4d e8	 lea	 ecx, DWORD PTR $T3[ebp]
   00033	e8 00 00 00 00	 call	 ??0DivisionByZeroException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::DivisionByZeroException::DivisionByZeroException
   00038	68 00 00 00 00	 push	 OFFSET __TI2?AVDivisionByZeroException@Internal@Core@Math@Palmtree@@
@@ -785,7 +785,7 @@ $LN2@PMC_ModPow:
 ; 292  :                     // 0 の 0 乗となるので、エラーを返す
 ; 293  :                     throw ArithmeticException(L"0の0乗の値は未定義です。");
 
-  0006e	68 00 00 00 00	 push	 OFFSET $SG117986
+  0006e	68 00 00 00 00	 push	 OFFSET $SG118006
   00073	8d 4d d0	 lea	 ecx, DWORD PTR $T2[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArithmeticException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::ArithmeticException::ArithmeticException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArithmeticException@Internal@Core@Math@Palmtree@@
@@ -857,7 +857,7 @@ $LN4@PMC_ModPow:
 ; 321  :                     // 0 の 0 乗となるので、エラーを返す
 ; 322  :                     throw ArithmeticException(L"0の0乗の値は未定義です。");
 
-  000bc	68 00 00 00 00	 push	 OFFSET $SG117992
+  000bc	68 00 00 00 00	 push	 OFFSET $SG118012
   000c1	8d 4d b8	 lea	 ecx, DWORD PTR $T1[ebp]
   000c4	e8 00 00 00 00	 call	 ??0ArithmeticException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::ArithmeticException::ArithmeticException
   000c9	68 00 00 00 00	 push	 OFFSET __TI2?AVArithmeticException@Internal@Core@Math@Palmtree@@
@@ -2565,8 +2565,8 @@ _m$ = 16						; size = 4
 
 ; 367  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  00045	68 00 00 00 00	 push	 OFFSET $SG118022
-  0004a	68 00 00 00 00	 push	 OFFSET $SG118023
+  00045	68 00 00 00 00	 push	 OFFSET $SG118042
+  0004a	68 00 00 00 00	 push	 OFFSET $SG118043
   0004f	8d 4d c0	 lea	 ecx, DWORD PTR $T5[ebp]
   00052	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00057	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2582,8 +2582,8 @@ $LN2@PMC_ModPow:
 
 ; 369  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"e");
 
-  0006b	68 00 00 00 00	 push	 OFFSET $SG118026
-  00070	68 00 00 00 00	 push	 OFFSET $SG118027
+  0006b	68 00 00 00 00	 push	 OFFSET $SG118046
+  00070	68 00 00 00 00	 push	 OFFSET $SG118047
   00075	8d 4d a8	 lea	 ecx, DWORD PTR $T4[ebp]
   00078	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007d	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2599,8 +2599,8 @@ $LN3@PMC_ModPow:
 
 ; 371  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"m");
 
-  00091	68 00 00 00 00	 push	 OFFSET $SG118030
-  00096	68 00 00 00 00	 push	 OFFSET $SG118031
+  00091	68 00 00 00 00	 push	 OFFSET $SG118050
+  00096	68 00 00 00 00	 push	 OFFSET $SG118051
   0009b	8d 4d 90	 lea	 ecx, DWORD PTR $T3[ebp]
   0009e	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   000a3	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@

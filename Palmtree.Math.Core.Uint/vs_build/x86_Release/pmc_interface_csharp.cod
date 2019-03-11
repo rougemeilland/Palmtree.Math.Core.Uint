@@ -90,6 +90,8 @@ PUBLIC	_PMCCS_GreatestCommonDivisor_X_X@12
 PUBLIC	_PMCCS_Pow_X_I@12
 PUBLIC	_PMCCS_Pow_X_L@16
 PUBLIC	_PMCCS_ModPow_X_X_X@16
+PUBLIC	_PMCCS_TimesOfExponentOf10@12
+PUBLIC	_PMCCS_Floor_Log10@8
 PUBLIC	??_R0?AVException@Internal@Core@Math@Palmtree@@@8 ; Palmtree::Math::Core::Internal::Exception `RTTI Type Descriptor'
 EXTRN	_PMC_UINT_Initialize@4:PROC
 EXTRN	?PMC_GetConfigurationSettings@Internal@Core@Math@Palmtree@@YGHPB_WPA_WHPAH@Z:PROC ; Palmtree::Math::Core::Internal::PMC_GetConfigurationSettings
@@ -161,6 +163,8 @@ EXTRN	?PMC_GreatestCommonDivisor_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC
 EXTRN	?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Pow_X_I
 EXTRN	?PMC_Pow_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Pow_X_L
 EXTRN	?PMC_ModPow_X_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@00@Z:PROC ; Palmtree::Math::Core::Internal::PMC_ModPow_X_X_X
+EXTRN	?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z:PROC ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+EXTRN	?PMC_Floor_Log10@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Floor_Log10
 EXTRN	@__security_check_cookie@4:PROC
 EXTRN	___CxxFrameHandler3:PROC
 EXTRN	??_7type_info@@6B@:QWORD			; type_info::`vftable'
@@ -171,6 +175,54 @@ data$r	SEGMENT
 	DD	00H
 	DB	'.?AVException@Internal@Core@Math@Palmtree@@', 00H
 data$r	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__catchsym$_PMCCS_Floor_Log10@8$2 DD 09H
+	DD	FLAT:??_R0?AVException@Internal@Core@Math@Palmtree@@@8
+	DD	0ffffffecH
+	DD	FLAT:__catch$_PMCCS_Floor_Log10@8$0
+__unwindtable$_PMCCS_Floor_Log10@8 DD 0ffffffffH
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+__tryblocktable$_PMCCS_Floor_Log10@8 DD 00H
+	DD	00H
+	DD	01H
+	DD	01H
+	DD	FLAT:__catchsym$_PMCCS_Floor_Log10@8$2
+__ehfuncinfo$_PMCCS_Floor_Log10@8 DD 019930522H
+	DD	02H
+	DD	FLAT:__unwindtable$_PMCCS_Floor_Log10@8
+	DD	01H
+	DD	FLAT:__tryblocktable$_PMCCS_Floor_Log10@8
+	DD	2 DUP(00H)
+	DD	00H
+	DD	00H
+xdata$x	ENDS
+;	COMDAT xdata$x
+xdata$x	SEGMENT
+__catchsym$_PMCCS_TimesOfExponentOf10@12$2 DD 09H
+	DD	FLAT:??_R0?AVException@Internal@Core@Math@Palmtree@@@8
+	DD	0ffffffecH
+	DD	FLAT:__catch$_PMCCS_TimesOfExponentOf10@12$0
+__unwindtable$_PMCCS_TimesOfExponentOf10@12 DD 0ffffffffH
+	DD	00H
+	DD	0ffffffffH
+	DD	00H
+__tryblocktable$_PMCCS_TimesOfExponentOf10@12 DD 00H
+	DD	00H
+	DD	01H
+	DD	01H
+	DD	FLAT:__catchsym$_PMCCS_TimesOfExponentOf10@12$2
+__ehfuncinfo$_PMCCS_TimesOfExponentOf10@12 DD 019930522H
+	DD	02H
+	DD	FLAT:__unwindtable$_PMCCS_TimesOfExponentOf10@12
+	DD	01H
+	DD	FLAT:__tryblocktable$_PMCCS_TimesOfExponentOf10@12
+	DD	2 DUP(00H)
+	DD	00H
+	DD	00H
+xdata$x	ENDS
 ;	COMDAT xdata$x
 xdata$x	SEGMENT
 __catchsym$_PMCCS_ModPow_X_X_X@16$2 DD 09H
@@ -2047,6 +2099,284 @@ xdata$x	ENDS
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+;	COMDAT _PMCCS_Floor_Log10@8
+_TEXT	SEGMENT
+_ex$2 = -20						; size = 4
+__$EHRec$ = -16						; size = 16
+_v$ = 8							; size = 4
+$T3 = 12						; size = 4
+_r$ = 12						; size = 4
+_PMCCS_Floor_Log10@8 PROC				; COMDAT
+
+; 1286 :     {
+
+  00000	55		 push	 ebp
+  00001	8b ec		 mov	 ebp, esp
+  00003	6a ff		 push	 -1
+  00005	68 00 00 00 00	 push	 __ehhandler$_PMCCS_Floor_Log10@8
+  0000a	64 a1 00 00 00
+	00		 mov	 eax, DWORD PTR fs:0
+  00010	50		 push	 eax
+  00011	83 ec 08	 sub	 esp, 8
+  00014	53		 push	 ebx
+  00015	56		 push	 esi
+  00016	57		 push	 edi
+  00017	a1 00 00 00 00	 mov	 eax, DWORD PTR ___security_cookie
+  0001c	33 c5		 xor	 eax, ebp
+  0001e	50		 push	 eax
+  0001f	8d 45 f4	 lea	 eax, DWORD PTR __$EHRec$[ebp+4]
+  00022	64 a3 00 00 00
+	00		 mov	 DWORD PTR fs:0, eax
+  00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
+
+; 1287 :         if (r == nullptr)
+
+  0002b	8b 75 0c	 mov	 esi, DWORD PTR _r$[ebp]
+  0002e	85 f6		 test	 esi, esi
+  00030	75 17		 jne	 SHORT $LN2@PMCCS_Floo
+
+; 1288 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+
+  00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
+
+; 1297 :         }
+; 1298 :     }
+
+  00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00038	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  0003f	59		 pop	 ecx
+  00040	5f		 pop	 edi
+  00041	5e		 pop	 esi
+  00042	5b		 pop	 ebx
+  00043	8b e5		 mov	 esp, ebp
+  00045	5d		 pop	 ebp
+  00046	c2 08 00	 ret	 8
+$LN2@PMCCS_Floo:
+
+; 1289 :         try
+
+  00049	c7 45 fc 00 00
+	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
+
+; 1290 :         {
+; 1291 :             *r = PMC_Floor_Log10(v);
+
+  00050	ff 75 08	 push	 DWORD PTR _v$[ebp]
+  00053	e8 00 00 00 00	 call	 ?PMC_Floor_Log10@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Floor_Log10
+  00058	89 06		 mov	 DWORD PTR [esi], eax
+
+; 1292 :             return (PMC_STATUS_OK);
+
+  0005a	33 c0		 xor	 eax, eax
+
+; 1297 :         }
+; 1298 :     }
+
+  0005c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  0005f	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00066	59		 pop	 ecx
+  00067	5f		 pop	 edi
+  00068	5e		 pop	 esi
+  00069	5b		 pop	 ebx
+  0006a	8b e5		 mov	 esp, ebp
+  0006c	5d		 pop	 ebp
+  0006d	c2 08 00	 ret	 8
+__catch$_PMCCS_Floor_Log10@8$0:
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+
+; 75   :             return (_code);
+
+  00070	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
+  00073	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
+  00076	89 45 0c	 mov	 DWORD PTR $T3[ebp], eax
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+
+; 1296 :             return (ex.GetStatusCode());
+
+  00079	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Floo
+  0007e	c3		 ret	 0
+$LN8@PMCCS_Floo:
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+  0007f	c7 45 fc ff ff
+	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+
+; 1296 :             return (ex.GetStatusCode());
+
+  00086	8b 45 0c	 mov	 eax, DWORD PTR $T3[ebp]
+
+; 1297 :         }
+; 1298 :     }
+
+  00089	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  0008c	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00093	59		 pop	 ecx
+  00094	5f		 pop	 edi
+  00095	5e		 pop	 esi
+  00096	5b		 pop	 ebx
+  00097	8b e5		 mov	 esp, ebp
+  00099	5d		 pop	 ebp
+  0009a	c2 08 00	 ret	 8
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__ehhandler$_PMCCS_Floor_Log10@8:
+  00000	8b 54 24 08	 mov	 edx, DWORD PTR [esp+8]
+  00004	8d 42 0c	 lea	 eax, DWORD PTR [edx+12]
+  00007	8b 4a e8	 mov	 ecx, DWORD PTR [edx-24]
+  0000a	33 c8		 xor	 ecx, eax
+  0000c	e8 00 00 00 00	 call	 @__security_check_cookie@4
+  00011	b8 00 00 00 00	 mov	 eax, OFFSET __ehfuncinfo$_PMCCS_Floor_Log10@8
+  00016	e9 00 00 00 00	 jmp	 ___CxxFrameHandler3
+text$x	ENDS
+_PMCCS_Floor_Log10@8 ENDP
+; Function compile flags: /Ogtp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+;	COMDAT _PMCCS_TimesOfExponentOf10@12
+_TEXT	SEGMENT
+_ex$2 = -20						; size = 4
+__$EHRec$ = -16						; size = 16
+_v$ = 8							; size = 4
+_e$ = 12						; size = 4
+$T3 = 16						; size = 4
+_r$ = 16						; size = 4
+_PMCCS_TimesOfExponentOf10@12 PROC			; COMDAT
+
+; 1271 :     {
+
+  00000	55		 push	 ebp
+  00001	8b ec		 mov	 ebp, esp
+  00003	6a ff		 push	 -1
+  00005	68 00 00 00 00	 push	 __ehhandler$_PMCCS_TimesOfExponentOf10@12
+  0000a	64 a1 00 00 00
+	00		 mov	 eax, DWORD PTR fs:0
+  00010	50		 push	 eax
+  00011	83 ec 08	 sub	 esp, 8
+  00014	53		 push	 ebx
+  00015	56		 push	 esi
+  00016	57		 push	 edi
+  00017	a1 00 00 00 00	 mov	 eax, DWORD PTR ___security_cookie
+  0001c	33 c5		 xor	 eax, ebp
+  0001e	50		 push	 eax
+  0001f	8d 45 f4	 lea	 eax, DWORD PTR __$EHRec$[ebp+4]
+  00022	64 a3 00 00 00
+	00		 mov	 DWORD PTR fs:0, eax
+  00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
+
+; 1272 :         if (r == nullptr)
+
+  0002b	8b 75 10	 mov	 esi, DWORD PTR _r$[ebp]
+  0002e	85 f6		 test	 esi, esi
+  00030	75 17		 jne	 SHORT $LN2@PMCCS_Time
+
+; 1273 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+
+  00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
+
+; 1282 :         }
+; 1283 :     }
+
+  00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00038	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  0003f	59		 pop	 ecx
+  00040	5f		 pop	 edi
+  00041	5e		 pop	 esi
+  00042	5b		 pop	 ebx
+  00043	8b e5		 mov	 esp, ebp
+  00045	5d		 pop	 ebp
+  00046	c2 0c 00	 ret	 12			; 0000000cH
+$LN2@PMCCS_Time:
+
+; 1274 :         try
+
+  00049	c7 45 fc 00 00
+	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
+
+; 1275 :         {
+; 1276 :             *r = PMC_TimesOfExponentOf10(v, e);
+
+  00050	ff 75 0c	 push	 DWORD PTR _e$[ebp]
+  00053	ff 75 08	 push	 DWORD PTR _v$[ebp]
+  00056	e8 00 00 00 00	 call	 ?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+  0005b	89 06		 mov	 DWORD PTR [esi], eax
+
+; 1277 :             return (PMC_STATUS_OK);
+
+  0005d	33 c0		 xor	 eax, eax
+
+; 1282 :         }
+; 1283 :     }
+
+  0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00062	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00069	59		 pop	 ecx
+  0006a	5f		 pop	 edi
+  0006b	5e		 pop	 esi
+  0006c	5b		 pop	 ebx
+  0006d	8b e5		 mov	 esp, ebp
+  0006f	5d		 pop	 ebp
+  00070	c2 0c 00	 ret	 12			; 0000000cH
+__catch$_PMCCS_TimesOfExponentOf10@12$0:
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+
+; 75   :             return (_code);
+
+  00073	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
+  00076	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
+  00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+
+; 1281 :             return (ex.GetStatusCode());
+
+  0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Time
+  00081	c3		 ret	 0
+$LN8@PMCCS_Time:
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+  00082	c7 45 fc ff ff
+	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+
+; 1281 :             return (ex.GetStatusCode());
+
+  00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
+
+; 1282 :         }
+; 1283 :     }
+
+  0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  0008f	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00096	59		 pop	 ecx
+  00097	5f		 pop	 edi
+  00098	5e		 pop	 esi
+  00099	5b		 pop	 ebx
+  0009a	8b e5		 mov	 esp, ebp
+  0009c	5d		 pop	 ebp
+  0009d	c2 0c 00	 ret	 12			; 0000000cH
+_TEXT	ENDS
+;	COMDAT text$x
+text$x	SEGMENT
+__ehhandler$_PMCCS_TimesOfExponentOf10@12:
+  00000	8b 54 24 08	 mov	 edx, DWORD PTR [esp+8]
+  00004	8d 42 0c	 lea	 eax, DWORD PTR [edx+12]
+  00007	8b 4a e8	 mov	 ecx, DWORD PTR [edx-24]
+  0000a	33 c8		 xor	 ecx, eax
+  0000c	e8 00 00 00 00	 call	 @__security_check_cookie@4
+  00011	b8 00 00 00 00	 mov	 eax, OFFSET __ehfuncinfo$_PMCCS_TimesOfExponentOf10@12
+  00016	e9 00 00 00 00	 jmp	 ___CxxFrameHandler3
+text$x	ENDS
+_PMCCS_TimesOfExponentOf10@12 ENDP
+; Function compile flags: /Ogtp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 ;	COMDAT _PMCCS_ModPow_X_X_X@16
 _TEXT	SEGMENT
 _ex$2 = -20						; size = 4
@@ -2058,7 +2388,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_ModPow_X_X_X@16 PROC				; COMDAT
 
-; 1232 :     {
+; 1256 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2079,18 +2409,18 @@ _PMCCS_ModPow_X_X_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1233 :         if (r == nullptr)
+; 1257 :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_ModP
 
-; 1234 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1258 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1243 :         }
-; 1244 :     }
+; 1267 :         }
+; 1268 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2104,13 +2434,13 @@ _PMCCS_ModPow_X_X_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_ModP:
 
-; 1235 :         try
+; 1259 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1236 :         {
-; 1237 :             *r = PMC_ModPow_X_X_X(v, e, m);
+; 1260 :         {
+; 1261 :             *r = PMC_ModPow_X_X_X(v, e, m);
 
   00050	ff 75 10	 push	 DWORD PTR _m$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _e$[ebp]
@@ -2118,12 +2448,12 @@ $LN2@PMCCS_ModP:
   00059	e8 00 00 00 00	 call	 ?PMC_ModPow_X_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@00@Z ; Palmtree::Math::Core::Internal::PMC_ModPow_X_X_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1238 :             return (PMC_STATUS_OK);
+; 1262 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1243 :         }
-; 1244 :     }
+; 1267 :         }
+; 1268 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -2145,7 +2475,7 @@ __catch$_PMCCS_ModPow_X_X_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1242 :             return (ex.GetStatusCode());
+; 1266 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_ModP
   00084	c3		 ret	 0
@@ -2155,12 +2485,12 @@ $LN8@PMCCS_ModP:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1242 :             return (ex.GetStatusCode());
+; 1266 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1243 :         }
-; 1244 :     }
+; 1267 :         }
+; 1268 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -2199,7 +2529,7 @@ $T3 = 20						; size = 4
 _v$ = 20						; size = 4
 _PMCCS_Pow_X_L@16 PROC					; COMDAT
 
-; 1217 :     {
+; 1241 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2220,18 +2550,18 @@ _PMCCS_Pow_X_L@16 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1218 :         if (v == nullptr)
+; 1242 :         if (v == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _v$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Pow_
 
-; 1219 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1243 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1228 :         }
-; 1229 :     }
+; 1252 :         }
+; 1253 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2245,13 +2575,13 @@ _PMCCS_Pow_X_L@16 PROC					; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Pow_:
 
-; 1220 :         try
+; 1244 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1221 :         {
-; 1222 :             *v = PMC_Pow_X_L(x, n);
+; 1245 :         {
+; 1246 :             *v = PMC_Pow_X_L(x, n);
 
   00050	ff 75 10	 push	 DWORD PTR _n$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _n$[ebp]
@@ -2259,12 +2589,12 @@ $LN2@PMCCS_Pow_:
   00059	e8 00 00 00 00	 call	 ?PMC_Pow_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1223 :             return (PMC_STATUS_OK);
+; 1247 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1228 :         }
-; 1229 :     }
+; 1252 :         }
+; 1253 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -2286,7 +2616,7 @@ __catch$_PMCCS_Pow_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1227 :             return (ex.GetStatusCode());
+; 1251 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Pow_
   00084	c3		 ret	 0
@@ -2296,12 +2626,12 @@ $LN8@PMCCS_Pow_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1227 :             return (ex.GetStatusCode());
+; 1251 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1228 :         }
-; 1229 :     }
+; 1252 :         }
+; 1253 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -2340,7 +2670,7 @@ $T3 = 16						; size = 4
 _v$ = 16						; size = 4
 _PMCCS_Pow_X_I@12 PROC					; COMDAT
 
-; 1202 :     {
+; 1226 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2361,18 +2691,18 @@ _PMCCS_Pow_X_I@12 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1203 :         if (v == nullptr)
+; 1227 :         if (v == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _v$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Pow_
 
-; 1204 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1228 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1213 :         }
-; 1214 :     }
+; 1237 :         }
+; 1238 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2386,25 +2716,25 @@ _PMCCS_Pow_X_I@12 PROC					; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Pow_:
 
-; 1205 :         try
+; 1229 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1206 :         {
-; 1207 :             *v = PMC_Pow_X_I(x, n);
+; 1230 :         {
+; 1231 :             *v = PMC_Pow_X_I(x, n);
 
   00050	ff 75 0c	 push	 DWORD PTR _n$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _x$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1208 :             return (PMC_STATUS_OK);
+; 1232 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1213 :         }
-; 1214 :     }
+; 1237 :         }
+; 1238 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -2426,7 +2756,7 @@ __catch$_PMCCS_Pow_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1212 :             return (ex.GetStatusCode());
+; 1236 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Pow_
   00081	c3		 ret	 0
@@ -2436,12 +2766,12 @@ $LN8@PMCCS_Pow_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1212 :             return (ex.GetStatusCode());
+; 1236 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1213 :         }
-; 1214 :     }
+; 1237 :         }
+; 1238 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -2480,7 +2810,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_GreatestCommonDivisor_X_X@12 PROC		; COMDAT
 
-; 1187 :     {
+; 1211 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2501,18 +2831,18 @@ _PMCCS_GreatestCommonDivisor_X_X@12 PROC		; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1188 :         if (w == nullptr)
+; 1212 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Grea
 
-; 1189 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1213 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1198 :         }
-; 1199 :     }
+; 1222 :         }
+; 1223 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2526,25 +2856,25 @@ _PMCCS_GreatestCommonDivisor_X_X@12 PROC		; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Grea:
 
-; 1190 :         try
+; 1214 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1191 :         {
-; 1192 :             *w = PMC_GreatestCommonDivisor_X_X(u, v);
+; 1215 :         {
+; 1216 :             *w = PMC_GreatestCommonDivisor_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_GreatestCommonDivisor_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1193 :             return (PMC_STATUS_OK);
+; 1217 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1198 :         }
-; 1199 :     }
+; 1222 :         }
+; 1223 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -2566,7 +2896,7 @@ __catch$_PMCCS_GreatestCommonDivisor_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1197 :             return (ex.GetStatusCode());
+; 1221 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Grea
   00081	c3		 ret	 0
@@ -2576,12 +2906,12 @@ $LN8@PMCCS_Grea:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1197 :             return (ex.GetStatusCode());
+; 1221 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1198 :         }
-; 1199 :     }
+; 1222 :         }
+; 1223 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -2620,7 +2950,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_GreatestCommonDivisor_X_L@16 PROC		; COMDAT
 
-; 1172 :     {
+; 1196 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2641,18 +2971,18 @@ _PMCCS_GreatestCommonDivisor_X_L@16 PROC		; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1173 :         if (w == nullptr)
+; 1197 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Grea
 
-; 1174 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1198 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1183 :         }
-; 1184 :     }
+; 1207 :         }
+; 1208 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2666,13 +2996,13 @@ _PMCCS_GreatestCommonDivisor_X_L@16 PROC		; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Grea:
 
-; 1175 :         try
+; 1199 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1176 :         {
-; 1177 :             *w = PMC_GreatestCommonDivisor_X_L(u, v);
+; 1200 :         {
+; 1201 :             *w = PMC_GreatestCommonDivisor_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -2680,12 +3010,12 @@ $LN2@PMCCS_Grea:
   00059	e8 00 00 00 00	 call	 ?PMC_GreatestCommonDivisor_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1178 :             return (PMC_STATUS_OK);
+; 1202 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1183 :         }
-; 1184 :     }
+; 1207 :         }
+; 1208 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -2707,7 +3037,7 @@ __catch$_PMCCS_GreatestCommonDivisor_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1182 :             return (ex.GetStatusCode());
+; 1206 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Grea
   00084	c3		 ret	 0
@@ -2717,12 +3047,12 @@ $LN8@PMCCS_Grea:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1182 :             return (ex.GetStatusCode());
+; 1206 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1183 :         }
-; 1184 :     }
+; 1207 :         }
+; 1208 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -2761,7 +3091,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_GreatestCommonDivisor_X_I@12 PROC		; COMDAT
 
-; 1157 :     {
+; 1181 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2782,18 +3112,18 @@ _PMCCS_GreatestCommonDivisor_X_I@12 PROC		; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1158 :         if (w == nullptr)
+; 1182 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Grea
 
-; 1159 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1183 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1168 :         }
-; 1169 :     }
+; 1192 :         }
+; 1193 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2807,25 +3137,25 @@ _PMCCS_GreatestCommonDivisor_X_I@12 PROC		; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Grea:
 
-; 1160 :         try
+; 1184 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1161 :         {
-; 1162 :             *w = PMC_GreatestCommonDivisor_X_I(u, v);
+; 1185 :         {
+; 1186 :             *w = PMC_GreatestCommonDivisor_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_GreatestCommonDivisor_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1163 :             return (PMC_STATUS_OK);
+; 1187 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1168 :         }
-; 1169 :     }
+; 1192 :         }
+; 1193 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -2847,7 +3177,7 @@ __catch$_PMCCS_GreatestCommonDivisor_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1167 :             return (ex.GetStatusCode());
+; 1191 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Grea
   00081	c3		 ret	 0
@@ -2857,12 +3187,12 @@ $LN8@PMCCS_Grea:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1167 :             return (ex.GetStatusCode());
+; 1191 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1168 :         }
-; 1169 :     }
+; 1192 :         }
+; 1193 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -2901,7 +3231,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_GreatestCommonDivisor_L_X@16 PROC		; COMDAT
 
-; 1142 :     {
+; 1166 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -2922,18 +3252,18 @@ _PMCCS_GreatestCommonDivisor_L_X@16 PROC		; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1143 :         if (w == nullptr)
+; 1167 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Grea
 
-; 1144 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1168 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1153 :         }
-; 1154 :     }
+; 1177 :         }
+; 1178 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -2947,13 +3277,13 @@ _PMCCS_GreatestCommonDivisor_L_X@16 PROC		; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Grea:
 
-; 1145 :         try
+; 1169 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1146 :         {
-; 1147 :             *w = PMC_GreatestCommonDivisor_L_X(u, v);
+; 1170 :         {
+; 1171 :             *w = PMC_GreatestCommonDivisor_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -2961,12 +3291,12 @@ $LN2@PMCCS_Grea:
   00059	e8 00 00 00 00	 call	 ?PMC_GreatestCommonDivisor_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1148 :             return (PMC_STATUS_OK);
+; 1172 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1153 :         }
-; 1154 :     }
+; 1177 :         }
+; 1178 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -2988,7 +3318,7 @@ __catch$_PMCCS_GreatestCommonDivisor_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1152 :             return (ex.GetStatusCode());
+; 1176 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Grea
   00084	c3		 ret	 0
@@ -2998,12 +3328,12 @@ $LN8@PMCCS_Grea:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1152 :             return (ex.GetStatusCode());
+; 1176 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1153 :         }
-; 1154 :     }
+; 1177 :         }
+; 1178 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -3042,7 +3372,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_GreatestCommonDivisor_I_X@12 PROC		; COMDAT
 
-; 1127 :     {
+; 1151 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3063,18 +3393,18 @@ _PMCCS_GreatestCommonDivisor_I_X@12 PROC		; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1128 :         if (w == nullptr)
+; 1152 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Grea
 
-; 1129 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1153 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1138 :         }
-; 1139 :     }
+; 1162 :         }
+; 1163 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3088,25 +3418,25 @@ _PMCCS_GreatestCommonDivisor_I_X@12 PROC		; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Grea:
 
-; 1130 :         try
+; 1154 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1131 :         {
-; 1132 :             *w = PMC_GreatestCommonDivisor_I_X(u, v);
+; 1155 :         {
+; 1156 :             *w = PMC_GreatestCommonDivisor_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_GreatestCommonDivisor_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1133 :             return (PMC_STATUS_OK);
+; 1157 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1138 :         }
-; 1139 :     }
+; 1162 :         }
+; 1163 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -3128,7 +3458,7 @@ __catch$_PMCCS_GreatestCommonDivisor_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1137 :             return (ex.GetStatusCode());
+; 1161 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Grea
   00081	c3		 ret	 0
@@ -3138,12 +3468,12 @@ $LN8@PMCCS_Grea:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1137 :             return (ex.GetStatusCode());
+; 1161 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1138 :         }
-; 1139 :     }
+; 1162 :         }
+; 1163 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -3182,7 +3512,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Equals_X_X@12 PROC				; COMDAT
 
-; 1112 :     {
+; 1136 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3203,18 +3533,18 @@ _PMCCS_Equals_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1113 :         if (w == nullptr)
+; 1137 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Equa
 
-; 1114 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1138 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1123 :         }
-; 1124 :     }
+; 1147 :         }
+; 1148 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3228,25 +3558,25 @@ _PMCCS_Equals_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Equa:
 
-; 1115 :         try
+; 1139 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1116 :         {
-; 1117 :             *w = PMC_Equals_X_X(u, v);
+; 1140 :         {
+; 1141 :             *w = PMC_Equals_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Equals_X_X@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1118 :             return (PMC_STATUS_OK);
+; 1142 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1123 :         }
-; 1124 :     }
+; 1147 :         }
+; 1148 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -3268,7 +3598,7 @@ __catch$_PMCCS_Equals_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1122 :             return (ex.GetStatusCode());
+; 1146 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Equa
   00081	c3		 ret	 0
@@ -3278,12 +3608,12 @@ $LN8@PMCCS_Equa:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1122 :             return (ex.GetStatusCode());
+; 1146 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1123 :         }
-; 1124 :     }
+; 1147 :         }
+; 1148 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -3322,7 +3652,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Equals_X_L@16 PROC				; COMDAT
 
-; 1097 :     {
+; 1121 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3343,18 +3673,18 @@ _PMCCS_Equals_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1098 :         if (w == nullptr)
+; 1122 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Equa
 
-; 1099 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1123 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1108 :         }
-; 1109 :     }
+; 1132 :         }
+; 1133 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3368,13 +3698,13 @@ _PMCCS_Equals_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Equa:
 
-; 1100 :         try
+; 1124 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1101 :         {
-; 1102 :             *w = PMC_Equals_X_L(u, v);
+; 1125 :         {
+; 1126 :             *w = PMC_Equals_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -3382,12 +3712,12 @@ $LN2@PMCCS_Equa:
   00059	e8 00 00 00 00	 call	 ?PMC_Equals_X_L@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1103 :             return (PMC_STATUS_OK);
+; 1127 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1108 :         }
-; 1109 :     }
+; 1132 :         }
+; 1133 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -3409,7 +3739,7 @@ __catch$_PMCCS_Equals_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1107 :             return (ex.GetStatusCode());
+; 1131 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Equa
   00084	c3		 ret	 0
@@ -3419,12 +3749,12 @@ $LN8@PMCCS_Equa:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1107 :             return (ex.GetStatusCode());
+; 1131 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1108 :         }
-; 1109 :     }
+; 1132 :         }
+; 1133 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -3463,7 +3793,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Equals_X_I@12 PROC				; COMDAT
 
-; 1082 :     {
+; 1106 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3484,18 +3814,18 @@ _PMCCS_Equals_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1083 :         if (w == nullptr)
+; 1107 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Equa
 
-; 1084 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1108 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1093 :         }
-; 1094 :     }
+; 1117 :         }
+; 1118 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3509,25 +3839,25 @@ _PMCCS_Equals_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Equa:
 
-; 1085 :         try
+; 1109 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1086 :         {
-; 1087 :             *w = PMC_Equals_X_I(u, v);
+; 1110 :         {
+; 1111 :             *w = PMC_Equals_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Equals_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1088 :             return (PMC_STATUS_OK);
+; 1112 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1093 :         }
-; 1094 :     }
+; 1117 :         }
+; 1118 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -3549,7 +3879,7 @@ __catch$_PMCCS_Equals_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1092 :             return (ex.GetStatusCode());
+; 1116 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Equa
   00081	c3		 ret	 0
@@ -3559,12 +3889,12 @@ $LN8@PMCCS_Equa:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1092 :             return (ex.GetStatusCode());
+; 1116 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1093 :         }
-; 1094 :     }
+; 1117 :         }
+; 1118 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -3603,7 +3933,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Equals_L_X@16 PROC				; COMDAT
 
-; 1067 :     {
+; 1091 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3624,18 +3954,18 @@ _PMCCS_Equals_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1068 :         if (w == nullptr)
+; 1092 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Equa
 
-; 1069 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1093 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1078 :         }
-; 1079 :     }
+; 1102 :         }
+; 1103 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3649,13 +3979,13 @@ _PMCCS_Equals_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Equa:
 
-; 1070 :         try
+; 1094 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1071 :         {
-; 1072 :             *w = PMC_Equals_L_X(u, v);
+; 1095 :         {
+; 1096 :             *w = PMC_Equals_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -3663,12 +3993,12 @@ $LN2@PMCCS_Equa:
   00059	e8 00 00 00 00	 call	 ?PMC_Equals_L_X@Internal@Core@Math@Palmtree@@YGI_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Equals_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1073 :             return (PMC_STATUS_OK);
+; 1097 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1078 :         }
-; 1079 :     }
+; 1102 :         }
+; 1103 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -3690,7 +4020,7 @@ __catch$_PMCCS_Equals_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1077 :             return (ex.GetStatusCode());
+; 1101 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Equa
   00084	c3		 ret	 0
@@ -3700,12 +4030,12 @@ $LN8@PMCCS_Equa:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1077 :             return (ex.GetStatusCode());
+; 1101 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1078 :         }
-; 1079 :     }
+; 1102 :         }
+; 1103 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -3744,7 +4074,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Equals_I_X@12 PROC				; COMDAT
 
-; 1052 :     {
+; 1076 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3765,18 +4095,18 @@ _PMCCS_Equals_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1053 :         if (w == nullptr)
+; 1077 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Equa
 
-; 1054 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1078 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1063 :         }
-; 1064 :     }
+; 1087 :         }
+; 1088 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3790,25 +4120,25 @@ _PMCCS_Equals_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Equa:
 
-; 1055 :         try
+; 1079 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1056 :         {
-; 1057 :             *w = PMC_Equals_I_X(u, v);
+; 1080 :         {
+; 1081 :             *w = PMC_Equals_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Equals_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Equals_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1058 :             return (PMC_STATUS_OK);
+; 1082 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1063 :         }
-; 1064 :     }
+; 1087 :         }
+; 1088 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -3830,7 +4160,7 @@ __catch$_PMCCS_Equals_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1062 :             return (ex.GetStatusCode());
+; 1086 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Equa
   00081	c3		 ret	 0
@@ -3840,12 +4170,12 @@ $LN8@PMCCS_Equa:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1062 :             return (ex.GetStatusCode());
+; 1086 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1063 :         }
-; 1064 :     }
+; 1087 :         }
+; 1088 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -3884,7 +4214,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Compare_X_X@12 PROC				; COMDAT
 
-; 1037 :     {
+; 1061 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -3905,18 +4235,18 @@ _PMCCS_Compare_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1038 :         if (w == nullptr)
+; 1062 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Comp
 
-; 1039 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1063 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1048 :         }
-; 1049 :     }
+; 1072 :         }
+; 1073 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -3930,25 +4260,25 @@ _PMCCS_Compare_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Comp:
 
-; 1040 :         try
+; 1064 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1041 :         {
-; 1042 :             *w = PMC_Compare_X_X(u, v);
+; 1065 :         {
+; 1066 :             *w = PMC_Compare_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1043 :             return (PMC_STATUS_OK);
+; 1067 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1048 :         }
-; 1049 :     }
+; 1072 :         }
+; 1073 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -3970,7 +4300,7 @@ __catch$_PMCCS_Compare_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1047 :             return (ex.GetStatusCode());
+; 1071 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Comp
   00081	c3		 ret	 0
@@ -3980,12 +4310,12 @@ $LN8@PMCCS_Comp:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1047 :             return (ex.GetStatusCode());
+; 1071 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1048 :         }
-; 1049 :     }
+; 1072 :         }
+; 1073 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -4024,7 +4354,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Compare_X_L@16 PROC				; COMDAT
 
-; 1022 :     {
+; 1046 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4045,18 +4375,18 @@ _PMCCS_Compare_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1023 :         if (w == nullptr)
+; 1047 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Comp
 
-; 1024 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1048 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1033 :         }
-; 1034 :     }
+; 1057 :         }
+; 1058 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4070,13 +4400,13 @@ _PMCCS_Compare_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Comp:
 
-; 1025 :         try
+; 1049 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1026 :         {
-; 1027 :             *w = PMC_Compare_X_L(u, v);
+; 1050 :         {
+; 1051 :             *w = PMC_Compare_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -4084,12 +4414,12 @@ $LN2@PMCCS_Comp:
   00059	e8 00 00 00 00	 call	 ?PMC_Compare_X_L@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1028 :             return (PMC_STATUS_OK);
+; 1052 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1033 :         }
-; 1034 :     }
+; 1057 :         }
+; 1058 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -4111,7 +4441,7 @@ __catch$_PMCCS_Compare_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1032 :             return (ex.GetStatusCode());
+; 1056 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Comp
   00084	c3		 ret	 0
@@ -4121,12 +4451,12 @@ $LN8@PMCCS_Comp:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1032 :             return (ex.GetStatusCode());
+; 1056 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1033 :         }
-; 1034 :     }
+; 1057 :         }
+; 1058 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -4165,7 +4495,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Compare_X_I@12 PROC				; COMDAT
 
-; 1007 :     {
+; 1031 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4186,18 +4516,18 @@ _PMCCS_Compare_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 1008 :         if (w == nullptr)
+; 1032 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Comp
 
-; 1009 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1033 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1018 :         }
-; 1019 :     }
+; 1042 :         }
+; 1043 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4211,25 +4541,25 @@ _PMCCS_Compare_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Comp:
 
-; 1010 :         try
+; 1034 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 1011 :         {
-; 1012 :             *w = PMC_Compare_X_I(u, v);
+; 1035 :         {
+; 1036 :             *w = PMC_Compare_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Compare_X_I@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 1013 :             return (PMC_STATUS_OK);
+; 1037 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 1018 :         }
-; 1019 :     }
+; 1042 :         }
+; 1043 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -4251,7 +4581,7 @@ __catch$_PMCCS_Compare_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1017 :             return (ex.GetStatusCode());
+; 1041 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Comp
   00081	c3		 ret	 0
@@ -4261,12 +4591,12 @@ $LN8@PMCCS_Comp:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1017 :             return (ex.GetStatusCode());
+; 1041 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1018 :         }
-; 1019 :     }
+; 1042 :         }
+; 1043 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -4305,7 +4635,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Compare_L_X@16 PROC				; COMDAT
 
-; 992  :     {
+; 1016 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4326,18 +4656,18 @@ _PMCCS_Compare_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 993  :         if (w == nullptr)
+; 1017 :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Comp
 
-; 994  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1018 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 1003 :         }
-; 1004 :     }
+; 1027 :         }
+; 1028 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4351,13 +4681,13 @@ _PMCCS_Compare_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Comp:
 
-; 995  :         try
+; 1019 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 996  :         {
-; 997  :             *w = PMC_Compare_L_X(u, v);
+; 1020 :         {
+; 1021 :             *w = PMC_Compare_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -4365,12 +4695,12 @@ $LN2@PMCCS_Comp:
   00059	e8 00 00 00 00	 call	 ?PMC_Compare_L_X@Internal@Core@Math@Palmtree@@YGH_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 998  :             return (PMC_STATUS_OK);
+; 1022 :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 1003 :         }
-; 1004 :     }
+; 1027 :         }
+; 1028 :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -4392,7 +4722,7 @@ __catch$_PMCCS_Compare_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1002 :             return (ex.GetStatusCode());
+; 1026 :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Comp
   00084	c3		 ret	 0
@@ -4402,12 +4732,12 @@ $LN8@PMCCS_Comp:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 1002 :             return (ex.GetStatusCode());
+; 1026 :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 1003 :         }
-; 1004 :     }
+; 1027 :         }
+; 1028 :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -4446,7 +4776,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Compare_I_X@12 PROC				; COMDAT
 
-; 977  :     {
+; 1001 :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4467,18 +4797,18 @@ _PMCCS_Compare_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 978  :         if (w == nullptr)
+; 1002 :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Comp
 
-; 979  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 1003 :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 988  :         }
-; 989  :     }
+; 1012 :         }
+; 1013 :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4492,25 +4822,25 @@ _PMCCS_Compare_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Comp:
 
-; 980  :         try
+; 1004 :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 981  :         {
-; 982  :             *w = PMC_Compare_I_X(u, v);
+; 1005 :         {
+; 1006 :             *w = PMC_Compare_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Compare_I_X@Internal@Core@Math@Palmtree@@YGHIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 983  :             return (PMC_STATUS_OK);
+; 1007 :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 988  :         }
-; 989  :     }
+; 1012 :         }
+; 1013 :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -4532,7 +4862,7 @@ __catch$_PMCCS_Compare_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 987  :             return (ex.GetStatusCode());
+; 1011 :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Comp
   00081	c3		 ret	 0
@@ -4542,12 +4872,12 @@ $LN8@PMCCS_Comp:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 987  :             return (ex.GetStatusCode());
+; 1011 :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 988  :         }
-; 989  :     }
+; 1012 :         }
+; 1013 :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -4586,7 +4916,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_ExclusiveOr_X_X@12 PROC				; COMDAT
 
-; 962  :     {
+; 986  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4607,18 +4937,18 @@ _PMCCS_ExclusiveOr_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 963  :         if (w == nullptr)
+; 987  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Excl
 
-; 964  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 988  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 973  :         }
-; 974  :     }
+; 997  :         }
+; 998  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4632,25 +4962,25 @@ _PMCCS_ExclusiveOr_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Excl:
 
-; 965  :         try
+; 989  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 966  :         {
-; 967  :             *w = PMC_ExclusiveOr_X_X(u, v);
+; 990  :         {
+; 991  :             *w = PMC_ExclusiveOr_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_ExclusiveOr_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 968  :             return (PMC_STATUS_OK);
+; 992  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 973  :         }
-; 974  :     }
+; 997  :         }
+; 998  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -4672,7 +5002,7 @@ __catch$_PMCCS_ExclusiveOr_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 972  :             return (ex.GetStatusCode());
+; 996  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Excl
   00081	c3		 ret	 0
@@ -4682,12 +5012,12 @@ $LN8@PMCCS_Excl:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 972  :             return (ex.GetStatusCode());
+; 996  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 973  :         }
-; 974  :     }
+; 997  :         }
+; 998  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -4726,7 +5056,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_ExclusiveOr_X_L@16 PROC				; COMDAT
 
-; 947  :     {
+; 971  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4747,18 +5077,18 @@ _PMCCS_ExclusiveOr_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 948  :         if (w == nullptr)
+; 972  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Excl
 
-; 949  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 973  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 958  :         }
-; 959  :     }
+; 982  :         }
+; 983  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4772,13 +5102,13 @@ _PMCCS_ExclusiveOr_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Excl:
 
-; 950  :         try
+; 974  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 951  :         {
-; 952  :             *w = PMC_ExclusiveOr_X_L(u, v);
+; 975  :         {
+; 976  :             *w = PMC_ExclusiveOr_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -4786,12 +5116,12 @@ $LN2@PMCCS_Excl:
   00059	e8 00 00 00 00	 call	 ?PMC_ExclusiveOr_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 953  :             return (PMC_STATUS_OK);
+; 977  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 958  :         }
-; 959  :     }
+; 982  :         }
+; 983  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -4813,7 +5143,7 @@ __catch$_PMCCS_ExclusiveOr_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 957  :             return (ex.GetStatusCode());
+; 981  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Excl
   00084	c3		 ret	 0
@@ -4823,12 +5153,12 @@ $LN8@PMCCS_Excl:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 957  :             return (ex.GetStatusCode());
+; 981  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 958  :         }
-; 959  :     }
+; 982  :         }
+; 983  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -4867,7 +5197,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_ExclusiveOr_X_I@12 PROC				; COMDAT
 
-; 932  :     {
+; 956  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -4888,18 +5218,18 @@ _PMCCS_ExclusiveOr_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 933  :         if (w == nullptr)
+; 957  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Excl
 
-; 934  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 958  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 943  :         }
-; 944  :     }
+; 967  :         }
+; 968  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -4913,25 +5243,25 @@ _PMCCS_ExclusiveOr_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Excl:
 
-; 935  :         try
+; 959  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 936  :         {
-; 937  :             *w = PMC_ExclusiveOr_X_I(u, v);
+; 960  :         {
+; 961  :             *w = PMC_ExclusiveOr_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_ExclusiveOr_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 938  :             return (PMC_STATUS_OK);
+; 962  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 943  :         }
-; 944  :     }
+; 967  :         }
+; 968  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -4953,7 +5283,7 @@ __catch$_PMCCS_ExclusiveOr_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 942  :             return (ex.GetStatusCode());
+; 966  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Excl
   00081	c3		 ret	 0
@@ -4963,12 +5293,12 @@ $LN8@PMCCS_Excl:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 942  :             return (ex.GetStatusCode());
+; 966  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 943  :         }
-; 944  :     }
+; 967  :         }
+; 968  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -5007,7 +5337,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_ExclusiveOr_L_X@16 PROC				; COMDAT
 
-; 917  :     {
+; 941  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5028,18 +5358,18 @@ _PMCCS_ExclusiveOr_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 918  :         if (w == nullptr)
+; 942  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Excl
 
-; 919  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 943  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 928  :         }
-; 929  :     }
+; 952  :         }
+; 953  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5053,13 +5383,13 @@ _PMCCS_ExclusiveOr_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Excl:
 
-; 920  :         try
+; 944  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 921  :         {
-; 922  :             *w = PMC_ExclusiveOr_L_X(u, v);
+; 945  :         {
+; 946  :             *w = PMC_ExclusiveOr_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -5067,12 +5397,12 @@ $LN2@PMCCS_Excl:
   00059	e8 00 00 00 00	 call	 ?PMC_ExclusiveOr_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 923  :             return (PMC_STATUS_OK);
+; 947  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 928  :         }
-; 929  :     }
+; 952  :         }
+; 953  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -5094,7 +5424,7 @@ __catch$_PMCCS_ExclusiveOr_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 927  :             return (ex.GetStatusCode());
+; 951  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Excl
   00084	c3		 ret	 0
@@ -5104,12 +5434,12 @@ $LN8@PMCCS_Excl:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 927  :             return (ex.GetStatusCode());
+; 951  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 928  :         }
-; 929  :     }
+; 952  :         }
+; 953  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -5148,7 +5478,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_ExclusiveOr_I_X@12 PROC				; COMDAT
 
-; 902  :     {
+; 926  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5169,18 +5499,18 @@ _PMCCS_ExclusiveOr_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 903  :         if (w == nullptr)
+; 927  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Excl
 
-; 904  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 928  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 913  :         }
-; 914  :     }
+; 937  :         }
+; 938  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5194,25 +5524,25 @@ _PMCCS_ExclusiveOr_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Excl:
 
-; 905  :         try
+; 929  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 906  :         {
-; 907  :             *w = PMC_ExclusiveOr_I_X(u, v);
+; 930  :         {
+; 931  :             *w = PMC_ExclusiveOr_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_ExclusiveOr_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 908  :             return (PMC_STATUS_OK);
+; 932  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 913  :         }
-; 914  :     }
+; 937  :         }
+; 938  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -5234,7 +5564,7 @@ __catch$_PMCCS_ExclusiveOr_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 912  :             return (ex.GetStatusCode());
+; 936  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Excl
   00081	c3		 ret	 0
@@ -5244,12 +5574,12 @@ $LN8@PMCCS_Excl:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 912  :             return (ex.GetStatusCode());
+; 936  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 913  :         }
-; 914  :     }
+; 937  :         }
+; 938  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -5288,7 +5618,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseOr_X_X@12 PROC				; COMDAT
 
-; 887  :     {
+; 911  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5309,18 +5639,18 @@ _PMCCS_BitwiseOr_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 888  :         if (w == nullptr)
+; 912  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 889  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 913  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 898  :         }
-; 899  :     }
+; 922  :         }
+; 923  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5334,25 +5664,25 @@ _PMCCS_BitwiseOr_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 890  :         try
+; 914  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 891  :         {
-; 892  :             *w = PMC_BitwiseOr_X_X(u, v);
+; 915  :         {
+; 916  :             *w = PMC_BitwiseOr_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseOr_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 893  :             return (PMC_STATUS_OK);
+; 917  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 898  :         }
-; 899  :     }
+; 922  :         }
+; 923  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -5374,7 +5704,7 @@ __catch$_PMCCS_BitwiseOr_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 897  :             return (ex.GetStatusCode());
+; 921  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -5384,12 +5714,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 897  :             return (ex.GetStatusCode());
+; 921  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 898  :         }
-; 899  :     }
+; 922  :         }
+; 923  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -5428,7 +5758,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_BitwiseOr_X_L@16 PROC				; COMDAT
 
-; 872  :     {
+; 896  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5449,18 +5779,18 @@ _PMCCS_BitwiseOr_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 873  :         if (w == nullptr)
+; 897  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 874  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 898  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 883  :         }
-; 884  :     }
+; 907  :         }
+; 908  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5474,13 +5804,13 @@ _PMCCS_BitwiseOr_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Bitw:
 
-; 875  :         try
+; 899  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 876  :         {
-; 877  :             *w = PMC_BitwiseOr_X_L(u, v);
+; 900  :         {
+; 901  :             *w = PMC_BitwiseOr_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -5488,12 +5818,12 @@ $LN2@PMCCS_Bitw:
   00059	e8 00 00 00 00	 call	 ?PMC_BitwiseOr_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 878  :             return (PMC_STATUS_OK);
+; 902  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 883  :         }
-; 884  :     }
+; 907  :         }
+; 908  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -5515,7 +5845,7 @@ __catch$_PMCCS_BitwiseOr_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 882  :             return (ex.GetStatusCode());
+; 906  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00084	c3		 ret	 0
@@ -5525,12 +5855,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 882  :             return (ex.GetStatusCode());
+; 906  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 883  :         }
-; 884  :     }
+; 907  :         }
+; 908  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -5569,7 +5899,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseOr_X_I@12 PROC				; COMDAT
 
-; 857  :     {
+; 881  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5590,18 +5920,18 @@ _PMCCS_BitwiseOr_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 858  :         if (w == nullptr)
+; 882  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 859  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 883  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 868  :         }
-; 869  :     }
+; 892  :         }
+; 893  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5615,25 +5945,25 @@ _PMCCS_BitwiseOr_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 860  :         try
+; 884  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 861  :         {
-; 862  :             *w = PMC_BitwiseOr_X_I(u, v);
+; 885  :         {
+; 886  :             *w = PMC_BitwiseOr_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseOr_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 863  :             return (PMC_STATUS_OK);
+; 887  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 868  :         }
-; 869  :     }
+; 892  :         }
+; 893  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -5655,7 +5985,7 @@ __catch$_PMCCS_BitwiseOr_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 867  :             return (ex.GetStatusCode());
+; 891  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -5665,12 +5995,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 867  :             return (ex.GetStatusCode());
+; 891  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 868  :         }
-; 869  :     }
+; 892  :         }
+; 893  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -5709,7 +6039,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_BitwiseOr_L_X@16 PROC				; COMDAT
 
-; 842  :     {
+; 866  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5730,18 +6060,18 @@ _PMCCS_BitwiseOr_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 843  :         if (w == nullptr)
+; 867  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 844  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 868  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 853  :         }
-; 854  :     }
+; 877  :         }
+; 878  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5755,13 +6085,13 @@ _PMCCS_BitwiseOr_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Bitw:
 
-; 845  :         try
+; 869  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 846  :         {
-; 847  :             *w = PMC_BitwiseOr_L_X(u, v);
+; 870  :         {
+; 871  :             *w = PMC_BitwiseOr_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -5769,12 +6099,12 @@ $LN2@PMCCS_Bitw:
   00059	e8 00 00 00 00	 call	 ?PMC_BitwiseOr_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 848  :             return (PMC_STATUS_OK);
+; 872  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 853  :         }
-; 854  :     }
+; 877  :         }
+; 878  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -5796,7 +6126,7 @@ __catch$_PMCCS_BitwiseOr_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 852  :             return (ex.GetStatusCode());
+; 876  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00084	c3		 ret	 0
@@ -5806,12 +6136,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 852  :             return (ex.GetStatusCode());
+; 876  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 853  :         }
-; 854  :     }
+; 877  :         }
+; 878  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -5850,7 +6180,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseOr_I_X@12 PROC				; COMDAT
 
-; 827  :     {
+; 851  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -5871,18 +6201,18 @@ _PMCCS_BitwiseOr_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 828  :         if (w == nullptr)
+; 852  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 829  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 853  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 838  :         }
-; 839  :     }
+; 862  :         }
+; 863  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -5896,25 +6226,25 @@ _PMCCS_BitwiseOr_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 830  :         try
+; 854  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 831  :         {
-; 832  :             *w = PMC_BitwiseOr_I_X(u, v);
+; 855  :         {
+; 856  :             *w = PMC_BitwiseOr_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseOr_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 833  :             return (PMC_STATUS_OK);
+; 857  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 838  :         }
-; 839  :     }
+; 862  :         }
+; 863  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -5936,7 +6266,7 @@ __catch$_PMCCS_BitwiseOr_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 837  :             return (ex.GetStatusCode());
+; 861  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -5946,12 +6276,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 837  :             return (ex.GetStatusCode());
+; 861  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 838  :         }
-; 839  :     }
+; 862  :         }
+; 863  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -5990,7 +6320,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseAnd_X_X@12 PROC				; COMDAT
 
-; 812  :     {
+; 836  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6011,18 +6341,18 @@ _PMCCS_BitwiseAnd_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 813  :         if (w == nullptr)
+; 837  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 814  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 838  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 823  :         }
-; 824  :     }
+; 847  :         }
+; 848  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6036,25 +6366,25 @@ _PMCCS_BitwiseAnd_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 815  :         try
+; 839  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 816  :         {
-; 817  :             *w = PMC_BitwiseAnd_X_X(u, v);
+; 840  :         {
+; 841  :             *w = PMC_BitwiseAnd_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseAnd_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 818  :             return (PMC_STATUS_OK);
+; 842  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 823  :         }
-; 824  :     }
+; 847  :         }
+; 848  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -6076,7 +6406,7 @@ __catch$_PMCCS_BitwiseAnd_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 822  :             return (ex.GetStatusCode());
+; 846  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -6086,12 +6416,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 822  :             return (ex.GetStatusCode());
+; 846  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 823  :         }
-; 824  :     }
+; 847  :         }
+; 848  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -6130,7 +6460,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_BitwiseAnd_X_L@16 PROC				; COMDAT
 
-; 797  :     {
+; 821  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6151,18 +6481,18 @@ _PMCCS_BitwiseAnd_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 798  :         if (w == nullptr)
+; 822  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 799  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 823  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 808  :         }
-; 809  :     }
+; 832  :         }
+; 833  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6176,13 +6506,13 @@ _PMCCS_BitwiseAnd_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Bitw:
 
-; 800  :         try
+; 824  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 801  :         {
-; 802  :             *w = PMC_BitwiseAnd_X_L(u, v);
+; 825  :         {
+; 826  :             *w = PMC_BitwiseAnd_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -6191,12 +6521,12 @@ $LN2@PMCCS_Bitw:
   0005e	89 06		 mov	 DWORD PTR [esi], eax
   00060	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 803  :             return (PMC_STATUS_OK);
+; 827  :             return (PMC_STATUS_OK);
 
   00063	33 c0		 xor	 eax, eax
 
-; 808  :         }
-; 809  :     }
+; 832  :         }
+; 833  :     }
 
   00065	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00068	64 89 0d 00 00
@@ -6218,7 +6548,7 @@ __catch$_PMCCS_BitwiseAnd_X_L@16$0:
   0007f	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 807  :             return (ex.GetStatusCode());
+; 831  :             return (ex.GetStatusCode());
 
   00082	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00087	c3		 ret	 0
@@ -6228,12 +6558,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 807  :             return (ex.GetStatusCode());
+; 831  :             return (ex.GetStatusCode());
 
   0008f	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 808  :         }
-; 809  :     }
+; 832  :         }
+; 833  :     }
 
   00092	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00095	64 89 0d 00 00
@@ -6272,7 +6602,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseAnd_X_I@12 PROC				; COMDAT
 
-; 782  :     {
+; 806  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6293,18 +6623,18 @@ _PMCCS_BitwiseAnd_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 783  :         if (w == nullptr)
+; 807  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 784  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 808  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 793  :         }
-; 794  :     }
+; 817  :         }
+; 818  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6318,25 +6648,25 @@ _PMCCS_BitwiseAnd_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 785  :         try
+; 809  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 786  :         {
-; 787  :             *w = PMC_BitwiseAnd_X_I(u, v);
+; 810  :         {
+; 811  :             *w = PMC_BitwiseAnd_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseAnd_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 788  :             return (PMC_STATUS_OK);
+; 812  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 793  :         }
-; 794  :     }
+; 817  :         }
+; 818  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -6358,7 +6688,7 @@ __catch$_PMCCS_BitwiseAnd_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 792  :             return (ex.GetStatusCode());
+; 816  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -6368,12 +6698,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 792  :             return (ex.GetStatusCode());
+; 816  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 793  :         }
-; 794  :     }
+; 817  :         }
+; 818  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -6412,7 +6742,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_BitwiseAnd_L_X@16 PROC				; COMDAT
 
-; 767  :     {
+; 791  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6433,18 +6763,18 @@ _PMCCS_BitwiseAnd_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 768  :         if (w == nullptr)
+; 792  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 769  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 793  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 778  :         }
-; 779  :     }
+; 802  :         }
+; 803  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6458,13 +6788,13 @@ _PMCCS_BitwiseAnd_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Bitw:
 
-; 770  :         try
+; 794  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 771  :         {
-; 772  :             *w = PMC_BitwiseAnd_L_X(u, v);
+; 795  :         {
+; 796  :             *w = PMC_BitwiseAnd_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -6473,12 +6803,12 @@ $LN2@PMCCS_Bitw:
   0005e	89 06		 mov	 DWORD PTR [esi], eax
   00060	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 773  :             return (PMC_STATUS_OK);
+; 797  :             return (PMC_STATUS_OK);
 
   00063	33 c0		 xor	 eax, eax
 
-; 778  :         }
-; 779  :     }
+; 802  :         }
+; 803  :     }
 
   00065	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00068	64 89 0d 00 00
@@ -6500,7 +6830,7 @@ __catch$_PMCCS_BitwiseAnd_L_X@16$0:
   0007f	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 777  :             return (ex.GetStatusCode());
+; 801  :             return (ex.GetStatusCode());
 
   00082	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00087	c3		 ret	 0
@@ -6510,12 +6840,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 777  :             return (ex.GetStatusCode());
+; 801  :             return (ex.GetStatusCode());
 
   0008f	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 778  :         }
-; 779  :     }
+; 802  :         }
+; 803  :     }
 
   00092	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00095	64 89 0d 00 00
@@ -6554,7 +6884,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_BitwiseAnd_I_X@12 PROC				; COMDAT
 
-; 752  :     {
+; 776  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6575,18 +6905,18 @@ _PMCCS_BitwiseAnd_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 753  :         if (w == nullptr)
+; 777  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Bitw
 
-; 754  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 778  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 763  :         }
-; 764  :     }
+; 787  :         }
+; 788  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6600,25 +6930,25 @@ _PMCCS_BitwiseAnd_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Bitw:
 
-; 755  :         try
+; 779  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 756  :         {
-; 757  :             *w = PMC_BitwiseAnd_I_X(u, v);
+; 780  :         {
+; 781  :             *w = PMC_BitwiseAnd_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_BitwiseAnd_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 758  :             return (PMC_STATUS_OK);
+; 782  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 763  :         }
-; 764  :     }
+; 787  :         }
+; 788  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -6640,7 +6970,7 @@ __catch$_PMCCS_BitwiseAnd_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 762  :             return (ex.GetStatusCode());
+; 786  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Bitw
   00081	c3		 ret	 0
@@ -6650,12 +6980,12 @@ $LN8@PMCCS_Bitw:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 762  :             return (ex.GetStatusCode());
+; 786  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 763  :         }
-; 764  :     }
+; 787  :         }
+; 788  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -6694,7 +7024,7 @@ $T3 = 16						; size = 4
 _o$ = 16						; size = 4
 _PMCCS_LeftShift_X_I@12 PROC				; COMDAT
 
-; 737  :     {
+; 761  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6715,18 +7045,18 @@ _PMCCS_LeftShift_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 738  :         if (o == nullptr)
+; 762  :         if (o == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _o$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Left
 
-; 739  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 763  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 748  :         }
-; 749  :     }
+; 772  :         }
+; 773  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6740,25 +7070,25 @@ _PMCCS_LeftShift_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Left:
 
-; 740  :         try
+; 764  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 741  :         {
-; 742  :             *o = PMC_LeftShift_X_I(p, n);
+; 765  :         {
+; 766  :             *o = PMC_LeftShift_X_I(p, n);
 
   00050	ff 75 0c	 push	 DWORD PTR _n$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _p$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_LeftShift_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@H@Z ; Palmtree::Math::Core::Internal::PMC_LeftShift_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 743  :             return (PMC_STATUS_OK);
+; 767  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 748  :         }
-; 749  :     }
+; 772  :         }
+; 773  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -6780,7 +7110,7 @@ __catch$_PMCCS_LeftShift_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 747  :             return (ex.GetStatusCode());
+; 771  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Left
   00081	c3		 ret	 0
@@ -6790,12 +7120,12 @@ $LN8@PMCCS_Left:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 747  :             return (ex.GetStatusCode());
+; 771  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 748  :         }
-; 749  :     }
+; 772  :         }
+; 773  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -6834,7 +7164,7 @@ $T3 = 16						; size = 4
 _o$ = 16						; size = 4
 _PMCCS_RightShift_X_I@12 PROC				; COMDAT
 
-; 722  :     {
+; 746  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6855,18 +7185,18 @@ _PMCCS_RightShift_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 723  :         if (o == nullptr)
+; 747  :         if (o == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _o$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Righ
 
-; 724  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 748  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 733  :         }
-; 734  :     }
+; 757  :         }
+; 758  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -6880,25 +7210,25 @@ _PMCCS_RightShift_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Righ:
 
-; 725  :         try
+; 749  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 726  :         {
-; 727  :             *o = PMC_RightShift_X_I(p, n);
+; 750  :         {
+; 751  :             *o = PMC_RightShift_X_I(p, n);
 
   00050	ff 75 0c	 push	 DWORD PTR _n$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _p$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_RightShift_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@H@Z ; Palmtree::Math::Core::Internal::PMC_RightShift_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 728  :             return (PMC_STATUS_OK);
+; 752  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 733  :         }
-; 734  :     }
+; 757  :         }
+; 758  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -6920,7 +7250,7 @@ __catch$_PMCCS_RightShift_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 732  :             return (ex.GetStatusCode());
+; 756  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Righ
   00081	c3		 ret	 0
@@ -6930,12 +7260,12 @@ $LN8@PMCCS_Righ:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 732  :             return (ex.GetStatusCode());
+; 756  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 733  :         }
-; 734  :     }
+; 757  :         }
+; 758  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -6974,7 +7304,7 @@ $T3 = 16						; size = 4
 _r$ = 16						; size = 4
 _PMCCS_Remainder_X_X@12 PROC				; COMDAT
 
-; 707  :     {
+; 731  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -6995,18 +7325,18 @@ _PMCCS_Remainder_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 708  :         if (r == nullptr)
+; 732  :         if (r == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Rema
 
-; 709  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 733  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 718  :         }
-; 719  :     }
+; 742  :         }
+; 743  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7020,13 +7350,13 @@ _PMCCS_Remainder_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Rema:
 
-; 710  :         try
+; 734  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 711  :         {
-; 712  :             *r = PMC_DivRem_X_X(u, v, nullptr);
+; 735  :         {
+; 736  :             *r = PMC_DivRem_X_X(u, v, nullptr);
 
   00050	6a 00		 push	 0
   00052	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -7034,12 +7364,12 @@ $LN2@PMCCS_Rema:
   00058	e8 00 00 00 00	 call	 ?PMC_DivRem_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0PAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_X
   0005d	89 06		 mov	 DWORD PTR [esi], eax
 
-; 713  :             return (PMC_STATUS_OK);
+; 737  :             return (PMC_STATUS_OK);
 
   0005f	33 c0		 xor	 eax, eax
 
-; 718  :         }
-; 719  :     }
+; 742  :         }
+; 743  :     }
 
   00061	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00064	64 89 0d 00 00
@@ -7061,7 +7391,7 @@ __catch$_PMCCS_Remainder_X_X@12$0:
   0007b	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 717  :             return (ex.GetStatusCode());
+; 741  :             return (ex.GetStatusCode());
 
   0007e	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Rema
   00083	c3		 ret	 0
@@ -7071,12 +7401,12 @@ $LN8@PMCCS_Rema:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 717  :             return (ex.GetStatusCode());
+; 741  :             return (ex.GetStatusCode());
 
   0008b	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 718  :         }
-; 719  :     }
+; 742  :         }
+; 743  :     }
 
   0008e	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00091	64 89 0d 00 00
@@ -7115,7 +7445,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_Remainder_X_L@16 PROC				; COMDAT
 
-; 692  :     {
+; 716  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7136,18 +7466,18 @@ _PMCCS_Remainder_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 693  :         if (r == nullptr)
+; 717  :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Rema
 
-; 694  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 718  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 703  :         }
-; 704  :     }
+; 727  :         }
+; 728  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7161,13 +7491,13 @@ _PMCCS_Remainder_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Rema:
 
-; 695  :         try
+; 719  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 696  :         {
-; 697  :             *r = PMC_DivRem_X_L(u, v, nullptr);
+; 720  :         {
+; 721  :             *r = PMC_DivRem_X_L(u, v, nullptr);
 
   00050	6a 00		 push	 0
   00052	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
@@ -7177,12 +7507,12 @@ $LN2@PMCCS_Rema:
   00060	89 06		 mov	 DWORD PTR [esi], eax
   00062	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 698  :             return (PMC_STATUS_OK);
+; 722  :             return (PMC_STATUS_OK);
 
   00065	33 c0		 xor	 eax, eax
 
-; 703  :         }
-; 704  :     }
+; 727  :         }
+; 728  :     }
 
   00067	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0006a	64 89 0d 00 00
@@ -7204,7 +7534,7 @@ __catch$_PMCCS_Remainder_X_L@16$0:
   00081	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 702  :             return (ex.GetStatusCode());
+; 726  :             return (ex.GetStatusCode());
 
   00084	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Rema
   00089	c3		 ret	 0
@@ -7214,12 +7544,12 @@ $LN8@PMCCS_Rema:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 702  :             return (ex.GetStatusCode());
+; 726  :             return (ex.GetStatusCode());
 
   00091	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 703  :         }
-; 704  :     }
+; 727  :         }
+; 728  :     }
 
   00094	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00097	64 89 0d 00 00
@@ -7258,7 +7588,7 @@ $T3 = 16						; size = 4
 _r$ = 16						; size = 4
 _PMCCS_Remainder_X_I@12 PROC				; COMDAT
 
-; 677  :     {
+; 701  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7279,18 +7609,18 @@ _PMCCS_Remainder_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 678  :         if (r == nullptr)
+; 702  :         if (r == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Rema
 
-; 679  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 703  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 688  :         }
-; 689  :     }
+; 712  :         }
+; 713  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7304,13 +7634,13 @@ _PMCCS_Remainder_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Rema:
 
-; 680  :         try
+; 704  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 681  :         {
-; 682  :             *r = PMC_DivRem_X_I(u, v, nullptr);
+; 705  :         {
+; 706  :             *r = PMC_DivRem_X_I(u, v, nullptr);
 
   00050	6a 00		 push	 0
   00052	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -7318,12 +7648,12 @@ $LN2@PMCCS_Rema:
   00058	e8 00 00 00 00	 call	 ?PMC_DivRem_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@IPAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_I
   0005d	89 06		 mov	 DWORD PTR [esi], eax
 
-; 683  :             return (PMC_STATUS_OK);
+; 707  :             return (PMC_STATUS_OK);
 
   0005f	33 c0		 xor	 eax, eax
 
-; 688  :         }
-; 689  :     }
+; 712  :         }
+; 713  :     }
 
   00061	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00064	64 89 0d 00 00
@@ -7345,7 +7675,7 @@ __catch$_PMCCS_Remainder_X_I@12$0:
   0007b	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 687  :             return (ex.GetStatusCode());
+; 711  :             return (ex.GetStatusCode());
 
   0007e	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Rema
   00083	c3		 ret	 0
@@ -7355,12 +7685,12 @@ $LN8@PMCCS_Rema:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 687  :             return (ex.GetStatusCode());
+; 711  :             return (ex.GetStatusCode());
 
   0008b	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 688  :         }
-; 689  :     }
+; 712  :         }
+; 713  :     }
 
   0008e	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00091	64 89 0d 00 00
@@ -7399,7 +7729,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_Remainder_L_X@16 PROC				; COMDAT
 
-; 662  :     {
+; 686  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7420,18 +7750,18 @@ _PMCCS_Remainder_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 663  :         if (r == nullptr)
+; 687  :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Rema
 
-; 664  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 688  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 673  :         }
-; 674  :     }
+; 697  :         }
+; 698  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7445,13 +7775,13 @@ _PMCCS_Remainder_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Rema:
 
-; 665  :         try
+; 689  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 666  :         {
-; 667  :             *r = PMC_DivRem_L_X(u, v, nullptr);
+; 690  :         {
+; 691  :             *r = PMC_DivRem_L_X(u, v, nullptr);
 
   00050	6a 00		 push	 0
   00052	ff 75 10	 push	 DWORD PTR _v$[ebp]
@@ -7461,12 +7791,12 @@ $LN2@PMCCS_Rema:
   00060	89 06		 mov	 DWORD PTR [esi], eax
   00062	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 668  :             return (PMC_STATUS_OK);
+; 692  :             return (PMC_STATUS_OK);
 
   00065	33 c0		 xor	 eax, eax
 
-; 673  :         }
-; 674  :     }
+; 697  :         }
+; 698  :     }
 
   00067	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0006a	64 89 0d 00 00
@@ -7488,7 +7818,7 @@ __catch$_PMCCS_Remainder_L_X@16$0:
   00081	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 672  :             return (ex.GetStatusCode());
+; 696  :             return (ex.GetStatusCode());
 
   00084	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Rema
   00089	c3		 ret	 0
@@ -7498,12 +7828,12 @@ $LN8@PMCCS_Rema:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 672  :             return (ex.GetStatusCode());
+; 696  :             return (ex.GetStatusCode());
 
   00091	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 673  :         }
-; 674  :     }
+; 697  :         }
+; 698  :     }
 
   00094	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00097	64 89 0d 00 00
@@ -7542,7 +7872,7 @@ $T3 = 16						; size = 4
 _r$ = 16						; size = 4
 _PMCCS_Remainder_I_X@12 PROC				; COMDAT
 
-; 647  :     {
+; 671  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7563,18 +7893,18 @@ _PMCCS_Remainder_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 648  :         if (r == nullptr)
+; 672  :         if (r == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Rema
 
-; 649  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 673  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 658  :         }
-; 659  :     }
+; 682  :         }
+; 683  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7588,13 +7918,13 @@ _PMCCS_Remainder_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Rema:
 
-; 650  :         try
+; 674  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 651  :         {
-; 652  :             *r = PMC_DivRem_I_X(u, v, nullptr);
+; 675  :         {
+; 676  :             *r = PMC_DivRem_I_X(u, v, nullptr);
 
   00050	6a 00		 push	 0
   00052	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -7602,12 +7932,12 @@ $LN2@PMCCS_Rema:
   00058	e8 00 00 00 00	 call	 ?PMC_DivRem_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_I_X
   0005d	89 06		 mov	 DWORD PTR [esi], eax
 
-; 653  :             return (PMC_STATUS_OK);
+; 677  :             return (PMC_STATUS_OK);
 
   0005f	33 c0		 xor	 eax, eax
 
-; 658  :         }
-; 659  :     }
+; 682  :         }
+; 683  :     }
 
   00061	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00064	64 89 0d 00 00
@@ -7629,7 +7959,7 @@ __catch$_PMCCS_Remainder_I_X@12$0:
   0007b	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 657  :             return (ex.GetStatusCode());
+; 681  :             return (ex.GetStatusCode());
 
   0007e	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Rema
   00083	c3		 ret	 0
@@ -7639,12 +7969,12 @@ $LN8@PMCCS_Rema:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 657  :             return (ex.GetStatusCode());
+; 681  :             return (ex.GetStatusCode());
 
   0008b	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 658  :         }
-; 659  :     }
+; 682  :         }
+; 683  :     }
 
   0008e	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00091	64 89 0d 00 00
@@ -7684,7 +8014,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_DivRem_X_X@16 PROC				; COMDAT
 
-; 632  :     {
+; 656  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7705,18 +8035,18 @@ _PMCCS_DivRem_X_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 633  :         if (r == nullptr)
+; 657  :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_DivR
 
-; 634  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 658  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 643  :         }
-; 644  :     }
+; 667  :         }
+; 668  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7730,13 +8060,13 @@ _PMCCS_DivRem_X_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_DivR:
 
-; 635  :         try
+; 659  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 636  :         {
-; 637  :             *r = PMC_DivRem_X_X(u, v, q);
+; 660  :         {
+; 661  :             *r = PMC_DivRem_X_X(u, v, q);
 
   00050	ff 75 10	 push	 DWORD PTR _q$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -7744,12 +8074,12 @@ $LN2@PMCCS_DivR:
   00059	e8 00 00 00 00	 call	 ?PMC_DivRem_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0PAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 638  :             return (PMC_STATUS_OK);
+; 662  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 643  :         }
-; 644  :     }
+; 667  :         }
+; 668  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -7771,7 +8101,7 @@ __catch$_PMCCS_DivRem_X_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 642  :             return (ex.GetStatusCode());
+; 666  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_DivR
   00084	c3		 ret	 0
@@ -7781,12 +8111,12 @@ $LN8@PMCCS_DivR:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 642  :             return (ex.GetStatusCode());
+; 666  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 643  :         }
-; 644  :     }
+; 667  :         }
+; 668  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -7826,7 +8156,7 @@ $T3 = 24						; size = 4
 _r$ = 24						; size = 4
 _PMCCS_DivRem_X_L@20 PROC				; COMDAT
 
-; 617  :     {
+; 641  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7847,18 +8177,18 @@ _PMCCS_DivRem_X_L@20 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 618  :         if (r == nullptr)
+; 642  :         if (r == nullptr)
 
   0002b	8b 75 18	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_DivR
 
-; 619  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 643  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 628  :         }
-; 629  :     }
+; 652  :         }
+; 653  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -7872,13 +8202,13 @@ _PMCCS_DivRem_X_L@20 PROC				; COMDAT
   00046	c2 14 00	 ret	 20			; 00000014H
 $LN2@PMCCS_DivR:
 
-; 620  :         try
+; 644  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 621  :         {
-; 622  :             *r = PMC_DivRem_X_L(u, v, q);
+; 645  :         {
+; 646  :             *r = PMC_DivRem_X_L(u, v, q);
 
   00050	ff 75 14	 push	 DWORD PTR _q$[ebp]
   00053	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
@@ -7888,12 +8218,12 @@ $LN2@PMCCS_DivR:
   00061	89 06		 mov	 DWORD PTR [esi], eax
   00063	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 623  :             return (PMC_STATUS_OK);
+; 647  :             return (PMC_STATUS_OK);
 
   00066	33 c0		 xor	 eax, eax
 
-; 628  :         }
-; 629  :     }
+; 652  :         }
+; 653  :     }
 
   00068	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0006b	64 89 0d 00 00
@@ -7915,7 +8245,7 @@ __catch$_PMCCS_DivRem_X_L@20$0:
   00082	89 45 18	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 627  :             return (ex.GetStatusCode());
+; 651  :             return (ex.GetStatusCode());
 
   00085	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_DivR
   0008a	c3		 ret	 0
@@ -7925,12 +8255,12 @@ $LN8@PMCCS_DivR:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 627  :             return (ex.GetStatusCode());
+; 651  :             return (ex.GetStatusCode());
 
   00092	8b 45 18	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 628  :         }
-; 629  :     }
+; 652  :         }
+; 653  :     }
 
   00095	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00098	64 89 0d 00 00
@@ -7970,7 +8300,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_DivRem_X_I@16 PROC				; COMDAT
 
-; 602  :     {
+; 626  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -7991,18 +8321,18 @@ _PMCCS_DivRem_X_I@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 603  :         if (r == nullptr)
+; 627  :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_DivR
 
-; 604  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 628  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 613  :         }
-; 614  :     }
+; 637  :         }
+; 638  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8016,13 +8346,13 @@ _PMCCS_DivRem_X_I@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_DivR:
 
-; 605  :         try
+; 629  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 606  :         {
-; 607  :             *r = PMC_DivRem_X_I(u, v, q);
+; 630  :         {
+; 631  :             *r = PMC_DivRem_X_I(u, v, q);
 
   00050	ff 75 10	 push	 DWORD PTR _q$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -8030,12 +8360,12 @@ $LN2@PMCCS_DivR:
   00059	e8 00 00 00 00	 call	 ?PMC_DivRem_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@IPAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_I
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 608  :             return (PMC_STATUS_OK);
+; 632  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 613  :         }
-; 614  :     }
+; 637  :         }
+; 638  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -8057,7 +8387,7 @@ __catch$_PMCCS_DivRem_X_I@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 612  :             return (ex.GetStatusCode());
+; 636  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_DivR
   00084	c3		 ret	 0
@@ -8067,12 +8397,12 @@ $LN8@PMCCS_DivR:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 612  :             return (ex.GetStatusCode());
+; 636  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 613  :         }
-; 614  :     }
+; 637  :         }
+; 638  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -8112,7 +8442,7 @@ $T3 = 24						; size = 4
 _r$ = 24						; size = 4
 _PMCCS_DivRem_L_X@20 PROC				; COMDAT
 
-; 587  :     {
+; 611  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8133,18 +8463,18 @@ _PMCCS_DivRem_L_X@20 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 588  :         if (r == nullptr)
+; 612  :         if (r == nullptr)
 
   0002b	8b 75 18	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_DivR
 
-; 589  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 613  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 598  :         }
-; 599  :     }
+; 622  :         }
+; 623  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8158,13 +8488,13 @@ _PMCCS_DivRem_L_X@20 PROC				; COMDAT
   00046	c2 14 00	 ret	 20			; 00000014H
 $LN2@PMCCS_DivR:
 
-; 590  :         try
+; 614  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 591  :         {
-; 592  :             *r = PMC_DivRem_L_X(u, v, q);
+; 615  :         {
+; 616  :             *r = PMC_DivRem_L_X(u, v, q);
 
   00050	ff 75 14	 push	 DWORD PTR _q$[ebp]
   00053	ff 75 10	 push	 DWORD PTR _v$[ebp]
@@ -8174,12 +8504,12 @@ $LN2@PMCCS_DivR:
   00061	89 06		 mov	 DWORD PTR [esi], eax
   00063	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 593  :             return (PMC_STATUS_OK);
+; 617  :             return (PMC_STATUS_OK);
 
   00066	33 c0		 xor	 eax, eax
 
-; 598  :         }
-; 599  :     }
+; 622  :         }
+; 623  :     }
 
   00068	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0006b	64 89 0d 00 00
@@ -8201,7 +8531,7 @@ __catch$_PMCCS_DivRem_L_X@20$0:
   00082	89 45 18	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 597  :             return (ex.GetStatusCode());
+; 621  :             return (ex.GetStatusCode());
 
   00085	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_DivR
   0008a	c3		 ret	 0
@@ -8211,12 +8541,12 @@ $LN8@PMCCS_DivR:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 597  :             return (ex.GetStatusCode());
+; 621  :             return (ex.GetStatusCode());
 
   00092	8b 45 18	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 598  :         }
-; 599  :     }
+; 622  :         }
+; 623  :     }
 
   00095	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00098	64 89 0d 00 00
@@ -8256,7 +8586,7 @@ $T3 = 20						; size = 4
 _r$ = 20						; size = 4
 _PMCCS_DivRem_I_X@16 PROC				; COMDAT
 
-; 572  :     {
+; 596  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8277,18 +8607,18 @@ _PMCCS_DivRem_I_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 573  :         if (r == nullptr)
+; 597  :         if (r == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _r$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_DivR
 
-; 574  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 598  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 583  :         }
-; 584  :     }
+; 607  :         }
+; 608  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8302,13 +8632,13 @@ _PMCCS_DivRem_I_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_DivR:
 
-; 575  :         try
+; 599  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 576  :         {
-; 577  :             *r = PMC_DivRem_I_X(u, v, q);
+; 600  :         {
+; 601  :             *r = PMC_DivRem_I_X(u, v, q);
 
   00050	ff 75 10	 push	 DWORD PTR _q$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -8316,12 +8646,12 @@ $LN2@PMCCS_DivR:
   00059	e8 00 00 00 00	 call	 ?PMC_DivRem_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_I_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 578  :             return (PMC_STATUS_OK);
+; 602  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 583  :         }
-; 584  :     }
+; 607  :         }
+; 608  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -8343,7 +8673,7 @@ __catch$_PMCCS_DivRem_I_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 582  :             return (ex.GetStatusCode());
+; 606  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_DivR
   00084	c3		 ret	 0
@@ -8353,12 +8683,12 @@ $LN8@PMCCS_DivR:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 582  :             return (ex.GetStatusCode());
+; 606  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 583  :         }
-; 584  :     }
+; 607  :         }
+; 608  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -8397,7 +8727,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Multiply_X_X@12 PROC				; COMDAT
 
-; 557  :     {
+; 581  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8418,18 +8748,18 @@ _PMCCS_Multiply_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 558  :         if (w == nullptr)
+; 582  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Mult
 
-; 559  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 583  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 568  :         }
-; 569  :     }
+; 592  :         }
+; 593  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8443,25 +8773,25 @@ _PMCCS_Multiply_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Mult:
 
-; 560  :         try
+; 584  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 561  :         {
-; 562  :             *w = PMC_Multiply_X_X(u, v);
+; 585  :         {
+; 586  :             *w = PMC_Multiply_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Multiply_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 563  :             return (PMC_STATUS_OK);
+; 587  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 568  :         }
-; 569  :     }
+; 592  :         }
+; 593  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -8483,7 +8813,7 @@ __catch$_PMCCS_Multiply_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 567  :             return (ex.GetStatusCode());
+; 591  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Mult
   00081	c3		 ret	 0
@@ -8493,12 +8823,12 @@ $LN8@PMCCS_Mult:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 567  :             return (ex.GetStatusCode());
+; 591  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 568  :         }
-; 569  :     }
+; 592  :         }
+; 593  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -8537,7 +8867,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Multiply_X_L@16 PROC				; COMDAT
 
-; 542  :     {
+; 566  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8558,18 +8888,18 @@ _PMCCS_Multiply_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 543  :         if (w == nullptr)
+; 567  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Mult
 
-; 544  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 568  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 553  :         }
-; 554  :     }
+; 577  :         }
+; 578  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8583,13 +8913,13 @@ _PMCCS_Multiply_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Mult:
 
-; 545  :         try
+; 569  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 546  :         {
-; 547  :             *w = PMC_Multiply_X_L(u, v);
+; 570  :         {
+; 571  :             *w = PMC_Multiply_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -8597,12 +8927,12 @@ $LN2@PMCCS_Mult:
   00059	e8 00 00 00 00	 call	 ?PMC_Multiply_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 548  :             return (PMC_STATUS_OK);
+; 572  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 553  :         }
-; 554  :     }
+; 577  :         }
+; 578  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -8624,7 +8954,7 @@ __catch$_PMCCS_Multiply_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 552  :             return (ex.GetStatusCode());
+; 576  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Mult
   00084	c3		 ret	 0
@@ -8634,12 +8964,12 @@ $LN8@PMCCS_Mult:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 552  :             return (ex.GetStatusCode());
+; 576  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 553  :         }
-; 554  :     }
+; 577  :         }
+; 578  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -8678,7 +9008,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Multiply_X_I@12 PROC				; COMDAT
 
-; 527  :     {
+; 551  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8699,18 +9029,18 @@ _PMCCS_Multiply_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 528  :         if (w == nullptr)
+; 552  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Mult
 
-; 529  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 553  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 538  :         }
-; 539  :     }
+; 562  :         }
+; 563  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8724,25 +9054,25 @@ _PMCCS_Multiply_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Mult:
 
-; 530  :         try
+; 554  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 531  :         {
-; 532  :             *w = PMC_Multiply_X_I(u, v);
+; 555  :         {
+; 556  :             *w = PMC_Multiply_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Multiply_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 533  :             return (PMC_STATUS_OK);
+; 557  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 538  :         }
-; 539  :     }
+; 562  :         }
+; 563  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -8764,7 +9094,7 @@ __catch$_PMCCS_Multiply_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 537  :             return (ex.GetStatusCode());
+; 561  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Mult
   00081	c3		 ret	 0
@@ -8774,12 +9104,12 @@ $LN8@PMCCS_Mult:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 537  :             return (ex.GetStatusCode());
+; 561  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 538  :         }
-; 539  :     }
+; 562  :         }
+; 563  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -8818,7 +9148,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Multiply_L_X@16 PROC				; COMDAT
 
-; 512  :     {
+; 536  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8839,18 +9169,18 @@ _PMCCS_Multiply_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 513  :         if (w == nullptr)
+; 537  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Mult
 
-; 514  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 538  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 523  :         }
-; 524  :     }
+; 547  :         }
+; 548  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -8864,13 +9194,13 @@ _PMCCS_Multiply_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Mult:
 
-; 515  :         try
+; 539  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 516  :         {
-; 517  :             *w = PMC_Multiply_L_X(u, v);
+; 540  :         {
+; 541  :             *w = PMC_Multiply_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -8878,12 +9208,12 @@ $LN2@PMCCS_Mult:
   00059	e8 00 00 00 00	 call	 ?PMC_Multiply_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 518  :             return (PMC_STATUS_OK);
+; 542  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 523  :         }
-; 524  :     }
+; 547  :         }
+; 548  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -8905,7 +9235,7 @@ __catch$_PMCCS_Multiply_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 522  :             return (ex.GetStatusCode());
+; 546  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Mult
   00084	c3		 ret	 0
@@ -8915,12 +9245,12 @@ $LN8@PMCCS_Mult:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 522  :             return (ex.GetStatusCode());
+; 546  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 523  :         }
-; 524  :     }
+; 547  :         }
+; 548  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -8959,7 +9289,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Multiply_I_X@12 PROC				; COMDAT
 
-; 497  :     {
+; 521  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -8980,18 +9310,18 @@ _PMCCS_Multiply_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 498  :         if (w == nullptr)
+; 522  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Mult
 
-; 499  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 523  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 508  :         }
-; 509  :     }
+; 532  :         }
+; 533  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9005,25 +9335,25 @@ _PMCCS_Multiply_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Mult:
 
-; 500  :         try
+; 524  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 501  :         {
-; 502  :             *w = PMC_Multiply_I_X(u, v);
+; 525  :         {
+; 526  :             *w = PMC_Multiply_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Multiply_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 503  :             return (PMC_STATUS_OK);
+; 527  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 508  :         }
-; 509  :     }
+; 532  :         }
+; 533  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -9045,7 +9375,7 @@ __catch$_PMCCS_Multiply_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 507  :             return (ex.GetStatusCode());
+; 531  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Mult
   00081	c3		 ret	 0
@@ -9055,12 +9385,12 @@ $LN8@PMCCS_Mult:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 507  :             return (ex.GetStatusCode());
+; 531  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 508  :         }
-; 509  :     }
+; 532  :         }
+; 533  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -9099,7 +9429,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Subtruct_X_X@12 PROC				; COMDAT
 
-; 482  :     {
+; 506  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9120,18 +9450,18 @@ _PMCCS_Subtruct_X_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 483  :         if (w == nullptr)
+; 507  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Subt
 
-; 484  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 508  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 493  :         }
-; 494  :     }
+; 517  :         }
+; 518  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9145,25 +9475,25 @@ _PMCCS_Subtruct_X_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Subt:
 
-; 485  :         try
+; 509  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 486  :         {
-; 487  :             *w = PMC_Subtruct_X_X(u, v);
+; 510  :         {
+; 511  :             *w = PMC_Subtruct_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Subtruct_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 488  :             return (PMC_STATUS_OK);
+; 512  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 493  :         }
-; 494  :     }
+; 517  :         }
+; 518  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -9185,7 +9515,7 @@ __catch$_PMCCS_Subtruct_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 492  :             return (ex.GetStatusCode());
+; 516  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Subt
   00081	c3		 ret	 0
@@ -9195,12 +9525,12 @@ $LN8@PMCCS_Subt:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 492  :             return (ex.GetStatusCode());
+; 516  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 493  :         }
-; 494  :     }
+; 517  :         }
+; 518  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -9239,7 +9569,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Subtruct_X_L@16 PROC				; COMDAT
 
-; 467  :     {
+; 491  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9260,18 +9590,18 @@ _PMCCS_Subtruct_X_L@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 468  :         if (w == nullptr)
+; 492  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Subt
 
-; 469  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 493  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 478  :         }
-; 479  :     }
+; 502  :         }
+; 503  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9285,13 +9615,13 @@ _PMCCS_Subtruct_X_L@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Subt:
 
-; 470  :         try
+; 494  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 471  :         {
-; 472  :             *w = PMC_Subtruct_X_L(u, v);
+; 495  :         {
+; 496  :             *w = PMC_Subtruct_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -9299,12 +9629,12 @@ $LN2@PMCCS_Subt:
   00059	e8 00 00 00 00	 call	 ?PMC_Subtruct_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 473  :             return (PMC_STATUS_OK);
+; 497  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 478  :         }
-; 479  :     }
+; 502  :         }
+; 503  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -9326,7 +9656,7 @@ __catch$_PMCCS_Subtruct_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 477  :             return (ex.GetStatusCode());
+; 501  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Subt
   00084	c3		 ret	 0
@@ -9336,12 +9666,12 @@ $LN8@PMCCS_Subt:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 477  :             return (ex.GetStatusCode());
+; 501  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 478  :         }
-; 479  :     }
+; 502  :         }
+; 503  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -9380,7 +9710,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Subtruct_X_I@12 PROC				; COMDAT
 
-; 452  :     {
+; 476  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9401,18 +9731,18 @@ _PMCCS_Subtruct_X_I@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 453  :         if (w == nullptr)
+; 477  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Subt
 
-; 454  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 478  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 463  :         }
-; 464  :     }
+; 487  :         }
+; 488  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9426,25 +9756,25 @@ _PMCCS_Subtruct_X_I@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Subt:
 
-; 455  :         try
+; 479  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 456  :         {
-; 457  :             *w = PMC_Subtruct_X_I(u, v);
+; 480  :         {
+; 481  :             *w = PMC_Subtruct_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Subtruct_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 458  :             return (PMC_STATUS_OK);
+; 482  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 463  :         }
-; 464  :     }
+; 487  :         }
+; 488  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -9466,7 +9796,7 @@ __catch$_PMCCS_Subtruct_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 462  :             return (ex.GetStatusCode());
+; 486  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Subt
   00081	c3		 ret	 0
@@ -9476,12 +9806,12 @@ $LN8@PMCCS_Subt:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 462  :             return (ex.GetStatusCode());
+; 486  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 463  :         }
-; 464  :     }
+; 487  :         }
+; 488  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -9520,7 +9850,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Subtruct_L_X@16 PROC				; COMDAT
 
-; 437  :     {
+; 461  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9541,18 +9871,18 @@ _PMCCS_Subtruct_L_X@16 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 438  :         if (w == nullptr)
+; 462  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Subt
 
-; 439  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 463  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 448  :         }
-; 449  :     }
+; 472  :         }
+; 473  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9566,13 +9896,13 @@ _PMCCS_Subtruct_L_X@16 PROC				; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Subt:
 
-; 440  :         try
+; 464  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 441  :         {
-; 442  :             *w = PMC_Subtruct_L_X(u, v);
+; 465  :         {
+; 466  :             *w = PMC_Subtruct_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -9581,12 +9911,12 @@ $LN2@PMCCS_Subt:
   0005e	89 06		 mov	 DWORD PTR [esi], eax
   00060	89 56 04	 mov	 DWORD PTR [esi+4], edx
 
-; 443  :             return (PMC_STATUS_OK);
+; 467  :             return (PMC_STATUS_OK);
 
   00063	33 c0		 xor	 eax, eax
 
-; 448  :         }
-; 449  :     }
+; 472  :         }
+; 473  :     }
 
   00065	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00068	64 89 0d 00 00
@@ -9608,7 +9938,7 @@ __catch$_PMCCS_Subtruct_L_X@16$0:
   0007f	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 447  :             return (ex.GetStatusCode());
+; 471  :             return (ex.GetStatusCode());
 
   00082	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Subt
   00087	c3		 ret	 0
@@ -9618,12 +9948,12 @@ $LN8@PMCCS_Subt:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 447  :             return (ex.GetStatusCode());
+; 471  :             return (ex.GetStatusCode());
 
   0008f	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 448  :         }
-; 449  :     }
+; 472  :         }
+; 473  :     }
 
   00092	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00095	64 89 0d 00 00
@@ -9662,7 +9992,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Subtruct_I_X@12 PROC				; COMDAT
 
-; 422  :     {
+; 446  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9683,18 +10013,18 @@ _PMCCS_Subtruct_I_X@12 PROC				; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 423  :         if (w == nullptr)
+; 447  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Subt
 
-; 424  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 448  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 433  :         }
-; 434  :     }
+; 457  :         }
+; 458  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9708,25 +10038,25 @@ _PMCCS_Subtruct_I_X@12 PROC				; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Subt:
 
-; 425  :         try
+; 449  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 426  :         {
-; 427  :             *w = PMC_Subtruct_I_X(u, v);
+; 450  :         {
+; 451  :             *w = PMC_Subtruct_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Subtruct_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 428  :             return (PMC_STATUS_OK);
+; 452  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 433  :         }
-; 434  :     }
+; 457  :         }
+; 458  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -9748,7 +10078,7 @@ __catch$_PMCCS_Subtruct_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 432  :             return (ex.GetStatusCode());
+; 456  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Subt
   00081	c3		 ret	 0
@@ -9758,12 +10088,12 @@ $LN8@PMCCS_Subt:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 432  :             return (ex.GetStatusCode());
+; 456  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 433  :         }
-; 434  :     }
+; 457  :         }
+; 458  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -9802,7 +10132,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Add_X_X@12 PROC					; COMDAT
 
-; 407  :     {
+; 431  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9823,18 +10153,18 @@ _PMCCS_Add_X_X@12 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 408  :         if (w == nullptr)
+; 432  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Add_
 
-; 409  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 433  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 418  :         }
-; 419  :     }
+; 442  :         }
+; 443  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9848,25 +10178,25 @@ _PMCCS_Add_X_X@12 PROC					; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Add_:
 
-; 410  :         try
+; 434  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 411  :         {
-; 412  :             *w = PMC_Add_X_X(u, v);
+; 435  :         {
+; 436  :             *w = PMC_Add_X_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Add_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 413  :             return (PMC_STATUS_OK);
+; 437  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 418  :         }
-; 419  :     }
+; 442  :         }
+; 443  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -9888,7 +10218,7 @@ __catch$_PMCCS_Add_X_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 417  :             return (ex.GetStatusCode());
+; 441  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Add_
   00081	c3		 ret	 0
@@ -9898,12 +10228,12 @@ $LN8@PMCCS_Add_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 417  :             return (ex.GetStatusCode());
+; 441  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 418  :         }
-; 419  :     }
+; 442  :         }
+; 443  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -9942,7 +10272,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Add_X_L@16 PROC					; COMDAT
 
-; 392  :     {
+; 416  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -9963,18 +10293,18 @@ _PMCCS_Add_X_L@16 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 393  :         if (w == nullptr)
+; 417  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Add_
 
-; 394  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 418  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 403  :         }
-; 404  :     }
+; 427  :         }
+; 428  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -9988,13 +10318,13 @@ _PMCCS_Add_X_L@16 PROC					; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Add_:
 
-; 395  :         try
+; 419  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 396  :         {
-; 397  :             *w = PMC_Add_X_L(u, v);
+; 420  :         {
+; 421  :             *w = PMC_Add_X_L(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp+4]
   00053	ff 75 0c	 push	 DWORD PTR _v$[ebp]
@@ -10002,12 +10332,12 @@ $LN2@PMCCS_Add_:
   00059	e8 00 00 00 00	 call	 ?PMC_Add_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_L
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 398  :             return (PMC_STATUS_OK);
+; 422  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 403  :         }
-; 404  :     }
+; 427  :         }
+; 428  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -10029,7 +10359,7 @@ __catch$_PMCCS_Add_X_L@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 402  :             return (ex.GetStatusCode());
+; 426  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Add_
   00084	c3		 ret	 0
@@ -10039,12 +10369,12 @@ $LN8@PMCCS_Add_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 402  :             return (ex.GetStatusCode());
+; 426  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 403  :         }
-; 404  :     }
+; 427  :         }
+; 428  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -10083,7 +10413,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Add_X_I@12 PROC					; COMDAT
 
-; 377  :     {
+; 401  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -10104,18 +10434,18 @@ _PMCCS_Add_X_I@12 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 378  :         if (w == nullptr)
+; 402  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Add_
 
-; 379  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 403  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 388  :         }
-; 389  :     }
+; 412  :         }
+; 413  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -10129,25 +10459,25 @@ _PMCCS_Add_X_I@12 PROC					; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Add_:
 
-; 380  :         try
+; 404  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 381  :         {
-; 382  :             *w = PMC_Add_X_I(u, v);
+; 405  :         {
+; 406  :             *w = PMC_Add_X_I(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Add_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_I
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 383  :             return (PMC_STATUS_OK);
+; 407  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 388  :         }
-; 389  :     }
+; 412  :         }
+; 413  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -10169,7 +10499,7 @@ __catch$_PMCCS_Add_X_I@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 387  :             return (ex.GetStatusCode());
+; 411  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Add_
   00081	c3		 ret	 0
@@ -10179,12 +10509,12 @@ $LN8@PMCCS_Add_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 387  :             return (ex.GetStatusCode());
+; 411  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 388  :         }
-; 389  :     }
+; 412  :         }
+; 413  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -10223,7 +10553,7 @@ $T3 = 20						; size = 4
 _w$ = 20						; size = 4
 _PMCCS_Add_L_X@16 PROC					; COMDAT
 
-; 362  :     {
+; 386  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -10244,18 +10574,18 @@ _PMCCS_Add_L_X@16 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 363  :         if (w == nullptr)
+; 387  :         if (w == nullptr)
 
   0002b	8b 75 14	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Add_
 
-; 364  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 388  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 373  :         }
-; 374  :     }
+; 397  :         }
+; 398  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -10269,13 +10599,13 @@ _PMCCS_Add_L_X@16 PROC					; COMDAT
   00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Add_:
 
-; 365  :         try
+; 389  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 366  :         {
-; 367  :             *w = PMC_Add_L_X(u, v);
+; 390  :         {
+; 391  :             *w = PMC_Add_L_X(u, v);
 
   00050	ff 75 10	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 0c	 push	 DWORD PTR _u$[ebp+4]
@@ -10283,12 +10613,12 @@ $LN2@PMCCS_Add_:
   00059	e8 00 00 00 00	 call	 ?PMC_Add_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Add_L_X
   0005e	89 06		 mov	 DWORD PTR [esi], eax
 
-; 368  :             return (PMC_STATUS_OK);
+; 392  :             return (PMC_STATUS_OK);
 
   00060	33 c0		 xor	 eax, eax
 
-; 373  :         }
-; 374  :     }
+; 397  :         }
+; 398  :     }
 
   00062	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00065	64 89 0d 00 00
@@ -10310,7 +10640,7 @@ __catch$_PMCCS_Add_L_X@16$0:
   0007c	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 372  :             return (ex.GetStatusCode());
+; 396  :             return (ex.GetStatusCode());
 
   0007f	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Add_
   00084	c3		 ret	 0
@@ -10320,12 +10650,12 @@ $LN8@PMCCS_Add_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 372  :             return (ex.GetStatusCode());
+; 396  :             return (ex.GetStatusCode());
 
   0008c	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 373  :         }
-; 374  :     }
+; 397  :         }
+; 398  :     }
 
   0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00092	64 89 0d 00 00
@@ -10364,7 +10694,7 @@ $T3 = 16						; size = 4
 _w$ = 16						; size = 4
 _PMCCS_Add_I_X@12 PROC					; COMDAT
 
-; 347  :     {
+; 371  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -10385,18 +10715,18 @@ _PMCCS_Add_I_X@12 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 348  :         if (w == nullptr)
+; 372  :         if (w == nullptr)
 
   0002b	8b 75 10	 mov	 esi, DWORD PTR _w$[ebp]
   0002e	85 f6		 test	 esi, esi
   00030	75 17		 jne	 SHORT $LN2@PMCCS_Add_
 
-; 349  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 373  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	8d 46 fe	 lea	 eax, DWORD PTR [esi-2]
 
-; 358  :         }
-; 359  :     }
+; 382  :         }
+; 383  :     }
 
   00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00038	64 89 0d 00 00
@@ -10410,25 +10740,25 @@ _PMCCS_Add_I_X@12 PROC					; COMDAT
   00046	c2 0c 00	 ret	 12			; 0000000cH
 $LN2@PMCCS_Add_:
 
-; 350  :         try
+; 374  :         try
 
   00049	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 351  :         {
-; 352  :             *w = PMC_Add_I_X(u, v);
+; 375  :         {
+; 376  :             *w = PMC_Add_I_X(u, v);
 
   00050	ff 75 0c	 push	 DWORD PTR _v$[ebp]
   00053	ff 75 08	 push	 DWORD PTR _u$[ebp]
   00056	e8 00 00 00 00	 call	 ?PMC_Add_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Add_I_X
   0005b	89 06		 mov	 DWORD PTR [esi], eax
 
-; 353  :             return (PMC_STATUS_OK);
+; 377  :             return (PMC_STATUS_OK);
 
   0005d	33 c0		 xor	 eax, eax
 
-; 358  :         }
-; 359  :     }
+; 382  :         }
+; 383  :     }
 
   0005f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   00062	64 89 0d 00 00
@@ -10450,7 +10780,7 @@ __catch$_PMCCS_Add_I_X@12$0:
   00079	89 45 10	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 357  :             return (ex.GetStatusCode());
+; 381  :             return (ex.GetStatusCode());
 
   0007c	b8 00 00 00 00	 mov	 eax, $LN8@PMCCS_Add_
   00081	c3		 ret	 0
@@ -10460,12 +10790,12 @@ $LN8@PMCCS_Add_:
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 357  :             return (ex.GetStatusCode());
+; 381  :             return (ex.GetStatusCode());
 
   00089	8b 45 10	 mov	 eax, DWORD PTR $T3[ebp]
 
-; 358  :         }
-; 359  :     }
+; 382  :         }
+; 383  :     }
 
   0008c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0008f	64 89 0d 00 00
@@ -10506,7 +10836,7 @@ _o$ = 20						; size = 4
 _result$ = 24						; size = 4
 _PMCCS_TryParse@20 PROC					; COMDAT
 
-; 330  :     {
+; 342  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
@@ -10527,18 +10857,28 @@ _PMCCS_TryParse@20 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 331  :         if (o == nullptr)
+; 343  :         const PMC_NUMBER_STYLE_CODE all_styles =
+; 344  :             PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE |
+; 345  :             PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE |
+; 346  :             PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN |
+; 347  :             PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN |
+; 348  :             PMC_NUMBER_STYLE_ALLOW_PARENTHESES |
+; 349  :             PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT |
+; 350  :             PMC_NUMBER_STYLE_ALLOW_THOUSANDS |
+; 351  :             PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL |
+; 352  :             PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER;
+; 353  :         if (o == nullptr)
 
   0002b	8b 45 14	 mov	 eax, DWORD PTR _o$[ebp]
   0002e	85 c0		 test	 eax, eax
   00030	75 19		 jne	 SHORT $LN2@PMCCS_TryP
 
-; 332  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 354  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
   00032	b8 fe ff ff ff	 mov	 eax, -2			; fffffffeH
 
-; 343  :         }
-; 344  :     }
+; 367  :         }
+; 368  :     }
 
   00037	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
   0003a	64 89 0d 00 00
@@ -10552,77 +10892,103 @@ _PMCCS_TryParse@20 PROC					; COMDAT
   00048	c2 14 00	 ret	 20			; 00000014H
 $LN2@PMCCS_TryP:
 
-; 333  :         try
+; 355  :         if (number_styles & ~all_styles)
 
-  0004b	c7 45 fc 00 00
+  0004b	8b 4d 0c	 mov	 ecx, DWORD PTR _number_styles$[ebp]
+  0004e	f7 c1 80 fc ff
+	ff		 test	 ecx, -896		; fffffc80H
+  00054	74 17		 je	 SHORT $LN3@PMCCS_TryP
+
+; 356  :             return (PMC_STATUS_ARGUMENT_ERROR);
+
+  00056	83 c8 ff	 or	 eax, -1
+
+; 367  :         }
+; 368  :     }
+
+  00059	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  0005c	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00063	59		 pop	 ecx
+  00064	5f		 pop	 edi
+  00065	5e		 pop	 esi
+  00066	5b		 pop	 ebx
+  00067	8b e5		 mov	 esp, ebp
+  00069	5d		 pop	 ebp
+  0006a	c2 14 00	 ret	 20			; 00000014H
+$LN3@PMCCS_TryP:
+
+; 357  :         try
+
+  0006d	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 334  :         {
-; 335  :             PMC_STATUS_CODE err = PMC_TryParse(source, number_styles, format_option, o, result);
+; 358  :         {
+; 359  :             PMC_STATUS_CODE err = PMC_TryParse(source, number_styles, format_option, o, result);
 
-  00052	ff 75 18	 push	 DWORD PTR _result$[ebp]
-  00055	50		 push	 eax
-  00056	ff 75 10	 push	 DWORD PTR _format_option$[ebp]
-  00059	ff 75 0c	 push	 DWORD PTR _number_styles$[ebp]
-  0005c	ff 75 08	 push	 DWORD PTR _source$[ebp]
-  0005f	e8 00 00 00 00	 call	 ?PMC_TryParse@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParse
+  00074	ff 75 18	 push	 DWORD PTR _result$[ebp]
+  00077	50		 push	 eax
+  00078	ff 75 10	 push	 DWORD PTR _format_option$[ebp]
+  0007b	51		 push	 ecx
+  0007c	ff 75 08	 push	 DWORD PTR _source$[ebp]
+  0007f	e8 00 00 00 00	 call	 ?PMC_TryParse@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParse
 
-; 336  :             if (err != PMC_STATUS_OK)
+; 360  :             if (err != PMC_STATUS_OK)
 
-  00064	85 c0		 test	 eax, eax
-  00066	75 2d		 jne	 SHORT $LN8@PMCCS_TryP
+  00084	85 c0		 test	 eax, eax
+  00086	75 2d		 jne	 SHORT $LN9@PMCCS_TryP
 
-; 343  :         }
-; 344  :     }
+; 367  :         }
+; 368  :     }
 
-  00068	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  0006b	64 89 0d 00 00
+  00088	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  0008b	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  00072	59		 pop	 ecx
-  00073	5f		 pop	 edi
-  00074	5e		 pop	 esi
-  00075	5b		 pop	 ebx
-  00076	8b e5		 mov	 esp, ebp
-  00078	5d		 pop	 ebp
-  00079	c2 14 00	 ret	 20			; 00000014H
+  00092	59		 pop	 ecx
+  00093	5f		 pop	 edi
+  00094	5e		 pop	 esi
+  00095	5b		 pop	 ebx
+  00096	8b e5		 mov	 esp, ebp
+  00098	5d		 pop	 ebp
+  00099	c2 14 00	 ret	 20			; 00000014H
 __catch$_PMCCS_TryParse@20$0:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
 
 ; 75   :             return (_code);
 
-  0007c	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
-  0007f	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
-  00082	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
+  0009c	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
+  0009f	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
+  000a2	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 342  :             return (ex.GetStatusCode());
+; 366  :             return (ex.GetStatusCode());
 
-  00085	b8 00 00 00 00	 mov	 eax, $LN9@PMCCS_TryP
-  0008a	c3		 ret	 0
-$LN9@PMCCS_TryP:
+  000a5	b8 00 00 00 00	 mov	 eax, $LN10@PMCCS_TryP
+  000aa	c3		 ret	 0
+$LN10@PMCCS_TryP:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
-  0008b	c7 45 fc ff ff
+  000ab	c7 45 fc ff ff
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 342  :             return (ex.GetStatusCode());
+; 366  :             return (ex.GetStatusCode());
 
-  00092	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
-$LN8@PMCCS_TryP:
+  000b2	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
+$LN9@PMCCS_TryP:
 
-; 343  :         }
-; 344  :     }
+; 367  :         }
+; 368  :     }
 
-  00095	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  00098	64 89 0d 00 00
+  000b5	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  000b8	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  0009f	59		 pop	 ecx
-  000a0	5f		 pop	 edi
-  000a1	5e		 pop	 esi
-  000a2	5b		 pop	 ebx
-  000a3	8b e5		 mov	 esp, ebp
-  000a5	5d		 pop	 ebp
-  000a6	c2 14 00	 ret	 20			; 00000014H
+  000bf	59		 pop	 ecx
+  000c0	5f		 pop	 edi
+  000c1	5e		 pop	 esi
+  000c2	5b		 pop	 ebx
+  000c3	8b e5		 mov	 esp, ebp
+  000c5	5d		 pop	 ebp
+  000c6	c2 14 00	 ret	 20			; 00000014H
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT
@@ -10673,138 +11039,172 @@ _PMCCS_Parse@16 PROC					; COMDAT
 	00		 mov	 DWORD PTR fs:0, eax
   00028	89 65 f0	 mov	 DWORD PTR __$EHRec$[ebp], esp
 
-; 308  :         if (o == nullptr)
+; 308  :         const PMC_NUMBER_STYLE_CODE all_styles = 
+; 309  :             PMC_NUMBER_STYLE_ALLOW_LEADING_WHITE |
+; 310  :             PMC_NUMBER_STYLE_ALLOW_TRAILING_WHITE |
+; 311  :             PMC_NUMBER_STYLE_ALLOW_LEADING_SIGN |
+; 312  :             PMC_NUMBER_STYLE_ALLOW_TRAILING_SIGN |
+; 313  :             PMC_NUMBER_STYLE_ALLOW_PARENTHESES |
+; 314  :             PMC_NUMBER_STYLE_ALLOW_DECIMAL_POINT |
+; 315  :             PMC_NUMBER_STYLE_ALLOW_THOUSANDS |
+; 316  :             PMC_NUMBER_STYLE_ALLOW_CURRENCY_SYMBOL |
+; 317  :             PMC_NUMBER_STYLE_ALLOW_HEX_SPECIFIER;
+; 318  :         if (o == nullptr)
 
-  0002b	8b 45 14	 mov	 eax, DWORD PTR _o$[ebp]
-  0002e	85 c0		 test	 eax, eax
-  00030	75 19		 jne	 SHORT $LN2@PMCCS_Pars
+  0002b	8b 4d 14	 mov	 ecx, DWORD PTR _o$[ebp]
+  0002e	85 c9		 test	 ecx, ecx
+  00030	75 17		 jne	 SHORT $LN2@PMCCS_Pars
 
-; 309  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
+; 319  :             return (PMC_STATUS_ARGUMENT_NULL_ERROR);
 
-  00032	b8 fe ff ff ff	 mov	 eax, -2			; fffffffeH
+  00032	8d 41 fe	 lea	 eax, DWORD PTR [ecx-2]
 
-; 326  :         }
-; 327  :     }
+; 338  :         }
+; 339  :     }
 
-  00037	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  0003a	64 89 0d 00 00
+  00035	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00038	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  00041	59		 pop	 ecx
-  00042	5f		 pop	 edi
-  00043	5e		 pop	 esi
-  00044	5b		 pop	 ebx
-  00045	8b e5		 mov	 esp, ebp
-  00047	5d		 pop	 ebp
-  00048	c2 10 00	 ret	 16			; 00000010H
+  0003f	59		 pop	 ecx
+  00040	5f		 pop	 edi
+  00041	5e		 pop	 esi
+  00042	5b		 pop	 ebx
+  00043	8b e5		 mov	 esp, ebp
+  00045	5d		 pop	 ebp
+  00046	c2 10 00	 ret	 16			; 00000010H
 $LN2@PMCCS_Pars:
 
-; 310  :         try
+; 320  :         if (number_styles & ~all_styles)
 
-  0004b	c7 45 fc 00 00
+  00049	8b 45 0c	 mov	 eax, DWORD PTR _number_styles$[ebp]
+  0004c	a9 80 fc ff ff	 test	 eax, -896		; fffffc80H
+  00051	74 17		 je	 SHORT $LN3@PMCCS_Pars
+
+; 321  :             return (PMC_STATUS_ARGUMENT_ERROR);
+
+  00053	83 c8 ff	 or	 eax, -1
+
+; 338  :         }
+; 339  :     }
+
+  00056	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00059	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00060	59		 pop	 ecx
+  00061	5f		 pop	 edi
+  00062	5e		 pop	 esi
+  00063	5b		 pop	 ebx
+  00064	8b e5		 mov	 esp, ebp
+  00066	5d		 pop	 ebp
+  00067	c2 10 00	 ret	 16			; 00000010H
+$LN3@PMCCS_Pars:
+
+; 322  :         try
+
+  0006a	c7 45 fc 00 00
 	00 00		 mov	 DWORD PTR __$EHRec$[ebp+12], 0
 
-; 311  :         {
-; 312  :             _UINT32_T result;
-; 313  :             PMC_STATUS_CODE err = PMC_TryParse(source, number_styles | PMC_NUMBER_STYLE_ALLOW_EXCEPTION_THROWING, format_option, o, &result);
+; 323  :         {
+; 324  :             _UINT32_T result;
+; 325  :             PMC_STATUS_CODE err = PMC_TryParse(source, number_styles | PMC_NUMBER_STYLE_ALLOW_EXCEPTION_THROWING, format_option, o, &result);
 
-  00052	8d 4d 14	 lea	 ecx, DWORD PTR _result$4[ebp]
-  00055	51		 push	 ecx
-  00056	50		 push	 eax
-  00057	ff 75 10	 push	 DWORD PTR _format_option$[ebp]
-  0005a	8b 45 0c	 mov	 eax, DWORD PTR _number_styles$[ebp]
-  0005d	0d 00 00 00 02	 or	 eax, 33554432		; 02000000H
-  00062	50		 push	 eax
-  00063	ff 75 08	 push	 DWORD PTR _source$[ebp]
-  00066	e8 00 00 00 00	 call	 ?PMC_TryParse@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParse
+  00071	8d 55 14	 lea	 edx, DWORD PTR _result$4[ebp]
+  00074	52		 push	 edx
+  00075	51		 push	 ecx
+  00076	ff 75 10	 push	 DWORD PTR _format_option$[ebp]
+  00079	0d 00 00 00 02	 or	 eax, 33554432		; 02000000H
+  0007e	50		 push	 eax
+  0007f	ff 75 08	 push	 DWORD PTR _source$[ebp]
+  00082	e8 00 00 00 00	 call	 ?PMC_TryParse@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParse
 
-; 314  :             if (err != PMC_STATUS_OK)
+; 326  :             if (err != PMC_STATUS_OK)
 
-  0006b	85 c0		 test	 eax, eax
-  0006d	75 4d		 jne	 SHORT $LN9@PMCCS_Pars
+  00087	85 c0		 test	 eax, eax
+  00089	75 4d		 jne	 SHORT $LN10@PMCCS_Pars
 
-; 315  :                 return (err);
-; 316  :             if (!result)
+; 327  :                 return (err);
+; 328  :             if (!result)
 
-  0006f	39 45 14	 cmp	 DWORD PTR _result$4[ebp], eax
-  00072	75 19		 jne	 SHORT $LN5@PMCCS_Pars
+  0008b	39 45 14	 cmp	 DWORD PTR _result$4[ebp], eax
+  0008e	75 19		 jne	 SHORT $LN6@PMCCS_Pars
 
-; 317  :             {
-; 318  :                 // このルートに到達することはないはず
-; 319  :                 return (PMC_STATUS_INTERNAL_ERROR);
+; 329  :             {
+; 330  :                 // このルートに到達することはないはず
+; 331  :                 return (PMC_STATUS_INTERNAL_ERROR);
 
-  00074	b8 00 ff ff ff	 mov	 eax, -256		; ffffff00H
+  00090	b8 00 ff ff ff	 mov	 eax, -256		; ffffff00H
 
-; 326  :         }
-; 327  :     }
+; 338  :         }
+; 339  :     }
 
-  00079	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  0007c	64 89 0d 00 00
+  00095	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  00098	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  00083	59		 pop	 ecx
-  00084	5f		 pop	 edi
-  00085	5e		 pop	 esi
-  00086	5b		 pop	 ebx
-  00087	8b e5		 mov	 esp, ebp
-  00089	5d		 pop	 ebp
-  0008a	c2 10 00	 ret	 16			; 00000010H
-$LN5@PMCCS_Pars:
+  0009f	59		 pop	 ecx
+  000a0	5f		 pop	 edi
+  000a1	5e		 pop	 esi
+  000a2	5b		 pop	 ebx
+  000a3	8b e5		 mov	 esp, ebp
+  000a5	5d		 pop	 ebp
+  000a6	c2 10 00	 ret	 16			; 00000010H
+$LN6@PMCCS_Pars:
 
-; 320  :             }
-; 321  :             return (PMC_STATUS_OK);
+; 332  :             }
+; 333  :             return (PMC_STATUS_OK);
 
-  0008d	33 c0		 xor	 eax, eax
+  000a9	33 c0		 xor	 eax, eax
 
-; 326  :         }
-; 327  :     }
+; 338  :         }
+; 339  :     }
 
-  0008f	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  00092	64 89 0d 00 00
+  000ab	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  000ae	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  00099	59		 pop	 ecx
-  0009a	5f		 pop	 edi
-  0009b	5e		 pop	 esi
-  0009c	5b		 pop	 ebx
-  0009d	8b e5		 mov	 esp, ebp
-  0009f	5d		 pop	 ebp
-  000a0	c2 10 00	 ret	 16			; 00000010H
+  000b5	59		 pop	 ecx
+  000b6	5f		 pop	 edi
+  000b7	5e		 pop	 esi
+  000b8	5b		 pop	 ebx
+  000b9	8b e5		 mov	 esp, ebp
+  000bb	5d		 pop	 ebp
+  000bc	c2 10 00	 ret	 16			; 00000010H
 __catch$_PMCCS_Parse@16$0:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
 
 ; 75   :             return (_code);
 
-  000a3	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
-  000a6	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
-  000a9	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
+  000bf	8b 45 ec	 mov	 eax, DWORD PTR _ex$2[ebp]
+  000c2	8b 40 0c	 mov	 eax, DWORD PTR [eax+12]
+  000c5	89 45 14	 mov	 DWORD PTR $T3[ebp], eax
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 325  :             return (ex.GetStatusCode());
+; 337  :             return (ex.GetStatusCode());
 
-  000ac	b8 00 00 00 00	 mov	 eax, $LN10@PMCCS_Pars
-  000b1	c3		 ret	 0
-$LN10@PMCCS_Pars:
+  000c8	b8 00 00 00 00	 mov	 eax, $LN11@PMCCS_Pars
+  000cd	c3		 ret	 0
+$LN11@PMCCS_Pars:
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_exception.h
-  000b2	c7 45 fc ff ff
+  000ce	c7 45 fc ff ff
 	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+12], -1
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_interface_csharp.cpp
 
-; 325  :             return (ex.GetStatusCode());
+; 337  :             return (ex.GetStatusCode());
 
-  000b9	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
-$LN9@PMCCS_Pars:
+  000d5	8b 45 14	 mov	 eax, DWORD PTR $T3[ebp]
+$LN10@PMCCS_Pars:
 
-; 326  :         }
-; 327  :     }
+; 338  :         }
+; 339  :     }
 
-  000bc	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
-  000bf	64 89 0d 00 00
+  000d8	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp+4]
+  000db	64 89 0d 00 00
 	00 00		 mov	 DWORD PTR fs:0, ecx
-  000c6	59		 pop	 ecx
-  000c7	5f		 pop	 edi
-  000c8	5e		 pop	 esi
-  000c9	5b		 pop	 ebx
-  000ca	8b e5		 mov	 esp, ebp
-  000cc	5d		 pop	 ebp
-  000cd	c2 10 00	 ret	 16			; 00000010H
+  000e2	59		 pop	 ecx
+  000e3	5f		 pop	 edi
+  000e4	5e		 pop	 esi
+  000e5	5b		 pop	 ebx
+  000e6	8b e5		 mov	 esp, ebp
+  000e8	5d		 pop	 ebp
+  000e9	c2 10 00	 ret	 16			; 00000010H
 _TEXT	ENDS
 ;	COMDAT text$x
 text$x	SEGMENT

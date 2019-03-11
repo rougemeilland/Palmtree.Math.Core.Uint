@@ -896,6 +896,8 @@ PMCCS_Parse:
 	.seh_endprologue
 	testq	%r9, %r9
 	je	.L93
+	testl	$-896, %edx
+	jne	.L94
 	leaq	76(%rsp), %rax
 	orl	$33554432, %edx
 	movq	%rax, 32(%rsp)
@@ -911,10 +913,14 @@ PMCCS_Parse:
 .L88:
 	addq	$88, %rsp
 	ret
+	.p2align 4,,10
+.L94:
+	movl	$-1, %eax
+	jmp	.L88
 .L93:
 	movl	$-2, %eax
 	jmp	.L88
-.L94:
+.L95:
 	subq	$1, %rdx
 	movq	%rax, %rcx
 	je	.L92
@@ -941,7 +947,7 @@ PMCCS_Parse:
 .LLSDACSB6247:
 	.uleb128 .LEHB22-.LFB6247
 	.uleb128 .LEHE22-.LEHB22
-	.uleb128 .L94-.LFB6247
+	.uleb128 .L95-.LFB6247
 	.uleb128 0x1
 	.uleb128 .LEHB23-.LFB6247
 	.uleb128 .LEHE23-.LEHB23
@@ -965,33 +971,39 @@ PMCCS_TryParse:
 	.seh_stackalloc	72
 	.seh_endprologue
 	testq	%r9, %r9
-	je	.L99
+	je	.L100
+	testl	$-896, %edx
+	jne	.L101
 	movq	112(%rsp), %rax
 	movq	%rax, 32(%rsp)
 .LEHB24:
 	call	_ZN8Palmtree4Math4Core8Internal12PMC_TryParseEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPPNS2_21__tag_PMC_HANDLE_UINTEPj
 .LEHE24:
 	nop
-.L95:
+.L96:
 	addq	$72, %rsp
 	ret
-.L99:
-	movl	$-2, %eax
-	jmp	.L95
+	.p2align 4,,10
+.L101:
+	movl	$-1, %eax
+	jmp	.L96
 .L100:
+	movl	$-2, %eax
+	jmp	.L96
+.L102:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L98
+	je	.L99
 .LEHB25:
 	call	_Unwind_Resume
 .LEHE25:
-.L98:
+.L99:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 60(%rsp)
 	call	__cxa_end_catch
 	movl	60(%rsp), %eax
-	jmp	.L95
+	jmp	.L96
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1005,7 +1017,7 @@ PMCCS_TryParse:
 .LLSDACSB6248:
 	.uleb128 .LEHB24-.LFB6248
 	.uleb128 .LEHE24-.LEHB24
-	.uleb128 .L100-.LFB6248
+	.uleb128 .L102-.LFB6248
 	.uleb128 0x1
 	.uleb128 .LEHB25-.LFB6248
 	.uleb128 .LEHE25-.LEHB25
@@ -1032,33 +1044,33 @@ PMCCS_Add_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L105
+	je	.L107
 .LEHB26:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Add_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE26:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L101:
+.L103:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L105:
+.L107:
 	movl	$-2, %eax
-	jmp	.L101
-.L106:
+	jmp	.L103
+.L108:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L104
+	je	.L106
 .LEHB27:
 	call	_Unwind_Resume
 .LEHE27:
-.L104:
+.L106:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L101
+	jmp	.L103
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1072,7 +1084,7 @@ PMCCS_Add_I_X:
 .LLSDACSB6249:
 	.uleb128 .LEHB26-.LFB6249
 	.uleb128 .LEHE26-.LEHB26
-	.uleb128 .L106-.LFB6249
+	.uleb128 .L108-.LFB6249
 	.uleb128 0x1
 	.uleb128 .LEHB27-.LFB6249
 	.uleb128 .LEHE27-.LEHB27
@@ -1099,33 +1111,33 @@ PMCCS_Add_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L111
+	je	.L113
 .LEHB28:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Add_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE28:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L107:
+.L109:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L111:
+.L113:
 	movl	$-2, %eax
-	jmp	.L107
-.L112:
+	jmp	.L109
+.L114:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L110
+	je	.L112
 .LEHB29:
 	call	_Unwind_Resume
 .LEHE29:
-.L110:
+.L112:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L107
+	jmp	.L109
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1139,7 +1151,7 @@ PMCCS_Add_L_X:
 .LLSDACSB6250:
 	.uleb128 .LEHB28-.LFB6250
 	.uleb128 .LEHE28-.LEHB28
-	.uleb128 .L112-.LFB6250
+	.uleb128 .L114-.LFB6250
 	.uleb128 0x1
 	.uleb128 .LEHB29-.LFB6250
 	.uleb128 .LEHE29-.LEHB29
@@ -1166,33 +1178,33 @@ PMCCS_Add_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L117
+	je	.L119
 .LEHB30:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Add_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE30:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L113:
+.L115:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L117:
+.L119:
 	movl	$-2, %eax
-	jmp	.L113
-.L118:
+	jmp	.L115
+.L120:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L116
+	je	.L118
 .LEHB31:
 	call	_Unwind_Resume
 .LEHE31:
-.L116:
+.L118:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L113
+	jmp	.L115
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1206,7 +1218,7 @@ PMCCS_Add_X_I:
 .LLSDACSB6251:
 	.uleb128 .LEHB30-.LFB6251
 	.uleb128 .LEHE30-.LEHB30
-	.uleb128 .L118-.LFB6251
+	.uleb128 .L120-.LFB6251
 	.uleb128 0x1
 	.uleb128 .LEHB31-.LFB6251
 	.uleb128 .LEHE31-.LEHB31
@@ -1233,33 +1245,33 @@ PMCCS_Add_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L123
+	je	.L125
 .LEHB32:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Add_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE32:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L119:
+.L121:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L123:
+.L125:
 	movl	$-2, %eax
-	jmp	.L119
-.L124:
+	jmp	.L121
+.L126:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L122
+	je	.L124
 .LEHB33:
 	call	_Unwind_Resume
 .LEHE33:
-.L122:
+.L124:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L119
+	jmp	.L121
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1273,7 +1285,7 @@ PMCCS_Add_X_L:
 .LLSDACSB6252:
 	.uleb128 .LEHB32-.LFB6252
 	.uleb128 .LEHE32-.LEHB32
-	.uleb128 .L124-.LFB6252
+	.uleb128 .L126-.LFB6252
 	.uleb128 0x1
 	.uleb128 .LEHB33-.LFB6252
 	.uleb128 .LEHE33-.LEHB33
@@ -1300,33 +1312,33 @@ PMCCS_Add_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L129
+	je	.L131
 .LEHB34:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Add_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE34:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L125:
+.L127:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L129:
+.L131:
 	movl	$-2, %eax
-	jmp	.L125
-.L130:
+	jmp	.L127
+.L132:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L128
+	je	.L130
 .LEHB35:
 	call	_Unwind_Resume
 .LEHE35:
-.L128:
+.L130:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L125
+	jmp	.L127
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1340,7 +1352,7 @@ PMCCS_Add_X_X:
 .LLSDACSB6253:
 	.uleb128 .LEHB34-.LFB6253
 	.uleb128 .LEHE34-.LEHB34
-	.uleb128 .L130-.LFB6253
+	.uleb128 .L132-.LFB6253
 	.uleb128 0x1
 	.uleb128 .LEHB35-.LFB6253
 	.uleb128 .LEHE35-.LEHB35
@@ -1367,33 +1379,33 @@ PMCCS_Subtruct_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L135
+	je	.L137
 .LEHB36:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE36:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L131:
+.L133:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L135:
+.L137:
 	movl	$-2, %eax
-	jmp	.L131
-.L136:
+	jmp	.L133
+.L138:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L134
+	je	.L136
 .LEHB37:
 	call	_Unwind_Resume
 .LEHE37:
-.L134:
+.L136:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L131
+	jmp	.L133
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1407,7 +1419,7 @@ PMCCS_Subtruct_I_X:
 .LLSDACSB6254:
 	.uleb128 .LEHB36-.LFB6254
 	.uleb128 .LEHE36-.LEHB36
-	.uleb128 .L136-.LFB6254
+	.uleb128 .L138-.LFB6254
 	.uleb128 0x1
 	.uleb128 .LEHB37-.LFB6254
 	.uleb128 .LEHE37-.LEHB37
@@ -1434,33 +1446,33 @@ PMCCS_Subtruct_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L141
+	je	.L143
 .LEHB38:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE38:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L137:
+.L139:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L141:
+.L143:
 	movl	$-2, %eax
-	jmp	.L137
-.L142:
+	jmp	.L139
+.L144:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L140
+	je	.L142
 .LEHB39:
 	call	_Unwind_Resume
 .LEHE39:
-.L140:
+.L142:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L137
+	jmp	.L139
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1474,7 +1486,7 @@ PMCCS_Subtruct_L_X:
 .LLSDACSB6255:
 	.uleb128 .LEHB38-.LFB6255
 	.uleb128 .LEHE38-.LEHB38
-	.uleb128 .L142-.LFB6255
+	.uleb128 .L144-.LFB6255
 	.uleb128 0x1
 	.uleb128 .LEHB39-.LFB6255
 	.uleb128 .LEHE39-.LEHB39
@@ -1501,33 +1513,33 @@ PMCCS_Subtruct_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L147
+	je	.L149
 .LEHB40:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE40:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L143:
+.L145:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L147:
+.L149:
 	movl	$-2, %eax
-	jmp	.L143
-.L148:
+	jmp	.L145
+.L150:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L146
+	je	.L148
 .LEHB41:
 	call	_Unwind_Resume
 .LEHE41:
-.L146:
+.L148:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L143
+	jmp	.L145
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1541,7 +1553,7 @@ PMCCS_Subtruct_X_I:
 .LLSDACSB6256:
 	.uleb128 .LEHB40-.LFB6256
 	.uleb128 .LEHE40-.LEHB40
-	.uleb128 .L148-.LFB6256
+	.uleb128 .L150-.LFB6256
 	.uleb128 0x1
 	.uleb128 .LEHB41-.LFB6256
 	.uleb128 .LEHE41-.LEHB41
@@ -1568,33 +1580,33 @@ PMCCS_Subtruct_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L153
+	je	.L155
 .LEHB42:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE42:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L149:
+.L151:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L153:
+.L155:
 	movl	$-2, %eax
-	jmp	.L149
-.L154:
+	jmp	.L151
+.L156:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L152
+	je	.L154
 .LEHB43:
 	call	_Unwind_Resume
 .LEHE43:
-.L152:
+.L154:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L149
+	jmp	.L151
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1608,7 +1620,7 @@ PMCCS_Subtruct_X_L:
 .LLSDACSB6257:
 	.uleb128 .LEHB42-.LFB6257
 	.uleb128 .LEHE42-.LEHB42
-	.uleb128 .L154-.LFB6257
+	.uleb128 .L156-.LFB6257
 	.uleb128 0x1
 	.uleb128 .LEHB43-.LFB6257
 	.uleb128 .LEHE43-.LEHB43
@@ -1635,33 +1647,33 @@ PMCCS_Subtruct_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L159
+	je	.L161
 .LEHB44:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Subtruct_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE44:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L155:
+.L157:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L159:
+.L161:
 	movl	$-2, %eax
-	jmp	.L155
-.L160:
+	jmp	.L157
+.L162:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L158
+	je	.L160
 .LEHB45:
 	call	_Unwind_Resume
 .LEHE45:
-.L158:
+.L160:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L155
+	jmp	.L157
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1675,7 +1687,7 @@ PMCCS_Subtruct_X_X:
 .LLSDACSB6258:
 	.uleb128 .LEHB44-.LFB6258
 	.uleb128 .LEHE44-.LEHB44
-	.uleb128 .L160-.LFB6258
+	.uleb128 .L162-.LFB6258
 	.uleb128 0x1
 	.uleb128 .LEHB45-.LFB6258
 	.uleb128 .LEHE45-.LEHB45
@@ -1702,33 +1714,33 @@ PMCCS_Multiply_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L165
+	je	.L167
 .LEHB46:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Multiply_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE46:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L161:
+.L163:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L165:
+.L167:
 	movl	$-2, %eax
-	jmp	.L161
-.L166:
+	jmp	.L163
+.L168:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L164
+	je	.L166
 .LEHB47:
 	call	_Unwind_Resume
 .LEHE47:
-.L164:
+.L166:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L161
+	jmp	.L163
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1742,7 +1754,7 @@ PMCCS_Multiply_I_X:
 .LLSDACSB6259:
 	.uleb128 .LEHB46-.LFB6259
 	.uleb128 .LEHE46-.LEHB46
-	.uleb128 .L166-.LFB6259
+	.uleb128 .L168-.LFB6259
 	.uleb128 0x1
 	.uleb128 .LEHB47-.LFB6259
 	.uleb128 .LEHE47-.LEHB47
@@ -1769,33 +1781,33 @@ PMCCS_Multiply_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L171
+	je	.L173
 .LEHB48:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Multiply_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE48:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L167:
+.L169:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L171:
+.L173:
 	movl	$-2, %eax
-	jmp	.L167
-.L172:
+	jmp	.L169
+.L174:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L170
+	je	.L172
 .LEHB49:
 	call	_Unwind_Resume
 .LEHE49:
-.L170:
+.L172:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L167
+	jmp	.L169
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1809,7 +1821,7 @@ PMCCS_Multiply_L_X:
 .LLSDACSB6260:
 	.uleb128 .LEHB48-.LFB6260
 	.uleb128 .LEHE48-.LEHB48
-	.uleb128 .L172-.LFB6260
+	.uleb128 .L174-.LFB6260
 	.uleb128 0x1
 	.uleb128 .LEHB49-.LFB6260
 	.uleb128 .LEHE49-.LEHB49
@@ -1836,33 +1848,33 @@ PMCCS_Multiply_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L177
+	je	.L179
 .LEHB50:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE50:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L173:
+.L175:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L177:
+.L179:
 	movl	$-2, %eax
-	jmp	.L173
-.L178:
+	jmp	.L175
+.L180:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L176
+	je	.L178
 .LEHB51:
 	call	_Unwind_Resume
 .LEHE51:
-.L176:
+.L178:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L173
+	jmp	.L175
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1876,7 +1888,7 @@ PMCCS_Multiply_X_I:
 .LLSDACSB6261:
 	.uleb128 .LEHB50-.LFB6261
 	.uleb128 .LEHE50-.LEHB50
-	.uleb128 .L178-.LFB6261
+	.uleb128 .L180-.LFB6261
 	.uleb128 0x1
 	.uleb128 .LEHB51-.LFB6261
 	.uleb128 .LEHE51-.LEHB51
@@ -1903,33 +1915,33 @@ PMCCS_Multiply_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L183
+	je	.L185
 .LEHB52:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE52:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L179:
+.L181:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L183:
+.L185:
 	movl	$-2, %eax
-	jmp	.L179
-.L184:
+	jmp	.L181
+.L186:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L182
+	je	.L184
 .LEHB53:
 	call	_Unwind_Resume
 .LEHE53:
-.L182:
+.L184:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L179
+	jmp	.L181
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -1943,7 +1955,7 @@ PMCCS_Multiply_X_L:
 .LLSDACSB6262:
 	.uleb128 .LEHB52-.LFB6262
 	.uleb128 .LEHE52-.LEHB52
-	.uleb128 .L184-.LFB6262
+	.uleb128 .L186-.LFB6262
 	.uleb128 0x1
 	.uleb128 .LEHB53-.LFB6262
 	.uleb128 .LEHE53-.LEHB53
@@ -1970,33 +1982,33 @@ PMCCS_Multiply_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L189
+	je	.L191
 .LEHB54:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_Multiply_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE54:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L185:
+.L187:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L189:
+.L191:
 	movl	$-2, %eax
-	jmp	.L185
-.L190:
+	jmp	.L187
+.L192:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L188
+	je	.L190
 .LEHB55:
 	call	_Unwind_Resume
 .LEHE55:
-.L188:
+.L190:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L185
+	jmp	.L187
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2010,7 +2022,7 @@ PMCCS_Multiply_X_X:
 .LLSDACSB6263:
 	.uleb128 .LEHB54-.LFB6263
 	.uleb128 .LEHE54-.LEHB54
-	.uleb128 .L190-.LFB6263
+	.uleb128 .L192-.LFB6263
 	.uleb128 0x1
 	.uleb128 .LEHB55-.LFB6263
 	.uleb128 .LEHE55-.LEHB55
@@ -2037,33 +2049,33 @@ PMCCS_DivRem_I_X:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L195
+	je	.L197
 .LEHB56:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj
 .LEHE56:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L191:
+.L193:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L195:
+.L197:
 	movl	$-2, %eax
-	jmp	.L191
-.L196:
+	jmp	.L193
+.L198:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L194
+	je	.L196
 .LEHB57:
 	call	_Unwind_Resume
 .LEHE57:
-.L194:
+.L196:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L191
+	jmp	.L193
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2077,7 +2089,7 @@ PMCCS_DivRem_I_X:
 .LLSDACSB6264:
 	.uleb128 .LEHB56-.LFB6264
 	.uleb128 .LEHE56-.LEHB56
-	.uleb128 .L196-.LFB6264
+	.uleb128 .L198-.LFB6264
 	.uleb128 0x1
 	.uleb128 .LEHB57-.LFB6264
 	.uleb128 .LEHE57-.LEHB57
@@ -2104,33 +2116,33 @@ PMCCS_DivRem_L_X:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L201
+	je	.L203
 .LEHB58:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy
 .LEHE58:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L197:
+.L199:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L201:
+.L203:
 	movl	$-2, %eax
-	jmp	.L197
-.L202:
+	jmp	.L199
+.L204:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L200
+	je	.L202
 .LEHB59:
 	call	_Unwind_Resume
 .LEHE59:
-.L200:
+.L202:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L197
+	jmp	.L199
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2144,7 +2156,7 @@ PMCCS_DivRem_L_X:
 .LLSDACSB6265:
 	.uleb128 .LEHB58-.LFB6265
 	.uleb128 .LEHE58-.LEHB58
-	.uleb128 .L202-.LFB6265
+	.uleb128 .L204-.LFB6265
 	.uleb128 0x1
 	.uleb128 .LEHB59-.LFB6265
 	.uleb128 .LEHE59-.LEHB59
@@ -2171,33 +2183,33 @@ PMCCS_DivRem_X_I:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L207
+	je	.L209
 .LEHB60:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_
 .LEHE60:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L203:
+.L205:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L207:
+.L209:
 	movl	$-2, %eax
-	jmp	.L203
-.L208:
+	jmp	.L205
+.L210:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L206
+	je	.L208
 .LEHB61:
 	call	_Unwind_Resume
 .LEHE61:
-.L206:
+.L208:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L203
+	jmp	.L205
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2211,7 +2223,7 @@ PMCCS_DivRem_X_I:
 .LLSDACSB6266:
 	.uleb128 .LEHB60-.LFB6266
 	.uleb128 .LEHE60-.LEHB60
-	.uleb128 .L208-.LFB6266
+	.uleb128 .L210-.LFB6266
 	.uleb128 0x1
 	.uleb128 .LEHB61-.LFB6266
 	.uleb128 .LEHE61-.LEHB61
@@ -2238,33 +2250,33 @@ PMCCS_DivRem_X_L:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L213
+	je	.L215
 .LEHB62:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_
 .LEHE62:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L209:
+.L211:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L213:
+.L215:
 	movl	$-2, %eax
-	jmp	.L209
-.L214:
+	jmp	.L211
+.L216:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L212
+	je	.L214
 .LEHB63:
 	call	_Unwind_Resume
 .LEHE63:
-.L212:
+.L214:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L209
+	jmp	.L211
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2278,7 +2290,7 @@ PMCCS_DivRem_X_L:
 .LLSDACSB6267:
 	.uleb128 .LEHB62-.LFB6267
 	.uleb128 .LEHE62-.LEHB62
-	.uleb128 .L214-.LFB6267
+	.uleb128 .L216-.LFB6267
 	.uleb128 0x1
 	.uleb128 .LEHB63-.LFB6267
 	.uleb128 .LEHE63-.LEHB63
@@ -2305,33 +2317,33 @@ PMCCS_DivRem_X_X:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L219
+	je	.L221
 .LEHB64:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_
 .LEHE64:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L215:
+.L217:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L219:
+.L221:
 	movl	$-2, %eax
-	jmp	.L215
-.L220:
+	jmp	.L217
+.L222:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L218
+	je	.L220
 .LEHB65:
 	call	_Unwind_Resume
 .LEHE65:
-.L218:
+.L220:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L215
+	jmp	.L217
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2345,7 +2357,7 @@ PMCCS_DivRem_X_X:
 .LLSDACSB6268:
 	.uleb128 .LEHB64-.LFB6268
 	.uleb128 .LEHE64-.LEHB64
-	.uleb128 .L220-.LFB6268
+	.uleb128 .L222-.LFB6268
 	.uleb128 0x1
 	.uleb128 .LEHB65-.LFB6268
 	.uleb128 .LEHE65-.LEHB65
@@ -2372,34 +2384,34 @@ PMCCS_Remainder_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L225
+	je	.L227
 	xorl	%r8d, %r8d
 .LEHB66:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_I_XEjPNS2_21__tag_PMC_HANDLE_UINTEPj
 .LEHE66:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L221:
+.L223:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L225:
+.L227:
 	movl	$-2, %eax
-	jmp	.L221
-.L226:
+	jmp	.L223
+.L228:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L224
+	je	.L226
 .LEHB67:
 	call	_Unwind_Resume
 .LEHE67:
-.L224:
+.L226:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L221
+	jmp	.L223
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2413,7 +2425,7 @@ PMCCS_Remainder_I_X:
 .LLSDACSB6269:
 	.uleb128 .LEHB66-.LFB6269
 	.uleb128 .LEHE66-.LEHB66
-	.uleb128 .L226-.LFB6269
+	.uleb128 .L228-.LFB6269
 	.uleb128 0x1
 	.uleb128 .LEHB67-.LFB6269
 	.uleb128 .LEHE67-.LEHB67
@@ -2440,34 +2452,34 @@ PMCCS_Remainder_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L231
+	je	.L233
 	xorl	%r8d, %r8d
 .LEHB68:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_L_XEyPNS2_21__tag_PMC_HANDLE_UINTEPy
 .LEHE68:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L227:
+.L229:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L231:
+.L233:
 	movl	$-2, %eax
-	jmp	.L227
-.L232:
+	jmp	.L229
+.L234:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L230
+	je	.L232
 .LEHB69:
 	call	_Unwind_Resume
 .LEHE69:
-.L230:
+.L232:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L227
+	jmp	.L229
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2481,7 +2493,7 @@ PMCCS_Remainder_L_X:
 .LLSDACSB6270:
 	.uleb128 .LEHB68-.LFB6270
 	.uleb128 .LEHE68-.LEHB68
-	.uleb128 .L232-.LFB6270
+	.uleb128 .L234-.LFB6270
 	.uleb128 0x1
 	.uleb128 .LEHB69-.LFB6270
 	.uleb128 .LEHE69-.LEHB69
@@ -2508,34 +2520,34 @@ PMCCS_Remainder_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L237
+	je	.L239
 	xorl	%r8d, %r8d
 .LEHB70:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_IEPNS2_21__tag_PMC_HANDLE_UINTEjPS4_
 .LEHE70:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L233:
+.L235:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L237:
+.L239:
 	movl	$-2, %eax
-	jmp	.L233
-.L238:
+	jmp	.L235
+.L240:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L236
+	je	.L238
 .LEHB71:
 	call	_Unwind_Resume
 .LEHE71:
-.L236:
+.L238:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L233
+	jmp	.L235
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2549,7 +2561,7 @@ PMCCS_Remainder_X_I:
 .LLSDACSB6271:
 	.uleb128 .LEHB70-.LFB6271
 	.uleb128 .LEHE70-.LEHB70
-	.uleb128 .L238-.LFB6271
+	.uleb128 .L240-.LFB6271
 	.uleb128 0x1
 	.uleb128 .LEHB71-.LFB6271
 	.uleb128 .LEHE71-.LEHB71
@@ -2576,34 +2588,34 @@ PMCCS_Remainder_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L243
+	je	.L245
 	xorl	%r8d, %r8d
 .LEHB72:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_LEPNS2_21__tag_PMC_HANDLE_UINTEyPS4_
 .LEHE72:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L239:
+.L241:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L243:
+.L245:
 	movl	$-2, %eax
-	jmp	.L239
-.L244:
+	jmp	.L241
+.L246:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L242
+	je	.L244
 .LEHB73:
 	call	_Unwind_Resume
 .LEHE73:
-.L242:
+.L244:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L239
+	jmp	.L241
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2617,7 +2629,7 @@ PMCCS_Remainder_X_L:
 .LLSDACSB6272:
 	.uleb128 .LEHB72-.LFB6272
 	.uleb128 .LEHE72-.LEHB72
-	.uleb128 .L244-.LFB6272
+	.uleb128 .L246-.LFB6272
 	.uleb128 0x1
 	.uleb128 .LEHB73-.LFB6272
 	.uleb128 .LEHE73-.LEHB73
@@ -2644,34 +2656,34 @@ PMCCS_Remainder_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L249
+	je	.L251
 	xorl	%r8d, %r8d
 .LEHB74:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_DivRem_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_PS4_
 .LEHE74:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L245:
+.L247:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L249:
+.L251:
 	movl	$-2, %eax
-	jmp	.L245
-.L250:
+	jmp	.L247
+.L252:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L248
+	je	.L250
 .LEHB75:
 	call	_Unwind_Resume
 .LEHE75:
-.L248:
+.L250:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L245
+	jmp	.L247
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2685,7 +2697,7 @@ PMCCS_Remainder_X_X:
 .LLSDACSB6273:
 	.uleb128 .LEHB74-.LFB6273
 	.uleb128 .LEHE74-.LEHB74
-	.uleb128 .L250-.LFB6273
+	.uleb128 .L252-.LFB6273
 	.uleb128 0x1
 	.uleb128 .LEHB75-.LFB6273
 	.uleb128 .LEHE75-.LEHB75
@@ -2712,33 +2724,33 @@ PMCCS_RightShift_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L255
+	je	.L257
 .LEHB76:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_RightShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi
 .LEHE76:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L251:
+.L253:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L255:
+.L257:
 	movl	$-2, %eax
-	jmp	.L251
-.L256:
+	jmp	.L253
+.L258:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L254
+	je	.L256
 .LEHB77:
 	call	_Unwind_Resume
 .LEHE77:
-.L254:
+.L256:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L251
+	jmp	.L253
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2752,7 +2764,7 @@ PMCCS_RightShift_X_I:
 .LLSDACSB6274:
 	.uleb128 .LEHB76-.LFB6274
 	.uleb128 .LEHE76-.LEHB76
-	.uleb128 .L256-.LFB6274
+	.uleb128 .L258-.LFB6274
 	.uleb128 0x1
 	.uleb128 .LEHB77-.LFB6274
 	.uleb128 .LEHE77-.LEHB77
@@ -2779,33 +2791,33 @@ PMCCS_LeftShift_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L261
+	je	.L263
 .LEHB78:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_LeftShift_X_IEPNS2_21__tag_PMC_HANDLE_UINTEi
 .LEHE78:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L257:
+.L259:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L261:
+.L263:
 	movl	$-2, %eax
-	jmp	.L257
-.L262:
+	jmp	.L259
+.L264:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L260
+	je	.L262
 .LEHB79:
 	call	_Unwind_Resume
 .LEHE79:
-.L260:
+.L262:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L257
+	jmp	.L259
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2819,7 +2831,7 @@ PMCCS_LeftShift_X_I:
 .LLSDACSB6275:
 	.uleb128 .LEHB78-.LFB6275
 	.uleb128 .LEHE78-.LEHB78
-	.uleb128 .L262-.LFB6275
+	.uleb128 .L264-.LFB6275
 	.uleb128 0x1
 	.uleb128 .LEHB79-.LFB6275
 	.uleb128 .LEHE79-.LEHB79
@@ -2846,33 +2858,33 @@ PMCCS_BitwiseAnd_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L267
+	je	.L269
 .LEHB80:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE80:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L263:
+.L265:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L267:
+.L269:
 	movl	$-2, %eax
-	jmp	.L263
-.L268:
+	jmp	.L265
+.L270:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L266
+	je	.L268
 .LEHB81:
 	call	_Unwind_Resume
 .LEHE81:
-.L266:
+.L268:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L263
+	jmp	.L265
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2886,7 +2898,7 @@ PMCCS_BitwiseAnd_I_X:
 .LLSDACSB6276:
 	.uleb128 .LEHB80-.LFB6276
 	.uleb128 .LEHE80-.LEHB80
-	.uleb128 .L268-.LFB6276
+	.uleb128 .L270-.LFB6276
 	.uleb128 0x1
 	.uleb128 .LEHB81-.LFB6276
 	.uleb128 .LEHE81-.LEHB81
@@ -2913,33 +2925,33 @@ PMCCS_BitwiseAnd_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L273
+	je	.L275
 .LEHB82:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE82:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L269:
+.L271:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L273:
+.L275:
 	movl	$-2, %eax
-	jmp	.L269
-.L274:
+	jmp	.L271
+.L276:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L272
+	je	.L274
 .LEHB83:
 	call	_Unwind_Resume
 .LEHE83:
-.L272:
+.L274:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L269
+	jmp	.L271
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -2953,7 +2965,7 @@ PMCCS_BitwiseAnd_L_X:
 .LLSDACSB6277:
 	.uleb128 .LEHB82-.LFB6277
 	.uleb128 .LEHE82-.LEHB82
-	.uleb128 .L274-.LFB6277
+	.uleb128 .L276-.LFB6277
 	.uleb128 0x1
 	.uleb128 .LEHB83-.LFB6277
 	.uleb128 .LEHE83-.LEHB83
@@ -2980,33 +2992,33 @@ PMCCS_BitwiseAnd_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L279
+	je	.L281
 .LEHB84:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE84:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L275:
+.L277:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L279:
+.L281:
 	movl	$-2, %eax
-	jmp	.L275
-.L280:
+	jmp	.L277
+.L282:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L278
+	je	.L280
 .LEHB85:
 	call	_Unwind_Resume
 .LEHE85:
-.L278:
+.L280:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L275
+	jmp	.L277
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3020,7 +3032,7 @@ PMCCS_BitwiseAnd_X_I:
 .LLSDACSB6278:
 	.uleb128 .LEHB84-.LFB6278
 	.uleb128 .LEHE84-.LEHB84
-	.uleb128 .L280-.LFB6278
+	.uleb128 .L282-.LFB6278
 	.uleb128 0x1
 	.uleb128 .LEHB85-.LFB6278
 	.uleb128 .LEHE85-.LEHB85
@@ -3047,33 +3059,33 @@ PMCCS_BitwiseAnd_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L285
+	je	.L287
 .LEHB86:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE86:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L281:
+.L283:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L285:
+.L287:
 	movl	$-2, %eax
-	jmp	.L281
-.L286:
+	jmp	.L283
+.L288:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L284
+	je	.L286
 .LEHB87:
 	call	_Unwind_Resume
 .LEHE87:
-.L284:
+.L286:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L281
+	jmp	.L283
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3087,7 +3099,7 @@ PMCCS_BitwiseAnd_X_L:
 .LLSDACSB6279:
 	.uleb128 .LEHB86-.LFB6279
 	.uleb128 .LEHE86-.LEHB86
-	.uleb128 .L286-.LFB6279
+	.uleb128 .L288-.LFB6279
 	.uleb128 0x1
 	.uleb128 .LEHB87-.LFB6279
 	.uleb128 .LEHE87-.LEHB87
@@ -3114,33 +3126,33 @@ PMCCS_BitwiseAnd_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L291
+	je	.L293
 .LEHB88:
 	call	_ZN8Palmtree4Math4Core8Internal18PMC_BitwiseAnd_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE88:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L287:
+.L289:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L291:
+.L293:
 	movl	$-2, %eax
-	jmp	.L287
-.L292:
+	jmp	.L289
+.L294:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L290
+	je	.L292
 .LEHB89:
 	call	_Unwind_Resume
 .LEHE89:
-.L290:
+.L292:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L287
+	jmp	.L289
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3154,7 +3166,7 @@ PMCCS_BitwiseAnd_X_X:
 .LLSDACSB6280:
 	.uleb128 .LEHB88-.LFB6280
 	.uleb128 .LEHE88-.LEHB88
-	.uleb128 .L292-.LFB6280
+	.uleb128 .L294-.LFB6280
 	.uleb128 0x1
 	.uleb128 .LEHB89-.LFB6280
 	.uleb128 .LEHE89-.LEHB89
@@ -3181,33 +3193,33 @@ PMCCS_BitwiseOr_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L297
+	je	.L299
 .LEHB90:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE90:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L293:
+.L295:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L297:
+.L299:
 	movl	$-2, %eax
-	jmp	.L293
-.L298:
+	jmp	.L295
+.L300:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L296
+	je	.L298
 .LEHB91:
 	call	_Unwind_Resume
 .LEHE91:
-.L296:
+.L298:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L293
+	jmp	.L295
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3221,7 +3233,7 @@ PMCCS_BitwiseOr_I_X:
 .LLSDACSB6281:
 	.uleb128 .LEHB90-.LFB6281
 	.uleb128 .LEHE90-.LEHB90
-	.uleb128 .L298-.LFB6281
+	.uleb128 .L300-.LFB6281
 	.uleb128 0x1
 	.uleb128 .LEHB91-.LFB6281
 	.uleb128 .LEHE91-.LEHB91
@@ -3248,33 +3260,33 @@ PMCCS_BitwiseOr_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L303
+	je	.L305
 .LEHB92:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE92:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L299:
+.L301:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L303:
+.L305:
 	movl	$-2, %eax
-	jmp	.L299
-.L304:
+	jmp	.L301
+.L306:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L302
+	je	.L304
 .LEHB93:
 	call	_Unwind_Resume
 .LEHE93:
-.L302:
+.L304:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L299
+	jmp	.L301
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3288,7 +3300,7 @@ PMCCS_BitwiseOr_L_X:
 .LLSDACSB6282:
 	.uleb128 .LEHB92-.LFB6282
 	.uleb128 .LEHE92-.LEHB92
-	.uleb128 .L304-.LFB6282
+	.uleb128 .L306-.LFB6282
 	.uleb128 0x1
 	.uleb128 .LEHB93-.LFB6282
 	.uleb128 .LEHE93-.LEHB93
@@ -3315,33 +3327,33 @@ PMCCS_BitwiseOr_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L309
+	je	.L311
 .LEHB94:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE94:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L305:
+.L307:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L309:
+.L311:
 	movl	$-2, %eax
-	jmp	.L305
-.L310:
+	jmp	.L307
+.L312:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L308
+	je	.L310
 .LEHB95:
 	call	_Unwind_Resume
 .LEHE95:
-.L308:
+.L310:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L305
+	jmp	.L307
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3355,7 +3367,7 @@ PMCCS_BitwiseOr_X_I:
 .LLSDACSB6283:
 	.uleb128 .LEHB94-.LFB6283
 	.uleb128 .LEHE94-.LEHB94
-	.uleb128 .L310-.LFB6283
+	.uleb128 .L312-.LFB6283
 	.uleb128 0x1
 	.uleb128 .LEHB95-.LFB6283
 	.uleb128 .LEHE95-.LEHB95
@@ -3382,33 +3394,33 @@ PMCCS_BitwiseOr_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L315
+	je	.L317
 .LEHB96:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE96:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L311:
+.L313:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L315:
+.L317:
 	movl	$-2, %eax
-	jmp	.L311
-.L316:
+	jmp	.L313
+.L318:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L314
+	je	.L316
 .LEHB97:
 	call	_Unwind_Resume
 .LEHE97:
-.L314:
+.L316:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L311
+	jmp	.L313
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3422,7 +3434,7 @@ PMCCS_BitwiseOr_X_L:
 .LLSDACSB6284:
 	.uleb128 .LEHB96-.LFB6284
 	.uleb128 .LEHE96-.LEHB96
-	.uleb128 .L316-.LFB6284
+	.uleb128 .L318-.LFB6284
 	.uleb128 0x1
 	.uleb128 .LEHB97-.LFB6284
 	.uleb128 .LEHE97-.LEHB97
@@ -3449,33 +3461,33 @@ PMCCS_BitwiseOr_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L321
+	je	.L323
 .LEHB98:
 	call	_ZN8Palmtree4Math4Core8Internal17PMC_BitwiseOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE98:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L317:
+.L319:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L321:
+.L323:
 	movl	$-2, %eax
-	jmp	.L317
-.L322:
+	jmp	.L319
+.L324:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L320
+	je	.L322
 .LEHB99:
 	call	_Unwind_Resume
 .LEHE99:
-.L320:
+.L322:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L317
+	jmp	.L319
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3489,7 +3501,7 @@ PMCCS_BitwiseOr_X_X:
 .LLSDACSB6285:
 	.uleb128 .LEHB98-.LFB6285
 	.uleb128 .LEHE98-.LEHB98
-	.uleb128 .L322-.LFB6285
+	.uleb128 .L324-.LFB6285
 	.uleb128 0x1
 	.uleb128 .LEHB99-.LFB6285
 	.uleb128 .LEHE99-.LEHB99
@@ -3516,33 +3528,33 @@ PMCCS_ExclusiveOr_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L327
+	je	.L329
 .LEHB100:
 	call	_ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE100:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L323:
+.L325:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L327:
+.L329:
 	movl	$-2, %eax
-	jmp	.L323
-.L328:
+	jmp	.L325
+.L330:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L326
+	je	.L328
 .LEHB101:
 	call	_Unwind_Resume
 .LEHE101:
-.L326:
+.L328:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L323
+	jmp	.L325
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3556,7 +3568,7 @@ PMCCS_ExclusiveOr_I_X:
 .LLSDACSB6286:
 	.uleb128 .LEHB100-.LFB6286
 	.uleb128 .LEHE100-.LEHB100
-	.uleb128 .L328-.LFB6286
+	.uleb128 .L330-.LFB6286
 	.uleb128 0x1
 	.uleb128 .LEHB101-.LFB6286
 	.uleb128 .LEHE101-.LEHB101
@@ -3583,33 +3595,33 @@ PMCCS_ExclusiveOr_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L333
+	je	.L335
 .LEHB102:
 	call	_ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE102:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L329:
+.L331:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L333:
+.L335:
 	movl	$-2, %eax
-	jmp	.L329
-.L334:
+	jmp	.L331
+.L336:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L332
+	je	.L334
 .LEHB103:
 	call	_Unwind_Resume
 .LEHE103:
-.L332:
+.L334:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L329
+	jmp	.L331
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3623,7 +3635,7 @@ PMCCS_ExclusiveOr_L_X:
 .LLSDACSB6287:
 	.uleb128 .LEHB102-.LFB6287
 	.uleb128 .LEHE102-.LEHB102
-	.uleb128 .L334-.LFB6287
+	.uleb128 .L336-.LFB6287
 	.uleb128 0x1
 	.uleb128 .LEHB103-.LFB6287
 	.uleb128 .LEHE103-.LEHB103
@@ -3650,33 +3662,33 @@ PMCCS_ExclusiveOr_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L339
+	je	.L341
 .LEHB104:
 	call	_ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE104:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L335:
+.L337:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L339:
+.L341:
 	movl	$-2, %eax
-	jmp	.L335
-.L340:
+	jmp	.L337
+.L342:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L338
+	je	.L340
 .LEHB105:
 	call	_Unwind_Resume
 .LEHE105:
-.L338:
+.L340:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L335
+	jmp	.L337
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3690,7 +3702,7 @@ PMCCS_ExclusiveOr_X_I:
 .LLSDACSB6288:
 	.uleb128 .LEHB104-.LFB6288
 	.uleb128 .LEHE104-.LEHB104
-	.uleb128 .L340-.LFB6288
+	.uleb128 .L342-.LFB6288
 	.uleb128 0x1
 	.uleb128 .LEHB105-.LFB6288
 	.uleb128 .LEHE105-.LEHB105
@@ -3717,33 +3729,33 @@ PMCCS_ExclusiveOr_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L345
+	je	.L347
 .LEHB106:
 	call	_ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE106:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L341:
+.L343:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L345:
+.L347:
 	movl	$-2, %eax
-	jmp	.L341
-.L346:
+	jmp	.L343
+.L348:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L344
+	je	.L346
 .LEHB107:
 	call	_Unwind_Resume
 .LEHE107:
-.L344:
+.L346:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L341
+	jmp	.L343
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3757,7 +3769,7 @@ PMCCS_ExclusiveOr_X_L:
 .LLSDACSB6289:
 	.uleb128 .LEHB106-.LFB6289
 	.uleb128 .LEHE106-.LEHB106
-	.uleb128 .L346-.LFB6289
+	.uleb128 .L348-.LFB6289
 	.uleb128 0x1
 	.uleb128 .LEHB107-.LFB6289
 	.uleb128 .LEHE107-.LEHB107
@@ -3784,33 +3796,33 @@ PMCCS_ExclusiveOr_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L351
+	je	.L353
 .LEHB108:
 	call	_ZN8Palmtree4Math4Core8Internal19PMC_ExclusiveOr_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE108:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L347:
+.L349:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L351:
+.L353:
 	movl	$-2, %eax
-	jmp	.L347
-.L352:
+	jmp	.L349
+.L354:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L350
+	je	.L352
 .LEHB109:
 	call	_Unwind_Resume
 .LEHE109:
-.L350:
+.L352:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L347
+	jmp	.L349
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3824,7 +3836,7 @@ PMCCS_ExclusiveOr_X_X:
 .LLSDACSB6290:
 	.uleb128 .LEHB108-.LFB6290
 	.uleb128 .LEHE108-.LEHB108
-	.uleb128 .L352-.LFB6290
+	.uleb128 .L354-.LFB6290
 	.uleb128 0x1
 	.uleb128 .LEHB109-.LFB6290
 	.uleb128 .LEHE109-.LEHB109
@@ -3851,33 +3863,33 @@ PMCCS_Compare_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L357
+	je	.L359
 .LEHB110:
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE110:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L353:
+.L355:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L357:
+.L359:
 	movl	$-2, %eax
-	jmp	.L353
-.L358:
+	jmp	.L355
+.L360:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L356
+	je	.L358
 .LEHB111:
 	call	_Unwind_Resume
 .LEHE111:
-.L356:
+.L358:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L353
+	jmp	.L355
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3891,7 +3903,7 @@ PMCCS_Compare_I_X:
 .LLSDACSB6291:
 	.uleb128 .LEHB110-.LFB6291
 	.uleb128 .LEHE110-.LEHB110
-	.uleb128 .L358-.LFB6291
+	.uleb128 .L360-.LFB6291
 	.uleb128 0x1
 	.uleb128 .LEHB111-.LFB6291
 	.uleb128 .LEHE111-.LEHB111
@@ -3918,33 +3930,33 @@ PMCCS_Compare_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L363
+	je	.L365
 .LEHB112:
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE112:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L359:
+.L361:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L363:
+.L365:
 	movl	$-2, %eax
-	jmp	.L359
-.L364:
+	jmp	.L361
+.L366:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L362
+	je	.L364
 .LEHB113:
 	call	_Unwind_Resume
 .LEHE113:
-.L362:
+.L364:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L359
+	jmp	.L361
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -3958,7 +3970,7 @@ PMCCS_Compare_L_X:
 .LLSDACSB6292:
 	.uleb128 .LEHB112-.LFB6292
 	.uleb128 .LEHE112-.LEHB112
-	.uleb128 .L364-.LFB6292
+	.uleb128 .L366-.LFB6292
 	.uleb128 0x1
 	.uleb128 .LEHB113-.LFB6292
 	.uleb128 .LEHE113-.LEHB113
@@ -3985,33 +3997,33 @@ PMCCS_Compare_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L369
+	je	.L371
 .LEHB114:
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE114:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L365:
+.L367:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L369:
+.L371:
 	movl	$-2, %eax
-	jmp	.L365
-.L370:
+	jmp	.L367
+.L372:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L368
+	je	.L370
 .LEHB115:
 	call	_Unwind_Resume
 .LEHE115:
-.L368:
+.L370:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L365
+	jmp	.L367
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4025,7 +4037,7 @@ PMCCS_Compare_X_I:
 .LLSDACSB6293:
 	.uleb128 .LEHB114-.LFB6293
 	.uleb128 .LEHE114-.LEHB114
-	.uleb128 .L370-.LFB6293
+	.uleb128 .L372-.LFB6293
 	.uleb128 0x1
 	.uleb128 .LEHB115-.LFB6293
 	.uleb128 .LEHE115-.LEHB115
@@ -4052,33 +4064,33 @@ PMCCS_Compare_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L375
+	je	.L377
 .LEHB116:
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE116:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L371:
+.L373:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L375:
+.L377:
 	movl	$-2, %eax
-	jmp	.L371
-.L376:
+	jmp	.L373
+.L378:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L374
+	je	.L376
 .LEHB117:
 	call	_Unwind_Resume
 .LEHE117:
-.L374:
+.L376:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L371
+	jmp	.L373
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4092,7 +4104,7 @@ PMCCS_Compare_X_L:
 .LLSDACSB6294:
 	.uleb128 .LEHB116-.LFB6294
 	.uleb128 .LEHE116-.LEHB116
-	.uleb128 .L376-.LFB6294
+	.uleb128 .L378-.LFB6294
 	.uleb128 0x1
 	.uleb128 .LEHB117-.LFB6294
 	.uleb128 .LEHE117-.LEHB117
@@ -4119,33 +4131,33 @@ PMCCS_Compare_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L381
+	je	.L383
 .LEHB118:
 	call	_ZN8Palmtree4Math4Core8Internal15PMC_Compare_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE118:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L377:
+.L379:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L381:
+.L383:
 	movl	$-2, %eax
-	jmp	.L377
-.L382:
+	jmp	.L379
+.L384:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L380
+	je	.L382
 .LEHB119:
 	call	_Unwind_Resume
 .LEHE119:
-.L380:
+.L382:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L377
+	jmp	.L379
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4159,7 +4171,7 @@ PMCCS_Compare_X_X:
 .LLSDACSB6295:
 	.uleb128 .LEHB118-.LFB6295
 	.uleb128 .LEHE118-.LEHB118
-	.uleb128 .L382-.LFB6295
+	.uleb128 .L384-.LFB6295
 	.uleb128 0x1
 	.uleb128 .LEHB119-.LFB6295
 	.uleb128 .LEHE119-.LEHB119
@@ -4186,33 +4198,33 @@ PMCCS_Equals_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L387
+	je	.L389
 .LEHB120:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_Equals_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE120:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L383:
+.L385:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L387:
+.L389:
 	movl	$-2, %eax
-	jmp	.L383
-.L388:
+	jmp	.L385
+.L390:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L386
+	je	.L388
 .LEHB121:
 	call	_Unwind_Resume
 .LEHE121:
-.L386:
+.L388:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L383
+	jmp	.L385
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4226,7 +4238,7 @@ PMCCS_Equals_I_X:
 .LLSDACSB6296:
 	.uleb128 .LEHB120-.LFB6296
 	.uleb128 .LEHE120-.LEHB120
-	.uleb128 .L388-.LFB6296
+	.uleb128 .L390-.LFB6296
 	.uleb128 0x1
 	.uleb128 .LEHB121-.LFB6296
 	.uleb128 .LEHE121-.LEHB121
@@ -4253,33 +4265,33 @@ PMCCS_Equals_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L393
+	je	.L395
 .LEHB122:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_Equals_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE122:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L389:
+.L391:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L393:
+.L395:
 	movl	$-2, %eax
-	jmp	.L389
-.L394:
+	jmp	.L391
+.L396:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L392
+	je	.L394
 .LEHB123:
 	call	_Unwind_Resume
 .LEHE123:
-.L392:
+.L394:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L389
+	jmp	.L391
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4293,7 +4305,7 @@ PMCCS_Equals_L_X:
 .LLSDACSB6297:
 	.uleb128 .LEHB122-.LFB6297
 	.uleb128 .LEHE122-.LEHB122
-	.uleb128 .L394-.LFB6297
+	.uleb128 .L396-.LFB6297
 	.uleb128 0x1
 	.uleb128 .LEHB123-.LFB6297
 	.uleb128 .LEHE123-.LEHB123
@@ -4320,33 +4332,33 @@ PMCCS_Equals_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L399
+	je	.L401
 .LEHB124:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE124:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L395:
+.L397:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L399:
+.L401:
 	movl	$-2, %eax
-	jmp	.L395
-.L400:
+	jmp	.L397
+.L402:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L398
+	je	.L400
 .LEHB125:
 	call	_Unwind_Resume
 .LEHE125:
-.L398:
+.L400:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L395
+	jmp	.L397
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4360,7 +4372,7 @@ PMCCS_Equals_X_I:
 .LLSDACSB6298:
 	.uleb128 .LEHB124-.LFB6298
 	.uleb128 .LEHE124-.LEHB124
-	.uleb128 .L400-.LFB6298
+	.uleb128 .L402-.LFB6298
 	.uleb128 0x1
 	.uleb128 .LEHB125-.LFB6298
 	.uleb128 .LEHE125-.LEHB125
@@ -4387,33 +4399,33 @@ PMCCS_Equals_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L405
+	je	.L407
 .LEHB126:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE126:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L401:
+.L403:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L405:
+.L407:
 	movl	$-2, %eax
-	jmp	.L401
-.L406:
+	jmp	.L403
+.L408:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L404
+	je	.L406
 .LEHB127:
 	call	_Unwind_Resume
 .LEHE127:
-.L404:
+.L406:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L401
+	jmp	.L403
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4427,7 +4439,7 @@ PMCCS_Equals_X_L:
 .LLSDACSB6299:
 	.uleb128 .LEHB126-.LFB6299
 	.uleb128 .LEHE126-.LEHB126
-	.uleb128 .L406-.LFB6299
+	.uleb128 .L408-.LFB6299
 	.uleb128 0x1
 	.uleb128 .LEHB127-.LFB6299
 	.uleb128 .LEHE127-.LEHB127
@@ -4454,33 +4466,33 @@ PMCCS_Equals_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L411
+	je	.L413
 .LEHB128:
 	call	_ZN8Palmtree4Math4Core8Internal14PMC_Equals_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE128:
 	movl	%eax, (%rbx)
 	xorl	%eax, %eax
-.L407:
+.L409:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L411:
+.L413:
 	movl	$-2, %eax
-	jmp	.L407
-.L412:
+	jmp	.L409
+.L414:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L410
+	je	.L412
 .LEHB129:
 	call	_Unwind_Resume
 .LEHE129:
-.L410:
+.L412:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L407
+	jmp	.L409
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4494,7 +4506,7 @@ PMCCS_Equals_X_X:
 .LLSDACSB6300:
 	.uleb128 .LEHB128-.LFB6300
 	.uleb128 .LEHE128-.LEHB128
-	.uleb128 .L412-.LFB6300
+	.uleb128 .L414-.LFB6300
 	.uleb128 0x1
 	.uleb128 .LEHB129-.LFB6300
 	.uleb128 .LEHE129-.LEHB129
@@ -4521,33 +4533,33 @@ PMCCS_GreatestCommonDivisor_I_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L417
+	je	.L419
 .LEHB130:
 	call	_ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_I_XEjPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE130:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L413:
+.L415:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L417:
+.L419:
 	movl	$-2, %eax
-	jmp	.L413
-.L418:
+	jmp	.L415
+.L420:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L416
+	je	.L418
 .LEHB131:
 	call	_Unwind_Resume
 .LEHE131:
-.L416:
+.L418:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L413
+	jmp	.L415
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4561,7 +4573,7 @@ PMCCS_GreatestCommonDivisor_I_X:
 .LLSDACSB6301:
 	.uleb128 .LEHB130-.LFB6301
 	.uleb128 .LEHE130-.LEHB130
-	.uleb128 .L418-.LFB6301
+	.uleb128 .L420-.LFB6301
 	.uleb128 0x1
 	.uleb128 .LEHB131-.LFB6301
 	.uleb128 .LEHE131-.LEHB131
@@ -4588,33 +4600,33 @@ PMCCS_GreatestCommonDivisor_L_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L423
+	je	.L425
 .LEHB132:
 	call	_ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_L_XEyPNS2_21__tag_PMC_HANDLE_UINTE
 .LEHE132:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L419:
+.L421:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L423:
+.L425:
 	movl	$-2, %eax
-	jmp	.L419
-.L424:
+	jmp	.L421
+.L426:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L422
+	je	.L424
 .LEHB133:
 	call	_Unwind_Resume
 .LEHE133:
-.L422:
+.L424:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L419
+	jmp	.L421
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4628,7 +4640,7 @@ PMCCS_GreatestCommonDivisor_L_X:
 .LLSDACSB6302:
 	.uleb128 .LEHB132-.LFB6302
 	.uleb128 .LEHE132-.LEHB132
-	.uleb128 .L424-.LFB6302
+	.uleb128 .L426-.LFB6302
 	.uleb128 0x1
 	.uleb128 .LEHB133-.LFB6302
 	.uleb128 .LEHE133-.LEHB133
@@ -4655,33 +4667,33 @@ PMCCS_GreatestCommonDivisor_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L429
+	je	.L431
 .LEHB134:
 	call	_ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE134:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L425:
+.L427:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L429:
+.L431:
 	movl	$-2, %eax
-	jmp	.L425
-.L430:
+	jmp	.L427
+.L432:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L428
+	je	.L430
 .LEHB135:
 	call	_Unwind_Resume
 .LEHE135:
-.L428:
+.L430:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L425
+	jmp	.L427
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4695,7 +4707,7 @@ PMCCS_GreatestCommonDivisor_X_I:
 .LLSDACSB6303:
 	.uleb128 .LEHB134-.LFB6303
 	.uleb128 .LEHE134-.LEHB134
-	.uleb128 .L430-.LFB6303
+	.uleb128 .L432-.LFB6303
 	.uleb128 0x1
 	.uleb128 .LEHB135-.LFB6303
 	.uleb128 .LEHE135-.LEHB135
@@ -4722,33 +4734,33 @@ PMCCS_GreatestCommonDivisor_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L435
+	je	.L437
 .LEHB136:
 	call	_ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE136:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L431:
+.L433:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L435:
+.L437:
 	movl	$-2, %eax
-	jmp	.L431
-.L436:
+	jmp	.L433
+.L438:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L434
+	je	.L436
 .LEHB137:
 	call	_Unwind_Resume
 .LEHE137:
-.L434:
+.L436:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L431
+	jmp	.L433
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4762,7 +4774,7 @@ PMCCS_GreatestCommonDivisor_X_L:
 .LLSDACSB6304:
 	.uleb128 .LEHB136-.LFB6304
 	.uleb128 .LEHE136-.LEHB136
-	.uleb128 .L436-.LFB6304
+	.uleb128 .L438-.LFB6304
 	.uleb128 0x1
 	.uleb128 .LEHB137-.LFB6304
 	.uleb128 .LEHE137-.LEHB137
@@ -4789,33 +4801,33 @@ PMCCS_GreatestCommonDivisor_X_X:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L441
+	je	.L443
 .LEHB138:
 	call	_ZN8Palmtree4Math4Core8Internal29PMC_GreatestCommonDivisor_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_
 .LEHE138:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L437:
+.L439:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L441:
+.L443:
 	movl	$-2, %eax
-	jmp	.L437
-.L442:
+	jmp	.L439
+.L444:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L440
+	je	.L442
 .LEHB139:
 	call	_Unwind_Resume
 .LEHE139:
-.L440:
+.L442:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L437
+	jmp	.L439
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4829,7 +4841,7 @@ PMCCS_GreatestCommonDivisor_X_X:
 .LLSDACSB6305:
 	.uleb128 .LEHB138-.LFB6305
 	.uleb128 .LEHE138-.LEHB138
-	.uleb128 .L442-.LFB6305
+	.uleb128 .L444-.LFB6305
 	.uleb128 0x1
 	.uleb128 .LEHB139-.LFB6305
 	.uleb128 .LEHE139-.LEHB139
@@ -4856,33 +4868,33 @@ PMCCS_Pow_X_I:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L447
+	je	.L449
 .LEHB140:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj
 .LEHE140:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L443:
+.L445:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L447:
+.L449:
 	movl	$-2, %eax
-	jmp	.L443
-.L448:
+	jmp	.L445
+.L450:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L446
+	je	.L448
 .LEHB141:
 	call	_Unwind_Resume
 .LEHE141:
-.L446:
+.L448:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L443
+	jmp	.L445
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4896,7 +4908,7 @@ PMCCS_Pow_X_I:
 .LLSDACSB6306:
 	.uleb128 .LEHB140-.LFB6306
 	.uleb128 .LEHE140-.LEHB140
-	.uleb128 .L448-.LFB6306
+	.uleb128 .L450-.LFB6306
 	.uleb128 0x1
 	.uleb128 .LEHB141-.LFB6306
 	.uleb128 .LEHE141-.LEHB141
@@ -4923,33 +4935,33 @@ PMCCS_Pow_X_L:
 	.seh_endprologue
 	testq	%r8, %r8
 	movq	%r8, %rbx
-	je	.L453
+	je	.L455
 .LEHB142:
 	call	_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy
 .LEHE142:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L449:
+.L451:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L453:
+.L455:
 	movl	$-2, %eax
-	jmp	.L449
-.L454:
+	jmp	.L451
+.L456:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L452
+	je	.L454
 .LEHB143:
 	call	_Unwind_Resume
 .LEHE143:
-.L452:
+.L454:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L449
+	jmp	.L451
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -4963,7 +4975,7 @@ PMCCS_Pow_X_L:
 .LLSDACSB6307:
 	.uleb128 .LEHB142-.LFB6307
 	.uleb128 .LEHE142-.LEHB142
-	.uleb128 .L454-.LFB6307
+	.uleb128 .L456-.LFB6307
 	.uleb128 0x1
 	.uleb128 .LEHB143-.LFB6307
 	.uleb128 .LEHE143-.LEHB143
@@ -4990,33 +5002,33 @@ PMCCS_ModPow_X_X_X:
 	.seh_endprologue
 	testq	%r9, %r9
 	movq	%r9, %rbx
-	je	.L459
+	je	.L461
 .LEHB144:
 	call	_ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_
 .LEHE144:
 	movq	%rax, (%rbx)
 	xorl	%eax, %eax
-.L455:
+.L457:
 	addq	$48, %rsp
 	popq	%rbx
 	ret
-.L459:
+.L461:
 	movl	$-2, %eax
-	jmp	.L455
-.L460:
+	jmp	.L457
+.L462:
 	subq	$1, %rdx
 	movq	%rax, %rcx
-	je	.L458
+	je	.L460
 .LEHB145:
 	call	_Unwind_Resume
 .LEHE145:
-.L458:
+.L460:
 	call	__cxa_begin_catch
 	movl	8(%rax), %eax
 	movl	%eax, 44(%rsp)
 	call	__cxa_end_catch
 	movl	44(%rsp), %eax
-	jmp	.L455
+	jmp	.L457
 	.seh_handler	__gxx_personality_seh0, @unwind, @except
 	.seh_handlerdata
 	.align 4
@@ -5030,7 +5042,7 @@ PMCCS_ModPow_X_X_X:
 .LLSDACSB6308:
 	.uleb128 .LEHB144-.LFB6308
 	.uleb128 .LEHE144-.LEHB144
-	.uleb128 .L460-.LFB6308
+	.uleb128 .L462-.LFB6308
 	.uleb128 0x1
 	.uleb128 .LEHB145-.LFB6308
 	.uleb128 .LEHE145-.LEHB145
@@ -5042,6 +5054,140 @@ PMCCS_ModPow_X_X_X:
 	.align 4
 	.long	.LDFCM0-.
 .LLSDATT6308:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMCCS_TimesOfExponentOf10
+	.def	PMCCS_TimesOfExponentOf10;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMCCS_TimesOfExponentOf10
+PMCCS_TimesOfExponentOf10:
+.LFB6309:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$48, %rsp
+	.seh_stackalloc	48
+	.seh_endprologue
+	testq	%r8, %r8
+	movq	%r8, %rbx
+	je	.L467
+.LEHB146:
+	call	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+.LEHE146:
+	movq	%rax, (%rbx)
+	xorl	%eax, %eax
+.L463:
+	addq	$48, %rsp
+	popq	%rbx
+	ret
+.L467:
+	movl	$-2, %eax
+	jmp	.L463
+.L468:
+	subq	$1, %rdx
+	movq	%rax, %rcx
+	je	.L466
+.LEHB147:
+	call	_Unwind_Resume
+.LEHE147:
+.L466:
+	call	__cxa_begin_catch
+	movl	8(%rax), %eax
+	movl	%eax, 44(%rsp)
+	call	__cxa_end_catch
+	movl	44(%rsp), %eax
+	jmp	.L463
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+	.align 4
+.LLSDA6309:
+	.byte	0xff
+	.byte	0x9b
+	.uleb128 .LLSDATT6309-.LLSDATTD6309
+.LLSDATTD6309:
+	.byte	0x1
+	.uleb128 .LLSDACSE6309-.LLSDACSB6309
+.LLSDACSB6309:
+	.uleb128 .LEHB146-.LFB6309
+	.uleb128 .LEHE146-.LEHB146
+	.uleb128 .L468-.LFB6309
+	.uleb128 0x1
+	.uleb128 .LEHB147-.LFB6309
+	.uleb128 .LEHE147-.LEHB147
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6309:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	.LDFCM0-.
+.LLSDATT6309:
+	.text
+	.seh_endproc
+	.p2align 4,,15
+	.globl	PMCCS_Floor_Log10
+	.def	PMCCS_Floor_Log10;	.scl	2;	.type	32;	.endef
+	.seh_proc	PMCCS_Floor_Log10
+PMCCS_Floor_Log10:
+.LFB6310:
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	subq	$48, %rsp
+	.seh_stackalloc	48
+	.seh_endprologue
+	testq	%rdx, %rdx
+	movq	%rdx, %rbx
+	je	.L473
+.LEHB148:
+	call	_ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE
+.LEHE148:
+	movl	%eax, (%rbx)
+	xorl	%eax, %eax
+.L469:
+	addq	$48, %rsp
+	popq	%rbx
+	ret
+.L473:
+	movl	$-2, %eax
+	jmp	.L469
+.L474:
+	subq	$1, %rdx
+	movq	%rax, %rcx
+	je	.L472
+.LEHB149:
+	call	_Unwind_Resume
+.LEHE149:
+.L472:
+	call	__cxa_begin_catch
+	movl	8(%rax), %eax
+	movl	%eax, 44(%rsp)
+	call	__cxa_end_catch
+	movl	44(%rsp), %eax
+	jmp	.L469
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+	.align 4
+.LLSDA6310:
+	.byte	0xff
+	.byte	0x9b
+	.uleb128 .LLSDATT6310-.LLSDATTD6310
+.LLSDATTD6310:
+	.byte	0x1
+	.uleb128 .LLSDACSE6310-.LLSDACSB6310
+.LLSDACSB6310:
+	.uleb128 .LEHB148-.LFB6310
+	.uleb128 .LEHE148-.LEHB148
+	.uleb128 .L474-.LFB6310
+	.uleb128 0x1
+	.uleb128 .LEHB149-.LFB6310
+	.uleb128 .LEHE149-.LEHB149
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE6310:
+	.byte	0x1
+	.byte	0
+	.align 4
+	.long	.LDFCM0-.
+.LLSDATT6310:
 	.text
 	.seh_endproc
 	.globl	_ZTSSt9exception
@@ -5152,3 +5298,5 @@ _ZTIN8Palmtree4Math4Core8Internal9ExceptionE:
 	.def	_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE;	.scl	2;	.type	32;	.endef

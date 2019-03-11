@@ -8036,7 +8036,7 @@ _TEXT	SEGMENT
 value$ = 224
 ?AddToMULTI64Counter@Internal@Core@Math@Palmtree@@YAXH@Z PROC ; Palmtree::Math::Core::Internal::AddToMULTI64Counter, COMDAT
 
-; 344  :     {
+; 359  :     {
 
   00000	89 4c 24 08	 mov	 DWORD PTR [rsp+8], ecx
   00004	55		 push	 rbp
@@ -8054,7 +8054,7 @@ value$ = 224
 	00 00		 lea	 rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
   0002f	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 345  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
+; 360  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI64, value);
 
   00034	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:?statistics_info@Internal@Core@Math@Palmtree@@3U__tag_PMC_STATISTICS_INFO@1234@A ; Palmtree::Math::Core::Internal::statistics_info
@@ -8062,7 +8062,7 @@ value$ = 224
 	00		 mov	 ecx, DWORD PTR value$[rbp]
   00041	f0 01 08	 lock add DWORD PTR [rax], ecx
 
-; 346  :     }
+; 361  :     }
 
   00044	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8078,7 +8078,7 @@ _TEXT	SEGMENT
 value$ = 224
 ?AddToMULTI32Counter@Internal@Core@Math@Palmtree@@YAXH@Z PROC ; Palmtree::Math::Core::Internal::AddToMULTI32Counter, COMDAT
 
-; 338  :     {
+; 353  :     {
 
   00000	89 4c 24 08	 mov	 DWORD PTR [rsp+8], ecx
   00004	55		 push	 rbp
@@ -8096,7 +8096,7 @@ value$ = 224
 	00 00		 lea	 rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
   0002f	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 339  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
+; 354  :         _InterlockedExchangeAdd(&statistics_info.COUNT_MULTI32, value);
 
   00034	48 8d 05 04 00
 	00 00		 lea	 rax, OFFSET FLAT:?statistics_info@Internal@Core@Math@Palmtree@@3U__tag_PMC_STATISTICS_INFO@1234@A+4
@@ -8104,7 +8104,7 @@ value$ = 224
 	00		 mov	 ecx, DWORD PTR value$[rbp]
   00041	f0 01 08	 lock add DWORD PTR [rax], ecx
 
-; 340  :     }
+; 355  :     }
 
   00044	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8119,7 +8119,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ?IncrementMULTI64Counter@Internal@Core@Math@Palmtree@@YAXXZ PROC ; Palmtree::Math::Core::Internal::IncrementMULTI64Counter, COMDAT
 
-; 321  :     {
+; 336  :     {
 
   00000	40 55		 push	 rbp
   00002	57		 push	 rdi
@@ -8134,13 +8134,13 @@ _TEXT	SEGMENT
 	00 00		 lea	 rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
   00025	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 322  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
+; 337  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI64);
 
   0002a	48 8d 05 00 00
 	00 00		 lea	 rax, OFFSET FLAT:?statistics_info@Internal@Core@Math@Palmtree@@3U__tag_PMC_STATISTICS_INFO@1234@A ; Palmtree::Math::Core::Internal::statistics_info
   00031	f0 ff 00	 lock inc DWORD PTR [rax]
 
-; 323  :     }
+; 338  :     }
 
   00034	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]
@@ -8155,7 +8155,7 @@ _TEXT	ENDS
 _TEXT	SEGMENT
 ?IncrementMULTI32Counter@Internal@Core@Math@Palmtree@@YAXXZ PROC ; Palmtree::Math::Core::Internal::IncrementMULTI32Counter, COMDAT
 
-; 315  :     {
+; 330  :     {
 
   00000	40 55		 push	 rbp
   00002	57		 push	 rdi
@@ -8170,13 +8170,13 @@ _TEXT	SEGMENT
 	00 00		 lea	 rcx, OFFSET FLAT:__BB6D3116_pmc_uint_internal@h
   00025	e8 00 00 00 00	 call	 __CheckForDebuggerJustMyCode
 
-; 316  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
+; 331  :         _InterlockedIncrement(&statistics_info.COUNT_MULTI32);
 
   0002a	48 8d 05 04 00
 	00 00		 lea	 rax, OFFSET FLAT:?statistics_info@Internal@Core@Math@Palmtree@@3U__tag_PMC_STATISTICS_INFO@1234@A+4
   00031	f0 ff 00	 lock inc DWORD PTR [rax]
 
-; 317  :     }
+; 332  :     }
 
   00034	48 8d a5 c8 00
 	00 00		 lea	 rsp, QWORD PTR [rbp+200]

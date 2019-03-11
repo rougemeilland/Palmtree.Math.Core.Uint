@@ -339,7 +339,7 @@ _ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev:
 _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 .LFB4934:
 	.file 3 "../pmc_uint_internal.h"
-	.loc 3 321 5
+	.loc 3 336 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -362,7 +362,7 @@ _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 	lock xaddl	%edx, (%rax)
 .LBE19:
 .LBE18:
-	.loc 3 323 5
+	.loc 3 338 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -376,7 +376,7 @@ _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 	.seh_proc	_ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi
 _ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi:
 .LFB4938:
-	.loc 3 344 5
+	.loc 3 359 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -401,7 +401,7 @@ _ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi:
 	lock xaddl	%edx, (%rax)
 .LBE21:
 .LBE20:
-	.loc 3 346 5
+	.loc 3 361 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -10579,7 +10579,7 @@ _ZTSSt9exception:
 	.uleb128 0x4a
 	.ascii "AddToMULTI64Counter\0"
 	.byte	0x3
-	.word	0x157
+	.word	0x166
 	.byte	0x1a
 	.long	0x6973
 	.uleb128 0x12
@@ -10588,7 +10588,7 @@ _ZTSSt9exception:
 	.uleb128 0x4e
 	.ascii "IncrementMULTI64Counter\0"
 	.byte	0x3
-	.word	0x140
+	.word	0x14f
 	.byte	0x1a
 	.byte	0
 	.byte	0
@@ -12364,7 +12364,7 @@ _ZTSSt9exception:
 	.uleb128 0x51
 	.ascii "value\0"
 	.byte	0x3
-	.word	0x157
+	.word	0x166
 	.byte	0x37
 	.long	0x59a0
 	.uleb128 0x2
@@ -12375,7 +12375,7 @@ _ZTSSt9exception:
 	.quad	.LBB20
 	.quad	.LBE20-.LBB20
 	.byte	0x3
-	.word	0x159
+	.word	0x168
 	.byte	0x20
 	.uleb128 0x5f
 	.long	0x7d74
@@ -12401,7 +12401,7 @@ _ZTSSt9exception:
 	.quad	.LBB18
 	.quad	.LBE18-.LBB18
 	.byte	0x3
-	.word	0x142
+	.word	0x151
 	.byte	0x1e
 	.uleb128 0x5f
 	.long	0x7d27

@@ -262,6 +262,10 @@ PMC_UINT_Initialize:
 	call	_ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE
 	testl	%eax, %eax
 	jne	.L22
+	movq	%rbx, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE
+	testl	%eax, %eax
+	jne	.L22
 	movzbl	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %eax
 	movzbl	32(%rsp), %edx
 	andl	$-32, %eax
@@ -403,6 +407,10 @@ PMC_UINT_Initialize:
 	movq	%rax, 552+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_(%rip), %rax
 	movq	%rax, 560+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj(%rip), %rax
+	movq	%rax, 568+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
+	movq	%rax, 576+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi(%rip), %rax
 	movq	%rax, 48+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal11PMC_Clone_XEPNS2_21__tag_PMC_HANDLE_UINTE(%rip), %rax
@@ -410,11 +418,11 @@ PMC_UINT_Initialize:
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal26PMC_GetAllocatedMemorySizeEv(%rip), %rax
 	movq	%rax, 80+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
 	movq	.refptr._ZN8Palmtree4Math4Core8Internal24PMC_FromByteArrayForSINTEPhyPc(%rip), %rax
-	movq	%rax, 568+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhy(%rip), %rax
-	movq	%rax, 576+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
-	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
 	movq	%rax, 584+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal22PMC_ToByteArrayForSINTEcPNS2_21__tag_PMC_HANDLE_UINTEPhy(%rip), %rax
+	movq	%rax, 592+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj(%rip), %rax
+	movq	%rax, 600+_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip)
 	leaq	_ZN8Palmtree4Math4Core8InternalL12entry_pointsE(%rip), %rax
 	jmp	.L19
 	.p2align 4,,10
@@ -427,7 +435,7 @@ PMC_UINT_Initialize:
 	ret
 	.seh_endproc
 .lcomm _ZN8Palmtree4Math4Core8InternalL11initializedE,1,1
-.lcomm _ZN8Palmtree4Math4Core8InternalL12entry_pointsE,592,32
+.lcomm _ZN8Palmtree4Math4Core8InternalL12entry_pointsE,608,32
 	.globl	_ZN8Palmtree4Math4Core8Internal18configuration_infoE
 	.bss
 _ZN8Palmtree4Math4Core8Internal18configuration_infoE:
@@ -452,6 +460,7 @@ _ZN8Palmtree4Math4Core8Internal18configuration_infoE:
 	.def	_ZN8Palmtree4Math4Core8Internal32Initialize_GreatestCommonDivisorEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal17Initialize_ModPowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_LogEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal19PMC_TryParseForSINTEPKwiPKNS2_28__tag_PMC_NUMBER_FORMAT_INFOEPcPPNS2_21__tag_PMC_HANDLE_UINTEPj
 	.linkonce	discard
@@ -482,6 +491,16 @@ _ZN8Palmtree4Math4Core8Internal18configuration_infoE:
 	.linkonce	discard
 .refptr._ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi:
 	.quad	_ZN8Palmtree4Math4Core8Internal22PMC_GetConstantValue_IEi
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE
+	.linkonce	discard
+.refptr._ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE:
+	.quad	_ZN8Palmtree4Math4Core8Internal15PMC_Floor_Log10EPNS2_21__tag_PMC_HANDLE_UINTE
+	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj, "dr"
+	.globl	.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+	.linkonce	discard
+.refptr._ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj:
+	.quad	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal16PMC_ModPow_X_X_XEPNS2_21__tag_PMC_HANDLE_UINTES4_S4_
 	.linkonce	discard

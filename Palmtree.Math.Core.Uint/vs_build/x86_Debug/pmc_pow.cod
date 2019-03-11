@@ -51,25 +51,25 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __235E20A6_pmc_pow@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117907 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
+$SG117927 DB	'0', 00H, 'n00', 00H, 'WNn0$Po0*g', 09aH, '[', 0a9H, 07fH
 	DB	'g0Y0', 02H, '0', 00H, 00H
-$SG117920 DB	0aaH, '0', 0fcH, '0', 0d0H, '0', 0fcH, '0', 0d5H, '0', 0edH
+$SG117940 DB	0aaH, '0', 0fcH, '0', 0d0H, '0', 0fcH, '0', 0d5H, '0', 0edH
 	DB	'0', 0fcH, '0k0', 088H, '0', 08aH, '0', 08H, 08aH, 097H, '{', 092H
 	DB	'0', 09aH, '}L', 088H, 'g0M0~0[0', 093H, '0', 02H, '0', 00H, 00H
-$SG117937 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'p', 00H, 'o', 00H
+$SG117957 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'p', 00H, 'o', 00H
 	DB	'w', 00H, '.', 00H, 'c', 00H, 'p', 00H, 'p', 00H, ';', 00H, 'P'
 	DB	00H, 'M', 00H, 'C', 00H, '_', 00H, 'P', 00H, 'o', 00H, 'w', 00H
 	DB	'_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ';', 00H, '1', 00H, 00H
 	DB	00H
-$SG117938 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117958 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117945 DB	'v', 00H, 00H, 00H
-$SG117946 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117965 DB	'v', 00H, 00H, 00H
+$SG117966 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+6
-$SG117957 DB	0feH, 's(Wn0', 0d7H, '0', 0e9H, '0', 0c3H, '0', 0c8H, '0', 0d5H
+$SG117977 DB	0feH, 's(Wn0', 0d7H, '0', 0e9H, '0', 0c3H, '0', 0c8H, '0', 0d5H
 	DB	'0', 0a9H, '0', 0fcH, '0', 0e0H, '0g0o0', 0b5H, '0', 0ddH, '0', 0fcH
 	DB	'0', 0c8H, '0U0', 08cH, '0j0D0_j', 0fdH, 080H, 092H, '0', 09fH
 	DB	'[L', 088H, 'W0', 088H, '0F0h0W0~0W0_0', 02H, '0', 00H, 00H
@@ -104,9 +104,11 @@ PUBLIC	??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@ABV01234@@Z ; 
 PUBLIC	??1InternalErrorException@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::InternalErrorException::~InternalErrorException
 PUBLIC	??_GInternalErrorException@Internal@Core@Math@Palmtree@@UAEPAXI@Z ; Palmtree::Math::Core::Internal::InternalErrorException::`scalar deleting destructor'
 PUBLIC	?PMC_Pow_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_I_Imp
+PUBLIC	?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10_Imp
 PUBLIC	?Initialize_Pow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Pow
 PUBLIC	?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_I
 PUBLIC	?PMC_Pow_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_L
+PUBLIC	?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
 PUBLIC	__JustMyCode_Default
 PUBLIC	??_7exception@std@@6B@				; std::exception::`vftable'
 PUBLIC	??_C@_0BC@EOODALEL@Unknown?5exception@		; `string'
@@ -180,7 +182,9 @@ EXTRN	??_EInternalErrorException@Internal@Core@Math@Palmtree@@UAEPAXI@Z:PROC ; P
 EXTRN	?CommitNumber@Internal@Core@Math@Palmtree@@YAXPAU__tag_NUMBER_HEADER@1234@@Z:PROC ; Palmtree::Math::Core::Internal::CommitNumber
 EXTRN	?CheckNumber@Internal@Core@Math@Palmtree@@YAXPAU__tag_NUMBER_HEADER@1234@@Z:PROC ; Palmtree::Math::Core::Internal::CheckNumber
 EXTRN	?DuplicateNumber@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@@Z:PROC ; Palmtree::Math::Core::Internal::DuplicateNumber
+EXTRN	?From_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@I@Z:PROC ; Palmtree::Math::Core::Internal::From_I_Imp
 EXTRN	?Multiply_X_X_Imp@Internal@Core@Math@Palmtree@@YAXPAII0I0@Z:PROC ; Palmtree::Math::Core::Internal::Multiply_X_X_Imp
+EXTRN	?PMC_Multiply_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Multiply_X_I_Imp
 EXTRN	??0ResourceHolderUINT@Internal@Core@Math@Palmtree@@QAE@XZ:PROC ; Palmtree::Math::Core::Internal::ResourceHolderUINT::ResourceHolderUINT
 EXTRN	??1ResourceHolderUINT@Internal@Core@Math@Palmtree@@UAE@XZ:PROC ; Palmtree::Math::Core::Internal::ResourceHolderUINT::~ResourceHolderUINT
 EXTRN	?AllocateBlock@ResourceHolderUINT@Internal@Core@Math@Palmtree@@QAEPAII@Z:PROC ; Palmtree::Math::Core::Internal::ResourceHolderUINT::AllocateBlock
@@ -650,11 +654,20 @@ CONST	ENDS
 xdata$x	SEGMENT
 __unwindtable$?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z$0
+__unwindtable$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z DD 0ffffffffH
+	DD	FLAT:__unwindfunclet$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z$0
 __unwindtable$?PMC_Pow_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z DD 0ffffffffH
 	DD	FLAT:__unwindfunclet$?PMC_Pow_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z$0
 __ehfuncinfo$?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z DD 019930522H
 	DD	01H
 	DD	FLAT:__unwindtable$?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z
+	DD	2 DUP(00H)
+	DD	2 DUP(00H)
+	DD	00H
+	DD	00H
+__ehfuncinfo$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z DD 019930522H
+	DD	01H
+	DD	FLAT:__unwindtable$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z
 	DD	2 DUP(00H)
 	DD	2 DUP(00H)
 	DD	00H
@@ -1343,6 +1356,37 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_pow.cpp
 _TEXT	SEGMENT
+_v$ = 8							; size = 4
+_e$ = 12						; size = 4
+?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z PROC ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+
+; 345  :     {
+
+  00000	55		 push	 ebp
+  00001	8b ec		 mov	 ebp, esp
+  00003	b9 00 00 00 00	 mov	 ecx, OFFSET __235E20A6_pmc_pow@cpp
+  00008	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
+
+; 346  :         return ((PMC_HANDLE_UINT)PMC_TimesOfExponentOf10_Imp(v, e));
+
+  0000d	8b 45 0c	 mov	 eax, DWORD PTR _e$[ebp]
+  00010	50		 push	 eax
+  00011	8b 4d 08	 mov	 ecx, DWORD PTR _v$[ebp]
+  00014	51		 push	 ecx
+  00015	e8 00 00 00 00	 call	 ?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10_Imp
+  0001a	83 c4 08	 add	 esp, 8
+
+; 347  :     }
+
+  0001d	3b ec		 cmp	 ebp, esp
+  0001f	e8 00 00 00 00	 call	 __RTC_CheckEsp
+  00024	5d		 pop	 ebp
+  00025	c2 08 00	 ret	 8
+?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z ENDP ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_pow.cpp
+_TEXT	SEGMENT
 $T1 = -24						; size = 24
 _v$ = 8							; size = 4
 _e$ = 12						; size = 8
@@ -1383,7 +1427,7 @@ _e$ = 12						; size = 8
 ; 313  : #else
 ; 314  :         throw NotSupportedException(L"現在のプラットフォームではサポートされない機能を実行しようとしました。");
 
-  00027	68 00 00 00 00	 push	 OFFSET $SG117957
+  00027	68 00 00 00 00	 push	 OFFSET $SG117977
   0002c	8d 4d e8	 lea	 ecx, DWORD PTR $T1[ebp]
   0002f	e8 00 00 00 00	 call	 ??0NotSupportedException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::NotSupportedException::NotSupportedException
   00034	68 00 00 00 00	 push	 OFFSET __TI2?AVNotSupportedException@Internal@Core@Math@Palmtree@@
@@ -1449,8 +1493,8 @@ _e$ = 12						; size = 4
 ; 278  :             // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 279  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_pow.cpp;PMC_Pow_X_I;1");
 
-  00043	68 00 00 00 00	 push	 OFFSET $SG117937
-  00048	68 00 00 00 00	 push	 OFFSET $SG117938
+  00043	68 00 00 00 00	 push	 OFFSET $SG117957
+  00048	68 00 00 00 00	 push	 OFFSET $SG117958
   0004d	8d 4d c0	 lea	 ecx, DWORD PTR $T4[ebp]
   00050	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00055	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1467,8 +1511,8 @@ $LN2@PMC_Pow_X_:
 
 ; 282  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  00069	68 00 00 00 00	 push	 OFFSET $SG117945
-  0006e	68 00 00 00 00	 push	 OFFSET $SG117946
+  00069	68 00 00 00 00	 push	 OFFSET $SG117965
+  0006e	68 00 00 00 00	 push	 OFFSET $SG117966
   00073	8d 4d a8	 lea	 ecx, DWORD PTR $T3[ebp]
   00076	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0007b	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -1590,18 +1634,18 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 ?Initialize_Pow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z PROC ; Palmtree::Math::Core::Internal::Initialize_Pow
 
-; 319  :     {
+; 350  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
   00003	b9 00 00 00 00	 mov	 ecx, OFFSET __235E20A6_pmc_pow@cpp
   00008	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
 
-; 320  :         return (PMC_STATUS_OK);
+; 351  :         return (PMC_STATUS_OK);
 
   0000d	33 c0		 xor	 eax, eax
 
-; 321  :     }
+; 352  :     }
 
   0000f	3b ec		 cmp	 ebp, esp
   00011	e8 00 00 00 00	 call	 __RTC_CheckEsp
@@ -1609,6 +1653,213 @@ _feature$ = 8						; size = 4
   00017	c3		 ret	 0
 ?Initialize_Pow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ENDP ; Palmtree::Math::Core::Internal::Initialize_Pow
 _TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_pow.cpp
+_TEXT	SEGMENT
+$T2 = -56						; size = 4
+$T3 = -52						; size = 4
+_x_times_of_exponent_of_10$4 = -48			; size = 4
+_exponent_of_10$ = -44					; size = 4
+__10$ = -40						; size = 4
+_root$ = -32						; size = 16
+__$EHRec$ = -12						; size = 12
+_v$ = 8							; size = 4
+_e$ = 12						; size = 4
+?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z PROC ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10_Imp
+
+; 319  :     {
+
+  00000	55		 push	 ebp
+  00001	8b ec		 mov	 ebp, esp
+  00003	6a ff		 push	 -1
+  00005	68 00 00 00 00	 push	 __ehhandler$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z
+  0000a	64 a1 00 00 00
+	00		 mov	 eax, DWORD PTR fs:0
+  00010	50		 push	 eax
+  00011	83 ec 2c	 sub	 esp, 44			; 0000002cH
+  00014	57		 push	 edi
+  00015	8d 7d c8	 lea	 edi, DWORD PTR [ebp-56]
+  00018	b9 0b 00 00 00	 mov	 ecx, 11			; 0000000bH
+  0001d	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
+  00022	f3 ab		 rep stosd
+  00024	a1 00 00 00 00	 mov	 eax, DWORD PTR ___security_cookie
+  00029	33 c5		 xor	 eax, ebp
+  0002b	50		 push	 eax
+  0002c	8d 45 f4	 lea	 eax, DWORD PTR __$EHRec$[ebp]
+  0002f	64 a3 00 00 00
+	00		 mov	 DWORD PTR fs:0, eax
+  00035	b9 00 00 00 00	 mov	 ecx, OFFSET __235E20A6_pmc_pow@cpp
+  0003a	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
+
+; 320  :         if (v == 0)
+
+  0003f	83 7d 08 00	 cmp	 DWORD PTR _v$[ebp], 0
+  00043	75 0a		 jne	 SHORT $LN2@PMC_TimesO
+
+; 321  :             return (&number_zero);
+
+  00045	b8 00 00 00 00	 mov	 eax, OFFSET ?number_zero@Internal@Core@Math@Palmtree@@3U__tag_NUMBER_HEADER@1234@A ; Palmtree::Math::Core::Internal::number_zero
+  0004a	e9 bc 00 00 00	 jmp	 $LN1@PMC_TimesO
+$LN2@PMC_TimesO:
+
+; 322  :         if (e == 0)
+
+  0004f	83 7d 0c 00	 cmp	 DWORD PTR _e$[ebp], 0
+  00053	75 11		 jne	 SHORT $LN3@PMC_TimesO
+
+; 323  :             return (From_I_Imp(v));
+
+  00055	8b 45 08	 mov	 eax, DWORD PTR _v$[ebp]
+  00058	50		 push	 eax
+  00059	e8 00 00 00 00	 call	 ?From_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@I@Z ; Palmtree::Math::Core::Internal::From_I_Imp
+  0005e	83 c4 04	 add	 esp, 4
+  00061	e9 a5 00 00 00	 jmp	 $LN1@PMC_TimesO
+$LN3@PMC_TimesO:
+
+; 324  :         ResourceHolderUINT root;
+
+  00066	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  00069	e8 00 00 00 00	 call	 ??0ResourceHolderUINT@Internal@Core@Math@Palmtree@@QAE@XZ ; Palmtree::Math::Core::Internal::ResourceHolderUINT::ResourceHolderUINT
+  0006e	c7 45 fc 00 00
+	00 00		 mov	 DWORD PTR __$EHRec$[ebp+8], 0
+
+; 325  :         NUMBER_HEADER* _10 = From_I_Imp(10);
+
+  00075	6a 0a		 push	 10			; 0000000aH
+  00077	e8 00 00 00 00	 call	 ?From_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@I@Z ; Palmtree::Math::Core::Internal::From_I_Imp
+  0007c	83 c4 04	 add	 esp, 4
+  0007f	89 45 d8	 mov	 DWORD PTR __10$[ebp], eax
+
+; 326  :         root.HookNumber(_10);
+
+  00082	8b 4d d8	 mov	 ecx, DWORD PTR __10$[ebp]
+  00085	51		 push	 ecx
+  00086	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  00089	e8 00 00 00 00	 call	 ?HookNumber@ResourceHolderUINT@Internal@Core@Math@Palmtree@@QAEXPAU__tag_NUMBER_HEADER@2345@@Z ; Palmtree::Math::Core::Internal::ResourceHolderUINT::HookNumber
+
+; 327  : #if _M_IX86
+; 328  :         NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_I_Imp(_10, e);
+
+  0008e	8b 55 0c	 mov	 edx, DWORD PTR _e$[ebp]
+  00091	52		 push	 edx
+  00092	8b 45 d8	 mov	 eax, DWORD PTR __10$[ebp]
+  00095	50		 push	 eax
+  00096	e8 00 00 00 00	 call	 ?PMC_Pow_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_I_Imp
+  0009b	83 c4 08	 add	 esp, 8
+  0009e	89 45 d4	 mov	 DWORD PTR _exponent_of_10$[ebp], eax
+
+; 329  : #elif defined(_M_X64)
+; 330  :         NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_L_Imp(_10, e);
+; 331  : #else
+; 332  : #error unknown platform
+; 333  : #endif
+; 334  :         if (v == 1)
+
+  000a1	83 7d 08 01	 cmp	 DWORD PTR _v$[ebp], 1
+  000a5	75 1c		 jne	 SHORT $LN4@PMC_TimesO
+
+; 335  :             return (exponent_of_10);
+
+  000a7	8b 4d d4	 mov	 ecx, DWORD PTR _exponent_of_10$[ebp]
+  000aa	89 4d cc	 mov	 DWORD PTR $T3[ebp], ecx
+  000ad	c7 45 fc ff ff
+	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+8], -1
+  000b4	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  000b7	e8 00 00 00 00	 call	 ??1ResourceHolderUINT@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::ResourceHolderUINT::~ResourceHolderUINT
+  000bc	8b 45 cc	 mov	 eax, DWORD PTR $T3[ebp]
+  000bf	eb 4a		 jmp	 SHORT $LN1@PMC_TimesO
+
+; 336  :         else
+
+  000c1	eb 39		 jmp	 SHORT $LN5@PMC_TimesO
+$LN4@PMC_TimesO:
+
+; 337  :         {
+; 338  :             root.HookNumber(exponent_of_10);
+
+  000c3	8b 55 d4	 mov	 edx, DWORD PTR _exponent_of_10$[ebp]
+  000c6	52		 push	 edx
+  000c7	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  000ca	e8 00 00 00 00	 call	 ?HookNumber@ResourceHolderUINT@Internal@Core@Math@Palmtree@@QAEXPAU__tag_NUMBER_HEADER@2345@@Z ; Palmtree::Math::Core::Internal::ResourceHolderUINT::HookNumber
+
+; 339  :             NUMBER_HEADER* x_times_of_exponent_of_10 = PMC_Multiply_X_I_Imp(exponent_of_10, v);
+
+  000cf	8b 45 08	 mov	 eax, DWORD PTR _v$[ebp]
+  000d2	50		 push	 eax
+  000d3	8b 4d d4	 mov	 ecx, DWORD PTR _exponent_of_10$[ebp]
+  000d6	51		 push	 ecx
+  000d7	e8 00 00 00 00	 call	 ?PMC_Multiply_X_I_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_I_Imp
+  000dc	83 c4 08	 add	 esp, 8
+  000df	89 45 d0	 mov	 DWORD PTR _x_times_of_exponent_of_10$4[ebp], eax
+
+; 340  :             return (x_times_of_exponent_of_10);
+
+  000e2	8b 55 d0	 mov	 edx, DWORD PTR _x_times_of_exponent_of_10$4[ebp]
+  000e5	89 55 c8	 mov	 DWORD PTR $T2[ebp], edx
+  000e8	c7 45 fc ff ff
+	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+8], -1
+  000ef	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  000f2	e8 00 00 00 00	 call	 ??1ResourceHolderUINT@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::ResourceHolderUINT::~ResourceHolderUINT
+  000f7	8b 45 c8	 mov	 eax, DWORD PTR $T2[ebp]
+  000fa	eb 0f		 jmp	 SHORT $LN1@PMC_TimesO
+$LN5@PMC_TimesO:
+
+; 341  :         }
+; 342  :     }
+
+  000fc	c7 45 fc ff ff
+	ff ff		 mov	 DWORD PTR __$EHRec$[ebp+8], -1
+  00103	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  00106	e8 00 00 00 00	 call	 ??1ResourceHolderUINT@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::ResourceHolderUINT::~ResourceHolderUINT
+$LN1@PMC_TimesO:
+  0010b	52		 push	 edx
+  0010c	8b cd		 mov	 ecx, ebp
+  0010e	50		 push	 eax
+  0010f	8d 15 00 00 00
+	00		 lea	 edx, DWORD PTR $LN11@PMC_TimesO
+  00115	e8 00 00 00 00	 call	 @_RTC_CheckStackVars@8
+  0011a	58		 pop	 eax
+  0011b	5a		 pop	 edx
+  0011c	8b 4d f4	 mov	 ecx, DWORD PTR __$EHRec$[ebp]
+  0011f	64 89 0d 00 00
+	00 00		 mov	 DWORD PTR fs:0, ecx
+  00126	59		 pop	 ecx
+  00127	5f		 pop	 edi
+  00128	83 c4 38	 add	 esp, 56			; 00000038H
+  0012b	3b ec		 cmp	 ebp, esp
+  0012d	e8 00 00 00 00	 call	 __RTC_CheckEsp
+  00132	8b e5		 mov	 esp, ebp
+  00134	5d		 pop	 ebp
+  00135	c3		 ret	 0
+  00136	66 90		 npad	 2
+$LN11@PMC_TimesO:
+  00138	01 00 00 00	 DD	 1
+  0013c	00 00 00 00	 DD	 $LN10@PMC_TimesO
+$LN10@PMC_TimesO:
+  00140	e0 ff ff ff	 DD	 -32			; ffffffe0H
+  00144	10 00 00 00	 DD	 16			; 00000010H
+  00148	00 00 00 00	 DD	 $LN8@PMC_TimesO
+$LN8@PMC_TimesO:
+  0014c	72		 DB	 114			; 00000072H
+  0014d	6f		 DB	 111			; 0000006fH
+  0014e	6f		 DB	 111			; 0000006fH
+  0014f	74		 DB	 116			; 00000074H
+  00150	00		 DB	 0
+_TEXT	ENDS
+text$x	SEGMENT
+__unwindfunclet$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z$0:
+  00000	8d 4d e0	 lea	 ecx, DWORD PTR _root$[ebp]
+  00003	e9 00 00 00 00	 jmp	 ??1ResourceHolderUINT@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::ResourceHolderUINT::~ResourceHolderUINT
+__ehhandler$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z:
+  00008	8b 54 24 08	 mov	 edx, DWORD PTR [esp+8]
+  0000c	8d 42 0c	 lea	 eax, DWORD PTR [edx+12]
+  0000f	8b 4a cc	 mov	 ecx, DWORD PTR [edx-52]
+  00012	33 c8		 xor	 ecx, eax
+  00014	e8 00 00 00 00	 call	 @__security_check_cookie@4
+  00019	b8 00 00 00 00	 mov	 eax, OFFSET __ehfuncinfo$?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z
+  0001e	e9 00 00 00 00	 jmp	 ___CxxFrameHandler3
+text$x	ENDS
+?PMC_TimesOfExponentOf10_Imp@Internal@Core@Math@Palmtree@@YAPAU__tag_NUMBER_HEADER@1234@II@Z ENDP ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10_Imp
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_pow.cpp
 _TEXT	SEGMENT
@@ -1671,7 +1922,7 @@ _e$ = 12						; size = 4
 ; 91   :                 // 0 の 0 乗となるので、エラーを返す
 ; 92   :                 throw ArithmeticException(L"0の0乗の値は未定義です。");
 
-  00050	68 00 00 00 00	 push	 OFFSET $SG117907
+  00050	68 00 00 00 00	 push	 OFFSET $SG117927
   00055	8d 4d b0	 lea	 ecx, DWORD PTR $T4[ebp]
   00058	e8 00 00 00 00	 call	 ??0ArithmeticException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::ArithmeticException::ArithmeticException
   0005d	68 00 00 00 00	 push	 OFFSET __TI2?AVArithmeticException@Internal@Core@Math@Palmtree@@
@@ -1795,7 +2046,7 @@ $LN10@PMC_Pow_X_:
 
 ; 136  :                     throw OverflowException(L"オーバーフローにより計算を続行できません。");
 
-  000f0	68 00 00 00 00	 push	 OFFSET $SG117920
+  000f0	68 00 00 00 00	 push	 OFFSET $SG117940
   000f5	8d 4d 98	 lea	 ecx, DWORD PTR $T3[ebp]
   000f8	e8 00 00 00 00	 call	 ??0OverflowException@Internal@Core@Math@Palmtree@@QAE@PB_W@Z ; Palmtree::Math::Core::Internal::OverflowException::OverflowException
   000fd	68 00 00 00 00	 push	 OFFSET __TI2?AVOverflowException@Internal@Core@Math@Palmtree@@

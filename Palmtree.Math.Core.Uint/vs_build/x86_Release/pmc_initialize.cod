@@ -40,6 +40,7 @@ EXTRN	?Initialize_Parse@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATUR
 EXTRN	?Initialize_GreatestCommonDivisor@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z:PROC ; Palmtree::Math::Core::Internal::Initialize_GreatestCommonDivisor
 EXTRN	?Initialize_Pow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z:PROC ; Palmtree::Math::Core::Internal::Initialize_Pow
 EXTRN	?Initialize_ModPow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z:PROC ; Palmtree::Math::Core::Internal::Initialize_ModPow
+EXTRN	?Initialize_Log@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z:PROC ; Palmtree::Math::Core::Internal::Initialize_Log
 EXTRN	?PMC_GetStatisticsInfo@Internal@Core@Math@Palmtree@@YGXPAU__tag_PMC_STATISTICS_INFO@1234@@Z:PROC ; Palmtree::Math::Core::Internal::PMC_GetStatisticsInfo
 EXTRN	?PMC_From_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@I@Z:PROC ; Palmtree::Math::Core::Internal::PMC_From_I
 EXTRN	?PMC_From_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_K@Z:PROC ; Palmtree::Math::Core::Internal::PMC_From_L
@@ -109,6 +110,8 @@ EXTRN	?PMC_GreatestCommonDivisor_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC
 EXTRN	?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Pow_X_I
 EXTRN	?PMC_Pow_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Pow_X_L
 EXTRN	?PMC_ModPow_X_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@00@Z:PROC ; Palmtree::Math::Core::Internal::PMC_ModPow_X_X_X
+EXTRN	?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z:PROC ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+EXTRN	?PMC_Floor_Log10@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@@Z:PROC ; Palmtree::Math::Core::Internal::PMC_Floor_Log10
 EXTRN	?PMC_FromByteArrayForSINT@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAEIPAD@Z:PROC ; Palmtree::Math::Core::Internal::PMC_FromByteArrayForSINT
 EXTRN	?PMC_ToByteArrayForSINT@Internal@Core@Math@Palmtree@@YGIDPAU__tag_PMC_HANDLE_UINT@1234@PAEI@Z:PROC ; Palmtree::Math::Core::Internal::PMC_ToByteArrayForSINT
 EXTRN	?PMC_TryParseForSINT@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PADPAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z:PROC ; Palmtree::Math::Core::Internal::PMC_TryParseForSINT
@@ -117,7 +120,7 @@ EXTRN	___security_cookie:DWORD
 _BSS	SEGMENT
 	ALIGN	4
 
-?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A DB 0128H DUP (?) ; Palmtree::Math::Core::Internal::entry_points
+?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A DB 0130H DUP (?) ; Palmtree::Math::Core::Internal::entry_points
 ?initialized@Internal@Core@Math@Palmtree@@3DA DB 01H DUP (?) ; Palmtree::Math::Core::Internal::initialized
 _BSS	ENDS
 ;	COMDAT ??_C@_17NIABIIAO@?$AAx?$AA8?$AA6@
@@ -422,7 +425,7 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
 
   00006	80 3d 00 00 00
 	00 00		 cmp	 BYTE PTR ?initialized@Internal@Core@Math@Palmtree@@3DA, 0
-  0000d	0f 85 a8 04 00
+  0000d	0f 85 d0 04 00
 	00		 jne	 $LN2@PMC_UINT_I
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_inline_func.h
 
@@ -467,8 +470,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00064	83 c4 08	 add	 esp, 8
   00067	5f		 pop	 edi
   00068	85 c0		 test	 eax, eax
-  0006a	0f 85 56 04 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0006a	0f 85 7e 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 133  :                 return (nullptr);
 ; 134  :             if (Initialize_From(&feature) != PMC_STATUS_OK)
@@ -478,8 +481,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00074	e8 00 00 00 00	 call	 ?Initialize_From@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_From
   00079	83 c4 04	 add	 esp, 4
   0007c	85 c0		 test	 eax, eax
-  0007e	0f 85 42 04 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0007e	0f 85 6a 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 135  :                 return (nullptr);
 ; 136  :             if (Initialize_To(&feature) != PMC_STATUS_OK)
@@ -489,8 +492,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00088	e8 00 00 00 00	 call	 ?Initialize_To@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_To
   0008d	83 c4 04	 add	 esp, 4
   00090	85 c0		 test	 eax, eax
-  00092	0f 85 2e 04 00
-	00		 jne	 $LN40@PMC_UINT_I
+  00092	0f 85 56 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 137  :                 return (nullptr);
 ; 138  :             if (Initialize_Add(&feature) != PMC_STATUS_OK)
@@ -500,8 +503,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   0009c	e8 00 00 00 00	 call	 ?Initialize_Add@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Add
   000a1	83 c4 04	 add	 esp, 4
   000a4	85 c0		 test	 eax, eax
-  000a6	0f 85 1a 04 00
-	00		 jne	 $LN40@PMC_UINT_I
+  000a6	0f 85 42 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 139  :                 return (nullptr);
 ; 140  :             if (Initialize_Subtruct(&feature) != PMC_STATUS_OK)
@@ -511,8 +514,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   000b0	e8 00 00 00 00	 call	 ?Initialize_Subtruct@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Subtruct
   000b5	83 c4 04	 add	 esp, 4
   000b8	85 c0		 test	 eax, eax
-  000ba	0f 85 06 04 00
-	00		 jne	 $LN40@PMC_UINT_I
+  000ba	0f 85 2e 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 141  :                 return (nullptr);
 ; 142  :             if (Initialize_Multiply(&feature) != PMC_STATUS_OK)
@@ -522,8 +525,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   000c4	e8 00 00 00 00	 call	 ?Initialize_Multiply@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Multiply
   000c9	83 c4 04	 add	 esp, 4
   000cc	85 c0		 test	 eax, eax
-  000ce	0f 85 f2 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  000ce	0f 85 1a 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 143  :                 return (nullptr);
 ; 144  :             if (Initialize_DivRem(&feature) != PMC_STATUS_OK)
@@ -533,8 +536,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   000d8	e8 00 00 00 00	 call	 ?Initialize_DivRem@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_DivRem
   000dd	83 c4 04	 add	 esp, 4
   000e0	85 c0		 test	 eax, eax
-  000e2	0f 85 de 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  000e2	0f 85 06 04 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 145  :                 return (nullptr);
 ; 146  :             if (Initialize_Shift(&feature) != PMC_STATUS_OK)
@@ -544,8 +547,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   000ec	e8 00 00 00 00	 call	 ?Initialize_Shift@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Shift
   000f1	83 c4 04	 add	 esp, 4
   000f4	85 c0		 test	 eax, eax
-  000f6	0f 85 ca 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  000f6	0f 85 f2 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 147  :                 return (nullptr);
 ; 148  :             if (Initialize_BitwiseAnd(&feature) != PMC_STATUS_OK)
@@ -555,8 +558,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00100	e8 00 00 00 00	 call	 ?Initialize_BitwiseAnd@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_BitwiseAnd
   00105	83 c4 04	 add	 esp, 4
   00108	85 c0		 test	 eax, eax
-  0010a	0f 85 b6 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0010a	0f 85 de 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 149  :                 return (nullptr);
 ; 150  :             if (Initialize_BitwiseOr(&feature) != PMC_STATUS_OK)
@@ -566,8 +569,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00114	e8 00 00 00 00	 call	 ?Initialize_BitwiseOr@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_BitwiseOr
   00119	83 c4 04	 add	 esp, 4
   0011c	85 c0		 test	 eax, eax
-  0011e	0f 85 a2 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0011e	0f 85 ca 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 151  :                 return (nullptr);
 ; 152  :             if (Initialize_ExclusiveOr(&feature) != PMC_STATUS_OK)
@@ -577,8 +580,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00128	e8 00 00 00 00	 call	 ?Initialize_ExclusiveOr@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_ExclusiveOr
   0012d	83 c4 04	 add	 esp, 4
   00130	85 c0		 test	 eax, eax
-  00132	0f 85 8e 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  00132	0f 85 b6 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 153  :                 return (nullptr);
 ; 154  :             if (Initialize_Compare(&feature) != PMC_STATUS_OK)
@@ -588,8 +591,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   0013c	e8 00 00 00 00	 call	 ?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Compare
   00141	83 c4 04	 add	 esp, 4
   00144	85 c0		 test	 eax, eax
-  00146	0f 85 7a 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  00146	0f 85 a2 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 155  :                 return (nullptr);
 ; 156  :             if (Initialize_Equals(&feature) != PMC_STATUS_OK)
@@ -599,8 +602,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00150	e8 00 00 00 00	 call	 ?Initialize_Equals@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Equals
   00155	83 c4 04	 add	 esp, 4
   00158	85 c0		 test	 eax, eax
-  0015a	0f 85 66 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0015a	0f 85 8e 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 157  :                 return (nullptr);
 ; 158  :             if (Initialize_ToString(&feature) != PMC_STATUS_OK)
@@ -610,8 +613,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00164	e8 00 00 00 00	 call	 ?Initialize_ToString@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_ToString
   00169	83 c4 04	 add	 esp, 4
   0016c	85 c0		 test	 eax, eax
-  0016e	0f 85 52 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  0016e	0f 85 7a 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 159  :                 return (nullptr);
 ; 160  :             if (Initialize_Parse(&feature) != PMC_STATUS_OK)
@@ -621,8 +624,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   00178	e8 00 00 00 00	 call	 ?Initialize_Parse@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Parse
   0017d	83 c4 04	 add	 esp, 4
   00180	85 c0		 test	 eax, eax
-  00182	0f 85 3e 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  00182	0f 85 66 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 161  :                 return (nullptr);
 ; 162  :             if (Initialize_GreatestCommonDivisor(&feature) != PMC_STATUS_OK)
@@ -632,8 +635,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   0018c	e8 00 00 00 00	 call	 ?Initialize_GreatestCommonDivisor@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_GreatestCommonDivisor
   00191	83 c4 04	 add	 esp, 4
   00194	85 c0		 test	 eax, eax
-  00196	0f 85 2a 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  00196	0f 85 52 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 163  :                 return (nullptr);
 ; 164  :             if (Initialize_Pow(&feature) != PMC_STATUS_OK)
@@ -643,8 +646,8 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   001a0	e8 00 00 00 00	 call	 ?Initialize_Pow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Pow
   001a5	83 c4 04	 add	 esp, 4
   001a8	85 c0		 test	 eax, eax
-  001aa	0f 85 16 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  001aa	0f 85 3e 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
 ; 165  :                 return (nullptr);
 ; 166  :             if (Initialize_ModPow(&feature) != PMC_STATUS_OK)
@@ -654,420 +657,441 @@ _PMC_UINT_Initialize@4 PROC				; COMDAT
   001b4	e8 00 00 00 00	 call	 ?Initialize_ModPow@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_ModPow
   001b9	83 c4 04	 add	 esp, 4
   001bc	85 c0		 test	 eax, eax
-  001be	0f 85 02 03 00
-	00		 jne	 $LN40@PMC_UINT_I
+  001be	0f 85 2a 03 00
+	00		 jne	 $LN41@PMC_UINT_I
 
-; 168  : 
-; 169  :             entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
-; 170  :             entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
-; 171  :             entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
-; 172  :             entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
-; 173  :             entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
+; 167  :                 return (nullptr);
+; 168  :             if (Initialize_Log(&feature) != PMC_STATUS_OK)
 
-  001c4	8b 0d 00 00 00
+  001c4	8d 45 fc	 lea	 eax, DWORD PTR _feature$2[ebp]
+  001c7	50		 push	 eax
+  001c8	e8 00 00 00 00	 call	 ?Initialize_Log@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Log
+  001cd	83 c4 04	 add	 esp, 4
+  001d0	85 c0		 test	 eax, eax
+  001d2	0f 85 16 03 00
+	00		 jne	 $LN41@PMC_UINT_I
+
+; 170  : 
+; 171  :             entry_points.PROCESSOR_FEATURE_POPCNT = feature.PROCESSOR_FEATURE_POPCNT;
+; 172  :             entry_points.PROCESSOR_FEATURE_ADX = feature.PROCESSOR_FEATURE_ADX;
+; 173  :             entry_points.PROCESSOR_FEATURE_BMI1 = feature.PROCESSOR_FEATURE_BMI1;
+; 174  :             entry_points.PROCESSOR_FEATURE_BMI2 = feature.PROCESSOR_FEATURE_BMI2;
+; 175  :             entry_points.PROCESSOR_FEATURE_ABM = feature.PROCESSOR_FEATURE_ABM;
+
+  001d8	8b 0d 00 00 00
 	00		 mov	 ecx, DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A
-  001ca	8b c1		 mov	 eax, ecx
-  001cc	33 45 fc	 xor	 eax, DWORD PTR _feature$2[ebp]
-  001cf	83 e0 1f	 and	 eax, 31			; 0000001fH
+  001de	8b c1		 mov	 eax, ecx
+  001e0	33 45 fc	 xor	 eax, DWORD PTR _feature$2[ebp]
+  001e3	83 e0 1f	 and	 eax, 31			; 0000001fH
 
-; 174  :             entry_points.GetConfigurationSettings = PMC_GetConfigurationSettings;
+; 176  :             entry_points.GetConfigurationSettings = PMC_GetConfigurationSettings;
 
-  001d2	c7 05 04 00 00
+  001e6	c7 05 04 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+4, OFFSET ?PMC_GetConfigurationSettings@Internal@Core@Math@Palmtree@@YGHPB_WPA_WHPAH@Z ; Palmtree::Math::Core::Internal::PMC_GetConfigurationSettings
-  001dc	33 c8		 xor	 ecx, eax
+  001f0	33 c8		 xor	 ecx, eax
 
-; 175  :             entry_points.GetStatisticsInfo = PMC_GetStatisticsInfo;
+; 177  :             entry_points.GetStatisticsInfo = PMC_GetStatisticsInfo;
 
-  001de	c7 05 08 00 00
+  001f2	c7 05 08 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+8, OFFSET ?PMC_GetStatisticsInfo@Internal@Core@Math@Palmtree@@YGXPAU__tag_PMC_STATISTICS_INFO@1234@@Z ; Palmtree::Math::Core::Internal::PMC_GetStatisticsInfo
-  001e8	89 0d 00 00 00
+  001fc	89 0d 00 00 00
 	00		 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A, ecx
 
-; 176  :             entry_points.From_I = PMC_From_I;
+; 178  :             entry_points.From_I = PMC_From_I;
 
-  001ee	c7 05 0c 00 00
+  00202	c7 05 0c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+12, OFFSET ?PMC_From_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_From_I
 
-; 177  :             entry_points.From_L = PMC_From_L;
+; 179  :             entry_points.From_L = PMC_From_L;
 
-  001f8	c7 05 10 00 00
+  0020c	c7 05 10 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+16, OFFSET ?PMC_From_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_From_L
 
-; 178  :             entry_points.Dispose = PMC_Dispose;
+; 180  :             entry_points.Dispose = PMC_Dispose;
 
-  00202	c7 05 14 00 00
+  00216	c7 05 14 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+20, OFFSET ?PMC_Dispose@Internal@Core@Math@Palmtree@@YGXPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Dispose
 
-; 179  :             entry_points.To_X_I = PMC_To_X_I;
+; 181  :             entry_points.To_X_I = PMC_To_X_I;
 
-  0020c	c7 05 2c 00 00
+  00220	c7 05 2c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+44, OFFSET ?PMC_To_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_To_X_I
 
-; 180  :             entry_points.To_X_L = PMC_To_X_L;
+; 182  :             entry_points.To_X_L = PMC_To_X_L;
 
-  00216	c7 05 30 00 00
+  0022a	c7 05 30 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+48, OFFSET ?PMC_To_X_L@Internal@Core@Math@Palmtree@@YG_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_To_X_L
 
-; 181  :             entry_points.FromByteArray = PMC_FromByteArray;
+; 183  :             entry_points.FromByteArray = PMC_FromByteArray;
 
-  00220	c7 05 1c 00 00
+  00234	c7 05 1c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+28, OFFSET ?PMC_FromByteArray@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PBEI@Z ; Palmtree::Math::Core::Internal::PMC_FromByteArray
 
-; 182  :             entry_points.ToByteArray = PMC_ToByteArray;
+; 184  :             entry_points.ToByteArray = PMC_ToByteArray;
 
-  0022a	c7 05 20 00 00
+  0023e	c7 05 20 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+32, OFFSET ?PMC_ToByteArray@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@PAEI@Z ; Palmtree::Math::Core::Internal::PMC_ToByteArray
 
-; 183  :             entry_points.InitializeNumberFormatInfo = PMC_InitializeNumberFormatInfo;
+; 185  :             entry_points.InitializeNumberFormatInfo = PMC_InitializeNumberFormatInfo;
 
-  00234	c7 05 34 00 00
+  00248	c7 05 34 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+52, OFFSET ?PMC_InitializeNumberFormatInfo@Internal@Core@Math@Palmtree@@YGXPAU__tag_PMC_NUMBER_FORMAT_INFO@1234@@Z ; Palmtree::Math::Core::Internal::PMC_InitializeNumberFormatInfo
 
-; 184  :             entry_points.ToString = PMC_ToString;
+; 186  :             entry_points.ToString = PMC_ToString;
 
-  0023e	c7 05 38 00 00
+  00252	c7 05 38 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+56, OFFSET ?PMC_ToString@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@PB_WPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PA_WI@Z ; Palmtree::Math::Core::Internal::PMC_ToString
 
-; 185  :             entry_points.TryParse = PMC_TryParse;
+; 187  :             entry_points.TryParse = PMC_TryParse;
 
-  00248	c7 05 3c 00 00
+  0025c	c7 05 3c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+60, OFFSET ?PMC_TryParse@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParse
 
-; 186  :             entry_points.Add_I_X = PMC_Add_I_X;
+; 188  :             entry_points.Add_I_X = PMC_Add_I_X;
 
-  00252	c7 05 40 00 00
+  00266	c7 05 40 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+64, OFFSET ?PMC_Add_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Add_I_X
 
-; 187  :             entry_points.Add_L_X = PMC_Add_L_X;
+; 189  :             entry_points.Add_L_X = PMC_Add_L_X;
 
-  0025c	c7 05 44 00 00
+  00270	c7 05 44 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+68, OFFSET ?PMC_Add_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Add_L_X
 
-; 188  :             entry_points.Add_X_I = PMC_Add_X_I;
+; 190  :             entry_points.Add_X_I = PMC_Add_X_I;
 
-  00266	c7 05 48 00 00
+  0027a	c7 05 48 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+72, OFFSET ?PMC_Add_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_I
 
-; 189  :             entry_points.Add_X_L = PMC_Add_X_L;
+; 191  :             entry_points.Add_X_L = PMC_Add_X_L;
 
-  00270	c7 05 4c 00 00
+  00284	c7 05 4c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+76, OFFSET ?PMC_Add_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_L
 
-; 190  :             entry_points.Add_X_X = PMC_Add_X_X;
+; 192  :             entry_points.Add_X_X = PMC_Add_X_X;
 
-  0027a	c7 05 50 00 00
+  0028e	c7 05 50 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+80, OFFSET ?PMC_Add_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Add_X_X
 
-; 191  :             entry_points.Subtruct_I_X = PMC_Subtruct_I_X;
+; 193  :             entry_points.Subtruct_I_X = PMC_Subtruct_I_X;
 
-  00284	c7 05 54 00 00
+  00298	c7 05 54 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+84, OFFSET ?PMC_Subtruct_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_I_X
 
-; 192  :             entry_points.Subtruct_L_X = PMC_Subtruct_L_X;
+; 194  :             entry_points.Subtruct_L_X = PMC_Subtruct_L_X;
 
-  0028e	c7 05 58 00 00
+  002a2	c7 05 58 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+88, OFFSET ?PMC_Subtruct_L_X@Internal@Core@Math@Palmtree@@YG_K_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_L_X
 
-; 193  :             entry_points.Subtruct_X_I = PMC_Subtruct_X_I;
+; 195  :             entry_points.Subtruct_X_I = PMC_Subtruct_X_I;
 
-  00298	c7 05 5c 00 00
+  002ac	c7 05 5c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+92, OFFSET ?PMC_Subtruct_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_I
 
-; 194  :             entry_points.Subtruct_X_L = PMC_Subtruct_X_L;
+; 196  :             entry_points.Subtruct_X_L = PMC_Subtruct_X_L;
 
-  002a2	c7 05 60 00 00
+  002b6	c7 05 60 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+96, OFFSET ?PMC_Subtruct_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_L
 
-; 195  :             entry_points.Subtruct_X_X = PMC_Subtruct_X_X;
+; 197  :             entry_points.Subtruct_X_X = PMC_Subtruct_X_X;
 
-  002ac	c7 05 64 00 00
+  002c0	c7 05 64 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+100, OFFSET ?PMC_Subtruct_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Subtruct_X_X
 
-; 196  :             entry_points.Multiply_I_X = PMC_Multiply_I_X;
+; 198  :             entry_points.Multiply_I_X = PMC_Multiply_I_X;
 
-  002b6	c7 05 68 00 00
+  002ca	c7 05 68 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+104, OFFSET ?PMC_Multiply_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_I_X
 
-; 197  :             entry_points.Multiply_L_X = PMC_Multiply_L_X;
+; 199  :             entry_points.Multiply_L_X = PMC_Multiply_L_X;
 
-  002c0	c7 05 6c 00 00
+  002d4	c7 05 6c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+108, OFFSET ?PMC_Multiply_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_L_X
 
-; 198  :             entry_points.Multiply_X_I = PMC_Multiply_X_I;
+; 200  :             entry_points.Multiply_X_I = PMC_Multiply_X_I;
 
-  002ca	c7 05 70 00 00
+  002de	c7 05 70 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+112, OFFSET ?PMC_Multiply_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_I
 
-; 199  :             entry_points.Multiply_X_L = PMC_Multiply_X_L;
+; 201  :             entry_points.Multiply_X_L = PMC_Multiply_X_L;
 
-  002d4	c7 05 74 00 00
+  002e8	c7 05 74 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+116, OFFSET ?PMC_Multiply_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_L
 
-; 200  :             entry_points.Multiply_X_X = PMC_Multiply_X_X;
+; 202  :             entry_points.Multiply_X_X = PMC_Multiply_X_X;
 
-  002de	c7 05 78 00 00
+  002f2	c7 05 78 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+120, OFFSET ?PMC_Multiply_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_Multiply_X_X
 
-; 201  :             entry_points.DivRem_I_X = PMC_DivRem_I_X;
+; 203  :             entry_points.DivRem_I_X = PMC_DivRem_I_X;
 
-  002e8	c7 05 7c 00 00
+  002fc	c7 05 7c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+124, OFFSET ?PMC_DivRem_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_I_X
 
-; 202  :             entry_points.DivRem_L_X = PMC_DivRem_L_X;
+; 204  :             entry_points.DivRem_L_X = PMC_DivRem_L_X;
 
-  002f2	c7 05 80 00 00
+  00306	c7 05 80 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+128, OFFSET ?PMC_DivRem_L_X@Internal@Core@Math@Palmtree@@YG_K_KPAU__tag_PMC_HANDLE_UINT@1234@PA_K@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_L_X
 
-; 203  :             entry_points.DivRem_X_I = PMC_DivRem_X_I;
+; 205  :             entry_points.DivRem_X_I = PMC_DivRem_X_I;
 
-  002fc	c7 05 84 00 00
+  00310	c7 05 84 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+132, OFFSET ?PMC_DivRem_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@IPAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_I
 
-; 204  :             entry_points.DivRem_X_L = PMC_DivRem_X_L;
+; 206  :             entry_points.DivRem_X_L = PMC_DivRem_X_L;
 
-  00306	c7 05 88 00 00
+  0031a	c7 05 88 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+136, OFFSET ?PMC_DivRem_X_L@Internal@Core@Math@Palmtree@@YG_KPAU__tag_PMC_HANDLE_UINT@1234@_KPAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_L
 
-; 205  :             entry_points.DivRem_X_X = PMC_DivRem_X_X;
+; 207  :             entry_points.DivRem_X_X = PMC_DivRem_X_X;
 
-  00310	c7 05 8c 00 00
+  00324	c7 05 8c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+140, OFFSET ?PMC_DivRem_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0PAPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_DivRem_X_X
 
-; 206  :             entry_points.RightShift_X_I = PMC_RightShift_X_I;
+; 208  :             entry_points.RightShift_X_I = PMC_RightShift_X_I;
 
-  0031a	c7 05 94 00 00
+  0032e	c7 05 94 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+148, OFFSET ?PMC_RightShift_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@H@Z ; Palmtree::Math::Core::Internal::PMC_RightShift_X_I
 
-; 207  :             entry_points.LeftShift_X_I = PMC_LeftShift_X_I;
+; 209  :             entry_points.LeftShift_X_I = PMC_LeftShift_X_I;
 
-  00324	c7 05 90 00 00
+  00338	c7 05 90 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+144, OFFSET ?PMC_LeftShift_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@H@Z ; Palmtree::Math::Core::Internal::PMC_LeftShift_X_I
 
-; 208  :             entry_points.BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
+; 210  :             entry_points.BitwiseAnd_I_X = PMC_BitwiseAnd_I_X;
 
-  0032e	c7 05 98 00 00
+  00342	c7 05 98 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+152, OFFSET ?PMC_BitwiseAnd_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_I_X
 
-; 209  :             entry_points.BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
+; 211  :             entry_points.BitwiseAnd_L_X = PMC_BitwiseAnd_L_X;
 
-  00338	c7 05 9c 00 00
+  0034c	c7 05 9c 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+156, OFFSET ?PMC_BitwiseAnd_L_X@Internal@Core@Math@Palmtree@@YG_K_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_L_X
 
-; 210  :             entry_points.BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
+; 212  :             entry_points.BitwiseAnd_X_I = PMC_BitwiseAnd_X_I;
 
-  00342	c7 05 a0 00 00
+  00356	c7 05 a0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+160, OFFSET ?PMC_BitwiseAnd_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_X_I
 
-; 211  :             entry_points.BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
+; 213  :             entry_points.BitwiseAnd_X_L = PMC_BitwiseAnd_X_L;
 
-  0034c	c7 05 a4 00 00
+  00360	c7 05 a4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+164, OFFSET ?PMC_BitwiseAnd_X_L@Internal@Core@Math@Palmtree@@YG_KPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_X_L
 
-; 212  :             entry_points.BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
+; 214  :             entry_points.BitwiseAnd_X_X = PMC_BitwiseAnd_X_X;
 
-  00356	c7 05 a8 00 00
+  0036a	c7 05 a8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+168, OFFSET ?PMC_BitwiseAnd_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseAnd_X_X
 
-; 213  :             entry_points.BitwiseOr_I_X = PMC_BitwiseOr_I_X;
+; 215  :             entry_points.BitwiseOr_I_X = PMC_BitwiseOr_I_X;
 
-  00360	c7 05 ac 00 00
+  00374	c7 05 ac 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+172, OFFSET ?PMC_BitwiseOr_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_I_X
 
-; 214  :             entry_points.BitwiseOr_L_X = PMC_BitwiseOr_L_X;
+; 216  :             entry_points.BitwiseOr_L_X = PMC_BitwiseOr_L_X;
 
-  0036a	c7 05 b0 00 00
+  0037e	c7 05 b0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+176, OFFSET ?PMC_BitwiseOr_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_L_X
 
-; 215  :             entry_points.BitwiseOr_X_I = PMC_BitwiseOr_X_I;
+; 217  :             entry_points.BitwiseOr_X_I = PMC_BitwiseOr_X_I;
 
-  00374	c7 05 b4 00 00
+  00388	c7 05 b4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+180, OFFSET ?PMC_BitwiseOr_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_I
 
-; 216  :             entry_points.BitwiseOr_X_L = PMC_BitwiseOr_X_L;
+; 218  :             entry_points.BitwiseOr_X_L = PMC_BitwiseOr_X_L;
 
-  0037e	c7 05 b8 00 00
+  00392	c7 05 b8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+184, OFFSET ?PMC_BitwiseOr_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_L
 
-; 217  :             entry_points.BitwiseOr_X_X = PMC_BitwiseOr_X_X;
+; 219  :             entry_points.BitwiseOr_X_X = PMC_BitwiseOr_X_X;
 
-  00388	c7 05 bc 00 00
+  0039c	c7 05 bc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+188, OFFSET ?PMC_BitwiseOr_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_BitwiseOr_X_X
 
-; 218  :             entry_points.ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
+; 220  :             entry_points.ExclusiveOr_I_X = PMC_ExclusiveOr_I_X;
 
-  00392	c7 05 c0 00 00
+  003a6	c7 05 c0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+192, OFFSET ?PMC_ExclusiveOr_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_I_X
 
-; 219  :             entry_points.ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
+; 221  :             entry_points.ExclusiveOr_L_X = PMC_ExclusiveOr_L_X;
 
-  0039c	c7 05 c4 00 00
+  003b0	c7 05 c4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+196, OFFSET ?PMC_ExclusiveOr_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_L_X
 
-; 220  :             entry_points.ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
+; 222  :             entry_points.ExclusiveOr_X_I = PMC_ExclusiveOr_X_I;
 
-  003a6	c7 05 c8 00 00
+  003ba	c7 05 c8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+200, OFFSET ?PMC_ExclusiveOr_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_I
 
-; 221  :             entry_points.ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
+; 223  :             entry_points.ExclusiveOr_X_L = PMC_ExclusiveOr_X_L;
 
-  003b0	c7 05 cc 00 00
+  003c4	c7 05 cc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+204, OFFSET ?PMC_ExclusiveOr_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_L
 
-; 222  :             entry_points.ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
+; 224  :             entry_points.ExclusiveOr_X_X = PMC_ExclusiveOr_X_X;
 
-  003ba	c7 05 d0 00 00
+  003ce	c7 05 d0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+208, OFFSET ?PMC_ExclusiveOr_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_ExclusiveOr_X_X
 
-; 223  :             entry_points.Compare_I_X = PMC_Compare_I_X;
+; 225  :             entry_points.Compare_I_X = PMC_Compare_I_X;
 
-  003c4	c7 05 d4 00 00
+  003d8	c7 05 d4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+212, OFFSET ?PMC_Compare_I_X@Internal@Core@Math@Palmtree@@YGHIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_I_X
 
-; 224  :             entry_points.Compare_L_X = PMC_Compare_L_X;
+; 226  :             entry_points.Compare_L_X = PMC_Compare_L_X;
 
-  003ce	c7 05 d8 00 00
+  003e2	c7 05 d8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+216, OFFSET ?PMC_Compare_L_X@Internal@Core@Math@Palmtree@@YGH_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_L_X
 
-; 225  :             entry_points.Compare_X_I = PMC_Compare_X_I;
+; 227  :             entry_points.Compare_X_I = PMC_Compare_X_I;
 
-  003d8	c7 05 dc 00 00
+  003ec	c7 05 dc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+220, OFFSET ?PMC_Compare_X_I@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_I
 
-; 226  :             entry_points.Compare_X_L = PMC_Compare_X_L;
+; 228  :             entry_points.Compare_X_L = PMC_Compare_X_L;
 
-  003e2	c7 05 e0 00 00
+  003f6	c7 05 e0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+224, OFFSET ?PMC_Compare_X_L@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_L
 
-; 227  :             entry_points.Compare_X_X = PMC_Compare_X_X;
+; 229  :             entry_points.Compare_X_X = PMC_Compare_X_X;
 
-  003ec	c7 05 e4 00 00
+  00400	c7 05 e4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+228, OFFSET ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_X
 
-; 228  :             entry_points.Equals_I_X = PMC_Equals_I_X;
+; 230  :             entry_points.Equals_I_X = PMC_Equals_I_X;
 
-  003f6	c7 05 e8 00 00
+  0040a	c7 05 e8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+232, OFFSET ?PMC_Equals_I_X@Internal@Core@Math@Palmtree@@YGIIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Equals_I_X
 
-; 229  :             entry_points.Equals_L_X = PMC_Equals_L_X;
+; 231  :             entry_points.Equals_L_X = PMC_Equals_L_X;
 
-  00400	c7 05 ec 00 00
+  00414	c7 05 ec 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+236, OFFSET ?PMC_Equals_L_X@Internal@Core@Math@Palmtree@@YGI_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Equals_L_X
 
-; 230  :             entry_points.Equals_X_I = PMC_Equals_X_I;
+; 232  :             entry_points.Equals_X_I = PMC_Equals_X_I;
 
-  0040a	c7 05 f0 00 00
+  0041e	c7 05 f0 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+240, OFFSET ?PMC_Equals_X_I@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@I@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_I
 
-; 231  :             entry_points.Equals_X_L = PMC_Equals_X_L;
+; 233  :             entry_points.Equals_X_L = PMC_Equals_X_L;
 
-  00414	c7 05 f4 00 00
+  00428	c7 05 f4 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+244, OFFSET ?PMC_Equals_X_L@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_L
 
-; 232  :             entry_points.Equals_X_X = PMC_Equals_X_X;
+; 234  :             entry_points.Equals_X_X = PMC_Equals_X_X;
 
-  0041e	c7 05 f8 00 00
+  00432	c7 05 f8 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+248, OFFSET ?PMC_Equals_X_X@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Equals_X_X
 
-; 233  :             entry_points.GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
+; 235  :             entry_points.GreatestCommonDivisor_I_X = PMC_GreatestCommonDivisor_I_X;
 
-  00428	c7 05 fc 00 00
+  0043c	c7 05 fc 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+252, OFFSET ?PMC_GreatestCommonDivisor_I_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@IPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_I_X
 
-; 234  :             entry_points.GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
+; 236  :             entry_points.GreatestCommonDivisor_L_X = PMC_GreatestCommonDivisor_L_X;
 
-  00432	c7 05 00 01 00
+  00446	c7 05 00 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+256, OFFSET ?PMC_GreatestCommonDivisor_L_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@_KPAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_L_X
 
-; 235  :             entry_points.GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
+; 237  :             entry_points.GreatestCommonDivisor_X_I = PMC_GreatestCommonDivisor_X_I;
 
-  0043c	c7 05 04 01 00
+  00450	c7 05 04 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+260, OFFSET ?PMC_GreatestCommonDivisor_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_I
 
-; 236  :             entry_points.GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
+; 238  :             entry_points.GreatestCommonDivisor_X_L = PMC_GreatestCommonDivisor_X_L;
 
-  00446	c7 05 08 01 00
+  0045a	c7 05 08 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+264, OFFSET ?PMC_GreatestCommonDivisor_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_L
 
-; 237  :             entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
+; 239  :             entry_points.GreatestCommonDivisor_X_X = PMC_GreatestCommonDivisor_X_X;
 
-  00450	c7 05 0c 01 00
+  00464	c7 05 0c 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+268, OFFSET ?PMC_GreatestCommonDivisor_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@0@Z ; Palmtree::Math::Core::Internal::PMC_GreatestCommonDivisor_X_X
 
-; 238  :             entry_points.Pow_X_I = PMC_Pow_X_I;
+; 240  :             entry_points.Pow_X_I = PMC_Pow_X_I;
 
-  0045a	c7 05 10 01 00
+  0046e	c7 05 10 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+272, OFFSET ?PMC_Pow_X_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@I@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_I
 
-; 239  :             entry_points.Pow_X_L = PMC_Pow_X_L;
+; 241  :             entry_points.Pow_X_L = PMC_Pow_X_L;
 
-  00464	c7 05 14 01 00
+  00478	c7 05 14 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+276, OFFSET ?PMC_Pow_X_L@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@_K@Z ; Palmtree::Math::Core::Internal::PMC_Pow_X_L
 
-; 240  :             entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
+; 242  :             entry_points.ModPow_X_X_X = PMC_ModPow_X_X_X;
 
-  0046e	c7 05 18 01 00
+  00482	c7 05 18 01 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+280, OFFSET ?PMC_ModPow_X_X_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@00@Z ; Palmtree::Math::Core::Internal::PMC_ModPow_X_X_X
 
-; 241  :             entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
+; 243  :             entry_points.TimesOfExponentOf10 = PMC_TimesOfExponentOf10;
 
-  00478	c7 05 18 00 00
+  0048c	c7 05 1c 01 00
+	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+284, OFFSET ?PMC_TimesOfExponentOf10@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@II@Z ; Palmtree::Math::Core::Internal::PMC_TimesOfExponentOf10
+
+; 244  :             entry_points.Floor_Log10 = PMC_Floor_Log10;
+
+  00496	c7 05 20 01 00
+	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+288, OFFSET ?PMC_Floor_Log10@Internal@Core@Math@Palmtree@@YGIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Floor_Log10
+
+; 245  :             entry_points.GetConstantValue_I = PMC_GetConstantValue_I;
+
+  004a0	c7 05 18 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+24, OFFSET ?PMC_GetConstantValue_I@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@H@Z ; Palmtree::Math::Core::Internal::PMC_GetConstantValue_I
 
-; 242  :             entry_points.Clone_X = PMC_Clone_X;
+; 246  :             entry_points.Clone_X = PMC_Clone_X;
 
-  00482	c7 05 24 00 00
+  004aa	c7 05 24 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+36, OFFSET ?PMC_Clone_X@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAU51234@@Z ; Palmtree::Math::Core::Internal::PMC_Clone_X
 
-; 243  :             entry_points.GetAllocatedMemorySize = PMC_GetAllocatedMemorySize;
+; 247  :             entry_points.GetAllocatedMemorySize = PMC_GetAllocatedMemorySize;
 
-  0048c	c7 05 28 00 00
+  004b4	c7 05 28 00 00
 	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+40, OFFSET ?PMC_GetAllocatedMemorySize@Internal@Core@Math@Palmtree@@YG_KXZ ; Palmtree::Math::Core::Internal::PMC_GetAllocatedMemorySize
 
-; 244  : 
-; 245  :             entry_points.FromByteArrayForSINT = PMC_FromByteArrayForSINT;
-
-  00496	c7 05 1c 01 00
-	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+284, OFFSET ?PMC_FromByteArrayForSINT@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAEIPAD@Z ; Palmtree::Math::Core::Internal::PMC_FromByteArrayForSINT
-
-; 246  :             entry_points.ToByteArrayForSINT = PMC_ToByteArrayForSINT;
-
-  004a0	c7 05 20 01 00
-	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+288, OFFSET ?PMC_ToByteArrayForSINT@Internal@Core@Math@Palmtree@@YGIDPAU__tag_PMC_HANDLE_UINT@1234@PAEI@Z ; Palmtree::Math::Core::Internal::PMC_ToByteArrayForSINT
-
-; 247  :             entry_points.TryParseForSINT = PMC_TryParseForSINT;
-
-  004aa	c7 05 24 01 00
-	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+292, OFFSET ?PMC_TryParseForSINT@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PADPAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParseForSINT
-
 ; 248  : 
-; 249  :             initialized = 1;
+; 249  :             entry_points.FromByteArrayForSINT = PMC_FromByteArrayForSINT;
 
-  004b4	c6 05 00 00 00
+  004be	c7 05 24 01 00
+	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+292, OFFSET ?PMC_FromByteArrayForSINT@Internal@Core@Math@Palmtree@@YGPAU__tag_PMC_HANDLE_UINT@1234@PAEIPAD@Z ; Palmtree::Math::Core::Internal::PMC_FromByteArrayForSINT
+
+; 250  :             entry_points.ToByteArrayForSINT = PMC_ToByteArrayForSINT;
+
+  004c8	c7 05 28 01 00
+	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+296, OFFSET ?PMC_ToByteArrayForSINT@Internal@Core@Math@Palmtree@@YGIDPAU__tag_PMC_HANDLE_UINT@1234@PAEI@Z ; Palmtree::Math::Core::Internal::PMC_ToByteArrayForSINT
+
+; 251  :             entry_points.TryParseForSINT = PMC_TryParseForSINT;
+
+  004d2	c7 05 2c 01 00
+	00 00 00 00 00	 mov	 DWORD PTR ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A+300, OFFSET ?PMC_TryParseForSINT@Internal@Core@Math@Palmtree@@YGHPB_WHPBU__tag_PMC_NUMBER_FORMAT_INFO@1234@PADPAPAU__tag_PMC_HANDLE_UINT@1234@PAI@Z ; Palmtree::Math::Core::Internal::PMC_TryParseForSINT
+
+; 252  : 
+; 253  :             initialized = 1;
+
+  004dc	c6 05 00 00 00
 	00 01		 mov	 BYTE PTR ?initialized@Internal@Core@Math@Palmtree@@3DA, 1
 $LN2@PMC_UINT_I:
 
-; 250  :         }
-; 251  : 
-; 252  :         return (&entry_points);
+; 254  :         }
+; 255  : 
+; 256  :         return (&entry_points);
 
-  004bb	b8 00 00 00 00	 mov	 eax, OFFSET ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A
+  004e3	b8 00 00 00 00	 mov	 eax, OFFSET ?entry_points@Internal@Core@Math@Palmtree@@3U__tag_PMC_UINT_ENTRY_POINTS@1234@A
 
-; 253  :     }
+; 257  :     }
 
-  004c0	8b e5		 mov	 esp, ebp
-  004c2	5d		 pop	 ebp
-  004c3	c2 04 00	 ret	 4
-$LN40@PMC_UINT_I:
+  004e8	8b e5		 mov	 esp, ebp
+  004ea	5d		 pop	 ebp
+  004eb	c2 04 00	 ret	 4
+$LN41@PMC_UINT_I:
 
-; 167  :                 return (nullptr);
+; 169  :                 return (nullptr);
 
-  004c6	33 c0		 xor	 eax, eax
+  004ee	33 c0		 xor	 eax, eax
 
-; 253  :     }
+; 257  :     }
 
-  004c8	8b e5		 mov	 esp, ebp
-  004ca	5d		 pop	 ebp
-  004cb	c2 04 00	 ret	 4
+  004f0	8b e5		 mov	 esp, ebp
+  004f2	5d		 pop	 ebp
+  004f3	c2 04 00	 ret	 4
 _PMC_UINT_Initialize@4 ENDP
 _TEXT	ENDS
 END

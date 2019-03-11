@@ -104469,6 +104469,12 @@ namespace Palmtree::Math::Core::Internal
             PMC_HANDLE_UINT( * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m);
 
 
+            PMC_HANDLE_UINT( * TimesOfExponentOf10)(_UINT32_T v, _UINT32_T e);
+
+
+            _UINT32_T( * Floor_Log10)(PMC_HANDLE_UINT v);
+
+
             PMC_HANDLE_UINT( * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign);
             size_t( * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);
             PMC_STATUS_CODE( * TryParseForSINT)(const wchar_t* source, PMC_NUMBER_STYLE_CODE number_styles, const PMC_NUMBER_FORMAT_INFO* format_option, char* o_sign, PMC_HANDLE_UINT* o_abs, _UINT32_T* result) noexcept(false);
@@ -104671,6 +104677,14 @@ namespace Palmtree::Math::Core::Internal
 
     extern NUMBER_HEADER* PMC_Multiply_X_I_Imp(NUMBER_HEADER* u, _UINT32_T v);
 
+
+    extern NUMBER_HEADER* PMC_TimesOfExponentOf10_Imp(_UINT32_T v, __UNIT_TYPE e);
+
+
+    extern _UINT32_T PMC_Floor_Log10_Imp(NUMBER_HEADER* v);
+
+
+    _INT32_T PMC_Compare_X_X_Imp(NUMBER_HEADER* u, NUMBER_HEADER* v);
 #pragma endregion
 
 
@@ -104728,6 +104742,9 @@ namespace Palmtree::Math::Core::Internal
 
 
     extern PMC_STATUS_CODE Initialize_ModPow(PROCESSOR_FEATURES* feature);
+
+
+    extern PMC_STATUS_CODE Initialize_Log(PROCESSOR_FEATURES* feature);
 #pragma endregion
 
 
@@ -104825,6 +104842,10 @@ namespace Palmtree::Math::Core::Internal
     extern PMC_HANDLE_UINT PMC_Pow_X_L(PMC_HANDLE_UINT x, _UINT64_T n) noexcept(false);
 
     extern PMC_HANDLE_UINT PMC_ModPow_X_X_X(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m) noexcept(false);
+
+    extern PMC_HANDLE_UINT PMC_TimesOfExponentOf10(_UINT32_T v, _UINT32_T e);
+
+    extern _UINT32_T PMC_Floor_Log10(PMC_HANDLE_UINT v);
 
     extern PMC_HANDLE_UINT PMC_FromByteArrayForSINT(unsigned char* buffer, size_t count, char* o_sign) noexcept(false);
     extern size_t PMC_ToByteArrayForSINT(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);
@@ -106724,52 +106745,6 @@ namespace Palmtree::Math::Core::Internal
     namespace DecimalFromatter
     {
 
-
-        static _UINT32_T get_digit_count_as_decimal(__UNIT_TYPE* src_buf, __UNIT_TYPE src_buf_count)
-        {
-            ResourceHolderUINT root;
-            __UNIT_TYPE* work1_buf = root.AllocateBlock(src_buf_count * (sizeof(__UNIT_TYPE) * 8));
-            __UNIT_TYPE* work2_buf = root.AllocateBlock(src_buf_count * (sizeof(__UNIT_TYPE) * 8));
-            _COPY_MEMORY_UNIT(work1_buf, src_buf, src_buf_count);
-            __UNIT_TYPE* u_buf = work1_buf;
-            __UNIT_TYPE* q_buf = work2_buf;
-            __UNIT_TYPE u_count = src_buf_count;
-            _UINT32_T digit_count = 0;
-            while (1)
-            {
-                while (u_count > 0 && u_buf[u_count - 1] == 0)
-                    --u_count;
-                if (u_count <= 0)
-                    break;
-                __UNIT_TYPE temp_r;
-                root.ClearBlock(q_buf);
-                DivRem_X_1W(u_buf, u_count, 10, q_buf, &temp_r);
-                __UNIT_TYPE* t = u_buf;
-                u_buf = q_buf;
-                q_buf = t;
-                ++digit_count;
-            }
-            return (digit_count);
-        }
-
-
-        static NUMBER_HEADER* get_x_times_of_exponent_of_10(_UINT32_T x, __UNIT_TYPE e)
-        {
-            ResourceHolderUINT root;
-            NUMBER_HEADER* _10 = From_I_Imp(10);
-            root.HookNumber(_10);
-
-
-
-            NUMBER_HEADER* exponent_of_10 = PMC_Pow_X_L_Imp(_10, e);
-
-
-
-            root.HookNumber(exponent_of_10);
-            NUMBER_HEADER* x_times_of_exponent_of_10 = PMC_Multiply_X_I_Imp(exponent_of_10, x);
-            return (x_times_of_exponent_of_10);
-        }
-
         class ThousandSeparatedStringWriter
             : public StringWriter
         {
@@ -106791,36 +106766,36 @@ namespace Palmtree::Math::Core::Internal
                 {
                     decimal_info = &format_option->Currency;
                     _is_supported_thousand = 
-# 109 "../pmc_tostring.cpp" 3
+# 63 "../pmc_tostring.cpp" 3
                                             1
-# 109 "../pmc_tostring.cpp"
+# 63 "../pmc_tostring.cpp"
                                                 ;
                 }
                 else if (format_type == L'P')
                 {
                     decimal_info = &format_option->Percent;
                     _is_supported_thousand = 
-# 114 "../pmc_tostring.cpp" 3
+# 68 "../pmc_tostring.cpp" 3
                                             1
-# 114 "../pmc_tostring.cpp"
+# 68 "../pmc_tostring.cpp"
                                                 ;
                 }
                 else if (format_type == L'N')
                 {
                     decimal_info = &format_option->Number;
                     _is_supported_thousand = 
-# 119 "../pmc_tostring.cpp" 3
+# 73 "../pmc_tostring.cpp" 3
                                             1
-# 119 "../pmc_tostring.cpp"
+# 73 "../pmc_tostring.cpp"
                                                 ;
                 }
                 else
                 {
                     decimal_info = &format_option->Number;
                     _is_supported_thousand = 
-# 124 "../pmc_tostring.cpp" 3
+# 78 "../pmc_tostring.cpp" 3
                                             0
-# 124 "../pmc_tostring.cpp"
+# 78 "../pmc_tostring.cpp"
                                                  ;
                 }
 
@@ -107372,10 +107347,10 @@ namespace Palmtree::Math::Core::Internal
             virtual void FormatInternally(NUMBER_HEADER* x_abs, StringWriter* writer) override
             {
                 ResourceHolderUINT root;
-                size_t digit_count = get_digit_count_as_decimal(x_abs->BLOCK, x_abs->UNIT_WORD_COUNT);
+                size_t digit_count = (size_t)floor(PMC_Floor_Log10_Imp(x_abs)) + 1;
                 if (digit_count >= (size_t)(_precision + 2))
                 {
-                    NUMBER_HEADER* fraction_number = get_x_times_of_exponent_of_10(5, digit_count - _precision - 2);
+                    NUMBER_HEADER* fraction_number = PMC_TimesOfExponentOf10_Imp(5, digit_count - _precision - 2);
                     root.HookNumber(fraction_number);
                     NUMBER_HEADER* x2 = PMC_Add_X_X_Imp(x_abs, fraction_number);
                     root.HookNumber(x2);
@@ -107404,7 +107379,7 @@ namespace Palmtree::Math::Core::Internal
                 writer->Write(_format_type);
                 writer->Write(_number_format_info->PositiveSign);
                 size_t exponential_part = lstrlenW(number_sequence_str) - 1;
-# 716 "../pmc_tostring.cpp"
+# 670 "../pmc_tostring.cpp"
                 wchar_t exp_buf[19 + 1];
 
 
@@ -108003,7 +107978,7 @@ namespace Palmtree::Math::Core::Internal
 
         static size_t ToStringCustom(char x_sign, NUMBER_HEADER* x_abs, const wchar_t* format, const PMC_NUMBER_FORMAT_INFO* format_option, wchar_t* buffer, size_t buffer_size)
         {
-# 1334 "../pmc_tostring.cpp"
+# 1285 "../pmc_tostring.cpp"
             throw NotSupportedException(L"カスタム書式によるToStringはサポートされていません。");
         }
 
@@ -108013,20 +107988,20 @@ namespace Palmtree::Math::Core::Internal
     {
         if (c >= L'A' && c <= L'Z')
             return (
-# 1342 "../pmc_tostring.cpp" 3
+# 1293 "../pmc_tostring.cpp" 3
                    1
-# 1342 "../pmc_tostring.cpp"
+# 1293 "../pmc_tostring.cpp"
                        );
         if (c >= L'a' && c <= L'z')
             return (
-# 1344 "../pmc_tostring.cpp" 3
+# 1295 "../pmc_tostring.cpp" 3
                    1
-# 1344 "../pmc_tostring.cpp"
+# 1295 "../pmc_tostring.cpp"
                        );
         return (
-# 1345 "../pmc_tostring.cpp" 3
+# 1296 "../pmc_tostring.cpp" 3
                0
-# 1345 "../pmc_tostring.cpp"
+# 1296 "../pmc_tostring.cpp"
                     );
     }
 
@@ -108034,14 +108009,14 @@ namespace Palmtree::Math::Core::Internal
     {
         if (c >= L'0' && c <= L'9')
             return (
-# 1351 "../pmc_tostring.cpp" 3
+# 1302 "../pmc_tostring.cpp" 3
                    1
-# 1351 "../pmc_tostring.cpp"
+# 1302 "../pmc_tostring.cpp"
                        );
         return (
-# 1352 "../pmc_tostring.cpp" 3
+# 1303 "../pmc_tostring.cpp" 3
                0
-# 1352 "../pmc_tostring.cpp"
+# 1303 "../pmc_tostring.cpp"
                     );
     }
 
@@ -108052,9 +108027,9 @@ namespace Palmtree::Math::Core::Internal
             *format_type = L'D';
             *precision = -1;
             return (
-# 1361 "../pmc_tostring.cpp" 3
+# 1312 "../pmc_tostring.cpp" 3
                    1
-# 1361 "../pmc_tostring.cpp"
+# 1312 "../pmc_tostring.cpp"
                        );
         }
         else if (format[0] == L'\0')
@@ -108062,9 +108037,9 @@ namespace Palmtree::Math::Core::Internal
             *format_type = L'D';
             *precision = -1;
             return (
-# 1367 "../pmc_tostring.cpp" 3
+# 1318 "../pmc_tostring.cpp" 3
                    1
-# 1367 "../pmc_tostring.cpp"
+# 1318 "../pmc_tostring.cpp"
                        );
         }
         else if (__IS_ALPHA(format[0]) && format[1] == L'\0')
@@ -108072,9 +108047,9 @@ namespace Palmtree::Math::Core::Internal
             *format_type = format[0];
             *precision = -1;
             return (
-# 1373 "../pmc_tostring.cpp" 3
+# 1324 "../pmc_tostring.cpp" 3
                    1
-# 1373 "../pmc_tostring.cpp"
+# 1324 "../pmc_tostring.cpp"
                        );
         }
         else if (__IS_ALPHA(format[0]) && __IS_DIGIT(format[1]) && format[2] == L'\0')
@@ -108082,9 +108057,9 @@ namespace Palmtree::Math::Core::Internal
             *format_type = format[0];
             *precision = format[1] - L'0';
             return (
-# 1379 "../pmc_tostring.cpp" 3
+# 1330 "../pmc_tostring.cpp" 3
                    1
-# 1379 "../pmc_tostring.cpp"
+# 1330 "../pmc_tostring.cpp"
                        );
         }
         else if (__IS_ALPHA(format[0]) && __IS_DIGIT(format[1]) && __IS_DIGIT(format[2]) && format[3] == L'\0')
@@ -108092,16 +108067,16 @@ namespace Palmtree::Math::Core::Internal
             *format_type = format[0];
             *precision = (format[1] - L'0') * 10 + (format[2] - L'0');
             return (
-# 1385 "../pmc_tostring.cpp" 3
+# 1336 "../pmc_tostring.cpp" 3
                    1
-# 1385 "../pmc_tostring.cpp"
+# 1336 "../pmc_tostring.cpp"
                        );
         }
         else
             return (
-# 1388 "../pmc_tostring.cpp" 3
+# 1339 "../pmc_tostring.cpp" 3
                    0
-# 1388 "../pmc_tostring.cpp"
+# 1339 "../pmc_tostring.cpp"
                         );
     }
 

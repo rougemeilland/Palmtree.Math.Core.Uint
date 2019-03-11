@@ -4,7 +4,7 @@ clean:
 	rm -f ../../dist/Debug/x86/Palmtree.Math.Core.Uint.dll ../build/x86_Debug/Palmtree.Math.Core.Uint.map
 	rm -r -f ../build/x86_Debug
 
-OBJS = ../build/x86_Debug/cpuid.o ../build/x86_Debug/dllmain.o ../build/x86_Debug/pmc_add.o ../build/x86_Debug/pmc_bitwiseand.o ../build/x86_Debug/pmc_bitwiseor.o ../build/x86_Debug/pmc_bytes.o ../build/x86_Debug/pmc_compare.o ../build/x86_Debug/pmc_divrem.o ../build/x86_Debug/pmc_equals.o ../build/x86_Debug/pmc_exclusiveor.o ../build/x86_Debug/pmc_from.o ../build/x86_Debug/pmc_greatestcommondivisor.o ../build/x86_Debug/pmc_initialize.o ../build/x86_Debug/pmc_interface_csharp.o ../build/x86_Debug/pmc_memory.o ../build/x86_Debug/pmc_modpow.o ../build/x86_Debug/pmc_multiply.o ../build/x86_Debug/pmc_parse.o ../build/x86_Debug/pmc_pow.o ../build/x86_Debug/pmc_shift.o ../build/x86_Debug/pmc_statistics.o ../build/x86_Debug/pmc_subtruct.o ../build/x86_Debug/pmc_to.o ../build/x86_Debug/pmc_tostring.o ../build/x86_Debug/version.o
+OBJS = ../build/x86_Debug/cpuid.o ../build/x86_Debug/dllmain.o ../build/x86_Debug/pmc_add.o ../build/x86_Debug/pmc_bitwiseand.o ../build/x86_Debug/pmc_bitwiseor.o ../build/x86_Debug/pmc_bytes.o ../build/x86_Debug/pmc_compare.o ../build/x86_Debug/pmc_divrem.o ../build/x86_Debug/pmc_equals.o ../build/x86_Debug/pmc_exclusiveor.o ../build/x86_Debug/pmc_from.o ../build/x86_Debug/pmc_greatestcommondivisor.o ../build/x86_Debug/pmc_initialize.o ../build/x86_Debug/pmc_interface_csharp.o ../build/x86_Debug/pmc_log.o ../build/x86_Debug/pmc_memory.o ../build/x86_Debug/pmc_modpow.o ../build/x86_Debug/pmc_multiply.o ../build/x86_Debug/pmc_parse.o ../build/x86_Debug/pmc_pow.o ../build/x86_Debug/pmc_shift.o ../build/x86_Debug/pmc_statistics.o ../build/x86_Debug/pmc_subtruct.o ../build/x86_Debug/pmc_to.o ../build/x86_Debug/pmc_tostring.o ../build/x86_Debug/version.o
 
 ../../dist/Debug/x86/Palmtree.Math.Core.Uint.dll: $(OBJS) ../Palmtree.Math.Core.Uint.def
 	mkdir -p ../../dist/Debug/x86
@@ -65,6 +65,10 @@ OBJS = ../build/x86_Debug/cpuid.o ../build/x86_Debug/dllmain.o ../build/x86_Debu
 ../build/x86_Debug/pmc_interface_csharp.o: ../pmc_interface_csharp.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../mymakefile.xml
 	mkdir -p ../build/x86_Debug
 	g++ -c -save-temps=obj -Werror -DENABLED_PERFORMANCE_COUNTER -fextended-identifiers -D_M_IX86 -g -D_DEBUG  -o ../build/x86_Debug/pmc_interface_csharp.o ../pmc_interface_csharp.cpp
+
+../build/x86_Debug/pmc_log.o: ../pmc_log.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../pmc_resourceholder.h  ../pmc_resourceholder_uint.h  ../mymakefile.xml
+	mkdir -p ../build/x86_Debug
+	g++ -c -save-temps=obj -Werror -DENABLED_PERFORMANCE_COUNTER -fextended-identifiers -D_M_IX86 -g -D_DEBUG  -o ../build/x86_Debug/pmc_log.o ../pmc_log.cpp
 
 ../build/x86_Debug/pmc_memory.o: ../pmc_memory.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../pmc_resourceholder.h  ../pmc_resourceholder_uint.h  ../pmc_inline_func.h  ../mymakefile.xml
 	mkdir -p ../build/x86_Debug

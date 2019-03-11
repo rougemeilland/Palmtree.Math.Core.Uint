@@ -193,6 +193,12 @@ namespace Palmtree::Math::Core::Internal
             // べき剰余の計算
             PMC_HANDLE_UINT(__PMC_CALL * ModPow_X_X_X)(PMC_HANDLE_UINT v, PMC_HANDLE_UINT e, PMC_HANDLE_UINT m);
 
+            // v * 10^e の計算
+            PMC_HANDLE_UINT(__PMC_CALL * TimesOfExponentOf10)(_UINT32_T v, _UINT32_T e);
+
+            // 常用対数の整数部の計算
+            _UINT32_T(__PMC_CALL * Floor_Log10)(PMC_HANDLE_UINT v);
+
             // 非公開関数
             PMC_HANDLE_UINT(__PMC_CALL * FromByteArrayForSINT)(unsigned char* buffer, size_t count, char* o_sign);
             size_t(__PMC_CALL * ToByteArrayForSINT)(char p_sign, PMC_HANDLE_UINT p, unsigned char* buffer, size_t buffer_size) noexcept(false);

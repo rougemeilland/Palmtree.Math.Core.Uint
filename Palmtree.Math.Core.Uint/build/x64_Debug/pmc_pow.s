@@ -1979,12 +1979,187 @@ _ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy:
 .LLSDACSE5060:
 	.text
 	.seh_endproc
+	.globl	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+	.def	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy:
+.LFB5061:
+	.loc 5 319 5
+	.cfi_startproc
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	pushq	%rbx
+	.seh_pushreg	%rbx
+	.cfi_def_cfa_offset 24
+	.cfi_offset 3, -24
+	subq	$104, %rsp
+	.seh_stackalloc	104
+	.cfi_def_cfa_offset 128
+	leaq	128(%rsp), %rbp
+	.seh_setframe	%rbp, 128
+	.cfi_def_cfa 6, 0
+	.seh_endprologue
+	movl	%ecx, 0(%rbp)
+	movq	%rdx, 8(%rbp)
+	.loc 5 320 9
+	cmpl	$0, 0(%rbp)
+	jne	.L73
+	.loc 5 321 33
+	movq	.refptr._ZN8Palmtree4Math4Core8Internal11number_zeroE(%rip), %rbx
+	jmp	.L78
+.L73:
+	.loc 5 322 9
+	cmpq	$0, 8(%rbp)
+	jne	.L75
+	.loc 5 323 31
+	movl	0(%rbp), %ecx
+.LEHB12:
+	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
+	movq	%rax, %rbx
+	.loc 5 323 34
+	jmp	.L78
+.L75:
+	.loc 5 324 28
+	leaq	-80(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTC1Ev
+.LEHE12:
+	.loc 5 325 40
+	movl	$10, %ecx
+.LEHB13:
+	call	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj
+	movq	%rax, -40(%rbp)
+	.loc 5 326 24
+	movq	-40(%rbp), %rdx
+	leaq	-80(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	.loc 5 330 56
+	movq	8(%rbp), %rdx
+	movq	-40(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy
+	.loc 5 330 63
+	movq	%rax, -88(%rbp)
+.LBB57:
+	.loc 5 334 9
+	cmpl	$1, 0(%rbp)
+	jne	.L76
+	.loc 5 335 35
+	movq	-88(%rbp), %rbx
+	jmp	.L77
+.L76:
+.LBB58:
+	.loc 5 338 28
+	movq	-88(%rbp), %rdx
+	leaq	-80(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE
+	.loc 5 339 76
+	movq	-88(%rbp), %rax
+	movl	0(%rbp), %edx
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj
+.LEHE13:
+	.loc 5 339 94
+	movq	%rax, -96(%rbp)
+	.loc 5 340 46
+	movq	-96(%rbp), %rbx
+.L77:
+.LBE58:
+.LBE57:
+	.loc 5 324 28
+	leaq	-80(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+.L78:
+	movq	%rbx, %rax
+	jmp	.L81
+.L80:
+	movq	%rax, %rbx
+	leaq	-80(%rbp), %rax
+	movq	%rax, %rcx
+	call	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINTD1Ev
+	movq	%rbx, %rax
+	movq	%rax, %rcx
+.LEHB14:
+	call	_Unwind_Resume
+.LEHE14:
+.L81:
+	.loc 5 342 5
+	addq	$104, %rsp
+	popq	%rbx
+	.cfi_restore 3
+	popq	%rbp
+	.cfi_restore 6
+	.cfi_def_cfa 7, -88
+	ret
+	.cfi_endproc
+.LFE5061:
+	.seh_handler	__gxx_personality_seh0, @unwind, @except
+	.seh_handlerdata
+.LLSDA5061:
+	.byte	0xff
+	.byte	0xff
+	.byte	0x1
+	.uleb128 .LLSDACSE5061-.LLSDACSB5061
+.LLSDACSB5061:
+	.uleb128 .LEHB12-.LFB5061
+	.uleb128 .LEHE12-.LEHB12
+	.uleb128 0
+	.uleb128 0
+	.uleb128 .LEHB13-.LFB5061
+	.uleb128 .LEHE13-.LEHB13
+	.uleb128 .L80-.LFB5061
+	.uleb128 0
+	.uleb128 .LEHB14-.LFB5061
+	.uleb128 .LEHE14-.LEHB14
+	.uleb128 0
+	.uleb128 0
+.LLSDACSE5061:
+	.text
+	.seh_endproc
+	.globl	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+	.def	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj;	.scl	2;	.type	32;	.endef
+	.seh_proc	_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj
+_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj:
+.LFB5062:
+	.loc 5 345 5
+	.cfi_startproc
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.seh_setframe	%rbp, 0
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	.seh_stackalloc	32
+	.seh_endprologue
+	movl	%ecx, 16(%rbp)
+	movl	%edx, 24(%rbp)
+	.loc 5 346 61
+	movl	24(%rbp), %eax
+	movq	%rax, %rdx
+	movl	16(%rbp), %ecx
+	call	_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy
+	.loc 5 347 5
+	addq	$32, %rsp
+	popq	%rbp
+	.cfi_restore 6
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5062:
+	.seh_endproc
 	.globl	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE
 	.def	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE;	.scl	2;	.type	32;	.endef
 	.seh_proc	_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE
 _ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE:
-.LFB5061:
-	.loc 5 319 5
+.LFB5063:
+	.loc 5 350 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -1995,15 +2170,15 @@ _ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE:
 	.cfi_def_cfa_register 6
 	.seh_endprologue
 	movq	%rcx, 16(%rbp)
-	.loc 5 320 20
+	.loc 5 351 20
 	movl	$0, %eax
-	.loc 5 321 5
+	.loc 5 352 5
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE5061:
+.LFE5063:
 	.seh_endproc
 	.globl	_ZTVN8Palmtree4Math4Core8Internal19ArithmeticExceptionE
 	.section	.rdata$_ZTVN8Palmtree4Math4Core8Internal19ArithmeticExceptionE,"dr"
@@ -2161,7 +2336,7 @@ _ZTSSt9exception:
 	.file 46 "../pmc_internal.h"
 	.section	.debug_info,"dr"
 .Ldebug_info0:
-	.long	0x7626
+	.long	0x77ed
 	.word	0x4
 	.secrel32	.Ldebug_abbrev0
 	.byte	0x8
@@ -3337,7 +3512,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0xffc
 	.uleb128 0x1f
-	.long	0x74cd
+	.long	0x7694
 	.byte	0
 	.byte	0
 	.byte	0
@@ -7189,7 +7364,7 @@ _ZTSSt9exception:
 	.byte	0x29
 	.byte	0x24
 	.byte	0xb
-	.long	0x6795
+	.long	0x6875
 	.uleb128 0x3c
 	.ascii "Math\0"
 	.byte	0x29
@@ -7366,7 +7541,7 @@ _ZTSSt9exception:
 	.byte	0x2b
 	.byte	0x41
 	.byte	0x2f
-	.long	0x6795
+	.long	0x6875
 	.uleb128 0x4
 	.ascii "_UINT32_T\0"
 	.byte	0x29
@@ -7552,7 +7727,7 @@ _ZTSSt9exception:
 	.byte	0x2d
 	.byte	0x3d
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.byte	0x40
 	.uleb128 0x13
 	.ascii "BLOCK_CHECK_CODE\0"
@@ -7652,7 +7827,7 @@ _ZTSSt9exception:
 	.long	0x5e14
 	.long	0x5e24
 	.uleb128 0x1f
-	.long	0x67d4
+	.long	0x68b4
 	.uleb128 0x11
 	.long	0x5983
 	.uleb128 0x11
@@ -7668,7 +7843,7 @@ _ZTSSt9exception:
 	.long	0x5e69
 	.long	0x5e7e
 	.uleb128 0x1f
-	.long	0x67d4
+	.long	0x68b4
 	.uleb128 0x11
 	.long	0x5983
 	.uleb128 0x11
@@ -7686,9 +7861,9 @@ _ZTSSt9exception:
 	.long	0x5ec1
 	.long	0x5ecc
 	.uleb128 0x1f
-	.long	0x67d4
+	.long	0x68b4
 	.uleb128 0x11
-	.long	0x67df
+	.long	0x68bf
 	.byte	0
 	.uleb128 0x42
 	.ascii "~Exception\0"
@@ -7702,7 +7877,7 @@ _ZTSSt9exception:
 	.long	0x5f17
 	.long	0x5f22
 	.uleb128 0x1f
-	.long	0x67d4
+	.long	0x68b4
 	.uleb128 0x1f
 	.long	0x13e
 	.byte	0
@@ -7717,7 +7892,7 @@ _ZTSSt9exception:
 	.long	0x5f7d
 	.long	0x5f83
 	.uleb128 0x1f
-	.long	0x67e5
+	.long	0x68c5
 	.byte	0
 	.uleb128 0x43
 	.ascii "What\0"
@@ -7730,7 +7905,7 @@ _ZTSSt9exception:
 	.long	0x5fcb
 	.long	0x5fd1
 	.uleb128 0x1f
-	.long	0x67e5
+	.long	0x68c5
 	.byte	0
 	.uleb128 0x2a
 	.ascii "Data\0"
@@ -7742,7 +7917,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0x6015
 	.uleb128 0x1f
-	.long	0x67e5
+	.long	0x68c5
 	.byte	0
 	.byte	0
 	.uleb128 0x3
@@ -7766,9 +7941,9 @@ _ZTSSt9exception:
 	.long	0x6084
 	.long	0x608f
 	.uleb128 0x1f
-	.long	0x67a1
+	.long	0x6881
 	.uleb128 0x11
-	.long	0x67ac
+	.long	0x688c
 	.byte	0
 	.uleb128 0x26
 	.secrel32	.LASF8
@@ -7780,7 +7955,7 @@ _ZTSSt9exception:
 	.long	0x60db
 	.long	0x60e6
 	.uleb128 0x1f
-	.long	0x67a1
+	.long	0x6881
 	.uleb128 0x11
 	.long	0x1128
 	.byte	0
@@ -7794,9 +7969,9 @@ _ZTSSt9exception:
 	.long	0x6149
 	.long	0x6154
 	.uleb128 0x1f
-	.long	0x67a1
+	.long	0x6881
 	.uleb128 0x11
-	.long	0x67b2
+	.long	0x6892
 	.byte	0
 	.uleb128 0x46
 	.ascii "~ArithmeticException\0"
@@ -7809,7 +7984,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0x61b0
 	.uleb128 0x1f
-	.long	0x67a1
+	.long	0x6881
 	.uleb128 0x1f
 	.long	0x13e
 	.byte	0
@@ -7838,7 +8013,7 @@ _ZTSSt9exception:
 	.long	0x6223
 	.long	0x622e
 	.uleb128 0x1f
-	.long	0x67b8
+	.long	0x6898
 	.uleb128 0x11
 	.long	0x1128
 	.byte	0
@@ -7852,9 +8027,9 @@ _ZTSSt9exception:
 	.long	0x627a
 	.long	0x6285
 	.uleb128 0x1f
-	.long	0x67b8
+	.long	0x6898
 	.uleb128 0x11
-	.long	0x67b2
+	.long	0x6892
 	.byte	0
 	.uleb128 0x46
 	.ascii "~OverflowException\0"
@@ -7867,7 +8042,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0x62dd
 	.uleb128 0x1f
-	.long	0x67b8
+	.long	0x6898
 	.uleb128 0x1f
 	.long	0x13e
 	.byte	0
@@ -7896,7 +8071,7 @@ _ZTSSt9exception:
 	.long	0x6357
 	.long	0x6367
 	.uleb128 0x1f
-	.long	0x67c3
+	.long	0x68a3
 	.uleb128 0x11
 	.long	0x1128
 	.uleb128 0x11
@@ -7912,9 +8087,9 @@ _ZTSSt9exception:
 	.long	0x63b7
 	.long	0x63c2
 	.uleb128 0x1f
-	.long	0x67c3
+	.long	0x68a3
 	.uleb128 0x11
-	.long	0x67ce
+	.long	0x68ae
 	.byte	0
 	.uleb128 0x46
 	.ascii "~ArgumentNullException\0"
@@ -7927,7 +8102,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0x6422
 	.uleb128 0x1f
-	.long	0x67c3
+	.long	0x68a3
 	.uleb128 0x1f
 	.long	0x13e
 	.byte	0
@@ -7937,13 +8112,13 @@ _ZTSSt9exception:
 	.uleb128 0x47
 	.ascii "Initialize_Pow\0"
 	.byte	0x5
-	.word	0x13e
+	.word	0x15d
 	.byte	0x15
 	.ascii "_ZN8Palmtree4Math4Core8Internal14Initialize_PowEPNS2_23_tag_PROCESSOR_FEATURESE\0"
 	.long	0x5983
 	.long	0x64a5
 	.uleb128 0x11
-	.long	0x67eb
+	.long	0x68cb
 	.byte	0
 	.uleb128 0x4
 	.ascii "PROCESSOR_FEATURES\0"
@@ -7952,20 +8127,46 @@ _ZTSSt9exception:
 	.byte	0x7
 	.long	0x59f2
 	.uleb128 0x47
+	.ascii "PMC_TimesOfExponentOf10\0"
+	.byte	0x5
+	.word	0x158
+	.byte	0x15
+	.ascii "_ZN8Palmtree4Math4Core8Internal23PMC_TimesOfExponentOf10Ejj\0"
+	.long	0x59c8
+	.long	0x652c
+	.uleb128 0x11
+	.long	0x59e0
+	.uleb128 0x11
+	.long	0x59e0
+	.byte	0
+	.uleb128 0x47
+	.ascii "PMC_TimesOfExponentOf10_Imp\0"
+	.byte	0x5
+	.word	0x13e
+	.byte	0x14
+	.ascii "_ZN8Palmtree4Math4Core8Internal27PMC_TimesOfExponentOf10_ImpEjy\0"
+	.long	0x6939
+	.long	0x65a0
+	.uleb128 0x11
+	.long	0x59e0
+	.uleb128 0x11
+	.long	0x5c21
+	.byte	0
+	.uleb128 0x2c
+	.ascii "ResourceHolderUINT\0"
+	.uleb128 0x47
 	.ascii "PMC_Pow_X_L\0"
 	.byte	0x5
 	.word	0x126
 	.byte	0x15
 	.ascii "_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_LEPNS2_21__tag_PMC_HANDLE_UINTEy\0"
 	.long	0x59c8
-	.long	0x6530
+	.long	0x6624
 	.uleb128 0x11
 	.long	0x59c8
 	.uleb128 0x11
 	.long	0x596c
 	.byte	0
-	.uleb128 0x2c
-	.ascii "ResourceHolderUINT\0"
 	.uleb128 0x47
 	.ascii "PMC_Pow_X_I\0"
 	.byte	0x5
@@ -7973,7 +8174,7 @@ _ZTSSt9exception:
 	.byte	0x15
 	.ascii "_ZN8Palmtree4Math4Core8Internal11PMC_Pow_X_IEPNS2_21__tag_PMC_HANDLE_UINTEj\0"
 	.long	0x59c8
-	.long	0x65b4
+	.long	0x6694
 	.uleb128 0x11
 	.long	0x59c8
 	.uleb128 0x11
@@ -7985,10 +8186,10 @@ _ZTSSt9exception:
 	.byte	0xc8
 	.byte	0x14
 	.ascii "_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_L_ImpEPNS2_19__tag_NUMBER_HEADEREy\0"
-	.long	0x6879
-	.long	0x6629
+	.long	0x6939
+	.long	0x6709
 	.uleb128 0x11
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x11
 	.long	0x596c
 	.byte	0
@@ -7997,19 +8198,19 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x9b
 	.byte	0x11
-	.long	0x665c
+	.long	0x673c
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
 	.long	0x5c21
 	.uleb128 0x11
 	.long	0x596c
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.byte	0
 	.uleb128 0x1c
 	.ascii "PMC_Pow_X_I_Imp\0"
@@ -8017,10 +8218,10 @@ _ZTSSt9exception:
 	.byte	0x51
 	.byte	0x14
 	.ascii "_ZN8Palmtree4Math4Core8Internal15PMC_Pow_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj\0"
-	.long	0x6879
-	.long	0x66d1
+	.long	0x6939
+	.long	0x67b1
 	.uleb128 0x11
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x11
 	.long	0x59e0
 	.byte	0
@@ -8029,19 +8230,19 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x24
 	.byte	0x11
-	.long	0x6704
+	.long	0x67e4
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
 	.long	0x5c21
 	.uleb128 0x11
 	.long	0x59e0
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.byte	0
 	.uleb128 0x49
 	.ascii "_LZCNT_ALT_64\0"
@@ -8049,7 +8250,7 @@ _ZTSSt9exception:
 	.word	0x1b4
 	.byte	0x1d
 	.long	0x13e
-	.long	0x6725
+	.long	0x6805
 	.uleb128 0x11
 	.long	0x596c
 	.byte	0
@@ -8059,7 +8260,7 @@ _ZTSSt9exception:
 	.word	0x1a4
 	.byte	0x1d
 	.long	0x13e
-	.long	0x6746
+	.long	0x6826
 	.uleb128 0x11
 	.long	0x59e0
 	.byte	0
@@ -8068,9 +8269,9 @@ _ZTSSt9exception:
 	.byte	0x3
 	.byte	0x5f
 	.byte	0x1e
-	.long	0x676b
+	.long	0x684b
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
 	.long	0x5c21
 	.byte	0
@@ -8080,9 +8281,9 @@ _ZTSSt9exception:
 	.byte	0x3e
 	.byte	0x1e
 	.uleb128 0x11
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x11
-	.long	0x6d6c
+	.long	0x6f33
 	.uleb128 0x11
 	.long	0x5c21
 	.byte	0
@@ -8100,7 +8301,7 @@ _ZTSSt9exception:
 	.byte	0x8
 	.long	0x6021
 	.uleb128 0x3
-	.long	0x67a1
+	.long	0x6881
 	.uleb128 0x39
 	.byte	0x8
 	.long	0x61bc
@@ -8111,12 +8312,12 @@ _ZTSSt9exception:
 	.byte	0x8
 	.long	0x61c1
 	.uleb128 0x3
-	.long	0x67b8
+	.long	0x6898
 	.uleb128 0x6
 	.byte	0x8
 	.long	0x62ee
 	.uleb128 0x3
-	.long	0x67c3
+	.long	0x68a3
 	.uleb128 0x39
 	.byte	0x8
 	.long	0x642e
@@ -8124,7 +8325,7 @@ _ZTSSt9exception:
 	.byte	0x8
 	.long	0x5d8b
 	.uleb128 0x3
-	.long	0x67d4
+	.long	0x68b4
 	.uleb128 0x39
 	.byte	0x8
 	.long	0x601c
@@ -8136,28 +8337,123 @@ _ZTSSt9exception:
 	.long	0x64a5
 	.uleb128 0x4b
 	.long	0x6433
-	.quad	.LFB5061
-	.quad	.LFE5061-.LFB5061
+	.quad	.LFB5063
+	.quad	.LFE5063-.LFB5063
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6821
+	.long	0x6901
 	.uleb128 0x4c
 	.ascii "feature\0"
 	.byte	0x5
-	.word	0x13e
+	.word	0x15d
 	.byte	0x38
-	.long	0x67eb
+	.long	0x68cb
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x4d
 	.long	0x64c0
+	.quad	.LFB5062
+	.quad	.LFE5062-.LFB5062
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x6939
+	.uleb128 0x4c
+	.ascii "v\0"
+	.byte	0x5
+	.word	0x158
+	.byte	0x37
+	.long	0x59e0
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 0
+	.uleb128 0x4c
+	.ascii "e\0"
+	.byte	0x5
+	.word	0x158
+	.byte	0x44
+	.long	0x59e0
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 8
+	.byte	0
+	.uleb128 0x6
+	.byte	0x8
+	.long	0x5ca9
+	.uleb128 0x4d
+	.long	0x652c
+	.quad	.LFB5061
+	.quad	.LFE5061-.LFB5061
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x69ee
+	.uleb128 0x4c
+	.ascii "v\0"
+	.byte	0x5
+	.word	0x13e
+	.byte	0x3a
+	.long	0x59e0
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 0
+	.uleb128 0x4c
+	.ascii "e\0"
+	.byte	0x5
+	.word	0x13e
+	.byte	0x49
+	.long	0x5c21
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 8
+	.uleb128 0x4e
+	.ascii "root\0"
+	.byte	0x5
+	.word	0x144
+	.byte	0x1c
+	.long	0x65a0
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -80
+	.uleb128 0x4e
+	.ascii "_10\0"
+	.byte	0x5
+	.word	0x145
+	.byte	0x18
+	.long	0x6939
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x4e
+	.ascii "exponent_of_10\0"
+	.byte	0x5
+	.word	0x14a
+	.byte	0x18
+	.long	0x6939
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -88
+	.uleb128 0x4f
+	.quad	.LBB58
+	.quad	.LBE58-.LBB58
+	.uleb128 0x4e
+	.ascii "x_times_of_exponent_of_10\0"
+	.byte	0x5
+	.word	0x153
+	.byte	0x1c
+	.long	0x6939
+	.uleb128 0x3
+	.byte	0x91
+	.sleb128 -96
+	.byte	0
+	.byte	0
+	.uleb128 0x4d
+	.long	0x65b4
 	.quad	.LFB5060
 	.quad	.LFE5060-.LFB5060
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6879
+	.long	0x6a46
 	.uleb128 0x4c
 	.ascii "v\0"
 	.byte	0x5
@@ -8181,7 +8477,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x131
 	.byte	0x1c
-	.long	0x6530
+	.long	0x65a0
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -8190,21 +8486,18 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x132
 	.byte	0x18
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.byte	0
-	.uleb128 0x6
-	.byte	0x8
-	.long	0x5ca9
 	.uleb128 0x4d
-	.long	0x6544
+	.long	0x6624
 	.quad	.LFB5059
 	.quad	.LFE5059-.LFB5059
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x68d7
+	.long	0x6a9e
 	.uleb128 0x4c
 	.ascii "v\0"
 	.byte	0x5
@@ -8228,7 +8521,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x11c
 	.byte	0x1c
-	.long	0x6530
+	.long	0x65a0
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
@@ -8237,28 +8530,28 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x11d
 	.byte	0x18
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.byte	0
 	.uleb128 0x4d
-	.long	0x65b4
+	.long	0x6694
 	.quad	.LFB5058
 	.quad	.LFE5058-.LFB5058
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x697e
-	.uleb128 0x4f
+	.long	0x6b45
+	.uleb128 0x50
 	.ascii "v\0"
 	.byte	0x5
 	.byte	0xc8
 	.byte	0x33
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "e\0"
 	.byte	0x5
 	.byte	0xc8
@@ -8267,7 +8560,7 @@ _ZTSSt9exception:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x50
+	.uleb128 0x4f
 	.quad	.LBB56
 	.quad	.LBE56-.LBB56
 	.uleb128 0x51
@@ -8275,7 +8568,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0xfa
 	.byte	0x24
-	.long	0x6530
+	.long	0x65a0
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
@@ -8302,7 +8595,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x103
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -8311,7 +8604,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x104
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -8320,25 +8613,25 @@ _ZTSSt9exception:
 	.byte	0x5
 	.word	0x105
 	.byte	0x20
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.byte	0
 	.byte	0
 	.uleb128 0x4d
-	.long	0x6629
+	.long	0x6709
 	.quad	.LFB5057
 	.quad	.LFE5057-.LFB5057
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6ab4
-	.uleb128 0x4f
+	.long	0x6c7b
+	.uleb128 0x50
 	.ascii "v_buf\0"
 	.byte	0x5
 	.byte	0x9b
 	.byte	0x2a
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -8351,7 +8644,7 @@ _ZTSSt9exception:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "e\0"
 	.byte	0x5
 	.byte	0x9b
@@ -8365,7 +8658,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x9b
 	.byte	0x64
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -8374,16 +8667,16 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x9b
 	.byte	0x7c
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "r_buf\0"
 	.byte	0x5
 	.byte	0x9b
 	.byte	0x94
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
@@ -8401,7 +8694,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0xa1
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -8410,7 +8703,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0xa2
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -8419,7 +8712,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0xa3
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -8444,53 +8737,53 @@ _ZTSSt9exception:
 	.uleb128 0x55
 	.quad	.LBB48
 	.quad	.LBE48-.LBB48
-	.long	0x6a88
+	.long	0x6c4f
 	.uleb128 0x51
 	.ascii "t_ptr\0"
 	.byte	0x5
 	.byte	0xbe
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.byte	0
 	.uleb128 0x56
-	.long	0x752c
+	.long	0x76f3
 	.quad	.LBB44
 	.quad	.LBE44-.LBB44
 	.byte	0x5
 	.byte	0x9d
 	.byte	0x22
 	.uleb128 0x57
-	.long	0x754c
+	.long	0x7713
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -84
 	.uleb128 0x57
-	.long	0x7540
+	.long	0x7707
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.byte	0
 	.byte	0
 	.uleb128 0x4d
-	.long	0x665c
+	.long	0x673c
 	.quad	.LFB5053
 	.quad	.LFE5053-.LFB5053
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6b57
-	.uleb128 0x4f
+	.long	0x6d1e
+	.uleb128 0x50
 	.ascii "v\0"
 	.byte	0x5
 	.byte	0x51
 	.byte	0x33
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "e\0"
 	.byte	0x5
 	.byte	0x51
@@ -8499,7 +8792,7 @@ _ZTSSt9exception:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x50
+	.uleb128 0x4f
 	.quad	.LBB43
 	.quad	.LBE43-.LBB43
 	.uleb128 0x51
@@ -8507,7 +8800,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x83
 	.byte	0x24
-	.long	0x6530
+	.long	0x65a0
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -112
@@ -8534,7 +8827,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x8c
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -8543,7 +8836,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x8d
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -64
@@ -8552,25 +8845,25 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x8e
 	.byte	0x20
-	.long	0x6879
+	.long	0x6939
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.byte	0
 	.byte	0
 	.uleb128 0x4d
-	.long	0x66d1
+	.long	0x67b1
 	.quad	.LFB5052
 	.quad	.LFE5052-.LFB5052
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6c8d
-	.uleb128 0x4f
+	.long	0x6e54
+	.uleb128 0x50
 	.ascii "v_buf\0"
 	.byte	0x5
 	.byte	0x24
 	.byte	0x2a
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -8583,7 +8876,7 @@ _ZTSSt9exception:
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "e\0"
 	.byte	0x5
 	.byte	0x24
@@ -8597,7 +8890,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x24
 	.byte	0x64
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
@@ -8606,16 +8899,16 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x24
 	.byte	0x7c
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 32
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "r_buf\0"
 	.byte	0x5
 	.byte	0x24
 	.byte	0x94
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 40
@@ -8633,7 +8926,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x2a
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -32
@@ -8642,7 +8935,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x2b
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
@@ -8651,7 +8944,7 @@ _ZTSSt9exception:
 	.byte	0x5
 	.byte	0x2c
 	.byte	0x16
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -8676,43 +8969,43 @@ _ZTSSt9exception:
 	.uleb128 0x55
 	.quad	.LBB35
 	.quad	.LBE35-.LBB35
-	.long	0x6c61
+	.long	0x6e28
 	.uleb128 0x51
 	.ascii "t_ptr\0"
 	.byte	0x5
 	.byte	0x47
 	.byte	0x1e
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -72
 	.byte	0
 	.uleb128 0x56
-	.long	0x7559
+	.long	0x7720
 	.quad	.LBB31
 	.quad	.LBE31-.LBB31
 	.byte	0x5
 	.byte	0x26
 	.byte	0x21
 	.uleb128 0x57
-	.long	0x7579
+	.long	0x7740
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -80
 	.uleb128 0x57
-	.long	0x756d
+	.long	0x7734
 	.uleb128 0x3
 	.byte	0x91
 	.sleb128 -76
 	.byte	0
 	.byte	0
 	.uleb128 0x4b
-	.long	0x6704
+	.long	0x67e4
 	.quad	.LFB5042
 	.quad	.LFE5042-.LFB5042
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6cc7
+	.long	0x6e8e
 	.uleb128 0x4c
 	.ascii "x\0"
 	.byte	0x3
@@ -8733,12 +9026,12 @@ _ZTSSt9exception:
 	.sleb128 -24
 	.byte	0
 	.uleb128 0x4b
-	.long	0x6725
+	.long	0x6805
 	.quad	.LFB5041
 	.quad	.LFE5041-.LFB5041
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6d01
+	.long	0x6ec8
 	.uleb128 0x4c
 	.ascii "x\0"
 	.byte	0x3
@@ -8759,22 +9052,22 @@ _ZTSSt9exception:
 	.sleb128 -20
 	.byte	0
 	.uleb128 0x4b
-	.long	0x6746
+	.long	0x6826
 	.quad	.LFB5012
 	.quad	.LFE5012-.LFB5012
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6d6c
-	.uleb128 0x4f
+	.long	0x6f33
+	.uleb128 0x50
 	.ascii "d\0"
 	.byte	0x3
 	.byte	0x5f
 	.byte	0x3d
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "count\0"
 	.byte	0x3
 	.byte	0x5f
@@ -8784,24 +9077,24 @@ _ZTSSt9exception:
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x56
-	.long	0x75d3
+	.long	0x779a
 	.quad	.LBB29
 	.quad	.LBE29-.LBB29
 	.byte	0x3
 	.byte	0x64
 	.byte	0x14
 	.uleb128 0x57
-	.long	0x7601
+	.long	0x77c8
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x57
-	.long	0x75f3
+	.long	0x77ba
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x57
-	.long	0x75e5
+	.long	0x77ac
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -8811,31 +9104,31 @@ _ZTSSt9exception:
 	.byte	0x8
 	.long	0x5c35
 	.uleb128 0x4b
-	.long	0x676b
+	.long	0x684b
 	.quad	.LFB5007
 	.quad	.LFE5007-.LFB5007
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6dea
-	.uleb128 0x4f
+	.long	0x6fb1
+	.uleb128 0x50
 	.ascii "d\0"
 	.byte	0x3
 	.byte	0x3e
 	.byte	0x3d
-	.long	0x679b
+	.long	0x687b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "s\0"
 	.byte	0x3
 	.byte	0x3e
 	.byte	0x53
-	.long	0x6d6c
+	.long	0x6f33
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
-	.uleb128 0x4f
+	.uleb128 0x50
 	.ascii "count\0"
 	.byte	0x3
 	.byte	0x3e
@@ -8845,24 +9138,24 @@ _ZTSSt9exception:
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x56
-	.long	0x7586
+	.long	0x774d
 	.quad	.LBB27
 	.quad	.LBE27-.LBB27
 	.byte	0x3
 	.byte	0x43
 	.byte	0x14
 	.uleb128 0x57
-	.long	0x75bd
+	.long	0x7784
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -56
 	.uleb128 0x57
-	.long	0x75ad
+	.long	0x7774
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -48
 	.uleb128 0x57
-	.long	0x7598
+	.long	0x775f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
@@ -8870,54 +9163,54 @@ _ZTSSt9exception:
 	.byte	0
 	.uleb128 0x58
 	.long	0x6154
-	.long	0x6df8
+	.long	0x6fbf
 	.byte	0x2
-	.long	0x6e0b
+	.long	0x6fd2
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67a7
+	.long	0x6887
 	.uleb128 0x59
 	.secrel32	.LASF17
 	.long	0x145
 	.byte	0
 	.uleb128 0x5a
-	.long	0x6dea
+	.long	0x6fb1
 	.ascii "_ZN8Palmtree4Math4Core8Internal19ArithmeticExceptionD0Ev\0"
-	.long	0x6e63
+	.long	0x702a
 	.quad	.LFB4860
 	.quad	.LFE4860-.LFB4860
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6e6c
+	.long	0x7033
 	.uleb128 0x57
-	.long	0x6df8
+	.long	0x6fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x5a
-	.long	0x6dea
+	.long	0x6fb1
 	.ascii "_ZN8Palmtree4Math4Core8Internal19ArithmeticExceptionD1Ev\0"
-	.long	0x6ec4
+	.long	0x708b
 	.quad	.LFB4859
 	.quad	.LFE4859-.LFB4859
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6ecd
+	.long	0x7094
 	.uleb128 0x57
-	.long	0x6df8
+	.long	0x6fbf
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x58
 	.long	0x608f
-	.long	0x6edb
+	.long	0x70a2
 	.byte	0x2
-	.long	0x6ef1
+	.long	0x70b8
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67a7
+	.long	0x6887
 	.uleb128 0x5b
 	.secrel32	.LASF18
 	.byte	0x2
@@ -8926,75 +9219,75 @@ _ZTSSt9exception:
 	.long	0x1128
 	.byte	0
 	.uleb128 0x5a
-	.long	0x6ecd
+	.long	0x7094
 	.ascii "_ZN8Palmtree4Math4Core8Internal19ArithmeticExceptionC1EPKw\0"
-	.long	0x6f4b
+	.long	0x7112
 	.quad	.LFB4853
 	.quad	.LFE4853-.LFB4853
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6f5c
+	.long	0x7123
 	.uleb128 0x57
-	.long	0x6edb
+	.long	0x70a2
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x57
-	.long	0x6ee4
+	.long	0x70ab
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
 	.uleb128 0x58
 	.long	0x6285
-	.long	0x6f6a
+	.long	0x7131
 	.byte	0x2
-	.long	0x6f7d
+	.long	0x7144
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67be
+	.long	0x689e
 	.uleb128 0x59
 	.secrel32	.LASF17
 	.long	0x145
 	.byte	0
 	.uleb128 0x5a
-	.long	0x6f5c
+	.long	0x7123
 	.ascii "_ZN8Palmtree4Math4Core8Internal17OverflowExceptionD0Ev\0"
-	.long	0x6fd3
+	.long	0x719a
 	.quad	.LFB4840
 	.quad	.LFE4840-.LFB4840
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6fdc
+	.long	0x71a3
 	.uleb128 0x57
-	.long	0x6f6a
+	.long	0x7131
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x5a
-	.long	0x6f5c
+	.long	0x7123
 	.ascii "_ZN8Palmtree4Math4Core8Internal17OverflowExceptionD1Ev\0"
-	.long	0x7032
+	.long	0x71f9
 	.quad	.LFB4839
 	.quad	.LFE4839-.LFB4839
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x703b
+	.long	0x7202
 	.uleb128 0x57
-	.long	0x6f6a
+	.long	0x7131
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x58
 	.long	0x61d9
-	.long	0x7049
+	.long	0x7210
 	.byte	0x2
-	.long	0x705f
+	.long	0x7226
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67be
+	.long	0x689e
 	.uleb128 0x5b
 	.secrel32	.LASF18
 	.byte	0x2
@@ -9003,75 +9296,75 @@ _ZTSSt9exception:
 	.long	0x1128
 	.byte	0
 	.uleb128 0x5a
-	.long	0x703b
+	.long	0x7202
 	.ascii "_ZN8Palmtree4Math4Core8Internal17OverflowExceptionC1EPKw\0"
-	.long	0x70b7
+	.long	0x727e
 	.quad	.LFB4833
 	.quad	.LFE4833-.LFB4833
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x70c8
+	.long	0x728f
 	.uleb128 0x57
-	.long	0x7049
+	.long	0x7210
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x57
-	.long	0x7052
+	.long	0x7219
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.byte	0
 	.uleb128 0x58
 	.long	0x63c2
-	.long	0x70d6
+	.long	0x729d
 	.byte	0x2
-	.long	0x70e9
+	.long	0x72b0
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67c9
+	.long	0x68a9
 	.uleb128 0x59
 	.secrel32	.LASF17
 	.long	0x145
 	.byte	0
 	.uleb128 0x5a
-	.long	0x70c8
+	.long	0x728f
 	.ascii "_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD0Ev\0"
-	.long	0x7143
+	.long	0x730a
 	.quad	.LFB4820
 	.quad	.LFE4820-.LFB4820
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x714c
+	.long	0x7313
 	.uleb128 0x57
-	.long	0x70d6
+	.long	0x729d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x5a
-	.long	0x70c8
+	.long	0x728f
 	.ascii "_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionD1Ev\0"
-	.long	0x71a6
+	.long	0x736d
 	.quad	.LFB4819
 	.quad	.LFE4819-.LFB4819
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x71af
+	.long	0x7376
 	.uleb128 0x57
-	.long	0x70d6
+	.long	0x729d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x58
 	.long	0x6306
-	.long	0x71bd
+	.long	0x7384
 	.byte	0x2
-	.long	0x71e6
+	.long	0x73ad
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67c9
+	.long	0x68a9
 	.uleb128 0x5b
 	.secrel32	.LASF18
 	.byte	0x2
@@ -9086,95 +9379,95 @@ _ZTSSt9exception:
 	.long	0x1128
 	.byte	0
 	.uleb128 0x5a
-	.long	0x71af
+	.long	0x7376
 	.ascii "_ZN8Palmtree4Math4Core8Internal21ArgumentNullExceptionC1EPKwS5_\0"
-	.long	0x7245
+	.long	0x740c
 	.quad	.LFB4813
 	.quad	.LFE4813-.LFB4813
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x725e
+	.long	0x7425
 	.uleb128 0x57
-	.long	0x71bd
+	.long	0x7384
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x57
-	.long	0x71c6
+	.long	0x738d
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x57
-	.long	0x71d2
+	.long	0x7399
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.byte	0
 	.uleb128 0x58
 	.long	0x5ecc
-	.long	0x726c
+	.long	0x7433
 	.byte	0x2
-	.long	0x727f
+	.long	0x7446
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67da
+	.long	0x68ba
 	.uleb128 0x59
 	.secrel32	.LASF17
 	.long	0x145
 	.byte	0
 	.uleb128 0x5a
-	.long	0x725e
+	.long	0x7425
 	.ascii "_ZN8Palmtree4Math4Core8Internal9ExceptionD0Ev\0"
-	.long	0x72cc
+	.long	0x7493
 	.quad	.LFB4797
 	.quad	.LFE4797-.LFB4797
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x72d5
+	.long	0x749c
 	.uleb128 0x57
-	.long	0x726c
+	.long	0x7433
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x5a
-	.long	0x725e
+	.long	0x7425
 	.ascii "_ZN8Palmtree4Math4Core8Internal9ExceptionD1Ev\0"
-	.long	0x7322
+	.long	0x74e9
 	.quad	.LFB4796
 	.quad	.LFE4796-.LFB4796
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x732b
+	.long	0x74f2
 	.uleb128 0x57
-	.long	0x726c
+	.long	0x7433
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x5a
-	.long	0x725e
+	.long	0x7425
 	.ascii "_ZN8Palmtree4Math4Core8Internal9ExceptionD2Ev\0"
-	.long	0x7378
+	.long	0x753f
 	.quad	.LFB4795
 	.quad	.LFE4795-.LFB4795
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x7381
+	.long	0x7548
 	.uleb128 0x57
-	.long	0x726c
+	.long	0x7433
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.byte	0
 	.uleb128 0x58
 	.long	0x5e24
-	.long	0x738f
+	.long	0x7556
 	.byte	0x2
-	.long	0x73bf
+	.long	0x7586
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67da
+	.long	0x68ba
 	.uleb128 0x5c
 	.ascii "code\0"
 	.byte	0x2
@@ -9195,43 +9488,43 @@ _ZTSSt9exception:
 	.long	0x1128
 	.byte	0
 	.uleb128 0x5a
-	.long	0x7381
+	.long	0x7548
 	.ascii "_ZN8Palmtree4Math4Core8Internal9ExceptionC2EiPKwS5_\0"
-	.long	0x7412
+	.long	0x75d9
 	.quad	.LFB4789
 	.quad	.LFE4789-.LFB4789
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x7433
+	.long	0x75fa
 	.uleb128 0x57
-	.long	0x738f
+	.long	0x7556
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x57
-	.long	0x7398
+	.long	0x755f
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x57
-	.long	0x73a5
+	.long	0x756c
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
 	.uleb128 0x57
-	.long	0x73b1
+	.long	0x7578
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 24
 	.byte	0
 	.uleb128 0x58
 	.long	0x5dd2
-	.long	0x7441
+	.long	0x7608
 	.byte	0x2
-	.long	0x7464
+	.long	0x762b
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x67da
+	.long	0x68ba
 	.uleb128 0x5c
 	.ascii "code\0"
 	.byte	0x2
@@ -9246,26 +9539,26 @@ _ZTSSt9exception:
 	.long	0x1128
 	.byte	0
 	.uleb128 0x5a
-	.long	0x7433
+	.long	0x75fa
 	.ascii "_ZN8Palmtree4Math4Core8Internal9ExceptionC2EiPKw\0"
-	.long	0x74b4
+	.long	0x767b
 	.quad	.LFB4786
 	.quad	.LFE4786-.LFB4786
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x74cd
+	.long	0x7694
 	.uleb128 0x57
-	.long	0x7441
+	.long	0x7608
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
 	.uleb128 0x57
-	.long	0x744a
+	.long	0x7611
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 8
 	.uleb128 0x57
-	.long	0x7457
+	.long	0x761e
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 16
@@ -9274,27 +9567,27 @@ _ZTSSt9exception:
 	.byte	0x8
 	.long	0xfd6
 	.uleb128 0x3
-	.long	0x74cd
+	.long	0x7694
 	.uleb128 0x58
 	.long	0xfdb
-	.long	0x74e6
+	.long	0x76ad
 	.byte	0x2
-	.long	0x74f0
+	.long	0x76b7
 	.uleb128 0x59
 	.secrel32	.LASF16
-	.long	0x74d3
+	.long	0x769a
 	.byte	0
 	.uleb128 0x5d
-	.long	0x74d8
+	.long	0x769f
 	.ascii "_ZNSt9exceptionC2Ev\0"
-	.long	0x7523
+	.long	0x76ea
 	.quad	.LFB4717
 	.quad	.LFE4717-.LFB4717
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x752c
+	.long	0x76f3
 	.uleb128 0x57
-	.long	0x74e6
+	.long	0x76ad
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 0
@@ -9306,7 +9599,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0xf3
 	.byte	0x3
-	.long	0x7559
+	.long	0x7720
 	.uleb128 0x5c
 	.ascii "__X\0"
 	.byte	0x6
@@ -9327,7 +9620,7 @@ _ZTSSt9exception:
 	.byte	0x1
 	.long	0x47b
 	.byte	0x3
-	.long	0x7586
+	.long	0x774d
 	.uleb128 0x5c
 	.ascii "__X\0"
 	.byte	0x6
@@ -9347,7 +9640,7 @@ _ZTSSt9exception:
 	.word	0x3b8
 	.byte	0x6
 	.byte	0x3
-	.long	0x75cd
+	.long	0x7794
 	.uleb128 0x60
 	.ascii "Destination\0"
 	.byte	0x4
@@ -9359,7 +9652,7 @@ _ZTSSt9exception:
 	.byte	0x4
 	.word	0x3b8
 	.byte	0x49
-	.long	0x75cd
+	.long	0x7794
 	.uleb128 0x60
 	.ascii "Count\0"
 	.byte	0x4
@@ -9376,7 +9669,7 @@ _ZTSSt9exception:
 	.word	0x263
 	.byte	0x6
 	.byte	0x3
-	.long	0x7611
+	.long	0x77d8
 	.uleb128 0x60
 	.ascii "Dest\0"
 	.byte	0x4
@@ -10688,6 +10981,15 @@ _ZTSSt9exception:
 	.byte	0
 	.byte	0
 	.uleb128 0x4f
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x7
+	.byte	0
+	.byte	0
+	.uleb128 0x50
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -10702,15 +11004,6 @@ _ZTSSt9exception:
 	.uleb128 0x13
 	.uleb128 0x2
 	.uleb128 0x18
-	.byte	0
-	.byte	0
-	.uleb128 0x50
-	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x11
-	.uleb128 0x1
-	.uleb128 0x12
-	.uleb128 0x7
 	.byte	0
 	.byte	0
 	.uleb128 0x51
@@ -11109,6 +11402,8 @@ _ZTSSt9exception:
 	.def	_Unwind_Resume;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal11CheckNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
 	.def	_ZN8Palmtree4Math4Core8Internal18ResourceHolderUINT10HookNumberEPNS2_19__tag_NUMBER_HEADERE;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal10From_I_ImpEj;	.scl	2;	.type	32;	.endef
+	.def	_ZN8Palmtree4Math4Core8Internal20PMC_Multiply_X_I_ImpEPNS2_19__tag_NUMBER_HEADEREj;	.scl	2;	.type	32;	.endef
 	.def	_ZNKSt9exception4whatEv;	.scl	2;	.type	32;	.endef
 	.section	.rdata$.refptr._ZN8Palmtree4Math4Core8Internal10number_oneE, "dr"
 	.globl	.refptr._ZN8Palmtree4Math4Core8Internal10number_oneE

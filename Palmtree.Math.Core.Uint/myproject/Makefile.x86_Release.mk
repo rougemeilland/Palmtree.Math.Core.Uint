@@ -4,7 +4,7 @@ clean:
 	rm -f ../../dist/Release/x86/Palmtree.Math.Core.Uint.dll ../build/x86_Release/Palmtree.Math.Core.Uint.map
 	rm -r -f ../build/x86_Release
 
-OBJS = ../build/x86_Release/cpuid.o ../build/x86_Release/dllmain.o ../build/x86_Release/pmc_add.o ../build/x86_Release/pmc_bitwiseand.o ../build/x86_Release/pmc_bitwiseor.o ../build/x86_Release/pmc_bytes.o ../build/x86_Release/pmc_compare.o ../build/x86_Release/pmc_divrem.o ../build/x86_Release/pmc_equals.o ../build/x86_Release/pmc_exclusiveor.o ../build/x86_Release/pmc_from.o ../build/x86_Release/pmc_greatestcommondivisor.o ../build/x86_Release/pmc_initialize.o ../build/x86_Release/pmc_interface_csharp.o ../build/x86_Release/pmc_memory.o ../build/x86_Release/pmc_modpow.o ../build/x86_Release/pmc_multiply.o ../build/x86_Release/pmc_parse.o ../build/x86_Release/pmc_pow.o ../build/x86_Release/pmc_shift.o ../build/x86_Release/pmc_statistics.o ../build/x86_Release/pmc_subtruct.o ../build/x86_Release/pmc_to.o ../build/x86_Release/pmc_tostring.o ../build/x86_Release/version.o
+OBJS = ../build/x86_Release/cpuid.o ../build/x86_Release/dllmain.o ../build/x86_Release/pmc_add.o ../build/x86_Release/pmc_bitwiseand.o ../build/x86_Release/pmc_bitwiseor.o ../build/x86_Release/pmc_bytes.o ../build/x86_Release/pmc_compare.o ../build/x86_Release/pmc_divrem.o ../build/x86_Release/pmc_equals.o ../build/x86_Release/pmc_exclusiveor.o ../build/x86_Release/pmc_from.o ../build/x86_Release/pmc_greatestcommondivisor.o ../build/x86_Release/pmc_initialize.o ../build/x86_Release/pmc_interface_csharp.o ../build/x86_Release/pmc_log.o ../build/x86_Release/pmc_memory.o ../build/x86_Release/pmc_modpow.o ../build/x86_Release/pmc_multiply.o ../build/x86_Release/pmc_parse.o ../build/x86_Release/pmc_pow.o ../build/x86_Release/pmc_shift.o ../build/x86_Release/pmc_statistics.o ../build/x86_Release/pmc_subtruct.o ../build/x86_Release/pmc_to.o ../build/x86_Release/pmc_tostring.o ../build/x86_Release/version.o
 
 ../../dist/Release/x86/Palmtree.Math.Core.Uint.dll: $(OBJS) ../Palmtree.Math.Core.Uint.def
 	mkdir -p ../../dist/Release/x86
@@ -65,6 +65,10 @@ OBJS = ../build/x86_Release/cpuid.o ../build/x86_Release/dllmain.o ../build/x86_
 ../build/x86_Release/pmc_interface_csharp.o: ../pmc_interface_csharp.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../mymakefile.xml
 	mkdir -p ../build/x86_Release
 	g++ -c -save-temps=obj -Werror -DENABLED_PERFORMANCE_COUNTER -fextended-identifiers -D_M_IX86 -O2  -o ../build/x86_Release/pmc_interface_csharp.o ../pmc_interface_csharp.cpp
+
+../build/x86_Release/pmc_log.o: ../pmc_log.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../pmc_resourceholder.h  ../pmc_resourceholder_uint.h  ../mymakefile.xml
+	mkdir -p ../build/x86_Release
+	g++ -c -save-temps=obj -Werror -DENABLED_PERFORMANCE_COUNTER -fextended-identifiers -D_M_IX86 -O2  -o ../build/x86_Release/pmc_log.o ../pmc_log.cpp
 
 ../build/x86_Release/pmc_memory.o: ../pmc_memory.cpp  ../pmc.h  ../pmc_cpuid.h  ../pmc_uint.h  ../pmc_internal.h  ../pmc_exception.h  ../pmc_uint_internal.h  ../pmc_resourceholder.h  ../pmc_resourceholder_uint.h  ../pmc_inline_func.h  ../mymakefile.xml
 	mkdir -p ../build/x86_Release

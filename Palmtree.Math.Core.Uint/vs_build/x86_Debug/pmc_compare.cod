@@ -50,111 +50,111 @@ __8CA3E54E_pmc_inline_func@h DB 01H
 __9F55872E_pmc_compare@cpp DB 01H
 msvcjmc	ENDS
 CONST	SEGMENT
-$SG117571 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+$SG117591 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ';', 00H
 	DB	'1', 00H, 00H, 00H
-$SG117572 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117592 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117579 DB	'v', 00H, 00H, 00H
-$SG117580 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117599 DB	'v', 00H, 00H, 00H
+$SG117600 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117584 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG117604 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117583 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+$SG117603 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'I', 00H, '_', 00H, 'X', 00H, ';', 00H
 	DB	'2', 00H, 00H, 00H
-$SG117600 DB	'u', 00H, 00H, 00H
-$SG117596 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+$SG117620 DB	'u', 00H, 00H, 00H
+$SG117616 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ';', 00H
 	DB	'1', 00H, 00H, 00H
-$SG117597 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+$SG117617 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117601 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117621 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117604 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+$SG117624 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'I', 00H, ';', 00H
 	DB	'2', 00H, 00H, 00H
-$SG117605 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG117625 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117667 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
-	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
-	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
-	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
-	DB	00H, 'e', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ';', 00H
-	DB	'1', 00H, 00H, 00H
-$SG117668 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
-	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
-	ORG $+2
-$SG117671 DB	'v', 00H, 00H, 00H
-$SG117672 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
-	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
-	DB	'0Y0', 02H, '0', 00H, 00H
-	ORG $+2
-$SG117676 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
-	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117675 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
-	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
-	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
-	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
-	DB	00H, 'e', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ';', 00H
-	DB	'2', 00H, 00H, 00H
-$SG117691 DB	'u', 00H, 00H, 00H
 $SG117687 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
-	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ';', 00H
+	DB	00H, 'e', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ';', 00H
 	DB	'1', 00H, 00H, 00H
 $SG117688 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
 	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
 	ORG $+2
+$SG117691 DB	'v', 00H, 00H, 00H
 $SG117692 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
+$SG117696 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
 $SG117695 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
+	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
+	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
+	DB	00H, 'e', 00H, '_', 00H, 'L', 00H, '_', 00H, 'X', 00H, ';', 00H
+	DB	'2', 00H, 00H, 00H
+$SG117711 DB	'u', 00H, 00H, 00H
+$SG117707 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
+	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
+	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
+	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ';', 00H
+	DB	'1', 00H, 00H, 00H
+$SG117708 DB	088H, 'N', 01fH, 'gW0f0D0j0D0', 0b3H, '0', 0fcH, '0', 0c9H
+	DB	'0k00RT', 090H, 'W0~0W0_0', 02H, '0', 00H, 00H
+	ORG $+2
+$SG117712 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
+	DB	'0Y0', 02H, '0', 00H, 00H
+	ORG $+2
+$SG117715 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'L', 00H, ';', 00H
 	DB	'2', 00H, 00H, 00H
-$SG117696 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG117716 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
-$SG117710 DB	'u', 00H, 00H, 00H
-$SG117711 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117742 DB	'u', 00H, 00H, 00H
+$SG117743 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117714 DB	'v', 00H, 00H, 00H
-$SG117715 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
+$SG117746 DB	'v', 00H, 00H, 00H
+$SG117747 DB	015H, '_pek0n', 00H, 'u', 00H, 'l', 00H, 'l', 00H, 'p', 00H
 	DB	't', 00H, 'r', 00H, 'L0', 0eH, 'NH0', 089H, '0', 08cH, '0f0D0~'
 	DB	'0Y0', 02H, '0', 00H, 00H
 	ORG $+2
-$SG117726 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
+$SG117750 DB	'p', 00H, 'm', 00H, 'c', 00H, '_', 00H, 'c', 00H, 'o', 00H
 	DB	'm', 00H, 'p', 00H, 'a', 00H, 'r', 00H, 'e', 00H, '.', 00H, 'c'
 	DB	00H, 'p', 00H, 'p', 00H, ';', 00H, 'P', 00H, 'M', 00H, 'C', 00H
 	DB	'_', 00H, 'C', 00H, 'o', 00H, 'm', 00H, 'p', 00H, 'a', 00H, 'r'
 	DB	00H, 'e', 00H, '_', 00H, 'X', 00H, '_', 00H, 'X', 00H, ';', 00H
 	DB	'1', 00H, 00H, 00H
-$SG117727 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
+$SG117751 DB	085H, 'Q', 0e8H, 090H, 0a8H, '0', 0e9H, '0', 0fcH, '0L0zv'
 	DB	01fH, 'uW0~0W0_0', 02H, '0', 00H, 00H
 CONST	ENDS
 PUBLIC	??0exception@std@@QAE@XZ			; std::exception::exception
@@ -174,6 +174,7 @@ PUBLIC	??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@ABV01234@@Z ; 
 PUBLIC	??1InternalErrorException@Internal@Core@Math@Palmtree@@UAE@XZ ; Palmtree::Math::Core::Internal::InternalErrorException::~InternalErrorException
 PUBLIC	??_GInternalErrorException@Internal@Core@Math@Palmtree@@UAEPAXI@Z ; Palmtree::Math::Core::Internal::InternalErrorException::`scalar deleting destructor'
 PUBLIC	?Compare_Imp@Internal@Core@Math@Palmtree@@YAHPAI0I@Z ; Palmtree::Math::Core::Internal::Compare_Imp
+PUBLIC	?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPAU__tag_NUMBER_HEADER@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
 PUBLIC	?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ; Palmtree::Math::Core::Internal::Initialize_Compare
 PUBLIC	?PMC_Compare_I_X@Internal@Core@Math@Palmtree@@YGHIPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_I_X
 PUBLIC	?PMC_Compare_L_X@Internal@Core@Math@Palmtree@@YGH_KPAU__tag_PMC_HANDLE_UINT@1234@@Z ; Palmtree::Math::Core::Internal::PMC_Compare_L_X
@@ -1534,12 +1535,9 @@ _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_compare.cpp
 _TEXT	SEGMENT
-tv84 = -96						; size = 4
-$T1 = -92						; size = 24
-$T2 = -68						; size = 24
-$T3 = -44						; size = 24
-_v_bit_count$4 = -20					; size = 4
-_u_bit_count$5 = -16					; size = 4
+$T1 = -84						; size = 24
+$T2 = -60						; size = 24
+$T3 = -36						; size = 24
 _w$ = -12						; size = 4
 _nv$ = -8						; size = 4
 _nu$ = -4						; size = 4
@@ -1547,225 +1545,124 @@ _u$ = 8							; size = 4
 _v$ = 12						; size = 4
 ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@0@Z PROC ; Palmtree::Math::Core::Internal::PMC_Compare_X_X
 
-; 298  :     {
+; 326  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
-  00003	83 ec 60	 sub	 esp, 96			; 00000060H
+  00003	83 ec 54	 sub	 esp, 84			; 00000054H
   00006	57		 push	 edi
-  00007	8d 7d a0	 lea	 edi, DWORD PTR [ebp-96]
-  0000a	b9 18 00 00 00	 mov	 ecx, 24			; 00000018H
+  00007	8d 7d ac	 lea	 edi, DWORD PTR [ebp-84]
+  0000a	b9 15 00 00 00	 mov	 ecx, 21			; 00000015H
   0000f	b8 cc cc cc cc	 mov	 eax, -858993460		; ccccccccH
   00014	f3 ab		 rep stosd
   00016	b9 00 00 00 00	 mov	 ecx, OFFSET __9F55872E_pmc_compare@cpp
   0001b	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
 
-; 299  :         if (u == nullptr)
+; 327  :         if (u == nullptr)
 
   00020	83 7d 08 00	 cmp	 DWORD PTR _u$[ebp], 0
   00024	75 20		 jne	 SHORT $LN2@PMC_Compar
 
-; 300  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
+; 328  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  00026	68 00 00 00 00	 push	 OFFSET $SG117710
-  0002b	68 00 00 00 00	 push	 OFFSET $SG117711
-  00030	8d 4d d4	 lea	 ecx, DWORD PTR $T3[ebp]
+  00026	68 00 00 00 00	 push	 OFFSET $SG117742
+  0002b	68 00 00 00 00	 push	 OFFSET $SG117743
+  00030	8d 4d dc	 lea	 ecx, DWORD PTR $T3[ebp]
   00033	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   00038	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
-  0003d	8d 45 d4	 lea	 eax, DWORD PTR $T3[ebp]
+  0003d	8d 45 dc	 lea	 eax, DWORD PTR $T3[ebp]
   00040	50		 push	 eax
   00041	e8 00 00 00 00	 call	 __CxxThrowException@8
 $LN2@PMC_Compar:
 
-; 301  :         if (v == nullptr)
+; 329  :         if (v == nullptr)
 
   00046	83 7d 0c 00	 cmp	 DWORD PTR _v$[ebp], 0
   0004a	75 20		 jne	 SHORT $LN3@PMC_Compar
 
-; 302  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
+; 330  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  0004c	68 00 00 00 00	 push	 OFFSET $SG117714
-  00051	68 00 00 00 00	 push	 OFFSET $SG117715
-  00056	8d 4d bc	 lea	 ecx, DWORD PTR $T2[ebp]
+  0004c	68 00 00 00 00	 push	 OFFSET $SG117746
+  00051	68 00 00 00 00	 push	 OFFSET $SG117747
+  00056	8d 4d c4	 lea	 ecx, DWORD PTR $T2[ebp]
   00059	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0005e	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
-  00063	8d 4d bc	 lea	 ecx, DWORD PTR $T2[ebp]
+  00063	8d 4d c4	 lea	 ecx, DWORD PTR $T2[ebp]
   00066	51		 push	 ecx
   00067	e8 00 00 00 00	 call	 __CxxThrowException@8
 $LN3@PMC_Compar:
 
-; 303  :         NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
+; 331  :         NUMBER_HEADER* nu = (NUMBER_HEADER*)u;
 
   0006c	8b 55 08	 mov	 edx, DWORD PTR _u$[ebp]
   0006f	89 55 fc	 mov	 DWORD PTR _nu$[ebp], edx
 
-; 304  :         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
+; 332  :         NUMBER_HEADER* nv = (NUMBER_HEADER*)v;
 
   00072	8b 45 0c	 mov	 eax, DWORD PTR _v$[ebp]
   00075	89 45 f8	 mov	 DWORD PTR _nv$[ebp], eax
 
-; 305  :         CheckNumber(nu);
+; 333  :         CheckNumber(nu);
 
   00078	8b 4d fc	 mov	 ecx, DWORD PTR _nu$[ebp]
   0007b	51		 push	 ecx
   0007c	e8 00 00 00 00	 call	 ?CheckNumber@Internal@Core@Math@Palmtree@@YAXPAU__tag_NUMBER_HEADER@1234@@Z ; Palmtree::Math::Core::Internal::CheckNumber
   00081	83 c4 04	 add	 esp, 4
 
-; 306  :         CheckNumber(nv);
+; 334  :         CheckNumber(nv);
 
   00084	8b 55 f8	 mov	 edx, DWORD PTR _nv$[ebp]
   00087	52		 push	 edx
   00088	e8 00 00 00 00	 call	 ?CheckNumber@Internal@Core@Math@Palmtree@@YAXPAU__tag_NUMBER_HEADER@1234@@Z ; Palmtree::Math::Core::Internal::CheckNumber
   0008d	83 c4 04	 add	 esp, 4
 
-; 307  :         _INT32_T w;
-; 308  :         if (nu->IS_ZERO)
+; 335  :         _INT32_T w = PMC_Compare_X_X_Imp(nu, nv);
 
-  00090	8b 45 fc	 mov	 eax, DWORD PTR _nu$[ebp]
-  00093	8b 48 04	 mov	 ecx, DWORD PTR [eax+4]
-  00096	83 e1 01	 and	 ecx, 1
-  00099	74 23		 je	 SHORT $LN4@PMC_Compar
+  00090	8b 45 f8	 mov	 eax, DWORD PTR _nv$[ebp]
+  00093	50		 push	 eax
+  00094	8b 4d fc	 mov	 ecx, DWORD PTR _nu$[ebp]
+  00097	51		 push	 ecx
+  00098	e8 00 00 00 00	 call	 ?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPAU__tag_NUMBER_HEADER@1234@0@Z ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
+  0009d	83 c4 08	 add	 esp, 8
+  000a0	89 45 f4	 mov	 DWORD PTR _w$[ebp], eax
 
-; 309  :             w = nv->IS_ZERO ? 0 : -1;
+; 336  : #ifdef _DEBUG
+; 337  :         if (w != 0 && w != 1 && w != -1)
 
-  0009b	8b 55 f8	 mov	 edx, DWORD PTR _nv$[ebp]
-  0009e	8b 42 04	 mov	 eax, DWORD PTR [edx+4]
-  000a1	83 e0 01	 and	 eax, 1
-  000a4	74 09		 je	 SHORT $LN14@PMC_Compar
-  000a6	c7 45 a0 00 00
-	00 00		 mov	 DWORD PTR tv84[ebp], 0
-  000ad	eb 07		 jmp	 SHORT $LN15@PMC_Compar
-$LN14@PMC_Compar:
-  000af	c7 45 a0 ff ff
-	ff ff		 mov	 DWORD PTR tv84[ebp], -1
-$LN15@PMC_Compar:
-  000b6	8b 4d a0	 mov	 ecx, DWORD PTR tv84[ebp]
-  000b9	89 4d f4	 mov	 DWORD PTR _w$[ebp], ecx
-  000bc	eb 68		 jmp	 SHORT $LN5@PMC_Compar
+  000a3	83 7d f4 00	 cmp	 DWORD PTR _w$[ebp], 0
+  000a7	74 2c		 je	 SHORT $LN4@PMC_Compar
+  000a9	83 7d f4 01	 cmp	 DWORD PTR _w$[ebp], 1
+  000ad	74 26		 je	 SHORT $LN4@PMC_Compar
+  000af	83 7d f4 ff	 cmp	 DWORD PTR _w$[ebp], -1
+  000b3	74 20		 je	 SHORT $LN4@PMC_Compar
+
+; 338  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
+
+  000b5	68 00 00 00 00	 push	 OFFSET $SG117750
+  000ba	68 00 00 00 00	 push	 OFFSET $SG117751
+  000bf	8d 4d ac	 lea	 ecx, DWORD PTR $T1[ebp]
+  000c2	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
+  000c7	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
+  000cc	8d 55 ac	 lea	 edx, DWORD PTR $T1[ebp]
+  000cf	52		 push	 edx
+  000d0	e8 00 00 00 00	 call	 __CxxThrowException@8
 $LN4@PMC_Compar:
 
-; 310  :         else if (nv->IS_ZERO)
+; 339  : #endif
+; 340  :         return (w);
 
-  000be	8b 55 f8	 mov	 edx, DWORD PTR _nv$[ebp]
-  000c1	8b 42 04	 mov	 eax, DWORD PTR [edx+4]
-  000c4	83 e0 01	 and	 eax, 1
-  000c7	74 09		 je	 SHORT $LN6@PMC_Compar
-
-; 311  :             w = 1;
-
-  000c9	c7 45 f4 01 00
-	00 00		 mov	 DWORD PTR _w$[ebp], 1
-
-; 312  :         else
-
-  000d0	eb 54		 jmp	 SHORT $LN5@PMC_Compar
-$LN6@PMC_Compar:
-
-; 313  :         {
-; 314  :             __UNIT_TYPE u_bit_count = nu->UNIT_BIT_COUNT;
-
-  000d2	8b 4d fc	 mov	 ecx, DWORD PTR _nu$[ebp]
-  000d5	8b 51 14	 mov	 edx, DWORD PTR [ecx+20]
-  000d8	89 55 f0	 mov	 DWORD PTR _u_bit_count$5[ebp], edx
-
-; 315  :             __UNIT_TYPE v_bit_count = nv->UNIT_BIT_COUNT;
-
-  000db	8b 45 f8	 mov	 eax, DWORD PTR _nv$[ebp]
-  000de	8b 48 14	 mov	 ecx, DWORD PTR [eax+20]
-  000e1	89 4d ec	 mov	 DWORD PTR _v_bit_count$4[ebp], ecx
-
-; 316  :             if (u_bit_count > v_bit_count)
-
-  000e4	8b 55 f0	 mov	 edx, DWORD PTR _u_bit_count$5[ebp]
-  000e7	3b 55 ec	 cmp	 edx, DWORD PTR _v_bit_count$4[ebp]
-  000ea	76 09		 jbe	 SHORT $LN8@PMC_Compar
-
-; 317  :             {
-; 318  :                 // 明らかに u > v である場合
-; 319  :                 w = 1;
-
-  000ec	c7 45 f4 01 00
-	00 00		 mov	 DWORD PTR _w$[ebp], 1
-  000f3	eb 31		 jmp	 SHORT $LN5@PMC_Compar
-$LN8@PMC_Compar:
-
-; 320  :             }
-; 321  :             else if (u_bit_count < v_bit_count)
-
-  000f5	8b 45 f0	 mov	 eax, DWORD PTR _u_bit_count$5[ebp]
-  000f8	3b 45 ec	 cmp	 eax, DWORD PTR _v_bit_count$4[ebp]
-  000fb	73 09		 jae	 SHORT $LN10@PMC_Compar
-
-; 322  :             {
-; 323  :                 // 明らかに u < v である場合
-; 324  :                 w = -1;
-
-  000fd	c7 45 f4 ff ff
-	ff ff		 mov	 DWORD PTR _w$[ebp], -1
-
-; 325  :             }
-; 326  :             else
-
-  00104	eb 20		 jmp	 SHORT $LN5@PMC_Compar
-$LN10@PMC_Compar:
-
-; 327  :             {
-; 328  :                 // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
-; 329  :                 w = Compare_Imp(nu->BLOCK, nv->BLOCK, nu->UNIT_WORD_COUNT);
-
-  00106	8b 4d fc	 mov	 ecx, DWORD PTR _nu$[ebp]
-  00109	8b 51 10	 mov	 edx, DWORD PTR [ecx+16]
-  0010c	52		 push	 edx
-  0010d	8b 45 f8	 mov	 eax, DWORD PTR _nv$[ebp]
-  00110	8b 48 24	 mov	 ecx, DWORD PTR [eax+36]
-  00113	51		 push	 ecx
-  00114	8b 55 fc	 mov	 edx, DWORD PTR _nu$[ebp]
-  00117	8b 42 24	 mov	 eax, DWORD PTR [edx+36]
-  0011a	50		 push	 eax
-  0011b	e8 00 00 00 00	 call	 ?Compare_Imp@Internal@Core@Math@Palmtree@@YAHPAI0I@Z ; Palmtree::Math::Core::Internal::Compare_Imp
-  00120	83 c4 0c	 add	 esp, 12			; 0000000cH
-  00123	89 45 f4	 mov	 DWORD PTR _w$[ebp], eax
+  000d5	8b 45 f4	 mov	 eax, DWORD PTR _w$[ebp]
 $LN5@PMC_Compar:
 
-; 330  :             }
-; 331  :         }
-; 332  : #ifdef _DEBUG
-; 333  :         if (w != 0 && w != 1 && w != -1)
+; 341  :     }
 
-  00126	83 7d f4 00	 cmp	 DWORD PTR _w$[ebp], 0
-  0012a	74 2c		 je	 SHORT $LN12@PMC_Compar
-  0012c	83 7d f4 01	 cmp	 DWORD PTR _w$[ebp], 1
-  00130	74 26		 je	 SHORT $LN12@PMC_Compar
-  00132	83 7d f4 ff	 cmp	 DWORD PTR _w$[ebp], -1
-  00136	74 20		 je	 SHORT $LN12@PMC_Compar
-
-; 334  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_X;1");
-
-  00138	68 00 00 00 00	 push	 OFFSET $SG117726
-  0013d	68 00 00 00 00	 push	 OFFSET $SG117727
-  00142	8d 4d a4	 lea	 ecx, DWORD PTR $T1[ebp]
-  00145	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
-  0014a	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
-  0014f	8d 4d a4	 lea	 ecx, DWORD PTR $T1[ebp]
-  00152	51		 push	 ecx
-  00153	e8 00 00 00 00	 call	 __CxxThrowException@8
-$LN12@PMC_Compar:
-
-; 335  : #endif
-; 336  :         return (w);
-
-  00158	8b 45 f4	 mov	 eax, DWORD PTR _w$[ebp]
-$LN13@PMC_Compar:
-
-; 337  :     }
-
-  0015b	5f		 pop	 edi
-  0015c	83 c4 60	 add	 esp, 96			; 00000060H
-  0015f	3b ec		 cmp	 ebp, esp
-  00161	e8 00 00 00 00	 call	 __RTC_CheckEsp
-  00166	8b e5		 mov	 esp, ebp
-  00168	5d		 pop	 ebp
-  00169	c2 08 00	 ret	 8
+  000d8	5f		 pop	 edi
+  000d9	83 c4 54	 add	 esp, 84			; 00000054H
+  000dc	3b ec		 cmp	 ebp, esp
+  000de	e8 00 00 00 00	 call	 __RTC_CheckEsp
+  000e3	8b e5		 mov	 esp, ebp
+  000e5	5d		 pop	 ebp
+  000e6	c2 08 00	 ret	 8
 ?PMC_Compare_X_X@Internal@Core@Math@Palmtree@@YGHPAU__tag_PMC_HANDLE_UINT@1234@0@Z ENDP ; Palmtree::Math::Core::Internal::PMC_Compare_X_X
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
@@ -1801,8 +1698,8 @@ _v$ = 12						; size = 8
 ; 283  :             // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
 ; 284  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_compare.cpp;PMC_Compare_X_L;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117687
-  00029	68 00 00 00 00	 push	 OFFSET $SG117688
+  00024	68 00 00 00 00	 push	 OFFSET $SG117707
+  00029	68 00 00 00 00	 push	 OFFSET $SG117708
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T3[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1819,8 +1716,8 @@ $LN2@PMC_Compar:
 
 ; 287  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117691
-  0004f	68 00 00 00 00	 push	 OFFSET $SG117692
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117711
+  0004f	68 00 00 00 00	 push	 OFFSET $SG117712
   00054	8d 4d cc	 lea	 ecx, DWORD PTR $T2[ebp]
   00057	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0005c	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -1860,8 +1757,8 @@ $LN3@PMC_Compar:
 
 ; 292  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_L;2");
 
-  0009f	68 00 00 00 00	 push	 OFFSET $SG117695
-  000a4	68 00 00 00 00	 push	 OFFSET $SG117696
+  0009f	68 00 00 00 00	 push	 OFFSET $SG117715
+  000a4	68 00 00 00 00	 push	 OFFSET $SG117716
   000a9	8d 4d b4	 lea	 ecx, DWORD PTR $T1[ebp]
   000ac	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000b1	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1920,8 +1817,8 @@ _v$ = 12						; size = 4
 ; 129  :             // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 130  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_compare.cpp;PMC_Compare_X_I;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117596
-  00029	68 00 00 00 00	 push	 OFFSET $SG117597
+  00024	68 00 00 00 00	 push	 OFFSET $SG117616
+  00029	68 00 00 00 00	 push	 OFFSET $SG117617
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T3[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -1938,8 +1835,8 @@ $LN2@PMC_Compar:
 
 ; 133  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"u");
 
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117600
-  0004f	68 00 00 00 00	 push	 OFFSET $SG117601
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117620
+  0004f	68 00 00 00 00	 push	 OFFSET $SG117621
   00054	8d 4d cc	 lea	 ecx, DWORD PTR $T2[ebp]
   00057	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0005c	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -1977,8 +1874,8 @@ $LN3@PMC_Compar:
 
 ; 138  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_X_I;2");
 
-  0009b	68 00 00 00 00	 push	 OFFSET $SG117604
-  000a0	68 00 00 00 00	 push	 OFFSET $SG117605
+  0009b	68 00 00 00 00	 push	 OFFSET $SG117624
+  000a0	68 00 00 00 00	 push	 OFFSET $SG117625
   000a5	8d 4d b4	 lea	 ecx, DWORD PTR $T1[ebp]
   000a8	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000ad	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2037,8 +1934,8 @@ _v$ = 16						; size = 4
 ; 265  :             // _UINT64_T が 2 ワードで表現しきれない処理系には対応しない
 ; 266  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_compare.cpp;PMC_Compare_L_X;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117667
-  00029	68 00 00 00 00	 push	 OFFSET $SG117668
+  00024	68 00 00 00 00	 push	 OFFSET $SG117687
+  00029	68 00 00 00 00	 push	 OFFSET $SG117688
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T3[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2055,8 +1952,8 @@ $LN2@PMC_Compar:
 
 ; 269  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117671
-  0004f	68 00 00 00 00	 push	 OFFSET $SG117672
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117691
+  0004f	68 00 00 00 00	 push	 OFFSET $SG117692
   00054	8d 4d cc	 lea	 ecx, DWORD PTR $T2[ebp]
   00057	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0005c	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2096,8 +1993,8 @@ $LN3@PMC_Compar:
 
 ; 274  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_L_X;2");
 
-  0009d	68 00 00 00 00	 push	 OFFSET $SG117675
-  000a2	68 00 00 00 00	 push	 OFFSET $SG117676
+  0009d	68 00 00 00 00	 push	 OFFSET $SG117695
+  000a2	68 00 00 00 00	 push	 OFFSET $SG117696
   000a7	8d 4d b4	 lea	 ecx, DWORD PTR $T1[ebp]
   000aa	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000af	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2156,8 +2053,8 @@ _v$ = 12						; size = 4
 ; 111  :             // _UINT32_T が 1 ワードで表現しきれない処理系には対応しない
 ; 112  :             throw InternalErrorException(L"予期していないコードに到達しました。", L"pmc_compare.cpp;PMC_Compare_I_X;1");
 
-  00024	68 00 00 00 00	 push	 OFFSET $SG117571
-  00029	68 00 00 00 00	 push	 OFFSET $SG117572
+  00024	68 00 00 00 00	 push	 OFFSET $SG117591
+  00029	68 00 00 00 00	 push	 OFFSET $SG117592
   0002e	8d 4d e4	 lea	 ecx, DWORD PTR $T3[ebp]
   00031	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   00036	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2174,8 +2071,8 @@ $LN2@PMC_Compar:
 
 ; 115  :             throw ArgumentNullException(L"引数にnullptrが与えられています。", L"v");
 
-  0004a	68 00 00 00 00	 push	 OFFSET $SG117579
-  0004f	68 00 00 00 00	 push	 OFFSET $SG117580
+  0004a	68 00 00 00 00	 push	 OFFSET $SG117599
+  0004f	68 00 00 00 00	 push	 OFFSET $SG117600
   00054	8d 4d cc	 lea	 ecx, DWORD PTR $T2[ebp]
   00057	e8 00 00 00 00	 call	 ??0ArgumentNullException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::ArgumentNullException::ArgumentNullException
   0005c	68 00 00 00 00	 push	 OFFSET __TI2?AVArgumentNullException@Internal@Core@Math@Palmtree@@
@@ -2213,8 +2110,8 @@ $LN3@PMC_Compar:
 
 ; 120  :             throw InternalErrorException(L"内部エラーが発生しました。", L"pmc_compare.cpp;PMC_Compare_I_X;2");
 
-  00099	68 00 00 00 00	 push	 OFFSET $SG117583
-  0009e	68 00 00 00 00	 push	 OFFSET $SG117584
+  00099	68 00 00 00 00	 push	 OFFSET $SG117603
+  0009e	68 00 00 00 00	 push	 OFFSET $SG117604
   000a3	8d 4d b4	 lea	 ecx, DWORD PTR $T1[ebp]
   000a6	e8 00 00 00 00	 call	 ??0InternalErrorException@Internal@Core@Math@Palmtree@@QAE@PB_W0@Z ; Palmtree::Math::Core::Internal::InternalErrorException::InternalErrorException
   000ab	68 00 00 00 00	 push	 OFFSET __TI2?AVInternalErrorException@Internal@Core@Math@Palmtree@@
@@ -2246,24 +2143,167 @@ _TEXT	SEGMENT
 _feature$ = 8						; size = 4
 ?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z PROC ; Palmtree::Math::Core::Internal::Initialize_Compare
 
-; 340  :     {
+; 344  :     {
 
   00000	55		 push	 ebp
   00001	8b ec		 mov	 ebp, esp
   00003	b9 00 00 00 00	 mov	 ecx, OFFSET __9F55872E_pmc_compare@cpp
   00008	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
 
-; 341  :         return (PMC_STATUS_OK);
+; 345  :         return (PMC_STATUS_OK);
 
   0000d	33 c0		 xor	 eax, eax
 
-; 342  :     }
+; 346  :     }
 
   0000f	3b ec		 cmp	 ebp, esp
   00011	e8 00 00 00 00	 call	 __RTC_CheckEsp
   00016	5d		 pop	 ebp
   00017	c3		 ret	 0
 ?Initialize_Compare@Internal@Core@Math@Palmtree@@YAHPAU_tag_PROCESSOR_FEATURES@1234@@Z ENDP ; Palmtree::Math::Core::Internal::Initialize_Compare
+_TEXT	ENDS
+; Function compile flags: /Odtp /RTCsu
+; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_compare.cpp
+_TEXT	SEGMENT
+tv70 = -12						; size = 4
+_v_bit_count$1 = -8					; size = 4
+_u_bit_count$2 = -4					; size = 4
+_u$ = 8							; size = 4
+_v$ = 12						; size = 4
+?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPAU__tag_NUMBER_HEADER@1234@0@Z PROC ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
+
+; 298  :     {
+
+  00000	55		 push	 ebp
+  00001	8b ec		 mov	 ebp, esp
+  00003	83 ec 0c	 sub	 esp, 12			; 0000000cH
+  00006	c7 45 f4 cc cc
+	cc cc		 mov	 DWORD PTR [ebp-12], -858993460 ; ccccccccH
+  0000d	c7 45 f8 cc cc
+	cc cc		 mov	 DWORD PTR [ebp-8], -858993460 ; ccccccccH
+  00014	c7 45 fc cc cc
+	cc cc		 mov	 DWORD PTR [ebp-4], -858993460 ; ccccccccH
+  0001b	b9 00 00 00 00	 mov	 ecx, OFFSET __9F55872E_pmc_compare@cpp
+  00020	e8 00 00 00 00	 call	 @__CheckForDebuggerJustMyCode@4
+
+; 299  :         if (u->IS_ZERO)
+
+  00025	8b 45 08	 mov	 eax, DWORD PTR _u$[ebp]
+  00028	8b 48 04	 mov	 ecx, DWORD PTR [eax+4]
+  0002b	83 e1 01	 and	 ecx, 1
+  0002e	74 22		 je	 SHORT $LN2@PMC_Compar
+
+; 300  :             return (v->IS_ZERO ? 0 : -1);
+
+  00030	8b 55 0c	 mov	 edx, DWORD PTR _v$[ebp]
+  00033	8b 42 04	 mov	 eax, DWORD PTR [edx+4]
+  00036	83 e0 01	 and	 eax, 1
+  00039	74 09		 je	 SHORT $LN11@PMC_Compar
+  0003b	c7 45 f4 00 00
+	00 00		 mov	 DWORD PTR tv70[ebp], 0
+  00042	eb 07		 jmp	 SHORT $LN12@PMC_Compar
+$LN11@PMC_Compar:
+  00044	c7 45 f4 ff ff
+	ff ff		 mov	 DWORD PTR tv70[ebp], -1
+$LN12@PMC_Compar:
+  0004b	8b 45 f4	 mov	 eax, DWORD PTR tv70[ebp]
+  0004e	eb 65		 jmp	 SHORT $LN1@PMC_Compar
+  00050	eb 63		 jmp	 SHORT $LN1@PMC_Compar
+$LN2@PMC_Compar:
+
+; 301  :         else if (v->IS_ZERO)
+
+  00052	8b 4d 0c	 mov	 ecx, DWORD PTR _v$[ebp]
+  00055	8b 51 04	 mov	 edx, DWORD PTR [ecx+4]
+  00058	83 e2 01	 and	 edx, 1
+  0005b	74 09		 je	 SHORT $LN4@PMC_Compar
+
+; 302  :             return (1);
+
+  0005d	b8 01 00 00 00	 mov	 eax, 1
+  00062	eb 51		 jmp	 SHORT $LN1@PMC_Compar
+
+; 303  :         else
+
+  00064	eb 4f		 jmp	 SHORT $LN1@PMC_Compar
+$LN4@PMC_Compar:
+
+; 304  :         {
+; 305  :             __UNIT_TYPE u_bit_count = u->UNIT_BIT_COUNT;
+
+  00066	8b 45 08	 mov	 eax, DWORD PTR _u$[ebp]
+  00069	8b 48 14	 mov	 ecx, DWORD PTR [eax+20]
+  0006c	89 4d fc	 mov	 DWORD PTR _u_bit_count$2[ebp], ecx
+
+; 306  :             __UNIT_TYPE v_bit_count = v->UNIT_BIT_COUNT;
+
+  0006f	8b 55 0c	 mov	 edx, DWORD PTR _v$[ebp]
+  00072	8b 42 14	 mov	 eax, DWORD PTR [edx+20]
+  00075	89 45 f8	 mov	 DWORD PTR _v_bit_count$1[ebp], eax
+
+; 307  :             if (u_bit_count > v_bit_count)
+
+  00078	8b 4d fc	 mov	 ecx, DWORD PTR _u_bit_count$2[ebp]
+  0007b	3b 4d f8	 cmp	 ecx, DWORD PTR _v_bit_count$1[ebp]
+  0007e	76 09		 jbe	 SHORT $LN6@PMC_Compar
+
+; 308  :             {
+; 309  :                 // 明らかに u > v である場合
+; 310  :                 return (1);
+
+  00080	b8 01 00 00 00	 mov	 eax, 1
+  00085	eb 2e		 jmp	 SHORT $LN1@PMC_Compar
+  00087	eb 2c		 jmp	 SHORT $LN1@PMC_Compar
+$LN6@PMC_Compar:
+
+; 311  :             }
+; 312  :             else if (u_bit_count < v_bit_count)
+
+  00089	8b 55 fc	 mov	 edx, DWORD PTR _u_bit_count$2[ebp]
+  0008c	3b 55 f8	 cmp	 edx, DWORD PTR _v_bit_count$1[ebp]
+  0008f	73 07		 jae	 SHORT $LN8@PMC_Compar
+
+; 313  :             {
+; 314  :                 // 明らかに u < v である場合
+; 315  :                 return (-1);
+
+  00091	83 c8 ff	 or	 eax, -1
+  00094	eb 1f		 jmp	 SHORT $LN1@PMC_Compar
+
+; 316  :             }
+; 317  :             else
+
+  00096	eb 1d		 jmp	 SHORT $LN1@PMC_Compar
+$LN8@PMC_Compar:
+
+; 318  :             {
+; 319  :                 // u > 0 && v > 0 かつ u のビット長と v のビット長が等しい場合
+; 320  :                 return (Compare_Imp(u->BLOCK, v->BLOCK, u->UNIT_WORD_COUNT));
+
+  00098	8b 45 08	 mov	 eax, DWORD PTR _u$[ebp]
+  0009b	8b 48 10	 mov	 ecx, DWORD PTR [eax+16]
+  0009e	51		 push	 ecx
+  0009f	8b 55 0c	 mov	 edx, DWORD PTR _v$[ebp]
+  000a2	8b 42 24	 mov	 eax, DWORD PTR [edx+36]
+  000a5	50		 push	 eax
+  000a6	8b 4d 08	 mov	 ecx, DWORD PTR _u$[ebp]
+  000a9	8b 51 24	 mov	 edx, DWORD PTR [ecx+36]
+  000ac	52		 push	 edx
+  000ad	e8 00 00 00 00	 call	 ?Compare_Imp@Internal@Core@Math@Palmtree@@YAHPAI0I@Z ; Palmtree::Math::Core::Internal::Compare_Imp
+  000b2	83 c4 0c	 add	 esp, 12			; 0000000cH
+$LN1@PMC_Compar:
+
+; 321  :             }
+; 322  :         }
+; 323  :     }
+
+  000b5	83 c4 0c	 add	 esp, 12			; 0000000cH
+  000b8	3b ec		 cmp	 ebp, esp
+  000ba	e8 00 00 00 00	 call	 __RTC_CheckEsp
+  000bf	8b e5		 mov	 esp, ebp
+  000c1	5d		 pop	 ebp
+  000c2	c3		 ret	 0
+?PMC_Compare_X_X_Imp@Internal@Core@Math@Palmtree@@YAHPAU__tag_NUMBER_HEADER@1234@0@Z ENDP ; Palmtree::Math::Core::Internal::PMC_Compare_X_X_Imp
 _TEXT	ENDS
 ; Function compile flags: /Odtp /RTCsu
 ; File z:\sources\lunor\repos\rougemeilland\palmtree.math.core.uint\palmtree.math.core.uint\pmc_compare.cpp

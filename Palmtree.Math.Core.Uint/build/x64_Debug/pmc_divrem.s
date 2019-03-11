@@ -512,7 +512,7 @@ _ZN8Palmtree4Math4Core8Internal23DivisionByZeroExceptionD0Ev:
 _ZN8Palmtree4Math4Core8InternalL21IncrementDIV32CounterEv:
 .LFB4931:
 	.file 3 "../pmc_uint_internal.h"
-	.loc 3 303 5
+	.loc 3 318 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -536,7 +536,7 @@ _ZN8Palmtree4Math4Core8InternalL21IncrementDIV32CounterEv:
 	lock xaddl	%edx, (%rax)
 .LBE32:
 .LBE31:
-	.loc 3 305 5
+	.loc 3 320 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -550,7 +550,7 @@ _ZN8Palmtree4Math4Core8InternalL21IncrementDIV32CounterEv:
 	.seh_proc	_ZN8Palmtree4Math4Core8InternalL21IncrementDIV64CounterEv
 _ZN8Palmtree4Math4Core8InternalL21IncrementDIV64CounterEv:
 .LFB4932:
-	.loc 3 309 5
+	.loc 3 324 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -573,7 +573,7 @@ _ZN8Palmtree4Math4Core8InternalL21IncrementDIV64CounterEv:
 	lock xaddl	%edx, (%rax)
 .LBE34:
 .LBE33:
-	.loc 3 311 5
+	.loc 3 326 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -587,7 +587,7 @@ _ZN8Palmtree4Math4Core8InternalL21IncrementDIV64CounterEv:
 	.seh_proc	_ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv
 _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 .LFB4934:
-	.loc 3 321 5
+	.loc 3 336 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -609,7 +609,7 @@ _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 	lock xaddl	%edx, (%rax)
 .LBE36:
 .LBE35:
-	.loc 3 323 5
+	.loc 3 338 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -623,7 +623,7 @@ _ZN8Palmtree4Math4Core8InternalL23IncrementMULTI64CounterEv:
 	.seh_proc	_ZN8Palmtree4Math4Core8InternalL17AddToDIV64CounterEi
 _ZN8Palmtree4Math4Core8InternalL17AddToDIV64CounterEi:
 .LFB4936:
-	.loc 3 332 5
+	.loc 3 347 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -649,7 +649,7 @@ _ZN8Palmtree4Math4Core8InternalL17AddToDIV64CounterEi:
 	lock xaddl	%edx, (%rax)
 .LBE38:
 .LBE37:
-	.loc 3 334 5
+	.loc 3 349 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -663,7 +663,7 @@ _ZN8Palmtree4Math4Core8InternalL17AddToDIV64CounterEi:
 	.seh_proc	_ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi
 _ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi:
 .LFB4938:
-	.loc 3 344 5
+	.loc 3 359 5
 	.cfi_startproc
 	pushq	%rbp
 	.seh_pushreg	%rbp
@@ -688,7 +688,7 @@ _ZN8Palmtree4Math4Core8InternalL19AddToMULTI64CounterEi:
 	lock xaddl	%edx, (%rax)
 .LBE40:
 .LBE39:
-	.loc 3 346 5
+	.loc 3 361 5
 	nop
 	addq	$16, %rsp
 	popq	%rbp
@@ -16542,7 +16542,7 @@ _ZTSSt9exception:
 	.uleb128 0x4a
 	.ascii "AddToMULTI64Counter\0"
 	.byte	0x3
-	.word	0x157
+	.word	0x166
 	.byte	0x1a
 	.long	0x6e99
 	.uleb128 0x12
@@ -16551,7 +16551,7 @@ _ZTSSt9exception:
 	.uleb128 0x4a
 	.ascii "AddToDIV64Counter\0"
 	.byte	0x3
-	.word	0x14b
+	.word	0x15a
 	.byte	0x1a
 	.long	0x6eba
 	.uleb128 0x12
@@ -16560,17 +16560,17 @@ _ZTSSt9exception:
 	.uleb128 0x4e
 	.ascii "IncrementMULTI64Counter\0"
 	.byte	0x3
-	.word	0x140
+	.word	0x14f
 	.byte	0x1a
 	.uleb128 0x4e
 	.ascii "IncrementDIV64Counter\0"
 	.byte	0x3
-	.word	0x134
+	.word	0x143
 	.byte	0x1a
 	.uleb128 0x4e
 	.ascii "IncrementDIV32Counter\0"
 	.byte	0x3
-	.word	0x12e
+	.word	0x13d
 	.byte	0x1a
 	.byte	0
 	.byte	0
@@ -20635,7 +20635,7 @@ _ZTSSt9exception:
 	.uleb128 0x51
 	.ascii "value\0"
 	.byte	0x3
-	.word	0x157
+	.word	0x166
 	.byte	0x37
 	.long	0x59b0
 	.uleb128 0x2
@@ -20646,7 +20646,7 @@ _ZTSSt9exception:
 	.quad	.LBB39
 	.quad	.LBE39-.LBB39
 	.byte	0x3
-	.word	0x159
+	.word	0x168
 	.byte	0x20
 	.uleb128 0x61
 	.long	0x97e1
@@ -20670,7 +20670,7 @@ _ZTSSt9exception:
 	.uleb128 0x51
 	.ascii "value\0"
 	.byte	0x3
-	.word	0x14b
+	.word	0x15a
 	.byte	0x35
 	.long	0x59b0
 	.uleb128 0x2
@@ -20681,7 +20681,7 @@ _ZTSSt9exception:
 	.quad	.LBB37
 	.quad	.LBE37-.LBB37
 	.byte	0x3
-	.word	0x14d
+	.word	0x15c
 	.byte	0x20
 	.uleb128 0x61
 	.long	0x97e1
@@ -20707,7 +20707,7 @@ _ZTSSt9exception:
 	.quad	.LBB35
 	.quad	.LBE35-.LBB35
 	.byte	0x3
-	.word	0x142
+	.word	0x151
 	.byte	0x1e
 	.uleb128 0x61
 	.long	0x9794
@@ -20728,7 +20728,7 @@ _ZTSSt9exception:
 	.quad	.LBB33
 	.quad	.LBE33-.LBB33
 	.byte	0x3
-	.word	0x136
+	.word	0x145
 	.byte	0x1e
 	.uleb128 0x61
 	.long	0x9794
@@ -20749,7 +20749,7 @@ _ZTSSt9exception:
 	.quad	.LBB31
 	.quad	.LBE31-.LBB31
 	.byte	0x3
-	.word	0x130
+	.word	0x13f
 	.byte	0x1e
 	.uleb128 0x61
 	.long	0x9794
